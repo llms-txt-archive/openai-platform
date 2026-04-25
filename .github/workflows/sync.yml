@@ -1,0 +1,21 @@
+name: Sync OpenAI Platform Docs Archive
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "42 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    uses: llms-txt-archive/llmstxt/.github/workflows/archive-sync.yml@main
+    with:
+      source_url: https://developers.openai.com/llms.txt
+      site_name: OpenAI Developer Docs
+      site_url: https://developers.openai.com
+      repo_title: OpenAI Platform Docs Archive
+      schedule_label: Hourly at :42 UTC
+      tool_ref: main
+    secrets: inherit
