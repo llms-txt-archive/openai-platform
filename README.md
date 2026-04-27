@@ -1,23 +1,22 @@
 # OpenAI Platform Docs Archive
 
-This repository is auto-generated and updated by CI from the source `llms.txt` index. It tracks raw Markdown files in git so upstream documentation changes are visible in normal diffs.
+Versioned mirror of [OpenAI Developer Docs](https://developers.openai.com) documentation. Updated Hourly at :42 UTC from [`llms.txt`](https://developers.openai.com/llms.txt).
 
-## Source
+Every change to the upstream docs produces a git commit and a GitHub release, so you can diff any two points in time.
 
-- Site: [OpenAI Developer Docs](https://developers.openai.com)
-- `llms.txt`: [https://developers.openai.com/llms.txt](https://developers.openai.com/llms.txt)
-- Sync schedule: Hourly at :42 UTC
-- Tracked Markdown documents: 477
-- Skipped non-Markdown URLs: 14
+| | |
+|---|---|
+| **Source** | [https://developers.openai.com/llms.txt](https://developers.openai.com/llms.txt) |
+| **Documents** | 477 Markdown files |
+| **Schedule** | Hourly at :42 UTC |
 
-## How It Works
+## How it works
 
-- Only `.md` links listed in `llms.txt` are mirrored into this repository.
-- Raw Markdown files are tracked in git.
-- `manifest.json` is not committed. It is attached to each GitHub Release and used as the last successful crawl state for conditional requests.
+A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` index, fetches every linked `.md` file, and commits the result. The `manifest.json` attached to each release tracks ETags and hashes for conditional requests.
 
-## Latest Releases
+## Releases
 
-| Release | Published | Link |
-| --- | --- | --- |
+| Tag | Date | Summary |
+|-----|------|---------|
+| `archive-20260427T233633Z` | 2026-04-27 23:36 UTC | [Frontend Prompt Formatting and Web Search Example Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260427T233633Z) |
 | `initial` | 2026-04-25 10:17 UTC | [Initial release](https://github.com/llms-txt-archive/openai-platform/releases/tag/initial) |
