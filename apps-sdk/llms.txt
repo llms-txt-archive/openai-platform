@@ -34,6 +34,8 @@ Use this as a lightweight map for AI tools. Each Apps SDK page has a Markdown tw
 
 ## Guides
 - [Optimize Metadata](https://developers.openai.com/apps-sdk/guides/optimize-metadata.md): Improve discovery and behavior with rich metadata.
+- [Product checkout conversion spec](https://developers.openai.com/apps-sdk/guides/product-checkout-conversion-spec.md): Contract for integrating a product checkout app into ChatGPT's conversion flow.
+- [Restaurant reservation conversion spec](https://developers.openai.com/apps-sdk/guides/restaurant-reservation-conversion-spec.md): Contract for integrating a restaurant reservation app into ChatGPT's Reserve flow.
 - [Security & Privacy](https://developers.openai.com/apps-sdk/guides/security-privacy.md): Security and privacy considerations for Apps SDK.
 
 ## Mcp Apps In Chatgpt

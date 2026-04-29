@@ -153,7 +153,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Voice activity detection (VAD)](https://developers.openai.com/api/docs/guides/realtime-vad.md): Learn about automatic voice activity detection in the Realtime API.
 - [Voice agents](https://developers.openai.com/api/docs/guides/voice-agents.md): Learn how to build voice agents with the OpenAI Agents SDK, choose the right architecture, and connect voice workflows to the rest of the agent stack.
 - [Web QA with embeddings](https://developers.openai.com/api/docs/tutorials/web-qa-embeddings.md): How to build an AI that can answer questions about your website.
-- [Web search](https://developers.openai.com/api/docs/guides/tools-web-search.md): Allow models to search the web the latest information before generating a response.
+- [Web search](https://developers.openai.com/api/docs/guides/tools-web-search.md): Allow models to search the web for the latest information before generating a response.
 - [Webhooks](https://developers.openai.com/api/docs/guides/webhooks.md): Use webhooks to receive real-time updates from the OpenAI API.
 - [Webhooks and server-side controls](https://developers.openai.com/api/docs/guides/realtime-server-controls.md): Learn how to use webhooks and server-side controls with the Realtime API.
 - [WebSocket Mode](https://developers.openai.com/api/docs/guides/websocket-mode.md): Learn how to use Responses API WebSocket mode with response.create and previous_response_id.
@@ -412,6 +412,8 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 
 ## Apps SDK — Guides
 - [Optimize Metadata](https://developers.openai.com/apps-sdk/guides/optimize-metadata.md): Improve discovery and behavior with rich metadata.
+- [Product checkout conversion spec](https://developers.openai.com/apps-sdk/guides/product-checkout-conversion-spec.md): Contract for integrating a product checkout app into ChatGPT's conversion flow.
+- [Restaurant reservation conversion spec](https://developers.openai.com/apps-sdk/guides/restaurant-reservation-conversion-spec.md): Contract for integrating a restaurant reservation app into ChatGPT's Reserve flow.
 - [Security & Privacy](https://developers.openai.com/apps-sdk/guides/security-privacy.md): Security and privacy considerations for Apps SDK.
 
 ## Apps SDK — Mcp Apps In Chatgpt
