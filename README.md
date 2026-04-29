@@ -18,5 +18,6 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260427T233633Z` | 2026-04-27 23:36 UTC | [Frontend Prompt Formatting and Web Search Example Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260427T233633Z) |
+| `archive-20260429T012313Z` | 2026-04-29 01:23 UTC | [Codex feature pinning docs consolidation](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260429T012313Z) |
+| `archive-20260427T233633Z` | 2026-04-27 23:37 UTC | [Frontend Prompt Formatting and Web Search Example Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260427T233633Z) |
 | `initial` | 2026-04-25 10:17 UTC | [Initial release](https://github.com/llms-txt-archive/openai-platform/releases/tag/initial) |
