@@ -18,7 +18,8 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260429T190001Z` | 2026-04-29 19:00 UTC | [Web Search Guidance and Apps SDK Conversion Specs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260429T190001Z) |
+| `archive-20260430T175555Z` | 2026-04-30 17:55 UTC | [Codex permissions, review, and plugin docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260430T175555Z) |
+| `archive-20260429T190001Z` | 2026-04-29 19:01 UTC | [Web Search Guidance and Apps SDK Conversion Specs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260429T190001Z) |
 | `archive-20260429T145658Z` | 2026-04-29 14:57 UTC | [Memory Rate-Limit Threshold Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260429T145658Z) |
 | `archive-20260429T012313Z` | 2026-04-29 01:23 UTC | [Codex feature pinning docs consolidation](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260429T012313Z) |
 | `archive-20260427T233633Z` | 2026-04-27 23:37 UTC | [Frontend Prompt Formatting and Web Search Example Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260427T233633Z) |
