@@ -529,6 +529,9 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Memories](https://developers.openai.com/codex/memories.md): How Codex carries useful context forward across threads
 - [Chronicle](https://developers.openai.com/codex/memories/chronicle.md): Build Codex memories from recent screen context.
 
+## Codex — Migrate
+- [Migrate to Codex](https://developers.openai.com/codex/migrate.md): Bring your setup from another agent with you when you switch to Codex.
+
 ## Codex — Models
 - [Codex Models](https://developers.openai.com/codex/models.md): Meet the AI models that power Codex
 
