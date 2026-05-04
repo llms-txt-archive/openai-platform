@@ -229,7 +229,7 @@ The recommended shape is:
 
 - `modelContent`: text or JSON the model should see.
 - `privateContent`: UI-only state the model should not see.
-- `imageIds`: list of file IDs uploaded by the widget, selected via `window.openai.selectFiles()` when the file library is available, or provided to your tool via file params.
+- `imageIds`: list of file IDs uploaded by the widget, selected via `window.openai.selectFiles()` when the file library is available, received through tool input file params, or returned by tool file references.
 
 ```tsx
 type StructuredWidgetState = {
@@ -251,8 +251,8 @@ setState({
 ```
 
 Only file IDs you uploaded with `window.openai.uploadFile`, selected with
-`window.openai.selectFiles()` when available, or received via file params can
-be included in `imageIds`.
+`window.openai.selectFiles()` when available, received through file params, or
+received from tool result file references can be included in `imageIds`.
 
 ---
 

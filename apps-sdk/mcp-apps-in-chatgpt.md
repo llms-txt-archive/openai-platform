@@ -52,7 +52,7 @@ Some capabilities are specific to ChatGPT. When you use them, treat them as opti
 Examples include:
 
 - Instant Checkout (`window.openai.requestCheckout`)
-- File uploads (`window.openai.uploadFile`, `window.openai.getFileDownloadUrl`)
+- File handling (`window.openai.uploadFile`, `window.openai.selectFiles`, `window.openai.getFileDownloadUrl`)
 - Host modals (`window.openai.requestModal`)
 
 ## Migration and mapping guide

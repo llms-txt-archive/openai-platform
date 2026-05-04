@@ -387,13 +387,28 @@ access to the library picker.
 ### Download files in the widget (ChatGPT extension)
 
 Use `window.openai.getFileDownloadUrl({ fileId })` to retrieve a temporary URL
-for files the widget uploaded, selected from the file library, or that your
-tool passed via file params.
+for files the widget uploaded, selected from the file library, received through
+a tool input file param, or received from a tool result file reference.
 
 ```tsx
 const { downloadUrl } = await window.openai.getFileDownloadUrl({ fileId });
 imageElement.src = downloadUrl;
 ```
+
+Tool file references use snake case fields:
+
+```json
+{
+  "download_url": "https://...",
+  "file_id": "file_...",
+  "mime_type": "image/png",
+  "file_name": "input.png"
+}
+```
+
+Use `file_id` from that object as `fileId` when calling
+`window.openai.getFileDownloadUrl({ fileId })`. `download_url` is temporary and
+should only be used for the current operation.
 
 ### Close the widget (ChatGPT extension)
 

@@ -71,11 +71,11 @@ walkthrough and a mapping guide, see
 
 `window.openai` is an Apps SDK compatibility layer and a home for optional
 ChatGPT extensions. For new apps, use the MCP Apps bridge by default and treat
-`window.openai` as an API for additional capabilities unqiue for ChatGPT.
+`window.openai` as an API for additional capabilities unique to ChatGPT.
 
 Unique capabilities include:
 
-- **File handling (ChatGPT extension):** `uploadFile` and `getFileDownloadUrl` cover image uploads and previews.
+- **File handling (ChatGPT extension):** `uploadFile`, `selectFiles`, and `getFileDownloadUrl` cover file uploads, selection, and downloads.
 - **Host surfaces (ChatGPT extension):** `requestModal` opens a host-owned modal.
 - **Commerce (ChatGPT extension):** `requestCheckout` opens Instant Checkout (when enabled).
 
@@ -446,21 +446,33 @@ Example tool descriptor:
 }
 ```
 
-### File inputs (file params)
+### File handling
 
 **ChatGPT extension (optional):** If your tool accepts user-provided files,
 declare file parameters with `_meta["openai/fileParams"]`. The value is a list
 of top-level input schema fields that should be treated as files. Nested file
 fields are not supported.
 
-Each file param must be an object with this shape:
+File params describe the input side of file handling: they tell ChatGPT which
+tool arguments contain files that the runtime should authorize and pass through
+as file references.
+
+Each declared file param receives an object with this shape:
 
 ```json
 {
   "download_url": "https://...",
-  "file_id": "file_..."
+  "file_id": "file_...",
+  "mime_type": "image/png",
+  "file_name": "input.png"
 }
 ```
+
+`download_url` and `file_id` are required. `mime_type` and `file_name` are
+optional. The `download_url` is temporary and should be used only while handling
+the current tool call. If the file reference came from a widget upload, selected
+file, or another tool result, use `file_id` when you need to request a fresh
+download URL from ChatGPT.
 
 Example:
 
@@ -481,6 +493,8 @@ registerAppTool(
           properties: {
             download_url: { type: "string" },
             file_id: { type: "string" },
+            mime_type: { type: "string" },
+            file_name: { type: "string" },
           },
           required: ["download_url", "file_id"],
           additionalProperties: false,
@@ -500,11 +514,34 @@ registerAppTool(
       structuredContent: {
         download_url: imageToProcess.download_url,
         file_id: imageToProcess.file_id,
+        mime_type: imageToProcess.mime_type,
+        file_name: imageToProcess.file_name,
       },
     };
   }
 );
 ```
+
+To return downloadable files from a tool, include a file reference in
+`structuredContent`, usually under a field such as `file_uri`:
+
+```json
+{
+  "structuredContent": {
+    "file_uri": {
+      "download_url": "https://...",
+      "file_id": "file_...",
+      "mime_type": "application/pdf",
+      "file_name": "report.pdf"
+    }
+  }
+}
+```
+
+This is the output side of file handling. Your tool should return a file
+reference instead of inline binary data or base64 content when the result is a
+downloadable file. ChatGPT can use the returned `file_id` to provide the widget
+with a fresh temporary download URL.
 
 ### Content security policy (CSP)
 
