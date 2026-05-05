@@ -1,12 +1,14 @@
 # OpenAI Developers
 
-> Documentation hub for OpenAI API, Apps SDK, Codex, and Agentic Commerce.
+> Documentation hub for OpenAI API, Ads, Apps SDK, Codex, and Agentic Commerce.
 
 Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<slug>.md`).
 
 ## Documentation sets
 - [OpenAI API index](https://developers.openai.com/api/llms.txt)
 - [OpenAI API full docs](https://developers.openai.com/api/llms-full.txt)
+- [Ads index](https://developers.openai.com/ads/llms.txt)
+- [Ads full docs](https://developers.openai.com/ads/llms-full.txt)
 - [Apps SDK index](https://developers.openai.com/apps-sdk/llms.txt)
 - [Apps SDK full docs](https://developers.openai.com/apps-sdk/llms-full.txt)
 - [Codex index](https://developers.openai.com/codex/llms.txt)
@@ -386,6 +388,30 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Videos — List](https://developers.openai.com/api/reference/resources/videos/methods/list.md): OpenAI API endpoint method reference.
 - [Videos — Retrieve](https://developers.openai.com/api/reference/resources/videos/methods/retrieve.md): OpenAI API endpoint method reference.
 - [Webhooks](https://developers.openai.com/api/reference/resources/webhooks.md): OpenAI API endpoint reference.
+
+## Ads — Api Overview
+- [Overview](https://developers.openai.com/ads/api-overview.md): Advertiser API endpoints & usage
+
+## Ads — Api Quickstart
+- [Quickstart](https://developers.openai.com/ads/api-quickstart.md): Launch your first Ads API workflow
+
+## Ads — Api Reference
+- [Ad Account](https://developers.openai.com/ads/api-reference/ad-account.md): Retrieve metadata for the current ad account.
+- [Ad Groups](https://developers.openai.com/ads/api-reference/ad-groups.md): Create, list, retrieve, update, and change ad group state.
+- [Ads](https://developers.openai.com/ads/api-reference/ads.md): Create, list, retrieve, update, and change ad state.
+- [Authentication](https://developers.openai.com/ads/api-reference/authentication.md): Setting up bearer token authentication.
+- [Campaigns](https://developers.openai.com/ads/api-reference/campaigns.md): Create, list, retrieve, update, and change campaign state.
+- [Files](https://developers.openai.com/ads/api-reference/files.md): Upload remote images or binary files and reuse the returned file ID in ad creatives.
+- [Insights](https://developers.openai.com/ads/api-reference/insights.md): Retrieve aggregated insights data across ad account, campaigns, ad groups, and ads.
+
+## Ads — Conversions Api
+- [Conversions API](https://developers.openai.com/ads/conversions-api.md): Server-to-server conversion events.
+
+## Ads — Measurement Pixel
+- [JavaScript Pixel](https://developers.openai.com/ads/measurement-pixel.md): Send conversion events from web pages.
+
+## Ads — Supported Events
+- [Supported events](https://developers.openai.com/ads/supported-events.md): Supported conversion events & data shapes.
 
 ## Apps SDK — App Submission Guidelines
 - [App submission guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines.md): Guidelines for submitting ChatGPT apps for publishing.
