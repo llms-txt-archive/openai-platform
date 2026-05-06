@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260506T075851Z` | 2026-05-06 07:58 UTC | [Deprecation replacements now point to GPT-5.5](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260506T075851Z) |
 | `archive-20260505T233108Z` | 2026-05-05 23:31 UTC | [Text-to-Speech Custom Voice Contact Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260505T233108Z) |
 | `archive-20260505T223609Z` | 2026-05-05 22:37 UTC | [Sandbox Guide Adds TypeScript Workflows](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260505T223609Z) |
 | `archive-20260505T204443Z` | 2026-05-05 20:45 UTC | [Ads Event Schema Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260505T204443Z) |
 | `archive-20260505T185658Z` | 2026-05-05 18:58 UTC | [Ads Docs Added to the Archive](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260505T185658Z) |
 | `archive-20260505T170755Z` | 2026-05-05 17:08 UTC | [Agents intro cleanup and Codex pricing clarification](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260505T170755Z) |
-| `archive-20260505T044812Z` | 2026-05-05 04:49 UTC | [Codex Migration Guide Image Layout Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260505T044812Z) |
