@@ -193,7 +193,7 @@ without this pattern. If you choose to use `frameDomains`, be aware that:
 
 ### Privacy policy
 
-Submissions must include a clear, published privacy policy explaining - at minimum - the categories of personal data collected, the purposes of use, the categories of recipients, and any controls offered to your users. Follow this policy at all times. Users can review your privacy policy before installing your app.
+Submissions must include a clear, published privacy policy explaining - at minimum - the categories of personal data collected, the purposes of use, the categories of recipients, data retention timelines, and any controls offered to your users. Follow this policy at all times. Users can review your privacy policy before installing your app.
 
 ### Data collection
 
