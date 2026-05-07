@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260506T205625Z` | 2026-05-06 20:56 UTC | [Privacy policy and file-upload doc wording updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260506T205625Z) |
+| `archive-20260507T050314Z` | 2026-05-07 05:03 UTC | [Realtime Safety Identifier Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260507T050314Z) |
+| `archive-20260506T205625Z` | 2026-05-06 20:57 UTC | [Privacy policy and file-upload doc wording updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260506T205625Z) |
 | `archive-20260506T151518Z` | 2026-05-06 15:15 UTC | [Computer Use Trigger Rename](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260506T151518Z) |
 | `archive-20260506T075851Z` | 2026-05-06 07:59 UTC | [Deprecation replacements now point to GPT-5.5](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260506T075851Z) |
 | `archive-20260505T233108Z` | 2026-05-05 23:31 UTC | [Text-to-Speech Custom Voice Contact Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260505T233108Z) |
 | `archive-20260505T223609Z` | 2026-05-05 22:37 UTC | [Sandbox Guide Adds TypeScript Workflows](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260505T223609Z) |
-| `archive-20260505T204443Z` | 2026-05-05 20:45 UTC | [Ads Event Schema Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260505T204443Z) |
