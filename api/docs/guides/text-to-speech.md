@@ -309,7 +309,7 @@ curl https://api.openai.com/v1/audio/speech \
 const sessionConfig = JSON.stringify({
   session: {
     type: "realtime",
-    model: "gpt-realtime",
+    model: "gpt-realtime-2",
     audio: {
       output: {
         voice: { id: "voice_123abc" },
@@ -318,3 +318,26 @@ const sessionConfig = JSON.stringify({
   },
 });
 ```
+
+## Related guides
+
+<a href="/api/docs/guides/realtime">
+  
+
+<span slot="icon">
+      </span>
+    Choose the right path for voice agents, translation, transcription, and
+    speech generation.
+
+
+</a>
+
+<a href="/api/docs/guides/audio">
+  
+
+<span slot="icon">
+      </span>
+    Review audio modalities, speech tasks, streaming, and request-based APIs.
+
+
+</a>
