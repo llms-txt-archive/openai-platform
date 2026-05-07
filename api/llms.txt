@@ -75,7 +75,6 @@ Reference docs are available at `/api/reference/<slug>.md`.
 - [Integrations and observability](https://developers.openai.com/api/docs/guides/agents/integrations-observability.md): Learn how to integrate MCP into Agents SDK workflows and how to trace and debug runs.
 - [Key concepts](https://developers.openai.com/api/docs/concepts.md): Key concepts to understand when working with the OpenAI API.
 - [Latency optimization](https://developers.openai.com/api/docs/guides/latency-optimization.md): Improve latency across a wide variety of LLM-related use cases.
-- [Libraries](https://developers.openai.com/api/docs/libraries.md): Discover language-specific libraries for using the OpenAI API, including Python, Node.js, .NET, and more.
 - [Local shell](https://developers.openai.com/api/docs/guides/tools-local-shell.md): Enable agents to run commands in a local shell.
 - [Manage permissions in the OpenAI platform](https://developers.openai.com/api/docs/guides/rbac.md): Learn how to use role-based access control to assign permissions, create custom roles, group users, and scope access across both the OpenAI API and dashboard.
 - [Managing costs](https://developers.openai.com/api/docs/guides/realtime-costs.md): Learn how to monitor and optimize your costs when using the Realtime API.
@@ -87,6 +86,7 @@ Reference docs are available at `/api/reference/<slug>.md`.
 - [Models and providers](https://developers.openai.com/api/docs/guides/agents/models.md): Learn how to choose models, set defaults, and think about providers and transport in the OpenAI Agents SDK.
 - [Moderation](https://developers.openai.com/api/docs/guides/moderation.md): Learn how to use OpenAI's moderation endpoint to identify harmful content in text and images.
 - [Node reference](https://developers.openai.com/api/docs/guides/node-reference.md): Explore all available nodes for composing workflows in Agent Builder.
+- [OpenAI CLI](https://developers.openai.com/api/docs/libraries/openai-cli.md): Install and use the generated openai command-line tool for Responses, structured outputs, images, speech, and shell workflows.
 - [Optimizing LLM Accuracy](https://developers.openai.com/api/docs/guides/optimizing-llm-accuracy.md): Learn strategies to enhance the accuracy of large language models using techniques like prompt engineering, retrieval-augmented generation, and fine-tuning.
 - [Orchestration and handoffs](https://developers.openai.com/api/docs/guides/agents/orchestration.md): Learn how to orchestrate multiple agents with handoffs and agents-as-tools in the OpenAI Agents SDK.
 - [Overview of OpenAI Crawlers](https://developers.openai.com/api/docs/bots.md)
@@ -122,6 +122,7 @@ Reference docs are available at `/api/reference/<slug>.md`.
 - [Safety checks](https://developers.openai.com/api/docs/guides/safety-checks.md): Learn how OpenAI assesses for safety, OpenAI classifiers across safety categories, and implementation tips for how to pass safety checks.
 - [Safety in building agents](https://developers.openai.com/api/docs/guides/agent-builder-safety.md): Minimize prompt injections and other risks when building agent workflows with OpenAI Agent Builder.
 - [Sandbox Agents](https://developers.openai.com/api/docs/guides/agents/sandboxes.md): Learn how sandboxes fit into Agents SDK workflows, when to use them, and how orchestration stays separate from execution.
+- [SDKs and CLI](https://developers.openai.com/api/docs/libraries.md): Discover official OpenAI SDKs, the OpenAI CLI, and the Agents SDK.
 - [Sending and returning files with GPT Actions](https://developers.openai.com/api/docs/actions/sending-files.md): Learn how to send and return files using GPT Actions in the OpenAI API.
 - [Shell](https://developers.openai.com/api/docs/guides/tools-shell.md): Run shell commands in hosted containers or your own local runtime.
 - [Skills](https://developers.openai.com/api/docs/guides/tools-skills.md): Upload, manage, and attach reusable skills to hosted environments.

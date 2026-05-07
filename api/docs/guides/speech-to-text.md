@@ -63,6 +63,14 @@ transcription = client.audio.transcriptions.create(
 print(transcription.text)
 ```
 
+```cli
+openai audio:transcriptions create \\
+  --model gpt-4o-transcribe \\
+  --file /path/to/file/audio.mp3 \\
+  --raw-output \\
+  --transform text
+```
+
 ```bash
 curl --request POST \\
   --url https://api.openai.com/v1/audio/transcriptions \\

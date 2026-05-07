@@ -154,7 +154,8 @@ Each entry has a Markdown twin at `/api/docs/<slug>.md`.
 - [Working with evals](https://developers.openai.com/api/docs/guides/evals.md): Learn how to test and improve AI model outputs through evaluations.
 
 ## Libraries
-- [Libraries](https://developers.openai.com/api/docs/libraries.md): Discover language-specific libraries for using the OpenAI API, including Python, Node.js, .NET, and more.
+- [SDKs and CLI](https://developers.openai.com/api/docs/libraries.md): Discover official OpenAI SDKs, the OpenAI CLI, and the Agents SDK.
+- [OpenAI CLI](https://developers.openai.com/api/docs/libraries/openai-cli.md): Install and use the generated openai command-line tool for Responses, structured outputs, images, speech, and shell workflows.
 
 ## Mcp
 - [Building MCP servers for ChatGPT Apps and API integrations](https://developers.openai.com/api/docs/mcp.md): Learn how to build MCP servers for use with ChatGPT Apps, deep research, or API integrations.

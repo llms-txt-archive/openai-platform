@@ -72,6 +72,15 @@ curl https://api.openai.com/v1/audio/speech \\
   --output speech.mp3
 ```
 
+```cli
+openai audio:speech create \\
+  --model gpt-4o-mini-tts \\
+  --voice coral \\
+  --instructions "Speak in a cheerful and positive tone." \\
+  --input "Today is a wonderful day to build something people love!" \\
+  --output speech.mp3
+```
+
 
 By default, the endpoint outputs an MP3 of the spoken audio, but you can configure it to output any [supported format](#supported-output-formats).
 
