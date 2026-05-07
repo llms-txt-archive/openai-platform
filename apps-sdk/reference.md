@@ -127,6 +127,10 @@ Need more background on these fields? Check the [Advanced section of the MCP ser
 
 By default, a tool description should include the fields listed [here](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#tool).
 
+Declare `outputSchema` for any tool that returns `structuredContent`. The
+schema should describe the exact object your tool returns so clients can
+validate results and the model can reason about follow-up tool calls.
+
 ### `_meta` fields on tool descriptor
 
 Use these `_meta` fields on the tool descriptor. Prefer the MCP Apps standard
@@ -150,16 +154,22 @@ Example:
 ```ts
 
 
+
 registerAppTool(
   server,
   "search",
   {
     title: "Public Search",
     description: "Search public documents.",
-    inputSchema: {
-      type: "object",
-      properties: { q: { type: "string" } },
-      required: ["q"],
+    inputSchema: { q: z.string() },
+    outputSchema: {
+      results: z.array(
+        z.object({
+          id: z.string(),
+          title: z.string(),
+          url: z.string(),
+        })
+      ),
     },
     securitySchemes: [
       { type: "noauth" },
@@ -177,7 +187,14 @@ registerAppTool(
       "openai/toolInvocation/invoked": "Results ready",
     },
   },
-  async ({ q }) => performSearch(q)
+  async ({ q }) => {
+    const results = await performSearch(q);
+
+    return {
+      structuredContent: { results },
+      content: [{ type: "text", text: `Found ${results.length} results.` }],
+    };
+  }
 );
 ```
 
@@ -197,19 +214,27 @@ These hints only influence how ChatGPT frames the tool call to the user; servers
 Example:
 
 ```ts
+
+
 server.registerTool(
   "list_saved_recipes",
   {
     title: "List saved recipes",
     description: "Returns the user’s saved recipes without modifying them.",
-    inputSchema: {
-      type: "object",
-      properties: {},
-      additionalProperties: false,
+    inputSchema: {},
+    outputSchema: {
+      recipes: z.array(
+        z.object({
+          id: z.string(),
+          title: z.string(),
+        })
+      ),
     },
     annotations: { readOnlyHint: true },
   },
-  async () => fetchSavedRecipes()
+  async () => ({
+    structuredContent: { recipes: await fetchSavedRecipes() },
+  })
 );
 ```
 
@@ -271,12 +296,22 @@ Example:
 ```ts
 
 
+
 registerAppTool(
   server,
   "get_zoo_animals",
   {
     title: "get_zoo_animals",
     inputSchema: { count: z.number().int().min(1).max(20).optional() },
+    outputSchema: {
+      animals: z.array(
+        z.object({
+          id: z.string(),
+          name: z.string(),
+          species: z.string(),
+        })
+      ),
+    },
     _meta: { ui: { resourceUri: "ui://widget/widget.html" } },
   },
   async ({ count = 10 }) => {
@@ -321,19 +356,30 @@ Operation-phase `_meta["openai/userAgent"]` and `_meta["openai/userLocation"]` a
 Example:
 
 ```ts
+
+
 server.registerTool(
   "recommend_cafe",
   {
     title: "Recommend a cafe",
-    inputSchema: { type: "object" },
+    inputSchema: {},
+    outputSchema: {
+      cafes: z.array(
+        z.object({
+          name: z.string(),
+          address: z.string(),
+        })
+      ),
+    },
   },
   async (_args, { _meta }) => {
     const locale = _meta?.["openai/locale"] ?? "en";
     const location = _meta?.["openai/userLocation"]?.city;
+    const cafes = await findNearbyCafes(location);
 
     return {
       content: [{ type: "text", text: formatIntro(locale, location) }],
-      structuredContent: await findNearbyCafes(location),
+      structuredContent: { cafes },
     };
   }
 );

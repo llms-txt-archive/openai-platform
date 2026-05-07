@@ -378,6 +378,16 @@ const completeTodoInputSchema = {
   id: z.string().min(1),
 };
 
+const todoOutputSchema = {
+  tasks: z.array(
+    z.object({
+      id: z.string(),
+      title: z.string(),
+      completed: z.boolean(),
+    })
+  ),
+};
+
 let todos = [];
 let nextId = 1;
 
@@ -412,6 +422,7 @@ function createTodoServer() {
       title: "Add todo",
       description: "Creates a todo item with the given title.",
       inputSchema: addTodoInputSchema,
+      outputSchema: todoOutputSchema,
       _meta: {
         ui: { resourceUri: "ui://widget/todo.html" },
       },
@@ -432,6 +443,7 @@ function createTodoServer() {
       title: "Complete todo",
       description: "Marks a todo as done by id.",
       inputSchema: completeTodoInputSchema,
+      outputSchema: todoOutputSchema,
       _meta: {
         ui: { resourceUri: "ui://widget/todo.html" },
       },

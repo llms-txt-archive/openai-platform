@@ -182,7 +182,10 @@ If you ship updates frequently, keep a short, consistent versioning scheme so yo
 Tools are the contract the model reasons about. Define one tool per user intent (e.g., `list_tasks`, `update_task`). Each descriptor should include:
 
 - Machine-readable name and human-readable title.
-- JSON schema for arguments (`zod`, JSON Schema, or dataclasses).
+- Schema for arguments. With the Node helper shown below, use Zod raw shapes or
+  Standard Schema; other SDKs may expose JSON Schema or dataclasses.
+- Schema for returned `structuredContent` (`outputSchema`) so clients and
+  models know the shape of the tool result.
 - `_meta.ui.resourceUri` pointing to the template URI.
 - Optional `_meta.ui.visibility` to control whether the tool is callable by the model, the UI, or both.
 - Optional ChatGPT extensions (like short status text while a tool runs).
@@ -202,6 +205,21 @@ registerAppTool(
   {
     title: "Show Kanban Board",
     inputSchema: { workspace: z.string() },
+    outputSchema: {
+      columns: z.array(
+        z.object({
+          id: z.string(),
+          title: z.string(),
+          tasks: z.array(
+            z.object({
+              id: z.string(),
+              title: z.string(),
+              status: z.string(),
+            })
+          ),
+        })
+      ),
+    },
     _meta: {
       ui: { resourceUri: "ui://widget/kanban-board.html" },
       // ChatGPT extension (optional):
@@ -312,6 +330,7 @@ import {
 } from "@modelcontextprotocol/ext-apps/server";
 
 
+
 const server = new McpServer({ name: "hello-world", version: "1.0.0" });
 
 registerAppResource(
@@ -338,7 +357,8 @@ registerAppTool(
   "hello_widget",
   {
     title: "Show hello widget",
-    inputSchema: { name: { type: "string" } },
+    inputSchema: { name: z.string() },
+    outputSchema: { message: z.string() },
     _meta: { ui: { resourceUri: "ui://widget/hello.html" } },
   },
   async ({ name }) => ({
@@ -479,6 +499,14 @@ Example:
 ```ts
 
 
+
+const imageFileSchema = z.object({
+  download_url: z.string(),
+  file_id: z.string(),
+  mime_type: z.string().optional(),
+  file_name: z.string().optional(),
+});
+
 registerAppTool(
   server,
   "process_image",
@@ -486,22 +514,13 @@ registerAppTool(
     title: "process_image",
     description: "Processes an image",
     inputSchema: {
-      type: "object",
-      properties: {
-        imageToProcess: {
-          type: "object",
-          properties: {
-            download_url: { type: "string" },
-            file_id: { type: "string" },
-            mime_type: { type: "string" },
-            file_name: { type: "string" },
-          },
-          required: ["download_url", "file_id"],
-          additionalProperties: false,
-        },
-      },
-      required: ["imageToProcess"],
-      additionalProperties: false,
+      imageToProcess: imageFileSchema,
+    },
+    outputSchema: {
+      download_url: z.string(),
+      file_id: z.string(),
+      mime_type: z.string().optional(),
+      file_name: z.string().optional(),
     },
     _meta: {
       ui: { resourceUri: "ui://widget/widget.html" },
@@ -652,12 +671,22 @@ Fields:
 - `results[].title` - human-readable title.
 - `results[].url` - canonical URL for citation.
 
-In MCP, the tool response **wraps** this JSON inside a `content` array. For `search`, return exactly one content item with `type: "text"` and `text` set to the JSON string above:
+In MCP, return this JSON as `structuredContent` and include the same value as a
+JSON string in `content` for compatibility:
 
-**Search tool response wrapper (MCP content array):**
+**Search tool response wrapper:**
 
 ```json
 {
+  "structuredContent": {
+    "results": [
+      {
+        "id": "doc-1",
+        "title": "Human-readable title",
+        "url": "https://example.com"
+      }
+    ]
+  },
   "content": [
     {
       "type": "text",
@@ -687,12 +716,19 @@ Fields:
 - `url` - canonical URL for citation.
 - `metadata` - optional key/value pairs about the result.
 
-For `fetch`, wrap the document JSON the same way:
+For `fetch`, return the document JSON the same way:
 
-**Fetch tool response wrapper (MCP content array):**
+**Fetch tool response wrapper:**
 
 ```json
 {
+  "structuredContent": {
+    "id": "doc-1",
+    "title": "Human-readable title",
+    "text": "Full text of the document",
+    "url": "https://example.com",
+    "metadata": { "source": "optional key/value pairs" }
+  },
   "content": [
     {
       "type": "text",
@@ -710,25 +746,42 @@ Here is a minimal TypeScript example showing the `search` and `fetch` tools:
 
 const server = new McpServer({ name: "acme-knowledge", version: "1.0.0" });
 
+const searchOutputSchema = {
+  results: z.array(
+    z.object({
+      id: z.string(),
+      title: z.string(),
+      url: z.string().url(),
+    })
+  ),
+};
+
+const fetchOutputSchema = {
+  id: z.string(),
+  title: z.string(),
+  text: z.string(),
+  url: z.string().url(),
+  metadata: z.record(z.string(), z.string()).optional(),
+};
+
 server.registerTool(
   "search",
   {
     title: "Search knowledge",
     inputSchema: { query: z.string() },
+    outputSchema: searchOutputSchema,
     annotations: { readOnlyHint: true },
   },
-  async ({ query }) => ({
-    content: [
-      {
-        type: "text",
-        text: JSON.stringify({
-          results: [
-            { id: "doc-1", title: "Overview", url: "https://example.com" },
-          ],
-        }),
-      },
-    ],
-  })
+  async ({ query }) => {
+    const structuredContent = {
+      results: [{ id: "doc-1", title: "Overview", url: "https://example.com" }],
+    };
+
+    return {
+      structuredContent,
+      content: [{ type: "text", text: JSON.stringify(structuredContent) }],
+    };
+  }
 );
 
 server.registerTool(
@@ -736,22 +789,23 @@ server.registerTool(
   {
     title: "Fetch document",
     inputSchema: { id: z.string() },
+    outputSchema: fetchOutputSchema,
     annotations: { readOnlyHint: true },
   },
-  async ({ id }) => ({
-    content: [
-      {
-        type: "text",
-        text: JSON.stringify({
-          id,
-          title: "Overview",
-          text: "Full text...",
-          url: "https://example.com",
-          metadata: { source: "acme" },
-        }),
-      },
-    ],
-  })
+  async ({ id }) => {
+    const structuredContent = {
+      id,
+      title: "Overview",
+      text: "Full text...",
+      url: "https://example.com",
+      metadata: { source: "acme" },
+    };
+
+    return {
+      structuredContent,
+      content: [{ type: "text", text: JSON.stringify(structuredContent) }],
+    };
+  }
 );
 ```
 

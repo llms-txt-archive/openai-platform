@@ -232,18 +232,17 @@ Triggering the tool-level OAuth flow requires both metadata (`securitySchemes` a
        title: "Public Search",
        description: "Search public documents.",
        inputSchema: {
-         type: "object",
-         properties: { q: { type: "string" } },
-         required: ["q"],
+         q: z.string(),
        },
+       outputSchema: {},
        securitySchemes: [
          { type: "noauth" },
          { type: "oauth2", scopes: ["search.read"] },
        ],
      },
-     async ({ input }) => {
+     async ({ q }) => {
        return {
-         content: [{ type: "text", text: `Results for ${input.q}` }],
+         content: [{ type: "text", text: `Results for ${q}` }],
          structuredContent: {},
        };
      }
@@ -264,15 +263,14 @@ Triggering the tool-level OAuth flow requires both metadata (`securitySchemes` a
        title: "Create Document",
        description: "Make a new doc in your account.",
        inputSchema: {
-         type: "object",
-         properties: { title: { type: "string" } },
-         required: ["title"],
+         title: z.string(),
        },
+       outputSchema: {},
        securitySchemes: [{ type: "oauth2", scopes: ["docs.write"] }],
      },
-     async ({ input }) => {
+     async ({ title }) => {
        return {
-         content: [{ type: "text", text: `Created doc: ${input.title}` }],
+         content: [{ type: "text", text: `Created doc: ${title}` }],
          structuredContent: {},
        };
      }

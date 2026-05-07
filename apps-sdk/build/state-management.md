@@ -78,11 +78,34 @@ This prevents divergence between UI and server.
 const tasks = new Map(); // replace with your DB or external service
 let nextId = 1;
 
+const taskListOutputSchema = {
+  type: "object",
+  properties: {
+    type: { type: "string", const: "taskList" },
+    tasks: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          id: { type: "string" },
+          title: { type: "string" },
+          done: { type: "boolean" },
+        },
+        required: ["id", "title", "done"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ["type", "tasks"],
+  additionalProperties: false,
+};
+
 const server = new Server({
   tools: {
     get_tasks: {
       description: "Return all tasks",
       inputSchema: jsonSchema.object({}),
+      outputSchema: taskListOutputSchema,
       async run() {
         return {
           structuredContent: {
@@ -95,6 +118,7 @@ const server = new Server({
     add_task: {
       description: "Add a new task",
       inputSchema: jsonSchema.object({ title: jsonSchema.string() }),
+      outputSchema: taskListOutputSchema,
       async run({ title }) {
         const id = `task-${nextId++}`; // simple example id
         tasks.set(id, { id, title, done: false });
@@ -358,10 +382,21 @@ async function writePreferences(userId, preferences) {
   return await response.body.json();
 }
 
+const preferencesOutputSchema = {
+  type: "object",
+  properties: {
+    type: { type: "string", const: "preferences" },
+    preferences: { type: "object" },
+  },
+  required: ["type", "preferences"],
+  additionalProperties: false,
+};
+
 const server = new Server({
   tools: {
     get_preferences: {
       inputSchema: jsonSchema.object({ userId: jsonSchema.string() }),
+      outputSchema: preferencesOutputSchema,
       async run({ userId }) {
         const preferences = await readPreferences(userId);
         return { structuredContent: { type: "preferences", preferences } };
@@ -372,6 +407,7 @@ const server = new Server({
         userId: jsonSchema.string(),
         preferences: jsonSchema.object({}),
       }),
+      outputSchema: preferencesOutputSchema,
       async run({ userId, preferences }) {
         const updated = await writePreferences(userId, preferences);
         return {

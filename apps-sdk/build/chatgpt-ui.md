@@ -243,6 +243,10 @@ server.registerTool(
     title: "Roll dice",
     description: "Roll an N-sided die and return { sides, value }.",
     inputSchema: { sides: z.number().int().min(2) },
+    outputSchema: {
+      sides: z.number().int().min(2),
+      value: z.number().int().min(1),
+    },
     _meta: {
       "openai/toolInvocation/invoking": "Rolling…",
       "openai/toolInvocation/invoked": "Rolled.",
@@ -265,6 +269,10 @@ server.registerTool(
     description:
       "Render the dice widget from roll data. First call roll_dice, then pass its sides and value to this tool.",
     inputSchema: {
+      sides: z.number().int().min(2),
+      value: z.number().int().min(1),
+    },
+    outputSchema: {
       sides: z.number().int().min(2),
       value: z.number().int().min(1),
     },

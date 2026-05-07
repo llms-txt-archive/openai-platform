@@ -149,14 +149,34 @@ Key points:
 
 You can mirror this pattern and swap in your logic:
 
+For direct `CallToolResult` returns, the Python MCP SDK uses the `Annotated`
+return type below to declare the tool `outputSchema` for `structuredContent`.
+
 ```py
+from typing import Annotated, Any
+
+from pydantic import BaseModel
+
+
+class CompleteCheckoutOutput(BaseModel):
+    id: str
+    status: str
+    currency: str
+    line_items: list[dict[str, Any]]
+    fulfillment_address: dict[str, Any]
+    fulfillment_options: list[dict[str, Any]]
+    fulfillment_option_id: str
+    totals: list[dict[str, Any]]
+    order: dict[str, Any]
+
+
 @tool(description="")
 async def complete_checkout(
     self,
     checkout_session_id: str,
     buyer: Buyer,
     payment_data: PaymentData,
-) -> types.CallToolResult:
+) -> Annotated[types.CallToolResult, CompleteCheckoutOutput]:
     return types.CallToolResult(
         content=[],
         structuredContent={
