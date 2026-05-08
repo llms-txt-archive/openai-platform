@@ -8,20 +8,21 @@ You can integrate with your own authorization server when you need to connect to
 
 ## Custom auth with OAuth 2.1
 
-For an authenticated MCP server, you are expected to implement a OAuth 2.1 flow that conforms to the [MCP authorization spec](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
+For an authenticated MCP server, you are expected to implement an OAuth 2.1 flow that conforms to the [MCP authorization spec](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization).
 
 ### Components
 
 - **Resource server** – your MCP server, which exposes tools and verifies access tokens on each request.
 - **Authorization server** – your identity provider (Auth0, Okta, Cognito, or a custom implementation) that issues tokens and publishes discovery metadata.
-- **Client** – ChatGPT acting on behalf of the user. It supports dynamic client registration and PKCE.
+- **Client** – ChatGPT acting on behalf of the user. It supports Client ID Metadata Documents (CIMD), dynamic client registration (DCR), predefined OAuth clients, and PKCE.
 
 ### MCP authorization spec requirements
 
 - Host protected resource metadata on your MCP server
 - Publish OAuth metadata from your authorization server
 - Echo the `resource` parameter throughout the OAuth flow
-- Advertise PKCE support for ChatGPT
+- Choose how ChatGPT identifies or registers its OAuth client: CIMD, DCR, or a predefined OAuth client
+- Publish the token endpoint authentication methods your authorization server accepts
 
 Here is what the spec expects, in plain language.
 
@@ -60,13 +61,15 @@ That single header lets ChatGPT discover the metadata URL even if it has not see
 - Your identity provider must expose one of the well-known discovery documents so ChatGPT can read its configuration:
   - OAuth 2.0 metadata at `https://auth.yourcompany.com/.well-known/oauth-authorization-server`
   - OpenID Connect metadata at `https://auth.yourcompany.com/.well-known/openid-configuration`
-- Each document answers three big questions for ChatGPT: where to send the user, how to exchange codes, and how to register itself. A typical response looks like:
+- Each document answers three big questions for ChatGPT: where to send the user, how to exchange codes, and how to identify itself. A typical response looks like:
 
 ```json
 {
   "issuer": "https://auth.yourcompany.com",
   "authorization_endpoint": "https://auth.yourcompany.com/oauth2/v1/authorize",
   "token_endpoint": "https://auth.yourcompany.com/oauth2/v1/token",
+  "client_id_metadata_document_supported": true,
+  "token_endpoint_auth_methods_supported": ["none", "private_key_jwt"],
   "registration_endpoint": "https://auth.yourcompany.com/oauth2/v1/register",
   "code_challenge_methods_supported": ["S256"],
   "scopes_supported": ["files:read", "files:write"]
@@ -75,18 +78,20 @@ That single header lets ChatGPT discover the metadata URL even if it has not see
 
 - Fields that must be correct:
   - `authorization_endpoint`, `token_endpoint`: the URLs ChatGPT needs to run the OAuth authorization-code + PKCE flow end to end.
-  - `registration_endpoint`: enables dynamic client registration (DCR) so ChatGPT can mint a dedicated `client_id` per connector.
-  - `code_challenge_methods_supported`: must include `S256`, otherwise ChatGPT will refuse to proceed because PKCE appears unsupported.
+  - `client_id_metadata_document_supported`: set to `true` when you want ChatGPT to use CIMD for client registration. ChatGPT prioritizes CIMD when it is available, but the connector creator can choose DCR when both CIMD and DCR are available.
+  - `token_endpoint_auth_methods_supported`: include the token endpoint authentication methods your authorization server accepts. This applies to CIMD, DCR, and predefined OAuth clients. For CIMD, ChatGPT supports `none` for public-client token exchange and `private_key_jwt` for signed client assertion token exchange. Other OAuth clients commonly use `none`, `client_secret_post`, or `client_secret_basic`.
+  - `registration_endpoint`: include this when you support dynamic client registration (DCR), which lets ChatGPT create and reuse a dedicated `client_id` for the connector instance.
+  - `code_challenge_methods_supported`: include `S256` if your authorization server advertises PKCE support.
   - Optional fields follow [RFC 8414](https://datatracker.ietf.org/doc/html/rfc8414) / [OpenID Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html); include whatever helps your administrators configure policies.
 
 #### OIDC scopes
 
 - If your provider advertises OIDC scopes (e.g. `openid`, `email`, `profile`) in `scopes_supported` of its `.well-known/oauth-authorization-server` or `.well-known/openid-configuration` document, ChatGPT requests those scopes by default during the OAuth flow.
-- Some identity providers may not enable advertised OIDC scopes by default. Check your provider's configuration settings and make sure every advertised scope is enabled for the OAuth client, whether you created it manually or ChatGPT created it through dynamic client registration.
+- Some identity providers may not enable advertised OIDC scopes by default. Check your provider's configuration settings and make sure every advertised scope is enabled for the OAuth client, whether it uses CIMD, was created manually, or was created through DCR.
 
 #### Redirect URL
 
-ChatGPT completes the OAuth flow by redirecting to `https://chatgpt.com/connector/oauth/{callback_id}` and the url will be shown in the app management page. Add that production redirect URI to your authorization server's allowlist so the authorization code can be returned successfully.
+ChatGPT completes the OAuth flow by redirecting to `https://chatgpt.com/connector/oauth/{callback_id}` and the URL will be shown in the app management page. Add that production redirect URI to your authorization server's allowlist so the authorization code can be returned successfully.
 
 - For apps that are already published, the previous legacy redirect URI `https://chatgpt.com/connector_platform_oauth_redirect` continues to work.
 
@@ -96,10 +101,10 @@ ChatGPT completes the OAuth flow by redirecting to `https://chatgpt.com/connecto
 - Configure your authorization server to copy that value into the access token (commonly the `aud` claim) so your MCP server can verify the token was minted for it and nobody else.
 - If a token arrives without the expected audience or scopes, reject it and rely on the `WWW-Authenticate` challenge to prompt ChatGPT to re-authorize with the correct parameters.
 
-#### Advertise PKCE support for ChatGPT
+#### Support the authorization-code flow
 
-- ChatGPT, acting as the MCP client, performs the authorization-code flow with PKCE using the `S256` code challenge so intercepted authorization codes cannot be replayed by an attacker. That protection is why the MCP authorization spec mandates PKCE.
-- Your authorization server metadata therefore needs to list `code_challenge_methods_supported` (or equivalent) including `S256`. If that field is missing, ChatGPT will refuse to complete the flow because it cannot confirm PKCE support.
+- ChatGPT, acting as the MCP client, performs the authorization-code flow with PKCE using the `S256` code challenge so intercepted authorization codes cannot be replayed by an attacker.
+- If your authorization server publishes `code_challenge_methods_supported`, include `S256` so clients can confirm PKCE support from metadata.
 
 ### OAuth flow
 
@@ -109,7 +114,9 @@ Provided that you have implemented the MCP authorization spec delineated above, 
 
 ![](https://developers.openai.com/images/apps-sdk/protected_resource_metadata.png)
 
-2. ChatGPT registers itself via dynamic client registration with your authorization server using the `registration_endpoint` and obtains a `client_id`.
+2. ChatGPT identifies itself as the OAuth client. When the connector uses CIMD, ChatGPT skips dynamic client registration and sends a CIMD document URL as the `client_id`, such as `https://chatgpt.com/oauth/.../client.json` (the exact URL is specific to the MCP server because the redirect URI is MCP-specific). When the connector uses DCR, ChatGPT calls your authorization server's `registration_endpoint` once for the connector instance, receives a generated `client_id`, and reuses that client for the instance.
+
+When using CIMD, there is no client registration step. The following screen shows the DCR path:
 
 ![](https://developers.openai.com/images/apps-sdk/client_registration.png)
 
@@ -125,15 +132,22 @@ Provided that you have implemented the MCP authorization spec delineated above, 
 
 ### Client registration
 
-The MCP spec currently requires dynamic client registration (DCR). This means that each time ChatGPT connects, it registers a fresh OAuth client with your authorization server, obtains a unique `client_id`, and uses that identity during token exchange. The downside of this approach is that it can generate thousands of short-lived clients—often one per user session.
+Use [Client ID Metadata Documents (CIMD)](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents) as the preferred client registration method when your authorization server supports it and the connector creator chooses it. With CIMD, ChatGPT uses an HTTPS metadata document URL as its `client_id`. Your authorization server fetches that document, validates the published client metadata and redirect URIs, and treats the URL as ChatGPT's stable client identity.
 
-To address this issue, the MCP council is currently advancing [Client Metadata Documents (CMID)](https://blog.modelcontextprotocol.io/posts/client_registration/). In the CMID model, ChatGPT will publish a stable document (for example `https://openai.com/chatgpt.json`) that declares its OAuth metadata and identity. Your authorization server can fetch the document over HTTPS, pin it as the canonical client record, and enforce policies such as redirect URI allowlists or rate limits without relying on per-session registration. CMID is still in draft, so continue supporting DCR until CIMD has landed.
+If you support CIMD, set `client_id_metadata_document_supported: true` in your authorization server metadata. This lets ChatGPT use one stable client identity for connectors that choose CIMD, which your authorization server can use for redirect URI allowlists, rate limits, and other policies.
+
+ChatGPT supports two token endpoint authentication methods for CIMD-backed clients:
+
+- `none`: use this public-client flow when your token endpoint supports PKCE-based authorization-code exchange without client authentication. ChatGPT does not store a per-client secret.
+- `private_key_jwt`: use this signed client assertion flow when your token endpoint requires client authentication. ChatGPT publishes CIMD metadata with `token_endpoint_auth_method: "private_key_jwt"` and a public JWKS URL. The JWKS is served from `/oauth/jwks.json` on the metadata origin. ChatGPT signs token requests server-side with a managed private key and `kid`; your authorization server verifies the assertion against the public JWKS.
+
+DCR is still supported. If you include `registration_endpoint`, ChatGPT can register dynamically when the connector creator chooses DCR or CIMD is not available. ChatGPT runs DCR once per connector instance, then keeps and reuses the registered OAuth client for that instance. DCR can still create many registered clients across many separate connector instances, so CIMD is usually easier to administer at scale.
 
 ### Client identification
 
 A frequent question is how your MCP server can confirm that a request actually comes from ChatGPT. ChatGPT presents an OpenAI-managed client certificate when connecting to MCP servers, so you can verify the client at the transport layer with mTLS. You can also allowlist ChatGPT’s [published egress IP ranges](https://openai.com/chatgpt-connectors.json). ChatGPT does **not** support machine-to-machine OAuth grants such as client credentials, service accounts, or JWT bearer assertions, nor can it present custom API keys or customer-provided mTLS certificates.
 
-CMID further strengthens client identification by giving you a signed, HTTPS-hosted declaration of ChatGPT’s identity.
+CIMD further strengthens client identification by giving your authorization server a stable, HTTPS-hosted declaration of ChatGPT’s identity. When you use `private_key_jwt`, verify ChatGPT's token endpoint client assertion against the public JWKS published in the CIMD metadata.
 
 ### Mutual TLS (mTLS)
 
@@ -157,7 +171,7 @@ Use mTLS to authenticate ChatGPT as the MCP client. Continue to use OAuth 2.1 to
 
 ### Choosing an identity provider
 
-Most OAuth 2.1 identity providers can satisfy the MCP authorization requirements once they expose a discovery document, allow dynamic client registration, and echo the `resource` parameter into issued tokens.
+Most OAuth 2.1 identity providers can satisfy the MCP authorization requirements once they expose a discovery document, support CIMD with `none` or `private_key_jwt`, support DCR when needed, and echo the `resource` parameter into issued tokens. Prefer providers that support CIMD for client registration.
 
 We _strongly_ recommend that you use an existing established identity provider rather than implementing authentication from scratch yourself.
 

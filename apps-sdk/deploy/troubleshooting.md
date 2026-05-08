@@ -26,7 +26,7 @@ When something goes wrong—components failing to render, discovery missing prom
 ## Authentication problems
 
 - **401 errors** – include a `WWW-Authenticate` header in the error response so ChatGPT knows to start the OAuth flow again. Double-check issuer URLs and audience claims.
-- **Dynamic client registration fails** – confirm your authorization server exposes `registration_endpoint` and that newly created clients have at least one login connection enabled.
+- **Client registration fails** – if you use CIMD, confirm your authorization server metadata includes `client_id_metadata_document_supported: true` and can fetch ChatGPT's client metadata document. For `private_key_jwt`, confirm your authorization server can fetch ChatGPT's public JWKS and validate the signed client assertion. If you use DCR, confirm your authorization server exposes `registration_endpoint` and that newly created clients have at least one login connection enabled.
 
 ## Deployment problems
 

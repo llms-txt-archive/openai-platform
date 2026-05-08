@@ -32,7 +32,7 @@ Server-side code has no network restrictions beyond what your hosting environmen
 
 ## Authentication & authorization
 
-- Use OAuth 2.1 flows that include PKCE and dynamic client registration when integrating external accounts.
+- Use OAuth 2.1 authorization-code flows when integrating external accounts. Prefer Client ID Metadata Documents (CIMD) when your authorization server supports CIMD and the connector creator chooses it. Use `none` for public-client token exchange or `private_key_jwt` when your authorization server requires client authentication. Support DCR when the connector creator chooses it or CIMD is not available.
 - Verify and enforce scopes on every tool call. Reject expired or malformed tokens with `401` responses.
 - For built-in identity, avoid storing long-lived secrets; use the provided auth context instead.
 
