@@ -19,14 +19,6 @@ Keep the tunnel running while you iterate on your connector. When you change cod
 
 Once you have a working MCP server and component bundle, host them behind a stable HTTPS endpoint. The key requirements are low-latency streaming responses on `/mcp`, dependable TLS, and the ability to surface logs and metrics when something goes wrong.
 
-### Alpic
-
-[Alpic](https://alpic.ai/) maintains a ready-to-deploy Apps SDK starter that bundles an Express MCP server and a React widget workspace.
-
-It includes a one-click deploy button that provisions a hosted endpoint, then you can paste the resulting URL into ChatGPT connector settings to go live.
-
-If you want a reference implementation with HMR for widgets plus a production deployment path, the [Alpic template](https://github.com/alpic-ai/apps-sdk-template) is a fast way to start.
-
 ### Manufact
 
 [Manufact](https://manufact.com/) maintains `mcp-use`, a community MCP framework for building MCP servers, clients, agents, and app widgets in TypeScript and Python.
@@ -41,6 +33,22 @@ Vercel is another strong fit when you want quick deploys, preview environments f
 [They have announced support for ChatGPT Apps hosting](https://vercel.com/changelog/chatgpt-apps-support-on-vercel), so you can ship MCP endpoints alongside your frontend and use Vercel previews to validate connector behavior before promoting to production.
 
 You can use their Next.js [starter template](https://vercel.com/templates/ai/chatgpt-app-with-next-js) to get started.
+
+### Alpic
+
+[Alpic](https://alpic.ai/) maintains [Skybridge](https://skybridge.tech), an open-source TypeScript framework for ChatGPT and MCP Apps. Skybridge provides a full development environment with a local emulator, HMR and persistent tunnel to easily test your app inside ChatGPT. It also provides React hooks and higher-level abstractions to handle the state of your widgets and synchronize it with the model, as well as a compatibility layer to help your app work across all MCP clients.
+
+Alpic also provides a one-click deploy solution with [Alpic Cloud](https://app.alpic.ai/) and an [auditing tool](https://beacon.alpic.ai/) to check how ready your app is for publication in the store.
+
+If you’re looking for a reference implementation with HMR for widgets plus a production deployment path, the [Skybridge starter kit](https://docs.skybridge.tech/quickstart/create-new-app) gets you up and running fast.
+
+### MCPcat
+
+To understand what your users are doing with your MCP server after deployment, [MCPcat](https://mcpcat.io/) maintains open-source SDKs that work with any ChatGPT app, regardless of how it's hosted.
+
+On top of tool call and session metrics, MCPcat infers the user’s goal for each session, so you can see the actual workflows your app supports.
+
+You can use their [TypeScript](https://github.com/mcpcat/mcpcat-typescript-sdk), [Python](https://github.com/mcpcat/mcpcat-python-sdk), or [Go](https://github.com/mcpcat/mcpcat-go-sdk) SDK to get started.
 
 ### Other hosting options
 
