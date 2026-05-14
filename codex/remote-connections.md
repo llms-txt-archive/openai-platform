@@ -215,14 +215,6 @@ unauthenticated public listeners.
 
 </WorkflowSteps>
 
-If remote connections don't appear yet, enable the alpha feature flag in
-`~/.codex/config.toml`:
-
-```toml
-[features]
-remote_connections = true
-```
-
 <CodexScreenshot
   alt="Codex app settings showing SSH remote connections"
   lightSrc="/images/codex/app/remote-connections-light.webp"
