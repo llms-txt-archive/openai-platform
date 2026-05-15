@@ -42,6 +42,28 @@ To create app drafts and submit them for review, you need the `api.apps.write` p
 - You are not using a local or testing endpoint
 - You defined a [content security policy (CSP)](https://developers.openai.com/apps-sdk/build/mcp-server#content-security-policy-csp) to allow the exact domains you fetch from (this is required to submit your app for security reasons)
 
+### Template MCP server URLs
+
+Most apps should submit a universal MCP server URL: a single hosted MCP endpoint that works for all users and organizations.
+
+Choose **Template** only if your app uses workspace-specific MCP server URLs, such as when each customer has a separate tenant, workspace, or managed MCP endpoint. Template submissions require two URL values:
+
+- **MCP Server URL:** A concrete, working MCP endpoint for review and automated checks.
+- **Template MCP Server URL:** The URL pattern that describes which part of the MCP endpoint changes across customer workspaces.
+
+The review MCP server URL must be a real endpoint that OpenAI can connect to during submission review. Don't enter a placeholder URL in the **MCP Server URL** field.
+
+Use placeholders in the **Template MCP Server URL** for the parts that a workspace admin will configure later. Placeholders must use `{name}` syntax, start with a letter, and contain only letters, numbers, or underscores. Each placeholder name must be unique.
+
+Make sure the concrete **MCP Server URL** matches the template pattern after replacing each placeholder with a real value.
+
+For example:
+
+```text
+https://{workspace}.example.com/mcp
+https://mcp.example.com/{tenant}/mcp
+```
+
 ## Submitting for review
 
 If the prerequisites are met, you can submit your app for review from the [OpenAI Platform Dashboard](http://platform.openai.com/apps-manage).
