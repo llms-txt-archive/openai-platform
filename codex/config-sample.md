@@ -288,9 +288,20 @@ include_only = []
 experimental_use_profile = false
 
 ################################################################################
-# Managed network proxy settings
+# Sandboxed networking settings
 ################################################################################
 
+# Enable the feature before configuring sandboxed networking rules.
+# [features.network_proxy]
+# enabled = true
+# domains = { "api.openai.com" = "allow", "example.com" = "deny" }
+#
+# Exact hosts match only themselves.
+# "*.example.com" matches subdomains only; "**.example.com" matches the apex plus subdomains.
+# "*" allows any public host that is not denied, so prefer scoped rules when possible.
+# `allow_local_binding = false` blocks loopback and private destinations by default.
+# Add an exact local IP literal or `localhost` allow rule for one target, or set it to true only when broader local access is required.
+#
 # Set `default_permissions = "workspace"` before enabling this profile.
 # [permissions.workspace.network]
 # enabled = true
@@ -303,7 +314,6 @@ experimental_use_profile = false
 # dangerously_allow_non_loopback_proxy = false
 # dangerously_allow_non_loopback_admin = false
 # dangerously_allow_all_unix_sockets = false
-# mode = "limited"                           # limited | full
 # allow_local_binding = false
 #
 # [permissions.workspace.network.domains]
@@ -407,6 +417,7 @@ enabled = true
 # shell_snapshot = true
 # multi_agent = true
 # personality = true
+# network_proxy = false
 # fast_mode = true
 # enable_request_compression = true
 # skill_mcp_dependency_install = true
