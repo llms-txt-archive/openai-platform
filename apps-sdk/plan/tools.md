@@ -18,6 +18,17 @@ Start from the user journey defined in your [use case research](https://develope
 
 If you need both read and write behavior, create separate tools so ChatGPT can respect confirmation flows for write actions.
 
+## Separate data processing from UI rendering
+
+If one workflow needs both reusable data and a widget, plan that as two tools instead of one overloaded tool:
+
+- **Data tools** return complete `structuredContent` for model reasoning and follow-up calls, without a UI template.
+- **Render tools** accept the prepared data, attach the component template, and stay focused on presentation.
+
+The model should call the data tool first, use the returned `structuredContent`, then call the render tool with the prepared data so the widget renders once with final, model-checked context. State that dependency in the render tool description.
+
+For local UI interactions that need fresh data, let the widget call the data tool directly rather than remounting itself. See [Build your ChatGPT UI](https://developers.openai.com/apps-sdk/build/chatgpt-ui#separate-data-processing-from-ui-rendering) for the fuller implementation pattern.
+
 ## Capture metadata for discovery
 
 Discovery is driven almost entirely by metadata. For each tool, draft:
