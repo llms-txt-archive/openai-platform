@@ -76,7 +76,7 @@ allowed_sandbox_modes = ["read-only", "workspace-write"]
 
 Use `[[remote_sandbox_config]]` when one managed policy should apply different
 sandbox requirements on different hosts. For example, you can keep a stricter
-default for laptops while allowing workspace writes on matching devboxes or CI
+default for laptops while allowing workspace writes on matching dev boxes or CI
 runners. Host-specific entries currently override `allowed_sandbox_modes` only:
 
 ```toml
@@ -94,7 +94,7 @@ sequence of characters, and `?` matches one character.
 
 The first matching `[[remote_sandbox_config]]` entry wins within the same
 requirements source. If no entry matches, Codex keeps the top-level
-`allowed_sandbox_modes`. Hostname matching is for policy selection only; don't
+`allowed_sandbox_modes`. Host name matching is for policy selection only; don't
 treat it as authenticated device proof.
 
 You can also constrain web search mode:
@@ -129,7 +129,7 @@ Use the canonical feature keys from `config.toml`'s `[features]` table. Codex no
 - `in_app_browser = false` disables the in-app browser pane.
 - `browser_use = false` disables Browser Use and Browser Agent availability.
 - `computer_use = false` disables Computer Use availability and related
-  install or enablement flows.
+  install or setup flows.
 
 If omitted, these features are allowed by policy, subject to normal client,
 platform, and rollout availability.

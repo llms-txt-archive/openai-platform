@@ -6,6 +6,13 @@ Use this page as a searchable reference for Codex configuration files. For conce
 
 User-level configuration lives in `~/.codex/config.toml`. You can also add project-scoped overrides in `.codex/config.toml` files. Codex loads project-scoped config files only when you trust the project.
 
+Project-scoped config can't override machine-local provider, auth,
+notification, profile, or telemetry routing keys. Codex ignores
+`openai_base_url`, `chatgpt_base_url`, `model_provider`, `model_providers`,
+`notify`, `profile`, `profiles`, `experimental_realtime_ws_base_url`, and
+`otel` when they appear in a project-local `.codex/config.toml`; put those in
+user-level config instead.
+
 For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_workspace_write.*`), pair this reference with [Sandbox and approvals](https://developers.openai.com/codex/agent-approvals-security#sandbox-and-approvals), [Protected paths in writable roots](https://developers.openai.com/codex/agent-approvals-security#protected-paths-in-writable-roots), and [Network access](https://developers.openai.com/codex/agent-approvals-security#network-access).
 
 <ConfigTable
@@ -224,8 +231,9 @@ For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_w
     },
     {
       key: "service_tier",
-      type: "flex | fast",
-      description: "Preferred service tier for new turns.",
+      type: "string",
+      description:
+        "Preferred service tier for new turns. Built-in values include `flex` and `fast`; legacy `fast` config maps to the request value `priority`, and catalog-provided tier IDs can also be stored.",
     },
     {
       key: "experimental_compact_prompt_file",
@@ -441,6 +449,18 @@ For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_w
         "Deny list applied after `enabled_tools` for the MCP server.",
     },
     {
+      key: "mcp_servers.<id>.default_tools_approval_mode",
+      type: "auto | prompt | approve",
+      description:
+        "Default approval behavior for MCP tools on this server unless a per-tool override exists.",
+    },
+    {
+      key: "mcp_servers.<id>.tools.<tool>.approval_mode",
+      type: "auto | prompt | approve",
+      description:
+        "Per-tool approval behavior override for one MCP tool on this server.",
+    },
+    {
       key: "mcp_servers.<id>.scopes",
       type: "array<string>",
       description:
@@ -627,7 +647,7 @@ For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_w
       key: "features.fast_mode",
       type: "boolean",
       description:
-        'Enable Fast mode selection and the `service_tier = "fast"` path (stable; on by default).',
+        "Enable model-catalog service tier selection in the TUI, including Fast-tier commands when the active model advertises them (stable; on by default).",
     },
     {
       key: "features.prevent_idle_sleep",
@@ -864,7 +884,7 @@ For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_w
     },
     {
       key: "profiles.<name>.service_tier",
-      type: "flex | fast",
+      type: "string",
       description: "Profile-scoped service tier preference for new turns.",
     },
     {
@@ -1079,6 +1099,18 @@ For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_w
         "Control alternate screen usage for the TUI (default: auto; auto skips it in Zellij to preserve scrollback).",
     },
     {
+      key: "tui.vim_mode_default",
+      type: "boolean",
+      description:
+        "Start the composer in Vim normal mode instead of insert mode (default: false). You can still toggle it per session with `/vim`.",
+    },
+    {
+      key: "tui.raw_output_mode",
+      type: "boolean",
+      description:
+        "Start the TUI in raw scrollback mode for copy-friendly terminal selection (default: false). You can toggle it with `/raw` or the default `alt-r` key binding.",
+    },
+    {
       key: "tui.show_tooltips",
       type: "boolean",
       description:
@@ -1112,7 +1144,37 @@ For sandbox and approval keys (`approval_policy`, `sandbox_mode`, and `sandbox_w
       key: "tui.keymap.<context>.<action> = []",
       type: "empty array",
       description:
-        "Unbind the action in that keymap context. Key names use normalized strings such as `ctrl-a`, `shift-enter`, or `page-down`.",
+        "Unbind the action in that keymap context. Key names use normalized strings such as `ctrl-a`, `shift-enter`, `page-down`, or `minus`.",
+    },
+    {
+      key: "plugins.<plugin>.mcp_servers.<server>.enabled",
+      type: "boolean",
+      description:
+        "Enable or disable an MCP server bundled by an installed plugin without changing the plugin manifest.",
+    },
+    {
+      key: "plugins.<plugin>.mcp_servers.<server>.default_tools_approval_mode",
+      type: "auto | prompt | approve",
+      description:
+        "Default approval behavior for tools on a plugin-provided MCP server.",
+    },
+    {
+      key: "plugins.<plugin>.mcp_servers.<server>.enabled_tools",
+      type: "array<string>",
+      description:
+        "Allow list of tools exposed from a plugin-provided MCP server.",
+    },
+    {
+      key: "plugins.<plugin>.mcp_servers.<server>.disabled_tools",
+      type: "array<string>",
+      description:
+        "Deny list applied after `enabled_tools` for a plugin-provided MCP server.",
+    },
+    {
+      key: "plugins.<plugin>.mcp_servers.<server>.tools.<tool>.approval_mode",
+      type: "auto | prompt | approve",
+      description:
+        "Per-tool approval behavior override for a plugin-provided MCP tool.",
     },
     {
       key: "tui.model_availability_nux.<model>",

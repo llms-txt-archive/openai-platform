@@ -226,12 +226,12 @@ unauthenticated public listeners.
 
 ## Authentication and network exposure
 
-Use SSH port forwarding with local-host WebSocket listeners. Don't expose an
-unauthenticated app-server listener on a shared or public network.
+Remote connections use SSH to start and manage the remote Codex app server.
+Don't expose app-server transports directly on a shared or public network.
 
-If you need to reach a remote machine outside your current network, use a VPN or
-mesh networking tool such as Tailscale instead of exposing the app server
-directly to the internet.
+If you need to reach a remote machine outside your current network, use a VPN
+or mesh networking tool instead of exposing the app server directly to the
+internet.
 
 ## Troubleshooting
 
