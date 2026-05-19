@@ -102,7 +102,7 @@ If you have questions before, during, or after submission, and if your question 
 
 **How long does app review take?**
 
-The app directory and Apps SDK are currently in beta, and review timelines may vary as we continue to build and scale our processes. Please do not contact support to request expedited review, as these requests cannot be accommodated.
+Review timelines may vary as we continue to build and scale our processes. Please do not contact support to request expedited review, as these requests cannot be accommodated.
 
 **What are common rejection reasons and how can I resolve them?**
 

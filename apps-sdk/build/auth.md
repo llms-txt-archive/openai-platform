@@ -179,7 +179,11 @@ Here are instructions for some popular identity providers.
 
 #### Auth0
 
+Auth0 enables MCP clients to securely connect to MCP servers by providing metadata discovery, CIMD registration, API security, and token exchange for first- and third-party tool calls.
+
 - [Guide to configuring Auth0 for MCP authorization](https://github.com/openai/openai-mcpkit/blob/main/python-authenticated-mcp-server-scaffold/README.md#2-configure-auth0-authentication)
+- [Auth0 securing MCP servers overview](https://auth0.com/ai/docs/mcp/intro/overview)
+- [Auth0 securing MCP servers quickstarts](https://auth0.com/ai/docs/mcp/get-started/overview)
 
 #### Stytch
 

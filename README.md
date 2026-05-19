@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260518T215051Z` | 2026-05-18 21:50 UTC | [Codex networking and remote connections refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260518T215051Z) |
+| `archive-20260519T084617Z` | 2026-05-19 08:46 UTC | [Realtime Translation Shutdown and App Guidance Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260519T084617Z) |
+| `archive-20260518T215051Z` | 2026-05-18 21:52 UTC | [Codex networking and remote connections refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260518T215051Z) |
 | `archive-20260518T174818Z` | 2026-05-18 17:48 UTC | [Apps SDK Tool Planning Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260518T174818Z) |
 | `archive-20260518T144517Z` | 2026-05-18 14:46 UTC | [Codex app-server, CLI, and config docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260518T144517Z) |
 | `archive-20260516T012340Z` | 2026-05-16 01:24 UTC | [Updated gpt-4o-mini-tts Deprecation Guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260516T012340Z) |
 | `archive-20260515T155122Z` | 2026-05-15 15:52 UTC | [Rate Limit Tier Eligibility Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260515T155122Z) |
-| `archive-20260515T083020Z` | 2026-05-15 08:31 UTC | [Template MCP Server URL Submission Guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260515T083020Z) |
