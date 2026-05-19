@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260519T123027Z` | 2026-05-19 12:30 UTC | [Codex Manual Added to the Docs Index](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260519T123027Z) |
+| `archive-20260519T182618Z` | 2026-05-19 18:26 UTC | [Hooks Reference Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260519T182618Z) |
+| `archive-20260519T123027Z` | 2026-05-19 12:31 UTC | [Codex Manual Added to the Docs Index](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260519T123027Z) |
 | `archive-20260519T084617Z` | 2026-05-19 08:47 UTC | [Realtime Translation Shutdown and App Guidance Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260519T084617Z) |
 | `archive-20260518T215051Z` | 2026-05-18 21:52 UTC | [Codex networking and remote connections refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260518T215051Z) |
 | `archive-20260518T174818Z` | 2026-05-18 17:48 UTC | [Apps SDK Tool Planning Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260518T174818Z) |
 | `archive-20260518T144517Z` | 2026-05-18 14:46 UTC | [Codex app-server, CLI, and config docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260518T144517Z) |
-| `archive-20260516T012340Z` | 2026-05-16 01:24 UTC | [Updated gpt-4o-mini-tts Deprecation Guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260516T012340Z) |
