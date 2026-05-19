@@ -562,6 +562,14 @@ reference instead of inline binary data or base64 content when the result is a
 downloadable file. ChatGPT can use the returned `file_id` to provide the widget
 with a fresh temporary download URL.
 
+ChatGPT also supports downloadable files returned as MCP
+[`resource_link`](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#resource-links)
+content. Use this for file outputs that should be exposed to the user as
+downloads. For direct web downloads, return an
+[`https://`](https://modelcontextprotocol.io/specification/2025-06-18/server/resources#https)
+resource URI as defined by MCP. ChatGPT elicits user approval before it
+downloads that file for the user.
+
 ### Content security policy (CSP)
 
 Set `_meta.ui.csp` on the widget resource so the sandbox knows which domains to

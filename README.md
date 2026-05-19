@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260519T215942Z` | 2026-05-19 21:59 UTC | [Realtime transcription and VAD guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260519T215942Z) |
+| `archive-20260519T234446Z` | 2026-05-19 23:44 UTC | [Apps SDK MCP download guidance expanded](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260519T234446Z) |
+| `archive-20260519T215942Z` | 2026-05-19 22:00 UTC | [Realtime transcription and VAD guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260519T215942Z) |
 | `archive-20260519T182618Z` | 2026-05-19 18:27 UTC | [Hooks Reference Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260519T182618Z) |
 | `archive-20260519T123027Z` | 2026-05-19 12:31 UTC | [Codex Manual Added to the Docs Index](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260519T123027Z) |
 | `archive-20260519T084617Z` | 2026-05-19 08:47 UTC | [Realtime Translation Shutdown and App Guidance Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260519T084617Z) |
 | `archive-20260518T215051Z` | 2026-05-18 21:52 UTC | [Codex networking and remote connections refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260518T215051Z) |
-| `archive-20260518T174818Z` | 2026-05-18 17:48 UTC | [Apps SDK Tool Planning Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260518T174818Z) |
