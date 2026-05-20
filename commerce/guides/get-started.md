@@ -1,7 +1,7 @@
 # Get Started
 
 Onboarding product feeds in ChatGPT is currently available to approved
-  partners. To apply for access, fill out this form{" "}
+  partners. To apply for access, fill out this form 
   <a
     href="https://chatgpt.com/merchants"
     target="_blank"

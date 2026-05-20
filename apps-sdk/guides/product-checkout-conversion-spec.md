@@ -1,7 +1,7 @@
 # Product checkout conversion spec
 
 Product checkout conversion apps in ChatGPT are currently in beta and being
-  tested with approved partners. To apply for access, fill out this form{" "}
+  tested with approved partners. To apply for access, fill out this form 
   <a
     href="https://chatgpt.com/merchants"
     target="_blank"

@@ -132,7 +132,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Safety in building agents](https://developers.openai.com/api/docs/guides/agent-builder-safety.md): Minimize prompt injections and other risks when building agent workflows with OpenAI Agent Builder.
 - [Sandbox Agents](https://developers.openai.com/api/docs/guides/agents/sandboxes.md): Learn how sandboxes fit into Agents SDK workflows, when to use them, and how orchestration stays separate from execution.
 - [SDKs and CLI](https://developers.openai.com/api/docs/libraries.md): Discover official OpenAI SDKs, the OpenAI CLI, and the Agents SDK.
-- [Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels.md): Connect private MCP servers to supported OpenAI products without exposing them to the public internet.
+- [Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels.md): Connect private or on-prem MCP servers to supported OpenAI products with an outbound-only MCP tunnel, without exposing them to the public internet.
 - [Sending and returning files with GPT Actions](https://developers.openai.com/api/docs/actions/sending-files.md): Learn how to send and return files using GPT Actions in the OpenAI API.
 - [Shell](https://developers.openai.com/api/docs/guides/tools-shell.md): Run shell commands in hosted containers or your own local runtime.
 - [Skills](https://developers.openai.com/api/docs/guides/tools-skills.md): Upload, manage, and attach reusable skills to hosted environments.

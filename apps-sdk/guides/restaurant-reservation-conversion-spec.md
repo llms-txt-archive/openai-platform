@@ -1,7 +1,7 @@
 # Restaurant reservation conversion spec
 
 Restaurant reservation conversion apps in ChatGPT are currently in beta and
-  being tested with approved partners. To apply for access, fill out this form{" "}
+  being tested with approved partners. To apply for access, fill out this form 
   <a
     href="https://chatgpt.com/merchants"
     target="_blank"
