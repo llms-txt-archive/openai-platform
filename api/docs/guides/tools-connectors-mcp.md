@@ -19,7 +19,7 @@ This guide will show how to use both remote MCP servers and connectors to give t
 
 ## Secure MCP Tunnel
 
-If your MCP server is private, use [Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels) to connect it to supported OpenAI products without exposing the server to the public internet. Download the current [tunnel-client bundle](https://persistent.oaistatic.com/tunnel-client/v0.0.8--context-conduit-emerald/tunnel-client-v0.0.8--context-conduit-emerald-all.zip) or browse the open-source [openai/tunnel-client](https://github.com/openai/tunnel-client) repository for source and release notes.
+If your MCP server is private, use [Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels) to connect it to supported OpenAI products without exposing the server to the public internet. Download the latest public release from [openai/tunnel-client](https://github.com/openai/tunnel-client/releases/latest).
 
 ## Quickstart
 
