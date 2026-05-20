@@ -942,26 +942,6 @@ In the default `workspace-write` sandbox policy, writable roots still include pr
 - `/.codex` is protected as read-only when it exists as a directory.
 - Protection is recursive, so everything under those paths is read-only.
 
-#### Deny reads with filesystem profiles
-
-Named permission profiles can also deny reads for exact paths or glob patterns.
-This is useful when a workspace should stay writable but specific sensitive
-files, such as local environment files, must stay unreadable:
-
-```toml
-default_permissions = "workspace"
-
-[permissions.workspace.filesystem]
-":project_roots" = { "." = "write", "**/*.env" = "none" }
-glob_scan_max_depth = 3
-```
-
-Use `"none"` for paths or globs that Codex shouldn't read. The sandbox policy
-evaluates globs for local macOS and Linux command execution. On platforms that
-pre-expand glob matches before the sandbox starts, set `glob_scan_max_depth` for
-unbounded `**` patterns, or list explicit depths such as `*.env`, `*/*.env`, and
-`*/*/*.env`.
-
 #### Run without approval prompts
 
 You can disable approval prompts with `--ask-for-approval never` or `-a never` (shorthand).
@@ -1229,15 +1209,6 @@ If you need Codex to work across more than one directory, writable roots let
 you extend the places it can modify without removing the sandbox entirely. If
 you need a broader or narrower trust boundary, adjust the default sandbox mode
 and approval policy instead of relying on one-off exceptions.
-
-For reusable permission sets, set `default_permissions` to a named profile and
-define `[permissions..filesystem]` or `[permissions..network]`.
-Managed network profiles use map tables such as
-`[permissions..network.domains]` and
-`[permissions..network.unix_sockets]` for domain and socket rules.
-Filesystem profiles can also deny reads for exact paths or glob patterns by
-setting matching entries to `"none"`; use this to keep files such as local
-secrets unreadable without turning off workspace writes.
 
 When a workflow needs a specific exception, use [rules](https://developers.openai.com/codex/rules). Rules
 let you allow, prompt, or forbid command prefixes outside the sandbox, which is
@@ -1543,6 +1514,8 @@ Pick approval strictness (affects when Codex pauses) and sandbox level (affects 
 
 For operational details to keep in mind while editing `config.toml`, see [Common sandbox and approval combinations](https://developers.openai.com/codex/agent-approvals-security#common-sandbox-and-approval-combinations), [Protected paths in writable roots](https://developers.openai.com/codex/agent-approvals-security#protected-paths-in-writable-roots), and [Network access](https://developers.openai.com/codex/agent-approvals-security#network-access).
 
+For beta permission profiles that configure filesystem and network access together, see [Permissions](https://developers.openai.com/codex/permissions).
+
 You can also use a granular approval policy (`approval_policy = { granular = { ... } }`) to allow or auto-reject individual prompt categories. This is useful when you want normal interactive approvals for some cases but want others, such as `request_permissions` or skill-script prompts, to fail closed automatically.
 
 Set `approvals_reviewer = "auto_review"` to route eligible interactive approval
@@ -1581,35 +1554,12 @@ Use your organization's automatic review policy.
 
 #### Named permission profiles
 
-Set `default_permissions` to reuse a sandbox profile by name. Codex includes
-the built-in profiles `:read-only`, `:workspace`, and `:danger-no-sandbox`:
+For built-in profiles, custom profile syntax, and the full filesystem and
+network configuration model, see [Permissions](https://developers.openai.com/codex/permissions).
 
-```toml
-default_permissions = ":workspace"
-```
-
-For custom profiles, point `default_permissions` at a name you define under
-`[permissions.]`:
-
-```toml
-default_permissions = "workspace"
-
-[permissions.workspace.filesystem]
-":project_roots" = { "." = "write", "**/*.env" = "none" }
-glob_scan_max_depth = 3
-
-[permissions.workspace.network]
-enabled = true
-mode = "limited"
-
-[permissions.workspace.network.domains]
-"api.openai.com" = "allow"
-```
-
-Use built-in names with a leading colon. Custom names don't use a leading
-colon and must have matching `permissions` tables.
-
-Need the complete key list (including profile-scoped overrides and requirements constraints)? See [Configuration Reference](https://developers.openai.com/codex/config-reference) and [Managed configuration](https://developers.openai.com/codex/enterprise/managed-configuration).
+For the complete key list, including profile-scoped overrides and requirements
+constraints, see [Configuration Reference](https://developers.openai.com/codex/config-reference) and
+[Managed configuration](https://developers.openai.com/codex/enterprise/managed-configuration).
 
 In workspace-write mode, some environments keep `.git/` and `.codex/`
 read-only even when the rest of the workspace is writable. This is why
@@ -1977,13 +1927,10 @@ For mode-by-mode behavior (including protected `.git`/`.codex` paths and network
 
 #### Permission profiles
 
-Use a named permission profile when you want one reusable filesystem or network policy across sessions:
-
-```toml
-default_permissions = ":workspace"
-```
-
-Built-in profiles include `:read-only`, `:workspace`, and `:danger-no-sandbox`. For custom filesystem or network rules, define `[permissions.]` tables and set `default_permissions` to that name.
+Codex also supports named permission profiles for reusable filesystem and
+network policies. Built-in profiles are `:read-only`, `:workspace`, and
+`:danger-full-access`. Custom profiles use `[permissions.]` tables and a
+matching `default_permissions` value. See [Permissions](https://developers.openai.com/codex/permissions).
 
 #### Windows sandbox mode
 
@@ -2294,17 +2241,9 @@ allow_login_shell = true
 # - danger-full-access (no sandbox; extremely risky)
 sandbox_mode = "read-only"
 # Named permissions profile to apply by default. Built-ins:
-# :read-only | :workspace | :danger-no-sandbox
+# :read-only | :workspace | :danger-full-access
 # Use a custom name such as "workspace" only when you also define [permissions.workspace].
 # default_permissions = ":workspace"
-
-# Example filesystem profile. Use `"none"` to deny reads for exact paths or
-# glob patterns. On platforms that need pre-expanded glob matches, set
-# glob_scan_max_depth when using unbounded patterns such as `**`.
-# [permissions.workspace.filesystem]
-# glob_scan_max_depth = 3
-# ":project_roots" = { "." = "write", "**/*.env" = "none" }
-# "/absolute/path/to/secrets" = "none"
 
 ################################################################################
 # Authentication & Login
@@ -2464,6 +2403,20 @@ experimental_use_profile = false
 # Add an exact local IP literal or `localhost` allow rule for one target, or set it to true only when broader local access is required.
 #
 # Set `default_permissions = "workspace"` before enabling this profile.
+# Example additional workspace roots that inherit this profile's
+# `:workspace_roots` filesystem rules.
+# [permissions.workspace.workspace_roots]
+# "~/code/app" = true
+# "~/code/shared-lib" = true
+#
+# Example filesystem profile. Use `"deny"` to deny reads for exact paths or
+# glob patterns. On platforms that need pre-expanded glob matches, set
+# glob_scan_max_depth when using unbounded patterns such as `**`.
+# [permissions.workspace.filesystem]
+# glob_scan_max_depth = 3
+# ":workspace_roots" = { "." = "write", "**/*.env" = "deny" }
+# "/absolute/path/to/secrets" = "deny"
+#
 # [permissions.workspace.network]
 # enabled = true
 # proxy_url = "http://127.0.0.1:43128"
@@ -2475,6 +2428,7 @@ experimental_use_profile = false
 # dangerously_allow_non_loopback_proxy = false
 # dangerously_allow_non_loopback_admin = false
 # dangerously_allow_all_unix_sockets = false
+# mode = "limited"                           # limited | full
 # allow_local_binding = false
 #
 # [permissions.workspace.network.domains]
@@ -9492,6 +9446,93 @@ Use the Codex GitHub repository for bug reports and feature requests across Code
 - Discussion forum: [openai/codex/discussions](https://github.com/openai/codex/discussions)
 
 When you file an issue, include which component you are using (CLI, SDK, IDE extension, Codex web) and the version where possible.
+
+### Permissions
+
+Source: [Permissions](https://developers.openai.com/codex/permissions.md)
+
+#### Define and select a profile
+
+Codex includes three built-in permission profiles:
+
+- `:read-only` keeps local command execution read-only.
+- `:workspace` allows writes inside the active workspace roots.
+- `:danger-full-access` removes local sandbox restrictions and should be used
+  only when that broad access is intentional.
+
+Create a named profile under `[permissions.]`, then set the top-level
+`default_permissions` key to that profile name or to one of the built-ins above.
+In this example, `project-edit` is a user-defined profile name, not a built-in
+value.
+
+Custom profiles use two related concepts:
+
+- `[permissions..workspace_roots]` adds concrete directories that should
+  count as workspace roots for that profile.
+- `[permissions..filesystem.":workspace_roots"]` defines the filesystem
+  rules Codex applies inside every effective workspace root: the current
+  session's runtime workspace roots plus the profile-defined roots above.
+
+Profiles also use the normal config-layer model. Higher-precedence layers can
+add or replace entries under the same profile name without restating the whole
+profile.
+
+For example, an organization-level config and a user-level config can extend
+the same profile independently:
+
+```toml
+# /etc/codex/config.toml
+[permissions.server.workspace_roots]
+"~/code/server" = true
+```
+
+```toml
+# ~/.codex/config.toml
+[permissions.server.workspace_roots]
+"~/code/mobile-app" = true
+```
+
+When `server` is active, both workspace roots participate in the effective
+profile.
+
+```toml
+default_permissions = "project-edit"
+
+[permissions.project-edit.workspace_roots]
+"~/code/app" = true
+"~/code/shared-lib" = true
+
+[permissions.project-edit.filesystem]
+":minimal" = "read"
+
+[permissions.project-edit.filesystem.":workspace_roots"]
+"." = "write"
+".devcontainer" = "read"
+"**/*.env" = "deny"
+
+[permissions.project-edit.network]
+enabled = true
+
+[permissions.project-edit.network.domains]
+"api.openai.com" = "allow"
+"objects.githubusercontent.com" = "allow"
+"*.github.com" = "allow"
+"tracking.example.com" = "deny"
+```
+
+This profile:
+
+- Reads the minimal runtime paths common developer tools need.
+- Applies the same workspace-root rules to the current session and the
+  profile-defined roots.
+- Keeps IDE-adjacent settings such as `.devcontainer/` read-only under each
+  root.
+- Denies matching environment files with a glob rule.
+- Allows network access only through the configured domain policy.
+
+Inside an active profile, narrower deny rules stay in force even when a broader
+path is readable or writable. For example, a profile can make workspace roots
+writable while still setting a matching `.env` path to `deny`.
 
 ### Plugins
 

@@ -125,6 +125,9 @@ Use this as a compact map of Codex docs. Each page has a Markdown twin at `/code
 ## Overview
 - [Codex](https://developers.openai.com/codex/overview.md): One agent for everywhere you code
 
+## Permissions
+- [Permissions](https://developers.openai.com/codex/permissions.md): Configure beta Codex permission profiles for filesystem and network access
+
 ## Plugins
 - [Plugins](https://developers.openai.com/codex/plugins.md): Use plugins in Codex to add reusable workflows with skills and app integrations
 - [Build plugins](https://developers.openai.com/codex/plugins/build.md): Create, test, and distribute plugins for Codex
