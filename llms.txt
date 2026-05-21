@@ -89,6 +89,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Managing costs](https://developers.openai.com/api/docs/guides/realtime-costs.md): Learn how to monitor and optimize your costs when using the Realtime API.
 - [MCP and Connectors](https://developers.openai.com/api/docs/guides/tools-connectors-mcp.md): Use remote MCP servers and OpenAI-maintained connectors for popular services to give models new capabilities.
 - [Meeting minutes](https://developers.openai.com/api/docs/tutorials/meeting-minutes.md): Create an automated meeting minutes generator with Whisper and GPT-4.
+- [Migrate from prompt objects](https://developers.openai.com/api/docs/guides/prompting/migrate-from-prompt-object.md): Learn how to migrate from reusable prompt objects to versioned prompts in your application code.
 - [Migrate to the Responses API](https://developers.openai.com/api/docs/guides/migrate-to-responses.md)
 - [Model optimization](https://developers.openai.com/api/docs/guides/model-optimization.md): Ensure quality model outputs with evals and fine-tuning in the OpenAI platform.
 - [Model selection](https://developers.openai.com/api/docs/guides/model-selection.md): Learn how to choose the right model by balancing accuracy, latency, and cost for optimal performance.
@@ -480,6 +481,9 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 
 ## Codex — App Server
 - [Codex App Server](https://developers.openai.com/codex/app-server.md): Embed Codex into your product with the app-server protocol
+
+## Codex — Appshots
+- [Appshots](https://developers.openai.com/codex/appshots.md): Give Codex context from any Mac app
 
 ## Codex — Auth
 - [Authentication](https://developers.openai.com/codex/auth.md): Sign-in methods for Codex
