@@ -67,7 +67,17 @@ When you set a goal, the goal text acts as both the starting prompt and the
 completion criteria. Codex uses it to decide what to do next and whether the
 task is complete. Start Goal mode with `/goal` in the [Codex
 app](https://developers.openai.com/codex/app/commands#set-or-manage-a-goal-with-goal), [IDE
-extension](https://developers.openai.com/codex/ide/slash-commands), or [CLI](https://developers.openai.com/codex/cli/slash-commands#set-or-view-an-experimental-task-goal-with-goal).
+extension](https://developers.openai.com/codex/ide/slash-commands), or [CLI](https://developers.openai.com/codex/cli/slash-commands#set-or-view-a-task-goal-with-goal).
+
+If `/goal` doesn't appear in the slash command list, enable `features.goals`
+in `config.toml`:
+
+```toml
+[features]
+goals = true
+```
+
+You can also run `codex features enable goals` from the CLI or ask Codex to run it.
 In the Codex app, progress appears above the composer with controls to pause,
 resume, edit, or clear the goal.
 

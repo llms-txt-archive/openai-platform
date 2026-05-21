@@ -56,6 +56,16 @@ objective that Codex works toward until it finishes the task, pauses, or needs
 more input. To define the goal with Codex first, start with `/plan`, then set
 the refined goal with `/goal`.
 
+If `/goal` doesn't appear in the slash command list, enable `features.goals`
+in `config.toml`:
+
+```toml
+[features]
+goals = true
+```
+
+You can also run `codex features enable goals` from the CLI or ask Codex to run it.
+
 <CodexScreenshot
   alt="Codex app goal progress controls above the composer"
   lightSrc="/images/codex/app/goal-dialog-light.webp"

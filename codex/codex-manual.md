@@ -517,7 +517,17 @@ When you set a goal, the goal text acts as both the starting prompt and the
 completion criteria. Codex uses it to decide what to do next and whether the
 task is complete. Start Goal mode with `/goal` in the [Codex
 app](/codex/app/commands#set-or-manage-a-goal-with-goal), [IDE
-extension](/codex/ide/slash-commands), or [CLI](/codex/cli/slash-commands#set-or-view-an-experimental-task-goal-with-goal).
+extension](/codex/ide/slash-commands), or [CLI](/codex/cli/slash-commands#set-or-view-a-task-goal-with-goal).
+
+If `/goal` doesn't appear in the slash command list, enable `features.goals`
+in `config.toml`:
+
+```toml
+[features]
+goals = true
+```
+
+You can also run `codex features enable goals` from the CLI or ask Codex to run it.
 In the Codex app, progress appears above the composer with controls to pause,
 resume, edit, or clear the goal.
 
@@ -3854,6 +3864,16 @@ objective that Codex works toward until it finishes the task, pauses, or needs
 more input. To define the goal with Codex first, start with `/plan`, then set
 the refined goal with `/goal`.
 
+If `/goal` doesn't appear in the slash command list, enable `features.goals`
+in `config.toml`:
+
+```toml
+[features]
+goals = true
+```
+
+You can also run `codex features enable goals` from the CLI or ask Codex to run it.
+
 When a goal is active, the app shows its progress above the composer. Use the
 buttons in that progress row to pause or resume the goal, edit the goal text, or
 clear the goal instead of typing another slash command. You can keep steering
@@ -4808,9 +4828,20 @@ Slash commands let you control Codex without leaving the chat input. Use them to
 | `/cloud`             | Switch to cloud mode to run the task remotely (requires cloud access).                 |
 | `/cloud-environment` | Choose the cloud environment to use (available only in cloud mode).                    |
 | `/feedback`          | Open the feedback dialog to submit feedback and optionally include logs.               |
+| `/goal`              | Set a persistent goal for Codex to work toward.                                        |
 | `/local`             | Switch to local mode to run the task in your workspace.                                |
 | `/review`            | Start code review mode to review uncommitted changes or compare against a base branch. |
 | `/status`            | Show the thread ID, context usage, and rate limits.                                    |
+
+If `/goal` doesn't appear in the slash command list, enable `features.goals`
+in `config.toml`:
+
+```toml
+[features]
+goals = true
+```
+
+You can also run `codex features enable goals` from the CLI or ask Codex to run it.
 
 ### Computer Use
 
@@ -5286,7 +5317,7 @@ completion still works before you queue the command.
 | [`/model`](#set-the-active-model-with-model)                                    | Choose the active model (and reasoning effort, when available). | Switch between general-purpose models (`gpt-4.1-mini`) and deeper reasoning models before running a task.  |
 | [`/fast`](#toggle-fast-mode-with-fast)                                          | Toggle a Fast service tier when the model catalog exposes one.  | Turn the current model's Fast tier on or off, or check whether the thread is using it.                     |
 | [`/plan`](#switch-to-plan-mode-with-plan)                                       | Switch to plan mode and optionally send a prompt.               | Ask Codex to propose an execution plan before implementation work starts.                                  |
-| [`/goal`](#set-or-view-an-experimental-task-goal-with-goal)                     | Set, pause, resume, view, or clear a task goal.                 | Give Codex a persistent target to track while a larger task runs. Requires experimental `features.goals`.  |
+| [`/goal`](#set-or-view-a-task-goal-with-goal)                                   | Set, pause, resume, view, or clear a task goal.                 | Give Codex a persistent target to track while a larger task runs.                                          |
 | [`/personality`](#set-a-communication-style-with-personality)                   | Choose a communication style for responses.                     | Make Codex more concise, more explanatory, or more collaborative without changing your instructions.       |
 | [`/ps`](#check-background-terminals-with-ps)                                    | Show experimental background terminals and their recent output. | Check long-running commands without leaving the main transcript.                                           |
 | [`/stop`](#stop-background-terminals-with-stop)                                 | Stop all background terminals.                                  | Cancel background terminal work started by the current session.                                            |
@@ -5361,11 +5392,7 @@ Expected: Codex enters plan mode and uses your optional inline prompt as the fir
 
 While a task is already running, `/plan` is temporarily unavailable.
 
-#### Set or view an experimental task goal with `/goal`
-
-`/goal` is experimental. Codex shows it only after you enable `features.goals`.
-To enable it, open `/experimental` or add `goals = true` under `[features]` in
-`config.toml`.
+#### Set or view a task goal with `/goal`
 
 1. Type `/goal ` to set the goal, for example `/goal Finish the migration and keep tests green`.
 2. Type `/goal` to view the current goal.
