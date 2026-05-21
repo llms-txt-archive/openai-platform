@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260521T013345Z` | 2026-05-21 01:33 UTC | [Codex filesystem path guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260521T013345Z) |
+| `archive-20260521T172014Z` | 2026-05-21 17:20 UTC | [Codex Manual Navigation Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260521T172014Z) |
+| `archive-20260521T013345Z` | 2026-05-21 01:34 UTC | [Codex filesystem path guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260521T013345Z) |
 | `archive-20260520T212301Z` | 2026-05-20 21:25 UTC | [Codex Config and Realtime Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260520T212301Z) |
 | `archive-20260520T190713Z` | 2026-05-20 19:07 UTC | [Secure MCP Tunnel Guide Expansion](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260520T190713Z) |
 | `archive-20260520T161710Z` | 2026-05-20 16:17 UTC | [Responses Migration Guide Link Fix](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260520T161710Z) |
 | `archive-20260520T084350Z` | 2026-05-20 08:45 UTC | [Secure MCP Tunnel docs refreshed; deprecations table trimmed](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260520T084350Z) |
-| `archive-20260520T045109Z` | 2026-05-20 04:52 UTC | [Permissions Profiles and Secure MCP Tunnel](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260520T045109Z) |
