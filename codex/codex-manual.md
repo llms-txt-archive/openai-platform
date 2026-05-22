@@ -8830,7 +8830,7 @@ Codex gives enterprise teams visibility into adoption and impact, plus the audit
 
 There are three ways to monitor Codex usage, depending on what you need:
 
-- **Analytics Dashboard**: quick visibility into adoption and code review impact.
+- **Analytics Dashboard**: quick visibility into adoption, usage, and code review impact.
 - **Analytics API**: pull structured daily metrics into your data warehouse or BI tools.
 - **Compliance API**: exports detailed activity logs for audit, monitoring, and investigations.
 
@@ -8838,12 +8838,12 @@ There are three ways to monitor Codex usage, depending on what you need:
 
 #### Dashboard views
 
-The [analytics dashboard](https://chatgpt.com/codex/cloud/settings/analytics#usage) allows ChatGPT workspace administrators and analytics viewers to track Codex adoption, usage, and Code Review feedback. Usage data can lag by up to 12 hours.
+The analytics dashboard allows ChatGPT workspace administrators and analytics viewers to track Codex adoption, usage, and Code Review feedback. Usage data can lag by up to 12 hours.
 
 Codex provides date-range controls for daily and weekly views. Key charts include:
 
 - Active users by product surface, including CLI, IDE extension, cloud, desktop, and Code Review
-- Workspace and personal usage breakdowns, including credit and token usage by product surface
+- Workspace and personal usage breakdowns, including credit and token usage by product surface or model
 - Product activity for threads and turns by client
 - User ranking table, with filters for client and sort options such as credits, threads, turns, text tokens, and current streak
 - Code Review activity, including PRs reviewed, issues by priority, comments, replies, reactions, and feedback sentiment
