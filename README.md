@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260522T182228Z` | 2026-05-22 18:22 UTC | [Codex Mobile Setup Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260522T182228Z) |
+| `archive-20260522T202431Z` | 2026-05-22 20:24 UTC | [Codex Hooks and Marketplace Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260522T202431Z) |
+| `archive-20260522T182228Z` | 2026-05-22 18:23 UTC | [Codex Mobile Setup Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260522T182228Z) |
 | `archive-20260522T160458Z` | 2026-05-22 16:06 UTC | [Codex Deep Links Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260522T160458Z) |
 | `archive-20260522T013505Z` | 2026-05-22 01:35 UTC | [Admin API Controls and Tunnel Health Guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260522T013505Z) |
 | `archive-20260521T211635Z` | 2026-05-21 21:17 UTC | [Codex `/goal` docs expanded](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260521T211635Z) |
 | `archive-20260521T192906Z` | 2026-05-21 19:30 UTC | [Codex Appshots, Goals, and Plugin Sharing](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260521T192906Z) |
-| `archive-20260521T172014Z` | 2026-05-21 17:21 UTC | [Codex Manual Navigation Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260521T172014Z) |

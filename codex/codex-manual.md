@@ -2070,23 +2070,22 @@ shell_snapshot = true           # Speed up repeated commands
 
 #### Supported features
 
-| Key                  |        Default        | Maturity          | Description                                                                                    |
-| -------------------- | :-------------------: | ----------------- | ---------------------------------------------------------------------------------------------- |
-| `apps`               |         false         | Experimental      | Enable ChatGPT Apps/connectors support                                                         |
-| `codex_git_commit`   |         false         | Experimental      | Enable Codex-generated git commits and commit attribution trailers                             |
-| `hooks`              |         true          | Stable            | Enable lifecycle hooks from `hooks.json` or inline `[hooks]`. See [Hooks](/codex/hooks).       |
-| `plugin_hooks`       |         false         | Under development | Opt into lifecycle hooks bundled with plugins. See [Hooks](/codex/hooks#plugin-bundled-hooks). |
-| `fast_mode`          |         true          | Stable            | Enable Fast mode selection and the `service_tier = "fast"` path                                |
-| `memories`           |         false         | Stable            | Enable [Memories](/codex/memories)                                                             |
-| `multi_agent`        |         true          | Stable            | Enable subagent collaboration tools                                                            |
-| `personality`        |         true          | Stable            | Enable personality selection controls                                                          |
-| `shell_snapshot`     |         true          | Stable            | Snapshot your shell environment to speed up repeated commands                                  |
-| `shell_tool`         |         true          | Stable            | Enable the default `shell` tool                                                                |
-| `unified_exec`       | `true` except Windows | Stable            | Use the unified PTY-backed exec tool                                                           |
-| `undo`               |         false         | Stable            | Enable undo via per-turn git ghost snapshots                                                   |
-| `web_search`         |         true          | Deprecated        | Legacy toggle; prefer the top-level `web_search` setting                                       |
-| `web_search_cached`  |         false         | Deprecated        | Legacy toggle that maps to `web_search = "cached"` when unset                                  |
-| `web_search_request` |         false         | Deprecated        | Legacy toggle that maps to `web_search = "live"` when unset                                    |
+| Key                  |        Default        | Maturity     | Description                                                                              |
+| -------------------- | :-------------------: | ------------ | ---------------------------------------------------------------------------------------- |
+| `apps`               |         false         | Experimental | Enable ChatGPT Apps/connectors support                                                   |
+| `codex_git_commit`   |         false         | Experimental | Enable Codex-generated git commits and commit attribution trailers                       |
+| `hooks`              |         true          | Stable       | Enable lifecycle hooks from `hooks.json` or inline `[hooks]`. See [Hooks](/codex/hooks). |
+| `fast_mode`          |         true          | Stable       | Enable Fast mode selection and the `service_tier = "fast"` path                          |
+| `memories`           |         false         | Stable       | Enable [Memories](/codex/memories)                                                       |
+| `multi_agent`        |         true          | Stable       | Enable subagent collaboration tools                                                      |
+| `personality`        |         true          | Stable       | Enable personality selection controls                                                    |
+| `shell_snapshot`     |         true          | Stable       | Snapshot your shell environment to speed up repeated commands                            |
+| `shell_tool`         |         true          | Stable       | Enable the default `shell` tool                                                          |
+| `unified_exec`       | `true` except Windows | Stable       | Use the unified PTY-backed exec tool                                                     |
+| `undo`               |         false         | Stable       | Enable undo via per-turn git ghost snapshots                                             |
+| `web_search`         |         true          | Deprecated   | Legacy toggle; prefer the top-level `web_search` setting                                 |
+| `web_search_cached`  |         false         | Deprecated   | Legacy toggle that maps to `web_search = "cached"` when unset                            |
+| `web_search_request` |         false         | Deprecated   | Legacy toggle that maps to `web_search = "live"` when unset                              |
 
 The Maturity column uses feature maturity labels such as Experimental, Beta,
 and Stable. See [Feature Maturity](/codex/feature-maturity) for how to
@@ -2812,8 +2811,6 @@ enabled = true
 
 # hooks = false
 
-# plugin_hooks = false # Default off; set true to opt into plugin-bundled hooks.
-
 # codex_git_commit = false
 
 # unified_exec = true
@@ -3277,6 +3274,7 @@ basics](/codex/config-basic#configuration-precedence) for more information.
 | `--cd, -C`                                           | `path`                                               |         | Set the working directory for the agent before it starts processing your request.                                                                                                                                              |
 | `--config, -c`                                       | `key=value`                                          |         | Override configuration values. Values parse as JSON if possible; otherwise the literal string is used.                                                                                                                         |
 | `--dangerously-bypass-approvals-and-sandbox, --yolo` | `boolean`                                            | `false` | Run every command without approvals or sandboxing. Only use inside an externally hardened environment.                                                                                                                         |
+| `--dangerously-bypass-hook-trust`                    | `boolean`                                            | `false` | Run enabled hooks without requiring persisted hook trust for this invocation. Intended only for automation that already vets hook sources.                                                                                     |
 | `--disable`                                          | `feature`                                            |         | Force-disable a feature flag (translates to `-c features.=false`). Repeatable.                                                                                                                                                 |
 | `--enable`                                           | `feature`                                            |         | Force-enable a feature flag (translates to `-c features.=true`). Repeatable.                                                                                                                                                   |
 | `--image, -i`                                        | `path[,path...]`                                     |         | Attach one or more image files to the initial prompt. Separate multiple paths with commas or repeat the flag.                                                                                                                  |
@@ -3317,7 +3315,7 @@ interpret these labels.
 | [`codex logout`](/codex/cli/reference#codex-logout)                                                     | `stable`       |         | Remove stored authentication credentials.                                                                                               |
 | [`codex mcp`](/codex/cli/reference#codex-mcp)                                                           | `experimental` |         | Manage Model Context Protocol servers (list, add, remove, authenticate).                                                                |
 | [`codex mcp-server`](/codex/cli/reference#codex-mcp-server)                                             | `experimental` |         | Run Codex itself as an MCP server over stdio. Useful when another agent consumes Codex.                                                 |
-| [`codex plugin marketplace`](/codex/cli/reference#codex-plugin-marketplace)                             | `experimental` |         | Add, upgrade, or remove plugin marketplaces from Git or local sources.                                                                  |
+| [`codex plugin marketplace`](/codex/cli/reference#codex-plugin-marketplace)                             | `experimental` |         | Add, list, upgrade, or remove plugin marketplaces from Git or local sources.                                                            |
 | [`codex remote-control`](/codex/cli/reference#codex-remote-control)                                     | `experimental` |         | Ensure the local app-server daemon is running with remote-control support enabled.                                                      |
 | [`codex resume`](/codex/cli/reference#codex-resume)                                                     | `stable`       |         | Continue a previous interactive session by ID or resume the most recent conversation.                                                   |
 | [`codex sandbox`](/codex/cli/reference#codex-sandbox)                                                   | `experimental` |         | Run arbitrary commands inside Codex-provided macOS, Linux, or Windows sandboxes.                                                        |
@@ -9168,9 +9166,13 @@ directory where your MDM or endpoint-management tooling installs the referenced
 scripts.
 
 To enforce managed hooks even for users who disabled hooks locally, pin
-`[features].hooks = true` alongside `[hooks]`.
+`[features].hooks = true` alongside `[hooks]`. To skip user, project, session,
+and plugin hooks while still allowing managed hooks, set
+`allow_managed_hooks_only = true`.
 
 ```toml
+allow_managed_hooks_only = true
+
 [features]
 hooks = true
 
@@ -9184,6 +9186,7 @@ matcher = "^Bash$"
 [[hooks.PreToolUse.hooks]]
 type = "command"
 command = "python3 /enterprise/hooks/pre_tool_use_policy.py"
+command_windows = 'py -3 C:\enterprise\hooks\pre_tool_use_policy.py'
 timeout = 30
 statusMessage = "Checking managed Bash command"
 ```
@@ -9195,6 +9198,9 @@ Notes:
 - Deliver those scripts separately with your MDM or device-management solution.
 - Managed hook commands should reference absolute script paths under the
   configured managed directory.
+- `allow_managed_hooks_only = true` skips hooks from user, project, session, and
+  plugin sources, but still loads hooks from `requirements.toml` and other
+  managed config layers.
 
 #### Enforce command rules from requirements
 
@@ -9420,13 +9426,18 @@ directories. Use `--ref` to pin a Git ref, and repeat `--sparse PATH` to use a
 sparse checkout for Git-backed marketplace repos. `--sparse` is valid only for
 Git marketplace sources.
 
-To refresh or remove configured marketplaces:
+To inspect, refresh, or remove configured marketplaces:
 
 ```bash
+codex plugin marketplace list
 codex plugin marketplace upgrade
 codex plugin marketplace upgrade marketplace-name
 codex plugin marketplace remove marketplace-name
 ```
+
+`codex plugin marketplace list` prints each marketplace Codex is considering
+and the root path it resolves from, including local default marketplaces and
+configured marketplace snapshots.
 
 #### Create a plugin manually
 
@@ -9768,8 +9779,10 @@ Runtime behavior to keep in mind:
 - Multiple matching command hooks for the same event are launched concurrently,
   so one hook cannot prevent another matching hook from starting.
 - Non-managed command hooks must be reviewed and trusted before they run.
-- `PreToolUse`, `PermissionRequest`, `PostToolUse`, `UserPromptSubmit`, and
-  `Stop` run at turn scope.
+- `PreToolUse`, `PermissionRequest`, `PostToolUse`, `PreCompact`,
+  `PostCompact`, `UserPromptSubmit`, `SubagentStop`, and `Stop` run at turn
+  scope. `SessionStart` and `SubagentStart` run at thread or subagent-start
+  scope.
 
 #### Where Codex looks for hooks
 
@@ -9795,29 +9808,38 @@ Higher-precedence config layers don't replace lower-precedence hooks.
 If a single layer contains both `hooks.json` and inline `[hooks]`, Codex
 merges them and warns at startup. Prefer one representation per layer.
 
-Plugin hooks are off by default in this release. If
-`[features].plugin_hooks = true`, Codex can also discover hooks bundled with
-enabled plugins. Otherwise, enabled plugins won't run bundled hooks.
+Codex can also discover hooks bundled with enabled plugins. Plugin-bundled
+hooks load alongside other hook sources and use the same trust-review flow as
+other non-managed hooks.
 
 Project-local hooks load only when the project `.codex/` layer is trusted. In
 untrusted projects, Codex still loads user and system hooks from their own
 active config layers.
 
-#### Review and manage hooks
+#### Review and trust hooks
 
-Codex lists configured hooks before deciding which ones can run. Use `/hooks`
-in the CLI to inspect hook sources, review new or changed hooks, trust hooks, or
-disable individual non-managed hooks. If hooks need review at startup, Codex
-prints a warning that tells you to open `/hooks`.
+Codex lists configured hooks before deciding which ones can run. Before a
+non-managed command hook can run, Codex requires you to review and trust the
+exact hook definition. Codex records trust against the hook's current hash, so
+new or changed hooks are marked for review and skipped until trusted.
+
+Use `/hooks` in the CLI to inspect hook sources, review new or changed hooks,
+trust hooks, or disable individual non-managed hooks. If hooks need review at
+startup, Codex prints a warning that tells you to open `/hooks`.
 
 Managed hooks from system, MDM, cloud, or `requirements.toml` sources are marked
 as managed, trusted by policy, and can't be disabled from the user hook browser.
+
+For one-off automation that already vets hook sources outside Codex, pass
+`--dangerously-bypass-hook-trust` to run enabled hooks without requiring
+persisted hook trust for that invocation.
 
 #### Config shape
 
 Hooks are organized in three levels:
 
-- A hook event such as `PreToolUse`, `PostToolUse`, or `Stop`
+- A hook event such as `PreToolUse`, `PostToolUse`, `PreCompact`,
+  `SubagentStart`, or `Stop`
 - A matcher group that decides when that event matches
 - One or more hook handlers that run when the matcher group matches
 
@@ -9902,6 +9924,8 @@ Notes:
 - `timeout` is in seconds.
 - If `timeout` is omitted, Codex uses `600` seconds.
 - `statusMessage` is optional.
+- `commandWindows` is an optional Windows-only command override. In TOML, use
+  `command_windows` or `commandWindows`.
 - `async` is parsed, but async command hooks aren't supported yet. Codex skips
   handlers with `async: true`.
 - Only `type: "command"` handlers run today. `prompt` and `agent` handlers are
@@ -9945,8 +9969,12 @@ Only some current Codex events honor `matcher`:
 | ------------------- | ---------------------- | ------------------------------------------------------------ |
 | `PermissionRequest` | tool name              | Support includes `Bash`, `apply_patch`\*, and MCP tool names |
 | `PostToolUse`       | tool name              | Support includes `Bash`, `apply_patch`\*, and MCP tool names |
+| `PostCompact`       | compaction trigger     | Values are `manual` or `auto`                                |
+| `PreCompact`        | compaction trigger     | Values are `manual` or `auto`                                |
 | `PreToolUse`        | tool name              | Support includes `Bash`, `apply_patch`\*, and MCP tool names |
-| `SessionStart`      | start source           | Current runtime values are `startup`, `resume`, and `clear`  |
+| `SessionStart`      | start source           | Values are `startup`, `resume`, `clear`, and `compact`       |
+| `SubagentStart`     | subagent type          | Values depend on the subagent that starts                    |
+| `SubagentStop`      | subagent type          | Values depend on the subagent that stops                     |
 | `UserPromptSubmit`  | not supported          | Any configured `matcher` is ignored for this event           |
 | `Stop`              | not supported          | Any configured `matcher` is ignored for this event           |
 
@@ -9959,34 +9987,8 @@ Examples:
 - `Edit|Write`
 - `mcp__filesystem__read_file`
 - `mcp__filesystem__.*`
-- `startup|resume|clear`
-
-#### Common input fields
-
-Every command hook receives one JSON object on `stdin`.
-
-These are the shared fields you will usually use:
-
-| Field             | Type             | Meaning                                     |
-| ----------------- | ---------------- | ------------------------------------------- |
-| `session_id`      | `string`         | Current session or thread id.               |
-| `transcript_path` | `string \| null` | Path to the session transcript file, if any |
-| `cwd`             | `string`         | Working directory for the session           |
-| `hook_event_name` | `string`         | Current hook event name                     |
-| `model`           | `string`         | Codex-specific extension. Active model slug |
-
-Turn-scoped hooks list `turn_id` as a Codex-specific extension in their
-event-specific tables.
-
-`SessionStart`, `PreToolUse`, `PermissionRequest`, `PostToolUse`,
-`UserPromptSubmit`, and `Stop` also include `permission_mode`, which describes
-the current permission mode as `default`, `acceptEdits`, `plan`, `dontAsk`, or
-`bypassPermissions`.
-
-`transcript_path` points to a conversation transcript for convenience, but the
-transcript format is not a stable interface for hooks and may change over time.
-
-If you need the full wire format, see [Schemas](#schemas).
+- `startup|resume|clear|compact`
+- `manual|auto`
 
 ### Memories
 
