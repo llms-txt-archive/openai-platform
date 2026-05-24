@@ -19,7 +19,7 @@ As of November 13th, 2025, ChatGPT Apps are supported on all plans, including
 
 Once you have developer mode enabled, you can create a connector for your app in ChatGPT.
 
-1. Ensure your MCP server is reachable over HTTPS (for local development, you can expose a local server to the public internet via a tool such as [ngrok](https://ngrok.com/) or [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)).
+1. Ensure your MCP server is reachable over HTTPS (for local development, use [Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels) and select **Tunnel** in connector settings, or you can expose a local server to the public internet via a tool such as [ngrok](https://ngrok.com/) or [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)).
 2. In ChatGPT, navigate to **Settings → Connectors → Create**.
 3. Provide the metadata for your connector:
    - **Connector name** – a user-facing title such as _Kanban board_.
