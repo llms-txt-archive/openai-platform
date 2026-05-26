@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260524T110137Z` | 2026-05-24 11:01 UTC | [Secure MCP Tunnel guidance for ChatGPT connectors](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260524T110137Z) |
+| `archive-20260526T163353Z` | 2026-05-26 16:33 UTC | [Codex shortcuts and automation docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260526T163353Z) |
+| `archive-20260524T110137Z` | 2026-05-24 11:02 UTC | [Secure MCP Tunnel guidance for ChatGPT connectors](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260524T110137Z) |
 | `archive-20260523T110044Z` | 2026-05-23 11:01 UTC | [Safety Identifier Guidance Consolidation](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260523T110044Z) |
 | `archive-20260522T214704Z` | 2026-05-22 21:47 UTC | [Codex analytics dashboard docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260522T214704Z) |
 | `archive-20260522T202431Z` | 2026-05-22 20:25 UTC | [Codex Hooks and Marketplace Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260522T202431Z) |
 | `archive-20260522T182228Z` | 2026-05-22 18:23 UTC | [Codex Mobile Setup Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260522T182228Z) |
-| `archive-20260522T160458Z` | 2026-05-22 16:06 UTC | [Codex Deep Links Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260522T160458Z) |
