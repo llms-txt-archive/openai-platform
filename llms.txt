@@ -171,7 +171,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Webhooks and server-side controls](https://developers.openai.com/api/docs/guides/realtime-server-controls.md): Learn how to use webhooks and server-side controls with the Realtime API.
 - [WebSocket Mode](https://developers.openai.com/api/docs/guides/websocket-mode.md): Learn how to use Responses API WebSocket mode with response.create and previous_response_id.
 - [Working with evals](https://developers.openai.com/api/docs/guides/evals.md): Learn how to test and improve AI model outputs through evaluations.
-- [Workload identity federation](https://developers.openai.com/api/docs/guides/workload-identity-federation.md): Choose a workload identity federation setup path for Kubernetes, AWS, Microsoft Azure, Google Cloud, or GitHub Actions.
+- [Workload identity federation](https://developers.openai.com/api/docs/guides/workload-identity-federation.md): Authenticate to OpenAI APIs with short-lived credentials through workload identity federation instead of storing static long-lived API keys.
 
 ## OpenAI API — Reference
 - [Administration Overview](https://developers.openai.com/api/reference/administration/overview.md)
