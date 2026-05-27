@@ -15,6 +15,8 @@ A minimal MCP server for Apps SDK implements three capabilities:
 2. **Call tools** – when a model selects a tool to use, it sends a `call_tool` request with the arguments corresponding to the user intent. Your server executes the action and returns structured content the model can parse.
 3. **Return components** – in addition to structured content returned by the tool, each tool (in its metadata) can optionally point to an [embedded resource](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#embedded-resources) that represents the interface to render in the ChatGPT client.
 
+A server can also return optional [`instructions`](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle#initialization) during MCP initialization. ChatGPT and Codex use these as server-wide guidance for cross-tool workflows, constraints, rate limits, and other context that doesn't belong in a single tool description.
+
 The protocol is transport agnostic, you can host the server over Server-Sent Events or Streamable HTTP. Apps SDK supports both options, but we recommend Streamable HTTP.
 
 ## Why Apps SDK standardises on MCP
@@ -22,6 +24,7 @@ The protocol is transport agnostic, you can host the server over Server-Sent Eve
 Working through MCP gives you several benefits out of the box:
 
 - **Discovery integration** – the model consumes your tool metadata and surface descriptions the same way it does for first-party connectors, enabling natural-language discovery and launcher ranking. See [Discovery](https://developers.openai.com/apps-sdk/concepts/user-interaction) for details.
+- **Server-wide guidance** – optional server instructions give the model cross-tool context that individual tool descriptions can't capture on their own.
 - **Conversation awareness** – structured content and component state flow through the conversation. The model can inspect the JSON result, refer to IDs in follow-up turns, or render the component again later.
 - **Multiclient support** – MCP is self-describing, so your connector works across ChatGPT web and mobile without custom client code.
 - **Extensible auth** – the specification includes protected resource metadata, OAuth 2.1 flows, Client ID Metadata Documents with public-client or `private_key_jwt` token exchange, and DCR so you can control access without inventing a proprietary handshake.

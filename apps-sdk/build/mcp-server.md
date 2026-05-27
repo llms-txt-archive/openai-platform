@@ -11,7 +11,7 @@ Build faster with the [OpenAI Docs MCP server](https://developers.openai.com/lea
 
 ChatGPT Apps have three components:
 
-- **Your MCP server** defines tools, enforces auth, returns data, and points each tool to a UI bundle.
+- **Your MCP server** defines tools, provides optional server instructions, enforces auth, returns data, and points each tool to a UI bundle.
 - **The widget/UI bundle** renders inside ChatGPT’s iframe and communicates with the host through the MCP Apps UI bridge (JSON-RPC over `postMessage`).
 - **The model** decides when to call tools and narrates the experience using the structured data you return.
 
@@ -105,6 +105,24 @@ pip install mcp
 ```
 
 ## Build your MCP server
+
+### Add server instructions for cross-tool guidance
+
+MCP servers can return an [`instructions` field](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle#initialization) during initialization. ChatGPT and Codex use these instructions alongside your tool metadata when deciding how to work with your server.
+
+Use server instructions for guidance that applies across tools, such as required tool sequences, shared rate limits, or relationships between tools. Keep the guidance concise and put the most important details first; for ChatGPT and Codex, the first 512 characters should be self-contained. Don't use server instructions to repeat every tool description or change the model's personality.
+
+```ts
+
+
+const server = new McpServer(
+  { name: "kanban-server", version: "1.0.0" },
+  {
+    instructions:
+      "Before updating a task, call list_tasks to validate the task ID. For bulk edits, process at most 10 tasks per request.",
+  }
+);
+```
 
 ### Step 1 – Register a component template
 
@@ -250,9 +268,9 @@ Memory is user-controlled and model-mediated: the model decides if and how to us
 **Best practices**
 
 - Keep tool inputs explicit and required for correctness; do not rely on memory for critical fields.
-- Treat memory as a hint, not authority; confirm user preferences when it is important to your user flow and may have side effects
+- Treat memory as a hint, not authority; confirm user preferences when it is important to your user flow and may have side effects.
 - Provide safe defaults or ask a follow-up question when context is missing.
-- Make tools resilient to retries or re-evaluation or missing memories
+- Make tools resilient to retries, re-evaluation, or missing memories.
 - For write or destructive actions, re-confirm intent and key parameters in the current turn.
 
 ### Step 3 – Return structured data and metadata
