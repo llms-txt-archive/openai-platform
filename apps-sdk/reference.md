@@ -14,13 +14,13 @@ notifications.
 
 Common messages:
 
-| Category           | MCP Apps method/notification   | Purpose                                                                |
-| ------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| Tool inputs        | `ui/notifications/tool-input`  | Latest tool input that invoked the UI.                                 |
-| Tool results       | `ui/notifications/tool-result` | Latest tool result (includes `structuredContent`, `content`, `_meta`). |
-| Tool calls         | `tools/call`                   | Call an MCP tool directly from the UI.                                 |
-| Follow-up messages | `ui/message`                   | Ask the host to post a message.                                        |
-| Model context      | `ui/update-model-context`      | Update model-visible context from UI state.                            |
+| Category           | MCP Apps method/notification   | Purpose                                                                                                         |
+| ------------------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| Tool inputs        | `ui/notifications/tool-input`  | Latest tool input that invoked the UI. For approval-gated tools, this may arrive after the iframe first mounts. |
+| Tool results       | `ui/notifications/tool-result` | Latest tool result (includes `structuredContent`, `content`, `_meta`).                                          |
+| Tool calls         | `tools/call`                   | Call an MCP tool directly from the UI.                                                                          |
+| Follow-up messages | `ui/message`                   | Ask the host to post a message.                                                                                 |
+| Model context      | `ui/update-model-context`      | Update model-visible context from UI state.                                                                     |
 
 For an overview and a mapping guide from Apps SDK APIs, see
 [MCP Apps compatibility in ChatGPT](https://developers.openai.com/apps-sdk/mcp-apps-in-chatgpt).
@@ -32,13 +32,18 @@ optional ChatGPT extensions.
 
 See [build a ChatGPT UI](https://developers.openai.com/apps-sdk/build/chatgpt-ui) for implementation walkthroughs.
 
+If your tool requires confirmation, treat missing initial `toolInput` as
+expected. ChatGPT does not preload approval-gated arguments into widget globals
+before approval; instead, the host delivers them through
+`ui/notifications/tool-input` once the user approves the call.
+
 ### Capabilities
 
 | Capability          | What it does                                                                                                                                                                     | Typical use                                                                                                                                                                                      |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| State & data        | `window.openai.toolInput`                                                                                                                                                        | Arguments supplied when the tool was invoked.                                                                                                                                                    |
+| State & data        | `window.openai.toolInput`                                                                                                                                                        | Arguments supplied when the tool was invoked. For approval-gated tools, this may remain `null` until the host sends `ui/notifications/tool-input` after approval.                                |
 | State & data        | `window.openai.toolOutput`                                                                                                                                                       | Your `structuredContent`. Keep fields concise; the model reads them verbatim.                                                                                                                    |
-| State & data        | `window.openai.toolResponseMetadata`                                                                                                                                             | The `_meta` payload; only the widget sees it, never the model.                                                                                                                                   |
+| State & data        | `window.openai.toolResponseMetadata`                                                                                                                                             | Canonical widget-only tool result metadata. In ChatGPT this includes `status`, `call_tool_result`, and `mcp_tool_result`, preserving the full MCP result envelope, including hidden `_meta`.     |
 | State & data        | `window.openai.widgetState`                                                                                                                                                      | Snapshot of UI state persisted between renders.                                                                                                                                                  |
 | State & data        | `window.openai.setWidgetState(state)`                                                                                                                                            | Stores a new snapshot synchronously; call it after every meaningful UI interaction.                                                                                                              |
 | Widget runtime APIs | `window.openai.callTool(name, args)`                                                                                                                                             | Invoke another MCP tool from the widget (mirrors model-initiated calls).                                                                                                                         |

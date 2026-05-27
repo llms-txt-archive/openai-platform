@@ -68,6 +68,12 @@ window.addEventListener(
 );
 ```
 
+If a tool requires user approval, don't assume tool input is available on the
+first render. ChatGPT may wait to populate `window.openai.toolInput` and send
+`ui/notifications/tool-input` only after the user approves the call, so widgets
+should subscribe to the lifecycle notification and treat missing initial input
+as a normal state.
+
 ### Call tools from the UI
 
 To call a tool directly from the UI, send a JSON-RPC request for `tools/call`.
