@@ -1,6 +1,6 @@
 # Codex Security
 
-Codex Security helps engineering and security teams find, validate, and remediate likely vulnerabilities in connected GitHub repositories.
+Codex Security is currently in research preview. It helps engineering and security teams find, validate, and remediate likely vulnerabilities in connected GitHub repositories.
 
 This page covers Codex Security, the product that scans connected GitHub
   repositories for likely security issues. For Codex sandboxing, approvals,
@@ -26,7 +26,7 @@ You get a workflow focused on:
 
 ## Access and prerequisites
 
-Codex Security works with connected GitHub repositories through Codex Web. OpenAI manages access. If you need access or a repository isn't visible, contact your OpenAI account team and confirm the repository is available through your Codex Web workspace.
+Codex Security is available for ChatGPT Enterprise, Edu, Business, and Pro users. It works with connected GitHub repositories through Codex Web. If you need access or a repository isn't visible, confirm the repository is available through your Codex Web workspace or contact your OpenAI account team.
 
 ## Related docs
 
