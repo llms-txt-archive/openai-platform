@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260528T205851Z` | 2026-05-28 20:58 UTC | [Codex Security Plugin Docs Split](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260528T205851Z) |
+| `archive-20260529T055637Z` | 2026-05-29 05:56 UTC | [Unix Socket Permission Docs Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260529T055637Z) |
+| `archive-20260528T205851Z` | 2026-05-28 20:59 UTC | [Codex Security Plugin Docs Split](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260528T205851Z) |
 | `archive-20260528T175140Z` | 2026-05-28 17:52 UTC | [Codex Security preview and access update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260528T175140Z) |
 | `archive-20260527T230306Z` | 2026-05-27 23:03 UTC | [Codex permission profile inheritance docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260527T230306Z) |
 | `archive-20260527T174355Z` | 2026-05-27 17:44 UTC | [Apps SDK approval flow and key safety docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260527T174355Z) |
 | `archive-20260527T060151Z` | 2026-05-27 06:02 UTC | [Clarified workload identity federation guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260527T060151Z) |
-| `archive-20260527T013756Z` | 2026-05-27 01:38 UTC | [Workload Identity Federation and MCP Guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260527T013756Z) |
