@@ -538,6 +538,9 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Governance](https://developers.openai.com/codex/enterprise/governance.md): Governance guidance for managing Codex in your organization
 - [Managed configuration](https://developers.openai.com/codex/enterprise/managed-configuration.md): Configure managed Codex requirements and defaults
 
+## Codex — Environment Variables
+- [Environment variables](https://developers.openai.com/codex/environment-variables.md): Environment variables supported by Codex
+
 ## Codex — Feature Maturity
 - [Feature Maturity](https://developers.openai.com/codex/feature-maturity.md): How to interpret feature maturity levels in Codex docs and releases
 
