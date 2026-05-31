@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260530T053336Z` | 2026-05-30 05:33 UTC | [Codex thread search and project thread docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260530T053336Z) |
+| `archive-20260531T174349Z` | 2026-05-31 17:43 UTC | [Prompt Caching and ZDR Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260531T174349Z) |
+| `archive-20260530T053336Z` | 2026-05-30 05:34 UTC | [Codex thread search and project thread docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260530T053336Z) |
 | `archive-20260529T225907Z` | 2026-05-29 23:00 UTC | [Codex environment variables and logging docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260529T225907Z) |
 | `archive-20260529T175557Z` | 2026-05-29 17:56 UTC | [Codex docs add Windows host guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260529T175557Z) |
 | `archive-20260529T103418Z` | 2026-05-29 10:35 UTC | [Data Residency Pricing Guidance Updated](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260529T103418Z) |
 | `archive-20260529T055637Z` | 2026-05-29 05:57 UTC | [Unix Socket Permission Docs Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260529T055637Z) |
-| `archive-20260528T205851Z` | 2026-05-28 20:59 UTC | [Codex Security Plugin Docs Split](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260528T205851Z) |
