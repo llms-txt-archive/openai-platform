@@ -75,17 +75,15 @@ Choose 5x or 20x higher rate limits than Plus.
 
 Everything in Plus and:
 
-**Double your normal Codex usage on the $100/month tier until May 31, 2026.**
-
 - Access to GPT-5.3-Codex-Spark (research preview), a fast Codex model
   for day-to-day coding tasks
-- ~~5x~~ 10x or 20x more Codex usage than Plus\*
+- 5x or 20x more Codex usage than Plus\*
 - Other [ChatGPT features](https://chatgpt.com/pricing) as part of the
   Pro plan
 
 [Get Pro](https://chatgpt.com/explore/pro?utm_internal_source=openai_developers_codex)
 
-[\*Learn more about limits and promos on both tiers.](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-plans)
+[\*Learn more about limits on both tiers.](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-plans)
 
 **API Key**:
 
