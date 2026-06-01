@@ -7,7 +7,7 @@ Every change to the upstream docs produces a git commit and a GitHub release, so
 | | |
 |---|---|
 | **Source** | [https://developers.openai.com/llms.txt](https://developers.openai.com/llms.txt) |
-| **Documents** | 513 Markdown files |
+| **Documents** | 515 Markdown files |
 | **Schedule** | Hourly at :42 UTC |
 
 ## How it works
@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260601T211722Z` | 2026-06-01 21:17 UTC | [Codex doctor, remote CLI, and SDK docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260601T211722Z) |
+| `archive-20260601T231548Z` | 2026-06-01 23:15 UTC | [Amazon Bedrock guides and Codex token controls](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260601T231548Z) |
+| `archive-20260601T211722Z` | 2026-06-01 21:18 UTC | [Codex doctor, remote CLI, and SDK docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260601T211722Z) |
 | `archive-20260601T105815Z` | 2026-06-01 10:59 UTC | [Codex pricing docs remove expired promo messaging](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260601T105815Z) |
 | `archive-20260531T234503Z` | 2026-05-31 23:46 UTC | [Structured Outputs Guide Restructure](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260531T234503Z) |
 | `archive-20260531T174349Z` | 2026-05-31 17:44 UTC | [Prompt Caching and ZDR Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260531T174349Z) |
 | `archive-20260530T053336Z` | 2026-05-30 05:34 UTC | [Codex thread search and project thread docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260530T053336Z) |
-| `archive-20260529T225907Z` | 2026-05-29 23:00 UTC | [Codex environment variables and logging docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260529T225907Z) |

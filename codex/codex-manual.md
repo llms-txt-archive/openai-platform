@@ -1639,6 +1639,9 @@ region = "eu-central-1"
 If you omit `profile`, Codex uses the standard AWS credential chain. Set
 `region` to the supported Bedrock region that should handle requests.
 
+For the full setup flow, authentication options, supported models, and feature
+availability, see [Use Codex with Amazon Bedrock](/codex/amazon-bedrock).
+
 #### OSS mode (local providers)
 
 Codex can run against a local "open source" provider (for example, Ollama or LM Studio) when you pass `--oss`. If you pass `--oss` without specifying a provider, Codex uses `oss_provider` as the default.
@@ -8740,12 +8743,18 @@ Main risks to avoid:
 
 Use the Codex Local controls in workspace settings to turn on access token creation for allowed members.
 
-1. Go to [Workspace Settings > Settings and Permissions](https://chatgpt.com/admin/settings).
+1. Go to [Workspace Settings > Permissions & roles](https://chatgpt.com/admin/settings).
 2. In the Codex Local section, make sure **Allow members to use Codex Local** is turned on.
 3. Turn on **Allow members to use Codex access tokens** if all allowed members should be able to create access tokens.
 4. If you use custom roles for a narrower rollout, assign the access token permission only to groups that need to create tokens.
 
 Keep access token creation limited to people or service owners who understand where the token will be stored, which automation will use it, and how it will be rotated.
+
+#### Set an access token expiration limit
+
+Workspace owners and admins can set the longest expiration that members can choose when they create a Codex access token. Go to [Workspace Settings > Permissions & roles](https://chatgpt.com/admin/settings), then set **Access token expiration limit** in the Codex Local section.
+
+The limit applies to new access tokens. Existing tokens keep their current expiration.
 
 #### Create an access token
 
@@ -8878,7 +8887,7 @@ Turn on **Allow members to use Codex Local**.
 
 This enables use of the Codex app, CLI, and IDE extension for allowed users.
 
-If members need programmatic Codex local workflows, also turn on **Allow members to use Codex access tokens** or grant the access token permission through a custom role. For setup and permission details, see [Access tokens](/codex/enterprise/access-tokens).
+If members need programmatic Codex local workflows, also turn on **Allow members to use Codex access tokens** or grant the access token permission through a custom role. Workspace owners and admins can use **Access token expiration limit** to set the longest expiration members can choose for new tokens. For setup and permission details, see [Access tokens](/codex/enterprise/access-tokens).
 
 If the Codex Local toggle is off, users who attempt to use the Codex app, CLI, or IDE will see the following error: “403 - Unauthorized. Contact your ChatGPT administrator for access.”
 
@@ -11243,6 +11252,168 @@ appears, while the underlying agent type stays
 The best custom agents are narrow and opinionated. Give each one clear job, a
 tool surface that matches that job, and instructions that keep it from
 drifting into adjacent work.
+
+### Use Codex with Amazon Bedrock
+
+Source: [Use Codex with Amazon Bedrock](/codex/amazon-bedrock.md)
+
+Configure Codex to use OpenAI models available through Amazon Bedrock. In this
+setup, Codex runs locally and sends model requests to Bedrock using
+AWS-managed authentication and access controls.
+
+#### How it works
+
+When you configure Codex with Amazon Bedrock as the model provider, the
+OpenAI-hosted Responses API isn't in the request path. Codex sends model
+requests to Amazon Bedrock, and Bedrock provides an OpenAI-compatible Responses
+API implementation for supported OpenAI models.
+
+Authentication is AWS-native. Users authenticate with a Bedrock API key or AWS
+IAM credentials. They do not use ChatGPT sign-in or `OPENAI_API_KEY` for this
+provider.
+
+#### Before you start
+
+Make sure you have:
+
+- Access to supported OpenAI models in Amazon Bedrock.
+- An AWS Region where the selected model is available.
+- Authentication for the Amazon Bedrock Mantle path configured for the AWS
+  account.
+
+#### Configure Codex
+
+Add the `amazon-bedrock` model provider for the Amazon Bedrock Mantle path to
+`~/.codex/config.toml`. Supplying a model is optional. Select a supported model
+explicitly when needed.
+
+```toml
+model_provider = "amazon-bedrock"
+```
+
+This guide covers the Amazon Bedrock Mantle path in supported commercial AWS
+Regions. Codex doesn't support Bedrock Mantle endpoints in AWS GovCloud
+Regions.
+
+#### Authentication options
+
+Codex supports two Bedrock authentication paths. It checks them in this order:
+
+1. Bedrock API key.
+2. AWS SDK credential chain.
+
+#### Option 1: Bedrock API key
+
+Set the Bedrock API key in the environment Codex reads. You must specify a
+Region when using API-key authentication.
+
+```shell
+export AWS_BEARER_TOKEN_BEDROCK=
+export AWS_REGION=us-east-2
+```
+
+#### Option 2: AWS SDK credentials
+
+Use this path when your organization manages Bedrock access through the AWS SDK
+credential chain. Codex can use these standard AWS SDK credential sources:
+
+1. Shared AWS `config` and `credentials` files.
+
+   ```shell
+   aws configure
+   ```
+
+2. Environment variables.
+
+   ```shell
+   export AWS_ACCESS_KEY_ID=
+   export AWS_SECRET_ACCESS_KEY=
+   export AWS_SESSION_TOKEN=
+   ```
+
+3. AWS Management Console credentials.
+
+   ```shell
+   aws login
+   ```
+
+4. AWS SSO or a named profile.
+
+   ```shell
+   aws sso login --profile codex-bedrock
+   export AWS_PROFILE=codex-bedrock
+   ```
+
+5. Federated identity configured with `credential_process`. For corporate SSO or
+   OIDC federation, configure the AWS profile outside Codex and let the AWS SDK
+   resolve credentials. Put browser login, token exchange, caching, and refresh
+   in your AWS profile's `credential_process` helper.
+
+#### Desktop app and VS Code extension
+
+Desktop apps and IDE extensions may not inherit environment variables from the
+shell. Put required values in `~/.codex/.env`, then restart the app or
+extension.
+
+```shell
+export AWS_BEARER_TOKEN_BEDROCK=
+export AWS_REGION=us-east-2
+```
+
+#### Verify setup
+
+- In Codex CLI, open `/status` and confirm Codex is using the
+  `amazon-bedrock` model provider.
+- In the desktop app or VS Code extension, start a new session after restarting
+  the app.
+- Confirm the selected model is available in the configured AWS Region and that
+  the AWS identity has permission to access it.
+
+#### Supported models
+
+Use exact model IDs:
+
+```text
+openai.gpt-5.5
+openai.gpt-5.4
+```
+
+Model availability varies by AWS Region. Before selecting a model, see [model
+support by AWS
+Region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compatibility.html).
+
+#### Feature availability
+
+This configuration supports local Codex workflows. Some features that depend on
+OpenAI-hosted cloud services, hosted tools, or cloud-managed discovery aren't
+currently available.
+
+Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
+processing, and the initial Amazon Bedrock offering supports on-demand
+inference only.
+
+| Capability                                                     | State         |
+| -------------------------------------------------------------- | ------------- |
+| Codex CLI local workflows                                      | Supported     |
+| Codex desktop app local workflows                              | Supported     |
+| Codex IDE extension local workflows                            | Supported     |
+| Bedrock-backed inference with supported OpenAI models          | Supported     |
+| Locally configured MCP servers and connectors                  | Supported     |
+| Hosted first-party plugin directory                            | Not available |
+| Codex cloud agents, including review, security, and web agents | Not available |
+| Image generation and voice transcription                       | Not available |
+
+#### Troubleshooting
+
+If setup fails, check the following:
+
+- The model ID exactly matches a supported model.
+- You specify an AWS Region where the model is available.
+- The Bedrock API key or AWS credentials are valid and not expired.
+- The AWS identity has permission to access the selected Bedrock model.
+- `AWS_BEARER_TOKEN_BEDROCK` isn't set to an expired or unintended key.
+- For desktop app or VS Code extension usage, required environment variables
+  are present in `~/.codex/.env`.
 
 ### Windows platform
 
