@@ -26,8 +26,8 @@ ChatGPT Plus, Pro, Business, Edu, and Enterprise plans include Codex. Learn more
 
 The Codex app is available on macOS and Windows.
 
-Most Codex app features are available on both platforms. Platform-specific
-exceptions are noted in the relevant docs.
+Most Codex app features are available on both platforms. The relevant docs
+describe platform-specific exceptions.
 
 <WorkflowSteps variant="headings">
 1. Download and install the Codex app
@@ -223,6 +223,13 @@ Follow plans, sources, task summaries, and generated file previews.
 ### Plugins
 
 Connect apps, skills, and MCP servers to extend what Codex can do.
+
+  </BentoContent>
+  <BentoContent href="/codex/sites">
+
+### Sites
+
+Build and deploy hosted websites, web apps, and games with the Sites plugin.
 
   </BentoContent>
   <BentoContent href="/codex/app/features#sync-with-the-ide-extension">

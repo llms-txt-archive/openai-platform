@@ -89,6 +89,12 @@ That single header lets ChatGPT discover the metadata URL even if it has not see
 - If your provider advertises OIDC scopes (e.g. `openid`, `email`, `profile`) in `scopes_supported` of its `.well-known/oauth-authorization-server` or `.well-known/openid-configuration` document, ChatGPT requests those scopes by default during the OAuth flow.
 - Some identity providers may not enable advertised OIDC scopes by default. Check your provider's configuration settings and make sure every advertised scope is enabled for the OAuth client, whether it uses CIMD, was created manually, or was created through DCR.
 
+#### Preserve login context during reauthorization
+
+When ChatGPT reauthorizes an existing link, including to request additional OAuth scopes, it may include the prior OIDC ID token in the authorization request as the standard `id_token_hint` parameter. To let users grant additional scopes without starting login from scratch, configure your authorization server to issue an ID token during the original OAuth flow and honor `id_token_hint` during authorization.
+
+This optimization is optional. Reauthorization still works when an ID token is unavailable or your authorization server does not use the hint.
+
 #### Redirect URL
 
 ChatGPT completes the OAuth flow by redirecting to `https://chatgpt.com/connector/oauth/{callback_id}` and the URL will be shown in the app management page. Add that production redirect URI to your authorization server's allowlist so the authorization code can be returned successfully.
@@ -295,7 +301,7 @@ Triggering the tool-level OAuth flow requires both metadata (`securitySchemes` a
    );
    ```
 
-3. **Check tokens inside the tool handler and emit `_meta["mcp/www_authenticate"]`** when you want ChatGPT to trigger the authentication UI. Inspect the token and verify issuer, audience, expiry, and scopes. If no valid token is present, return an error result that includes `_meta["mcp/www_authenticate"]` and make sure the value contains both an `error` and `error_description` parameter. This `WWW-Authenticate` payload is what actually triggers the tool-level OAuth UI once steps 1 and 2 are in place.
+3. **Check tokens inside the tool handler and emit `_meta["mcp/www_authenticate"]`** when you want ChatGPT to trigger the authentication UI. Inspect the token and verify issuer, audience, expiry, and scopes. If no valid token is present, return an error result that includes `_meta["mcp/www_authenticate"]` and make sure the value contains both an `error` and `error_description` parameter. This `WWW-Authenticate` payload is what actually triggers the tool-level OAuth UI once steps 1 and 2 are in place. When a challenge prompts reauthorization, your provider can [preserve the user's existing login context](#preserve-login-context-during-reauthorization) during that flow.
 
    Example
 

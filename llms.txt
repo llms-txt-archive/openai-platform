@@ -628,6 +628,9 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [FAQ](https://developers.openai.com/codex/security/faq.md): Common questions about Codex Security
 - [Improving the threat model](https://developers.openai.com/codex/security/threat-model.md): Refine the Codex Security context that ranks findings and helps you review faster
 
+## Codex — Sites
+- [Sites](https://developers.openai.com/codex/sites.md): Build and deploy hosted sites from Codex with the Sites plugin
+
 ## Codex — Skills
 - [Agent Skills](https://developers.openai.com/codex/skills.md): Give Codex new capabilities and expertise
 
