@@ -1855,9 +1855,13 @@ You can also sign in to the Codex app, CLI, or IDE Extension with an API key. Ge
 
 OpenAI bills API key usage through your OpenAI Platform account at standard API rates. See the [API pricing page](https://openai.com/api/pricing/).
 
-Features that rely on ChatGPT credits, such as [fast mode](/codex/speed), are
-available only when you sign in with ChatGPT. If you sign in with an API key,
-Codex uses standard API pricing instead.
+API key authentication supports local Codex workflows, but some features that
+rely on ChatGPT workspace access or cloud services are limited or unavailable.
+Compare support by plan in
+[Feature availability](/codex/pricing#feature-availability).
+
+When you sign in with an API key, Codex uses standard API pricing instead of
+included ChatGPT plan credits.
 
 We recommend API key authentication for programmatic Codex CLI workflows, such
 as CI/CD jobs. Don't expose Codex execution in untrusted or public environments.
@@ -6403,7 +6407,7 @@ describe platform-specific exceptions.
 
    Once you downloaded and installed the Codex app, open it and sign in with your ChatGPT account or an OpenAI API key.
 
-   If you sign in with an OpenAI API key, some functionality such as [cloud threads](/codex/prompting#threads) might not be available.
+   If you sign in with an OpenAI API key, [some functionality might not be available](/codex/pricing#feature-availability).
 
 3. Select a project
 
@@ -11515,28 +11519,12 @@ Fast Mode isn't available with Amazon Bedrock. Fast Mode uses priority
 processing, and the initial Amazon Bedrock offering supports on-demand
 inference only.
 
-| Capability                                                     | State         |
-| -------------------------------------------------------------- | ------------- |
-| Codex CLI local workflows                                      | Supported     |
-| Codex desktop app local workflows                              | Supported     |
-| Codex IDE extension local workflows                            | Supported     |
-| Bedrock-backed inference with supported OpenAI models          | Supported     |
-| Locally configured MCP servers and connectors                  | Supported     |
-| Hosted first-party plugin directory                            | Not available |
-| Codex cloud agents, including review, security, and web agents | Not available |
-| Image generation and voice transcription                       | Not available |
+#### Detailed feature availability
 
-#### Troubleshooting
+- Feature is currently limited to only specific regions. Check
+  the individual feature documentation to learn more about geo restrictions.
 
-If setup fails, check the following:
-
-- The model ID exactly matches a supported model.
-- You specify an AWS Region where the model is available.
-- The Bedrock API key or AWS credentials are valid and not expired.
-- The AWS identity has permission to access the selected Bedrock model.
-- `AWS_BEARER_TOKEN_BEDROCK` isn't set to an expired or unintended key.
-- For desktop app or VS Code extension usage, required environment variables
-  are present in `~/.codex/.env`.
+  † Some first party plugins are not available.
 
 ### Windows platform
 

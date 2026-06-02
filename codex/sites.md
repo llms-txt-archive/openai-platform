@@ -11,9 +11,11 @@ Every Sites deployment URL is a production deployment. If you want to review a
 
 ## Get started with Sites
 
-Sites is in preview and available by default for ChatGPT Business workspaces.
-For ChatGPT Enterprise workspaces, an admin must turn it on through role-based
-access control (RBAC) before members can use it.
+Sites is in preview and currently available for ChatGPT Business and Enterprise
+workspaces, with more plans rolling out later. For ChatGPT Enterprise
+workspaces, an admin must turn it on through role-based access control (RBAC)
+before members can use it. Compare support by plan in
+[Feature availability](https://developers.openai.com/codex/pricing#feature-availability).
 
 <WorkflowSteps variant="headings">
 1. Enable Sites for an Enterprise workspace

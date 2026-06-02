@@ -18,6 +18,16 @@ We use the term "legacy" to refer to models and endpoints that no longer receive
 
 Upcoming deprecations are listed below, with the most recent announcements at the top.
 
+### 2026-06-02: GPT Image model deprecations
+
+On June 2, 2026, we notified developers using older GPT Image models of their deprecation and removal from the API on December 1, 2026.
+
+| Shutdown date | Model / system         | Recommended replacement |
+| ------------- | ---------------------- | ----------------------- |
+| Dec 1, 2026   | `gpt-image-1-mini`     | `gpt-image-2`           |
+| Dec 1, 2026   | `gpt-image-1.5`        | `gpt-image-2`           |
+| Dec 1, 2026   | `chatgpt-image-latest` | `gpt-image-2`           |
+
 ### 2026-05-08: gpt-5.2-chat-latest and gpt-5.3-chat-latest model snapshots
 
 On May 8th, 2026, we notified developers using `gpt-5.2-chat-latest` and `gpt-5.3-chat-latest` model snapshots of their deprecation and removal from the API.
