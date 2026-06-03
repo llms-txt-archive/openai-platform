@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260603T021245Z` | 2026-06-03 02:12 UTC | [Model Deprecation Notice Periods Documented](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260603T021245Z) |
+| `archive-20260603T072551Z` | 2026-06-03 07:25 UTC | [Pricing Page Restructure](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260603T072551Z) |
+| `archive-20260603T021245Z` | 2026-06-03 02:13 UTC | [Model Deprecation Notice Periods Documented](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260603T021245Z) |
 | `archive-20260602T203006Z` | 2026-06-02 20:31 UTC | [Codex Availability Matrix and API Docs Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260602T203006Z) |
 | `archive-20260602T170738Z` | 2026-06-02 17:08 UTC | [Codex Sites docs land across the archive](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260602T170738Z) |
 | `archive-20260601T231548Z` | 2026-06-01 23:16 UTC | [Amazon Bedrock guides and Codex token controls](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260601T231548Z) |
 | `archive-20260601T211722Z` | 2026-06-01 21:18 UTC | [Codex doctor, remote CLI, and SDK docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260601T211722Z) |
-| `archive-20260601T105815Z` | 2026-06-01 10:59 UTC | [Codex pricing docs remove expired promo messaging](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260601T105815Z) |
