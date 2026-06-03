@@ -3752,8 +3752,9 @@ Source: [Automations](/codex/app/automations.md)
 
 Automate recurring tasks in the background. Codex adds findings to the inbox, or automatically archives the task if there's nothing to report. You can combine automations with [skills](/codex/skills) for more complex tasks.
 
-For project-scoped automations, the app needs to be running, and the selected
-project needs to be available on disk.
+For project-scoped automations, the machine running the local Codex app must be
+powered on, Codex must be running, and the selected project must still be
+available on disk when the automation is scheduled to run.
 
 In Git repositories, you can choose whether an automation runs in your local
 project or on a new [worktree](/codex/app/worktrees). Both options run in the
