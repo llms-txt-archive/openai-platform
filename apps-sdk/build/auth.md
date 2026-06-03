@@ -151,7 +151,7 @@ DCR is still supported. If you include `registration_endpoint`, ChatGPT can regi
 
 ### Client identification
 
-A frequent question is how your MCP server can confirm that a request actually comes from ChatGPT. ChatGPT presents an OpenAI-managed client certificate when connecting to MCP servers, so you can verify the client at the transport layer with mTLS. You can also allowlist ChatGPT’s [published egress IP ranges](https://openai.com/chatgpt-connectors.json). ChatGPT does **not** support machine-to-machine OAuth grants such as client credentials, service accounts, or JWT bearer assertions, nor can it present custom API keys or customer-provided mTLS certificates.
+A frequent question is how your MCP server can confirm that a request actually comes from ChatGPT. ChatGPT presents an OpenAI-managed client certificate when connecting to MCP servers, so you can verify the client at the transport layer with mTLS. You can also allowlist ChatGPT’s [published egress IP ranges](https://developers.openai.com/api/docs/guides/ip-addresses). ChatGPT does **not** support machine-to-machine OAuth grants such as client credentials, service accounts, or JWT bearer assertions, nor can it present custom API keys or customer-provided mTLS certificates.
 
 CIMD further strengthens client identification by giving your authorization server a stable, HTTPS-hosted declaration of ChatGPT’s identity. When you use `private_key_jwt`, verify ChatGPT's token endpoint client assertion against the public JWKS published in the CIMD metadata.
 

@@ -58,7 +58,7 @@ Each item should be demonstrated end-to-end with request/response logs.
 ### IP egress ranges
 
 - **Allowlist OpenAI’s IP addresses**
-  - OpenAI will call your action from an IP address from one of the [CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) listed in [chatgpt-connectors.json](https://openai.com/chatgpt-connectors.json).
+  - OpenAI will call your action from one of the [published IP ranges](https://developers.openai.com/api/docs/guides/ip-addresses).
 
 ## Security and compliance
 

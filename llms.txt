@@ -87,6 +87,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Image generation](https://developers.openai.com/api/docs/guides/tools-image-generation.md): Allow models to generate or edit images.
 - [Images and vision](https://developers.openai.com/api/docs/guides/images-vision.md): Learn how to understand or generate images with the OpenAI API.
 - [Integrations and observability](https://developers.openai.com/api/docs/guides/agents/integrations-observability.md): Learn how to integrate MCP into Agents SDK workflows and how to trace and debug runs.
+- [IP egress ranges](https://developers.openai.com/api/docs/guides/ip-addresses.md): Find the published IP egress ranges used by OpenAI products.
 - [Key concepts](https://developers.openai.com/api/docs/concepts.md): Key concepts to understand when working with the OpenAI API.
 - [Latency optimization](https://developers.openai.com/api/docs/guides/latency-optimization.md): Improve latency across a wide variety of LLM-related use cases.
 - [Local shell](https://developers.openai.com/api/docs/guides/tools-local-shell.md): Enable agents to run commands in a local shell.
