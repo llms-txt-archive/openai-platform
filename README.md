@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260604T141743Z` | 2026-06-04 14:17 UTC | [Responses Migration Rewrite and Agent Builder Transition Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260604T141743Z) |
+| `archive-20260604T173418Z` | 2026-06-04 17:34 UTC | [Code-Managed Prompts and API Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260604T173418Z) |
+| `archive-20260604T141743Z` | 2026-06-04 14:18 UTC | [Responses Migration Rewrite and Agent Builder Transition Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260604T141743Z) |
 | `archive-20260604T021051Z` | 2026-06-04 02:11 UTC | [Clarified image generation and app versioning docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260604T021051Z) |
 | `archive-20260603T225348Z` | 2026-06-03 22:54 UTC | [Centralized IP Range Guidance and Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260603T225348Z) |
 | `archive-20260603T204135Z` | 2026-06-03 20:43 UTC | [Prompt, Evals, and Agent Builder transitions](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260603T204135Z) |
 | `archive-20260603T173349Z` | 2026-06-03 17:34 UTC | [Codex Pricing Page Simplified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260603T173349Z) |
-| `archive-20260603T072551Z` | 2026-06-03 07:26 UTC | [Pricing Page Restructure](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260603T072551Z) |

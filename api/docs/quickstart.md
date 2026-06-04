@@ -207,6 +207,9 @@ Give the model access to external data and functions by attaching [tools](https:
   <div data-content-switcher-pane data-value="file-search" hidden>
     <div class="hidden">File search</div>
     </div>
+  <div data-content-switcher-pane data-value="code-interpreter" hidden>
+    <div class="hidden">Code Interpreter</div>
+    </div>
   <div data-content-switcher-pane data-value="function-calling" hidden>
     <div class="hidden">Function calling</div>
     </div>
