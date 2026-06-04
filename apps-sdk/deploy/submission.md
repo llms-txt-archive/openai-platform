@@ -157,6 +157,28 @@ Before issuing any press releases or public announcements regarding the launch o
 
 ## Ongoing Maintenance
 
+### How published app versions work
+
+Treat the metadata exposed by your MCP server as a versioned API contract. When you scan a draft app's MCP endpoint in the OpenAI Platform Dashboard, OpenAI stores the discovered metadata with that draft version. Submitting the version sends that stored snapshot for review. The snapshot includes:
+
+- The tool list, names, titles, and descriptions
+- Input and output schemas, annotations, and tool security schemes
+- Tool `_meta` fields, including UI resource references and visibility
+- Linked UI resource metadata, including content security policy (CSP) settings
+- MCP server `instructions` returned during initialization
+
+The snapshot does not freeze your MCP server. Tool calls continue to execute against your live endpoint, and your server continues to return live tool results and business data. UI resource contents and `_meta` returned in tool results also remain live; ChatGPT reads UI resource contents from the snapshotted URI at runtime.
+
+Deploying a server change does not update the published snapshot. To make new tools or changed metadata available to users, create or update a draft version, scan its MCP endpoint after deploying your changes, submit it for review, receive approval, and publish it. While the new version is in review, users continue to use the currently published snapshot against your live MCP server.
+
+Breaking changes to published apps are not currently supported. For example, removing or renaming a tool, making an input schema incompatible, or changing or removing the content served at a published UI resource URI can break the published version as soon as the server change deploys. Instead, make backward-compatible updates:
+
+1. Add new tools, fields, or UI resources while continuing to honor the published contracts.
+2. Submit the updated metadata as a new app version.
+3. Publish the approved version and keep the old contracts available.
+
+You can deploy server-only fixes without submitting a new version if they preserve the published contract. If a deployment breaks the published version, roll back the server change rather than waiting for a new version to complete review.
+
 ### Submitting new versions for review
 
 Once your app is published, all submitted information is locked for safety. To make any change, create a new draft version of your existing app and resubmit that version for review (do not create a new app). Each resubmission starts a new review. When submitting changes, include a clear description of what changed in the release notes section of the form.

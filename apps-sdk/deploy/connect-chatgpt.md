@@ -46,6 +46,8 @@ Whenever you change your tools list or descriptions, you can refresh your MCP se
 2. In **Settings → Connectors**, click into your connector and choose **Refresh**.
 3. Verify the tool list updates and try a few prompts to test the updated flows.
 
+This refresh flow applies to developer mode connectors. Published apps use reviewed [app version snapshots](https://developers.openai.com/apps-sdk/deploy/submission#how-published-app-versions-work). To update a published app's tools or metadata, scan, submit, and publish a new app version.
+
 ## Using other clients
 
 You can connect to your MCP server on other clients.
