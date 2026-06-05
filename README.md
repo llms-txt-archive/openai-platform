@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260604T234922Z` | 2026-06-04 23:49 UTC | [Codex Profile Docs Add Profile Card Details](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260604T234922Z) |
+| `archive-20260605T050259Z` | 2026-06-05 05:02 UTC | [Blocked image errors and deprecated Codex models](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260605T050259Z) |
+| `archive-20260604T234922Z` | 2026-06-04 23:50 UTC | [Codex Profile Docs Add Profile Card Details](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260604T234922Z) |
 | `archive-20260604T194717Z` | 2026-06-04 19:48 UTC | [Moderation docs reworked](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260604T194717Z) |
 | `archive-20260604T173418Z` | 2026-06-04 17:35 UTC | [Code-Managed Prompts and API Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260604T173418Z) |
 | `archive-20260604T141743Z` | 2026-06-04 14:18 UTC | [Responses Migration Rewrite and Agent Builder Transition Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260604T141743Z) |
 | `archive-20260604T021051Z` | 2026-06-04 02:11 UTC | [Clarified image generation and app versioning docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260604T021051Z) |
-| `archive-20260603T225348Z` | 2026-06-03 22:54 UTC | [Centralized IP Range Guidance and Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260603T225348Z) |
