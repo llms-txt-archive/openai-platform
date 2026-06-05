@@ -10653,7 +10653,7 @@ Source: [Permissions](/codex/permissions.md)
 Codex includes three built-in permission profiles:
 
 - `:read-only` keeps local command execution read-only.
-- `:workspace` allows writes inside the active workspace roots.
+- `:workspace` allows writes inside the active workspace roots and system temp directories.
 - `:danger-full-access` removes local sandbox restrictions and should be used
   only when that broad access is intentional.
 
