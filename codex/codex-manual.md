@@ -10192,6 +10192,12 @@ Codex Security is available for ChatGPT Enterprise, Edu, Business, and Pro users
 - [Improving the threat model](/codex/security/threat-model) explains how to tune scope, attack surface, and criticality assumptions.
 - [FAQ](/codex/security/faq) covers common product questions.
 
+### Glossary
+
+Source: [Glossary](/codex/glossary.md)
+
+Use this glossary as a quick reference for Codex terms across the app, CLI, IDE extension, cloud, SDK, and related integrations.
+
 ### Hooks
 
 Source: [Hooks](/codex/hooks.md)

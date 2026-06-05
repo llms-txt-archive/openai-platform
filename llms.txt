@@ -553,6 +553,9 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 ## Codex — Github Action
 - [Codex GitHub Action](https://developers.openai.com/codex/github-action.md): Trigger Codex actions from GitHub Events
 
+## Codex — Glossary
+- [Glossary](https://developers.openai.com/codex/glossary.md): Definitions for common Codex terms and concepts
+
 ## Codex — Guides
 - [Building an AI-Native Engineering Team](https://developers.openai.com/codex/guides/build-ai-native-engineering-team.md): How coding agents speed up the software development lifecycle
 - [Custom instructions with AGENTS.md](https://developers.openai.com/codex/guides/agents-md.md): Give Codex extra instructions and context for your project
