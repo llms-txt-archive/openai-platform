@@ -56,6 +56,11 @@ Requests must stay within both the ad-account and IP-address limits.
 
 ## Changelog
 
-| Release | Change                            |
-| ------- | --------------------------------- |
-| v1      | Published the initial API version |
+### June 3rd, 2026
+
+- Added geotargeting support, including `/geo_lookup/search` and campaign `targeting.locations.include` for country, region, and DMA location IDs.
+- Added conversion setup and reporting endpoints for API keys, pixels, event settings, and conversion insights.
+
+### v1
+
+- Published the initial API version.

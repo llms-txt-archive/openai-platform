@@ -44,26 +44,27 @@ curl -X GET "https://api.ads.openai.com/v1/campaigns?limit=20&order=desc" \
 
 ## Create a campaign
 
-Create a campaign for the current ad account. The Ads belonging to a campaign will only show between the defined start and end time, and only in the countries specified in `targeting.locations.countries`.
+Create a campaign for the current ad account. The Ads belonging to a campaign will only show between the defined start and end time, and only in the locations specified in campaign targeting.
+
+For region and DMA targeting, see [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting).
 
 ### Defaults
 
-If you exclude a start_time, the campaign will begin delivering immediately, and if you exclude a country, the campaign will target all countries.
+If you omit `start_time`, the campaign will begin delivering immediately. If you omit location targeting, the campaign can target all available locations.
 
 Note that time and currency fields will respect your account-set timezone and currency defaults.
 
 `POST /campaigns`
 
-| Field                                    | Type     | Required | Notes                                                       |
-| ---------------------------------------- | -------- | -------- | ----------------------------------------------------------- |
-| `name`                                   | string   | Yes      | `3` to `1000` chars and must include a non-space character. |
-| `description`                            | string   | No       | Campaign description.                                       |
-| `start_time`                             | integer  | No       | Unix timestamp between `946684800` and `4102444800`.        |
-| `end_time`                               | integer  | No       | Unix timestamp between `946684800` and `4102444800`.        |
-| `status`                                 | string   | Yes      | `active` or `paused`.                                       |
-| `budget.lifetime_spend_limit_micros`     | integer  | Yes      | Minimum `1000000`.                                          |
-| `targeting.locations.countries`          | string[] | No       | Included country codes.                                     |
-| `targeting.excluded_locations.countries` | string[] | No       | Excluded country codes.                                     |
+| Field                                | Type     | Required | Notes                                                       |
+| ------------------------------------ | -------- | -------- | ----------------------------------------------------------- |
+| `name`                               | string   | Yes      | `3` to `1000` chars and must include a non-space character. |
+| `description`                        | string   | No       | Campaign description.                                       |
+| `start_time`                         | integer  | No       | Unix timestamp between `946684800` and `4102444800`.        |
+| `end_time`                           | integer  | No       | Unix timestamp between `946684800` and `4102444800`.        |
+| `status`                             | string   | Yes      | `active` or `paused`.                                       |
+| `budget.lifetime_spend_limit_micros` | integer  | Yes      | Minimum `1000000`.                                          |
+| `targeting.locations.include`        | object[] | No       | Included location IDs.                                      |
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns" \
@@ -80,7 +81,7 @@ curl -X POST "https://api.ads.openai.com/v1/campaigns" \
     },
     "targeting": {
       "locations": {
-        "countries": ["US", "CA"]
+        "include": [{ "id": "2000043" }, { "id": "3000194" }]
       }
     }
   }'
@@ -101,7 +102,22 @@ curl -X POST "https://api.ads.openai.com/v1/campaigns" \
   },
   "targeting": {
     "locations": {
-      "countries": ["US", "CA"]
+      "include": [
+        {
+          "id": "2000043",
+          "type": "region",
+          "country_code": "US",
+          "name": "California",
+          "region_code": "US-CA"
+        },
+        {
+          "id": "3000194",
+          "type": "dma",
+          "country_code": "US",
+          "name": "San Francisco - Oakland - San Jose",
+          "region_code": "807"
+        }
+      ]
     }
   }
 }
