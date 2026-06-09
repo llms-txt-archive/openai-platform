@@ -9485,6 +9485,16 @@ allowed_approval_policies = ["untrusted", "on-request"]
 allowed_sandbox_modes = ["read-only", "workspace-write"]
 ```
 
+#### Disable AppShots
+
+To disable AppShots for managed users, set the top-level `allow_appshots` requirement:
+
+```toml
+allow_appshots = false
+```
+
+Codex treats only `allow_appshots = false` as disabling AppShots. If the key is omitted, AppShots remains unconstrained by requirements and uses normal product availability checks. App-server clients that read effective requirements through `configRequirements/read` receive the same restriction as `allowAppshots`; an omitted or `null` `allowAppshots` value does not disable AppShots.
+
 #### Control available permission profiles
 
 Use `allowed_permission_profiles` to control which built-in and custom
@@ -9783,35 +9793,6 @@ Notes:
 - `allow_managed_hooks_only = true` skips hooks from user, project, session, and
   plugin sources, but still loads hooks from `requirements.toml` and other
   managed config layers.
-
-#### Enforce command rules from requirements
-
-Admins can also enforce restrictive command rules from `requirements.toml`
-using a `[rules]` table. These rules merge with regular `.rules` files, and the
-most restrictive decision still wins.
-
-Unlike `.rules`, requirements rules must specify `decision`, and that decision
-must be `"prompt"` or `"forbidden"` (not `"allow"`).
-
-```toml
-[rules]
-prefix_rules = [
-  { pattern = [{ token = "rm" }], decision = "forbidden", justification = "Use git clean -fd instead." },
-  { pattern = [{ token = "git" }, { any_of = ["push", "commit"] }], decision = "prompt", justification = "Require review before mutating history." },
-]
-```
-
-To restrict which MCP servers Codex can enable, add an `mcp_servers` approved list. For stdio servers, match on `command`; for streamable HTTP servers, match on `url`:
-
-```toml
-[mcp_servers.docs]
-identity = { command = "codex-mcp" }
-
-[mcp_servers.remote]
-identity = { url = "https://example.com/mcp" }
-```
-
-If `mcp_servers` is present but empty, Codex disables all MCP servers.
 
 ### Subagents
 
