@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260608T212622Z` | 2026-06-08 21:26 UTC | [SPIFFE Workload Identity Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260608T212622Z) |
+| `archive-20260609T013052Z` | 2026-06-09 01:30 UTC | [Responses Function Calling Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260609T013052Z) |
+| `archive-20260608T212622Z` | 2026-06-08 21:27 UTC | [SPIFFE Workload Identity Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260608T212622Z) |
 | `archive-20260608T190846Z` | 2026-06-08 19:09 UTC | [Ads targeting split-out and tunnel logging clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260608T190846Z) |
 | `archive-20260608T163855Z` | 2026-06-08 16:39 UTC | [Background Mode Model Name Correction](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260608T163855Z) |
 | `archive-20260605T211123Z` | 2026-06-05 21:12 UTC | [Windows Sandbox Controls Documented](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260605T211123Z) |
 | `archive-20260605T173148Z` | 2026-06-05 17:32 UTC | [Codex glossary added to the archive](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260605T173148Z) |
-| `archive-20260605T085734Z` | 2026-06-05 08:58 UTC | [Workspace Permission Docs Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260605T085734Z) |
