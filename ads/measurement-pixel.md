@@ -35,29 +35,116 @@ conversions. Put the script near the top of your `<head>` to ensure early conver
 `pixelId` is required. Create a new pixelId in the conversions tab of Ads Manager. `debug` is optional and logs SDK activity to the browser
 console while you test your integration.
 
-## Send events
+## Send user data
 
-Call `oaiq("measure", eventName, eventProps, eventOptions)` when a conversion or
-page action happens.
+Add an optional `user` object to `oaiq("init", ...)` to improve conversion
+matching. User data is request-scoped, so don't add it to individual
+`oaiq("measure", ...)` calls.
+
+Every field in the `user` object is optional. Include only the fields you have
+for the user.
 
 ```js
-oaiq("measure", eventName, eventProps, eventOptions);
+oaiq("init", {
+  user: {
+    email_sha256:
+      "b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514",
+    external_id_sha256:
+      "73d83a078369bb4f0971b317aa7797a91cf5c0df1b62161c2e47d75c33ab5b6e",
+    country: "US",
+    city: "San Francisco",
+    zip_code: "94107",
+  },
+});
 ```
 
-| Argument       | Required | Description                                                                                               |
-| -------------- | -------- | --------------------------------------------------------------------------------------------------------- |
-| `eventName`    | Yes      | One of the <a href="/ads/supported-events">supported standard event names </a>, or `custom`.              |
-| `eventProps`   | No       | Event data. In practice, send this for every event so the `type` and any optional fields are explicit.    |
-| `eventOptions` | No       | Extra delivery options, including `event_id` for deduplication and `custom_event_name` for custom events. |
+If these values are available when the installation snippet runs, you can
+instead include the same `user` object in the initial `oaiq("init", ...)` call
+with your Pixel ID.
 
-We support a set of <a href="/ads/supported-events">standard event names</a>. For custom events,
-keep `eventName` as `custom`, set `eventProps.type` to `custom`, and put your
-event label in `eventOptions.custom_event_name`.
+| Field                | Description                                                                                        |
+| -------------------- | -------------------------------------------------------------------------------------------------- |
+| `email_sha256`       | SHA-256 hash of the email address after trimming whitespace and converting it to lowercase.        |
+| `external_id_sha256` | SHA-256 hash of a stable, pseudonymous customer identifier from your system.                       |
+| `country`            | Two-letter ISO 3166-1 country code, such as `US`.                                                  |
+| `city`               | City name, with a maximum of 128 characters. OpenAI trims whitespace and converts it to lowercase. |
+| `zip_code`           | Postal or ZIP code. Use letters, numbers, spaces, or hyphens, with a maximum of 32 characters.     |
 
-> **Caution:** Put `custom_event_name` and `event_id` in `eventOptions`, not in
-> `eventProps`.
+Send hashes as lowercase, 64-character hexadecimal strings. Don't send raw email
+addresses, raw external IDs, phone numbers, or phone number hashes.
 
-## Example events
+If user data becomes available after the first `init` call, such as after login,
+call `init` again with the complete `user` object. You can omit `pixelId` after
+the first successful initialization.
+
+## Send events
+
+Use a standard event whenever one matches the action you want to measure. For
+example, send `order_created` when a purchase is completed:
+
+```js
+oaiq("measure", "order_created", {
+  type: "contents",
+  amount: 2599,
+  currency: "USD",
+});
+```
+
+A `measure` call accepts up to four arguments, in this order:
+
+| Argument   | Required | What to send                                                                                      |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------- |
+| Command    | Yes      | The command `"measure"`.                                                                          |
+| Event name | Yes      | A [supported event name](https://developers.openai.com/ads/supported-events), such as `order_created`, or `"custom"`.          |
+| Event data | Yes      | An object whose `type` matches the event's [data shape](https://developers.openai.com/ads/supported-events#event-data-shapes). |
+| Options    | Depends  | Optional for standard events. Required for custom events to pass `custom_event_name`.             |
+
+The event name describes what happened. The event data object's `type` selects
+the shape of the accompanying data. For example, `order_created` uses the
+`contents` data type.
+
+The options object supports these fields:
+
+| Field               | When to use it                                                                                       |
+| ------------------- | ---------------------------------------------------------------------------------------------------- |
+| `event_id`          | Set a unique ID when deduplicating the same event sent from the browser and server.                  |
+| `custom_event_name` | Name a custom event. This field is required for custom events and isn't supported for standard ones. |
+| `opt_out`           | Set to `true` to opt out the event from future user-level personalization. Defaults to `false`.      |
+
+### Send a custom event
+
+Use a custom event only when none of the standard event names describe the
+action. This is the smallest valid custom event:
+
+```js
+oaiq(
+  "measure",
+  "custom",
+  { type: "custom" },
+  { custom_event_name: "quote_requested" }
+);
+```
+
+The three custom-event values serve different purposes:
+
+- `"custom"` in the second position identifies this as a custom event.
+- `{ type: "custom" }` selects the custom event data shape.
+- `custom_event_name` gives the event its descriptive name.
+
+You can add `plan_id`, `amount`, `currency`, or `contents` to the event data
+object. Add `event_id` to the options object when you need browser and server
+deduplication.
+
+Custom event names must:
+
+- Be 1 to 64 characters long.
+- Contain only letters, numbers, underscores, or dashes.
+- Start and end with a letter or number.
+- Not match a standard event name.
+
+Use lowercase names for consistency.
+
+## Standard event examples
 
 Use these examples as templates for common measurement patterns.
 
@@ -178,28 +265,6 @@ oaiq("measure", "trial_started", {
 });
 ```
 
-### Custom events
-
-For a custom event, keep `eventName` as `custom`, set `type` to `custom`, and
-name the event in `eventOptions.custom_event_name`.
-
-```js
-oaiq(
-  "measure",
-  "custom",
-  {
-    type: "custom",
-    amount: 12999,
-    currency: "USD",
-    plan_id: "enterprise_annual",
-  },
-  {
-    custom_event_name: "quote_requested",
-    event_id: "quote_req_123",
-  }
-);
-```
-
 ## Deduplicate browser and server events
 
 If you send the same conversion from both the Measurement Pixel and a
@@ -220,12 +285,12 @@ oaiq(
 );
 ```
 
-The SDK generates an event ID when you omit one, which is enough for
-client-only delivery. When you need deduplication across browser and server
-events, generate the `event_id` yourself and reuse it on the same pixel and server-sent event. For custom events, keep
-the same `custom_event_name` on both sides as well. Deduplication matches on
-your Pixel ID, the event name, and `event_id`. For custom events,
-`custom_event_name` replaces the standard event name in that match.
+When you need deduplication across browser and server events, generate the
+`event_id` yourself and reuse it on the same pixel and server-sent event. For
+custom events, keep the same `custom_event_name` on both sides as well.
+Deduplication matches on your Pixel ID, the event name, and `event_id`. For
+custom events, `custom_event_name` replaces the standard event name in that
+match.
 
 ## What the SDK handles automatically
 

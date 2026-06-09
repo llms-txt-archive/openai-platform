@@ -38,6 +38,15 @@ Each event includes the event metadata and a `data` object.
   "oppref": "oppref_abc",
   "source_url": "https://shop.example.com/checkout/confirmation",
   "action_source": "web",
+  "user": {
+    "email_sha256": "b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514",
+    "external_id_sha256": "73d83a078369bb4f0971b317aa7797a91cf5c0df1b62161c2e47d75c33ab5b6e",
+    "country": "US",
+    "city": "San Francisco",
+    "zip_code": "94107",
+    "ip_address": "203.0.113.1",
+    "user_agent": "Mozilla/5.0"
+  },
   "data": {
     "type": "contents"
   }
@@ -62,6 +71,45 @@ See [Supported events](https://developers.openai.com/ads/supported-events) for e
 Unlike the pixel, the API does not capture `oppref` for you. Capture the value
 yourself and pass it with the server event when it is available.
 
+## Send user data
+
+Add an optional `user` object to each event to improve conversion matching. The
+object is event-scoped, so put it inside each entry in `events`, not at the
+request root.
+
+Every field in the `user` object is optional. Include only the fields you have
+for the user.
+
+### User object example
+
+Place this object inside an event at `events[].user`:
+
+```json
+{
+  "email_sha256": "b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514",
+  "external_id_sha256": "73d83a078369bb4f0971b317aa7797a91cf5c0df1b62161c2e47d75c33ab5b6e",
+  "country": "US",
+  "city": "San Francisco",
+  "zip_code": "94107",
+  "ip_address": "203.0.113.1",
+  "user_agent": "Mozilla/5.0"
+}
+```
+
+| Field                | Description                                                                                        |
+| -------------------- | -------------------------------------------------------------------------------------------------- |
+| `email_sha256`       | SHA-256 hash of the email address after trimming whitespace and converting it to lowercase.        |
+| `external_id_sha256` | SHA-256 hash of a stable, pseudonymous customer identifier from your system.                       |
+| `country`            | Two-letter ISO 3166-1 country code, such as `US`.                                                  |
+| `city`               | City name, with a maximum of 128 characters. OpenAI trims whitespace and converts it to lowercase. |
+| `zip_code`           | Postal or ZIP code. Use letters, numbers, spaces, or hyphens, with a maximum of 32 characters.     |
+| `ip_address`         | Valid IPv4 or IPv6 address.                                                                        |
+| `user_agent`         | Non-empty user agent string from the client that generated the event.                              |
+
+Send hashes as lowercase, 64-character hexadecimal strings. Send the geographic,
+IP address, and user agent fields as raw values. Don't send raw email addresses,
+raw external IDs, phone numbers, or phone number hashes.
+
 ## Example event
 
 ```bash
@@ -78,6 +126,15 @@ curl -X POST "https://bzr.openai.com/v1/events?pid=<PIXEL-ID>" \
         "oppref": "oppref_abc",
         "source_url": "https://shop.example.com/checkout/confirmation",
         "action_source": "web",
+        "user": {
+          "email_sha256": "b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514",
+          "external_id_sha256": "73d83a078369bb4f0971b317aa7797a91cf5c0df1b62161c2e47d75c33ab5b6e",
+          "country": "US",
+          "city": "San Francisco",
+          "zip_code": "94107",
+          "ip_address": "203.0.113.1",
+          "user_agent": "Mozilla/5.0"
+        },
         "data": {
           "type": "contents",
           "amount": 2599,
