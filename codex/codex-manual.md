@@ -10354,7 +10354,7 @@ Codex discovers hooks next to active config layers in either of these forms:
 
 Installed plugins can also bundle lifecycle config through their plugin
 manifest or a default `hooks/hooks.json` file. See [Build
-plugins](/codex/plugins/build#bundled-mcp-servers-and-lifecycle-config) for the
+plugins](/codex/plugins/build#bundled-mcp-servers-and-lifecycle-hooks) for the
 plugin packaging rules.
 
 In practice, the four most useful locations are:
