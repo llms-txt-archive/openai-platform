@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260610T090642Z` | 2026-06-10 09:06 UTC | [Codex cross-link fixes](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260610T090642Z) |
+| `archive-20260610T124602Z` | 2026-06-10 12:46 UTC | [Expanded data residency references and Codex pricing cleanup](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260610T124602Z) |
+| `archive-20260610T090642Z` | 2026-06-10 09:07 UTC | [Codex cross-link fixes](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260610T090642Z) |
 | `archive-20260609T235750Z` | 2026-06-09 23:58 UTC | [Ads user data and Codex deep links](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260609T235750Z) |
 | `archive-20260609T221355Z` | 2026-06-09 22:15 UTC | [Managed AppShots control documented](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260609T221355Z) |
 | `archive-20260609T183703Z` | 2026-06-09 18:38 UTC | [Codex Archiving and Image Search Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260609T183703Z) |
 | `archive-20260609T055133Z` | 2026-06-09 05:52 UTC | [Managed Permission Profiles Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260609T055133Z) |
-| `archive-20260609T013052Z` | 2026-06-09 01:31 UTC | [Responses Function Calling Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260609T013052Z) |
