@@ -359,11 +359,7 @@ Create a file named `server.js` and paste the following example that uses the No
 ```js
 
 
-import {
-  registerAppResource,
-  registerAppTool,
-  RESOURCE_MIME_TYPE,
-} from "@modelcontextprotocol/ext-apps/server";
+
 
 
 

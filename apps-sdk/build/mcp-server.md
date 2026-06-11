@@ -132,10 +132,7 @@ Register the template and include metadata for borders, domains, and CSP rules:
 
 ```ts
 // Registers the Kanban widget HTML entry point served to ChatGPT.
-import {
-  registerAppResource,
-  RESOURCE_MIME_TYPE,
-} from "@modelcontextprotocol/ext-apps/server";
+
 
 
 
@@ -341,11 +338,7 @@ Here’s a stripped-down TypeScript server plus vanilla widget. For full project
 
 ```ts
 // server/src/index.ts
-import {
-  registerAppResource,
-  registerAppTool,
-  RESOURCE_MIME_TYPE,
-} from "@modelcontextprotocol/ext-apps/server";
+
 
 
 
