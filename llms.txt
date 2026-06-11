@@ -1,6 +1,6 @@
 # OpenAI Developers
 
-> Documentation hub for OpenAI API, Ads, Apps SDK, Codex, and Agentic Commerce.
+> Documentation hub for OpenAI API, Ads, Apps SDK, Workspace Agents, Codex, and Agentic Commerce.
 
 Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<slug>.md`).
 
@@ -11,6 +11,8 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Ads full docs](https://developers.openai.com/ads/llms-full.txt)
 - [Apps SDK index](https://developers.openai.com/apps-sdk/llms.txt)
 - [Apps SDK full docs](https://developers.openai.com/apps-sdk/llms-full.txt)
+- [Workspace Agents index](https://developers.openai.com/workspace-agents/llms.txt)
+- [Workspace Agents full docs](https://developers.openai.com/workspace-agents/llms-full.txt)
 - [Codex index](https://developers.openai.com/codex/llms.txt)
 - [Codex full docs](https://developers.openai.com/codex/llms-full.txt)
 - [Commerce index](https://developers.openai.com/commerce/llms.txt)
@@ -476,6 +478,12 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 ## Apps SDK — Reference
 - [Reference](https://developers.openai.com/apps-sdk/reference.md): API and SDK reference for Apps SDK.
 
+## Workspace Agents — Authentication
+- [Authenticate with Workspace Agent access tokens](https://developers.openai.com/workspace-agents/authentication.md): Provision and use bearer credentials for the Workspace Agents API.
+
+## Workspace Agents — Trigger Runs
+- [Trigger workspace agent runs](https://developers.openai.com/workspace-agents/trigger-runs.md): Kick off ChatGPT workspace agents from backend systems or automations.
+
 ## Codex — Agent Approvals Security
 - [Agent approvals & security](https://developers.openai.com/codex/agent-approvals-security.md): How to securely operate Codex with sandboxing, approvals, and network controls
 
@@ -543,7 +551,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Custom Prompts](https://developers.openai.com/codex/custom-prompts.md): Deprecated. Use skills for reusable prompts
 
 ## Codex — Enterprise
-- [Access tokens](https://developers.openai.com/codex/enterprise/access-tokens.md): Create and manage Codex access tokens for programmatic workflows
+- [Access tokens](https://developers.openai.com/codex/enterprise/access-tokens.md): Create and manage access tokens for Codex programmatic workflows
 - [Admin Setup](https://developers.openai.com/codex/enterprise/admin-setup.md): Set up Codex for your ChatGPT Enterprise workspace
 - [Governance](https://developers.openai.com/codex/enterprise/governance.md): Governance guidance for managing Codex in your organization
 - [Managed configuration](https://developers.openai.com/codex/enterprise/managed-configuration.md): Configure managed Codex requirements and defaults
