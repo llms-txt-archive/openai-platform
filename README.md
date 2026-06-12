@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260611T210728Z` | 2026-06-11 21:07 UTC | [Workspace Agents Indexed, Codex Token Docs Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260611T210728Z) |
+| `archive-20260612T015933Z` | 2026-06-12 01:59 UTC | [Codex Browser, Computer Use, and Invite Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260612T015933Z) |
+| `archive-20260611T210728Z` | 2026-06-11 21:08 UTC | [Workspace Agents Indexed, Codex Token Docs Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260611T210728Z) |
 | `archive-20260611T095308Z` | 2026-06-11 09:55 UTC | [Expanded Tooling and Workflow Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260611T095308Z) |
 | `archive-20260611T051432Z` | 2026-06-11 05:15 UTC | [Codex plugin sharing setting rename](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260611T051432Z) |
 | `archive-20260610T195712Z` | 2026-06-10 19:58 UTC | [Windows Codex App Download Docs Simplified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260610T195712Z) |
 | `archive-20260610T124602Z` | 2026-06-10 12:47 UTC | [Expanded data residency references and Codex pricing cleanup](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260610T124602Z) |
-| `archive-20260610T090642Z` | 2026-06-10 09:07 UTC | [Codex cross-link fixes](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260610T090642Z) |

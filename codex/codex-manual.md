@@ -4047,6 +4047,7 @@ Enabled skills also appear in the slash command list.
 | ------------- | -------------------------------------------------------------------------------------- |
 | `/feedback`   | Open the feedback dialog to submit feedback and optionally include logs.               |
 | `/goal`       | Set a persistent goal for Codex to work toward; use `/plan` first to shape it.         |
+| `/init`       | Generate an `AGENTS.md` scaffold for the current project.                              |
 | `/mcp`        | Open MCP status to view connected servers.                                             |
 | `/plan`       | Toggle plan mode for multi-step planning.                                              |
 | `/review`     | Start code review mode to review uncommitted changes or compare against a base branch. |
@@ -4125,7 +4126,7 @@ Use these links when you need to open Settings or a specific settings page.
 | Deep link                                     | Opens                                    |
 | --------------------------------------------- | ---------------------------------------- |
 | `codex://settings`                            | Settings.                                |
-| `codex://settings/browser-use`                | Browser use settings.                    |
+| `codex://settings/browser-use`                | Browser settings.                        |
 | `codex://settings/computer-use/google-chrome` | Google Chrome settings for computer use. |
 | `codex://settings/connections`                | Remote connections settings.             |
 
@@ -4484,6 +4485,12 @@ details, such as your picture, display name, and username, and save a profile
 card with usage highlights. Sharing profile cards is available on consumer
 ChatGPT plans.
 
+Eligible users can also send Codex invitations from the profile menu. Choose
+**Invite a friend** on an eligible personal plan or **Invite a coworker** in an
+eligible Business workspace. See
+[Invite friends and coworkers](/codex/pricing#invite-friends-and-coworkers) for
+current rewards, limits, and eligibility.
+
 #### Keyboard shortcuts
 
 Open **Keyboard Shortcuts** to review commands, change bindings, or reset custom
@@ -4549,12 +4556,18 @@ add your own. If a server requires OAuth, the app starts the auth flow. These se
 also apply to the Codex CLI and IDE extension because the MCP configuration lives in
 `config.toml`. See the [Model Context Protocol docs](/codex/mcp) for details.
 
-#### Browser use
+#### Browser
 
 Use these settings to install or enable the bundled Browser plugin, set up the
 [Codex Chrome extension](/codex/app/chrome-extension), and manage allowed and
 blocked websites. Codex asks before using a website unless you've allowed it.
 Removing a blocked site lets Codex ask again before using it in the browser.
+
+Under **Developer mode**, turn on **Enable full CDP access** to let Codex use
+the Chrome DevTools Protocol for performance profiling and deeper browser
+debugging. If your organization has disabled full CDP access, you can't enable
+it locally. See [Developer mode](/codex/app/browser#developer-mode) for setup,
+risk, and approval details.
 
 See [In-app browser](/codex/app/browser) for browser preview, comment, and
 browser use workflows.
@@ -5281,6 +5294,27 @@ Security** and check **Screen Recording** and **Accessibility** for the Codex
 app on macOS. On Windows, make sure the target app is visible in the active
 desktop session.
 
+#### Configure Windows app policy
+
+On Windows, Computer Use stores persistent app decisions in
+`$CODEX_HOME/computer-use/config.toml`. List apps that Computer Use can open
+without prompting and apps that it must decline:
+
+```toml
+[apps]
+allowed = ["mspaint.exe"]
+denied = ["calc.exe"]
+```
+
+Use the app identifier that Windows Computer Use reports, such as an executable
+name for a desktop app or an app user model ID for a packaged app. Denied apps
+take precedence over allowed apps. Codex prompts for apps that don't appear in
+either list.
+
+This file stores local Computer Use decisions. It's separate from the
+admin-enforced `requirements.toml`, where administrators can disable Computer
+Use with `[features].computer_use = false`.
+
 #### Locked use
 
 Locked use is for macOS. On Windows, computer use works in the foreground.
@@ -5469,6 +5503,34 @@ enough to review in one pass.
 
 For repository changes, use the [review pane](/codex/app/review) to inspect the
 changes and leave comments.
+
+#### Developer mode
+
+Developer mode works with Browser use in Chrome and the Codex in-app browser.
+It gives Codex controlled access to the Chrome DevTools Protocol (CDP). Use it
+when you want Codex to profile JavaScript, inspect console output and network
+traffic, examine page state such as the DOM and applied styles, or diagnose an
+issue directly in the live browser.
+
+To enable it, open [**Settings > Browser**](codex://settings/browser-use) and,
+under **Developer mode**, turn on **Enable full CDP access**. If your
+organization has disabled this setting, you can't enable it locally.
+
+Full CDP access lets Codex inspect and control sensitive browser internals that
+may put your data at risk. Codex asks for explicit approval before it uses full
+CDP to inspect a website. Review the site, task, and requested access before you
+approve it.
+
+Use `@Browser` for the in-app browser. To use Developer mode in Chrome,
+[set up the Codex Chrome extension](/codex/app/chrome-extension) and invoke
+`@Chrome`.
+
+For example:
+
+```text
+This app is slow. Use @Browser to capture a performance trace and inspect
+network traffic, then identify the bottleneck.
+```
 
 ### Local environments
 
@@ -9726,6 +9788,20 @@ Use the canonical feature keys from `config.toml`'s `[features]` table. Codex no
 If omitted, these features are allowed by policy, subject to normal client,
 platform, and rollout availability.
 
+#### Restrict locked computer use
+
+To prevent [Computer Use](/codex/app/computer-use#locked-use) from operating
+after a managed Mac locks, add this requirement:
+
+```toml
+[computer_use]
+allow_locked_computer_use = false
+```
+
+This requirement doesn't enable Computer Use. It only prevents locked use on
+macOS. If you omit it, locked use remains unconstrained by requirements and is
+still subject to normal product availability and the user's local setting.
+
 #### Configure automatic review policy
 
 Use `allowed_approvals_reviewers` to require or allow automatic review. Set it
@@ -9774,50 +9850,6 @@ When deny-read requirements are present, Codex rejects full-access permissions
 and keeps local execution in a read-only or workspace sandbox so it can enforce
 them. On native Windows, managed `deny_read` applies to direct file tools; shell
 subprocess reads don't use this sandbox rule.
-
-#### Enforce managed hooks from requirements
-
-Admins can also define managed lifecycle hooks directly in `requirements.toml`.
-Use `[hooks]` for the hook configuration itself, and point `managed_dir` at the
-directory where your MDM or endpoint-management tooling installs the referenced
-scripts.
-
-To enforce managed hooks even for users who disabled hooks locally, pin
-`[features].hooks = true` alongside `[hooks]`. To skip user, project, session,
-and plugin hooks while still allowing managed hooks, set
-`allow_managed_hooks_only = true`.
-
-```toml
-allow_managed_hooks_only = true
-
-[features]
-hooks = true
-
-[hooks]
-managed_dir = "/enterprise/hooks"
-windows_managed_dir = 'C:\enterprise\hooks'
-
-[[hooks.PreToolUse]]
-matcher = "^Bash$"
-
-[[hooks.PreToolUse.hooks]]
-type = "command"
-command = "python3 /enterprise/hooks/pre_tool_use_policy.py"
-command_windows = 'py -3 C:\enterprise\hooks\pre_tool_use_policy.py'
-timeout = 30
-statusMessage = "Checking managed Bash command"
-```
-
-Notes:
-
-- Codex enforces the hook configuration from `requirements.toml`, but it does
-  not distribute the scripts in `managed_dir`.
-- Deliver those scripts separately with your MDM or device-management solution.
-- Managed hook commands should reference absolute script paths under the
-  configured managed directory.
-- `allow_managed_hooks_only = true` skips hooks from user, project, session, and
-  plugin sources, but still loads hooks from `requirements.toml` and other
-  managed config layers.
 
 ### Subagents
 
