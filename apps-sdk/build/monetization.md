@@ -265,7 +265,7 @@ Adapt this to:
 The following PSPs support payments processing for the ChatGPT payment sheet:
 
 - [Adyen](https://docs.adyen.com/online-payments/agentic-commerce)
-- Checkout.com
+- [Checkout.com](https://api-reference.checkout.com/tag/Agentic-Commerce-Protocol/)
 - Fiserv
 - [PayPal](https://docs.paypal.ai/growth/agentic-commerce/agent-ready)
 - [Stripe](https://docs.stripe.com/agentic-commerce/apps)

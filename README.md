@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260612T070724Z` | 2026-06-12 07:07 UTC | [Secure MCP tunnel association guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260612T070724Z) |
+| `archive-20260612T193355Z` | 2026-06-12 19:33 UTC | [Assistants, Tools, and Federation Docs Expanded](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260612T193355Z) |
+| `archive-20260612T070724Z` | 2026-06-12 07:08 UTC | [Secure MCP tunnel association guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260612T070724Z) |
 | `archive-20260612T015933Z` | 2026-06-12 02:00 UTC | [Codex Browser, Computer Use, and Invite Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260612T015933Z) |
 | `archive-20260611T210728Z` | 2026-06-11 21:08 UTC | [Workspace Agents Indexed, Codex Token Docs Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260611T210728Z) |
 | `archive-20260611T095308Z` | 2026-06-11 09:55 UTC | [Expanded Tooling and Workflow Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260611T095308Z) |
 | `archive-20260611T051432Z` | 2026-06-11 05:15 UTC | [Codex plugin sharing setting rename](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260611T051432Z) |
-| `archive-20260610T195712Z` | 2026-06-10 19:58 UTC | [Windows Codex App Download Docs Simplified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260610T195712Z) |

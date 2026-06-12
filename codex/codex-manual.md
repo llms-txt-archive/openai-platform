@@ -11794,7 +11794,10 @@ inference only.
 - Feature is currently limited to only specific regions. Check
   the individual feature documentation to learn more about geo restrictions.
 
-  † Some first party plugins are not available.
+  † Local plugin bundles are supported when their capabilities do
+  not require ChatGPT authentication. OpenAI-curated plugin discovery and
+  features that depend on app connectors or cloud-hosted sharing aren't
+  available.
 
 ### Windows platform
 
