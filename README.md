@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260613T015155Z` | 2026-06-13 01:51 UTC | [Managed Config Coverage and Pricing Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260613T015155Z) |
+| `archive-20260614T170129Z` | 2026-06-14 17:01 UTC | [Codex import guide replaces migration docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260614T170129Z) |
+| `archive-20260613T015155Z` | 2026-06-13 01:52 UTC | [Managed Config Coverage and Pricing Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260613T015155Z) |
 | `archive-20260612T230308Z` | 2026-06-12 23:03 UTC | [ChatGPT App Permission Docs Expanded](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260612T230308Z) |
 | `archive-20260612T193355Z` | 2026-06-12 19:35 UTC | [Assistants, Tools, and Federation Docs Expanded](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260612T193355Z) |
 | `archive-20260612T070724Z` | 2026-06-12 07:08 UTC | [Secure MCP tunnel association guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260612T070724Z) |
 | `archive-20260612T015933Z` | 2026-06-12 02:00 UTC | [Codex Browser, Computer Use, and Invite Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260612T015933Z) |
-| `archive-20260611T210728Z` | 2026-06-11 21:08 UTC | [Workspace Agents Indexed, Codex Token Docs Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260611T210728Z) |
