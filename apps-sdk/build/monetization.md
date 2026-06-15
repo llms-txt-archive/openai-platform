@@ -109,30 +109,121 @@ In your component, you might initiate this in a button click:
 
 ```
 
-Here is a minimal example that shows the shape of a checkout request you pass to the host. Populate the `merchant_id` field with the value specified by your PSP:
+Here is a complete checkout session example that your widget can pass to the host. Your app supplies the checkout session fields below. ChatGPT adds host-owned fields such as `merchant`, `logo_url`, `conversation_id`, `connector_id`, and `ecosystem_app_uri`. Populate the `merchant_id` field with the value specified by your PSP:
 
 ```tsx
 const checkoutRequest = {
-  id: checkoutSessionId,
+  id: "checkout_session_123",
   payment_provider: {
-    provider: "<PSP_NAME>",
-    merchant_id: "<MERCHANT_ID>",
-    supported_payment_methods: ["card", "apple_pay", "google_pay"],
+    provider: "stripe",
+    merchant_id: "merchant_123",
+    supported_payment_methods: [
+      {
+        type: "card",
+        allowed_card_brands: ["visa", "mastercard"],
+      },
+      { type: "apple_pay" },
+      { type: "google_pay" },
+    ],
+    managed_payment_methods: [
+      {
+        type: "card",
+        id: "pm_123",
+        display_name: "Visa ending in 4242",
+        display_last4: "4242",
+        display_brand: "visa",
+      },
+    ],
   },
+  payment_mode: "live",
   status: "ready_for_payment",
   currency: "USD",
+  metadata: {
+    cart_id: "cart_123",
+    merchant_order_reference: "order_ref_123",
+  },
+  line_items: [
+    {
+      id: "line_item_123",
+      item: {
+        id: "item_123",
+        quantity: 1,
+      },
+      name: "Canvas backpack",
+      description: "A weather-resistant everyday backpack.",
+      images: ["https://merchant.example.com/images/canvas-backpack.png"],
+      base_amount: 3000,
+      discount: 0,
+      subtotal: 3000,
+      tax: 300,
+      total: 3300,
+    },
+  ],
   totals: [
+    {
+      type: "items_base_amount",
+      display_text: "Items subtotal",
+      amount: 3000,
+    },
+    {
+      type: "subtotal",
+      display_text: "Subtotal",
+      amount: 3000,
+    },
+    {
+      type: "fulfillment",
+      display_text: "Shipping",
+      amount: 550,
+    },
+    {
+      type: "tax",
+      display_text: "Tax",
+      amount: 300,
+    },
     {
       type: "total",
       display_text: "Total",
-      amount: 330,
+      amount: 3850,
+    },
+  ],
+  fulfillment_options: [
+    {
+      id: "standard_shipping",
+      type: "shipping",
+      title: "Standard shipping",
+      subtitle: "Arrives in 3-5 business days",
+      carrier: "USPS",
+      earliest_delivery_time: "2027-01-15T15:00:00Z",
+      latest_delivery_time: "2027-01-19T18:00:00Z",
+      subtotal: 500,
+      tax: 50,
+      total: 550,
+    },
+  ],
+  fulfillment_option_id: "standard_shipping",
+  fulfillment_address: {
+    name: "Jane Customer",
+    line_one: "123 Main St",
+    line_two: "Apt 4B",
+    city: "San Francisco",
+    state: "CA",
+    country: "US",
+    postal_code: "94107",
+    phone_number: "+14155550123",
+  },
+  messages: [
+    {
+      type: "info",
+      param: "fulfillment_address",
+      content_type: "plain",
+      content: "Free returns within 30 days.",
     },
   ],
   links: [
-    { type: "terms_of_use", url: "<TERMS_OF_USE_URL>" },
-    { type: "privacy_policy", url: "<PRIVACY_POLICY_URL>" },
+    { type: "terms_of_use", url: "https://merchant.example.com/terms" },
+    { type: "privacy_policy", url: "https://merchant.example.com/privacy" },
+    { type: "support_url", url: "https://merchant.example.com/support" },
   ],
-  payment_mode: "live",
 };
 
 const response = await window.openai.requestCheckout(checkoutRequest);
@@ -143,7 +234,10 @@ Key points:
 - `window.openai.requestCheckout(session)` opens the host checkout UI.
 - The promise resolves with the order result or rejects on error/cancel.
 - Render the session JSON so users can review what they’re paying for.
-- Consult your PSP to get your PSP specific `merchant_id` value.
+- Use integer minor currency units for all amount fields.
+- Use `payment_provider.managed_payment_methods` for payment methods the customer has already saved with your merchant.
+- Keep `metadata` values as strings.
+- Use the PSP slug required by your integration for `provider`, and consult your PSP to get its `merchant_id` value.
 
 ## MCP server: expose the `complete_checkout` tool
 
