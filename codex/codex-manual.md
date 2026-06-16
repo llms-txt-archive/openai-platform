@@ -4365,9 +4365,6 @@ available as plugins, changing app settings, and reproducing GUI-only bugs.
 Because computer use can affect app and system state outside your project
 workspace, keep tasks narrow and review permission prompts before continuing.
 
-The feature isn't available in the European Economic Area, the United Kingdom, or
-Switzerland at launch.
-
 #### Work with non-code artifacts
 
 When a task produces non-code artifacts, the sidebar can preview PDF files,
@@ -4575,8 +4572,7 @@ browser use workflows.
 
 Check your Computer Use settings to review desktop-app access and related
 preferences after setup. On macOS, revoke system-level access by updating Screen
-Recording or Accessibility permissions in macOS Privacy & Security settings. The
-feature isn't available in the EEA, the United Kingdom, or Switzerland at launch.
+Recording or Accessibility permissions in macOS Privacy & Security settings.
 
 #### Personalization
 
@@ -5192,9 +5188,8 @@ You can also run `codex features enable goals` from the CLI or ask Codex to run 
 
 Source: [Computer Use](/codex/app/computer-use.md)
 
-In the Codex app, computer use is available on macOS and Windows, except in
-the European Economic Area, the United Kingdom, and Switzerland at launch.
-Install the Computer Use plugin. On macOS, grant Screen Recording and
+In supported regions, computer use in the Codex app is available on macOS and
+Windows. Install the Computer Use plugin. On macOS, grant Screen Recording and
 Accessibility permissions when prompted.
 
 With computer use, Codex can see and operate graphical user interfaces on macOS
@@ -9583,6 +9578,20 @@ allow_appshots = false
 
 Codex treats only `allow_appshots = false` as disabling Appshots. If the key is omitted, Appshots remain unconstrained by requirements and use normal product availability checks. App-server clients that read effective requirements through `configRequirements/read` receive the same restriction as `allowAppshots`; an omitted or `null` `allowAppshots` value doesn't disable Appshots.
 
+#### Disable device remote control
+
+To disable [device remote control](/codex/remote-connections#pick-up-work-from-another-device)
+for managed users, set the top-level `allow_remote_control` requirement:
+
+```toml
+allow_remote_control = false
+```
+
+Codex treats only `allow_remote_control = false` as disabling device remote
+control. If the key is omitted, device remote control remains unconstrained by
+requirements and uses normal product availability checks. This requirement does
+not disable SSH remote connections.
+
 #### Control available permission profiles
 
 Use `allowed_permission_profiles` to control which built-in and custom
@@ -9832,28 +9841,6 @@ guardian_policy_config = """
   destinations.
 """
 ```
-
-#### Enforce deny-read requirements
-
-Admins can deny reads for exact paths or glob patterns with
-`[permissions.filesystem]`. Users can't weaken these requirements with local
-configuration.
-
-```toml
-[permissions.filesystem]
-deny_read = [
-  # values can be absolute paths...
-  "/**/*.env",
-  # ...or relative to $HOME/%USERPROFILE% using `~`.
-  "~/.ssh",
-  # But relative paths starting with `./` are not allowed.
-]
-```
-
-When deny-read requirements are present, Codex rejects full-access permissions
-and keeps local execution in a read-only or workspace sandbox so it can enforce
-them. On native Windows, managed `deny_read` applies to direct file tools; shell
-subprocess reads don't use this sandbox rule.
 
 ### Subagents
 
@@ -10164,9 +10151,9 @@ features.plugin_sharing = false
 Source: [Chronicle](/codex/memories/chronicle.md)
 
 Chronicle is in an **opt-in research preview**. It is only available for
-ChatGPT Pro subscribers on macOS, and is not yet available in the EU, UK and
-Switzerland. Please review the [Privacy and Security](#privacy-and-security)
-section for details and to understand the current risks before enabling.
+ChatGPT Pro subscribers on macOS. Please review the [Privacy and
+Security](#privacy-and-security) section for details and to understand the
+current risks before enabling.
 
 Chronicle augments Codex memories with context from your screen. When you prompt
 Codex, those memories can help it understand what you’ve been working on with
@@ -10669,10 +10656,10 @@ rest of the setup flow.
 
 Source: [Memories](/codex/memories.md)
 
-Memories are off by default and aren't available in the European Economic
-Area, the United Kingdom, or Switzerland at launch. Enable them in Codex
-settings, or set `memories = true` in the `[features]` table in
-`~/.codex/config.toml`.
+Memories are off by default. In the European Economic Area, the United
+Kingdom, and Switzerland, Codex uses or generates memories only after you
+enable them in Codex settings, or set `memories = true` in the `[features]`
+table in `~/.codex/config.toml`.
 
 Memories let Codex carry useful context from earlier threads into future work.
 After you enable memories, Codex can remember stable preferences, recurring
