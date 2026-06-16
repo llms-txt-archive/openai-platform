@@ -56,6 +56,10 @@ Requests must stay within both the ad-account and IP-address limits.
 
 ## Changelog
 
+### June 11th, 2026
+
+- Added segmented insights for product, country, and device breakdowns, plus zero-impression product expansion, for enabled ad accounts.
+
 ### June 3rd, 2026
 
 - Added geotargeting support, including `/geo_lookup/search` and campaign `targeting.locations.include` for country, region, and DMA location IDs.
