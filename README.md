@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260616T173819Z` | 2026-06-16 17:38 UTC | [Remote Control Policy and Availability Updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260616T173819Z) |
+| `archive-20260616T203123Z` | 2026-06-16 20:31 UTC | [Worktree docs add ignored-file setup guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260616T203123Z) |
+| `archive-20260616T173819Z` | 2026-06-16 17:39 UTC | [Remote Control Policy and Availability Updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260616T173819Z) |
 | `archive-20260616T061536Z` | 2026-06-16 06:16 UTC | [Codex Pricing Table Correction](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260616T061536Z) |
 | `archive-20260616T001611Z` | 2026-06-16 00:16 UTC | [Segmented Ads Insights and Model Deprecation Updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260616T001611Z) |
 | `archive-20260615T193242Z` | 2026-06-15 19:33 UTC | [Token Counting and Checkout Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260615T193242Z) |
 | `archive-20260614T170129Z` | 2026-06-14 17:02 UTC | [Codex import guide replaces migration docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260614T170129Z) |
-| `archive-20260613T015155Z` | 2026-06-13 01:52 UTC | [Managed Config Coverage and Pricing Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260613T015155Z) |
