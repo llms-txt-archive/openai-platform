@@ -20,18 +20,20 @@ By default, the Advertiser API works in the context of a single Ad Account. If
 
 ## Endpoints
 
-| Resource  | Use for                                                                         |
-| --------- | ------------------------------------------------------------------------------- |
-| Campaigns | Create, list, retrieve, update, and change campaign state.                      |
-| Ad Groups | Create, list, retrieve, update, and change ad group state.                      |
-| Ads       | Create, list, retrieve, update, and change ad state.                            |
-| Files     | Upload creative assets for use in ads.                                          |
-| Insights  | Retrieve performance data across ad account, campaign, ad group, and ad scopes. |
+| Resource      | Use for                                                                         |
+| ------------- | ------------------------------------------------------------------------------- |
+| Campaigns     | Create, list, retrieve, update, and change campaign state.                      |
+| Ad Groups     | Create, list, retrieve, update, and change ad group state.                      |
+| Ads           | Create, list, retrieve, update, and change ad state.                            |
+| Product feeds | Use a merchant catalog to create product-feed campaigns.                        |
+| Files         | Upload creative assets for use in ads.                                          |
+| Insights      | Retrieve performance data across ad account, campaign, ad group, and ad scopes. |
 
 All resources live inside a single Ad Account.
 
 Use the [Quickstart](https://developers.openai.com/ads/api-quickstart) for a minimal end-to-end workflow, or go
-directly to the [API reference](https://developers.openai.com/ads/api-reference/authentication).
+directly to the [API reference](https://developers.openai.com/ads/api-reference/authentication). To advertise
+from a merchant catalog, follow the [product feeds guide](https://developers.openai.com/ads/product-feeds).
 
 ## Object Statuses
 
@@ -58,7 +60,7 @@ Requests must stay within both the ad-account and IP-address limits.
 
 ### June 11th, 2026
 
-- Added segmented insights for product, country, and device breakdowns, plus zero-impression product expansion, for enabled ad accounts.
+- Added segmented insights for product, country, and device breakdowns, plus zero-impression product expansion.
 
 ### June 3rd, 2026
 

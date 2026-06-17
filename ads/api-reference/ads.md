@@ -52,16 +52,17 @@ Create an ad for an ad group.
 
 `POST /ads`
 
-| Field                 | Type   | Required | Notes                                                                                                         |
-| --------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------- |
-| `ad_group_id`         | string | Yes      | Parent ad group ID.                                                                                           |
-| `name`                | string | Yes      | `3` to `1000` chars and must include a non-space character. Used for organization, is not shown to end users. |
-| `creative.type`       | string | Yes      | Today, must be `chat_card`.                                                                                   |
-| `creative.title`      | string | Yes      | `3` to `50` chars.                                                                                            |
-| `creative.body`       | string | Yes      | Maximum `100` chars.                                                                                          |
-| `creative.target_url` | string | Yes      | Destination URL.                                                                                              |
-| `creative.file_id`    | string | Yes      | File returned by `POST /upload`.                                                                              |
-| `status`              | string | Yes      | `active` or `paused`.                                                                                         |
+| Field                 | Type   | Required        | Notes                                                                                                         |
+| --------------------- | ------ | --------------- | ------------------------------------------------------------------------------------------------------------- |
+| `ad_group_id`         | string | Yes             | Parent ad group ID.                                                                                           |
+| `name`                | string | Yes             | `3` to `1000` chars and must include a non-space character. Used for organization, is not shown to end users. |
+| `creative.type`       | string | Yes             | `chat_card` or `product_ad_template`. See [Product feeds](https://developers.openai.com/ads/product-feeds).                                |
+| `creative.title`      | string | Yes             | `3` to `50` chars.                                                                                            |
+| `creative.body`       | string | Yes             | Maximum `100` chars.                                                                                          |
+| `creative.price`      | string | No              | Price text or `{{product.price}}` for a product-ad template.                                                  |
+| `creative.target_url` | string | For `chat_card` | Destination URL. A product-ad template receives it from the selected feed item.                               |
+| `creative.file_id`    | string | For `chat_card` | File returned by `POST /upload`. A product-ad template receives its image from the selected feed item.        |
+| `status`              | string | Yes             | `active` or `paused`.                                                                                         |
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/ads" \
@@ -80,6 +81,16 @@ curl -X POST "https://api.ads.openai.com/v1/ads" \
     }
   }'
 ```
+
+### Product-ad templates
+
+A product-feed ad group can contain at most one non-archived
+`product_ad_template` ad. Product-ad templates receive their image and
+destination URL from the selected feed item, so they don't require
+`creative.file_id` or `creative.target_url`.
+
+Follow the [product feeds guide](https://developers.openai.com/ads/product-feeds) for the complete campaign,
+product-set, and template workflow.
 
 ## Retrieve an ad
 

@@ -89,7 +89,7 @@ for the row entity such as `campaign_name` or `ad_name`.
 
 | Parameter                        | Rules                                                                             |
 | -------------------------------- | --------------------------------------------------------------------------------- |
-| `segments[]`                     | Add one optional breakdown dimension for enabled ad accounts.                     |
+| `segments[]`                     | Add one optional breakdown dimension.                                             |
 | `time_granularity`               | Segmented requests support `none`, `daily`, and `monthly`.                        |
 | Segment fields                   | Use `{segment}.{metadata}` only when that segment is requested.                   |
 | `override_segment_group_order[]` | Include the row `aggregation_level` and requested segment exactly once, in order. |
@@ -101,17 +101,17 @@ for the row entity such as `campaign_name` or `ad_name`.
 | Product breakdown    | Add `segments[]=product` to an `ad_account`, `campaign`, `ad_group`, or `ad` aggregation level.          |
 | Product fields       | Project `product.*` fields from [Terminology](#terminology).                                             |
 | Product-first rows   | Set `override_segment_group_order[]=product`, then `override_segment_group_order[]=<aggregation_level>`. |
-| Zero-impression rows | Add `includes[]=zero_impression_products`; see [Includes](#includes) for required order and enablement.  |
+| Zero-impression rows | Add `includes[]=zero_impression_products`; see [Includes](#includes) for request requirements.           |
 
 ### Includes
 
 `includes[]` expands the result set with supported zero-metric rows. It does
 not change endpoint scope or `aggregation_level`.
 
-| Include                    | Works when                                                                                                                                                                  | Adds                                                                       |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `zero_impression_items`    | Default entity grouping only: do not send `segments[]`.                                                                                                                     | Entity rows that had zero impressions in the requested window.             |
-| `zero_impression_products` | Product reporting only: the ad account has product segments and zero-impression products enabled, `segments[]=product`, and `override_segment_group_order[]=product` first. | Configured product rows that had zero impressions in the requested window. |
+| Include                    | Works when                                                                                               | Adds                                                                       |
+| -------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `zero_impression_items`    | Default entity grouping only: do not send `segments[]`.                                                  | Entity rows that had zero impressions in the requested window.             |
+| `zero_impression_products` | Product reporting only: use `segments[]=product` and put `override_segment_group_order[]=product` first. | Configured product rows that had zero impressions in the requested window. |
 
 ## Examples
 
@@ -280,10 +280,9 @@ Representative response:
 
 
 
-For ad accounts with segmented insights and zero-impression product expansion
-enabled, use a product segment when you need product rows within the selected
-entity level. This request groups products first, then the ad account, so the
-response can include one configured product row even when that product had zero
+Use a product segment when you need product rows within the selected entity
+level. This request groups products first, then the ad account, so the response
+can include one configured product row even when that product had zero
 impressions.
 
 ```bash

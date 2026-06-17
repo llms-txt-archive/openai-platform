@@ -1,6 +1,6 @@
 # Ads
 
-> Create ads in ChatGPT and measure website conversions with the Measurement Pixel, authentication, campaigns, ad groups, ads, uploads, and insights.
+> Create ads in ChatGPT and measure website conversions with the Measurement Pixel, authentication, campaigns, product feeds, ad groups, ads, uploads, and insights.
 
 Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ads/<slug>.md`.
 
@@ -30,6 +30,9 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 
 ## Measurement Pixel
 - [JavaScript Pixel](https://developers.openai.com/ads/measurement-pixel.md): Send conversion events from web pages.
+
+## Product Feeds
+- [Product feeds](https://developers.openai.com/ads/product-feeds.md): Use a merchant catalog to create and measure product-feed ads.
 
 ## Supported Events
 - [Supported events](https://developers.openai.com/ads/supported-events.md): Supported conversion events & data shapes.

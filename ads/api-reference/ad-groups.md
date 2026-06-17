@@ -49,17 +49,28 @@ Create an ad group for a campaign.
 
 `POST /ad_groups`
 
-| Field                               | Type     | Required | Notes                                                       |
-| ----------------------------------- | -------- | -------- | ----------------------------------------------------------- |
-| `campaign_id`                       | string   | Yes      | Parent campaign ID.                                         |
-| `name`                              | string   | Yes      | `3` to `1000` chars and must include a non-space character. |
-| `description`                       | string   | No       | Ad group description.                                       |
-| `context_hints`                     | string[] | No       | Free-form audience or placement hints.                      |
-| `status`                            | string   | Yes      | `active` or `paused`.                                       |
-| `bidding_config.billing_event_type` | string   | Yes      | Currently `impression`.                                     |
-| `bidding_config.max_bid_micros`     | integer  | Yes      | Between `1` and `100000000`.                                |
+| Field                               | Type     | Required                   | Notes                                                                                        |
+| ----------------------------------- | -------- | -------------------------- | -------------------------------------------------------------------------------------------- |
+| `campaign_id`                       | string   | Yes                        | Parent campaign ID.                                                                          |
+| `name`                              | string   | Yes                        | `3` to `1000` chars and must include a non-space character.                                  |
+| `description`                       | string   | No                         | Ad group description.                                                                        |
+| `context_hints`                     | string[] | No                         | Free-form audience or placement hints.                                                       |
+| `status`                            | string   | Yes                        | `active` or `paused`.                                                                        |
+| `bidding_config.billing_event_type` | string   | Yes                        | Currently `impression`.                                                                      |
+| `bidding_config.max_bid_micros`     | integer  | Yes                        | Between `1` and `100000000`.                                                                 |
+| `product_set`                       | object   | For product-feed campaigns | Selects a linked feed and optional product filters. See [Product feeds](https://developers.openai.com/ads/product-feeds). |
+| `product_set.product_feed_id`       | string   | For product-feed campaigns | Feed ID linked to the current ad account.                                                    |
+| `product_set.filters`               | object[] | No                         | Product filters. Don't repeat the same field within one product set.                         |
+| `product_set.filters[].field`       | string   | Yes, in each filter        | Feed attribute to filter.                                                                    |
+| `product_set.filters[].operator`    | string   | Yes, in each filter        | `in`, `gt`, `gte`, `lt`, or `lte`.                                                           |
+| `product_set.filters[].values`      | string[] | Yes, in each filter        | Match values. Send numeric comparison values as strings, such as `"4.5"`.                    |
 
 ### Field notes
+
+Product-set filters support `title`, `body`, `item_id`, `offer_id`, `price`,
+`target_url`, `image_url`, `product_category`, `brand`, `seller_name`,
+`external_seller_id`, `star_rating`, `condition`, and `age_group`. Use `gt`,
+`gte`, `lt`, and `lte` only with `price` or `star_rating`.
 
 Context hints provide extra information on when you think your ads might be useful, and help guide when they appear. Provide a list of descriptions or keywords for when the product or service might be useful to show.
 
@@ -101,7 +112,10 @@ Update an ad group with `POST`.
 
 All fields are optional on update. `description` can be set to `null` to clear
 it. If you include `bidding_config`, send the full object. `status` accepts
-`active`, `paused`, or `archived`.
+`active`, `paused`, or `archived`. For a product-feed campaign, include the full
+`product_set` object to change the feed or its filters. Retrieve the ad group
+after the update if you need the resulting `product_set`; the immediate update
+response can omit it.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/ad_groups/adgrp_301" \

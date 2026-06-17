@@ -219,6 +219,7 @@ integration:
 - [Authentication](https://developers.openai.com/ads/api-reference/authentication)
 - [Campaigns](https://developers.openai.com/ads/api-reference/campaigns)
 - [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting)
+- [Product feeds](https://developers.openai.com/ads/product-feeds)
 - [Ad Groups](https://developers.openai.com/ads/api-reference/ad-groups)
 - [Ads](https://developers.openai.com/ads/api-reference/ads)
 - [Files](https://developers.openai.com/ads/api-reference/files)

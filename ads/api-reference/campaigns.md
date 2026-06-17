@@ -56,15 +56,16 @@ Note that time and currency fields will respect your account-set timezone and cu
 
 `POST /campaigns`
 
-| Field                                | Type     | Required | Notes                                                       |
-| ------------------------------------ | -------- | -------- | ----------------------------------------------------------- |
-| `name`                               | string   | Yes      | `3` to `1000` chars and must include a non-space character. |
-| `description`                        | string   | No       | Campaign description.                                       |
-| `start_time`                         | integer  | No       | Unix timestamp between `946684800` and `4102444800`.        |
-| `end_time`                           | integer  | No       | Unix timestamp between `946684800` and `4102444800`.        |
-| `status`                             | string   | Yes      | `active` or `paused`.                                       |
-| `budget.lifetime_spend_limit_micros` | integer  | Yes      | Minimum `1000000`.                                          |
-| `targeting.locations.include`        | object[] | No       | Included location IDs.                                      |
+| Field                                | Type     | Required | Notes                                                                          |
+| ------------------------------------ | -------- | -------- | ------------------------------------------------------------------------------ |
+| `name`                               | string   | Yes      | `3` to `1000` chars and must include a non-space character.                    |
+| `description`                        | string   | No       | Campaign description.                                                          |
+| `start_time`                         | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                           |
+| `end_time`                           | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                           |
+| `status`                             | string   | Yes      | `active` or `paused`.                                                          |
+| `budget.lifetime_spend_limit_micros` | integer  | Yes      | Minimum `1000000`.                                                             |
+| `mode`                               | string   | No       | Set to `product_feed` to create a [product-feed campaign](https://developers.openai.com/ads/product-feeds). |
+| `targeting.locations.include`        | object[] | No       | Included location IDs.                                                         |
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns" \
@@ -143,7 +144,7 @@ Update a campaign with `POST`, not `PATCH` or `PUT`.
 All fields are optional on update. If you include `budget`, send the full
 budget object. `description`, `start_time`, `end_time`, and `targeting` can be
 set to `null` to clear them. `status` accepts `active`, `paused`, or
-`archived`.
+`archived`. You cannot change `mode` after campaign creation.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns/cmpn_101" \

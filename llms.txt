@@ -431,6 +431,9 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 ## Ads — Measurement Pixel
 - [JavaScript Pixel](https://developers.openai.com/ads/measurement-pixel.md): Send conversion events from web pages.
 
+## Ads — Product Feeds
+- [Product feeds](https://developers.openai.com/ads/product-feeds.md): Use a merchant catalog to create and measure product-feed ads.
+
 ## Ads — Supported Events
 - [Supported events](https://developers.openai.com/ads/supported-events.md): Supported conversion events & data shapes.
 
