@@ -4067,7 +4067,7 @@ app, it can also match conversation content and Git branch names, so you can
 search for a phrase from the thread or a branch such as `fix/login-redirect`.
 
 Use **Find in thread** (Cmd + F) after opening a thread
-to find text within that current conversation. It does not search across other
+to find text within that current conversation. It doesn't search across other
 threads.
 
 #### Slash commands
@@ -4127,18 +4127,20 @@ The Codex app registers the `codex://` URL scheme so links can open specific par
 
 Use these canonical forms when you create links. The sections below list the full reference by link type.
 
-| Deep link                               | Opens                                                            |
-| --------------------------------------- | ---------------------------------------------------------------- |
-| `codex://threads/new`                   | A new local thread.                                              |
-| `codex://new?`                          | A new local thread with at least one new-thread query parameter. |
-| `codex://threads/`                      | A local thread. `` must be the thread's session UUID.            |
-| `codex://settings`                      | Settings.                                                        |
-| `codex://skills`                        | Skills.                                                          |
-| `codex://automations`                   | Automations with the create flow open.                           |
-| `codex://plugins/install/?marketplace=` | The install flow for a plugin from a known marketplace.          |
-| `codex://plugins/`                      | A plugin detail page.                                            |
-| `codex://plugins/?marketplacePath=`     | A local plugin detail page from a local marketplace.             |
-| `codex://pets/install?name=&imageUrl=`  | The pet install flow.                                            |
+| Deep link                                    | Opens                                                            |
+| -------------------------------------------- | ---------------------------------------------------------------- |
+| `codex://threads/new`                        | A new local thread.                                              |
+| `codex://new?`                               | A new local thread with at least one new-thread query parameter. |
+| `codex://threads/`                           | A local thread. `` must be the thread's session UUID.            |
+| `codex://settings`                           | Settings.                                                        |
+| `codex://settings/connections/`              | Computer, device, or SSH connection settings.                    |
+| `codex://settings/connections/ssh/add?name=` | Adds a host from your SSH config to Codex.                       |
+| `codex://skills`                             | Skills.                                                          |
+| `codex://automations`                        | Automations with the create flow open.                           |
+| `codex://plugins/install/?marketplace=`      | The install flow for a plugin from a known marketplace.          |
+| `codex://plugins/`                           | A plugin detail page.                                            |
+| `codex://plugins/?marketplacePath=`          | A local plugin detail page from a local marketplace.             |
+| `codex://pets/install?name=&imageUrl=`       | The pet install flow.                                            |
 
 #### Threads
 
@@ -4165,12 +4167,20 @@ Example: [Show me some fun stats about how I've been using Codex](codex://thread
 
 Use these links when you need to open Settings or a specific settings page.
 
-| Deep link                                     | Opens                                    |
-| --------------------------------------------- | ---------------------------------------- |
-| `codex://settings`                            | Settings.                                |
-| `codex://settings/browser-use`                | Browser settings.                        |
-| `codex://settings/computer-use/google-chrome` | Google Chrome settings for computer use. |
-| `codex://settings/connections`                | Remote connections settings.             |
+| Deep link                                     | Opens                                                                                        |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `codex://settings`                            | Settings.                                                                                    |
+| `codex://settings/browser-use`                | Browser settings.                                                                            |
+| `codex://settings/computer-use/google-chrome` | Google Chrome settings for computer use.                                                     |
+| `codex://settings/connections`                | Remote connections settings.                                                                 |
+| `codex://settings/connections/computer`       | Settings for controlling this Mac or PC from another device.                                 |
+| `codex://settings/connections/devices`        | Settings for controlling other devices.                                                      |
+| `codex://settings/connections/ssh`            | SSH connection settings.                                                                     |
+| `codex://settings/connections/ssh/add?name=`  | Adds the named host alias as a Codex-managed connection, then opens SSH connection settings. |
+
+The `name` value must match a host alias in `~/.ssh/config`. The link disables
+automatic connection for the added host. If Codex can't find the named host, it
+opens SSH connection settings and shows an error.
 
 Unsupported `codex://settings/...` paths open the main Settings page.
 
@@ -4206,7 +4216,7 @@ Use this form to open the install flow for a plugin from a marketplace that Code
 | --------------- | -------- | ------------------------------------------------------------------------------- |
 | `marketplace=`  | Yes      | Identifies the marketplace. For an OpenAI-curated plugin, use `openai-curated`. |
 
-The install link accepts only the `marketplace` query parameter. If Codex cannot find the requested marketplace or plugin, it opens the Plugins page instead.
+The install link accepts only the `marketplace` query parameter. If Codex can't find the requested marketplace or plugin, it opens the Plugins page instead.
 
 #### Plugin detail
 
@@ -4216,12 +4226,12 @@ The install link accepts only the `marketplace` query parameter. If Codex cannot
 
 ``must identify the plugin. For an OpenAI-curated plugin, use the form`@openai-curated`.
 
-Codex-generated plugin links can also include these query parameters. Omit both when you handwrite a link.
+Codex-generated plugin links can also include these query parameters. Omit both when you write a link manually.
 
 | Query parameter | Required | What it does                                                                                                                                    |
 | --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | `hostId=`       | No       | Identifies the Codex host that owns the plugin context, such as `local` or one of your configured remote connections. Codex provides these IDs. |
-| `source=manage` | No       | Preserves the app's plugin-management entry point. It is not admin-only.                                                                        |
+| `source=manage` | No       | Preserves the app's plugin-management entry point. It's not admin-only.                                                                         |
 
 Example: [Open the OpenAI Developers plugin](codex://plugins/openai-developers@openai-curated)
 
@@ -6662,7 +6672,7 @@ Skills are available in the Codex CLI, IDE extension, and Codex app.
 
 Skills use **progressive disclosure** to manage context efficiently: Codex starts with each skill's name, description, and file path. Codex loads the full `SKILL.md` instructions only when it decides to use a skill.
 
-Codex includes an initial list of available skills in context so it can choose the right skill for a task. To avoid crowding out the rest of the prompt, this list is capped at roughly 2% of the model’s context window, or 8,000 characters when the context window is unknown. If many skills are installed, Codex shortens skill descriptions first. For very large skill sets, some skills may be omitted from the initial list, and Codex will show a warning.
+Codex includes an initial list of available skills in context so it can choose the right skill for a task. To avoid crowding out the rest of the prompt, this list uses at most 2% of the model’s context window, or 8,000 characters when the context window is unknown. If many skills are installed, Codex shortens skill descriptions first. For large skill sets, Codex may omit some skills from the initial list and show a warning.
 
 This budget applies only to the initial skills list. When Codex selects a skill, it still reads the full SKILL.md instructions for that skill.
 
@@ -6679,7 +6689,11 @@ Because implicit matching depends on `description`, write concise descriptions w
 
 #### Create a skill
 
-Use the built-in creator first:
+If you already know the workflow and it's easier to show than describe, use
+[Record & Replay](/codex/record-and-replay). Codex records the workflow,
+inspects the steps, and drafts a reusable skill from the demonstration.
+
+If you want to describe the skill instead, use the built-in creator:
 
 ```text
 $skill-creator
@@ -9780,7 +9794,7 @@ you have tested it in your environment.
 
 Use `[experimental_network]` in `requirements.toml` when administrators should
 define network access requirements centrally. These requirements are separate
-from the user `features.network_proxy` toggle: they can configure sandboxed
+from the user `features.network_proxy` toggle: they can configure sandbox
 networking without that feature flag, but they don't grant command network
 access when the active sandbox keeps networking off.
 
@@ -9802,7 +9816,7 @@ exclusive. If it's `true` without managed allow rules, user-added domain allow
 rules don't remain effective.
 
 The domain syntax, local/private destination rules, deny-over-allow behavior,
-and DNS rebinding limitations are the same as the sandboxed networking behavior
+and DNS rebinding limitations are the same as the sandbox networking behavior
 described in [Agent approvals & security](/codex/agent-approvals-security#network-isolation).
 
 #### Pin feature flags
@@ -9828,7 +9842,7 @@ Use the canonical feature keys from `config.toml`'s `[features]` table. Codex no
 - `browser_use = false` disables Browser Use and Browser Agent availability.
 - `browser_use_full_cdp_access = false` prevents users from enabling full CDP
   access in Browser Developer mode.
-- `computer_use = false` disables Computer Use availability and related
+- `computer_use = false` disables Computer Use, Record & Replay, and related
   install or setup flows.
 
 If omitted, these features are allowed by policy, subject to normal client,
@@ -11181,8 +11195,88 @@ guidance.
 
 #### Plugin guides
 
+- [Record & Replay](/codex/record-and-replay): Show Codex a workflow
+  once and turn it into a reusable skill.
 - [Codex Security plugin](/codex/security/plugin): Scan authorized code,
   confirm findings, and prepare reviewed fixes.
+
+### Record & Replay
+
+Source: [Record & Replay](/codex/record-and-replay.md)
+
+Record & Replay is available on macOS. Initial availability excludes the
+European Economic Area, the United Kingdom, and Switzerland. Computer Use must
+also be available and enabled.
+
+Record & Replay lets you demonstrate a workflow on your
+Mac and turn it into a reusable skill. Use it when the workflow is repetitive,
+depends on your preferences, or is easier to show than to describe in a prompt.
+
+For example, you might record how you file an expense, book a parking space,
+create a correctly configured issue, publish a video, or download a recurring
+report. Codex can package the pattern into a skill that you can use again with
+Computer Use, browser actions, connected plugins, or a combination of them.
+
+#### Before you start
+
+Pick a workflow that you already know how to complete. Record & Replay works
+best when the steps are stable and the success criteria are clear.
+
+#### Start a recording
+
+1. Open **Plugins** in the Codex app.
+2. Open the **+** menu.
+3. Select **Record a skill**.
+4. Review the suggested prompt, give Codex any helpful context, and submit it.
+5. When Codex asks for permission to record your actions, approve the request
+   once you are ready to demonstrate the workflow.
+6. Perform the workflow on your Mac.
+7. When you are done, stop recording from the menu bar, overlay, or tell Codex
+   that you are done.
+
+During recording, Codex observes the actions and window content needed to learn
+the workflow. Recording continues until you stop it. Keep the recording focused
+on the task you want Codex to learn.
+
+After you stop recording, Codex inspects the captured workflow and drafts a
+skill. The skill explains when to use the workflow, what inputs it needs, what
+steps to follow, and how to verify the result. You can also ask Codex to
+refine the skill further.
+
+#### Replay the workflow
+
+Start a new thread and ask Codex to use the generated skill. Give it the
+values that are different this time, such as the file to upload, the issue to
+create, or the date range for the report.
+
+Codex uses the skill as reusable context for the task. It can then complete the
+workflow with the tools available in the current environment, including
+Computer Use, browser actions, and installed plugins.
+
+#### Tips for better recordings
+
+- Keep the demonstration short and complete.
+- Let Codex know your goal and any specific inputs that might vary between
+  skill uses before you start recording.
+- Use realistic inputs, but avoid secrets and sensitive data.
+- Refine the skill after recording to call out hidden preferences that matter,
+  such as naming conventions, field defaults, or decision points.
+- Stop recording when the workflow is complete instead of continuing into
+  unrelated cleanup.
+
+#### When to build another plugin
+
+Record & Replay is a fast way to create a skill from a demonstrated workflow.
+If you want to distribute a separate stable package across a team, bundle
+multiple skills, include app integrations, add MCP servers, or manage install
+metadata, package that workflow as its own plugin. See
+[Build plugins](/codex/plugins/build).
+
+#### I don't see Record & Replay
+
+If your organization manages Codex with `requirements.toml`, the
+`[features].computer_use` requirement controls Record & Replay too. Setting
+`computer_use = false` makes both features unavailable.
 
 ### Remote connections
 

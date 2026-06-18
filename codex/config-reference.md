@@ -1741,7 +1741,7 @@ deployments, use `allowed_permission_profiles` with managed
       key: "features.computer_use",
       type: "boolean",
       description:
-        "Set to `false` in `requirements.toml` to disable Computer Use availability and related install or enablement flows.",
+        "Set to `false` in `requirements.toml` to disable Computer Use, Record & Replay, and related install or enablement flows.",
     },
     {
       key: "features.workspace_dependencies",

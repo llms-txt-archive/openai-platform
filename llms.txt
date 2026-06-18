@@ -632,6 +632,9 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 ## Codex — Quickstart
 - [Quickstart](https://developers.openai.com/codex/quickstart.md): Start using Codex in your IDE, CLI, or the cloud
 
+## Codex — Record And Replay
+- [Record & Replay](https://developers.openai.com/codex/record-and-replay.md): Show Codex a workflow once and turn it into a reusable skill
+
 ## Codex — Remote Connections
 - [Remote connections](https://developers.openai.com/codex/remote-connections.md): Connect your phone or another device to a Codex host, or use projects on remote machines over SSH
 
