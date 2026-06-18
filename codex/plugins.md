@@ -162,5 +162,5 @@ guidance.
 
 - [Record & Replay](https://developers.openai.com/codex/record-and-replay): Show Codex a workflow
   once and turn it into a reusable skill.
-- [Codex Security plugin](https://developers.openai.com/codex/security/plugin): Scan authorized code,
-  confirm findings, and prepare reviewed fixes.
+- [Codex Security plugin quickstart](https://developers.openai.com/codex/security/plugin): Install the
+  plugin, scan authorized code, and review the result.

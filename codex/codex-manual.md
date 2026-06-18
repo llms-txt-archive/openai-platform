@@ -672,127 +672,163 @@ No. Codex Security accelerates review and helps rank findings, but it does not r
 
 Yes. Codex Security creates the initial threat model, and you can update it as the architecture, risks, and business context change. For the editing workflow, see [Improving the threat model](/codex/security/threat-model).
 
-### Codex Security plugin
+### Codex Security plugin changelog
 
-Source: [Codex Security plugin](/codex/security/plugin.md)
+Source: [Codex Security plugin changelog](/codex/security/plugin/changelog.md)
 
-The Codex Security plugin adds security-review workflows to Codex for code that
-you have authorization to assess. Use it from an open repository to investigate
-a codebase, review a change set for security regressions, confirm plausible
-findings, and prepare minimal fixes for review.
+This changelog highlights changes that affect how you run scans, review
+results, and move findings toward remediation.
 
-This page covers the installable plugin that runs in your Codex thread. For
-the research-preview product that scans connected GitHub repositories through
-Codex Web, see [Codex Security](/codex/security).
+#### 0.1.9 (June 2026)
+
+#### Review scans in the findings workspace
+
+- Review completed scans in a dedicated workspace that brings findings,
+  coverage, severity, confidence, and scan artifacts together.
+- Filter and sort findings, including sorting by highest confidence, while
+  preserving your workspace state during refreshes.
+- Open a finding to review source evidence, validation details, reachability,
+  impact, and remediation guidance in one place.
+
+#### Run scans with less setup
+
+- Run standard scans against Git repositories, individual folders, or
+  codebases without Git history. Deep scans can also target a specific folder.
+- Cancel an active scan explicitly, resume an interrupted scan without another
+  setup prompt, and receive a warning before starting concurrent deep scans.
+- Follow clearer setup and progress states, with more compact progress
+  summaries and errors that remain visible until you address them.
+
+#### Export portable, verifiable results
+
+- Use a consistent completed-scan format with a manifest, structured findings,
+  coverage data, and a Markdown report derived from the same canonical result.
+- Export findings as JSON, CSV, or SARIF for analysis, archiving, and integration
+  with other security tools.
+- Improved scan completion and filesystem handling, including fixes for Windows
+  paths and scan locking.
+
+#### Triage and track existing findings
+
+- Triage existing findings from scanners, advisories, bug bounty reports,
+  GitHub, Jira, Linear, or Codex Security results against the current codebase.
+  The triage workflow returns an evidence-backed verdict and a prioritized
+  action queue.
+- Track selected validated findings in Linear, Jira, or GitHub issues, or create
+  a private draft GitHub Security Advisory when the repository meets the
+  advisory requirements.
+- Review duplicate checks, source context, destination visibility, and the
+  exact proposed content before approving a write. Codex reads the result back
+  after creation or update to verify it.
+
+### Codex Security plugin quickstart
+
+Source: [Codex Security plugin quickstart](/codex/security/plugin.md)
+
+Codex Security is a security-review plugin for Codex that scans your code for
+vulnerabilities, validates plausible findings, and presents evidence and
+remediation guidance in a reviewable workspace. Use it to find security issues
+in code you own or have authorization to assess before they reach production.
+
+This quickstart takes you through one recommended first run: an ordinary,
+read-only scan of a local repository in the Codex app.
+
+This page covers the plugin that runs in a local Codex thread. To scan a
+connected GitHub repository in Codex web, see [Codex Security cloud
+setup](/codex/security/setup).
 
 #### Install the plugin
 
+Open the repository you want to assess in the Codex app, then install Codex
+Security:
+
 Install the Codex Security plugin
 
-    After installation, start a new thread in the repository you want to
-    assess.
+After installation, start a new thread in that repository. Codex loads plugins
+when the thread starts, so don't continue in a thread that was already open.
 
-1. Open Codex
+#### Run your first scan
 
-   Start Codex from your repository:
+For the best scan quality, use `gpt-5.5`
+with `high` or `xhigh` reasoning effort.
 
-   ```bash
-   codex
-   ```
+1.  Ask for an ordinary scan
 
-   2. Open the plugin browser
+    Send this prompt in the new thread:
 
-      Enter:
+    ```text
+    Run a Codex Security scan on this repository.
+    ```
 
-      ```text
-      /plugins
-      ```
+2.  Confirm the setup
 
-   3. Install Codex Security
+    Codex opens a setup workspace before it starts. For your first run, use these
+    settings:
+    - **Scan type:** `Codebase`
+    - **Deep scan:** Off
+    - **Scan area:** `Entire codebase`
+    - **Threat model scoping guidance:** Leave blank unless you already know a
+      specific attack vector or application area that deserves priority.
 
-      Search for **Codex Security**, open it, and select `Install plugin`.
+    Confirm that **Codebase**, **Current branch**, and **Last commit** identify
+    the repository you intended to scan. Then select **Start scan**.
 
-   4. Start a new thread
+        Configure the scan target, scan area, branch, and optional threat model
+        guidance before starting the scan.
 
-      Start a new thread in the repository you are authorized to review.
+3.  Let the scan finish
 
-#### Choose a security workflow
+    The scan can take time. Keep the thread running until the workspace reports
+    completion. If Codex identifies a configuration limitation, review the exact
+    limitation and proposed change before allowing it to update your
+    configuration.
 
-Choose the narrowest workflow that answers your question. A diff-focused scan
-is faster to review than a repository-wide scan; a deep scan intentionally uses
-more time and tokens to search for more candidate findings.
+4.  Review the result
 
-| Goal                                   | Skill                                | Scope and output                                                                                                                              |
-| -------------------------------------- | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Review a repository or one scoped path | `$codex-security:security-scan`      | Runs threat modeling, finding discovery, validation, attack-path analysis, and produces Markdown and HTML reports.                            |
-| Run a higher-recall audit              | `$codex-security:deep-security-scan` | Repeats repository-wide discovery with delegated workers before validation and reporting. Use it only for an entire repository.               |
-| Review a change before merge           | `$codex-security:security-diff-scan` | Reviews a pull request, commit, branch diff, or working-tree patch and produces a Markdown report grounded in changed code.                   |
-| Fix one finding                        | `$codex-security:fix-finding`        | Reproduces or validates one plausible finding, makes a minimal fix when needed, and checks that the vulnerable behavior no longer reproduces. |
+    Use the UI to browse findings or open the generated report for a complete,
+    portable review.
 
-For example, to scan a repository:
+        Browse findings by severity, category, directory, patch status, and
+        review status.
+
+#### What the scan creates
+
+Every completed scan opens a findings workspace. Use it to review findings and
+coverage without inspecting raw artifacts. The scan also creates:
+
+- `report.md`, a complete portable report for sharing or archiving.
+- Structured scan data in `scan-manifest.json`, `findings.json`, and
+  `coverage.json` for automation and integrations. You normally don't need to
+  open these files yourself.
+
+#### Choose your next workflow
+
+- [Run a standard or scoped scan](/codex/security/plugin/scans) when you want
+  to scan a repository or one folder with the default workflow.
+- [Run a deep scan](/codex/security/plugin/deep-scans) when you need a more
+  comprehensive scan and can wait longer for it to finish.
+- [Review code changes](/codex/security/plugin/code-changes) when the target is
+  a pull request, commit, branch range, or working-tree patch.
+- [Triage a backlog](/codex/security/plugin/triage-backlog) when you have
+  existing security findings to review.
+- [Fix and verify a finding](/codex/security/plugin/fix-findings) after you
+  accept one finding for remediation.
+- [Export or track findings](/codex/security/plugin/export-findings) when you
+  need JSON, CSV, SARIF, an approval-gated Linear, GitHub, or Jira issue, or a
+  private draft GitHub Security Advisory.
+
+#### Install from Codex CLI
+
+To install the same plugin from the CLI, start Codex in the repository and open
+the plugin browser:
 
 ```text
-Use $codex-security:security-scan to scan this repository for security
-vulnerabilities. Keep the scan grounded in code evidence, validate plausible
-findings where feasible, and return the final report paths. Do not modify code.
+codex
+/plugins
 ```
 
-To review the current change instead:
-
-```text
-Use $codex-security:security-diff-scan to review the current branch diff for
-security regressions. Keep the review scoped to changed code and directly
-supporting files. Do not modify code.
-```
-
-#### Review the result and fix findings
-
-Repository scans use a staged workflow:
-
-1. **Threat modeling** identifies entry points, trust boundaries, sensitive
-   actions, and risky components.
-2. **Finding discovery** looks for concrete source-to-sink paths or broken
-   controls in the requested scope.
-3. **Validation** tests or otherwise verifies plausible findings and records
-   evidence or proof gaps.
-4. **Attack-path analysis** traces exploitable paths and rates severity for
-   findings that survive validation.
-5. **Reporting** writes findings, affected locations, validation evidence,
-   remediation guidance, and review directives to artifacts.
-
-An ordinary repository scan or a deep scan writes `report.md` and a readable
-`report.html` within its scan directory. A diff scan writes a focused Markdown
-report. Review affected files, evidence, assumptions, and severity before
-starting remediation.
-
-When a finding is actionable, ask for a bounded fix:
-
-```text
-Use $codex-security:fix-finding to fix finding [finding ID or report
-reference]. Add focused regression coverage, verify legitimate behavior still
-works, and show that the original issue no longer reproduces. Do not broaden
-the change beyond this finding.
-```
-
-#### Keep security work authorized and reviewable
-
-Run scans only against repositories, diffs, and systems that you own or that
-your organization authorizes you to assess. A finding is an input to review,
-not an instruction to merge code or test unrelated targets.
-
-- Keep the first scan read-only unless you explicitly ask Codex to prepare a
-  fix.
-- Review commands that build, run, or reproduce behavior before approving
-  them, especially in unfamiliar repositories.
-- Review every proposed patch and validation result before merging it.
-- Keep repository instructions and approval policies in place while using the
-  plugin. For details, see [Agent approvals and security](/codex/agent-approvals-security).
-
-#### Explore security use cases
-
-- [Run a deep security scan](/codex/use-cases/deep-security-scan)
-- [Scan code changes for security](/codex/use-cases/scan-code-changes-for-security)
-- [Remediate a vulnerability backlog](/codex/use-cases/remediate-vulnerability-backlog)
+Search for **Codex Security**, select `Install plugin`, and start a new thread.
+Then use the same first-scan prompt.
 
 ### Codex Security setup
 
@@ -886,6 +922,222 @@ You can review each finding and create a PR directly from the finding detail pag
 - [FAQ](/codex/security/faq) covers common questions.
 - [Improving the threat model](/codex/security/threat-model) explains how to improve scan context and finding prioritization.
 
+### Export and track security findings
+
+Source: [Export and track security findings](/codex/security/plugin/export-findings.md)
+
+Use a completed Codex Security scan as the source for two different handoffs:
+
+- **Export** creates a portable JSON, CSV, or SARIF file.
+- **Track findings** prepares selected findings as Linear, GitHub, or Jira issues
+  or one private draft GitHub Security Advisory, checks for duplicates, and
+  waits for your approval before writing.
+
+These workflows don't change the sealed scan bundle.
+
+#### Export a portable artifact
+
+Open the completed findings workspace, select **Export**, and choose a format:
+
+| Format | Use it for                                                        |
+| ------ | ----------------------------------------------------------------- |
+| JSON   | Preserve the sealed structured findings for tools and scripts.    |
+| CSV    | Review findings and current local triage state in a spreadsheet.  |
+| SARIF  | Send findings to tools that support the SARIF interchange format. |
+
+Select **Export findings** and use the returned artifact path. Keep the
+original `scan-manifest.json`, `findings.json`, and `coverage.json` together
+when another tool needs the complete scan context rather than a findings-only
+projection.
+
+    Export completed findings as JSON, CSV, or SARIF for downstream review and
+    tooling.
+
+#### Track selected findings
+
+The `$codex-security:track-findings` workflow accepts one validated finding or
+an explicitly selected batch of up to 25 findings from one sealed scan for
+issue tracking. Draft GitHub Security Advisories accept one finding only. One
+run uses one provider and one destination.
+
+For Linear, send a prompt like:
+
+```text
+Use $codex-security:track-findings to prepare finding [finding ID] from
+[completed scan directory] for the Linear team [team] and project [project, if
+any]. Check for duplicates and show me the exact issue title, body, metadata,
+and destination. Do not create or update anything until I approve that payload.
+```
+
+For GitHub issues, send:
+
+```text
+Use $codex-security:track-findings to prepare finding [finding ID] from
+[completed scan directory] for GitHub repository [owner/repository]. Check open
+and closed issues for duplicates and show me the exact issue title, body,
+metadata, repository visibility, and authenticated transport. Do not create or
+update anything until I approve that payload.
+```
+
+For Jira, send:
+
+```text
+Use $codex-security:track-findings to prepare finding [finding ID] from
+[completed scan directory] for Jira project [project key] as [issue type].
+Check for duplicates and show me the exact issue summary, description,
+metadata, and destination. Do not create or update anything until I approve
+that payload.
+```
+
+Jira tracking requires the native Atlassian Rovo app in Codex. Reusing an issue
+requires read access; creating or updating one requires read and write access.
+
+For a private draft GitHub Security Advisory, send:
+
+```text
+Use $codex-security:track-findings to prepare finding [finding ID] from
+[completed scan directory] as a private draft GitHub Security Advisory in
+[owner/repository]. Verify the sealed source revision, repository, affected
+paths, package metadata, and duplicate state. Show me the exact advisory
+payload, authenticated GitHub CLI identity, and disclosure warnings. Do not
+create anything until I approve that payload.
+```
+
+Draft advisories require one finding from a sealed `git_revision` scan, the
+verified public canonical source repository, and administrator access. The
+workflow doesn't batch, update, publish, or close advisories. Use an approved
+private issue destination when the source doesn't meet those requirements.
+
+#### Review the proposed write
+
+1. Confirm the finding ID and fingerprint came from the intended sealed scan.
+2. Confirm the provider, exact Linear team, GitHub repository, Jira project, or
+   advisory repository, and the live destination visibility.
+3. Review the duplicate outcome: `create`, `reuse`, `update`, or `blocked`.
+4. Read the complete proposed title, body, source locations, and provider
+   metadata. Remove exploit detail or internal evidence that the destination
+   shouldn't expose.
+5. Approve only that exact payload. A changed destination, visibility, finding
+   set, or body requires a new preview.
+
+Sensitive findings should go to a private destination. Creating an issue in an
+internal or public GitHub repository requires an explicit visibility warning
+and approval of the complete content. Treat a draft advisory description as
+eventually public and remove credentials, private evidence, and unnecessary
+exploit details before approval.
+
+#### Verify the tracked item
+
+After approval, Codex revalidates the sealed source, destination, access, and
+duplicate state. It processes a batch serially and stops on the first uncertain
+result. A create, update, or reuse is complete only after Codex reads the exact
+issue back and verifies its binding identifiers and content.
+
+Keep the returned canonical issue or advisory URL with your triage record.
+Continue with [Fix and verify a finding](/codex/security/plugin/fix-findings)
+when the owner accepts the item for remediation.
+
+### Fix and verify security findings
+
+Source: [Fix and verify security findings](/codex/security/plugin/fix-findings.md)
+
+Codex Security helps you turn a backlog of accepted findings into tested code
+changes. You can fix findings in the findings workspace UI or invoke the
+remediation workflow from a prompt, the command line, or CI/CD. In each case,
+Codex validates the issue, proposes a focused patch, adds regression coverage,
+and verifies that legitimate behavior still works.
+
+Start by fixing one accepted finding so you can evaluate the patch and
+verification quality. Once the workflow meets your standards, scale it across
+more accepted findings by processing each finding in a separate task or CI/CD
+job. Keeping each fix scoped makes the code changes and evidence easier to
+review.
+
+#### Fix a finding in the UI
+
+Open an accepted finding in the findings workspace to generate, review, apply,
+and verify its patch.
+
+1. Generate a focused patch
+
+   Open the finding, select the **Patch** tab, and select **Generate patch**.
+   Codex validates or reproduces the issue when feasible and writes a patch
+   artifact without modifying the selected checkout.
+
+2. Review the proposed diff
+
+   Read every changed source and regression-test file. Use **Open diff in
+   editor** when you want the full patch in the editor. Reject broad refactors,
+   unrelated cleanup, or changes that weaken another security control.
+
+3. Apply the patch locally
+
+   Select **Apply patch locally** only after the diff is acceptable. Codex
+   applies the exact generated patch to the working tree and records that state.
+   Review the working-tree diff before continuing.
+
+4. Verify the fix
+
+   Select **Verify fix**. Codex reruns the original reproducer or strongest
+   available exploit check, focused regression coverage, legitimate-behavior
+   checks, nearby bypass checks, and relevant repository tests.
+
+5. Close the finding deliberately
+
+   Verification doesn't automatically close a finding. Review the commands,
+   results, and remaining proof gap, then close the finding with an accurate
+   reason or keep it open for more work.
+
+   Review the proposed source and test changes before applying the patch
+   locally.
+
+#### Fix a finding from the CLI
+
+Use the Codex CLI when you already have a finding from a scan, ticket, advisory,
+disclosure, security assessment, or internal review:
+
+```text
+Use $codex-security:fix-finding to fix finding  from . Validate the issue, make the smallest safe change, add focused regression coverage, and verify that the issue no longer reproduces.
+```
+
+Include the known source, sink, attacker input, impact, expected invariant,
+reproducer, affected files, and validation command. Codex can inspect the
+repository for missing technical details, but it should ask before guessing a
+product policy or intended security invariant.
+
+For an automated run, pass the prompt to `codex exec` after checking out the code
+and making the finding report available:
+
+```bash
+codex exec 'Use $codex-security:fix-finding to fix finding  from . Validate the issue, make the smallest safe change, add focused regression coverage, and verify that the issue no longer reproduces.'
+```
+
+#### Scan and fix findings in CI/CD
+
+In CI/CD, use one Codex run to scan the diff and generate fixes for every
+finding it discovers. The job doesn't need finding IDs or report paths as
+inputs. Codex carries the findings from the scan into remediation within the
+same run.
+
+The all-in-one run should:
+
+1. Resolve the base and head revisions for the change.
+2. Run `$codex-security:security-diff-scan` against that diff.
+3. Invoke `$codex-security:fix-finding` for every finding returned by the scan.
+4. Generate focused patches and regression coverage, then verify each fix.
+5. Return the scan results, patches, tests, verification commands, and any
+   finding it couldn't fix.
+
+For example:
+
+```bash
+codex exec 'Use $codex-security:security-diff-scan to review changes from  to HEAD. For every finding returned by the scan, use $codex-security:fix-finding to generate and verify a minimal fix. Continue until every finding has either a verified fix or an explicit explanation of why it could not be fixed. Return the scan results, patches, tests, verification commands, and remaining failures.'
+```
+
+After verification, merge the patch through your normal code-review and release
+process. To hand findings to another team before remediation, see [Export or
+track findings](/codex/security/plugin/export-findings).
+
 ### Improving the threat model
 
 Source: [Improving the threat model](/codex/security/threat-model.md)
@@ -928,6 +1180,487 @@ To review or update the threat model, go to [Codex Security scans](https://chatg
 - [Codex Security setup](/codex/security/setup) covers repository setup and findings review.
 - [Codex Security](/codex/security) gives the product overview.
 - [FAQ](/codex/security/faq) covers common questions.
+
+### Review code changes for security
+
+Source: [Review code changes for security](/codex/security/plugin/code-changes.md)
+
+Use a security change review when you need evidence about regressions introduced
+by one Git-backed change set. The workflow reviews every changed source-like
+file and directly supporting code without turning the task into a general
+repository audit.
+
+If you want to scan a full repository instead of a specific change, see [Run a
+security scan](/codex/security/plugin/scans).
+
+#### Run a manual review
+
+For uncommitted changes, send:
+
+```text
+Use $codex-security:security-diff-scan to review my current uncommitted changes for security regressions.
+```
+
+For a commit or branch range, identify both ends when needed:
+
+```text
+Use $codex-security:security-diff-scan to review the changes from origin/main to HEAD for security regressions. Focus on authentication, authorization, input handling, filesystem access, network requests, and secrets.
+```
+
+You can also name a pull request when its base and head revisions are available
+in the local checkout.
+
+#### Confirm the change in setup
+
+1. Confirm **Scan type** is `Changes`.
+2. Confirm the checked-out **Codebase**, **Current branch**, and **Last commit**.
+3. Under **Changes to review**, choose:
+   - `Uncommitted changes` for the current working tree.
+   - The latest commit for a single-commit review.
+   - A base and head revision for a branch or pull-request range.
+4. Confirm that the summary describes the change you intended to review.
+5. Select **Start scan**.
+
+The workflow doesn't check out another branch or change the selected working
+tree. If a requested revision isn't available locally, fetch it before the
+review or provide a locally available base and head.
+
+#### Act on findings
+
+After reviewing the results, [fix and verify an accepted
+finding](/codex/security/plugin/fix-findings) or [export and track
+findings](/codex/security/plugin/export-findings).
+
+#### Automate reviews in CI/CD
+
+You can run a change review from any CI/CD system that can check out the target
+revisions and invoke the Codex CLI without interaction. Resolve the exact base
+and head revisions, use a read-only sandbox, save the Markdown result, and
+publish it through your CI/CD system.
+
+#### GitHub Actions example
+
+The following GitHub Actions workflow is one implementation of this pattern. It
+uses `openai/codex-action` to install the Codex CLI and run `codex exec` with a
+read-only sandbox. It produces a Markdown review for every in-scope pull
+request.
+
+Before you add the workflow:
+
+1. Create an `OPENAI_API_KEY` repository or organization secret.
+2. Save the workflow as `.github/workflows/codex-security-review.yml`.
+3. Start with advisory comments. Tune the prompt and review the results before
+   making the workflow a required check.
+
+```yaml
+name: Codex Security pull request review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  security_review:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      final_message: ${{ steps.run_codex.outputs.final-message }}
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Fetch pull request refs
+        env:
+          PR_BASE_REF: ${{ github.event.pull_request.base.ref }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          git fetch --no-tags origin \
+            "$PR_BASE_REF" \
+            "+refs/pull/$PR_NUMBER/head"
+
+      - name: Run Codex Security review
+        id: run_codex
+        uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          sandbox: read-only
+          output-file: codex-security-review.md
+          prompt: |
+            Review the pull request changes from
+            ${{ github.event.pull_request.base.sha }} to
+            ${{ github.event.pull_request.head.sha }} for security regressions.
+
+            Focus on authentication, authorization, input handling, filesystem
+            access, network requests, secrets, and changes to shared security
+            controls. Return a concise Markdown review with affected paths and
+            lines, evidence, impact, and remediation guidance. If there are no
+            findings, summarize the security-sensitive surfaces reviewed and
+            any coverage gaps.
+
+      - name: Upload the review
+        uses: actions/upload-artifact@v4
+        with:
+          name: codex-security-review
+          path: codex-security-review.md
+
+  post_review:
+    needs: security_review
+    if: needs.security_review.outputs.final_message != ''
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: Post the review
+        uses: actions/github-script@v7
+        env:
+          CODEX_FINAL_MESSAGE: ${{ needs.security_review.outputs.final_message }}
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: process.env.CODEX_FINAL_MESSAGE,
+            });
+```
+
+This workflow checks out the pull request merge commit and fetches the base and
+head refs so Codex can resolve the exact change. The security review job has
+read-only repository permissions. A separate job receives permission to post
+the final Markdown review, but it never receives the OpenAI API key.
+
+For action inputs, privilege controls, and troubleshooting, see the [Codex
+GitHub Action guide](/codex/github-action).
+
+### Run a Codex Security scan
+
+Source: [Run a Codex Security scan](/codex/security/plugin/scans.md)
+
+Use a Codex Security scan for your first review and for most routine repository
+or component assessments. It runs the complete scan workflow once.
+
+Once you're satisfied with the results, run a [deep scan](/codex/security/plugin/deep-scans)
+for a more comprehensive assessment. Deep scans take longer, but they're more
+thorough.
+
+#### Choose the scan area
+
+Scan the whole repository when you need broad coverage and the repository is a
+reasonable review unit:
+
+```text
+Use $codex-security:security-scan to scan this repository for security vulnerabilities.
+```
+
+Scan a folder when a monorepo is too large or one service, package, or component
+has a clear owner and security boundary:
+
+```text
+Use $codex-security:security-scan to scan this repository for security vulnerabilities, focusing on the services/billing component.
+```
+
+For a large monorepo, start with one meaningful product or service boundary.
+
+#### Configure the scan
+
+1. Confirm **Scan type** is `Codebase` and leave **Deep scan** off.
+2. Confirm the **Codebase**, **Current branch**, and **Last commit**.
+3. Set **Scan area** to `Entire codebase` or enter one repository-relative
+   folder.
+4. Add threat-model guidance only when it changes the review. Useful guidance
+   names attacker-controlled inputs, trust boundaries, sensitive actions, or a
+   specific area to prioritize.
+5. Select **Start scan**.
+
+Repository-specific guidance in `AGENTS.md` can also establish the product
+surfaces, trust boundaries, supported validation commands, and out-of-scope
+areas. Prefer concrete repository context over a generic planning step before
+the scan.
+
+#### Let the phases complete
+
+A scan runs these phases in order:
+
+1. **Threat modeling** identifies assets, entry points, trust boundaries, and
+   security invariants.
+2. **Finding discovery** reviews the requested code for plausible broken
+   controls and source-to-sink paths.
+3. **Validation** tests or otherwise checks each candidate and records evidence
+   or proof gaps.
+4. **Attack-path analysis** evaluates realistic reachability, impact, and
+   severity.
+5. **Finalization** validates the structured scan contract and generates
+   `report.md`.
+
+Codex reports phase and coverage progress as the scan runs. Don't judge the
+result from early candidates or stop the scan because one phase takes longer
+than another.
+
+#### Review the completed scan
+
+Review the result in this order:
+
+1. Confirm the target, revision, and scan area.
+2. Read reviewed surfaces and every explicit deferred or follow-up area.
+3. For each finding, inspect the root control or sink, attacker-controlled
+   input, validation method, remaining uncertainty, realistic reachability,
+   severity rationale, and proposed remediation.
+4. Dismiss findings whose evidence doesn't support the claimed path or impact.
+5. Select one accepted finding before starting a fix.
+
+   The completed workspace summarizes scan status, coverage, severity, and
+   artifacts before listing the findings.
+
+   A finding connects the relevant source to its entry point, reachability,
+   likelihood, impact, and any limits or counterevidence.
+
+#### Use the results
+
+Use the findings workspace for normal review. It presents findings, coverage,
+and follow-up areas without requiring you to inspect raw JSON. Open `report.md`
+when you need a complete portable review for sharing or archiving.
+
+Behind the workspace, each scan preserves `scan-manifest.json`, `findings.json`,
+and `coverage.json` for automation and integrations. You normally don't need to
+open these files yourself.
+
+The findings workspace can also create portable JSON, CSV, and SARIF files. See
+[Export or track findings](/codex/security/plugin/export-findings).
+
+#### Next step
+
+After a person accepts a finding, use [Fix and verify a finding](/codex/security/plugin/fix-findings)
+to generate and review one bounded patch. Don't ask Codex to fix every finding
+from a scan in one task.
+
+### Run a deep security scan
+
+Source: [Run a deep security scan](/codex/security/plugin/deep-scans.md)
+
+A deep scan is slower but more thorough than a standard scan. Use it when you
+want to reduce variability and search more comprehensively.
+
+Start with a [standard scan](/codex/security/plugin/scans). Once you're
+satisfied with the results, run a deep scan for a more thorough assessment.
+
+#### Choose between standard and deep scans
+
+|                         | Standard scan                                      | Deep scan                                             |
+| ----------------------- | -------------------------------------------------- | ----------------------------------------------------- |
+| Best for                | First runs and routine repository or folder review | More thorough reviews after a standard scan           |
+| Variability             | Standard                                           | Reduced                                               |
+| Scope                   | Repository or explicit folder                      | Repository or explicit folder                         |
+| Runtime and resources   | Lower                                              | Higher                                                |
+| Pull requests and diffs | Use the change-review workflow                     | Not supported; use the change-review workflow instead |
+
+#### Start the deep scan
+
+For a repository-wide review, send:
+
+```text
+Use $codex-security:deep-security-scan to run a deep security scan of this repository.
+```
+
+For one component in a monorepo, identify the folder explicitly:
+
+```text
+Use $codex-security:deep-security-scan to run a deep security scan of /absolute/path/to/repository/services/payments.
+```
+
+In the Codex app, a scoped deep scan resolves the selected folder as the
+**Codebase** and shows its scan area as the entire selected target.
+
+#### Confirm setup and preflight
+
+1. Confirm **Scan type** is `Codebase` and **Deep scan** is on.
+2. Confirm that **Codebase** is the repository or exact folder you intended to
+   scan.
+3. Add threat-model guidance only for concrete attack vectors, sensitive
+   application areas, or repository context that the code can't reveal.
+4. Select **Start scan**.
+5. Review the capability preflight. If it proposes a configuration change,
+   review the exact change and let Codex apply it only if it matches your
+   environment. Start a new thread if Codex tells you a restart is required.
+
+#### Review the result
+
+Deep scans use the same findings workspace and generated `report.md` as standard
+scans. Review the coverage summary before the findings. A deep scan searches
+the code more extensively, but any deferred surface or proof gap still limits
+the conclusion. For a finding you accept, continue with [Fix and verify a
+finding](/codex/security/plugin/fix-findings).
+
+To review a pull request, commit, branch range, or local patch, use [Review code
+changes](/codex/security/plugin/code-changes). A deep scan never substitutes
+for the diff-focused workflow.
+
+### Triage a backlog
+
+Source: [Triage a backlog](/codex/security/plugin/triage-backlog.md)
+
+Use `$codex-security:triage-finding` to review existing security findings
+against the current repository. This workflow performs a read-only static
+analysis: Codex treats each finding as an unproven claim and inspects repository
+evidence without executing the code.
+
+Run this workflow from a Codex project scoped to the repository you want to
+assess. Codex must be able to read the repository's source code. Jira, Linear,
+and GitHub connectors provide finding data, but they don't replace access to
+the source code.
+
+Under the hood, Codex starts from the cited code or version information. It
+traces the claimed attacker-controlled source, relevant security controls,
+dangerous sink, and reachable path. It also checks the product surface and trust
+boundary, looks for counterevidence, and records proof gaps. Codex then returns
+one verdict per finding and ranks the findings that need action or further
+review.
+
+This differs from `$codex-security:validation`, which can build or run code,
+create a focused test or proof of concept, or exercise a real interface to
+reproduce or disprove a finding. Use triage to classify and prioritize an
+existing backlog. Use validation when runtime evidence could resolve a finding
+that static evidence leaves uncertain.
+
+Backlog triage starts from existing findings. To search the repository for new
+vulnerabilities, [run a security scan](/codex/security/plugin/scans). Triage
+doesn't modify the repository or implement fixes.
+
+#### Choose the findings to triage
+
+You can supply one finding or a collection from these sources:
+
+| Source                   | What to provide                                                                                                                                                                                                                                                                                                                                                                                                                                        | Requirements                                                                                                                                                                                     |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Pasted or local findings | SARIF results, a CVE or GHSA, an advisory, a scanner ticket, a bug bounty report, a Codex Security finding artifact, or a plain-language vulnerability claim.                                                                                                                                                                                                                                                                                          | No connector required.                                                                                                                                                                           |
+| Jira or Linear           | Exact security or vulnerability issue URLs or identifiers, Jira JQL, or a Linear team, project, or search phrase. Codex retrieves the selected issue content before triage.                                                                                                                                                                                                                                                                            | [Jira through Atlassian Rovo](codex://plugins/plugin_connector_692de805e3ec8191834719067174a384) or [Linear](codex://plugins/plugin_asdk_app_69a089a326dc8191b32a3f2553f5be2c) with read access. |
+| GitHub                   | A repository and one finding source: code scanning, `Dependabot` vulnerabilities and malware, security advisories and private vulnerability reports, or all sources. If you don't specify a repository, Codex uses the GitHub repository attached to the current Codex project when available. GitHub Issues aren't included in the default GitHub sources; provide a specific issue or ask for GitHub Issues explicitly when you want to triage them. | [GitHub](codex://plugins/plugin_connector_1p_1a69035c238881919c4190932b2df699) with access to the selected repository and finding type.                                                          |
+
+Codex keeps one result for every supplied finding, in input order, so each
+source finding stays traceable. It doesn't merge or drop findings that look
+like duplicates.
+
+#### Run read-only triage
+
+For pasted findings or local artifacts, send a prompt like:
+
+```text
+Use $codex-security:triage-finding to triage these existing security findings against this repository:
+
+[Paste the findings or provide the artifact path.]
+```
+
+For Jira or Linear issues, identify the issue set and keep the source system
+read-only:
+
+```text
+Use $codex-security:triage-finding to import and triage the security findings from [Jira or Linear issue URLs, identifiers, or query] against this repository.
+Do not change the source issues.
+```
+
+For GitHub findings, name the repository and source:
+
+```text
+Use $codex-security:triage-finding to import and triage [code scanning, Dependabot vulnerabilities and malware, security advisories and private vulnerability reports, or all] from [owner/repository] against this repository.
+```
+
+To use the GitHub repository attached to the current Codex project, specify
+only the finding source:
+
+```text
+Use $codex-security:triage-finding to import and triage [code scanning, Dependabot vulnerabilities and malware, security advisories and private vulnerability reports, or all] from GitHub against this repository. Use the GitHub repository attached to the current Codex project.
+```
+
+The workflow proceeds in this order:
+
+1. Collect and organize the findings
+
+   Codex retrieves any requested issue or GitHub content, preserves source
+   identifiers and references, and creates one triage item per input. It builds
+   the complete item list before assigning verdicts.
+
+2. Confirm the repository context
+
+   Codex resolves the current repository and revision when available. It reads
+   `SECURITY.md` when present so supported versions, trusted inputs, product
+   boundaries, and out-of-scope surfaces inform the assessment.
+
+3. Inspect the static evidence
+
+   For each finding, Codex traces the claimed attacker-controlled source,
+   relevant security control, vulnerable sink, reachable path, and supported
+   security boundary. It records supporting evidence, evidence against the
+   claim, and proof gaps.
+
+4. Assign verdicts and ranks
+
+   Codex assigns a verdict and confidence to every finding. It ranks
+   `confirmed` and `needs_review` findings by exploitability in separate queues.
+
+#### Review the results
+
+| Verdict          | What it means                                                                                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `confirmed`      | Repository evidence shows that the vulnerable path is reachable under the stated preconditions and crosses a supported security boundary.                     |
+| `not_actionable` | Repository evidence rules out the claim, such as by showing an unaffected version, unreachable path, effective guard, or non-shipped surface.                 |
+| `needs_review`   | Repository evidence isn't enough to decide because required information is missing, ambiguous, runtime-dependent, environment-dependent, or policy-dependent. |
+
+Exploitability ranks use `P0`, `P1`, `P2`, and so on, independently within
+each verdict queue. This keeps remediation priorities separate from unresolved
+review work. `P0` is the most exploitable `confirmed` finding or the
+highest-priority `needs_review` finding in that result set. The rank isn't a
+scanner severity score, and `not_actionable` findings aren't ranked.
+
+For each finding, review:
+
+- the rationale for the verdict and rank
+- supporting evidence and evidence against the claim
+- open questions and remaining proof gaps
+- the affected location and component
+- the product surface and source trust level
+- the recommended next step
+- the [`$codex-security:fix-finding`](/codex/security/plugin/fix-findings)
+  handoff, when the finding is `confirmed`
+
+Triage is complete when every supplied finding has one result, Codex preserves
+its source identifier, and any uncertainty is explicit. Jira, Linear, and other
+backlog records remain unchanged unless you ask Codex to write back after
+reviewing the triage results.
+
+#### Next steps
+
+- `confirmed`: After a person accepts the finding for remediation, use
+  [`$codex-security:fix-finding`](/codex/security/plugin/fix-findings) to fix and
+  verify it. Triage prepares a prompt-ready handoff but doesn't invoke the skill
+  automatically.
+- `needs_review`: If running code can resolve the proof gap, use
+  `$codex-security:validation` to perform bounded dynamic validation. Pass
+  the finding claim, affected locations, preconditions, static evidence, and
+  proof gaps from the triage result:
+
+  ```text
+  Use $codex-security:validation to dynamically validate finding [triage item ID or source ID] from the backlog triage result. Use the strongest realistic, bounded method, record exactly what was tested, and preserve any remaining proof gaps.
+  ```
+
+  Unlike triage, validation may build or run code, create a focused test or
+  proof of concept, or exercise a real interface. Review the proposed commands
+  before approving them and keep [Codex approval and security
+  policies](/codex/agent-approvals-security) in place.
+
+- `needs_review`: If the finding depends on product policy or deployment
+  context, answer the listed open questions before changing code.
+- `not_actionable`: Keep the evidence with your triage record. Codex doesn't
+  automatically close or update the source ticket.
+- To look for vulnerabilities beyond the supplied backlog, [run a security
+  scan](/codex/security/plugin/scans).
 
 ### Agent approvals & security
 
@@ -10326,14 +11059,18 @@ Source: [Codex Security](/codex/security/index.md)
 
 [Install plugin in Codex App](https://chatgpt.com/plugins/share/676aca3811d54fa7bcdef5255236b3c4)
 
-For installation steps, supported skills, and review boundaries, see the
-[Codex Security plugin guide](/codex/security/plugin).
+For a prescriptive first local scan, start with the [Codex Security plugin
+quickstart](/codex/security/plugin).
 
 #### Explore plugin use cases
 
-- [Run a deep security scan](/codex/use-cases/deep-security-scan) to perform a higher-recall repository-wide audit.
-- [Scan code changes for security](/codex/use-cases/scan-code-changes-for-security) before you merge a pull request or branch.
-- [Remediate a vulnerability backlog](/codex/use-cases/remediate-vulnerability-backlog) with bounded fixes for approved findings.
+- [Run a security scan](/codex/security/plugin/scans) for a repository or one scoped folder.
+- [Run a deep security scan](/codex/security/plugin/deep-scans) when you need a more comprehensive scan and can wait longer for it to finish.
+- [Review code changes](/codex/security/plugin/code-changes) before you merge a pull request or branch.
+- [Triage a backlog](/codex/security/plugin/triage-backlog) when you have existing security findings to review.
+- [Fix and verify findings](/codex/security/plugin/fix-findings) with bounded patches for approved findings.
+- [Export or track findings](/codex/security/plugin/export-findings) as portable artifacts or approval-gated tracking destinations.
+- [See what's new](/codex/security/plugin/changelog) in the Codex Security plugin.
 
 The plugin runs in your Codex thread. Codex Security cloud scans connected
 GitHub repositories through Codex Web. For Codex sandboxing, approvals,
@@ -10368,8 +11105,8 @@ Codex Security is available for ChatGPT Enterprise, Edu, Business, and Pro users
 
 #### Security overview references
 
-- [Codex Security plugin guide](/codex/security/plugin) covers local repository and diff-review workflows in Codex.
-- [Codex Security cloud setup](/codex/security/setup) covers setup, scanning, and findings review.
+- [Codex Security plugin quickstart](/codex/security/plugin) walks through installation and a first local scan.
+- [Codex Security cloud setup](/codex/security/setup) details setup, scanning, and findings review.
 - [Improving the threat model](/codex/security/threat-model) explains how to tune scope, attack surface, and criticality assumptions.
 - [FAQ](/codex/security/faq) covers common product questions.
 
@@ -11197,8 +11934,8 @@ guidance.
 
 - [Record & Replay](/codex/record-and-replay): Show Codex a workflow
   once and turn it into a reusable skill.
-- [Codex Security plugin](/codex/security/plugin): Scan authorized code,
-  confirm findings, and prepare reviewed fixes.
+- [Codex Security plugin quickstart](/codex/security/plugin): Install the
+  plugin, scan authorized code, and review the result.
 
 ### Record & Replay
 
