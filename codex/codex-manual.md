@@ -2978,6 +2978,36 @@ enabled = true
 
 # prevent_idle_sleep = false
 
+# Code mode namespaces. This feature is under development and off by default.
+
+# [features.code_mode]
+
+# enabled = true
+
+# excluded_tool_namespaces = ["mcp__codex_apps"]
+
+# direct_only_tool_namespaces = ["mcp__history"]
+
+# Rollout budget tracking. This feature is under development and off by default.
+
+# limit_tokens is required when enabled.
+
+# Optional reminder_interval_tokens defaults to 10% of limit_tokens.
+
+# Token weights default to 1.0.
+
+# [features.rollout_budget]
+
+# enabled = true
+
+# limit_tokens = 100000
+
+# reminder_interval_tokens = 10000
+
+# sampling_token_weight = 1.0
+
+# prefill_token_weight = 1.0
+
 ################################################################################
 
 # Memories (table)
@@ -3216,6 +3246,10 @@ enabled = true
 
 # open_world_enabled = true
 
+# approvals_reviewer = "user" # user | auto_review
+
+# default_tools_approval_mode = "auto" # auto | prompt | approve
+
 #
 
 # [apps.google_drive]
@@ -3225,6 +3259,8 @@ enabled = true
 # destructive_enabled = false # block destructive-hint tools for this app
 
 # default_tools_enabled = true
+
+# approvals_reviewer = "auto_review"
 
 # default_tools_approval_mode = "prompt" # auto | prompt | approve
 
@@ -3414,27 +3450,27 @@ basics](/codex/config-basic#configuration-precedence) for more information.
 
 #### Global flags
 
-| Key                                                  | Type / Values                                                 | Default | Details                                                                                                                                                                                                           |
-| ---------------------------------------------------- | ------------------------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--add-dir`                                          | `path`                                                        |         | Grant additional directories write access alongside the main workspace. Repeat for multiple paths.                                                                                                                |
-| `--ask-for-approval, -a`                             | `untrusted \| on-request \| never`                            |         | Control when Codex pauses for human approval before running a command. `on-failure` is deprecated; prefer `on-request` for interactive runs or `never` for non-interactive runs.                                  |
-| `--cd, -C`                                           | `path`                                                        |         | Set the working directory for the agent before it starts processing your request.                                                                                                                                 |
-| `--config, -c`                                       | `key=value`                                                   |         | Override configuration values. Values parse as TOML if possible; otherwise the literal string is used.                                                                                                            |
-| `--dangerously-bypass-approvals-and-sandbox, --yolo` | `boolean`                                                     | `false` | Run every command without approvals or sandboxing. Only use inside an externally hardened environment.                                                                                                            |
-| `--dangerously-bypass-hook-trust`                    | `boolean`                                                     | `false` | Run enabled hooks without requiring persisted hook trust for this invocation. Intended only for automation that already vets hook sources.                                                                        |
-| `--disable`                                          | `feature`                                                     |         | Force-disable a feature flag (translates to `-c features.=false`). Repeatable.                                                                                                                                    |
-| `--enable`                                           | `feature`                                                     |         | Force-enable a feature flag (translates to `-c features.=true`). Repeatable.                                                                                                                                      |
-| `--image, -i`                                        | `path[,path...]`                                              |         | Attach one or more image files to the initial prompt. Separate multiple paths with commas or repeat the flag.                                                                                                     |
-| `--model, -m`                                        | `string`                                                      |         | Override the model set in configuration (for example `gpt-5.4`).                                                                                                                                                  |
-| `--no-alt-screen`                                    | `boolean`                                                     | `false` | Disable alternate screen mode for the TUI (overrides `tui.alternate_screen` for this run).                                                                                                                        |
-| `--oss`                                              | `boolean`                                                     | `false` | Use the local open source model provider (equivalent to `-c model_provider="oss"`). Validates that Ollama is running.                                                                                             |
-| `--profile, -p`                                      | `string`                                                      |         | Layer `$CODEX_HOME/profile-name.config.toml` on top of the base user config.                                                                                                                                      |
-| `--remote`                                           | `ws://host:port \| wss://host:port \| unix:// \| unix://PATH` |         | Connect the interactive TUI to a remote app-server endpoint over WebSocket or a Unix socket. Supported for `codex`, `codex resume`, and `codex fork`; other subcommands reject remote mode.                       |
-| `--remote-auth-token-env`                            | `ENV_VAR`                                                     |         | Read a bearer token from this environment variable and send it when connecting with `--remote`. Requires `--remote`; tokens are only sent over `wss://` URLs or local-only `ws://` URLs.                          |
-| `--sandbox, -s`                                      | `read-only \| workspace-write \| danger-full-access`          |         | Select the sandbox policy for model-generated shell commands.                                                                                                                                                     |
-| `--search`                                           | `boolean`                                                     | `false` | Enable live web search (sets `web_search = "live"` instead of the default `"cached"`).                                                                                                                            |
-| `--strict-config`                                    | `boolean`                                                     | `false` | Error when `config.toml` contains fields this Codex version does not recognize. Supported by runtime commands such as `codex`, `exec`, `review`, `resume`, `fork`, `app-server`, `mcp-server`, and `exec-server`. |
-| `PROMPT`                                             | `string`                                                      |         | Optional text instruction to start the session. Omit to launch the TUI without a pre-filled message.                                                                                                              |
+| Key                                                  | Type / Values                                                 | Default | Details                                                                                                                                                                                                                     |
+| ---------------------------------------------------- | ------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--add-dir`                                          | `path`                                                        |         | Grant additional directories write access alongside the main workspace. Repeat for multiple paths.                                                                                                                          |
+| `--ask-for-approval, -a`                             | `untrusted \| on-request \| never`                            |         | Control when Codex pauses for human approval before running a command. `on-failure` is deprecated; prefer `on-request` for interactive runs or `never` for non-interactive runs.                                            |
+| `--cd, -C`                                           | `path`                                                        |         | Set the working directory for the agent before it starts processing your request.                                                                                                                                           |
+| `--config, -c`                                       | `key=value`                                                   |         | Override configuration values. Values parse as TOML if possible; otherwise the literal string is used.                                                                                                                      |
+| `--dangerously-bypass-approvals-and-sandbox, --yolo` | `boolean`                                                     | `false` | Run every command without approvals or sandboxing. Only use inside an externally hardened environment.                                                                                                                      |
+| `--dangerously-bypass-hook-trust`                    | `boolean`                                                     | `false` | Run enabled hooks without requiring persisted hook trust for this invocation. Intended only for automation that already vets hook sources.                                                                                  |
+| `--disable`                                          | `feature`                                                     |         | Force-disable a feature flag (translates to `-c features.=false`). Repeatable.                                                                                                                                              |
+| `--enable`                                           | `feature`                                                     |         | Force-enable a feature flag (translates to `-c features.=true`). Repeatable.                                                                                                                                                |
+| `--image, -i`                                        | `path[,path...]`                                              |         | Attach one or more image files to the initial prompt. Separate multiple paths with commas or repeat the flag.                                                                                                               |
+| `--model, -m`                                        | `string`                                                      |         | Override the model set in configuration (for example `gpt-5.4`).                                                                                                                                                            |
+| `--no-alt-screen`                                    | `boolean`                                                     | `false` | Disable alternate screen mode for the TUI (overrides `tui.alternate_screen` for this run).                                                                                                                                  |
+| `--oss`                                              | `boolean`                                                     | `false` | Use the local open source model provider (equivalent to `-c model_provider="oss"`). Validates that Ollama is running.                                                                                                       |
+| `--profile, -p`                                      | `string`                                                      |         | Layer `$CODEX_HOME/profile-name.config.toml` on top of the base user config.                                                                                                                                                |
+| `--remote`                                           | `ws://host:port \| wss://host:port \| unix:// \| unix://PATH` |         | Connect to a remote app-server endpoint over WebSocket or a Unix socket. Supported for `codex`, `codex resume`, `codex fork`, `codex archive`, `codex delete`, and `codex unarchive`; other subcommands reject remote mode. |
+| `--remote-auth-token-env`                            | `ENV_VAR`                                                     |         | Read a bearer token from this environment variable and send it when connecting with `--remote`. Requires `--remote`; tokens are only sent over `wss://` URLs or local-only `ws://` URLs.                                    |
+| `--sandbox, -s`                                      | `read-only \| workspace-write \| danger-full-access`          |         | Select the sandbox policy for model-generated shell commands.                                                                                                                                                               |
+| `--search`                                           | `boolean`                                                     | `false` | Enable live web search (sets `web_search = "live"` instead of the default `"cached"`).                                                                                                                                      |
+| `--strict-config`                                    | `boolean`                                                     | `false` | Error when `config.toml` contains fields this Codex version does not recognize. Supported by runtime commands such as `codex`, `exec`, `review`, `resume`, `fork`, `app-server`, `mcp-server`, and `exec-server`.           |
+| `PROMPT`                                             | `string`                                                      |         | Optional text instruction to start the session. Omit to launch the TUI without a pre-filled message.                                                                                                                        |
 
 These options apply to the base `codex` command. Most propagate to commands;
 see the notes above or the relevant command help for exceptions. For propagated
@@ -3458,6 +3494,7 @@ interpret these labels.
 | [`codex completion`](/codex/cli/reference#codex-completion)                                             | `stable`       |         | Generate shell completion scripts for Bash, Zsh, Fish, or PowerShell.                                                                   |
 | [`codex debug app-server send-message-v2`](/codex/cli/reference#codex-debug-app-server-send-message-v2) | `experimental` |         | Debug app-server by sending a single V2 message through the built-in test client.                                                       |
 | [`codex debug models`](/codex/cli/reference#codex-debug-models)                                         | `experimental` |         | Print the raw model catalog Codex sees, including an option to inspect only the bundled catalog.                                        |
+| [`codex delete`](/codex/cli/reference#codex-delete)                                                     | `stable`       |         | Permanently delete a saved interactive session by session ID or session name.                                                           |
 | [`codex doctor`](/codex/cli/reference#codex-doctor)                                                     | `stable`       |         | Generate a diagnostic report for local installation, config, auth, runtime, Git, terminal, app-server, and thread inventory issues.     |
 | [`codex exec`](/codex/cli/reference#codex-exec)                                                         | `stable`       |         | Run Codex non-interactively. Alias: `codex e`. Stream results to stdout or JSONL and optionally resume previous sessions.               |
 | [`codex execpolicy`](/codex/cli/reference#codex-execpolicy)                                             | `experimental` |         | Evaluate execpolicy rule files and see whether a command would be allowed, prompted, or blocked.                                        |
@@ -3569,6 +3606,27 @@ codex unarchive
 | `--remote-auth-token-env` | `ENV_VAR`                                                     |         | Read a bearer token from this environment variable when `--remote` requires authentication. |
 | `SESSION`                 | `session ID \| session name`                                  |         | Saved session to archive or restore. Session IDs take precedence over session names.        |
 
+#### `codex delete`
+
+Permanently delete a saved interactive session by session ID or session name.
+Use this only when you want to remove the transcript instead of hiding it from
+active session lists.
+
+```bash
+codex delete
+codex delete <SESSION_UUID> --force
+```
+
+| Key                       | Type / Values                                                 | Default | Details                                                                                                      |
+| ------------------------- | ------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| `--force`                 | `boolean`                                                     | `false` | Delete without prompting. The session argument must be a UUID; names still require interactive confirmation. |
+| `--remote`                | `ws://host:port \| wss://host:port \| unix:// \| unix://PATH` |         | Connect to a remote app-server endpoint before deleting the session.                                         |
+| `--remote-auth-token-env` | `ENV_VAR`                                                     |         | Read a bearer token from this environment variable when `--remote` requires authentication.                  |
+| `SESSION`                 | `session ID \| session name`                                  |         | Saved session to delete. Session IDs take precedence over session names.                                     |
+
+Use `--force` only with a session UUID. Named sessions still require
+confirmation so Codex doesn't delete a repeated or ambiguous name without a prompt.
+
 #### `codex cloud`
 
 Interact with Codex cloud tasks from the terminal. The default command opens an interactive picker; `codex cloud exec` submits a task directly, and `codex cloud list` returns recent tasks for scripting or quick inspection.
@@ -3601,21 +3659,6 @@ Generate shell completion scripts and redirect the output to the appropriate loc
 | Key     | Type / Values                                  | Default | Details                                                     |
 | ------- | ---------------------------------------------- | ------- | ----------------------------------------------------------- |
 | `SHELL` | `bash \| zsh \| fish \| power-shell \| elvish` | `bash`  | Shell to generate completions for. Output prints to stdout. |
-
-#### `codex doctor`
-
-Generate a local diagnostic report before filing a support issue or
-while investigating a broken Codex installation. The report checks installation,
-configuration, authentication, runtime, Git, terminal, app-server, and thread
-inventory health.
-
-| Key          | Type / Values | Default | Details                                                          |
-| ------------ | ------------- | ------- | ---------------------------------------------------------------- |
-| `--all`      | `boolean`     | `false` | Expand long lists in the detailed human-readable report.         |
-| `--ascii`    | `boolean`     | `false` | Use ASCII status labels and separators in human-readable output. |
-| `--json`     | `boolean`     | `false` | Emit a redacted machine-readable support report.                 |
-| `--no-color` | `boolean`     | `false` | Disable ANSI color in human-readable output.                     |
-| `--summary`  | `boolean`     | `false` | Show grouped check rows and the final count summary only.        |
 
 ### Agent internet access
 
@@ -5709,9 +5752,10 @@ completion still works before you queue the command.
 | [`/agent`](#switch-agent-threads-with-agent)                                    | Switch the active agent thread.                                 | Inspect or continue work in a spawned subagent thread.                                                     |
 | [`/apps`](#browse-apps-with-apps)                                               | Browse apps (connectors) and insert them into your prompt.      | Attach an app as `$app-slug` before asking Codex to use it.                                                |
 | [`/plugins`](#browse-plugins-with-plugins)                                      | Browse installed and discoverable plugins.                      | Inspect plugin tools, install suggested plugins, or manage plugin availability.                            |
-| [`/hooks`](#review-hooks-with-hooks)                                            | Review lifecycle hooks.                                         | Inspect configured hooks, trust new or changed hooks, or disable non-managed hooks before they run.        |
+| [`/hooks`](#view-and-manage-lifecycle-hooks-with-hooks)                         | View and manage lifecycle hooks.                                | Inspect configured hooks, trust new or changed hooks, or disable non-managed hooks before they run.        |
 | [`/clear`](#clear-the-terminal-and-start-a-new-chat-with-clear)                 | Clear the terminal and start a fresh chat.                      | Reset the visible UI and conversation together when you want a fresh start.                                |
 | [`/archive`](#archive-the-current-session-with-archive)                         | Archive the current session and exit Codex.                     | Remove the current session from active session lists without deleting its transcript.                      |
+| [`/delete`](#delete-the-current-session-with-delete)                            | Permanently delete the current session and exit Codex.          | Remove the transcript and descendant sessions when archiving isn't enough.                                 |
 | [`/compact`](#keep-transcripts-lean-with-compact)                               | Summarize the visible conversation to free tokens.              | Use after long runs so Codex retains key points without blowing the context window.                        |
 | [`/copy`](#copy-the-latest-response-with-copy)                                  | Copy the latest completed Codex output.                         | Grab the latest finished response or plan text without manually selecting it. You can also press `Ctrl+O`. |
 | [`/diff`](#review-changes-with-diff)                                            | Show the Git diff, including files Git isn't tracking yet.      | Review Codex's edits before you commit or run tests.                                                       |
@@ -5720,7 +5764,7 @@ completion still works before you queue the command.
 | [`/approve`](#approve-an-auto-review-denial-with-approve)                       | Approve one retry of a recent auto review denial.               | Retry a command or action that the auto reviewer denied.                                                   |
 | [`/memories`](#configure-memories-with-memories)                                | Configure memory use and generation.                            | Turn memory injection or memory generation on or off without leaving the TUI.                              |
 | [`/skills`](#use-skills-with-skills)                                            | Browse and use skills.                                          | Improve task-specific behavior by selecting a relevant local skill.                                        |
-| [`/hooks`](#view-lifecycle-hooks-with-hooks)                                    | View and manage lifecycle hooks.                                | Inspect hook configuration loaded into the current session.                                                |
+| [`/import`](#import-claude-code-configuration-with-import)                      | Import Claude Code setup, project files, and recent chats.      | Migrate supported external-agent artifacts into Codex configuration and local files.                       |
 | [`/feedback`](#send-feedback-with-feedback)                                     | Send logs to the Codex maintainers.                             | Report issues or share diagnostics with support.                                                           |
 | [`/init`](#generate-agentsmd-with-init)                                         | Generate an `AGENTS.md` scaffold in the current directory.      | Capture persistent instructions for the repository or subdirectory you're working in.                      |
 | [`/logout`](#sign-out-with-logout)                                              | Sign out of Codex.                                              | Clear local credentials when using a shared machine.                                                       |
@@ -5741,6 +5785,7 @@ completion still works before you queue the command.
 | [`/quit`](#exit-the-cli-with-quit-or-exit)                                      | Exit the CLI.                                                   | Leave the session immediately.                                                                             |
 | [`/review`](#ask-for-a-working-tree-review-with-review)                         | Ask Codex to review your working tree.                          | Run after Codex completes work or when you want a second set of eyes on local changes.                     |
 | [`/status`](#inspect-the-session-with-status)                                   | Display session configuration and token usage.                  | Confirm the active model, approval policy, writable roots, and remaining context capacity.                 |
+| [`/usage`](#view-account-usage-with-usage)                                      | View account token usage or use a rate-limit reset.             | Inspect daily, weekly, or cumulative ChatGPT token activity from inside the TUI.                           |
 | [`/debug-config`](#inspect-config-layers-with-debug-config)                     | Print config layer and requirements diagnostics.                | Debug precedence and policy requirements, including experimental network constraints.                      |
 | [`/statusline`](#configure-footer-items-with-statusline)                        | Configure TUI status-line fields interactively.                 | Pick and reorder footer items (model/context/limits/git/tokens/session) and persist in config.toml.        |
 | [`/title`](#configure-terminal-title-items-with-title)                          | Configure terminal window or tab title fields interactively.    | Pick and reorder title items such as project, status, thread, branch, model, and task progress.            |
@@ -5849,12 +5894,16 @@ Expected: Codex updates the relevant memory settings for future sessions.
 Expected: Codex inserts the selected skill context so the next request follows
 that skill's instructions.
 
-#### View lifecycle hooks with `/hooks`
+#### Import Claude Code configuration with `/import`
 
-1. Type `/hooks`.
-2. Review the loaded lifecycle hook configuration.
+1. Type `/import`.
+2. Choose the Claude Code setup, project files, or recent chats you want to migrate.
 
-Expected: Codex shows the hooks that can run in the current session.
+Expected: Codex opens the external-agent import picker and imports the selected
+supported artifacts into Codex configuration and local files.
+
+Run `/import` from a local TUI session. It's unavailable while a task is running,
+in remote sessions, and while connected to the local app-server daemon.
 
 #### Clear the terminal and start a new chat with `/clear`
 
@@ -5867,28 +5916,6 @@ Unlike Ctrl+L, `/clear` starts a new conversation.
 
 Ctrl+L only clears the terminal view and keeps the current
 chat. Codex disables both actions while a task is in progress.
-
-#### Archive the current session with `/archive`
-
-1. Type `/archive` and press Enter.
-2. Confirm that you want to archive the current session and exit Codex.
-
-Expected: Codex archives the current session and closes the interactive TUI.
-Codex keeps the session transcript stored locally; restore it later with
-`codex unarchive `.
-
-`/archive` is unavailable while a task is running.
-
-#### Update permissions with `/permissions`
-
-1. Type `/permissions` and press Enter.
-2. Select the approval preset that matches your comfort level, for example
-   `Auto` for hands-off runs or `Read Only` to review edits. When named
-   permission profiles are active, the picker also shows configured custom
-   profiles and their descriptions.
-
-Expected: Codex announces the updated policy. Future actions respect the
-updated approval mode until you change it again.
 
 ### Troubleshooting
 
