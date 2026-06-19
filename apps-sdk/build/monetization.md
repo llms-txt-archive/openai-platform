@@ -363,7 +363,7 @@ The following PSPs support payments processing for the ChatGPT payment sheet:
 - Fiserv
 - [PayPal](https://docs.paypal.ai/growth/agentic-commerce/agent-ready)
 - [Stripe](https://docs.stripe.com/agentic-commerce/apps)
-- Worldpay
+- [Worldpay](https://docs.worldpay.com/access/products/ai/acp)
 
 ## Optional: Receive Raw Payment Methods
 
