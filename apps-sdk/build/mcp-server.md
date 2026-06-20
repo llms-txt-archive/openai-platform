@@ -652,7 +652,7 @@ ChatGPT sends the requested locale in `_meta["openai/locale"]` (with `_meta["web
 
 ### Client context hints
 
-ChatGPT may also send hints in the client request metadata like `_meta["openai/userAgent"]` and `_meta["openai/userLocation"]`. These can be helpful for tailoring analytics or formatting, but **never** rely on them for authorization.
+ChatGPT may also send hints in the client request metadata like `_meta["openai/userAgent"]` and `_meta["openai/userLocation"]`. These can be helpful for tailoring analytics or formatting, but **never** rely on them for authorization. Treat `_meta["openai/userAgent"]` as optional, best-effort metadata, not as a stable way to detect which host surface is calling your server.
 
 Once your templates, tools, and widget runtime are wired up, the fastest way to refine your app is to use ChatGPT itself: call your tools in a real conversation, watch your logs, and debug the widget with browser devtools. When everything looks good, put your MCP server behind HTTPS and your app is ready for users.
 

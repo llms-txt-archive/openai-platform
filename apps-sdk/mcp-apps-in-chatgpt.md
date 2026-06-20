@@ -81,6 +81,7 @@ Build around the MCP Apps standard for portability, then layer on ChatGPT extens
 
 - **Feature-detect** before calling an extension.
 - **Gracefully degrade** when the extension isn’t available.
+- **Avoid product-name branching.** Prefer capability detection and progressive enhancement instead of assuming a specific host surface.
 
 ```js
 const openai = typeof window !== "undefined" ? window.openai : undefined;
