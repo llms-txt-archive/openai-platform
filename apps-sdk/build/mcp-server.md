@@ -665,7 +665,7 @@ In practice, you should:
 - Implement [search](https://platform.openai.com/docs/mcp#search-tool) and [fetch](https://platform.openai.com/docs/mcp#fetch-tool) input schemas exactly to the MCP schema. Company knowledge compatibility checks the input parameters only.
 - Mark other read-only tools with `readOnlyHint: true` so ChatGPT can safely call them.
 
-To opt in, implement `search` and `fetch` using the MCP schema and return canonical `url` values for citations. For eligibility, admin enablement, and availability details, see [Company knowledge in ChatGPT](https://help.openai.com/en/articles/12628342/) and the MCP tool schema in [Building MCP servers](https://platform.openai.com/docs/mcp).
+To opt in, implement `search` and `fetch` using the MCP schema and return canonical `url` values for citations, as described in [Citation behavior](https://developers.openai.com/api/docs/mcp#citation-behavior). For eligibility, admin enablement, and availability details, see [Company knowledge in ChatGPT](https://help.openai.com/en/articles/12628342/) and the MCP tool schema in [Building MCP servers](https://platform.openai.com/docs/mcp).
 
 While compatibility checks focus on the input schema, you should still return the recommended result shapes for [search](https://platform.openai.com/docs/mcp#search-tool) and [fetch](https://platform.openai.com/docs/mcp#fetch-tool) so ChatGPT can cite sources reliably. The `text` fields are JSON-encoded strings in your tool response.
 
