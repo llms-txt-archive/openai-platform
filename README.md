@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260620T045927Z` | 2026-06-20 04:59 UTC | [Clarified MCP OAuth Redirects and Host Detection](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260620T045927Z) |
+| `archive-20260622T185915Z` | 2026-06-22 18:59 UTC | [Codex OAuth Note Reflow](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260622T185915Z) |
+| `archive-20260620T045927Z` | 2026-06-20 05:00 UTC | [Clarified MCP OAuth Redirects and Host Detection](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260620T045927Z) |
 | `archive-20260619T234624Z` | 2026-06-19 23:47 UTC | [Codex Thread Handoff Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260619T234624Z) |
 | `archive-20260619T182120Z` | 2026-06-19 18:21 UTC | [Worldpay Link Added to Monetization Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260619T182120Z) |
 | `archive-20260618T232350Z` | 2026-06-18 23:24 UTC | [Codex Security Docs Restructure](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260618T232350Z) |
 | `archive-20260618T211100Z` | 2026-06-18 21:11 UTC | [Codex docs add Record & Replay guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260618T211100Z) |
-| `archive-20260618T174711Z` | 2026-06-18 17:48 UTC | [Codex deletion, import, usage, and budget docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260618T174711Z) |
