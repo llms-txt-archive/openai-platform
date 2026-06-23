@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260623T153855Z` | 2026-06-23 15:38 UTC | [Tunnel RBAC and Access Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260623T153855Z) |
+| `archive-20260623T225112Z` | 2026-06-23 22:51 UTC | [Measurement Pixel CSP Guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260623T225112Z) |
+| `archive-20260623T153855Z` | 2026-06-23 15:39 UTC | [Tunnel RBAC and Access Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260623T153855Z) |
 | `archive-20260622T235358Z` | 2026-06-22 23:54 UTC | [MCP citation behavior clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260622T235358Z) |
 | `archive-20260622T185915Z` | 2026-06-22 18:59 UTC | [Codex OAuth Note Reflow](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260622T185915Z) |
 | `archive-20260620T045927Z` | 2026-06-20 05:00 UTC | [Clarified MCP OAuth Redirects and Host Detection](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260620T045927Z) |
 | `archive-20260619T234624Z` | 2026-06-19 23:47 UTC | [Codex Thread Handoff Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260619T234624Z) |
-| `archive-20260619T182120Z` | 2026-06-19 18:21 UTC | [Worldpay Link Added to Monetization Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260619T182120Z) |

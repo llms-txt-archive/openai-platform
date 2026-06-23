@@ -35,6 +35,30 @@ conversions. Put the script near the top of your `<head>` to ensure early conver
 `pixelId` is required. Create a new pixelId in the conversions tab of Ads Manager. `debug` is optional and logs SDK activity to the browser
 console while you test your integration.
 
+## Configure a content security policy
+
+If your site enforces a Content Security Policy (CSP), merge these sources into
+your existing policy:
+
+| Directive     | Source                      | Purpose                                      |
+| ------------- | --------------------------- | -------------------------------------------- |
+| `script-src`  | `https://bzrcdn.openai.com` | Load the Measurement Pixel SDK.              |
+| `connect-src` | `https://bzr.openai.com`    | Send events with `fetch` or `sendBeacon`.    |
+| `img-src`     | `https://bzr.openai.com`    | Send events with the image request fallback. |
+
+For example, a policy that otherwise allows only same-origin resources and uses
+a nonce would include:
+
+```http
+Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-<NONCE>' https://bzrcdn.openai.com; connect-src 'self' https://bzr.openai.com; img-src 'self' https://bzr.openai.com;
+```
+
+Replace `<NONCE>` with a fresh nonce for each response and add the same value to
+the installation snippet's opening tag: `<script nonce="<NONCE>">`. You can use
+your site's existing hash-based CSP mechanism instead. Don't add `'unsafe-inline'`
+solely for the Measurement Pixel. If your policy defines `script-src-elem`, add
+the CDN source and your nonce or hash source to that directive as well.
+
 ## Send user data
 
 Add an optional `user` object to `oaiq("init", ...)` to improve conversion
