@@ -97,15 +97,11 @@ Great for automation in shared environments like CI.
 
 [Learn more](/codex/auth)
 
-**Business** (Pay as you go):
+**Business** ($20 / user / month\*):
 
 Bring Codex into your startup or growing business.
 
-Everything in Plus and:
-
-- Assign standard or usage-based Codex seats based on your team's needs.
-  [Learn
-  more](https://help.openai.com/en/articles/8792828-what-is-chatgpt-business)
+- Access ChatGPT and Codex across desktop and mobile apps
 - Larger virtual machines to run cloud tasks faster
 - Flexibly extend usage with [ChatGPT credits](#credits-overview)
 - A secure, dedicated workspace with essential admin controls, SAML SSO,
@@ -115,7 +111,9 @@ Everything in Plus and:
 - Other [ChatGPT features](https://chatgpt.com/pricing) as part of the
   Business plan
 
-[Get Business](https://chatgpt.com/codex/team/start)
+[Get Business](https://chatgpt.com/team-sign-up)
+
+\*2+ users, billed annually. $25 per user per month when billed monthly.
 
 **Enterprise & Edu**:
 

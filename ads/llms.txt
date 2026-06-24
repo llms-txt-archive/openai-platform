@@ -28,6 +28,9 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 ## Conversions Api
 - [Conversions API](https://developers.openai.com/ads/conversions-api.md): Server-to-server conversion events.
 
+## Image Tag
+- [Image tag](https://developers.openai.com/ads/image-tag.md): Send conversion events from HTML without JavaScript.
+
 ## Measurement Pixel
 - [JavaScript Pixel](https://developers.openai.com/ads/measurement-pixel.md): Send conversion events from web pages.
 

@@ -428,6 +428,9 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 ## Ads — Conversions Api
 - [Conversions API](https://developers.openai.com/ads/conversions-api.md): Server-to-server conversion events.
 
+## Ads — Image Tag
+- [Image tag](https://developers.openai.com/ads/image-tag.md): Send conversion events from HTML without JavaScript.
+
 ## Ads — Measurement Pixel
 - [JavaScript Pixel](https://developers.openai.com/ads/measurement-pixel.md): Send conversion events from web pages.
 
