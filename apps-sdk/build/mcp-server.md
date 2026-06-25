@@ -665,7 +665,7 @@ In practice, you should:
 - Implement [search](https://platform.openai.com/docs/mcp#search-tool) and [fetch](https://platform.openai.com/docs/mcp#fetch-tool) input schemas exactly to the MCP schema. Company knowledge compatibility checks the input parameters only.
 - Mark other read-only tools with `readOnlyHint: true` so ChatGPT can safely call them.
 
-To opt in, implement `search` and `fetch` using the MCP schema and return canonical `url` values for citations, as described in [Citation behavior](https://developers.openai.com/api/docs/mcp#citation-behavior). For eligibility, admin enablement, and availability details, see [Company knowledge in ChatGPT](https://help.openai.com/en/articles/12628342/) and the MCP tool schema in [Building MCP servers](https://platform.openai.com/docs/mcp).
+To opt in, implement `search` and `fetch` using the MCP schema. For citations, set `url` to an absolute, user-openable HTTP or HTTPS URL for the cited resource. Keep provider-internal document identifiers and opaque lookup keys in `id`, not `url`. If no user-openable URL exists, leave `url` empty; ChatGPT keeps the result as ordinary tool output instead of creating a citation. For eligibility, admin enablement, and availability details, see [Company knowledge in ChatGPT](https://help.openai.com/en/articles/12628342/) and the MCP tool schema in [Building MCP servers](https://platform.openai.com/docs/mcp).
 
 While compatibility checks focus on the input schema, you should still return the recommended result shapes for [search](https://platform.openai.com/docs/mcp#search-tool) and [fetch](https://platform.openai.com/docs/mcp#fetch-tool) so ChatGPT can cite sources reliably. The `text` fields are JSON-encoded strings in your tool response.
 
@@ -688,7 +688,7 @@ Fields:
 - `results` - array of search results.
 - `results[].id` - unique ID for the document or item.
 - `results[].title` - human-readable title.
-- `results[].url` - canonical URL for citation.
+- `results[].url` - absolute, user-openable HTTP or HTTPS URL for citation.
 
 In MCP, return this JSON as `structuredContent` and include the same value as a
 JSON string in `content` for compatibility:
@@ -732,7 +732,7 @@ Fields:
 - `id` - unique ID for the document or item.
 - `title` - human-readable title.
 - `text` - full text of the document or item.
-- `url` - canonical URL for citation.
+- `url` - absolute, user-openable HTTP or HTTPS URL for citation.
 - `metadata` - optional key/value pairs about the result.
 
 For `fetch`, return the document JSON the same way:
@@ -770,7 +770,7 @@ const searchOutputSchema = {
     z.object({
       id: z.string(),
       title: z.string(),
-      url: z.string().url(),
+      url: z.httpUrl().or(z.literal("")),
     })
   ),
 };
@@ -779,7 +779,7 @@ const fetchOutputSchema = {
   id: z.string(),
   title: z.string(),
   text: z.string(),
-  url: z.string().url(),
+  url: z.httpUrl().or(z.literal("")),
   metadata: z.record(z.string(), z.string()).optional(),
 };
 
