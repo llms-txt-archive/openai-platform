@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260626T234557Z` | 2026-06-26 23:45 UTC | [Ads mobile app events and Codex admin controls](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260626T234557Z) |
 | `archive-20260626T181520Z` | 2026-06-26 18:15 UTC | [Project-Scoped Rate Limit Headers](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260626T181520Z) |
 | `archive-20260625T221006Z` | 2026-06-25 22:10 UTC | [Codex remote connection guidance refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260625T221006Z) |
 | `archive-20260625T013629Z` | 2026-06-25 01:37 UTC | [Codex Security CI and MCP citation docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260625T013629Z) |
 | `archive-20260624T211236Z` | 2026-06-24 21:13 UTC | [OAI-AdsBot IP Reference Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260624T211236Z) |
 | `archive-20260624T191755Z` | 2026-06-24 19:18 UTC | [Ads Image Tag and Codex Business Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260624T191755Z) |
-| `archive-20260623T225112Z` | 2026-06-23 22:51 UTC | [Measurement Pixel CSP Guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260623T225112Z) |

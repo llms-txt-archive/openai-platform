@@ -4,6 +4,8 @@
 
 | Event name               | Data type         | Use for                                                            |
 | ------------------------ | ----------------- | ------------------------------------------------------------------ |
+| `app_installed`          | `customer_action` | A user installs an app.                                            |
+| `app_opened`             | `customer_action` | A user opens an app.                                               |
 | `appointment_scheduled`  | `customer_action` | A user books a meeting, demo, or consultation.                     |
 | `checkout_started`       | `contents`        | A user starts checkout.                                            |
 | `contents_viewed`        | `contents`        | A user views a product, listing, article, or other content unit.   |
@@ -15,6 +17,10 @@
 | `registration_completed` | `customer_action` | A user finishes an account or event registration flow.             |
 | `subscription_created`   | `plan_enrollment` | A paid subscription starts.                                        |
 | `trial_started`          | `plan_enrollment` | A free trial starts.                                               |
+
+`app_installed` and `app_opened` are available through the Conversions API
+only. Send them with `action_source` set to `mobile_app`. They are not
+supported by the JavaScript Pixel currently.
 
 Use `page_viewed` for page loads. Use `contents_viewed` when a user views a
 specific product or content item, including interactions that happen after the

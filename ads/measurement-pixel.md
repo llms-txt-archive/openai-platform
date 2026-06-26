@@ -103,6 +103,12 @@ the first successful initialization.
 
 ## Send events
 
+The JavaScript Pixel does not support `app_installed` or `app_opened`.
+
+Send these events server-side through the
+[Conversions API](https://developers.openai.com/ads/conversions-api).
+Use a standard event whenever one matches the action you want to measure.
+
 Use a standard event whenever one matches the action you want to measure. For
 example, send `order_created` when a purchase is completed:
 

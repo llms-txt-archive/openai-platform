@@ -26,6 +26,11 @@ You can provision a Pixel ID and Conversions API key from the conversions tab on
 The API accepts batches of up to 1,000 events. If one event in the batch fails,
 the full batch fails.
 
+For app lifecycle events, use the Pixel ID from an existing web data source.
+Send `app_installed` and `app_opened` from your server with `action_source`
+set to `mobile_app`. Native mobile SDK setup and mobile data sources are not
+currently supported.
+
 ## Event structure
 
 Each event includes the event metadata and a `data` object.
@@ -60,8 +65,8 @@ Each event includes the event metadata and a `data` object.
 | `timestamp_ms`      | Yes      | Event time in milliseconds. Must be within the last 7 days and no more than 10 minutes ahead.   |
 | `custom_event_name` | Depends  | Required when `type` is `custom`.                                                               |
 | `oppref`            | No       | OpenAI-provided privacy-preserving identifier.                                                  |
-| `source_url`        | Depends  | Required when `action_source` is `web`.                                                         |
-| `action_source`     | No       | One of `web`, `mobile_app`, `offline`, `physical_store`, `phone_call`, `email`, or `other`.     |
+| `source_url`.       | Depends  | Required when `action_source` is `web`. Not required for `app_installed` or `app_opened`.       |
+| `action_source`     | Depends  | Required and must be `mobile_app` for `app_installed` and `app_opened`. Otherwise optional.     |
 | `user`              | No       | Optional user fields that can improve attribution accuracy for advertising conversions.         |
 | `opt_out`           | No       | Set to `true` to opt out the event from future user-level personalization. Defaults to `false`. |
 | `data`              | Yes      | Event data matching the event type.                                                             |
@@ -151,6 +156,39 @@ curl -X POST "https://bzr.openai.com/v1/events?pid=<PIXEL-ID>" \
       }
     ]
   }'
+```
+
+## App lifecycle events
+
+App lifecycle events use the `customer_action` data shape and require
+`action_source` to be `mobile_app`.
+
+### App installed
+
+```json
+{
+  "id": "app_installed_123",
+  "type": "app_installed",
+  "timestamp_ms": <TIMESTAMP_MS>,
+  "action_source": "mobile_app",
+  "data": {
+    "type": "customer_action"
+  }
+}
+```
+
+### App opened
+
+```json
+{
+  "id": "app_opened_123",
+  "type": "app_opened",
+  "timestamp_ms": <TIMESTAMP_MS>,
+  "action_source": "mobile_app",
+  "data": {
+    "type": "customer_action"
+  }
+}
 ```
 
 ## Deduplicate browser and server events
