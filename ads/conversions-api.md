@@ -58,18 +58,18 @@ Each event includes the event metadata and a `data` object.
 }
 ```
 
-| Field               | Required | Description                                                                                     |
-| ------------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| `id`                | Yes      | Your unique event identifier. Used with `type` to deduplicate events.                           |
-| `type`              | Yes      | A supported standard event name, or `custom`.                                                   |
-| `timestamp_ms`      | Yes      | Event time in milliseconds. Must be within the last 7 days and no more than 10 minutes ahead.   |
-| `custom_event_name` | Depends  | Required when `type` is `custom`.                                                               |
-| `oppref`            | No       | OpenAI-provided privacy-preserving identifier.                                                  |
-| `source_url`.       | Depends  | Required when `action_source` is `web`. Not required for `app_installed` or `app_opened`.       |
-| `action_source`     | Depends  | Required and must be `mobile_app` for `app_installed` and `app_opened`. Otherwise optional.     |
-| `user`              | No       | Optional user fields that can improve attribution accuracy for advertising conversions.         |
-| `opt_out`           | No       | Set to `true` to opt out the event from future user-level personalization. Defaults to `false`. |
-| `data`              | Yes      | Event data matching the event type.                                                             |
+| Field               | Required | Description                                                                                                                                                                |
+| ------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                | Yes      | Your unique event identifier. Used with `type` to deduplicate events.                                                                                                      |
+| `type`              | Yes      | A supported standard event name, or `custom`.                                                                                                                              |
+| `timestamp_ms`      | Yes      | Event time in milliseconds. Must be within the last 7 days and no more than 10 minutes ahead.                                                                              |
+| `custom_event_name` | Depends  | Required when `type` is `custom`.                                                                                                                                          |
+| `oppref`            | No       | OpenAI-provided privacy-preserving identifier.                                                                                                                             |
+| `source_url`        | Depends  | Required when `action_source` is `web`.                                                                                                                                    |
+| `action_source`     | Depends  | One of `web`, `mobile_app`, `offline`, `physical_store`, `phone_call`, `email`, or `other`. For `app_installed` and `app_opened`, you must set this field to `mobile_app`. |
+| `user`              | No       | Optional user fields that can improve attribution accuracy for advertising conversions.                                                                                    |
+| `opt_out`           | No       | Set to `true` to opt out the event from future user-level personalization. Defaults to `false`.                                                                            |
+| `data`              | Yes      | Event data matching the event type.                                                                                                                                        |
 
 See [Supported events](https://developers.openai.com/ads/supported-events) for event names and data shapes.
 
