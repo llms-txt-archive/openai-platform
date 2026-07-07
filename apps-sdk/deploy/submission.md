@@ -181,7 +181,7 @@ You can deploy server-only fixes without submitting a new version if they preser
 
 ### Submitting new versions for review
 
-Once your app is published, all submitted information is locked for safety. To make any change, create a new draft version of your existing app and resubmit that version for review (do not create a new app). Each resubmission starts a new review. When submitting changes, include a clear description of what changed in the release notes section of the form.
+Once your app is published, its submitted information and reviewed metadata snapshot are locked for safety. To update either, create a new draft version of your existing app and resubmit that version for review (do not create a new app). Each resubmission starts a new review. When submitting changes, include a clear description of what changed in the release notes section of the form.
 
 An app's base MCP server URL cannot change between versions. To use a different base URL, create a new app instead of a new version.
 
