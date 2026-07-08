@@ -114,6 +114,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Predicted Outputs](https://developers.openai.com/api/docs/guides/predicted-outputs.md): Understand how to reduce latency for model responses where much of the response is known ahead of time.
 - [Pricing](https://developers.openai.com/api/docs/pricing.md): Pricing information for the OpenAI platform.
 - [Priority processing](https://developers.openai.com/api/docs/guides/priority-processing.md): Get faster processing in the API while retaining flexible pay-as-you-go pricing.
+- [Private Link](https://developers.openai.com/api/docs/guides/private-link.md): Configure Azure Private Link endpoints, DNS, health checks, and cross-region routing for the OpenAI API.
 - [Production best practices](https://developers.openai.com/api/docs/guides/production-best-practices.md): Explore best practices for transitioning your AI projects from prototype to production, including scaling, security, and cost management.
 - [Production notes on GPT Actions](https://developers.openai.com/api/docs/actions/production.md): Guidelines for deploying GPT Actions in a production environment, including rate limits, timeouts, and security measures.
 - [Prompt caching](https://developers.openai.com/api/docs/guides/prompt-caching.md): Learn how prompt caching reduces latency and cost for long prompts in OpenAI's API.
