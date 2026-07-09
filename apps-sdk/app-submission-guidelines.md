@@ -1,5 +1,10 @@
 # App submission guidelines
 
+Apps are now submitted and published as plugins. These guidelines cover the
+  app and MCP server portion of a plugin. For the plugin submission flow,
+  including skills, portal steps, review, approval, and publishing, see
+  <a href="/codex/submit-plugins">Submit plugins</a>.
+
 ## Overview
 
 The ChatGPT app ecosystem is built on trust. People come to ChatGPT expecting an experience that is safe, useful, and respectful of their privacy. Developers come to ChatGPT expecting a fair and transparent process. These developer guidelines set the policies every builder is expected to review and follow.
@@ -227,8 +232,8 @@ You must provide customer support contact details where end users can reach you 
 
 ## Submitting your app
 
-Users with the Owner role or the `api.apps.write` permission can create app drafts and submit them from the [OpenAI Platform Dashboard](http://platform.openai.com/apps-manage). Users with `api.apps.read` can view app drafts and review status in the Dashboard.
+Users with the Owner role or the `api.apps.write` permission can create plugin drafts that contain apps and submit them from the [plugin submission portal](https://platform.openai.com/plugins). Users with `api.apps.read` can view drafts and review status in the Dashboard.
 
-While you can publish multiple, unique apps within a single Platform organization, each may only have one version in review at a time. You can review the status of the review within the Dashboard and will receive an email notification informing you of any status changes.
+While you can publish multiple unique plugins within a single Platform organization, each may only have one version in review at a time. You can review the status of the review within the Dashboard and will receive an email notification informing you of any status changes.
 
-To learn more about the app submission process, refer to our [dedicated guide](https://developers.openai.com/apps-sdk/deploy/submission).
+To learn more about the plugin submission process, see [Submit plugins](https://developers.openai.com/codex/submit-plugins).

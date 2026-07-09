@@ -4,7 +4,11 @@
 
 Discovery refers to the different ways a user or the model can find out about your app and the tools it provides: natural-language prompts, directory browsing, and proactive [entry points](#entry-points). Apps SDK leans on your tool metadata and past usage to make intelligent choices. Good discovery hygiene means your app appears when it should and stays quiet when it should not.
 
-For public distribution today, OpenAI turns approved apps into plugins for Codex. For now, Codex is the only product surface with plugins. The user-facing experience still starts from the app you build with Apps SDK, and the resulting plugin is what users install in Codex.
+For public distribution, apps are now submitted and published as plugins. The
+user-facing experience still starts from the app you build with Apps SDK, and
+the plugin is the package users discover and install. See
+[Submit plugins](https://developers.openai.com/codex/submit-plugins) for the source-of-truth submission and
+publishing flow.
 
 ### Named mention
 
@@ -30,8 +34,9 @@ If the assistant selects your tool, it handles arguments, displays confirmation 
 ### Directory
 
 The directory is a shared catalog of publicly available plugins that users can
-browse in Codex. It gives users a place to find plugins produced from approved
-apps. Your listing in this directory will include:
+browse in ChatGPT and Codex. It gives users a place to find plugins that
+contain apps, skills-only plugins, and plugins that combine apps with skills.
+Your listing in this directory will include:
 
 - App name and icon
 - Short and long descriptions

@@ -528,7 +528,7 @@ httpServer.listen(port, () => {
 });
 ```
 
-This snippet also responds to `GET /` for health checks, handles CORS preflight for `/mcp` and nested routes like `/mcp/actions`, and returns `404 Not Found` for OAuth discovery routes you are not using yet. That keeps ChatGPT’s connector wizard from surfacing 502 errors while you iterate without authentication.
+This snippet also responds to `GET /` for health checks, handles CORS preflight for `/mcp` and nested routes like `/mcp/actions`, and returns `404 Not Found` for OAuth discovery routes you are not using yet. That keeps ChatGPT from surfacing 502 errors while you iterate without authentication.
 
 ## Run locally
 
@@ -582,34 +582,38 @@ ngrok http <port>
 
 This will give you a public URL like `https://<subdomain>.ngrok.app` that you can use to access your server from ChatGPT.
 
-When you add your connector, provide the public URL with the `/mcp` path (e.g. `https://<subdomain>.ngrok.app/mcp`).
+When you add your app in developer mode, provide the public URL with the `/mcp` path (e.g. `https://<subdomain>.ngrok.app/mcp`).
 
 ## Add your app to ChatGPT
 
 Once you have your MCP server and web component working locally, you can add your app to ChatGPT with the following steps:
 
-1. Enable [developer mode](https://platform.openai.com/docs/guides/developer-mode) under **Settings → Apps & Connectors → Advanced settings** in ChatGPT.
-2. Click the **Create** button to add a connector under **Settings → Connectors** and paste the HTTPS + `/mcp` URL from your tunnel or deployment (e.g. `https://<subdomain>.ngrok.app/mcp`).
-3. Name the connector, provide a short description and click **Create**.
+1. In [ChatGPT](https://chatgpt.com), open **Settings → Security and login** and turn on **Developer mode**.
+2. Open **Settings → Plugins** or [chatgpt.com/plugins](https://chatgpt.com/plugins), and select the plus button to create a developer-mode app.
+3. Paste the HTTPS + `/mcp` URL from your tunnel or deployment (e.g. `https://<subdomain>.ngrok.app/mcp`), name the app, provide a short description, and click **Create**.
 
 <div style={{ width: "50%", margin: "0 auto", display: "block" }}>
-  <img src="https://developers.openai.com/images/apps-sdk/new_connector.jpg"
-    alt="Add your connector to ChatGPT"
-  />
+  <img src="https://developers.openai.com/images/apps-sdk/new_connector.jpg" alt="Add your app to ChatGPT" />
 </div>
 
-4. Open a new chat, add your connector from the **More** menu (accessible after clicking the **+** button), and prompt the model (e.g., “Add a new task to read my book”). ChatGPT will stream tool payloads so you can confirm inputs and outputs.
+4. Open a new chat, add your app from the **More** menu (accessible after clicking the **+** button), and prompt the model (e.g., “Add a new task to read my book”). ChatGPT will stream tool payloads so you can confirm inputs and outputs.
 
-![Add your connector to a conversation](https://developers.openai.com/images/apps-sdk/developer_mode_more.jpg)
+![Add your app to a conversation](https://developers.openai.com/images/apps-sdk/developer_mode_more.jpg)
 
 ## Next steps
 
 From there, you can iterate on the UI/UX, prompts, tool metadata, and the overall experience.
 
-Refresh the connector after each change to the MCP server (tools, metadata,
-  etc.) You can do this by clicking the **Refresh** button in **Settings →
-  Connectors** after selecting your connector.
+Refresh the app after each change to the MCP server (tools, metadata, etc.)
+  You can do this from the app detail page under
+  <strong>Settings → Plugins</strong> or at
+  <a href="https://chatgpt.com/plugins">chatgpt.com/plugins</a>.
 
-When you're preparing for submission, review the [ChatGPT app submission guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines) and [research your use case](https://developers.openai.com/apps-sdk/plan/use-case). If you're building a UI, you can also review the [design guidelines](https://developers.openai.com/apps-sdk/concepts/design-guidelines).
+When you're preparing for public distribution, remember that apps are now
+submitted and published as plugins. Review
+[Submit plugins](https://developers.openai.com/codex/submit-plugins), the
+[Apps SDK review guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines), and
+[research your use case](https://developers.openai.com/apps-sdk/plan/use-case). If you're building a UI, you
+can also review the [design guidelines](https://developers.openai.com/apps-sdk/concepts/design-guidelines).
 
 Once you understand the basics, you can leverage the Apps SDK to [build a ChatGPT UI](https://developers.openai.com/apps-sdk/build/chatgpt-ui) using the Apps SDK primitives, [authenticate users](https://developers.openai.com/apps-sdk/build/auth) if needed, and [persist state](https://developers.openai.com/apps-sdk/build/storage).

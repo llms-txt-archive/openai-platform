@@ -2,7 +2,7 @@
 
 ## Goals
 
-Testing validates that your connector behaves predictably before you expose it to users. Focus on three areas: tool correctness, component UX, and discovery precision.
+Testing validates that your app behaves predictably before you expose it to users. Focus on three areas: tool correctness, component UX, and discovery precision.
 
 ## Unit test your tool handlers
 
@@ -23,11 +23,12 @@ Inspector renders components inline and surfaces errors immediately. Capture scr
 
 ## Validate in ChatGPT developer mode
 
-After your connector is reachable over HTTPS:
+After your app's MCP server is reachable over HTTPS:
 
-- Link it in **Settings → Connectors → Developer mode**.
-- Toggle it on in a new conversation and run through your golden prompt set (direct, indirect, negative). Record when the model selects the right tool, what arguments it passed, and whether confirmation prompts appear as expected.
-- Test mobile layouts by invoking the connector in the ChatGPT iOS or Android apps.
+- In [ChatGPT](https://chatgpt.com), open **Settings → Security and login** and turn on **Developer mode**.
+- Open **Settings → Plugins** or [chatgpt.com/plugins](https://chatgpt.com/plugins), select the plus button, and create a developer-mode app that points to your HTTPS `/mcp` endpoint.
+- Toggle the app on in a new conversation and run through your golden prompt set (direct, indirect, negative). Record when the model selects the right tool, what arguments it passed, and whether confirmation prompts appear as expected.
+- Test mobile layouts by invoking the app in the ChatGPT iOS or Android apps.
 
 ## Connect via the API Playground
 
@@ -45,4 +46,4 @@ If you need raw logs or want to test without the full ChatGPT UI, open the [API 
 - OAuth or custom auth flows return valid tokens and reject invalid ones with meaningful messages.
 - Discovery behaves as expected across your golden prompts and does not trigger on negative prompts.
 
-Capture findings in a doc so you can compare results release over release. Consistent testing keeps your connector reliable as ChatGPT and your backend evolve.
+Capture findings in a doc so you can compare results release over release. Consistent testing keeps your app reliable as ChatGPT and your backend evolve.

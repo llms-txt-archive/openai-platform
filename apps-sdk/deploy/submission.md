@@ -1,46 +1,67 @@
-# Submit and maintain your app
+# Submit and maintain an app in a plugin
 
-Learn how to submit your app to the ChatGPT Apps Directory and Codex Plugin Directory.
+Prepare an MCP-backed app for public review as part of a plugin.
 
-## App submission overview
+Apps are now submitted and published as plugins. If your plugin contains an
+  app, build the app's MCP server with the Apps SDK, then submit the plugin
+  through the plugin submission portal. See
+  <a href="/codex/submit-plugins">Submit plugins</a> for the source-of-truth
+  submission flow and <a href="/codex/build-app">Build an app</a> for how apps
+  fit into plugins.
 
-Once you have built and [tested your app](https://developers.openai.com/apps-sdk/deploy/testing) in Developer Mode, you can submit it through the current dashboard-based review flow. That flow remains the path to public distribution today. When you publish an approved app, OpenAI creates the plugin for Codex distribution.
+## Submit an app as part of a plugin
 
-Only submit your app if you intend for the resulting plugin to be accessible publicly in the countries you define during submission. For apps you intend to use privately or just within your workspace, use [developer mode](https://platform.openai.com/docs/guides/developer-mode) instead. Submitting an app initiates a review process, and you'll be notified of its status as it moves through review.
+Use this page for the app-specific requirements that apply when a plugin
+contains an MCP-backed app: organization verification, app management
+permissions, MCP server requirements, review snapshots, and version
+maintenance.
 
-Self-serve plugin publishing is coming soon. See the [build plugins guide](https://developers.openai.com/codex/plugins/build) for the packaging model and local testing workflow.
+When your app works in [Developer Mode](https://developers.openai.com/apps-sdk/deploy/testing), submit it for
+review as part of a plugin in the
+[plugin submission portal](https://platform.openai.com/plugins). This page
+covers the app and MCP server requirements for that submission.
 
-_Before submitting, read and ensure your app complies with our [App Submission Guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines)._
+Only submit if you intend for the plugin to be publicly available in the
+countries you define during submission. For apps you intend to use privately or
+only within your workspace, use
+[developer mode](https://platform.openai.com/docs/guides/developer-mode)
+instead.
 
-If your app is approved, the resulting app can be listed in ChatGPT or as a plugin in a shared
-directory that users can browse in Codex. Initially, users can discover it in
-one of the following ways:
+Before submitting, review the [Apps SDK review guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines)
+for MCP server and app experience expectations, and see
+[Submit plugins](https://developers.openai.com/codex/submit-plugins) for the full plugin submission,
+approval, and publishing flow.
 
-- By clicking a direct link to your app's listing in the directory
-- By searching for your app by name
+For the complete flow, including skills-only plugins, plugins that contain apps,
+review, approval, and publishing, see [Submit plugins](https://developers.openai.com/codex/submit-plugins).
 
-Apps that demonstrate strong real-world utility and high user satisfaction may be eligible for enhanced distribution opportunities—such as directory placement or proactive suggestions.
-
-## Before You Submit: Prerequisites
+## Before you submit
 
 ### Organization verification
 
-Before submitting an app, complete identity verification in the [OpenAI Platform Dashboard](https://platform.openai.com/settings/organization/general) for the name you plan to publish under in the directory.
+Before submitting a plugin that contains an app, complete identity verification
+in the [OpenAI Platform Dashboard](https://platform.openai.com/settings/organization/general)
+for the name you plan to publish under in the directory.
 
 - **If you want to publish under your own name**, complete **individual verification**.
 - **If you want to publish under a business name**, complete **business verification**.
 
-This is enforced during app review. Publishing under an unverified individual or business name will result in rejection.
+This is enforced during review. Publishing under an unverified individual or
+business name will result in rejection.
 
 ### App management permissions
 
-To create app drafts and submit them for review, you need the `api.apps.write` permission. To view app drafts and review status in the Dashboard, you need the `api.apps.read` permission. Organization owners automatically have both permissions, and can grant them to non-owners through roles in the [OpenAI Platform Dashboard](https://platform.openai.com/settings/organization/roles).
+To create plugin drafts that contain apps and submit them for review, you need
+the `api.apps.write` permission. To view drafts and review status in the
+Dashboard, you need the `api.apps.read` permission. Organization owners
+automatically have both permissions, and can grant them to non-owners through
+roles in the [OpenAI Platform Dashboard](https://platform.openai.com/settings/organization/roles).
 
 ### MCP server requirements
 
 - Your MCP server is hosted on a publicly accessible domain
 - You are not using a local or testing endpoint
-- You defined a [content security policy (CSP)](https://developers.openai.com/apps-sdk/build/mcp-server#content-security-policy-csp) to allow the exact domains you fetch from (this is required to submit your app for security reasons)
+- You defined a [content security policy (CSP)](https://developers.openai.com/apps-sdk/build/mcp-server#content-security-policy-csp) to allow the exact domains the app fetches from (this is required to submit a plugin that contains an app for security reasons)
 
 ### Template MCP server URLs
 
@@ -64,25 +85,35 @@ https://{workspace}.example.com/mcp
 https://mcp.example.com/{tenant}/mcp
 ```
 
-## Submitting for review
+## Submit for review
 
-If the prerequisites are met, you can submit your app for review from the [OpenAI Platform Dashboard](http://platform.openai.com/apps-manage).
+If the prerequisites are met, you can submit the plugin that contains your app
+for review from the [plugin submission portal](https://platform.openai.com/plugins).
 
 ### Start the review process
 
-From the dashboard:
+In the plugin submission portal:
 
 1. Add your MCP server details (as well as OAuth credentials if OAuth is selected)
 2. Complete the required fields in the submission form and check all confirmation boxes. You will need to submit your app name, logo, description, company and privacy policy URLs, MCP and tool information, screenshots, test prompts and responses, and localization information.
 3. Click Submit for review. You will receive an email confirming submission with a Case ID which you can reference in any future support requests.
 
-Each organization can publish multiple unique apps, but only one version of each app may be published at a time and only one version of each app may be in review at a time. If you submit an app but wish to make changes, you should withdraw that submission by selecting “Cancel Review” and resubmit the version draft again instead of creating a new app.
+Each organization can publish multiple unique plugins that contain apps. For
+each MCP-backed app, only one version may be published at a time and only one
+version may be in review at a time. If you need to make changes after
+submitting, withdraw that submission by selecting **Cancel Review** and
+resubmit the same version draft.
 
-_Note that for now, projects with EU data residency cannot submit apps for review. Please use a project with global data residency to submit your apps. If you don't have one, you can create a new project in your current organization from the OpenAI Dashboard._
+_Note that for now, projects with EU data residency cannot submit plugins that
+contain apps for review. Please use a project with global data residency. If you
+don't have one, you can create a new project in your current organization from
+the OpenAI Dashboard._
 
-## App review & approval
+## Review and approval
 
-Once submitted, your app will enter the review queue. You can review the status of the review within the Dashboard and will receive an email notification informing you of any status changes.
+Once submitted, the plugin will enter the review queue. You can review the
+status within the Dashboard and will receive an email notification informing
+you of any status changes.
 
 ### Reviews and checks
 
@@ -90,17 +121,17 @@ We may perform automated scans or manual reviews to understand how your app work
 
 ### Approval, rejection, and appeals
 
-If your app is approved, we will notify you by email. Once approved, you can publish it from the current dashboard flow. When you publish, OpenAI creates a plugin for Codex distribution.
+If your plugin is approved, we will notify you by email. Once approved, you can publish it from the plugin submission portal.
 
-If your app is rejected or removed, you will receive feedback on which checks were unsuccessful. After making the necessary changes, you may resubmit the app for re-review. Alternatively, if you wish to appeal the decision, you can respond back to the email you received. Make sure to include a clear rationale for the appeal along with any new information that will assist us in our review.
+If your plugin is rejected or removed because of the app or MCP server, you will receive feedback on which checks were unsuccessful. After making the necessary changes, you may resubmit the plugin for re-review. Alternatively, if you wish to appeal the decision, you can respond back to the email you received. Make sure to include a clear rationale for the appeal along with any new information that will assist us in our review.
 
 ### Getting help
 
 If you have questions before, during, or after submission, and if your question is not answered in the documentation, contact OpenAI support for further assistance. Ensure that you include your OpenAI case ID (which you'll receive via email after submission) to help us to assist you better.
 
-### App review & approval FAQs
+### Review and approval FAQs
 
-**How long does app review take?**
+**How long does review take?**
 
 Review timelines may vary as we continue to build and scale our processes. Please do not contact support to request expedited review, as these requests cannot be accommodated.
 
@@ -126,40 +157,47 @@ Review timelines may vary as we continue to build and scale our processes. Pleas
   - **destructiveHint:** Set to `true` if it can cause irreversible outcomes (deleting, overwriting, sending messages/transactions you can't undo, revoking access, destructive admin actions, etc.), even in only select modes, via default parameters, or through indirect side effects. Ensure the justification provided clearly describes what is irreversible and under what conditions, including any safeguards like confirmation steps, dry-run options, or scoping constraints. Otherwise, set to `false`.
   - **openWorldHint:** Set to `true` if it can write to or change publicly visible internet state (e.g., posting to social media/blogs/forums, sending emails/SMS/messages to external recipients, creating public tickets/issues, publishing pages, pushing code/content to public endpoints, submitting forms to third parties, or otherwise affecting systems outside a private/first-party context). Set to `false` only if it operates entirely within closed/private systems (including internal writes) and cannot change the state of the publicly visible internet.
 
-## Publication and Distribution
+## Publication and distribution
 
-### Publish your app
+### Publish the plugin
 
-Once your app is approved, you can publish it from the [OpenAI Platform Dashboard](https://platform.openai.com/apps-manage) by selecting **Publish**. Publishing keeps the current app-based workflow in place. In addition, OpenAI creates a Codex plugin from your approved app.
+Once the plugin is approved, you can publish it from the [plugin submission portal](https://platform.openai.com/plugins) by selecting **Publish**.
 
 ### Discoverability
 
-Once published, users can find your app by:
+Once published, users can find your plugin by:
 
-- Clicking a direct link to your app in the directory. You can find this link next to the “Published” status for an app on the [Platform App Management page](https://platform.openai.com/apps-manage)
-- Searching for your app by name
+- Clicking a direct link to the plugin listing in the directory.
+- Searching for the plugin by name.
 
-Apps that demonstrate strong real-world utility and high user satisfaction may be eligible for enhanced distribution opportunities—such as directory placement or proactive suggestions—but few apps will receive enhanced distribution at publication. There is no process by which to request this at this time.
+Plugins that demonstrate strong real-world utility and high user satisfaction may be eligible for enhanced distribution opportunities—such as directory placement or proactive suggestions—but few plugins will receive enhanced distribution at publication. There is no process by which to request this at this time.
 
 ### Publication and Distribution FAQs
 
-**What happens after my app is approved? Will it be listed in the app directory automatically?**
+**What happens after the plugin is approved? Will it be listed in the plugin directory automatically?**
 
-After your app is approved, you can choose to publish it from the [OpenAI Platform Dashboard](https://platform.openai.com/apps-manage). You must publish for it to be listed in the App Directory and Codex Plugin Directory.
+After the plugin is approved, you can choose to publish it from the [plugin submission portal](https://platform.openai.com/plugins). You must publish before it can appear in the universal plugin directory.
 
-**Why can't I see my app in the directory?**
+**Why can't I see my plugin in the directory?**
 
-Apps will only be visible to users on the App Directory's main pages if they are selected for enhanced distribution. To confirm your app is published, you can search for the app using the verbatim publication name or by clicking the URL to the app's directory page in the [OpenAI Platform Dashboard](https://platform.openai.com/apps-manage)
+Plugins appear on the directory's main pages only if OpenAI selects them for enhanced distribution. To confirm that your plugin is published, search for it using the exact publication name or open its directory URL from the plugin submission portal.
 
-**What should I do if I want to issue a press release or public announcement about my app?**
+**What should I do if I want to issue a press release or public announcement about my plugin?**
 
-Before issuing any press releases or public announcements regarding the launch of your app, please first reach out to [press@openai.com](mailto:press@openai.com) to coordinate with our communications team.
+Before issuing any press releases or public announcements regarding the launch
+of your plugin, please first reach out to
+[press@openai.com](mailto:press@openai.com) to coordinate with our
+communications team.
 
 ## Ongoing Maintenance
 
-### How published app versions work
+### How published app metadata versions work
 
-Treat the metadata exposed by your MCP server as a versioned API contract. When you scan a draft app's MCP endpoint in the OpenAI Platform Dashboard, OpenAI stores the discovered metadata with that draft version. Submitting the version sends that stored snapshot for review. The snapshot includes:
+Treat the metadata exposed by your MCP server as a versioned API contract for
+the app inside the plugin. When you scan the app's MCP endpoint in the plugin
+submission portal, OpenAI stores the discovered metadata with that draft
+version. Submitting the version sends that stored snapshot for review. The
+snapshot includes:
 
 - The tool list, names, titles, and descriptions
 - Input and output schemas, annotations, and tool security schemes
@@ -171,10 +209,14 @@ The snapshot does not freeze your MCP server. Tool calls continue to execute aga
 
 Deploying a server change does not update the published snapshot. To make new tools or changed metadata available to users, create or update a draft version, scan its MCP endpoint after deploying your changes, submit it for review, receive approval, and publish it. While the new version is in review, users continue to use the currently published snapshot against your live MCP server.
 
-Breaking changes to published apps are not currently supported. For example, removing or renaming a tool, making an input schema incompatible, or changing or removing the content served at a published UI resource URI can break the published version as soon as the server change deploys. Instead, make backward-compatible updates:
+Breaking changes to the app inside a published plugin are not currently
+supported. For example, removing or renaming a tool, making an input schema
+incompatible, or changing or removing the content served at a published UI
+resource URI can break the published version as soon as the server change
+deploys. Instead, make backward-compatible updates:
 
 1. Add new tools, fields, or UI resources while continuing to honor the published contracts.
-2. Submit the updated metadata as a new app version.
+2. Submit the updated metadata as a new version.
 3. Publish the approved version and keep the old contracts available.
 
 You can deploy server-only fixes without submitting a new version if they preserve the published contract. If a deployment breaks the published version, roll back the server change rather than waiting for a new version to complete review.
@@ -183,30 +225,46 @@ You can deploy server-only fixes without submitting a new version if they preser
 
 Once your app is published, its submitted information and reviewed metadata snapshot are locked for safety. To update either, create a new draft version of your existing app and resubmit that version for review (do not create a new app). Each resubmission starts a new review. When submitting changes, include a clear description of what changed in the release notes section of the form.
 
-An app's base MCP server URL cannot change between versions. To use a different base URL, create a new app instead of a new version.
+The app's base MCP server URL cannot change between versions. To use a
+different base URL, submit a new plugin that contains the app with the new MCP
+server URL.
 
-We will review your app again and inform you if the update was approved or rejected via email and in the [OpenAI Platform Dashboard](https://platform.openai.com/apps-manage). Similar to initial reviews, if rejected, you may update and resubmit or appeal the decision.
+We will review the updated app metadata again and inform you if the update was approved or rejected via email and in the [plugin submission portal](https://platform.openai.com/plugins). Similar to initial reviews, if rejected, you may update and resubmit or appeal the decision.
 
-Once your resubmission is approved, you can publish the update which will replace the previous version of your app.
+Once your resubmission is approved, you can publish the update, which will
+replace the previous app version inside the plugin.
 
-If you've made additional changes to your app between submission and approval and want to submit a new version for review, you can cancel the review by selecting “Cancel Review” from the three-dot menu next to the app on the [OpenAI Platform Apps Dashboard](https://platform.openai.com/apps-manage) and resubmit.
+If you've made additional changes to your app between submission and approval and want to submit a new version for review, you can cancel the review from the plugin submission portal and resubmit.
 
-### Changing published app versions and removing your app
+### Changing published app metadata versions and removing the plugin
 
-Once an app is published, you can change the version published by selecting “Unpublish Version” from the three-dot menu next to the currently published app version on the [OpenAI Platform Apps Dashboard](https://platform.openai.com/apps-manage) and selecting “Publish” next to the app version you'd like to publish instead. You can remove the app from public visibility entirely by selecting “Unpublish Version” and not publishing an alternative version.
+Once an app is published as part of a plugin, you can change the published
+version from the [plugin submission portal](https://platform.openai.com/plugins)
+by unpublishing the current version and publishing an approved replacement. You
+can remove the plugin from public visibility by unpublishing the current version
+and not publishing an alternative version.
 
-To remove the app from your organization and ChatGPT entirely, you can select “Delete App” from the three-dot menu next to the app on the [OpenAI Platform Apps Dashboard](https://platform.openai.com/apps-manage).
+To remove the plugin from your organization and ChatGPT entirely, delete it from
+the plugin submission portal.
 
 ### Maintenance requirements
 
-Apps that are inactive, unstable, or non-compliant may be removed. We may reject or remove any app from our services at any time and for any reason without notice, such as for legal or security concerns or policy violations.
+Plugins, including the apps they contain, may be removed if they are inactive,
+unstable, or non-compliant. We may reject or remove any plugin from our services
+at any time and for any reason without notice, such as for legal or security
+concerns or policy violations.
 
 ### Ongoing Maintenance FAQs
 
-**What happens if users report my app as harmful or misleading?**
+**What happens if users report my plugin as harmful or misleading?**
 
-OpenAI reviews user reports and may review or investigate your app. Apps that are identified as violating our policies may be restricted or removed. You may appeal a removal or other enforcement action on your app by following the appeals process described here. You should regularly review and respond to feedback and update your app if issues are found.
+OpenAI reviews user reports and may review or investigate your plugin, including
+any app it contains. Plugins that are identified as violating our policies may
+be restricted or removed. You may appeal a removal or other enforcement action
+by following the appeals process described here. You should regularly review and
+respond to feedback and update your plugin if issues are found.
 
-**How long will app updates take?**
+**How long will updates take?**
 
-Similar to new app submission reviews, we are unable to offer estimated times for reviews for app updates.
+Similar to new reviews, we are unable to offer estimated times for update
+reviews.

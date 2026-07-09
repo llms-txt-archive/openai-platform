@@ -330,7 +330,7 @@ ngrok http <port>
 # Forwarding: https://<subdomain>.ngrok.app -> http://127.0.0.1:<port>
 ```
 
-Use the ngrok URL when creating a connector in ChatGPT developer mode. For production, deploy to a low-latency HTTPS host (Cloudflare Workers, Fly.io, Vercel, AWS, etc.).
+Use the ngrok URL when creating a developer-mode app in ChatGPT. For production, deploy to a low-latency HTTPS host (Cloudflare Workers, Fly.io, Vercel, AWS, etc.).
 
 ## Example
 

@@ -78,7 +78,7 @@ That single header lets ChatGPT discover the metadata URL even if it has not see
 
 - Fields that must be correct:
   - `authorization_endpoint`, `token_endpoint`: the URLs ChatGPT needs to run the OAuth authorization-code + PKCE flow end to end.
-  - `client_id_metadata_document_supported`: set to `true` when you want ChatGPT to use CIMD for client registration. ChatGPT prioritizes CIMD when it is available, but the connector creator can choose DCR when both CIMD and DCR are available.
+  - `client_id_metadata_document_supported`: set to `true` when you want ChatGPT to use CIMD for client registration. ChatGPT prioritizes CIMD when it is available, but the app creator can choose DCR when both CIMD and DCR are available.
   - `token_endpoint_auth_methods_supported`: include the token endpoint authentication methods your authorization server accepts. This applies to CIMD, DCR, and predefined OAuth clients. For CIMD, ChatGPT supports `none` for public-client token exchange and `private_key_jwt` for signed client assertion token exchange. Other OAuth clients commonly use `none`, `client_secret_post`, or `client_secret_basic`.
   - `registration_endpoint`: include this when you support dynamic client registration (DCR), which lets ChatGPT create and reuse a dedicated `client_id` for the connector instance.
   - `code_challenge_methods_supported`: include `S256` if your authorization server advertises PKCE support.
@@ -138,7 +138,7 @@ When using CIMD, there is no client registration step. The following screen show
 
 ### Client registration
 
-Use [Client ID Metadata Documents (CIMD)](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents) as the preferred client registration method when your authorization server supports it and the connector creator chooses it. With CIMD, ChatGPT uses an HTTPS metadata document URL as its `client_id`. Your authorization server fetches that document, validates the published client metadata and redirect URIs, and treats the URL as ChatGPT's stable client identity.
+Use [Client ID Metadata Documents (CIMD)](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents) as the preferred client registration method when your authorization server supports it and the app creator chooses it. With CIMD, ChatGPT uses an HTTPS metadata document URL as its `client_id`. Your authorization server fetches that document, validates the published client metadata and redirect URIs, and treats the URL as ChatGPT's stable client identity.
 
 If you support CIMD, set `client_id_metadata_document_supported: true` in your authorization server metadata. This lets ChatGPT use one stable client identity for connectors that choose CIMD, which your authorization server can use for redirect URI allowlists, rate limits, and other policies.
 
@@ -147,7 +147,7 @@ ChatGPT supports two token endpoint authentication methods for CIMD-backed clien
 - `none`: use this public-client flow when your token endpoint supports PKCE-based authorization-code exchange without client authentication. ChatGPT does not store a per-client secret.
 - `private_key_jwt`: use this signed client assertion flow when your token endpoint requires client authentication. ChatGPT publishes CIMD metadata with `token_endpoint_auth_method: "private_key_jwt"` and a public JWKS URL. The JWKS is served from `/oauth/jwks.json` on the metadata origin. ChatGPT signs token requests server-side with a managed private key and `kid`; your authorization server verifies the assertion against the public JWKS.
 
-DCR is still supported. If you include `registration_endpoint`, ChatGPT can register dynamically when the connector creator chooses DCR or CIMD is not available. ChatGPT runs DCR once per connector instance, then keeps and reuses the registered OAuth client for that instance. DCR can still create many registered clients across many separate connector instances, so CIMD is usually easier to administer at scale.
+DCR is still supported. If you include `registration_endpoint`, ChatGPT can register dynamically when the app creator chooses DCR or CIMD is not available. ChatGPT runs DCR once per app instance, then keeps and reuses the registered OAuth client for that instance. DCR can still create many registered clients across many separate app instances, so CIMD is usually easier to administer at scale.
 
 ### Client identification
 

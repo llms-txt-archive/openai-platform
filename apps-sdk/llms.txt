@@ -28,7 +28,7 @@ Use this as a lightweight map for AI tools. Each Apps SDK page has a Markdown tw
 ## Deploy
 - [Deploy your app](https://developers.openai.com/apps-sdk/deploy.md): Learn how to deploy your MCP server
 - [Connect from ChatGPT](https://developers.openai.com/apps-sdk/deploy/connect-chatgpt.md): Connect your app to ChatGPT clients.
-- [Submit and maintain your app](https://developers.openai.com/apps-sdk/deploy/submission.md): Learn how to submit your app to the ChatGPT Apps Directory and Codex Plugin Directory.
+- [Submit and maintain an app in a plugin](https://developers.openai.com/apps-sdk/deploy/submission.md): Prepare an MCP-backed app for public review as part of a plugin.
 - [Test your integration](https://developers.openai.com/apps-sdk/deploy/testing.md): Testing strategies for Apps SDK apps.
 - [Troubleshooting](https://developers.openai.com/apps-sdk/deploy/troubleshooting.md): Troubleshoot issues in Apps SDK apps.
 

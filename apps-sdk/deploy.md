@@ -9,11 +9,11 @@ ngrok http 2091
 # https://<subdomain>.ngrok.app/mcp → http://127.0.0.1:2091/mcp
 ```
 
-Keep the tunnel running while you iterate on your connector. When you change code:
+Keep the tunnel running while you iterate on your app. When you change code:
 
 1. Rebuild the component bundle (`npm run build`).
 2. Restart your MCP server.
-3. Refresh the connector in ChatGPT settings to pull the latest metadata.
+3. Refresh the developer-mode app under **Settings → Plugins** or at [chatgpt.com/plugins](https://chatgpt.com/plugins) to pull the latest metadata.
 
 ## Deployment options
 
@@ -30,7 +30,7 @@ See the [`mcp-use` MCP Apps docs](https://manufact.com/docs/typescript/server/mc
 ### Vercel
 
 Vercel is another strong fit when you want quick deploys, preview environments for review, and automatic HTTPS.
-[They have announced support for ChatGPT Apps hosting](https://vercel.com/changelog/chatgpt-apps-support-on-vercel), so you can ship MCP endpoints alongside your frontend and use Vercel previews to validate connector behavior before promoting to production.
+[They have announced support for ChatGPT Apps hosting](https://vercel.com/changelog/chatgpt-apps-support-on-vercel), so you can ship MCP endpoints alongside your frontend and use Vercel previews to validate app behavior before promoting to production.
 
 You can use their Next.js [starter template](https://vercel.com/templates/ai/chatgpt-app-with-next-js) to get started.
 
@@ -61,21 +61,21 @@ Regardless of platform, make sure `/mcp` stays responsive, supports streaming re
 ## Environment configuration
 
 - **Secrets**: store API keys or OAuth client secrets outside your repo. Use platform-specific secret managers and inject them as environment variables.
-- **Logging**: log tool-call IDs, request latency, and error payloads. This helps debug user reports once the connector is live.
+- **Logging**: log tool-call IDs, request latency, and error payloads. This helps debug user reports once the app is live.
 - **Observability**: monitor CPU, memory, and request counts so you can right-size your deployment.
 
 ## Dogfood and rollout
 
 Before launching broadly:
 
-1. **Gate access**: test your connector in developer mode until you are confident in stability.
+1. **Gate access**: test your app in developer mode until you are confident in stability.
 2. **Run golden prompts**: exercise the discovery prompts you drafted during planning and note precision/recall changes with each release.
 3. **Capture artifacts**: record screenshots or screen captures showing the component in MCP Inspector and ChatGPT for reference.
 
-When you are ready for production, update metadata, confirm auth and storage are configured correctly, and submit your app through the current review flow. Approved apps become apps in ChatGPT or plugins for Codex distribution.
+When you are ready for production, update metadata, confirm auth and storage are configured correctly, and submit a plugin that contains your app through the plugin submission flow.
 
 ## Next steps
 
 - Validate tooling and telemetry with the [Test your integration](https://developers.openai.com/apps-sdk/deploy/testing) guide.
 - Keep a troubleshooting playbook handy via [Troubleshooting](https://developers.openai.com/apps-sdk/deploy/troubleshooting) so on-call responders can quickly diagnose issues.
-- Submit your app through the current review flow. Learn more in the [Submit your app](https://developers.openai.com/apps-sdk/deploy/submission) guide.
+- Submit a plugin that contains your app through the plugin submission flow. Learn more in the [Submit and maintain an app in a plugin](https://developers.openai.com/apps-sdk/deploy/submission) guide and the canonical [Submit plugins](https://developers.openai.com/codex/submit-plugins) guide.
