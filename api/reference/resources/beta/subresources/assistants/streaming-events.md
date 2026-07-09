@@ -1,15 +1,15 @@
 # Assistants streaming events
 
 Stream the result of executing a Run or resuming a Run after submitting tool outputs.
-You can stream events from the [Create Thread and Run](https://developers.openai.com/docs/api-reference/runs/createThreadAndRun),
-[Create Run](https://developers.openai.com/docs/api-reference/runs/createRun), and [Submit Tool Outputs](https://developers.openai.com/docs/api-reference/runs/submitToolOutputs)
+You can stream events from the [Create Thread and Run](https://platform.openai.com/docs/api-reference/runs/createThreadAndRun),
+[Create Run](https://platform.openai.com/docs/api-reference/runs/createRun), and [Submit Tool Outputs](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs)
 endpoints by passing `"stream": true`. The response will be a [Server-Sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events) stream.
 Our Node and Python SDKs provide helpful utilities to make streaming easy. Reference the
-[Assistants API quickstart](https://developers.openai.com/docs/assistants/overview) to learn more.
+[Assistants API quickstart](https://platform.openai.com/docs/assistants/overview) to learn more.
 
 ## event
 
-Occurs when a new [thread](https://developers.openai.com/docs/api-reference/threads/object) is created.
+Occurs when a new [thread](https://platform.openai.com/docs/api-reference/threads/object) is created.
 
 ### Schema
 
@@ -19,8 +19,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ThreadStreamEvent/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/ThreadStreamEvent/anyOf/0",
+    "ident": "ThreadCreated",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -35,7 +35,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a new [thread](/docs/api-reference/threads/object) is created.",
+    "docstring": "Occurs when a new [thread](https://platform.openai.com/docs/api-reference/threads/object) is created.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 0 > (property) data",
@@ -46,7 +46,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 0 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "Thread",
-    "docstring": "Represents a thread that contains [messages](/docs/api-reference/messages).",
+    "docstring": "Represents a thread that contains [messages](https://platform.openai.com/docs/api-reference/messages).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -55,7 +55,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Thread",
       "$ref": "(resource) beta.threads > (model) thread > (schema)"
     },
-    "oasRef": "#/components/schemas/ThreadStreamEvent/oneOf/0/properties/data",
+    "oasRef": "#/components/schemas/ThreadStreamEvent/anyOf/0/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -82,9 +82,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.created"
         }
       ],
-      "oasRef": "#/components/schemas/ThreadStreamEvent/oneOf/0/properties/event"
+      "oasRef": "#/components/schemas/ThreadStreamEvent/anyOf/0/properties/event"
     },
-    "oasRef": "#/components/schemas/ThreadStreamEvent/oneOf/0/properties/event",
+    "oasRef": "#/components/schemas/ThreadStreamEvent/anyOf/0/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -101,7 +101,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeBoolean"
     },
-    "oasRef": "#/components/schemas/ThreadStreamEvent/oneOf/0/properties/enabled",
+    "oasRef": "#/components/schemas/ThreadStreamEvent/anyOf/0/properties/enabled",
     "deprecated": false,
     "schemaType": "boolean",
     "children": []
@@ -229,7 +229,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents a thread that contains [messages](/docs/api-reference/messages).",
+    "docstring": "Represents a thread that contains [messages](https://platform.openai.com/docs/api-reference/messages).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads > (model) thread > (schema) > (property) id",
@@ -317,7 +317,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) thread > (schema) > (property) tool_resources > (property) code_interpreter > (property) file_ids": {
     "kind": "HttpDeclProperty",
-    "docstring": "A list of [file](/docs/api-reference/files) IDs made available to the `code_interpreter` tool. There can be a maximum of 20 files associated with the tool.\n",
+    "docstring": "A list of [file](https://platform.openai.com/docs/api-reference/files) IDs made available to the `code_interpreter` tool. There can be a maximum of 20 files associated with the tool.\n",
     "key": "file_ids",
     "optional": true,
     "nullable": false,
@@ -336,7 +336,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) thread > (schema) > (property) tool_resources > (property) file_search > (property) vector_store_ids": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [vector store](/docs/api-reference/vector-stores/object) attached to this thread. There can be a maximum of 1 vector store attached to the thread.\n",
+    "docstring": "The [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object) attached to this thread. There can be a maximum of 1 vector store attached to the thread.\n",
     "key": "vector_store_ids",
     "optional": true,
     "nullable": false,
@@ -363,7 +363,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a new [run](https://developers.openai.com/docs/api-reference/runs/object) is created.
+Occurs when a new [run](https://platform.openai.com/docs/api-reference/runs/object) is created.
 
 ### Schema
 
@@ -373,8 +373,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/0",
-    "ident": "UnionMember1",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/0",
+    "ident": "ThreadRunCreated",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -386,7 +386,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a new [run](/docs/api-reference/runs/object) is created.",
+    "docstring": "Occurs when a new [run](https://platform.openai.com/docs/api-reference/runs/object) is created.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 1 > (property) data",
@@ -396,7 +396,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 1 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "A run on a thread",
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -405,7 +405,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Run",
       "$ref": "(resource) beta.threads.runs > (model) run > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/0/properties/data",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/0/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -454,9 +454,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.created"
         }
       ],
-      "oasRef": "#/components/schemas/RunStreamEvent/oneOf/0/properties/event"
+      "oasRef": "#/components/schemas/RunStreamEvent/anyOf/0/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/0/properties/event",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/0/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -480,7 +480,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for execution of this run.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -601,7 +601,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) instructions": {
     "kind": "HttpDeclProperty",
-    "docstring": "The instructions that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The instructions that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "instructions",
     "optional": false,
     "nullable": false,
@@ -693,7 +693,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) model": {
     "kind": "HttpDeclProperty",
-    "docstring": "The model that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The model that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "model",
     "optional": false,
     "nullable": false,
@@ -731,7 +731,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) parallel_tool_calls": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
+    "docstring": "Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
     "key": "parallel_tool_calls",
     "optional": false,
     "nullable": false,
@@ -772,7 +772,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) response_format": {
     "kind": "HttpDeclProperty",
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "key": "response_format",
     "optional": false,
     "nullable": true,
@@ -818,66 +818,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "optional": false,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "queued"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "in_progress"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "requires_action"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelling"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelled"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "failed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "completed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "incomplete"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "expired"
-        }
-      ],
-      "oasRef": "#/components/schemas/RunObject/properties/status"
+      "kind": "HttpTypeReference",
+      "ident": "RunStatus",
+      "$ref": "(resource) beta.threads.runs > (model) run_status > (schema)"
     },
     "oasRef": "#/components/schemas/RunObject/properties/status",
     "deprecated": false,
     "schemaType": "enum",
+    "modelImplicit": false,
+    "modelPath": "(resource) beta.threads.runs > (model) run_status",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8"
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was executed on as a part of this run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -913,7 +878,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) tools": {
     "kind": "HttpDeclProperty",
-    "docstring": "The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The list of tools that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "tools",
     "optional": false,
     "nullable": false,
@@ -921,25 +886,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterTool",
-            "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchTool",
-            "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionTool",
-            "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunObject/properties/tools/items"
+        "kind": "HttpTypeReference",
+        "ident": "AssistantTool",
+        "$ref": "(resource) beta.assistants > (model) assistant_tool > (schema)"
       },
       "oasRef": "#/components/schemas/RunObject/properties/tools"
     },
@@ -948,9 +897,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy": {
@@ -1128,7 +1077,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.runs > (model) run > (schema) > (property) id",
@@ -1319,7 +1268,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0",
+    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -1329,7 +1278,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "auto"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
     },
     "docstring": "`auto` is the default value\n",
     "childrenParentSchema": "enum",
@@ -1389,7 +1338,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "auto"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -1409,7 +1358,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption"
     },
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "childrenParentSchema": "union",
     "children": [
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0",
@@ -1418,73 +1367,133 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 3"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "queued"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "in_progress"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "requires_action"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelling"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelled"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "completed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "incomplete"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "expired"
     }
   },
+  "(resource) beta.threads.runs > (model) run_status > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStatus",
+    "ident": "RunStatus",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "queued"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "in_progress"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "requires_action"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelling"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelled"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "completed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "expired"
+        }
+      ],
+      "oasRef": "#/components/schemas/RunStatus"
+    },
+    "docstring": "The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
+    ]
+  },
   "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0",
+    "ident": "Auto",
     "type": {
       "kind": "HttpTypeUnion",
       "types": [
@@ -1501,7 +1510,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "required"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
     },
     "docstring": "`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.\n",
     "childrenParentSchema": "enum",
@@ -1547,7 +1556,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "required"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -1564,7 +1573,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -1576,7 +1585,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -1589,7 +1598,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -1602,63 +1611,36 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsCode",
-    "ident": "CodeInterpreterTool",
+    "oasRef": "#/components/schemas/AssistantTool",
+    "ident": "AssistantTool",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
-    "ident": "FileSearchTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterTool",
+          "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
         },
         {
-          "ident": "file_search"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
-    ]
-  },
-  "(resource) beta.assistants > (model) function_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFunction",
-    "ident": "FunctionTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "function"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchTool",
+          "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionTool",
+          "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/AssistantTool"
     },
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type": {
@@ -1981,7 +1963,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "childrenParentSchema": "object",
     "children": [
       "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema",
@@ -2109,6 +2091,23 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsCode",
+    "ident": "CodeInterpreterTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The type of tool being defined: `file_search`",
@@ -2159,6 +2158,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options"
     ]
   },
+  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
+    "ident": "FileSearchTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "file_search"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
+    ]
+  },
   "(resource) beta.assistants > (model) function_tool > (schema) > (property) function": {
     "kind": "HttpDeclProperty",
     "key": "function",
@@ -2206,6 +2226,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) function_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFunction",
+    "ident": "FunctionTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -2222,7 +2263,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) required_action_function_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](/docs/api-reference/runs/submitToolOutputs) endpoint.",
+    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) endpoint.",
     "key": "id",
     "optional": false,
     "nullable": false,
@@ -2379,7 +2420,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -2467,7 +2508,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) max_num_results": {
     "kind": "HttpDeclProperty",
-    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "max_num_results",
     "optional": true,
     "nullable": false,
@@ -2486,7 +2527,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options": {
     "kind": "HttpDeclProperty",
     "title": "File search tool call ranking options",
-    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "ranking_options",
     "optional": true,
     "nullable": false,
@@ -2540,7 +2581,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) parameters": {
     "kind": "HttpDeclProperty",
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "key": "parameters",
     "optional": true,
     "nullable": false,
@@ -2558,7 +2599,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](/docs/guides/function-calling).",
+    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](https://platform.openai.com/docs/guides/function-calling).",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -2706,7 +2747,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/FunctionParameters"
     },
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "children": []
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options > (property) ranker > (member) 0": {
@@ -2734,7 +2775,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run](https://developers.openai.com/docs/api-reference/runs/object) moves to a `queued` status.
+Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) moves to a `queued` status.
 
 ### Schema
 
@@ -2744,8 +2785,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/1",
-    "ident": "UnionMember2",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/1",
+    "ident": "ThreadRunQueued",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -2757,7 +2798,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run](/docs/api-reference/runs/object) moves to a `queued` status.",
+    "docstring": "Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) moves to a `queued` status.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 2 > (property) data",
@@ -2767,7 +2808,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 2 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "A run on a thread",
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -2776,7 +2817,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Run",
       "$ref": "(resource) beta.threads.runs > (model) run > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/1/properties/data",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/1/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -2825,9 +2866,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.queued"
         }
       ],
-      "oasRef": "#/components/schemas/RunStreamEvent/oneOf/1/properties/event"
+      "oasRef": "#/components/schemas/RunStreamEvent/anyOf/1/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/1/properties/event",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/1/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -2851,7 +2892,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for execution of this run.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -2972,7 +3013,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) instructions": {
     "kind": "HttpDeclProperty",
-    "docstring": "The instructions that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The instructions that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "instructions",
     "optional": false,
     "nullable": false,
@@ -3064,7 +3105,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) model": {
     "kind": "HttpDeclProperty",
-    "docstring": "The model that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The model that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "model",
     "optional": false,
     "nullable": false,
@@ -3102,7 +3143,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) parallel_tool_calls": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
+    "docstring": "Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
     "key": "parallel_tool_calls",
     "optional": false,
     "nullable": false,
@@ -3143,7 +3184,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) response_format": {
     "kind": "HttpDeclProperty",
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "key": "response_format",
     "optional": false,
     "nullable": true,
@@ -3189,66 +3230,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "optional": false,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "queued"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "in_progress"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "requires_action"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelling"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelled"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "failed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "completed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "incomplete"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "expired"
-        }
-      ],
-      "oasRef": "#/components/schemas/RunObject/properties/status"
+      "kind": "HttpTypeReference",
+      "ident": "RunStatus",
+      "$ref": "(resource) beta.threads.runs > (model) run_status > (schema)"
     },
     "oasRef": "#/components/schemas/RunObject/properties/status",
     "deprecated": false,
     "schemaType": "enum",
+    "modelImplicit": false,
+    "modelPath": "(resource) beta.threads.runs > (model) run_status",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8"
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was executed on as a part of this run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -3284,7 +3290,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) tools": {
     "kind": "HttpDeclProperty",
-    "docstring": "The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The list of tools that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "tools",
     "optional": false,
     "nullable": false,
@@ -3292,25 +3298,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterTool",
-            "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchTool",
-            "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionTool",
-            "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunObject/properties/tools/items"
+        "kind": "HttpTypeReference",
+        "ident": "AssistantTool",
+        "$ref": "(resource) beta.assistants > (model) assistant_tool > (schema)"
       },
       "oasRef": "#/components/schemas/RunObject/properties/tools"
     },
@@ -3319,9 +3309,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy": {
@@ -3499,7 +3489,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.runs > (model) run > (schema) > (property) id",
@@ -3690,7 +3680,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0",
+    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -3700,7 +3690,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "auto"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
     },
     "docstring": "`auto` is the default value\n",
     "childrenParentSchema": "enum",
@@ -3760,7 +3750,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "auto"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -3780,7 +3770,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption"
     },
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "childrenParentSchema": "union",
     "children": [
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0",
@@ -3789,73 +3779,133 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 3"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "queued"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "in_progress"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "requires_action"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelling"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelled"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "completed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "incomplete"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "expired"
     }
   },
+  "(resource) beta.threads.runs > (model) run_status > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStatus",
+    "ident": "RunStatus",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "queued"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "in_progress"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "requires_action"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelling"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelled"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "completed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "expired"
+        }
+      ],
+      "oasRef": "#/components/schemas/RunStatus"
+    },
+    "docstring": "The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
+    ]
+  },
   "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0",
+    "ident": "Auto",
     "type": {
       "kind": "HttpTypeUnion",
       "types": [
@@ -3872,7 +3922,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "required"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
     },
     "docstring": "`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.\n",
     "childrenParentSchema": "enum",
@@ -3918,7 +3968,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "required"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -3935,7 +3985,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -3947,7 +3997,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -3960,7 +4010,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -3973,63 +4023,36 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsCode",
-    "ident": "CodeInterpreterTool",
+    "oasRef": "#/components/schemas/AssistantTool",
+    "ident": "AssistantTool",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
-    "ident": "FileSearchTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterTool",
+          "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
         },
         {
-          "ident": "file_search"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
-    ]
-  },
-  "(resource) beta.assistants > (model) function_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFunction",
-    "ident": "FunctionTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "function"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchTool",
+          "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionTool",
+          "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/AssistantTool"
     },
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type": {
@@ -4352,7 +4375,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "childrenParentSchema": "object",
     "children": [
       "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema",
@@ -4480,6 +4503,23 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsCode",
+    "ident": "CodeInterpreterTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The type of tool being defined: `file_search`",
@@ -4530,6 +4570,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options"
     ]
   },
+  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
+    "ident": "FileSearchTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "file_search"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
+    ]
+  },
   "(resource) beta.assistants > (model) function_tool > (schema) > (property) function": {
     "kind": "HttpDeclProperty",
     "key": "function",
@@ -4577,6 +4638,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) function_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFunction",
+    "ident": "FunctionTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -4593,7 +4675,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) required_action_function_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](/docs/api-reference/runs/submitToolOutputs) endpoint.",
+    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) endpoint.",
     "key": "id",
     "optional": false,
     "nullable": false,
@@ -4750,7 +4832,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -4838,7 +4920,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) max_num_results": {
     "kind": "HttpDeclProperty",
-    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "max_num_results",
     "optional": true,
     "nullable": false,
@@ -4857,7 +4939,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options": {
     "kind": "HttpDeclProperty",
     "title": "File search tool call ranking options",
-    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "ranking_options",
     "optional": true,
     "nullable": false,
@@ -4911,7 +4993,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) parameters": {
     "kind": "HttpDeclProperty",
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "key": "parameters",
     "optional": true,
     "nullable": false,
@@ -4929,7 +5011,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](/docs/guides/function-calling).",
+    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](https://platform.openai.com/docs/guides/function-calling).",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -5077,7 +5159,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/FunctionParameters"
     },
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "children": []
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options > (property) ranker > (member) 0": {
@@ -5105,7 +5187,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run](https://developers.openai.com/docs/api-reference/runs/object) moves to an `in_progress` status.
+Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) moves to an `in_progress` status.
 
 ### Schema
 
@@ -5115,8 +5197,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/2",
-    "ident": "UnionMember3",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/2",
+    "ident": "ThreadRunInProgress",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -5128,7 +5210,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run](/docs/api-reference/runs/object) moves to an `in_progress` status.",
+    "docstring": "Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) moves to an `in_progress` status.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 3 > (property) data",
@@ -5138,7 +5220,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 3 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "A run on a thread",
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -5147,7 +5229,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Run",
       "$ref": "(resource) beta.threads.runs > (model) run > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/2/properties/data",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/2/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -5196,9 +5278,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.in_progress"
         }
       ],
-      "oasRef": "#/components/schemas/RunStreamEvent/oneOf/2/properties/event"
+      "oasRef": "#/components/schemas/RunStreamEvent/anyOf/2/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/2/properties/event",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/2/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -5222,7 +5304,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for execution of this run.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -5343,7 +5425,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) instructions": {
     "kind": "HttpDeclProperty",
-    "docstring": "The instructions that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The instructions that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "instructions",
     "optional": false,
     "nullable": false,
@@ -5435,7 +5517,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) model": {
     "kind": "HttpDeclProperty",
-    "docstring": "The model that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The model that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "model",
     "optional": false,
     "nullable": false,
@@ -5473,7 +5555,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) parallel_tool_calls": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
+    "docstring": "Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
     "key": "parallel_tool_calls",
     "optional": false,
     "nullable": false,
@@ -5514,7 +5596,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) response_format": {
     "kind": "HttpDeclProperty",
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "key": "response_format",
     "optional": false,
     "nullable": true,
@@ -5560,66 +5642,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "optional": false,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "queued"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "in_progress"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "requires_action"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelling"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelled"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "failed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "completed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "incomplete"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "expired"
-        }
-      ],
-      "oasRef": "#/components/schemas/RunObject/properties/status"
+      "kind": "HttpTypeReference",
+      "ident": "RunStatus",
+      "$ref": "(resource) beta.threads.runs > (model) run_status > (schema)"
     },
     "oasRef": "#/components/schemas/RunObject/properties/status",
     "deprecated": false,
     "schemaType": "enum",
+    "modelImplicit": false,
+    "modelPath": "(resource) beta.threads.runs > (model) run_status",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8"
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was executed on as a part of this run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -5655,7 +5702,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) tools": {
     "kind": "HttpDeclProperty",
-    "docstring": "The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The list of tools that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "tools",
     "optional": false,
     "nullable": false,
@@ -5663,25 +5710,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterTool",
-            "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchTool",
-            "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionTool",
-            "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunObject/properties/tools/items"
+        "kind": "HttpTypeReference",
+        "ident": "AssistantTool",
+        "$ref": "(resource) beta.assistants > (model) assistant_tool > (schema)"
       },
       "oasRef": "#/components/schemas/RunObject/properties/tools"
     },
@@ -5690,9 +5721,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy": {
@@ -5870,7 +5901,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.runs > (model) run > (schema) > (property) id",
@@ -6061,7 +6092,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0",
+    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -6071,7 +6102,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "auto"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
     },
     "docstring": "`auto` is the default value\n",
     "childrenParentSchema": "enum",
@@ -6131,7 +6162,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "auto"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -6151,7 +6182,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption"
     },
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "childrenParentSchema": "union",
     "children": [
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0",
@@ -6160,73 +6191,133 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 3"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "queued"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "in_progress"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "requires_action"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelling"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelled"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "completed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "incomplete"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "expired"
     }
   },
+  "(resource) beta.threads.runs > (model) run_status > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStatus",
+    "ident": "RunStatus",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "queued"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "in_progress"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "requires_action"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelling"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelled"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "completed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "expired"
+        }
+      ],
+      "oasRef": "#/components/schemas/RunStatus"
+    },
+    "docstring": "The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
+    ]
+  },
   "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0",
+    "ident": "Auto",
     "type": {
       "kind": "HttpTypeUnion",
       "types": [
@@ -6243,7 +6334,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "required"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
     },
     "docstring": "`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.\n",
     "childrenParentSchema": "enum",
@@ -6289,7 +6380,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "required"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -6306,7 +6397,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -6318,7 +6409,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -6331,7 +6422,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -6344,63 +6435,36 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsCode",
-    "ident": "CodeInterpreterTool",
+    "oasRef": "#/components/schemas/AssistantTool",
+    "ident": "AssistantTool",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
-    "ident": "FileSearchTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterTool",
+          "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
         },
         {
-          "ident": "file_search"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
-    ]
-  },
-  "(resource) beta.assistants > (model) function_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFunction",
-    "ident": "FunctionTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "function"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchTool",
+          "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionTool",
+          "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/AssistantTool"
     },
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type": {
@@ -6723,7 +6787,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "childrenParentSchema": "object",
     "children": [
       "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema",
@@ -6851,6 +6915,23 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsCode",
+    "ident": "CodeInterpreterTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The type of tool being defined: `file_search`",
@@ -6901,6 +6982,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options"
     ]
   },
+  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
+    "ident": "FileSearchTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "file_search"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
+    ]
+  },
   "(resource) beta.assistants > (model) function_tool > (schema) > (property) function": {
     "kind": "HttpDeclProperty",
     "key": "function",
@@ -6948,6 +7050,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) function_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFunction",
+    "ident": "FunctionTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -6964,7 +7087,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) required_action_function_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](/docs/api-reference/runs/submitToolOutputs) endpoint.",
+    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) endpoint.",
     "key": "id",
     "optional": false,
     "nullable": false,
@@ -7121,7 +7244,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -7209,7 +7332,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) max_num_results": {
     "kind": "HttpDeclProperty",
-    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "max_num_results",
     "optional": true,
     "nullable": false,
@@ -7228,7 +7351,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options": {
     "kind": "HttpDeclProperty",
     "title": "File search tool call ranking options",
-    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "ranking_options",
     "optional": true,
     "nullable": false,
@@ -7282,7 +7405,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) parameters": {
     "kind": "HttpDeclProperty",
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "key": "parameters",
     "optional": true,
     "nullable": false,
@@ -7300,7 +7423,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](/docs/guides/function-calling).",
+    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](https://platform.openai.com/docs/guides/function-calling).",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -7448,7 +7571,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/FunctionParameters"
     },
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "children": []
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options > (property) ranker > (member) 0": {
@@ -7476,7 +7599,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run](https://developers.openai.com/docs/api-reference/runs/object) moves to a `requires_action` status.
+Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) moves to a `requires_action` status.
 
 ### Schema
 
@@ -7486,8 +7609,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/3",
-    "ident": "UnionMember4",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/3",
+    "ident": "ThreadRunRequiresAction",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -7499,7 +7622,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run](/docs/api-reference/runs/object) moves to a `requires_action` status.",
+    "docstring": "Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) moves to a `requires_action` status.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 4 > (property) data",
@@ -7509,7 +7632,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 4 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "A run on a thread",
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -7518,7 +7641,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Run",
       "$ref": "(resource) beta.threads.runs > (model) run > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/3/properties/data",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/3/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -7567,9 +7690,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.requires_action"
         }
       ],
-      "oasRef": "#/components/schemas/RunStreamEvent/oneOf/3/properties/event"
+      "oasRef": "#/components/schemas/RunStreamEvent/anyOf/3/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/3/properties/event",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/3/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -7593,7 +7716,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for execution of this run.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -7714,7 +7837,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) instructions": {
     "kind": "HttpDeclProperty",
-    "docstring": "The instructions that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The instructions that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "instructions",
     "optional": false,
     "nullable": false,
@@ -7806,7 +7929,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) model": {
     "kind": "HttpDeclProperty",
-    "docstring": "The model that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The model that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "model",
     "optional": false,
     "nullable": false,
@@ -7844,7 +7967,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) parallel_tool_calls": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
+    "docstring": "Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
     "key": "parallel_tool_calls",
     "optional": false,
     "nullable": false,
@@ -7885,7 +8008,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) response_format": {
     "kind": "HttpDeclProperty",
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "key": "response_format",
     "optional": false,
     "nullable": true,
@@ -7931,66 +8054,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "optional": false,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "queued"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "in_progress"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "requires_action"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelling"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelled"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "failed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "completed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "incomplete"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "expired"
-        }
-      ],
-      "oasRef": "#/components/schemas/RunObject/properties/status"
+      "kind": "HttpTypeReference",
+      "ident": "RunStatus",
+      "$ref": "(resource) beta.threads.runs > (model) run_status > (schema)"
     },
     "oasRef": "#/components/schemas/RunObject/properties/status",
     "deprecated": false,
     "schemaType": "enum",
+    "modelImplicit": false,
+    "modelPath": "(resource) beta.threads.runs > (model) run_status",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8"
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was executed on as a part of this run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -8026,7 +8114,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) tools": {
     "kind": "HttpDeclProperty",
-    "docstring": "The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The list of tools that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "tools",
     "optional": false,
     "nullable": false,
@@ -8034,25 +8122,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterTool",
-            "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchTool",
-            "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionTool",
-            "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunObject/properties/tools/items"
+        "kind": "HttpTypeReference",
+        "ident": "AssistantTool",
+        "$ref": "(resource) beta.assistants > (model) assistant_tool > (schema)"
       },
       "oasRef": "#/components/schemas/RunObject/properties/tools"
     },
@@ -8061,9 +8133,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy": {
@@ -8241,7 +8313,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.runs > (model) run > (schema) > (property) id",
@@ -8432,7 +8504,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0",
+    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -8442,7 +8514,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "auto"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
     },
     "docstring": "`auto` is the default value\n",
     "childrenParentSchema": "enum",
@@ -8502,7 +8574,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "auto"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -8522,7 +8594,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption"
     },
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "childrenParentSchema": "union",
     "children": [
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0",
@@ -8531,73 +8603,133 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 3"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "queued"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "in_progress"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "requires_action"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelling"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelled"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "completed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "incomplete"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "expired"
     }
   },
+  "(resource) beta.threads.runs > (model) run_status > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStatus",
+    "ident": "RunStatus",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "queued"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "in_progress"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "requires_action"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelling"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelled"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "completed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "expired"
+        }
+      ],
+      "oasRef": "#/components/schemas/RunStatus"
+    },
+    "docstring": "The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
+    ]
+  },
   "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0",
+    "ident": "Auto",
     "type": {
       "kind": "HttpTypeUnion",
       "types": [
@@ -8614,7 +8746,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "required"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
     },
     "docstring": "`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.\n",
     "childrenParentSchema": "enum",
@@ -8660,7 +8792,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "required"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -8677,7 +8809,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -8689,7 +8821,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -8702,7 +8834,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -8715,63 +8847,36 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsCode",
-    "ident": "CodeInterpreterTool",
+    "oasRef": "#/components/schemas/AssistantTool",
+    "ident": "AssistantTool",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
-    "ident": "FileSearchTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterTool",
+          "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
         },
         {
-          "ident": "file_search"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
-    ]
-  },
-  "(resource) beta.assistants > (model) function_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFunction",
-    "ident": "FunctionTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "function"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchTool",
+          "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionTool",
+          "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/AssistantTool"
     },
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type": {
@@ -9094,7 +9199,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "childrenParentSchema": "object",
     "children": [
       "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema",
@@ -9222,6 +9327,23 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsCode",
+    "ident": "CodeInterpreterTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The type of tool being defined: `file_search`",
@@ -9272,6 +9394,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options"
     ]
   },
+  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
+    "ident": "FileSearchTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "file_search"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
+    ]
+  },
   "(resource) beta.assistants > (model) function_tool > (schema) > (property) function": {
     "kind": "HttpDeclProperty",
     "key": "function",
@@ -9319,6 +9462,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) function_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFunction",
+    "ident": "FunctionTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -9335,7 +9499,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) required_action_function_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](/docs/api-reference/runs/submitToolOutputs) endpoint.",
+    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) endpoint.",
     "key": "id",
     "optional": false,
     "nullable": false,
@@ -9492,7 +9656,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -9580,7 +9744,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) max_num_results": {
     "kind": "HttpDeclProperty",
-    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "max_num_results",
     "optional": true,
     "nullable": false,
@@ -9599,7 +9763,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options": {
     "kind": "HttpDeclProperty",
     "title": "File search tool call ranking options",
-    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "ranking_options",
     "optional": true,
     "nullable": false,
@@ -9653,7 +9817,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) parameters": {
     "kind": "HttpDeclProperty",
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "key": "parameters",
     "optional": true,
     "nullable": false,
@@ -9671,7 +9835,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](/docs/guides/function-calling).",
+    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](https://platform.openai.com/docs/guides/function-calling).",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -9819,7 +9983,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/FunctionParameters"
     },
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "children": []
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options > (property) ranker > (member) 0": {
@@ -9847,7 +10011,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run](https://developers.openai.com/docs/api-reference/runs/object) is completed.
+Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) is completed.
 
 ### Schema
 
@@ -9857,8 +10021,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/4",
-    "ident": "UnionMember5",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/4",
+    "ident": "ThreadRunCompleted",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -9870,7 +10034,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run](/docs/api-reference/runs/object) is completed.",
+    "docstring": "Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) is completed.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 5 > (property) data",
@@ -9880,7 +10044,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 5 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "A run on a thread",
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -9889,7 +10053,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Run",
       "$ref": "(resource) beta.threads.runs > (model) run > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/4/properties/data",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/4/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -9938,9 +10102,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.completed"
         }
       ],
-      "oasRef": "#/components/schemas/RunStreamEvent/oneOf/4/properties/event"
+      "oasRef": "#/components/schemas/RunStreamEvent/anyOf/4/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/4/properties/event",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/4/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -9964,7 +10128,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for execution of this run.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -10085,7 +10249,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) instructions": {
     "kind": "HttpDeclProperty",
-    "docstring": "The instructions that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The instructions that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "instructions",
     "optional": false,
     "nullable": false,
@@ -10177,7 +10341,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) model": {
     "kind": "HttpDeclProperty",
-    "docstring": "The model that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The model that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "model",
     "optional": false,
     "nullable": false,
@@ -10215,7 +10379,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) parallel_tool_calls": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
+    "docstring": "Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
     "key": "parallel_tool_calls",
     "optional": false,
     "nullable": false,
@@ -10256,7 +10420,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) response_format": {
     "kind": "HttpDeclProperty",
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "key": "response_format",
     "optional": false,
     "nullable": true,
@@ -10302,66 +10466,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "optional": false,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "queued"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "in_progress"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "requires_action"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelling"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelled"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "failed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "completed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "incomplete"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "expired"
-        }
-      ],
-      "oasRef": "#/components/schemas/RunObject/properties/status"
+      "kind": "HttpTypeReference",
+      "ident": "RunStatus",
+      "$ref": "(resource) beta.threads.runs > (model) run_status > (schema)"
     },
     "oasRef": "#/components/schemas/RunObject/properties/status",
     "deprecated": false,
     "schemaType": "enum",
+    "modelImplicit": false,
+    "modelPath": "(resource) beta.threads.runs > (model) run_status",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8"
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was executed on as a part of this run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -10397,7 +10526,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) tools": {
     "kind": "HttpDeclProperty",
-    "docstring": "The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The list of tools that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "tools",
     "optional": false,
     "nullable": false,
@@ -10405,25 +10534,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterTool",
-            "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchTool",
-            "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionTool",
-            "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunObject/properties/tools/items"
+        "kind": "HttpTypeReference",
+        "ident": "AssistantTool",
+        "$ref": "(resource) beta.assistants > (model) assistant_tool > (schema)"
       },
       "oasRef": "#/components/schemas/RunObject/properties/tools"
     },
@@ -10432,9 +10545,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy": {
@@ -10612,7 +10725,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.runs > (model) run > (schema) > (property) id",
@@ -10803,7 +10916,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0",
+    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -10813,7 +10926,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "auto"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
     },
     "docstring": "`auto` is the default value\n",
     "childrenParentSchema": "enum",
@@ -10873,7 +10986,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "auto"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -10893,7 +11006,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption"
     },
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "childrenParentSchema": "union",
     "children": [
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0",
@@ -10902,73 +11015,133 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 3"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "queued"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "in_progress"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "requires_action"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelling"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelled"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "completed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "incomplete"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "expired"
     }
   },
+  "(resource) beta.threads.runs > (model) run_status > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStatus",
+    "ident": "RunStatus",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "queued"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "in_progress"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "requires_action"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelling"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelled"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "completed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "expired"
+        }
+      ],
+      "oasRef": "#/components/schemas/RunStatus"
+    },
+    "docstring": "The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
+    ]
+  },
   "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0",
+    "ident": "Auto",
     "type": {
       "kind": "HttpTypeUnion",
       "types": [
@@ -10985,7 +11158,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "required"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
     },
     "docstring": "`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.\n",
     "childrenParentSchema": "enum",
@@ -11031,7 +11204,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "required"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -11048,7 +11221,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -11060,7 +11233,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -11073,7 +11246,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -11086,63 +11259,36 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsCode",
-    "ident": "CodeInterpreterTool",
+    "oasRef": "#/components/schemas/AssistantTool",
+    "ident": "AssistantTool",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
-    "ident": "FileSearchTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterTool",
+          "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
         },
         {
-          "ident": "file_search"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
-    ]
-  },
-  "(resource) beta.assistants > (model) function_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFunction",
-    "ident": "FunctionTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "function"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchTool",
+          "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionTool",
+          "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/AssistantTool"
     },
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type": {
@@ -11465,7 +11611,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "childrenParentSchema": "object",
     "children": [
       "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema",
@@ -11593,6 +11739,23 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsCode",
+    "ident": "CodeInterpreterTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The type of tool being defined: `file_search`",
@@ -11643,6 +11806,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options"
     ]
   },
+  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
+    "ident": "FileSearchTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "file_search"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
+    ]
+  },
   "(resource) beta.assistants > (model) function_tool > (schema) > (property) function": {
     "kind": "HttpDeclProperty",
     "key": "function",
@@ -11690,6 +11874,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) function_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFunction",
+    "ident": "FunctionTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -11706,7 +11911,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) required_action_function_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](/docs/api-reference/runs/submitToolOutputs) endpoint.",
+    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) endpoint.",
     "key": "id",
     "optional": false,
     "nullable": false,
@@ -11863,7 +12068,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -11951,7 +12156,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) max_num_results": {
     "kind": "HttpDeclProperty",
-    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "max_num_results",
     "optional": true,
     "nullable": false,
@@ -11970,7 +12175,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options": {
     "kind": "HttpDeclProperty",
     "title": "File search tool call ranking options",
-    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "ranking_options",
     "optional": true,
     "nullable": false,
@@ -12024,7 +12229,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) parameters": {
     "kind": "HttpDeclProperty",
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "key": "parameters",
     "optional": true,
     "nullable": false,
@@ -12042,7 +12247,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](/docs/guides/function-calling).",
+    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](https://platform.openai.com/docs/guides/function-calling).",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -12190,7 +12395,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/FunctionParameters"
     },
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "children": []
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options > (property) ranker > (member) 0": {
@@ -12218,7 +12423,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run](https://developers.openai.com/docs/api-reference/runs/object) ends with status `incomplete`.
+Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) ends with status `incomplete`.
 
 ### Schema
 
@@ -12228,8 +12433,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/5",
-    "ident": "UnionMember6",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/5",
+    "ident": "ThreadRunIncomplete",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -12241,7 +12446,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run](/docs/api-reference/runs/object) ends with status `incomplete`.",
+    "docstring": "Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) ends with status `incomplete`.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 6 > (property) data",
@@ -12251,7 +12456,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 6 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "A run on a thread",
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -12260,7 +12465,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Run",
       "$ref": "(resource) beta.threads.runs > (model) run > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/5/properties/data",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/5/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -12309,9 +12514,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.incomplete"
         }
       ],
-      "oasRef": "#/components/schemas/RunStreamEvent/oneOf/5/properties/event"
+      "oasRef": "#/components/schemas/RunStreamEvent/anyOf/5/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/5/properties/event",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/5/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -12335,7 +12540,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for execution of this run.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -12456,7 +12661,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) instructions": {
     "kind": "HttpDeclProperty",
-    "docstring": "The instructions that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The instructions that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "instructions",
     "optional": false,
     "nullable": false,
@@ -12548,7 +12753,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) model": {
     "kind": "HttpDeclProperty",
-    "docstring": "The model that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The model that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "model",
     "optional": false,
     "nullable": false,
@@ -12586,7 +12791,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) parallel_tool_calls": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
+    "docstring": "Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
     "key": "parallel_tool_calls",
     "optional": false,
     "nullable": false,
@@ -12627,7 +12832,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) response_format": {
     "kind": "HttpDeclProperty",
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "key": "response_format",
     "optional": false,
     "nullable": true,
@@ -12673,66 +12878,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "optional": false,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "queued"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "in_progress"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "requires_action"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelling"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelled"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "failed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "completed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "incomplete"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "expired"
-        }
-      ],
-      "oasRef": "#/components/schemas/RunObject/properties/status"
+      "kind": "HttpTypeReference",
+      "ident": "RunStatus",
+      "$ref": "(resource) beta.threads.runs > (model) run_status > (schema)"
     },
     "oasRef": "#/components/schemas/RunObject/properties/status",
     "deprecated": false,
     "schemaType": "enum",
+    "modelImplicit": false,
+    "modelPath": "(resource) beta.threads.runs > (model) run_status",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8"
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was executed on as a part of this run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -12768,7 +12938,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) tools": {
     "kind": "HttpDeclProperty",
-    "docstring": "The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The list of tools that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "tools",
     "optional": false,
     "nullable": false,
@@ -12776,25 +12946,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterTool",
-            "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchTool",
-            "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionTool",
-            "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunObject/properties/tools/items"
+        "kind": "HttpTypeReference",
+        "ident": "AssistantTool",
+        "$ref": "(resource) beta.assistants > (model) assistant_tool > (schema)"
       },
       "oasRef": "#/components/schemas/RunObject/properties/tools"
     },
@@ -12803,9 +12957,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy": {
@@ -12983,7 +13137,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.runs > (model) run > (schema) > (property) id",
@@ -13174,7 +13328,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0",
+    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -13184,7 +13338,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "auto"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
     },
     "docstring": "`auto` is the default value\n",
     "childrenParentSchema": "enum",
@@ -13244,7 +13398,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "auto"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -13264,7 +13418,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption"
     },
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "childrenParentSchema": "union",
     "children": [
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0",
@@ -13273,73 +13427,133 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 3"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "queued"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "in_progress"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "requires_action"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelling"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelled"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "completed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "incomplete"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "expired"
     }
   },
+  "(resource) beta.threads.runs > (model) run_status > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStatus",
+    "ident": "RunStatus",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "queued"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "in_progress"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "requires_action"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelling"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelled"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "completed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "expired"
+        }
+      ],
+      "oasRef": "#/components/schemas/RunStatus"
+    },
+    "docstring": "The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
+    ]
+  },
   "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0",
+    "ident": "Auto",
     "type": {
       "kind": "HttpTypeUnion",
       "types": [
@@ -13356,7 +13570,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "required"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
     },
     "docstring": "`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.\n",
     "childrenParentSchema": "enum",
@@ -13402,7 +13616,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "required"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -13419,7 +13633,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -13431,7 +13645,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -13444,7 +13658,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -13457,63 +13671,36 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsCode",
-    "ident": "CodeInterpreterTool",
+    "oasRef": "#/components/schemas/AssistantTool",
+    "ident": "AssistantTool",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
-    "ident": "FileSearchTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterTool",
+          "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
         },
         {
-          "ident": "file_search"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
-    ]
-  },
-  "(resource) beta.assistants > (model) function_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFunction",
-    "ident": "FunctionTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "function"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchTool",
+          "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionTool",
+          "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/AssistantTool"
     },
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type": {
@@ -13836,7 +14023,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "childrenParentSchema": "object",
     "children": [
       "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema",
@@ -13964,6 +14151,23 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsCode",
+    "ident": "CodeInterpreterTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The type of tool being defined: `file_search`",
@@ -14014,6 +14218,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options"
     ]
   },
+  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
+    "ident": "FileSearchTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "file_search"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
+    ]
+  },
   "(resource) beta.assistants > (model) function_tool > (schema) > (property) function": {
     "kind": "HttpDeclProperty",
     "key": "function",
@@ -14061,6 +14286,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) function_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFunction",
+    "ident": "FunctionTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -14077,7 +14323,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) required_action_function_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](/docs/api-reference/runs/submitToolOutputs) endpoint.",
+    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) endpoint.",
     "key": "id",
     "optional": false,
     "nullable": false,
@@ -14234,7 +14480,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -14322,7 +14568,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) max_num_results": {
     "kind": "HttpDeclProperty",
-    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "max_num_results",
     "optional": true,
     "nullable": false,
@@ -14341,7 +14587,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options": {
     "kind": "HttpDeclProperty",
     "title": "File search tool call ranking options",
-    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "ranking_options",
     "optional": true,
     "nullable": false,
@@ -14395,7 +14641,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) parameters": {
     "kind": "HttpDeclProperty",
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "key": "parameters",
     "optional": true,
     "nullable": false,
@@ -14413,7 +14659,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](/docs/guides/function-calling).",
+    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](https://platform.openai.com/docs/guides/function-calling).",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -14561,7 +14807,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/FunctionParameters"
     },
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "children": []
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options > (property) ranker > (member) 0": {
@@ -14589,7 +14835,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run](https://developers.openai.com/docs/api-reference/runs/object) fails.
+Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) fails.
 
 ### Schema
 
@@ -14599,8 +14845,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/6",
-    "ident": "UnionMember7",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/6",
+    "ident": "ThreadRunFailed",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -14612,7 +14858,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run](/docs/api-reference/runs/object) fails.",
+    "docstring": "Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) fails.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 7 > (property) data",
@@ -14622,7 +14868,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 7 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "A run on a thread",
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -14631,7 +14877,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Run",
       "$ref": "(resource) beta.threads.runs > (model) run > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/6/properties/data",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/6/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -14680,9 +14926,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.failed"
         }
       ],
-      "oasRef": "#/components/schemas/RunStreamEvent/oneOf/6/properties/event"
+      "oasRef": "#/components/schemas/RunStreamEvent/anyOf/6/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/6/properties/event",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/6/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -14706,7 +14952,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for execution of this run.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -14827,7 +15073,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) instructions": {
     "kind": "HttpDeclProperty",
-    "docstring": "The instructions that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The instructions that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "instructions",
     "optional": false,
     "nullable": false,
@@ -14919,7 +15165,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) model": {
     "kind": "HttpDeclProperty",
-    "docstring": "The model that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The model that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "model",
     "optional": false,
     "nullable": false,
@@ -14957,7 +15203,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) parallel_tool_calls": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
+    "docstring": "Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
     "key": "parallel_tool_calls",
     "optional": false,
     "nullable": false,
@@ -14998,7 +15244,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) response_format": {
     "kind": "HttpDeclProperty",
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "key": "response_format",
     "optional": false,
     "nullable": true,
@@ -15044,66 +15290,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "optional": false,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "queued"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "in_progress"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "requires_action"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelling"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelled"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "failed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "completed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "incomplete"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "expired"
-        }
-      ],
-      "oasRef": "#/components/schemas/RunObject/properties/status"
+      "kind": "HttpTypeReference",
+      "ident": "RunStatus",
+      "$ref": "(resource) beta.threads.runs > (model) run_status > (schema)"
     },
     "oasRef": "#/components/schemas/RunObject/properties/status",
     "deprecated": false,
     "schemaType": "enum",
+    "modelImplicit": false,
+    "modelPath": "(resource) beta.threads.runs > (model) run_status",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8"
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was executed on as a part of this run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -15139,7 +15350,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) tools": {
     "kind": "HttpDeclProperty",
-    "docstring": "The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The list of tools that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "tools",
     "optional": false,
     "nullable": false,
@@ -15147,25 +15358,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterTool",
-            "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchTool",
-            "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionTool",
-            "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunObject/properties/tools/items"
+        "kind": "HttpTypeReference",
+        "ident": "AssistantTool",
+        "$ref": "(resource) beta.assistants > (model) assistant_tool > (schema)"
       },
       "oasRef": "#/components/schemas/RunObject/properties/tools"
     },
@@ -15174,9 +15369,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy": {
@@ -15354,7 +15549,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.runs > (model) run > (schema) > (property) id",
@@ -15545,7 +15740,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0",
+    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -15555,7 +15750,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "auto"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
     },
     "docstring": "`auto` is the default value\n",
     "childrenParentSchema": "enum",
@@ -15615,7 +15810,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "auto"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -15635,7 +15830,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption"
     },
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "childrenParentSchema": "union",
     "children": [
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0",
@@ -15644,73 +15839,133 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 3"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "queued"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "in_progress"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "requires_action"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelling"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelled"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "completed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "incomplete"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "expired"
     }
   },
+  "(resource) beta.threads.runs > (model) run_status > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStatus",
+    "ident": "RunStatus",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "queued"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "in_progress"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "requires_action"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelling"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelled"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "completed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "expired"
+        }
+      ],
+      "oasRef": "#/components/schemas/RunStatus"
+    },
+    "docstring": "The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
+    ]
+  },
   "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0",
+    "ident": "Auto",
     "type": {
       "kind": "HttpTypeUnion",
       "types": [
@@ -15727,7 +15982,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "required"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
     },
     "docstring": "`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.\n",
     "childrenParentSchema": "enum",
@@ -15773,7 +16028,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "required"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -15790,7 +16045,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -15802,7 +16057,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -15815,7 +16070,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -15828,63 +16083,36 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsCode",
-    "ident": "CodeInterpreterTool",
+    "oasRef": "#/components/schemas/AssistantTool",
+    "ident": "AssistantTool",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
-    "ident": "FileSearchTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterTool",
+          "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
         },
         {
-          "ident": "file_search"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
-    ]
-  },
-  "(resource) beta.assistants > (model) function_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFunction",
-    "ident": "FunctionTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "function"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchTool",
+          "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionTool",
+          "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/AssistantTool"
     },
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type": {
@@ -16207,7 +16435,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "childrenParentSchema": "object",
     "children": [
       "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema",
@@ -16335,6 +16563,23 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsCode",
+    "ident": "CodeInterpreterTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The type of tool being defined: `file_search`",
@@ -16385,6 +16630,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options"
     ]
   },
+  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
+    "ident": "FileSearchTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "file_search"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
+    ]
+  },
   "(resource) beta.assistants > (model) function_tool > (schema) > (property) function": {
     "kind": "HttpDeclProperty",
     "key": "function",
@@ -16432,6 +16698,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) function_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFunction",
+    "ident": "FunctionTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -16448,7 +16735,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) required_action_function_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](/docs/api-reference/runs/submitToolOutputs) endpoint.",
+    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) endpoint.",
     "key": "id",
     "optional": false,
     "nullable": false,
@@ -16605,7 +16892,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -16693,7 +16980,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) max_num_results": {
     "kind": "HttpDeclProperty",
-    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "max_num_results",
     "optional": true,
     "nullable": false,
@@ -16712,7 +16999,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options": {
     "kind": "HttpDeclProperty",
     "title": "File search tool call ranking options",
-    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "ranking_options",
     "optional": true,
     "nullable": false,
@@ -16766,7 +17053,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) parameters": {
     "kind": "HttpDeclProperty",
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "key": "parameters",
     "optional": true,
     "nullable": false,
@@ -16784,7 +17071,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](/docs/guides/function-calling).",
+    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](https://platform.openai.com/docs/guides/function-calling).",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -16932,7 +17219,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/FunctionParameters"
     },
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "children": []
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options > (property) ranker > (member) 0": {
@@ -16960,7 +17247,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run](https://developers.openai.com/docs/api-reference/runs/object) moves to a `cancelling` status.
+Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) moves to a `cancelling` status.
 
 ### Schema
 
@@ -16970,8 +17257,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 8": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/7",
-    "ident": "UnionMember8",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/7",
+    "ident": "ThreadRunCancelling",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -16983,7 +17270,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run](/docs/api-reference/runs/object) moves to a `cancelling` status.",
+    "docstring": "Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) moves to a `cancelling` status.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 8 > (property) data",
@@ -16993,7 +17280,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 8 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "A run on a thread",
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -17002,7 +17289,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Run",
       "$ref": "(resource) beta.threads.runs > (model) run > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/7/properties/data",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/7/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -17051,9 +17338,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.cancelling"
         }
       ],
-      "oasRef": "#/components/schemas/RunStreamEvent/oneOf/7/properties/event"
+      "oasRef": "#/components/schemas/RunStreamEvent/anyOf/7/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/7/properties/event",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/7/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -17077,7 +17364,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for execution of this run.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -17198,7 +17485,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) instructions": {
     "kind": "HttpDeclProperty",
-    "docstring": "The instructions that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The instructions that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "instructions",
     "optional": false,
     "nullable": false,
@@ -17290,7 +17577,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) model": {
     "kind": "HttpDeclProperty",
-    "docstring": "The model that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The model that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "model",
     "optional": false,
     "nullable": false,
@@ -17328,7 +17615,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) parallel_tool_calls": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
+    "docstring": "Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
     "key": "parallel_tool_calls",
     "optional": false,
     "nullable": false,
@@ -17369,7 +17656,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) response_format": {
     "kind": "HttpDeclProperty",
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "key": "response_format",
     "optional": false,
     "nullable": true,
@@ -17415,66 +17702,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "optional": false,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "queued"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "in_progress"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "requires_action"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelling"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelled"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "failed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "completed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "incomplete"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "expired"
-        }
-      ],
-      "oasRef": "#/components/schemas/RunObject/properties/status"
+      "kind": "HttpTypeReference",
+      "ident": "RunStatus",
+      "$ref": "(resource) beta.threads.runs > (model) run_status > (schema)"
     },
     "oasRef": "#/components/schemas/RunObject/properties/status",
     "deprecated": false,
     "schemaType": "enum",
+    "modelImplicit": false,
+    "modelPath": "(resource) beta.threads.runs > (model) run_status",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8"
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was executed on as a part of this run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -17510,7 +17762,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) tools": {
     "kind": "HttpDeclProperty",
-    "docstring": "The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The list of tools that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "tools",
     "optional": false,
     "nullable": false,
@@ -17518,25 +17770,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterTool",
-            "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchTool",
-            "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionTool",
-            "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunObject/properties/tools/items"
+        "kind": "HttpTypeReference",
+        "ident": "AssistantTool",
+        "$ref": "(resource) beta.assistants > (model) assistant_tool > (schema)"
       },
       "oasRef": "#/components/schemas/RunObject/properties/tools"
     },
@@ -17545,9 +17781,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy": {
@@ -17725,7 +17961,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.runs > (model) run > (schema) > (property) id",
@@ -17916,7 +18152,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0",
+    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -17926,7 +18162,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "auto"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
     },
     "docstring": "`auto` is the default value\n",
     "childrenParentSchema": "enum",
@@ -17986,7 +18222,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "auto"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -18006,7 +18242,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption"
     },
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "childrenParentSchema": "union",
     "children": [
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0",
@@ -18015,73 +18251,133 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 3"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "queued"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "in_progress"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "requires_action"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelling"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelled"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "completed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "incomplete"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "expired"
     }
   },
+  "(resource) beta.threads.runs > (model) run_status > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStatus",
+    "ident": "RunStatus",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "queued"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "in_progress"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "requires_action"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelling"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelled"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "completed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "expired"
+        }
+      ],
+      "oasRef": "#/components/schemas/RunStatus"
+    },
+    "docstring": "The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
+    ]
+  },
   "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0",
+    "ident": "Auto",
     "type": {
       "kind": "HttpTypeUnion",
       "types": [
@@ -18098,7 +18394,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "required"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
     },
     "docstring": "`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.\n",
     "childrenParentSchema": "enum",
@@ -18144,7 +18440,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "required"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -18161,7 +18457,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -18173,7 +18469,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -18186,7 +18482,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -18199,63 +18495,36 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsCode",
-    "ident": "CodeInterpreterTool",
+    "oasRef": "#/components/schemas/AssistantTool",
+    "ident": "AssistantTool",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
-    "ident": "FileSearchTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterTool",
+          "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
         },
         {
-          "ident": "file_search"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
-    ]
-  },
-  "(resource) beta.assistants > (model) function_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFunction",
-    "ident": "FunctionTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "function"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchTool",
+          "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionTool",
+          "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/AssistantTool"
     },
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type": {
@@ -18578,7 +18847,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "childrenParentSchema": "object",
     "children": [
       "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema",
@@ -18706,6 +18975,23 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsCode",
+    "ident": "CodeInterpreterTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The type of tool being defined: `file_search`",
@@ -18756,6 +19042,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options"
     ]
   },
+  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
+    "ident": "FileSearchTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "file_search"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
+    ]
+  },
   "(resource) beta.assistants > (model) function_tool > (schema) > (property) function": {
     "kind": "HttpDeclProperty",
     "key": "function",
@@ -18803,6 +19110,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) function_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFunction",
+    "ident": "FunctionTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -18819,7 +19147,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) required_action_function_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](/docs/api-reference/runs/submitToolOutputs) endpoint.",
+    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) endpoint.",
     "key": "id",
     "optional": false,
     "nullable": false,
@@ -18976,7 +19304,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -19064,7 +19392,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) max_num_results": {
     "kind": "HttpDeclProperty",
-    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "max_num_results",
     "optional": true,
     "nullable": false,
@@ -19083,7 +19411,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options": {
     "kind": "HttpDeclProperty",
     "title": "File search tool call ranking options",
-    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "ranking_options",
     "optional": true,
     "nullable": false,
@@ -19137,7 +19465,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) parameters": {
     "kind": "HttpDeclProperty",
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "key": "parameters",
     "optional": true,
     "nullable": false,
@@ -19155,7 +19483,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](/docs/guides/function-calling).",
+    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](https://platform.openai.com/docs/guides/function-calling).",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -19303,7 +19631,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/FunctionParameters"
     },
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "children": []
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options > (property) ranker > (member) 0": {
@@ -19331,7 +19659,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run](https://developers.openai.com/docs/api-reference/runs/object) is cancelled.
+Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) is cancelled.
 
 ### Schema
 
@@ -19341,8 +19669,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 9": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/8",
-    "ident": "UnionMember9",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/8",
+    "ident": "ThreadRunCancelled",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -19354,7 +19682,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run](/docs/api-reference/runs/object) is cancelled.",
+    "docstring": "Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) is cancelled.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 9 > (property) data",
@@ -19364,7 +19692,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 9 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "A run on a thread",
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -19373,7 +19701,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Run",
       "$ref": "(resource) beta.threads.runs > (model) run > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/8/properties/data",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/8/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -19422,9 +19750,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.cancelled"
         }
       ],
-      "oasRef": "#/components/schemas/RunStreamEvent/oneOf/8/properties/event"
+      "oasRef": "#/components/schemas/RunStreamEvent/anyOf/8/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/8/properties/event",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/8/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -19448,7 +19776,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for execution of this run.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -19569,7 +19897,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) instructions": {
     "kind": "HttpDeclProperty",
-    "docstring": "The instructions that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The instructions that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "instructions",
     "optional": false,
     "nullable": false,
@@ -19661,7 +19989,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) model": {
     "kind": "HttpDeclProperty",
-    "docstring": "The model that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The model that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "model",
     "optional": false,
     "nullable": false,
@@ -19699,7 +20027,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) parallel_tool_calls": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
+    "docstring": "Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
     "key": "parallel_tool_calls",
     "optional": false,
     "nullable": false,
@@ -19740,7 +20068,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) response_format": {
     "kind": "HttpDeclProperty",
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "key": "response_format",
     "optional": false,
     "nullable": true,
@@ -19786,66 +20114,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "optional": false,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "queued"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "in_progress"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "requires_action"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelling"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelled"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "failed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "completed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "incomplete"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "expired"
-        }
-      ],
-      "oasRef": "#/components/schemas/RunObject/properties/status"
+      "kind": "HttpTypeReference",
+      "ident": "RunStatus",
+      "$ref": "(resource) beta.threads.runs > (model) run_status > (schema)"
     },
     "oasRef": "#/components/schemas/RunObject/properties/status",
     "deprecated": false,
     "schemaType": "enum",
+    "modelImplicit": false,
+    "modelPath": "(resource) beta.threads.runs > (model) run_status",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8"
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was executed on as a part of this run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -19881,7 +20174,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) tools": {
     "kind": "HttpDeclProperty",
-    "docstring": "The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The list of tools that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "tools",
     "optional": false,
     "nullable": false,
@@ -19889,25 +20182,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterTool",
-            "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchTool",
-            "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionTool",
-            "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunObject/properties/tools/items"
+        "kind": "HttpTypeReference",
+        "ident": "AssistantTool",
+        "$ref": "(resource) beta.assistants > (model) assistant_tool > (schema)"
       },
       "oasRef": "#/components/schemas/RunObject/properties/tools"
     },
@@ -19916,9 +20193,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy": {
@@ -20096,7 +20373,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.runs > (model) run > (schema) > (property) id",
@@ -20287,7 +20564,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0",
+    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -20297,7 +20574,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "auto"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
     },
     "docstring": "`auto` is the default value\n",
     "childrenParentSchema": "enum",
@@ -20357,7 +20634,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "auto"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -20377,7 +20654,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption"
     },
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "childrenParentSchema": "union",
     "children": [
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0",
@@ -20386,73 +20663,133 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 3"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "queued"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "in_progress"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "requires_action"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelling"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelled"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "completed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "incomplete"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "expired"
     }
   },
+  "(resource) beta.threads.runs > (model) run_status > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStatus",
+    "ident": "RunStatus",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "queued"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "in_progress"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "requires_action"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelling"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelled"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "completed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "expired"
+        }
+      ],
+      "oasRef": "#/components/schemas/RunStatus"
+    },
+    "docstring": "The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
+    ]
+  },
   "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0",
+    "ident": "Auto",
     "type": {
       "kind": "HttpTypeUnion",
       "types": [
@@ -20469,7 +20806,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "required"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
     },
     "docstring": "`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.\n",
     "childrenParentSchema": "enum",
@@ -20515,7 +20852,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "required"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -20532,7 +20869,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -20544,7 +20881,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -20557,7 +20894,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -20570,63 +20907,36 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsCode",
-    "ident": "CodeInterpreterTool",
+    "oasRef": "#/components/schemas/AssistantTool",
+    "ident": "AssistantTool",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
-    "ident": "FileSearchTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterTool",
+          "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
         },
         {
-          "ident": "file_search"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
-    ]
-  },
-  "(resource) beta.assistants > (model) function_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFunction",
-    "ident": "FunctionTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "function"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchTool",
+          "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionTool",
+          "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/AssistantTool"
     },
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type": {
@@ -20949,7 +21259,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "childrenParentSchema": "object",
     "children": [
       "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema",
@@ -21077,6 +21387,23 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsCode",
+    "ident": "CodeInterpreterTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The type of tool being defined: `file_search`",
@@ -21127,6 +21454,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options"
     ]
   },
+  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
+    "ident": "FileSearchTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "file_search"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
+    ]
+  },
   "(resource) beta.assistants > (model) function_tool > (schema) > (property) function": {
     "kind": "HttpDeclProperty",
     "key": "function",
@@ -21174,6 +21522,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) function_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFunction",
+    "ident": "FunctionTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -21190,7 +21559,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) required_action_function_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](/docs/api-reference/runs/submitToolOutputs) endpoint.",
+    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) endpoint.",
     "key": "id",
     "optional": false,
     "nullable": false,
@@ -21347,7 +21716,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -21435,7 +21804,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) max_num_results": {
     "kind": "HttpDeclProperty",
-    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "max_num_results",
     "optional": true,
     "nullable": false,
@@ -21454,7 +21823,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options": {
     "kind": "HttpDeclProperty",
     "title": "File search tool call ranking options",
-    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "ranking_options",
     "optional": true,
     "nullable": false,
@@ -21508,7 +21877,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) parameters": {
     "kind": "HttpDeclProperty",
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "key": "parameters",
     "optional": true,
     "nullable": false,
@@ -21526,7 +21895,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](/docs/guides/function-calling).",
+    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](https://platform.openai.com/docs/guides/function-calling).",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -21674,7 +22043,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/FunctionParameters"
     },
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "children": []
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options > (property) ranker > (member) 0": {
@@ -21702,7 +22071,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run](https://developers.openai.com/docs/api-reference/runs/object) expires.
+Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) expires.
 
 ### Schema
 
@@ -21712,8 +22081,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 10": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/9",
-    "ident": "UnionMember10",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/9",
+    "ident": "ThreadRunExpired",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -21725,7 +22094,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run](/docs/api-reference/runs/object) expires.",
+    "docstring": "Occurs when a [run](https://platform.openai.com/docs/api-reference/runs/object) expires.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 10 > (property) data",
@@ -21735,7 +22104,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 10 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "A run on a thread",
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -21744,7 +22113,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Run",
       "$ref": "(resource) beta.threads.runs > (model) run > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/9/properties/data",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/9/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -21793,9 +22162,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.expired"
         }
       ],
-      "oasRef": "#/components/schemas/RunStreamEvent/oneOf/9/properties/event"
+      "oasRef": "#/components/schemas/RunStreamEvent/anyOf/9/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStreamEvent/oneOf/9/properties/event",
+    "oasRef": "#/components/schemas/RunStreamEvent/anyOf/9/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -21819,7 +22188,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) used for execution of this run.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for execution of this run.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -21940,7 +22309,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) instructions": {
     "kind": "HttpDeclProperty",
-    "docstring": "The instructions that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The instructions that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "instructions",
     "optional": false,
     "nullable": false,
@@ -22032,7 +22401,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) model": {
     "kind": "HttpDeclProperty",
-    "docstring": "The model that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The model that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "model",
     "optional": false,
     "nullable": false,
@@ -22070,7 +22439,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) parallel_tool_calls": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable [parallel function calling](/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
+    "docstring": "Whether to enable [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling) during tool use.",
     "key": "parallel_tool_calls",
     "optional": false,
     "nullable": false,
@@ -22111,7 +22480,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) response_format": {
     "kind": "HttpDeclProperty",
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "key": "response_format",
     "optional": false,
     "nullable": true,
@@ -22157,66 +22526,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "optional": false,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "queued"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "in_progress"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "requires_action"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelling"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "cancelled"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "failed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "completed"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "incomplete"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "expired"
-        }
-      ],
-      "oasRef": "#/components/schemas/RunObject/properties/status"
+      "kind": "HttpTypeReference",
+      "ident": "RunStatus",
+      "$ref": "(resource) beta.threads.runs > (model) run_status > (schema)"
     },
     "oasRef": "#/components/schemas/RunObject/properties/status",
     "deprecated": false,
     "schemaType": "enum",
+    "modelImplicit": false,
+    "modelPath": "(resource) beta.threads.runs > (model) run_status",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8"
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was executed on as a part of this run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -22252,7 +22586,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) tools": {
     "kind": "HttpDeclProperty",
-    "docstring": "The list of tools that the [assistant](/docs/api-reference/assistants) used for this run.",
+    "docstring": "The list of tools that the [assistant](https://platform.openai.com/docs/api-reference/assistants) used for this run.",
     "key": "tools",
     "optional": false,
     "nullable": false,
@@ -22260,25 +22594,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterTool",
-            "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchTool",
-            "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionTool",
-            "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunObject/properties/tools/items"
+        "kind": "HttpTypeReference",
+        "ident": "AssistantTool",
+        "$ref": "(resource) beta.assistants > (model) assistant_tool > (schema)"
       },
       "oasRef": "#/components/schemas/RunObject/properties/tools"
     },
@@ -22287,9 +22605,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1",
-      "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy": {
@@ -22467,7 +22785,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents an execution run on a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents an execution run on a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.runs > (model) run > (schema) > (property) id",
@@ -22658,7 +22976,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0",
+    "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -22668,7 +22986,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "auto"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
     },
     "docstring": "`auto` is the default value\n",
     "childrenParentSchema": "enum",
@@ -22728,7 +23046,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "auto"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -22748,7 +23066,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/AssistantsApiResponseFormatOption"
     },
-    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](/docs/models#gpt-4o), [GPT-4 Turbo](/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
+    "docstring": "Specifies the format that the model must output. Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o), [GPT-4 Turbo](https://platform.openai.com/docs/models#gpt-4-turbo-and-gpt-4), and all GPT-3.5 Turbo models since `gpt-3.5-turbo-1106`.\n\nSetting to `{ \"type\": \"json_schema\", \"json_schema\": {...} }` enables Structured Outputs which ensures the model will match your supplied JSON schema. Learn more in the [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).\n\nSetting to `{ \"type\": \"json_object\" }` enables JSON mode, which ensures the message the model generates is valid JSON.\n\n**Important:** when using JSON mode, you **must** also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly \"stuck\" request. Also note that the message content may be partially cut off if `finish_reason=\"length\"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.\n",
     "childrenParentSchema": "union",
     "children": [
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 0",
@@ -22757,73 +23075,133 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_response_format_option > (schema) > (variant) 3"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 0": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "queued"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 1": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "in_progress"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 2": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "requires_action"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 3": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelling"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 4": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "cancelled"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 5": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 6": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "completed"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 7": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "incomplete"
     }
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) status > (member) 8": {
+  "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "expired"
     }
   },
+  "(resource) beta.threads.runs > (model) run_status > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStatus",
+    "ident": "RunStatus",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "queued"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "in_progress"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "requires_action"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelling"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "cancelled"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "completed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "expired"
+        }
+      ],
+      "oasRef": "#/components/schemas/RunStatus"
+    },
+    "docstring": "The status of the run, which can be either `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, `incomplete`, or `expired`.",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 0",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 1",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 2",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 3",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 4",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 5",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 6",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 7",
+      "(resource) beta.threads.runs > (model) run_status > (schema) > (member) 8"
+    ]
+  },
   "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0",
+    "ident": "Auto",
     "type": {
       "kind": "HttpTypeUnion",
       "types": [
@@ -22840,7 +23218,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "required"
         }
       ],
-      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+      "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
     },
     "docstring": "`none` means the model will not call any tools and instead generates a message. `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more tools before responding to the user.\n",
     "childrenParentSchema": "enum",
@@ -22886,7 +23264,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
               "literal": "required"
             }
           ],
-          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/oneOf/0"
+          "oasRef": "#/components/schemas/AssistantsApiToolChoiceOption/anyOf/0"
         },
         {
           "kind": "HttpTypeReference",
@@ -22903,7 +23281,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads > (model) assistant_tool_choice_option > (schema) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 0": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -22915,7 +23293,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 1": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -22928,7 +23306,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
     ]
   },
-  "(resource) beta.threads.runs > (model) run > (schema) > (property) tools > (items) > (variant) 2": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -22941,63 +23319,36 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
     ]
   },
-  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+  "(resource) beta.assistants > (model) assistant_tool > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsCode",
-    "ident": "CodeInterpreterTool",
+    "oasRef": "#/components/schemas/AssistantTool",
+    "ident": "AssistantTool",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
-    "ident": "FileSearchTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterTool",
+          "$ref": "(resource) beta.assistants > (model) code_interpreter_tool > (schema)"
         },
         {
-          "ident": "file_search"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
-      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
-    ]
-  },
-  "(resource) beta.assistants > (model) function_tool > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantToolsFunction",
-    "ident": "FunctionTool",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "function"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchTool",
+          "$ref": "(resource) beta.assistants > (model) file_search_tool > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionTool",
+          "$ref": "(resource) beta.assistants > (model) function_tool > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/AssistantTool"
     },
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
-      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 0",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 1",
+      "(resource) beta.assistants > (model) assistant_tool > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type": {
@@ -23320,7 +23671,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "childrenParentSchema": "object",
     "children": [
       "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema",
@@ -23448,6 +23799,23 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) code_interpreter_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsCode",
+    "ident": "CodeInterpreterTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) code_interpreter_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The type of tool being defined: `file_search`",
@@ -23498,6 +23866,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options"
     ]
   },
+  "(resource) beta.assistants > (model) file_search_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFileSearch",
+    "ident": "FileSearchTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "file_search"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) type",
+      "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search"
+    ]
+  },
   "(resource) beta.assistants > (model) function_tool > (schema) > (property) function": {
     "kind": "HttpDeclProperty",
     "key": "function",
@@ -23545,6 +23934,27 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.assistants > (model) function_tool > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.assistants > (model) function_tool > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/AssistantToolsFunction",
+    "ident": "FunctionTool",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) function",
+      "(resource) beta.assistants > (model) function_tool > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs > (model) run > (schema) > (property) truncation_strategy > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -23561,7 +23971,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs > (model) required_action_function_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](/docs/api-reference/runs/submitToolOutputs) endpoint.",
+    "docstring": "The ID of the tool call. This ID must be referenced when you submit the tool outputs in using the [Submit tool outputs to run](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) endpoint.",
     "key": "id",
     "optional": false,
     "nullable": false,
@@ -23718,7 +24128,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) response_format_json_schema > (schema) > (property) json_schema > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](https://platform.openai.com/docs/guides/structured-outputs).\n",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -23806,7 +24216,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) max_num_results": {
     "kind": "HttpDeclProperty",
-    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The maximum number of results the file search tool should output. The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number should be between 1 and 50 inclusive.\n\nNote that the file search tool may output fewer than `max_num_results` results. See the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "max_num_results",
     "optional": true,
     "nullable": false,
@@ -23825,7 +24235,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options": {
     "kind": "HttpDeclProperty",
     "title": "File search tool call ranking options",
-    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
+    "docstring": "The ranking options for the file search. If not specified, the file search tool will use the `auto` ranker and a score_threshold of 0.\n\nSee the [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings) for more information.\n",
     "key": "ranking_options",
     "optional": true,
     "nullable": false,
@@ -23879,7 +24289,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) parameters": {
     "kind": "HttpDeclProperty",
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "key": "parameters",
     "optional": true,
     "nullable": false,
@@ -23897,7 +24307,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) $shared > (model) function_definition > (schema) > (property) strict": {
     "kind": "HttpDeclProperty",
-    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](/docs/guides/function-calling).",
+    "docstring": "Whether to enable strict schema adherence when generating the function call. If set to true, the model will follow the exact schema defined in the `parameters` field. Only a subset of JSON Schema is supported when `strict` is `true`. Learn more about Structured Outputs in the [function calling guide](https://platform.openai.com/docs/guides/function-calling).",
     "key": "strict",
     "optional": true,
     "nullable": true,
@@ -24045,7 +24455,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       ],
       "oasRef": "#/components/schemas/FunctionParameters"
     },
-    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
+    "docstring": "The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format. \n\nOmitting `parameters` defines a function with an empty parameter list.",
     "children": []
   },
   "(resource) beta.assistants > (model) file_search_tool > (schema) > (property) file_search > (property) ranking_options > (property) ranker > (member) 0": {
@@ -24073,7 +24483,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run step](https://developers.openai.com/docs/api-reference/run-steps/step-object) is created.
+Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) is created.
 
 ### Schema
 
@@ -24083,8 +24493,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/0",
-    "ident": "UnionMember11",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/0",
+    "ident": "ThreadRunStepCreated",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -24096,7 +24506,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run step](/docs/api-reference/run-steps/step-object) is created.",
+    "docstring": "Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) is created.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 11 > (property) data",
@@ -24115,7 +24525,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "RunStep",
       "$ref": "(resource) beta.threads.runs.steps > (model) run_step > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/0/properties/data",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/0/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -24153,9 +24563,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.step.created"
         }
       ],
-      "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/0/properties/event"
+      "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/0/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/0/properties/event",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/0/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -24179,7 +24589,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) associated with the run step.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) associated with the run step.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -24346,7 +24756,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) run_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [run](/docs/api-reference/runs) that this run step is a part of.",
+    "docstring": "The ID of the [run](https://platform.openai.com/docs/api-reference/runs) that this run step is a part of.",
     "key": "run_id",
     "optional": false,
     "nullable": false,
@@ -24435,7 +24845,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -24890,25 +25300,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls/items"
+        "kind": "HttpTypeReference",
+        "ident": "ToolCall",
+        "$ref": "(resource) beta.threads.runs.steps > (model) tool_call > (schema)"
       },
       "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls"
     },
@@ -24917,9 +25311,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type": {
@@ -24967,7 +25361,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "message_creation"
     }
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -24981,7 +25375,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -24995,7 +25389,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -25009,80 +25403,37 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
-    "ident": "CodeInterpreterToolCall",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCall",
+    "ident": "ToolCall",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "id"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
         },
         {
-          "ident": "code_interpreter"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/RunStepDetailsToolCall"
     },
     "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
-    "ident": "FileSearchToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "file_search"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
-    "ident": "FunctionToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "function"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type > (member) 0": {
@@ -25156,6 +25507,32 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
+    "ident": "CodeInterpreterToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "code_interpreter"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the tool call object.",
@@ -25218,6 +25595,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
+    "ident": "FileSearchToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "file_search"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id": {
@@ -25286,6 +25688,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
+    "ident": "FunctionToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) input": {
@@ -25458,7 +25885,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function > (property) output": {
     "kind": "HttpDeclProperty",
-    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](/docs/api-reference/runs/submitToolOutputs) yet.",
+    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) yet.",
     "key": "output",
     "optional": false,
     "nullable": true,
@@ -25479,8 +25906,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/0",
-    "ident": "CodeInterpreterLogOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/0",
+    "ident": "Logs",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -25501,8 +25928,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/1",
-    "ident": "CodeInterpreterImageOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/1",
+    "ident": "Image",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -25787,7 +26214,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1 > (property) image > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [file](/docs/api-reference/files) ID of the image.",
+    "docstring": "The [file](https://platform.openai.com/docs/api-reference/files) ID of the image.",
     "key": "file_id",
     "optional": false,
     "nullable": false,
@@ -25824,7 +26251,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run step](https://developers.openai.com/docs/api-reference/run-steps/step-object) moves to an `in_progress` state.
+Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) moves to an `in_progress` state.
 
 ### Schema
 
@@ -25834,8 +26261,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 12": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/1",
-    "ident": "UnionMember12",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/1",
+    "ident": "ThreadRunStepInProgress",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -25847,7 +26274,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run step](/docs/api-reference/run-steps/step-object) moves to an `in_progress` state.",
+    "docstring": "Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) moves to an `in_progress` state.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 12 > (property) data",
@@ -25866,7 +26293,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "RunStep",
       "$ref": "(resource) beta.threads.runs.steps > (model) run_step > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/1/properties/data",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/1/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -25904,9 +26331,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.step.in_progress"
         }
       ],
-      "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/1/properties/event"
+      "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/1/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/1/properties/event",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/1/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -25930,7 +26357,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) associated with the run step.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) associated with the run step.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -26097,7 +26524,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) run_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [run](/docs/api-reference/runs) that this run step is a part of.",
+    "docstring": "The ID of the [run](https://platform.openai.com/docs/api-reference/runs) that this run step is a part of.",
     "key": "run_id",
     "optional": false,
     "nullable": false,
@@ -26186,7 +26613,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -26641,25 +27068,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls/items"
+        "kind": "HttpTypeReference",
+        "ident": "ToolCall",
+        "$ref": "(resource) beta.threads.runs.steps > (model) tool_call > (schema)"
       },
       "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls"
     },
@@ -26668,9 +27079,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type": {
@@ -26718,7 +27129,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "message_creation"
     }
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -26732,7 +27143,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -26746,7 +27157,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -26760,80 +27171,37 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
-    "ident": "CodeInterpreterToolCall",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCall",
+    "ident": "ToolCall",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "id"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
         },
         {
-          "ident": "code_interpreter"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/RunStepDetailsToolCall"
     },
     "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
-    "ident": "FileSearchToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "file_search"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
-    "ident": "FunctionToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "function"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type > (member) 0": {
@@ -26907,6 +27275,32 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
+    "ident": "CodeInterpreterToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "code_interpreter"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the tool call object.",
@@ -26969,6 +27363,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
+    "ident": "FileSearchToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "file_search"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id": {
@@ -27037,6 +27456,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
+    "ident": "FunctionToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) input": {
@@ -27209,7 +27653,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function > (property) output": {
     "kind": "HttpDeclProperty",
-    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](/docs/api-reference/runs/submitToolOutputs) yet.",
+    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) yet.",
     "key": "output",
     "optional": false,
     "nullable": true,
@@ -27230,8 +27674,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/0",
-    "ident": "CodeInterpreterLogOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/0",
+    "ident": "Logs",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -27252,8 +27696,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/1",
-    "ident": "CodeInterpreterImageOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/1",
+    "ident": "Image",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -27538,7 +27982,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1 > (property) image > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [file](/docs/api-reference/files) ID of the image.",
+    "docstring": "The [file](https://platform.openai.com/docs/api-reference/files) ID of the image.",
     "key": "file_id",
     "optional": false,
     "nullable": false,
@@ -27575,7 +28019,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when parts of a [run step](https://developers.openai.com/docs/api-reference/run-steps/step-object) are being streamed.
+Occurs when parts of a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) are being streamed.
 
 ### Schema
 
@@ -27585,8 +28029,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/2",
-    "ident": "UnionMember13",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/2",
+    "ident": "ThreadRunStepDelta",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -27598,7 +28042,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when parts of a [run step](/docs/api-reference/run-steps/step-object) are being streamed.",
+    "docstring": "Occurs when parts of a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) are being streamed.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 13 > (property) data",
@@ -27617,7 +28061,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "RunStepDeltaEvent",
       "$ref": "(resource) beta.threads.runs.steps > (model) run_step_delta_event > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/2/properties/data",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/2/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -27642,9 +28086,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.step.delta"
         }
       ],
-      "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/2/properties/event"
+      "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/2/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/2/properties/event",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/2/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -27673,19 +28117,18 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "optional": false,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "step_details"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "RunStepDelta",
+      "$ref": "(resource) beta.threads.runs.steps > (model) run_step_delta > (schema)"
     },
     "oasRef": "#/components/schemas/RunStepDeltaObject/properties/delta",
     "deprecated": false,
     "schemaType": "object",
+    "modelImplicit": false,
+    "modelPath": "(resource) beta.threads.runs.steps > (model) run_step_delta",
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) run_step_delta_event > (schema) > (property) delta > (property) step_details"
+      "(resource) beta.threads.runs.steps > (model) run_step_delta > (schema) > (property) step_details"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) run_step_delta_event > (schema) > (property) object": {
@@ -27745,7 +28188,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "thread.run.step.delta"
     }
   },
-  "(resource) beta.threads.runs.steps > (model) run_step_delta_event > (schema) > (property) delta > (property) step_details": {
+  "(resource) beta.threads.runs.steps > (model) run_step_delta > (schema) > (property) step_details": {
     "kind": "HttpDeclProperty",
     "docstring": "The details of the run step.",
     "key": "step_details",
@@ -27765,15 +28208,33 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "$ref": "(resource) beta.threads.runs.steps > (model) tool_call_delta_object > (schema)"
         }
       ],
-      "oasRef": "#/components/schemas/RunStepDeltaObject/properties/delta/properties/step_details"
+      "oasRef": "#/components/schemas/RunStepDeltaObjectDelta/properties/step_details"
     },
-    "oasRef": "#/components/schemas/RunStepDeltaObject/properties/delta/properties/step_details",
+    "oasRef": "#/components/schemas/RunStepDeltaObjectDelta/properties/step_details",
     "deprecated": false,
     "schemaType": "union",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) run_step_delta_event > (schema) > (property) delta > (property) step_details > (variant) 0",
-      "(resource) beta.threads.runs.steps > (model) run_step_delta_event > (schema) > (property) delta > (property) step_details > (variant) 1"
+      "(resource) beta.threads.runs.steps > (model) run_step_delta > (schema) > (property) step_details > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) run_step_delta > (schema) > (property) step_details > (variant) 1"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) run_step_delta > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDeltaObjectDelta",
+    "ident": "RunStepDelta",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "step_details"
+        }
+      ]
+    },
+    "docstring": "The delta containing the fields that have changed on the run step.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) run_step_delta > (schema) > (property) step_details"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) run_step_delta_event > (schema) > (property) object > (member) 0": {
@@ -27783,7 +28244,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "thread.run.step.delta"
     }
   },
-  "(resource) beta.threads.runs.steps > (model) run_step_delta_event > (schema) > (property) delta > (property) step_details > (variant) 0": {
+  "(resource) beta.threads.runs.steps > (model) run_step_delta > (schema) > (property) step_details > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -27796,7 +28257,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) run_step_delta_message_delta > (schema) > (property) message_creation"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) run_step_delta_event > (schema) > (property) delta > (property) step_details > (variant) 1": {
+  "(resource) beta.threads.runs.steps > (model) run_step_delta > (schema) > (property) step_details > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -27931,25 +28392,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterToolCallDelta",
-            "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchToolCallDelta",
-            "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionToolCallDelta",
-            "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunStepDeltaStepDetailsToolCallsObject/properties/tool_calls/items"
+        "kind": "HttpTypeReference",
+        "ident": "ToolCallDelta",
+        "$ref": "(resource) beta.threads.runs.steps > (model) tool_call_delta > (schema)"
       },
       "oasRef": "#/components/schemas/RunStepDeltaStepDetailsToolCallsObject/properties/tool_calls"
     },
@@ -27958,9 +28403,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) tool_call_delta_object > (schema) > (property) tool_calls > (items) > (variant) 0",
-      "(resource) beta.threads.runs.steps > (model) tool_call_delta_object > (schema) > (property) tool_calls > (items) > (variant) 1",
-      "(resource) beta.threads.runs.steps > (model) tool_call_delta_object > (schema) > (property) tool_calls > (items) > (variant) 2"
+      "(resource) beta.threads.runs.steps > (model) tool_call_delta > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call_delta > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call_delta > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) run_step_delta_message_delta > (schema) > (property) type > (member) 0": {
@@ -27991,7 +28436,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "tool_calls"
     }
   },
-  "(resource) beta.threads.runs.steps > (model) tool_call_delta_object > (schema) > (property) tool_calls > (items) > (variant) 0": {
+  "(resource) beta.threads.runs.steps > (model) tool_call_delta > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -28006,7 +28451,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) code_interpreter"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_call_delta_object > (schema) > (property) tool_calls > (items) > (variant) 1": {
+  "(resource) beta.threads.runs.steps > (model) tool_call_delta > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -28021,7 +28466,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema) > (property) id"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_call_delta_object > (schema) > (property) tool_calls > (items) > (variant) 2": {
+  "(resource) beta.threads.runs.steps > (model) tool_call_delta > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -28036,92 +28481,37 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) function"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema)": {
+  "(resource) beta.threads.runs.steps > (model) tool_call_delta > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDeltaStepDetailsToolCallsCodeObject",
-    "ident": "CodeInterpreterToolCallDelta",
+    "oasRef": "#/components/schemas/RunStepDeltaStepDetailsToolCall",
+    "ident": "ToolCallDelta",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "index"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterToolCallDelta",
+          "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchToolCallDelta",
+          "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema)"
         },
         {
-          "ident": "id"
-        },
-        {
-          "ident": "code_interpreter"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionToolCallDelta",
+          "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/RunStepDeltaStepDetailsToolCall"
     },
     "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) index",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) type",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) code_interpreter"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDeltaStepDetailsToolCallsFileSearchObject",
-    "ident": "FileSearchToolCallDelta",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "file_search"
-        },
-        {
-          "ident": "index"
-        },
-        {
-          "ident": "type"
-        },
-        {
-          "ident": "id"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema) > (property) file_search",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema) > (property) index",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema) > (property) type",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema) > (property) id"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDeltaStepDetailsToolCallsFunctionObject",
-    "ident": "FunctionToolCallDelta",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "index"
-        },
-        {
-          "ident": "type"
-        },
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "function"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) index",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) type",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) function"
+      "(resource) beta.threads.runs.steps > (model) tool_call_delta > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call_delta > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call_delta > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) index": {
@@ -28202,6 +28592,36 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) code_interpreter > (property) outputs"
     ]
   },
+  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDeltaStepDetailsToolCallsCodeObject",
+    "ident": "CodeInterpreterToolCallDelta",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "code_interpreter"
+        }
+      ]
+    },
+    "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) index",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) type",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) code_interpreter"
+    ]
+  },
   "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema) > (property) file_search": {
     "kind": "HttpDeclProperty",
     "docstring": "For now, this is always going to be an empty object.",
@@ -28267,6 +28687,35 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "deprecated": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDeltaStepDetailsToolCallsFileSearchObject",
+    "ident": "FileSearchToolCallDelta",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "file_search"
+        },
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "id"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema) > (property) file_search",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema) > (property) index",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema) > (property) type",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call_delta > (schema) > (property) id"
+    ]
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) index": {
     "kind": "HttpDeclProperty",
@@ -28348,6 +28797,35 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) function > (property) arguments",
       "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) function > (property) name",
       "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) function > (property) output"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDeltaStepDetailsToolCallsFunctionObject",
+    "ident": "FunctionToolCallDelta",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "function"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) index",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) type",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) function"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call_delta > (schema) > (property) type > (member) 0": {
@@ -28450,7 +28928,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call_delta > (schema) > (property) function > (property) output": {
     "kind": "HttpDeclProperty",
-    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](/docs/api-reference/runs/submitToolOutputs) yet.",
+    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) yet.",
     "key": "output",
     "optional": true,
     "nullable": true,
@@ -28668,7 +29146,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_output_image > (schema) > (property) image > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [file](/docs/api-reference/files) ID of the image.",
+    "docstring": "The [file](https://platform.openai.com/docs/api-reference/files) ID of the image.",
     "key": "file_id",
     "optional": true,
     "nullable": false,
@@ -28691,7 +29169,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run step](https://developers.openai.com/docs/api-reference/run-steps/step-object) is completed.
+Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) is completed.
 
 ### Schema
 
@@ -28701,8 +29179,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/3",
-    "ident": "UnionMember14",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/3",
+    "ident": "ThreadRunStepCompleted",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -28714,7 +29192,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run step](/docs/api-reference/run-steps/step-object) is completed.",
+    "docstring": "Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) is completed.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 14 > (property) data",
@@ -28733,7 +29211,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "RunStep",
       "$ref": "(resource) beta.threads.runs.steps > (model) run_step > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/3/properties/data",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/3/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -28771,9 +29249,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.step.completed"
         }
       ],
-      "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/3/properties/event"
+      "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/3/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/3/properties/event",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/3/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -28797,7 +29275,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) associated with the run step.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) associated with the run step.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -28964,7 +29442,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) run_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [run](/docs/api-reference/runs) that this run step is a part of.",
+    "docstring": "The ID of the [run](https://platform.openai.com/docs/api-reference/runs) that this run step is a part of.",
     "key": "run_id",
     "optional": false,
     "nullable": false,
@@ -29053,7 +29531,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -29508,25 +29986,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls/items"
+        "kind": "HttpTypeReference",
+        "ident": "ToolCall",
+        "$ref": "(resource) beta.threads.runs.steps > (model) tool_call > (schema)"
       },
       "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls"
     },
@@ -29535,9 +29997,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type": {
@@ -29585,7 +30047,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "message_creation"
     }
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -29599,7 +30061,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -29613,7 +30075,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -29627,80 +30089,37 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
-    "ident": "CodeInterpreterToolCall",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCall",
+    "ident": "ToolCall",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "id"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
         },
         {
-          "ident": "code_interpreter"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/RunStepDetailsToolCall"
     },
     "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
-    "ident": "FileSearchToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "file_search"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
-    "ident": "FunctionToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "function"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type > (member) 0": {
@@ -29774,6 +30193,32 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
+    "ident": "CodeInterpreterToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "code_interpreter"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the tool call object.",
@@ -29836,6 +30281,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
+    "ident": "FileSearchToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "file_search"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id": {
@@ -29904,6 +30374,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
+    "ident": "FunctionToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) input": {
@@ -30076,7 +30571,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function > (property) output": {
     "kind": "HttpDeclProperty",
-    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](/docs/api-reference/runs/submitToolOutputs) yet.",
+    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) yet.",
     "key": "output",
     "optional": false,
     "nullable": true,
@@ -30097,8 +30592,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/0",
-    "ident": "CodeInterpreterLogOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/0",
+    "ident": "Logs",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -30119,8 +30614,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/1",
-    "ident": "CodeInterpreterImageOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/1",
+    "ident": "Image",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -30405,7 +30900,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1 > (property) image > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [file](/docs/api-reference/files) ID of the image.",
+    "docstring": "The [file](https://platform.openai.com/docs/api-reference/files) ID of the image.",
     "key": "file_id",
     "optional": false,
     "nullable": false,
@@ -30442,7 +30937,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run step](https://developers.openai.com/docs/api-reference/run-steps/step-object) fails.
+Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) fails.
 
 ### Schema
 
@@ -30452,8 +30947,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 15": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/4",
-    "ident": "UnionMember15",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/4",
+    "ident": "ThreadRunStepFailed",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -30465,7 +30960,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run step](/docs/api-reference/run-steps/step-object) fails.",
+    "docstring": "Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) fails.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 15 > (property) data",
@@ -30484,7 +30979,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "RunStep",
       "$ref": "(resource) beta.threads.runs.steps > (model) run_step > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/4/properties/data",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/4/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -30522,9 +31017,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.step.failed"
         }
       ],
-      "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/4/properties/event"
+      "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/4/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/4/properties/event",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/4/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -30548,7 +31043,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) associated with the run step.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) associated with the run step.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -30715,7 +31210,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) run_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [run](/docs/api-reference/runs) that this run step is a part of.",
+    "docstring": "The ID of the [run](https://platform.openai.com/docs/api-reference/runs) that this run step is a part of.",
     "key": "run_id",
     "optional": false,
     "nullable": false,
@@ -30804,7 +31299,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -31259,25 +31754,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls/items"
+        "kind": "HttpTypeReference",
+        "ident": "ToolCall",
+        "$ref": "(resource) beta.threads.runs.steps > (model) tool_call > (schema)"
       },
       "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls"
     },
@@ -31286,9 +31765,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type": {
@@ -31336,7 +31815,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "message_creation"
     }
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -31350,7 +31829,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -31364,7 +31843,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -31378,80 +31857,37 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
-    "ident": "CodeInterpreterToolCall",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCall",
+    "ident": "ToolCall",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "id"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
         },
         {
-          "ident": "code_interpreter"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/RunStepDetailsToolCall"
     },
     "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
-    "ident": "FileSearchToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "file_search"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
-    "ident": "FunctionToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "function"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type > (member) 0": {
@@ -31525,6 +31961,32 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
+    "ident": "CodeInterpreterToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "code_interpreter"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the tool call object.",
@@ -31587,6 +32049,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
+    "ident": "FileSearchToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "file_search"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id": {
@@ -31655,6 +32142,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
+    "ident": "FunctionToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) input": {
@@ -31827,7 +32339,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function > (property) output": {
     "kind": "HttpDeclProperty",
-    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](/docs/api-reference/runs/submitToolOutputs) yet.",
+    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) yet.",
     "key": "output",
     "optional": false,
     "nullable": true,
@@ -31848,8 +32360,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/0",
-    "ident": "CodeInterpreterLogOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/0",
+    "ident": "Logs",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -31870,8 +32382,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/1",
-    "ident": "CodeInterpreterImageOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/1",
+    "ident": "Image",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -32156,7 +32668,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1 > (property) image > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [file](/docs/api-reference/files) ID of the image.",
+    "docstring": "The [file](https://platform.openai.com/docs/api-reference/files) ID of the image.",
     "key": "file_id",
     "optional": false,
     "nullable": false,
@@ -32193,7 +32705,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run step](https://developers.openai.com/docs/api-reference/run-steps/step-object) is cancelled.
+Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) is cancelled.
 
 ### Schema
 
@@ -32203,8 +32715,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/5",
-    "ident": "UnionMember16",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/5",
+    "ident": "ThreadRunStepCancelled",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -32216,7 +32728,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run step](/docs/api-reference/run-steps/step-object) is cancelled.",
+    "docstring": "Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) is cancelled.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 16 > (property) data",
@@ -32235,7 +32747,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "RunStep",
       "$ref": "(resource) beta.threads.runs.steps > (model) run_step > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/5/properties/data",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/5/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -32273,9 +32785,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.step.cancelled"
         }
       ],
-      "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/5/properties/event"
+      "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/5/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/5/properties/event",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/5/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -32299,7 +32811,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) associated with the run step.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) associated with the run step.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -32466,7 +32978,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) run_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [run](/docs/api-reference/runs) that this run step is a part of.",
+    "docstring": "The ID of the [run](https://platform.openai.com/docs/api-reference/runs) that this run step is a part of.",
     "key": "run_id",
     "optional": false,
     "nullable": false,
@@ -32555,7 +33067,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -33010,25 +33522,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls/items"
+        "kind": "HttpTypeReference",
+        "ident": "ToolCall",
+        "$ref": "(resource) beta.threads.runs.steps > (model) tool_call > (schema)"
       },
       "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls"
     },
@@ -33037,9 +33533,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type": {
@@ -33087,7 +33583,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "message_creation"
     }
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -33101,7 +33597,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -33115,7 +33611,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -33129,80 +33625,37 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
-    "ident": "CodeInterpreterToolCall",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCall",
+    "ident": "ToolCall",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "id"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
         },
         {
-          "ident": "code_interpreter"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/RunStepDetailsToolCall"
     },
     "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
-    "ident": "FileSearchToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "file_search"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
-    "ident": "FunctionToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "function"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type > (member) 0": {
@@ -33276,6 +33729,32 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
+    "ident": "CodeInterpreterToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "code_interpreter"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the tool call object.",
@@ -33338,6 +33817,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
+    "ident": "FileSearchToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "file_search"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id": {
@@ -33406,6 +33910,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
+    "ident": "FunctionToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) input": {
@@ -33578,7 +34107,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function > (property) output": {
     "kind": "HttpDeclProperty",
-    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](/docs/api-reference/runs/submitToolOutputs) yet.",
+    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) yet.",
     "key": "output",
     "optional": false,
     "nullable": true,
@@ -33599,8 +34128,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/0",
-    "ident": "CodeInterpreterLogOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/0",
+    "ident": "Logs",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -33621,8 +34150,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/1",
-    "ident": "CodeInterpreterImageOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/1",
+    "ident": "Image",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -33907,7 +34436,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1 > (property) image > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [file](/docs/api-reference/files) ID of the image.",
+    "docstring": "The [file](https://platform.openai.com/docs/api-reference/files) ID of the image.",
     "key": "file_id",
     "optional": false,
     "nullable": false,
@@ -33944,7 +34473,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [run step](https://developers.openai.com/docs/api-reference/run-steps/step-object) expires.
+Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) expires.
 
 ### Schema
 
@@ -33954,8 +34483,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 17": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/6",
-    "ident": "UnionMember17",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/6",
+    "ident": "ThreadRunStepExpired",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -33967,7 +34496,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [run step](/docs/api-reference/run-steps/step-object) expires.",
+    "docstring": "Occurs when a [run step](https://platform.openai.com/docs/api-reference/run-steps/step-object) expires.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 17 > (property) data",
@@ -33986,7 +34515,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "RunStep",
       "$ref": "(resource) beta.threads.runs.steps > (model) run_step > (schema)"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/6/properties/data",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/6/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -34024,9 +34553,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.run.step.expired"
         }
       ],
-      "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/6/properties/event"
+      "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/6/properties/event"
     },
-    "oasRef": "#/components/schemas/RunStepStreamEvent/oneOf/6/properties/event",
+    "oasRef": "#/components/schemas/RunStepStreamEvent/anyOf/6/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -34050,7 +34579,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [assistant](/docs/api-reference/assistants) associated with the run step.",
+    "docstring": "The ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) associated with the run step.",
     "key": "assistant_id",
     "optional": false,
     "nullable": false,
@@ -34217,7 +34746,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) run_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [run](/docs/api-reference/runs) that this run step is a part of.",
+    "docstring": "The ID of the [run](https://platform.openai.com/docs/api-reference/runs) that this run step is a part of.",
     "key": "run_id",
     "optional": false,
     "nullable": false,
@@ -34306,7 +34835,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) run_step > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [thread](/docs/api-reference/threads) that was run.",
+    "docstring": "The ID of the [thread](https://platform.openai.com/docs/api-reference/threads) that was run.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -34761,25 +35290,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "CodeInterpreterToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileSearchToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FunctionToolCall",
-            "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls/items"
+        "kind": "HttpTypeReference",
+        "ident": "ToolCall",
+        "$ref": "(resource) beta.threads.runs.steps > (model) tool_call > (schema)"
       },
       "oasRef": "#/components/schemas/RunStepDetailsToolCallsObject/properties/tool_calls"
     },
@@ -34788,9 +35301,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1",
-      "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type": {
@@ -34838,7 +35351,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "message_creation"
     }
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 0": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -34852,7 +35365,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 1": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -34866,7 +35379,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) tool_calls > (items) > (variant) 2": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -34880,80 +35393,37 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+  "(resource) beta.threads.runs.steps > (model) tool_call > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
-    "ident": "CodeInterpreterToolCall",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCall",
+    "ident": "ToolCall",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "id"
+          "kind": "HttpTypeReference",
+          "ident": "CodeInterpreterToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)"
         },
         {
-          "ident": "code_interpreter"
+          "kind": "HttpTypeReference",
+          "ident": "FileSearchToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FunctionToolCall",
+          "$ref": "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/RunStepDetailsToolCall"
     },
     "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
-      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
-    "ident": "FileSearchToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "file_search"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
-      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
-    "ident": "FunctionToolCall",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "id"
-        },
-        {
-          "ident": "function"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
-      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 0",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 1",
+      "(resource) beta.threads.runs.steps > (model) tool_call > (schema) > (variant) 2"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) tool_calls_step_details > (schema) > (property) type > (member) 0": {
@@ -35027,6 +35497,32 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject",
+    "ident": "CodeInterpreterToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "code_interpreter"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "Details of the Code Interpreter tool call the run step was involved in.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter",
+      "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the tool call object.",
@@ -35089,6 +35585,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFileSearchObject",
+    "ident": "FileSearchToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "file_search"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) file_search",
+      "(resource) beta.threads.runs.steps > (model) file_search_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id": {
@@ -35157,6 +35678,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsFunctionObject",
+    "ident": "FunctionToolCall",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "id"
+        },
+        {
+          "ident": "function"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) id",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function",
+      "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) input": {
@@ -35329,7 +35875,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) function_tool_call > (schema) > (property) function > (property) output": {
     "kind": "HttpDeclProperty",
-    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](/docs/api-reference/runs/submitToolOutputs) yet.",
+    "docstring": "The output of the function. This will be `null` if the outputs have not been [submitted](https://platform.openai.com/docs/api-reference/runs/submitToolOutputs) yet.",
     "key": "output",
     "optional": false,
     "nullable": true,
@@ -35350,8 +35896,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/0",
-    "ident": "CodeInterpreterLogOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/0",
+    "ident": "Logs",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -35372,8 +35918,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/oneOf/1",
-    "ident": "CodeInterpreterImageOutput",
+    "oasRef": "#/components/schemas/RunStepDetailsToolCallsCodeObject/properties/code_interpreter/properties/outputs/items/anyOf/1",
+    "ident": "Image",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -35658,7 +36204,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.runs.steps > (model) code_interpreter_tool_call > (schema) > (property) code_interpreter > (property) outputs > (items) > (variant) 1 > (property) image > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [file](/docs/api-reference/files) ID of the image.",
+    "docstring": "The [file](https://platform.openai.com/docs/api-reference/files) ID of the image.",
     "key": "file_id",
     "optional": false,
     "nullable": false,
@@ -35695,7 +36241,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [message](https://developers.openai.com/docs/api-reference/messages/object) is created.
+Occurs when a [message](https://platform.openai.com/docs/api-reference/messages/object) is created.
 
 ### Schema
 
@@ -35705,8 +36251,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 18": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/0",
-    "ident": "UnionMember18",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/0",
+    "ident": "ThreadMessageCreated",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -35718,7 +36264,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [message](/docs/api-reference/messages/object) is created.",
+    "docstring": "Occurs when a [message](https://platform.openai.com/docs/api-reference/messages/object) is created.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 18 > (property) data",
@@ -35728,7 +36274,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 18 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "The message object",
-    "docstring": "Represents a message within a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents a message within a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -35737,7 +36283,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Message",
       "$ref": "(resource) beta.threads.messages > (model) message > (schema)"
     },
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/0/properties/data",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/0/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -35773,9 +36319,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.message.created"
         }
       ],
-      "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/0/properties/event"
+      "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/0/properties/event"
     },
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/0/properties/event",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/0/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -35799,7 +36345,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "If applicable, the ID of the [assistant](/docs/api-reference/assistants) that authored this message.",
+    "docstring": "If applicable, the ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) that authored this message.",
     "key": "assistant_id",
     "optional": false,
     "nullable": true,
@@ -35867,30 +36413,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "ImageFileContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) image_file_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "ImageURLContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) image_url_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "TextContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) text_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "RefusalContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) refusal_content_block > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/MessageObject/properties/content/items"
+        "kind": "HttpTypeReference",
+        "ident": "MessageContent",
+        "$ref": "(resource) beta.threads.messages > (model) message_content > (schema)"
       },
       "oasRef": "#/components/schemas/MessageObject/properties/content"
     },
@@ -35899,10 +36424,10 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 0",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 1",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 2",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 3"
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) created_at": {
@@ -36034,7 +36559,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) run_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [run](/docs/api-reference/runs) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.",
+    "docstring": "The ID of the [run](https://platform.openai.com/docs/api-reference/runs) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.",
     "key": "run_id",
     "optional": false,
     "nullable": true,
@@ -36082,7 +36607,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [thread](/docs/api-reference/threads) ID that this message belongs to.",
+    "docstring": "The [thread](https://platform.openai.com/docs/api-reference/threads) ID that this message belongs to.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -36145,7 +36670,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents a message within a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents a message within a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.messages > (model) message > (schema) > (property) id",
@@ -36223,7 +36748,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) message > (schema) > (property) attachments > (items) > (property) tools > (items) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 0": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -36236,7 +36761,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 1": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -36249,7 +36774,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 2": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -36262,7 +36787,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 3": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -36275,92 +36800,43 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) image_file_content_block > (schema)": {
+  "(resource) beta.threads.messages > (model) message_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentImageFileObject",
-    "ident": "ImageFileContentBlock",
+    "oasRef": "#/components/schemas/MessageContent",
+    "ident": "MessageContent",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "image_file"
+          "kind": "HttpTypeReference",
+          "ident": "ImageFileContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) image_file_content_block > (schema)"
         },
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "References an image [File](/docs/api-reference/files) in the content of a message.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) image_file",
-      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) image_url_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentImageUrlObject",
-    "ident": "ImageURLContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "image_url"
+          "kind": "HttpTypeReference",
+          "ident": "ImageURLContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) image_url_content_block > (schema)"
         },
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "References an image URL in the content of a message.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url",
-      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) text_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextObject",
-    "ident": "TextContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "text"
+          "kind": "HttpTypeReference",
+          "ident": "TextContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) text_content_block > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "RefusalContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) refusal_content_block > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/MessageContent"
     },
-    "docstring": "The text content that is part of a message.",
-    "childrenParentSchema": "object",
+    "docstring": "References an image [File](https://platform.openai.com/docs/api-reference/files) in the content of a message.",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) refusal_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentRefusalObject",
-    "ident": "RefusalContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "refusal"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "The refusal content generated by the assistant.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal",
-      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) incomplete_details > (property) reason": {
@@ -36483,8 +36959,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) attachments > (items) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageObject/properties/attachments/anyOf/0/items/properties/tools/items/oneOf/1",
-    "ident": "FileSearchTool",
+    "oasRef": "#/components/schemas/MessageObject/properties/attachments/anyOf/0/items/properties/tools/items/anyOf/1",
+    "ident": "AssistantToolsFileSearchTypeOnly",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -36560,6 +37036,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) image_file_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentImageFileObject",
+    "ident": "ImageFileContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "image_file"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "References an image [File](https://platform.openai.com/docs/api-reference/files) in the content of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) image_file",
+      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url": {
     "kind": "HttpDeclProperty",
     "key": "image_url",
@@ -36603,6 +37101,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.messages > (model) image_url_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentImageUrlObject",
+    "ident": "ImageURLContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "image_url"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "References an image URL in the content of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url",
+      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text": {
@@ -36650,6 +37170,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) text_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextObject",
+    "ident": "TextContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "The text content that is part of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal": {
     "kind": "HttpDeclProperty",
     "key": "refusal",
@@ -36685,6 +37227,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.messages > (model) refusal_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentRefusalObject",
+    "ident": "RefusalContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "refusal"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "The refusal content generated by the assistant.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal",
+      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) incomplete_details > (property) reason > (member) 0": {
@@ -36772,7 +37336,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) image_file > (schema) > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [File](/docs/api-reference/files) ID of the image in the message content. Set `purpose=\"vision\"` when uploading the File if you need to later display the file content.",
+    "docstring": "The [File](https://platform.openai.com/docs/api-reference/files) ID of the image in the message content. Set `purpose=\"vision\"` when uploading the File if you need to later display the file content.",
     "key": "file_id",
     "optional": false,
     "nullable": false,
@@ -36935,20 +37499,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileCitationAnnotation",
-            "$ref": "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FilePathAnnotation",
-            "$ref": "(resource) beta.threads.messages > (model) file_path_annotation > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/MessageContentTextObject/properties/text/properties/annotations/items"
+        "kind": "HttpTypeReference",
+        "ident": "Annotation",
+        "$ref": "(resource) beta.threads.messages > (model) annotation > (schema)"
       },
       "oasRef": "#/components/schemas/MessageContentTextObject/properties/text/properties/annotations"
     },
@@ -36957,8 +37510,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 0",
-      "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 1"
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1"
     ]
   },
   "(resource) beta.threads.messages > (model) text > (schema) > (property) value": {
@@ -37066,7 +37619,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "high"
     }
   },
-  "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 0": {
+  "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -37082,7 +37635,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 1": {
+  "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -37098,72 +37651,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)": {
+  "(resource) beta.threads.messages > (model) annotation > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFileCitationObject",
-    "ident": "FileCitationAnnotation",
+    "oasRef": "#/components/schemas/TextAnnotation",
+    "ident": "Annotation",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "end_index"
+          "kind": "HttpTypeReference",
+          "ident": "FileCitationAnnotation",
+          "$ref": "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)"
         },
         {
-          "ident": "file_citation"
-        },
-        {
-          "ident": "start_index"
-        },
-        {
-          "ident": "text"
-        },
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FilePathAnnotation",
+          "$ref": "(resource) beta.threads.messages > (model) file_path_annotation > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/TextAnnotation"
     },
     "docstring": "A citation within the message that points to a specific quote from a specific File associated with the assistant or the message. Generated when the assistant uses the \"file_search\" tool to search files.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) start_index",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) file_path_annotation > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFilePathObject",
-    "ident": "FilePathAnnotation",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "end_index"
-        },
-        {
-          "ident": "file_path"
-        },
-        {
-          "ident": "start_index"
-        },
-        {
-          "ident": "text"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "A URL for the file that's generated when the assistant used the `code_interpreter` tool to generate a file.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) file_path",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) start_index",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1"
     ]
   },
   "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index": {
@@ -37257,6 +37769,40 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFileCitationObject",
+    "ident": "FileCitationAnnotation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_citation"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "A citation within the message that points to a specific quote from a specific File associated with the assistant or the message. Generated when the assistant uses the \"file_search\" tool to search files.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) start_index",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index": {
     "kind": "HttpDeclProperty",
     "key": "end_index",
@@ -37348,6 +37894,40 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) file_path_annotation > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFilePathObject",
+    "ident": "FilePathAnnotation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_path"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "A URL for the file that's generated when the assistant used the `code_interpreter` tool to generate a file.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) file_path",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) start_index",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the specific File the citation is from.",
@@ -37401,7 +37981,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [message](https://developers.openai.com/docs/api-reference/messages/object) moves to an `in_progress` state.
+Occurs when a [message](https://platform.openai.com/docs/api-reference/messages/object) moves to an `in_progress` state.
 
 ### Schema
 
@@ -37411,8 +37991,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 19": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/1",
-    "ident": "UnionMember19",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/1",
+    "ident": "ThreadMessageInProgress",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -37424,7 +38004,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [message](/docs/api-reference/messages/object) moves to an `in_progress` state.",
+    "docstring": "Occurs when a [message](https://platform.openai.com/docs/api-reference/messages/object) moves to an `in_progress` state.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 19 > (property) data",
@@ -37434,7 +38014,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 19 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "The message object",
-    "docstring": "Represents a message within a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents a message within a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -37443,7 +38023,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Message",
       "$ref": "(resource) beta.threads.messages > (model) message > (schema)"
     },
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/1/properties/data",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/1/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -37479,9 +38059,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.message.in_progress"
         }
       ],
-      "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/1/properties/event"
+      "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/1/properties/event"
     },
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/1/properties/event",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/1/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -37505,7 +38085,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "If applicable, the ID of the [assistant](/docs/api-reference/assistants) that authored this message.",
+    "docstring": "If applicable, the ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) that authored this message.",
     "key": "assistant_id",
     "optional": false,
     "nullable": true,
@@ -37573,30 +38153,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "ImageFileContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) image_file_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "ImageURLContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) image_url_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "TextContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) text_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "RefusalContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) refusal_content_block > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/MessageObject/properties/content/items"
+        "kind": "HttpTypeReference",
+        "ident": "MessageContent",
+        "$ref": "(resource) beta.threads.messages > (model) message_content > (schema)"
       },
       "oasRef": "#/components/schemas/MessageObject/properties/content"
     },
@@ -37605,10 +38164,10 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 0",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 1",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 2",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 3"
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) created_at": {
@@ -37740,7 +38299,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) run_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [run](/docs/api-reference/runs) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.",
+    "docstring": "The ID of the [run](https://platform.openai.com/docs/api-reference/runs) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.",
     "key": "run_id",
     "optional": false,
     "nullable": true,
@@ -37788,7 +38347,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [thread](/docs/api-reference/threads) ID that this message belongs to.",
+    "docstring": "The [thread](https://platform.openai.com/docs/api-reference/threads) ID that this message belongs to.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -37851,7 +38410,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents a message within a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents a message within a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.messages > (model) message > (schema) > (property) id",
@@ -37929,7 +38488,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) message > (schema) > (property) attachments > (items) > (property) tools > (items) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 0": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -37942,7 +38501,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 1": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -37955,7 +38514,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 2": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -37968,7 +38527,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 3": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -37981,92 +38540,43 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) image_file_content_block > (schema)": {
+  "(resource) beta.threads.messages > (model) message_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentImageFileObject",
-    "ident": "ImageFileContentBlock",
+    "oasRef": "#/components/schemas/MessageContent",
+    "ident": "MessageContent",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "image_file"
+          "kind": "HttpTypeReference",
+          "ident": "ImageFileContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) image_file_content_block > (schema)"
         },
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "References an image [File](/docs/api-reference/files) in the content of a message.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) image_file",
-      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) image_url_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentImageUrlObject",
-    "ident": "ImageURLContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "image_url"
+          "kind": "HttpTypeReference",
+          "ident": "ImageURLContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) image_url_content_block > (schema)"
         },
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "References an image URL in the content of a message.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url",
-      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) text_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextObject",
-    "ident": "TextContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "text"
+          "kind": "HttpTypeReference",
+          "ident": "TextContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) text_content_block > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "RefusalContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) refusal_content_block > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/MessageContent"
     },
-    "docstring": "The text content that is part of a message.",
-    "childrenParentSchema": "object",
+    "docstring": "References an image [File](https://platform.openai.com/docs/api-reference/files) in the content of a message.",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) refusal_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentRefusalObject",
-    "ident": "RefusalContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "refusal"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "The refusal content generated by the assistant.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal",
-      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) incomplete_details > (property) reason": {
@@ -38189,8 +38699,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) attachments > (items) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageObject/properties/attachments/anyOf/0/items/properties/tools/items/oneOf/1",
-    "ident": "FileSearchTool",
+    "oasRef": "#/components/schemas/MessageObject/properties/attachments/anyOf/0/items/properties/tools/items/anyOf/1",
+    "ident": "AssistantToolsFileSearchTypeOnly",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -38266,6 +38776,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) image_file_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentImageFileObject",
+    "ident": "ImageFileContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "image_file"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "References an image [File](https://platform.openai.com/docs/api-reference/files) in the content of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) image_file",
+      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url": {
     "kind": "HttpDeclProperty",
     "key": "image_url",
@@ -38309,6 +38841,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.messages > (model) image_url_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentImageUrlObject",
+    "ident": "ImageURLContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "image_url"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "References an image URL in the content of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url",
+      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text": {
@@ -38356,6 +38910,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) text_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextObject",
+    "ident": "TextContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "The text content that is part of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal": {
     "kind": "HttpDeclProperty",
     "key": "refusal",
@@ -38391,6 +38967,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.messages > (model) refusal_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentRefusalObject",
+    "ident": "RefusalContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "refusal"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "The refusal content generated by the assistant.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal",
+      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) incomplete_details > (property) reason > (member) 0": {
@@ -38478,7 +39076,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) image_file > (schema) > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [File](/docs/api-reference/files) ID of the image in the message content. Set `purpose=\"vision\"` when uploading the File if you need to later display the file content.",
+    "docstring": "The [File](https://platform.openai.com/docs/api-reference/files) ID of the image in the message content. Set `purpose=\"vision\"` when uploading the File if you need to later display the file content.",
     "key": "file_id",
     "optional": false,
     "nullable": false,
@@ -38641,20 +39239,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileCitationAnnotation",
-            "$ref": "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FilePathAnnotation",
-            "$ref": "(resource) beta.threads.messages > (model) file_path_annotation > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/MessageContentTextObject/properties/text/properties/annotations/items"
+        "kind": "HttpTypeReference",
+        "ident": "Annotation",
+        "$ref": "(resource) beta.threads.messages > (model) annotation > (schema)"
       },
       "oasRef": "#/components/schemas/MessageContentTextObject/properties/text/properties/annotations"
     },
@@ -38663,8 +39250,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 0",
-      "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 1"
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1"
     ]
   },
   "(resource) beta.threads.messages > (model) text > (schema) > (property) value": {
@@ -38772,7 +39359,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "high"
     }
   },
-  "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 0": {
+  "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -38788,7 +39375,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 1": {
+  "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -38804,72 +39391,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)": {
+  "(resource) beta.threads.messages > (model) annotation > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFileCitationObject",
-    "ident": "FileCitationAnnotation",
+    "oasRef": "#/components/schemas/TextAnnotation",
+    "ident": "Annotation",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "end_index"
+          "kind": "HttpTypeReference",
+          "ident": "FileCitationAnnotation",
+          "$ref": "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)"
         },
         {
-          "ident": "file_citation"
-        },
-        {
-          "ident": "start_index"
-        },
-        {
-          "ident": "text"
-        },
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FilePathAnnotation",
+          "$ref": "(resource) beta.threads.messages > (model) file_path_annotation > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/TextAnnotation"
     },
     "docstring": "A citation within the message that points to a specific quote from a specific File associated with the assistant or the message. Generated when the assistant uses the \"file_search\" tool to search files.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) start_index",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) file_path_annotation > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFilePathObject",
-    "ident": "FilePathAnnotation",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "end_index"
-        },
-        {
-          "ident": "file_path"
-        },
-        {
-          "ident": "start_index"
-        },
-        {
-          "ident": "text"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "A URL for the file that's generated when the assistant used the `code_interpreter` tool to generate a file.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) file_path",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) start_index",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1"
     ]
   },
   "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index": {
@@ -38963,6 +39509,40 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFileCitationObject",
+    "ident": "FileCitationAnnotation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_citation"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "A citation within the message that points to a specific quote from a specific File associated with the assistant or the message. Generated when the assistant uses the \"file_search\" tool to search files.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) start_index",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index": {
     "kind": "HttpDeclProperty",
     "key": "end_index",
@@ -39054,6 +39634,40 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) file_path_annotation > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFilePathObject",
+    "ident": "FilePathAnnotation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_path"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "A URL for the file that's generated when the assistant used the `code_interpreter` tool to generate a file.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) file_path",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) start_index",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the specific File the citation is from.",
@@ -39107,7 +39721,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when parts of a [Message](https://developers.openai.com/docs/api-reference/messages/object) are being streamed.
+Occurs when parts of a [Message](https://platform.openai.com/docs/api-reference/messages/object) are being streamed.
 
 ### Schema
 
@@ -39117,8 +39731,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 20": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/2",
-    "ident": "UnionMember20",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/2",
+    "ident": "ThreadMessageDelta",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -39130,7 +39744,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when parts of a [Message](/docs/api-reference/messages/object) are being streamed.",
+    "docstring": "Occurs when parts of a [Message](https://platform.openai.com/docs/api-reference/messages/object) are being streamed.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 20 > (property) data",
@@ -39149,7 +39763,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "MessageDeltaEvent",
       "$ref": "(resource) beta.threads.messages > (model) message_delta_event > (schema)"
     },
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/2/properties/data",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/2/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -39174,9 +39788,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.message.delta"
         }
       ],
-      "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/2/properties/event"
+      "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/2/properties/event"
     },
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/2/properties/event",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/2/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -39286,30 +39900,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "ImageFileDeltaBlock",
-            "$ref": "(resource) beta.threads.messages > (model) image_file_delta_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "TextDeltaBlock",
-            "$ref": "(resource) beta.threads.messages > (model) text_delta_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "RefusalDeltaBlock",
-            "$ref": "(resource) beta.threads.messages > (model) refusal_delta_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "ImageURLDeltaBlock",
-            "$ref": "(resource) beta.threads.messages > (model) image_url_delta_block > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/MessageDeltaObject/properties/delta/properties/content/items"
+        "kind": "HttpTypeReference",
+        "ident": "MessageContentDelta",
+        "$ref": "(resource) beta.threads.messages > (model) message_content_delta > (schema)"
       },
       "oasRef": "#/components/schemas/MessageDeltaObject/properties/delta/properties/content"
     },
@@ -39318,10 +39911,10 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) message_delta > (schema) > (property) content > (items) > (variant) 0",
-      "(resource) beta.threads.messages > (model) message_delta > (schema) > (property) content > (items) > (variant) 1",
-      "(resource) beta.threads.messages > (model) message_delta > (schema) > (property) content > (items) > (variant) 2",
-      "(resource) beta.threads.messages > (model) message_delta > (schema) > (property) content > (items) > (variant) 3"
+      "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 1",
+      "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 2",
+      "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 3"
     ]
   },
   "(resource) beta.threads.messages > (model) message_delta > (schema) > (property) role": {
@@ -39382,7 +39975,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "thread.message.delta"
     }
   },
-  "(resource) beta.threads.messages > (model) message_delta > (schema) > (property) content > (items) > (variant) 0": {
+  "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -39396,7 +39989,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_file_delta_block > (schema) > (property) image_file"
     ]
   },
-  "(resource) beta.threads.messages > (model) message_delta > (schema) > (property) content > (items) > (variant) 1": {
+  "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -39410,7 +40003,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) text_delta_block > (schema) > (property) text"
     ]
   },
-  "(resource) beta.threads.messages > (model) message_delta > (schema) > (property) content > (items) > (variant) 2": {
+  "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -39424,7 +40017,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) refusal_delta_block > (schema) > (property) refusal"
     ]
   },
-  "(resource) beta.threads.messages > (model) message_delta > (schema) > (property) content > (items) > (variant) 3": {
+  "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -39438,108 +40031,43 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_url_delta_block > (schema) > (property) image_url"
     ]
   },
-  "(resource) beta.threads.messages > (model) image_file_delta_block > (schema)": {
+  "(resource) beta.threads.messages > (model) message_content_delta > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageDeltaContentImageFileObject",
-    "ident": "ImageFileDeltaBlock",
+    "oasRef": "#/components/schemas/MessageContentDelta",
+    "ident": "MessageContentDelta",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "index"
+          "kind": "HttpTypeReference",
+          "ident": "ImageFileDeltaBlock",
+          "$ref": "(resource) beta.threads.messages > (model) image_file_delta_block > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "TextDeltaBlock",
+          "$ref": "(resource) beta.threads.messages > (model) text_delta_block > (schema)"
         },
         {
-          "ident": "image_file"
+          "kind": "HttpTypeReference",
+          "ident": "RefusalDeltaBlock",
+          "$ref": "(resource) beta.threads.messages > (model) refusal_delta_block > (schema)"
+        },
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ImageURLDeltaBlock",
+          "$ref": "(resource) beta.threads.messages > (model) image_url_delta_block > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/MessageContentDelta"
     },
-    "docstring": "References an image [File](/docs/api-reference/files) in the content of a message.",
-    "childrenParentSchema": "object",
+    "docstring": "References an image [File](https://platform.openai.com/docs/api-reference/files) in the content of a message.",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) image_file_delta_block > (schema) > (property) index",
-      "(resource) beta.threads.messages > (model) image_file_delta_block > (schema) > (property) type",
-      "(resource) beta.threads.messages > (model) image_file_delta_block > (schema) > (property) image_file"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) text_delta_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageDeltaContentTextObject",
-    "ident": "TextDeltaBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "index"
-        },
-        {
-          "ident": "type"
-        },
-        {
-          "ident": "text"
-        }
-      ]
-    },
-    "docstring": "The text content that is part of a message.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) text_delta_block > (schema) > (property) index",
-      "(resource) beta.threads.messages > (model) text_delta_block > (schema) > (property) type",
-      "(resource) beta.threads.messages > (model) text_delta_block > (schema) > (property) text"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) refusal_delta_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageDeltaContentRefusalObject",
-    "ident": "RefusalDeltaBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "index"
-        },
-        {
-          "ident": "type"
-        },
-        {
-          "ident": "refusal"
-        }
-      ]
-    },
-    "docstring": "The refusal content that is part of a message.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) refusal_delta_block > (schema) > (property) index",
-      "(resource) beta.threads.messages > (model) refusal_delta_block > (schema) > (property) type",
-      "(resource) beta.threads.messages > (model) refusal_delta_block > (schema) > (property) refusal"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) image_url_delta_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageDeltaContentImageUrlObject",
-    "ident": "ImageURLDeltaBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "index"
-        },
-        {
-          "ident": "type"
-        },
-        {
-          "ident": "image_url"
-        }
-      ]
-    },
-    "docstring": "References an image URL in the content of a message.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) image_url_delta_block > (schema) > (property) index",
-      "(resource) beta.threads.messages > (model) image_url_delta_block > (schema) > (property) type",
-      "(resource) beta.threads.messages > (model) image_url_delta_block > (schema) > (property) image_url"
+      "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 1",
+      "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 2",
+      "(resource) beta.threads.messages > (model) message_content_delta > (schema) > (variant) 3"
     ]
   },
   "(resource) beta.threads.messages > (model) message_delta > (schema) > (property) role > (member) 0": {
@@ -39615,6 +40143,32 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_file_delta > (schema) > (property) file_id"
     ]
   },
+  "(resource) beta.threads.messages > (model) image_file_delta_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageDeltaContentImageFileObject",
+    "ident": "ImageFileDeltaBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "image_file"
+        }
+      ]
+    },
+    "docstring": "References an image [File](https://platform.openai.com/docs/api-reference/files) in the content of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) image_file_delta_block > (schema) > (property) index",
+      "(resource) beta.threads.messages > (model) image_file_delta_block > (schema) > (property) type",
+      "(resource) beta.threads.messages > (model) image_file_delta_block > (schema) > (property) image_file"
+    ]
+  },
   "(resource) beta.threads.messages > (model) text_delta_block > (schema) > (property) index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the content part in the message.",
@@ -39674,6 +40228,32 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) text_delta > (schema) > (property) value"
     ]
   },
+  "(resource) beta.threads.messages > (model) text_delta_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageDeltaContentTextObject",
+    "ident": "TextDeltaBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "text"
+        }
+      ]
+    },
+    "docstring": "The text content that is part of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) text_delta_block > (schema) > (property) index",
+      "(resource) beta.threads.messages > (model) text_delta_block > (schema) > (property) type",
+      "(resource) beta.threads.messages > (model) text_delta_block > (schema) > (property) text"
+    ]
+  },
   "(resource) beta.threads.messages > (model) refusal_delta_block > (schema) > (property) index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the refusal part in the message.",
@@ -39724,6 +40304,32 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "deprecated": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.threads.messages > (model) refusal_delta_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageDeltaContentRefusalObject",
+    "ident": "RefusalDeltaBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "refusal"
+        }
+      ]
+    },
+    "docstring": "The refusal content that is part of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) refusal_delta_block > (schema) > (property) index",
+      "(resource) beta.threads.messages > (model) refusal_delta_block > (schema) > (property) type",
+      "(resource) beta.threads.messages > (model) refusal_delta_block > (schema) > (property) refusal"
+    ]
   },
   "(resource) beta.threads.messages > (model) image_url_delta_block > (schema) > (property) index": {
     "kind": "HttpDeclProperty",
@@ -39784,6 +40390,32 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_url_delta > (schema) > (property) url"
     ]
   },
+  "(resource) beta.threads.messages > (model) image_url_delta_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageDeltaContentImageUrlObject",
+    "ident": "ImageURLDeltaBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "image_url"
+        }
+      ]
+    },
+    "docstring": "References an image URL in the content of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) image_url_delta_block > (schema) > (property) index",
+      "(resource) beta.threads.messages > (model) image_url_delta_block > (schema) > (property) type",
+      "(resource) beta.threads.messages > (model) image_url_delta_block > (schema) > (property) image_url"
+    ]
+  },
   "(resource) beta.threads.messages > (model) image_file_delta_block > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -39828,7 +40460,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) image_file_delta > (schema) > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [File](/docs/api-reference/files) ID of the image in the message content. Set `purpose=\"vision\"` when uploading the File if you need to later display the file content.",
+    "docstring": "The [File](https://platform.openai.com/docs/api-reference/files) ID of the image in the message content. Set `purpose=\"vision\"` when uploading the File if you need to later display the file content.",
     "key": "file_id",
     "optional": true,
     "nullable": false,
@@ -39876,20 +40508,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileCitationDeltaAnnotation",
-            "$ref": "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FilePathDeltaAnnotation",
-            "$ref": "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/MessageDeltaContentTextObject/properties/text/properties/annotations/items"
+        "kind": "HttpTypeReference",
+        "ident": "AnnotationDelta",
+        "$ref": "(resource) beta.threads.messages > (model) annotation_delta > (schema)"
       },
       "oasRef": "#/components/schemas/MessageDeltaContentTextObject/properties/text/properties/annotations"
     },
@@ -39898,8 +40519,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) text_delta > (schema) > (property) annotations > (items) > (variant) 0",
-      "(resource) beta.threads.messages > (model) text_delta > (schema) > (property) annotations > (items) > (variant) 1"
+      "(resource) beta.threads.messages > (model) annotation_delta > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) annotation_delta > (schema) > (variant) 1"
     ]
   },
   "(resource) beta.threads.messages > (model) text_delta > (schema) > (property) value": {
@@ -40045,7 +40666,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "high"
     }
   },
-  "(resource) beta.threads.messages > (model) text_delta > (schema) > (property) annotations > (items) > (variant) 0": {
+  "(resource) beta.threads.messages > (model) annotation_delta > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -40062,7 +40683,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) text"
     ]
   },
-  "(resource) beta.threads.messages > (model) text_delta > (schema) > (property) annotations > (items) > (variant) 1": {
+  "(resource) beta.threads.messages > (model) annotation_delta > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -40079,80 +40700,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) text"
     ]
   },
-  "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema)": {
+  "(resource) beta.threads.messages > (model) annotation_delta > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageDeltaContentTextAnnotationsFileCitationObject",
-    "ident": "FileCitationDeltaAnnotation",
+    "oasRef": "#/components/schemas/TextAnnotationDelta",
+    "ident": "AnnotationDelta",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "index"
+          "kind": "HttpTypeReference",
+          "ident": "FileCitationDeltaAnnotation",
+          "$ref": "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema)"
         },
         {
-          "ident": "type"
-        },
-        {
-          "ident": "end_index"
-        },
-        {
-          "ident": "file_citation"
-        },
-        {
-          "ident": "start_index"
-        },
-        {
-          "ident": "text"
+          "kind": "HttpTypeReference",
+          "ident": "FilePathDeltaAnnotation",
+          "$ref": "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/TextAnnotationDelta"
     },
     "docstring": "A citation within the message that points to a specific quote from a specific File associated with the assistant or the message. Generated when the assistant uses the \"file_search\" tool to search files.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) index",
-      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) type",
-      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) end_index",
-      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) file_citation",
-      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) start_index",
-      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) text"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageDeltaContentTextAnnotationsFilePathObject",
-    "ident": "FilePathDeltaAnnotation",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "index"
-        },
-        {
-          "ident": "type"
-        },
-        {
-          "ident": "end_index"
-        },
-        {
-          "ident": "file_path"
-        },
-        {
-          "ident": "start_index"
-        },
-        {
-          "ident": "text"
-        }
-      ]
-    },
-    "docstring": "A URL for the file that's generated when the assistant used the `code_interpreter` tool to generate a file.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) index",
-      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) type",
-      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) end_index",
-      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) file_path",
-      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) start_index",
-      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) text"
+      "(resource) beta.threads.messages > (model) annotation_delta > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) annotation_delta > (schema) > (variant) 1"
     ]
   },
   "(resource) beta.threads.messages > (model) image_url_delta > (schema) > (property) detail > (member) 0": {
@@ -40285,6 +40857,44 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "string",
     "children": []
   },
+  "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageDeltaContentTextAnnotationsFileCitationObject",
+    "ident": "FileCitationDeltaAnnotation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_citation"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "text"
+        }
+      ]
+    },
+    "docstring": "A citation within the message that points to a specific quote from a specific File associated with the assistant or the message. Generated when the assistant uses the \"file_search\" tool to search files.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) index",
+      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) type",
+      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) end_index",
+      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) file_citation",
+      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) start_index",
+      "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) text"
+    ]
+  },
   "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the annotation in the text content part.",
@@ -40390,6 +41000,44 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "string",
     "children": []
   },
+  "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageDeltaContentTextAnnotationsFilePathObject",
+    "ident": "FilePathDeltaAnnotation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_path"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "text"
+        }
+      ]
+    },
+    "docstring": "A URL for the file that's generated when the assistant used the `code_interpreter` tool to generate a file.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) index",
+      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) type",
+      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) end_index",
+      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) file_path",
+      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) start_index",
+      "(resource) beta.threads.messages > (model) file_path_delta_annotation > (schema) > (property) text"
+    ]
+  },
   "(resource) beta.threads.messages > (model) file_citation_delta_annotation > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -40457,7 +41105,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [message](https://developers.openai.com/docs/api-reference/messages/object) is completed.
+Occurs when a [message](https://platform.openai.com/docs/api-reference/messages/object) is completed.
 
 ### Schema
 
@@ -40467,8 +41115,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 21": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/3",
-    "ident": "UnionMember21",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/3",
+    "ident": "ThreadMessageCompleted",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -40480,7 +41128,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [message](/docs/api-reference/messages/object) is completed.",
+    "docstring": "Occurs when a [message](https://platform.openai.com/docs/api-reference/messages/object) is completed.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 21 > (property) data",
@@ -40490,7 +41138,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 21 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "The message object",
-    "docstring": "Represents a message within a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents a message within a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -40499,7 +41147,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Message",
       "$ref": "(resource) beta.threads.messages > (model) message > (schema)"
     },
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/3/properties/data",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/3/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -40535,9 +41183,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.message.completed"
         }
       ],
-      "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/3/properties/event"
+      "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/3/properties/event"
     },
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/3/properties/event",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/3/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -40561,7 +41209,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "If applicable, the ID of the [assistant](/docs/api-reference/assistants) that authored this message.",
+    "docstring": "If applicable, the ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) that authored this message.",
     "key": "assistant_id",
     "optional": false,
     "nullable": true,
@@ -40629,30 +41277,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "ImageFileContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) image_file_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "ImageURLContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) image_url_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "TextContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) text_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "RefusalContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) refusal_content_block > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/MessageObject/properties/content/items"
+        "kind": "HttpTypeReference",
+        "ident": "MessageContent",
+        "$ref": "(resource) beta.threads.messages > (model) message_content > (schema)"
       },
       "oasRef": "#/components/schemas/MessageObject/properties/content"
     },
@@ -40661,10 +41288,10 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 0",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 1",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 2",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 3"
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) created_at": {
@@ -40796,7 +41423,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) run_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [run](/docs/api-reference/runs) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.",
+    "docstring": "The ID of the [run](https://platform.openai.com/docs/api-reference/runs) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.",
     "key": "run_id",
     "optional": false,
     "nullable": true,
@@ -40844,7 +41471,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [thread](/docs/api-reference/threads) ID that this message belongs to.",
+    "docstring": "The [thread](https://platform.openai.com/docs/api-reference/threads) ID that this message belongs to.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -40907,7 +41534,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents a message within a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents a message within a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.messages > (model) message > (schema) > (property) id",
@@ -40985,7 +41612,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) message > (schema) > (property) attachments > (items) > (property) tools > (items) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 0": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -40998,7 +41625,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 1": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -41011,7 +41638,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 2": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -41024,7 +41651,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 3": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -41037,92 +41664,43 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) image_file_content_block > (schema)": {
+  "(resource) beta.threads.messages > (model) message_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentImageFileObject",
-    "ident": "ImageFileContentBlock",
+    "oasRef": "#/components/schemas/MessageContent",
+    "ident": "MessageContent",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "image_file"
+          "kind": "HttpTypeReference",
+          "ident": "ImageFileContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) image_file_content_block > (schema)"
         },
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "References an image [File](/docs/api-reference/files) in the content of a message.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) image_file",
-      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) image_url_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentImageUrlObject",
-    "ident": "ImageURLContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "image_url"
+          "kind": "HttpTypeReference",
+          "ident": "ImageURLContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) image_url_content_block > (schema)"
         },
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "References an image URL in the content of a message.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url",
-      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) text_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextObject",
-    "ident": "TextContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "text"
+          "kind": "HttpTypeReference",
+          "ident": "TextContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) text_content_block > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "RefusalContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) refusal_content_block > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/MessageContent"
     },
-    "docstring": "The text content that is part of a message.",
-    "childrenParentSchema": "object",
+    "docstring": "References an image [File](https://platform.openai.com/docs/api-reference/files) in the content of a message.",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) refusal_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentRefusalObject",
-    "ident": "RefusalContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "refusal"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "The refusal content generated by the assistant.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal",
-      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) incomplete_details > (property) reason": {
@@ -41245,8 +41823,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) attachments > (items) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageObject/properties/attachments/anyOf/0/items/properties/tools/items/oneOf/1",
-    "ident": "FileSearchTool",
+    "oasRef": "#/components/schemas/MessageObject/properties/attachments/anyOf/0/items/properties/tools/items/anyOf/1",
+    "ident": "AssistantToolsFileSearchTypeOnly",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -41322,6 +41900,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) image_file_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentImageFileObject",
+    "ident": "ImageFileContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "image_file"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "References an image [File](https://platform.openai.com/docs/api-reference/files) in the content of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) image_file",
+      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url": {
     "kind": "HttpDeclProperty",
     "key": "image_url",
@@ -41365,6 +41965,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.messages > (model) image_url_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentImageUrlObject",
+    "ident": "ImageURLContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "image_url"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "References an image URL in the content of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url",
+      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text": {
@@ -41412,6 +42034,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) text_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextObject",
+    "ident": "TextContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "The text content that is part of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal": {
     "kind": "HttpDeclProperty",
     "key": "refusal",
@@ -41447,6 +42091,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.messages > (model) refusal_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentRefusalObject",
+    "ident": "RefusalContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "refusal"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "The refusal content generated by the assistant.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal",
+      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) incomplete_details > (property) reason > (member) 0": {
@@ -41534,7 +42200,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) image_file > (schema) > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [File](/docs/api-reference/files) ID of the image in the message content. Set `purpose=\"vision\"` when uploading the File if you need to later display the file content.",
+    "docstring": "The [File](https://platform.openai.com/docs/api-reference/files) ID of the image in the message content. Set `purpose=\"vision\"` when uploading the File if you need to later display the file content.",
     "key": "file_id",
     "optional": false,
     "nullable": false,
@@ -41697,20 +42363,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileCitationAnnotation",
-            "$ref": "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FilePathAnnotation",
-            "$ref": "(resource) beta.threads.messages > (model) file_path_annotation > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/MessageContentTextObject/properties/text/properties/annotations/items"
+        "kind": "HttpTypeReference",
+        "ident": "Annotation",
+        "$ref": "(resource) beta.threads.messages > (model) annotation > (schema)"
       },
       "oasRef": "#/components/schemas/MessageContentTextObject/properties/text/properties/annotations"
     },
@@ -41719,8 +42374,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 0",
-      "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 1"
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1"
     ]
   },
   "(resource) beta.threads.messages > (model) text > (schema) > (property) value": {
@@ -41828,7 +42483,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "high"
     }
   },
-  "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 0": {
+  "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -41844,7 +42499,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 1": {
+  "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -41860,72 +42515,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)": {
+  "(resource) beta.threads.messages > (model) annotation > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFileCitationObject",
-    "ident": "FileCitationAnnotation",
+    "oasRef": "#/components/schemas/TextAnnotation",
+    "ident": "Annotation",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "end_index"
+          "kind": "HttpTypeReference",
+          "ident": "FileCitationAnnotation",
+          "$ref": "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)"
         },
         {
-          "ident": "file_citation"
-        },
-        {
-          "ident": "start_index"
-        },
-        {
-          "ident": "text"
-        },
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FilePathAnnotation",
+          "$ref": "(resource) beta.threads.messages > (model) file_path_annotation > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/TextAnnotation"
     },
     "docstring": "A citation within the message that points to a specific quote from a specific File associated with the assistant or the message. Generated when the assistant uses the \"file_search\" tool to search files.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) start_index",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) file_path_annotation > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFilePathObject",
-    "ident": "FilePathAnnotation",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "end_index"
-        },
-        {
-          "ident": "file_path"
-        },
-        {
-          "ident": "start_index"
-        },
-        {
-          "ident": "text"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "A URL for the file that's generated when the assistant used the `code_interpreter` tool to generate a file.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) file_path",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) start_index",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1"
     ]
   },
   "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index": {
@@ -42019,6 +42633,40 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFileCitationObject",
+    "ident": "FileCitationAnnotation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_citation"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "A citation within the message that points to a specific quote from a specific File associated with the assistant or the message. Generated when the assistant uses the \"file_search\" tool to search files.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) start_index",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index": {
     "kind": "HttpDeclProperty",
     "key": "end_index",
@@ -42110,6 +42758,40 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) file_path_annotation > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFilePathObject",
+    "ident": "FilePathAnnotation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_path"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "A URL for the file that's generated when the assistant used the `code_interpreter` tool to generate a file.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) file_path",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) start_index",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the specific File the citation is from.",
@@ -42163,7 +42845,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when a [message](https://developers.openai.com/docs/api-reference/messages/object) ends before it is completed.
+Occurs when a [message](https://platform.openai.com/docs/api-reference/messages/object) ends before it is completed.
 
 ### Schema
 
@@ -42173,8 +42855,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 22": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/4",
-    "ident": "UnionMember22",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/4",
+    "ident": "ThreadMessageIncomplete",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -42186,7 +42868,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when a [message](/docs/api-reference/messages/object) ends before it is completed.",
+    "docstring": "Occurs when a [message](https://platform.openai.com/docs/api-reference/messages/object) ends before it is completed.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 22 > (property) data",
@@ -42196,7 +42878,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 22 > (property) data": {
     "kind": "HttpDeclProperty",
     "title": "The message object",
-    "docstring": "Represents a message within a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents a message within a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "key": "data",
     "optional": false,
     "nullable": false,
@@ -42205,7 +42887,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "ident": "Message",
       "$ref": "(resource) beta.threads.messages > (model) message > (schema)"
     },
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/4/properties/data",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/4/properties/data",
     "deprecated": false,
     "schemaType": "object",
     "modelImplicit": false,
@@ -42241,9 +42923,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
           "literal": "thread.message.incomplete"
         }
       ],
-      "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/4/properties/event"
+      "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/4/properties/event"
     },
-    "oasRef": "#/components/schemas/MessageStreamEvent/oneOf/4/properties/event",
+    "oasRef": "#/components/schemas/MessageStreamEvent/anyOf/4/properties/event",
     "deprecated": false,
     "schemaType": "enum",
     "childrenParentSchema": "enum",
@@ -42267,7 +42949,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) assistant_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "If applicable, the ID of the [assistant](/docs/api-reference/assistants) that authored this message.",
+    "docstring": "If applicable, the ID of the [assistant](https://platform.openai.com/docs/api-reference/assistants) that authored this message.",
     "key": "assistant_id",
     "optional": false,
     "nullable": true,
@@ -42335,30 +43017,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "ImageFileContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) image_file_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "ImageURLContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) image_url_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "TextContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) text_content_block > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "RefusalContentBlock",
-            "$ref": "(resource) beta.threads.messages > (model) refusal_content_block > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/MessageObject/properties/content/items"
+        "kind": "HttpTypeReference",
+        "ident": "MessageContent",
+        "$ref": "(resource) beta.threads.messages > (model) message_content > (schema)"
       },
       "oasRef": "#/components/schemas/MessageObject/properties/content"
     },
@@ -42367,10 +43028,10 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 0",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 1",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 2",
-      "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 3"
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) created_at": {
@@ -42502,7 +43163,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) run_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The ID of the [run](/docs/api-reference/runs) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.",
+    "docstring": "The ID of the [run](https://platform.openai.com/docs/api-reference/runs) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.",
     "key": "run_id",
     "optional": false,
     "nullable": true,
@@ -42550,7 +43211,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) thread_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [thread](/docs/api-reference/threads) ID that this message belongs to.",
+    "docstring": "The [thread](https://platform.openai.com/docs/api-reference/threads) ID that this message belongs to.",
     "key": "thread_id",
     "optional": false,
     "nullable": false,
@@ -42613,7 +43274,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Represents a message within a [thread](/docs/api-reference/threads).",
+    "docstring": "Represents a message within a [thread](https://platform.openai.com/docs/api-reference/threads).",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.threads.messages > (model) message > (schema) > (property) id",
@@ -42691,7 +43352,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) message > (schema) > (property) attachments > (items) > (property) tools > (items) > (variant) 1"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 0": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -42704,7 +43365,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 1": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -42717,7 +43378,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 2": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -42730,7 +43391,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) message > (schema) > (property) content > (items) > (variant) 3": {
+  "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -42743,92 +43404,43 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) image_file_content_block > (schema)": {
+  "(resource) beta.threads.messages > (model) message_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentImageFileObject",
-    "ident": "ImageFileContentBlock",
+    "oasRef": "#/components/schemas/MessageContent",
+    "ident": "MessageContent",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "image_file"
+          "kind": "HttpTypeReference",
+          "ident": "ImageFileContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) image_file_content_block > (schema)"
         },
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "References an image [File](/docs/api-reference/files) in the content of a message.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) image_file",
-      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) image_url_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentImageUrlObject",
-    "ident": "ImageURLContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "image_url"
+          "kind": "HttpTypeReference",
+          "ident": "ImageURLContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) image_url_content_block > (schema)"
         },
         {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "References an image URL in the content of a message.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url",
-      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) text_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextObject",
-    "ident": "TextContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "text"
+          "kind": "HttpTypeReference",
+          "ident": "TextContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) text_content_block > (schema)"
         },
         {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "RefusalContentBlock",
+          "$ref": "(resource) beta.threads.messages > (model) refusal_content_block > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/MessageContent"
     },
-    "docstring": "The text content that is part of a message.",
-    "childrenParentSchema": "object",
+    "docstring": "References an image [File](https://platform.openai.com/docs/api-reference/files) in the content of a message.",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) refusal_content_block > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentRefusalObject",
-    "ident": "RefusalContentBlock",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "refusal"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "The refusal content generated by the assistant.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal",
-      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 1",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 2",
+      "(resource) beta.threads.messages > (model) message_content > (schema) > (variant) 3"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) incomplete_details > (property) reason": {
@@ -42951,8 +43563,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) attachments > (items) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageObject/properties/attachments/anyOf/0/items/properties/tools/items/oneOf/1",
-    "ident": "FileSearchTool",
+    "oasRef": "#/components/schemas/MessageObject/properties/attachments/anyOf/0/items/properties/tools/items/anyOf/1",
+    "ident": "AssistantToolsFileSearchTypeOnly",
     "type": {
       "kind": "HttpTypeObject",
       "members": [
@@ -43028,6 +43640,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) image_file_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentImageFileObject",
+    "ident": "ImageFileContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "image_file"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "References an image [File](https://platform.openai.com/docs/api-reference/files) in the content of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) image_file",
+      "(resource) beta.threads.messages > (model) image_file_content_block > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url": {
     "kind": "HttpDeclProperty",
     "key": "image_url",
@@ -43071,6 +43705,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.messages > (model) image_url_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentImageUrlObject",
+    "ident": "ImageURLContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "image_url"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "References an image URL in the content of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) image_url",
+      "(resource) beta.threads.messages > (model) image_url_content_block > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text": {
@@ -43118,6 +43774,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) text_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextObject",
+    "ident": "TextContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "The text content that is part of a message.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) text_content_block > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal": {
     "kind": "HttpDeclProperty",
     "key": "refusal",
@@ -43153,6 +43831,28 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.threads.messages > (model) refusal_content_block > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentRefusalObject",
+    "ident": "RefusalContentBlock",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "refusal"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "The refusal content generated by the assistant.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) refusal",
+      "(resource) beta.threads.messages > (model) refusal_content_block > (schema) > (property) type"
     ]
   },
   "(resource) beta.threads.messages > (model) message > (schema) > (property) incomplete_details > (property) reason > (member) 0": {
@@ -43240,7 +43940,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
   },
   "(resource) beta.threads.messages > (model) image_file > (schema) > (property) file_id": {
     "kind": "HttpDeclProperty",
-    "docstring": "The [File](/docs/api-reference/files) ID of the image in the message content. Set `purpose=\"vision\"` when uploading the File if you need to later display the file content.",
+    "docstring": "The [File](https://platform.openai.com/docs/api-reference/files) ID of the image in the message content. Set `purpose=\"vision\"` when uploading the File if you need to later display the file content.",
     "key": "file_id",
     "optional": false,
     "nullable": false,
@@ -43403,20 +44103,9 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeArray",
       "elementType": {
-        "kind": "HttpTypeUnion",
-        "types": [
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FileCitationAnnotation",
-            "$ref": "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)"
-          },
-          {
-            "kind": "HttpTypeReference",
-            "ident": "FilePathAnnotation",
-            "$ref": "(resource) beta.threads.messages > (model) file_path_annotation > (schema)"
-          }
-        ],
-        "oasRef": "#/components/schemas/MessageContentTextObject/properties/text/properties/annotations/items"
+        "kind": "HttpTypeReference",
+        "ident": "Annotation",
+        "$ref": "(resource) beta.threads.messages > (model) annotation > (schema)"
       },
       "oasRef": "#/components/schemas/MessageContentTextObject/properties/text/properties/annotations"
     },
@@ -43425,8 +44114,8 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 0",
-      "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 1"
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1"
     ]
   },
   "(resource) beta.threads.messages > (model) text > (schema) > (property) value": {
@@ -43534,7 +44223,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "literal": "high"
     }
   },
-  "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 0": {
+  "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -43550,7 +44239,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) text > (schema) > (property) annotations > (items) > (variant) 1": {
+  "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeReference",
@@ -43566,72 +44255,31 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
     ]
   },
-  "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)": {
+  "(resource) beta.threads.messages > (model) annotation > (schema)": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFileCitationObject",
-    "ident": "FileCitationAnnotation",
+    "oasRef": "#/components/schemas/TextAnnotation",
+    "ident": "Annotation",
     "type": {
-      "kind": "HttpTypeObject",
-      "members": [
+      "kind": "HttpTypeUnion",
+      "types": [
         {
-          "ident": "end_index"
+          "kind": "HttpTypeReference",
+          "ident": "FileCitationAnnotation",
+          "$ref": "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)"
         },
         {
-          "ident": "file_citation"
-        },
-        {
-          "ident": "start_index"
-        },
-        {
-          "ident": "text"
-        },
-        {
-          "ident": "type"
+          "kind": "HttpTypeReference",
+          "ident": "FilePathAnnotation",
+          "$ref": "(resource) beta.threads.messages > (model) file_path_annotation > (schema)"
         }
-      ]
+      ],
+      "oasRef": "#/components/schemas/TextAnnotation"
     },
     "docstring": "A citation within the message that points to a specific quote from a specific File associated with the assistant or the message. Generated when the assistant uses the \"file_search\" tool to search files.",
-    "childrenParentSchema": "object",
+    "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) start_index",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
-    ]
-  },
-  "(resource) beta.threads.messages > (model) file_path_annotation > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFilePathObject",
-    "ident": "FilePathAnnotation",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "end_index"
-        },
-        {
-          "ident": "file_path"
-        },
-        {
-          "ident": "start_index"
-        },
-        {
-          "ident": "text"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "docstring": "A URL for the file that's generated when the assistant used the `code_interpreter` tool to generate a file.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) file_path",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) start_index",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) text",
-      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 0",
+      "(resource) beta.threads.messages > (model) annotation > (schema) > (variant) 1"
     ]
   },
   "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index": {
@@ -43725,6 +44373,40 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) file_citation_annotation > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFileCitationObject",
+    "ident": "FileCitationAnnotation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_citation"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "A citation within the message that points to a specific quote from a specific File associated with the assistant or the message. Generated when the assistant uses the \"file_search\" tool to search files.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) end_index",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) start_index",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index": {
     "kind": "HttpDeclProperty",
     "key": "end_index",
@@ -43816,6 +44498,40 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
       "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.threads.messages > (model) file_path_annotation > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MessageContentTextAnnotationsFilePathObject",
+    "ident": "FilePathAnnotation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_path"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "text"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "docstring": "A URL for the file that's generated when the assistant used the `code_interpreter` tool to generate a file.",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) end_index",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) file_path",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) start_index",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) text",
+      "(resource) beta.threads.messages > (model) file_path_annotation > (schema) > (property) type"
+    ]
+  },
   "(resource) beta.threads.messages > (model) file_citation_annotation > (schema) > (property) file_citation > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the specific File the citation is from.",
@@ -43869,7 +44585,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 
 ## event
 
-Occurs when an [error](https://developers.openai.com/docs/guides/error-codes#api-errors) occurs. This can happen due to an internal server error or a timeout.
+Occurs when an [error](https://platform.openai.com/docs/guides/error-codes#api-errors) occurs. This can happen due to an internal server error or a timeout.
 
 ### Schema
 
@@ -43879,7 +44595,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
 {
   "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 23": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantStreamEvent/oneOf/4",
+    "oasRef": "#/components/schemas/AssistantStreamEvent/anyOf/4",
     "ident": "ErrorEvent",
     "type": {
       "kind": "HttpTypeObject",
@@ -43892,7 +44608,7 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
         }
       ]
     },
-    "docstring": "Occurs when an [error](/docs/guides/error-codes#api-errors) occurs. This can happen due to an internal server error or a timeout.",
+    "docstring": "Occurs when an [error](https://platform.openai.com/docs/guides/error-codes#api-errors) occurs. This can happen due to an internal server error or a timeout.",
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 23 > (property) data",
@@ -44031,107 +44747,6 @@ Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (sch
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "error"
-    }
-  }
-}
-```
-
-### Example
-
-```json
-{}
-```
-
-## event
-
-Occurs when a stream ends.
-
-### Schema
-
-Schema name: `(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 24`
-
-```json
-{
-  "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 24": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/AssistantStreamEvent/oneOf/5",
-    "ident": "DoneEvent",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "data"
-        },
-        {
-          "ident": "event"
-        }
-      ]
-    },
-    "docstring": "Occurs when a stream ends.",
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 24 > (property) data",
-      "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 24 > (property) event"
-    ]
-  },
-  "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 24 > (property) data": {
-    "kind": "HttpDeclProperty",
-    "key": "data",
-    "optional": false,
-    "nullable": false,
-    "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "[DONE]"
-        }
-      ],
-      "oasRef": "#/components/schemas/DoneEvent/properties/data"
-    },
-    "oasRef": "#/components/schemas/DoneEvent/properties/data",
-    "deprecated": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 24 > (property) data > (member) 0"
-    ]
-  },
-  "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 24 > (property) event": {
-    "kind": "HttpDeclProperty",
-    "key": "event",
-    "optional": false,
-    "nullable": false,
-    "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "done"
-        }
-      ],
-      "oasRef": "#/components/schemas/DoneEvent/properties/event"
-    },
-    "oasRef": "#/components/schemas/DoneEvent/properties/event",
-    "deprecated": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 24 > (property) event > (member) 0"
-    ]
-  },
-  "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 24 > (property) data > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "[DONE]"
-    }
-  },
-  "(resource) beta.assistants > (model) assistant_stream_event > (schema) > (variant) 24 > (property) event > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "done"
     }
   }
 }

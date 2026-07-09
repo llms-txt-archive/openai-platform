@@ -94,9 +94,15 @@ for review from the [plugin submission portal](https://platform.openai.com/plugi
 
 In the plugin submission portal:
 
-1. Add your MCP server details (as well as OAuth credentials if OAuth is selected)
+1. Add your MCP server details (as well as OAuth credentials if OAuth is selected), and then select **Scan Tools**.
 2. Complete the required fields in the submission form and check all confirmation boxes. You will need to submit your app name, logo, description, company and privacy policy URLs, MCP and tool information, screenshots, test prompts and responses, and localization information.
-3. Click Submit for review. You will receive an email confirming submission with a Case ID which you can reference in any future support requests.
+3. Select **Submit for review**.
+
+### Metadata stored during tool scanning
+
+When you select **Scan Tools**, the dashboard imports metadata advertised by your MCP endpoint into the draft. This includes tool names, titles, and descriptions; input and output schemas; security schemes; `_meta` fields; [tool annotations](https://developers.openai.com/apps-sdk/reference#annotations); linked UI resource metadata, including CSP settings; and MCP server `instructions`. The dashboard displays the annotation values provided by your server.
+
+Your submission justifications should explain why those server-provided annotation values match each tool's behavior. They don't override the annotations. For example, if your server advertises `readOnlyHint: false`, describing the tool as “functionally read-only” in the justification doesn't make the tool read-only. If the tool is truly read-only, update its server annotation to `readOnlyHint: true`, deploy the change, select **Scan Tools** again, verify the updated value, and then submit.
 
 Each organization can publish multiple unique plugins that contain apps. For
 each MCP-backed app, only one version may be published at a time and only one
@@ -127,7 +133,7 @@ If your plugin is rejected or removed because of the app or MCP server, you will
 
 ### Getting help
 
-If you have questions before, during, or after submission, and if your question is not answered in the documentation, contact OpenAI support for further assistance. Ensure that you include your OpenAI case ID (which you'll receive via email after submission) to help us to assist you better.
+If you have questions before, during, or after submission, and if your question is not answered in the documentation, contact OpenAI support for further assistance. Include the app ID shown in the plugin submission portal so the support team can identify your app.
 
 ### Review and approval FAQs
 

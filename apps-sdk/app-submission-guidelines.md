@@ -150,7 +150,7 @@ In addition, apps may not be used to sell, promote, facilitate, or meaningfully 
 
 Apps should use external checkout, directing users to complete purchases on your own domain.
 
-[Instant Checkout](https://developers.openai.com/commerce/guides/get-started#instant-checkout), which is currently in beta, is currently available only to select marketplace partners and may expand to additional marketplaces and retailers over time.
+Instant Checkout, which is currently in beta, is currently available only to select marketplace partners and may expand to additional marketplaces and retailers over time.
 
 Until then, standard external checkout is the required approach. No other third-party checkout solutions may be embedded or hosted within the app experience. To learn more, see our [docs on Agentic Commerce](https://developers.openai.com/commerce/).
 
@@ -229,6 +229,10 @@ All submissions must come from verified individuals or organizations. Inside the
 ### Support contact details
 
 You must provide customer support contact details where end users can reach you for help. Keep this information accurate and up to date.
+
+## Skills
+
+You can add [skills](https://developers.openai.com/codex/submit-plugins#skills) to your plugin submission by uploading them. Uploaded skills are automatically scanned for policy compliance and security risks, including sensitive information, unnecessary access requests, and instructions that may conflict with safe or expected plugin behavior. Skills must follow the same standards as the rest of the plugin and may block submission or require remediation if they fail automated scanning.
 
 ## Submitting your app
 
