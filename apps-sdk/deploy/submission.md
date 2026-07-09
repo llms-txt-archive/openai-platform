@@ -203,23 +203,24 @@ Treat the metadata exposed by your MCP server as a versioned API contract for
 the app inside the plugin. When you scan the app's MCP endpoint in the plugin
 submission portal, OpenAI stores the discovered metadata with that draft
 version. Submitting the version sends that stored snapshot for review. The
-snapshot includes:
+published app uses this metadata snapshot while tool calls and UI resources
+continue to use your live MCP server.
 
-- The tool list, names, titles, and descriptions
-- Input and output schemas, annotations, and tool security schemes
-- Tool `_meta` fields, including UI resource references and visibility
-- Linked UI resource metadata, including content security policy (CSP) settings
-- MCP server `instructions` returned during initialization
+Use this table to determine how to ship each change:
 
-The snapshot does not freeze your MCP server. Tool calls continue to execute against your live endpoint, and your server continues to return live tool results and business data. UI resource contents and `_meta` returned in tool results also remain live; ChatGPT reads UI resource contents from the snapshotted URI at runtime.
+| Change                                                                                                                                                                                                   | Required action                                                                                                                                                              | When users see the change                                                                                   |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Tool list, names, titles, descriptions, input or output schemas, annotations, tool security schemes, tool `_meta` fields (including UI resource references and visibility), or MCP server `instructions` | Deploy the change, create or update a draft version, scan the endpoint, submit the version for review, and publish it after approval.                                        | After you publish the approved version. Until then, users continue to use the currently published snapshot. |
+| UI resource URI or linked resource metadata, including content security policy (CSP) settings                                                                                                            | Deploy the change, create or update a draft version, scan the endpoint, submit the version for review, and publish it after approval.                                        | After you publish the approved version.                                                                     |
+| Backward-compatible content update served from the same published UI resource URI                                                                                                                        | Deploy the content update. You don't need to scan, submit, or publish a new version if the URI and published contract remain compatible.                                     | After deployment. ChatGPT may continue serving cached resource contents for up to one hour.                 |
+| Server-only fix or change to live tool results, including result `_meta`, or business data                                                                                                               | Deploy the server change. You don't need to scan, submit, or publish a new version if the change preserves the published contract.                                           | Through your live endpoint after deployment.                                                                |
+| MCP server origin (`scheme`, `hostname`, or `port`)                                                                                                                                                      | To change the origin, create a new app, then complete its scan, submission, review, and publication flow. To change only the endpoint path, use the normal new-version flow. | After you publish the new app or approved version.                                                          |
 
-Deploying a server change does not update the published snapshot. To make new tools or changed metadata available to users, create or update a draft version, scan its MCP endpoint after deploying your changes, submit it for review, receive approval, and publish it. While the new version is in review, users continue to use the currently published snapshot against your live MCP server.
-
-Breaking changes to the app inside a published plugin are not currently
-supported. For example, removing or renaming a tool, making an input schema
-incompatible, or changing or removing the content served at a published UI
-resource URI can break the published version as soon as the server change
-deploys. Instead, make backward-compatible updates:
+Breaking changes to the app inside a published plugin aren't currently
+supported. Removing or renaming a tool, making a schema incompatible, or
+serving incompatible content at or removing content from a published UI
+resource URI can break the current version as soon as the server change
+deploys. Make backward-compatible updates instead:
 
 1. Add new tools, fields, or UI resources while continuing to honor the published contracts.
 2. Submit the updated metadata as a new version.
@@ -231,9 +232,10 @@ You can deploy server-only fixes without submitting a new version if they preser
 
 Once your app is published, its submitted information and reviewed metadata snapshot are locked for safety. To update either, create a new draft version of your existing app and resubmit that version for review (do not create a new app). Each resubmission starts a new review. When submitting changes, include a clear description of what changed in the release notes section of the form.
 
-The app's base MCP server URL cannot change between versions. To use a
-different base URL, submit a new plugin that contains the app with the new MCP
-server URL.
+The app's MCP server origin (`scheme`, `hostname`, or `port`) can't change
+between versions. To use a different origin, submit a new plugin that contains
+the app with the new MCP server origin. You can change the endpoint path in a
+new version of the existing app.
 
 We will review the updated app metadata again and inform you if the update was approved or rejected via email and in the [plugin submission portal](https://platform.openai.com/plugins). Similar to initial reviews, if rejected, you may update and resubmit or appeal the decision.
 

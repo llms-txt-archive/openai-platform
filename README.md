@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260709T191200Z` | 2026-07-09 19:12 UTC | [Apps Submission and Event Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260709T191200Z) |
+| `archive-20260709T210614Z` | 2026-07-09 21:06 UTC | [Apps SDK submission guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260709T210614Z) |
+| `archive-20260709T191200Z` | 2026-07-09 19:13 UTC | [Apps Submission and Event Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260709T191200Z) |
 | `archive-20260709T170442Z` | 2026-07-09 17:07 UTC | [GPT-5.6 guidance and event reference expansion](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260709T170442Z) |
 | `archive-20260708T214731Z` | 2026-07-08 21:48 UTC | [Private Link Guide Added](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260708T214731Z) |
 | `archive-20260708T045158Z` | 2026-07-08 04:52 UTC | [Bot and Security Guidance Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260708T045158Z) |
 | `archive-20260707T220010Z` | 2026-07-07 22:01 UTC | [Apps SDK submission guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260707T220010Z) |
-| `archive-20260706T224722Z` | 2026-07-06 22:48 UTC | [Agents guidance and Realtime 2.1 refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260706T224722Z) |
