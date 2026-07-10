@@ -105,7 +105,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Model selection](https://developers.openai.com/api/docs/guides/model-selection.md): Learn how to choose the right model by balancing accuracy, latency, and cost for optimal performance.
 - [Models and providers](https://developers.openai.com/api/docs/guides/agents/models.md): Learn how to choose models, set defaults, and think about providers and transport in the OpenAI Agents SDK.
 - [Moderation](https://developers.openai.com/api/docs/guides/moderation.md): Learn how to identify harmful content in text and images with OpenAI moderation models.
-- [Multi-agent](https://developers.openai.com/api/docs/guides/tools-multi-agent.md): Enable Responses API Multi-agent, handle client-side HTTP and WebSocket flows, and read Multi-agent output items.
+- [Multi-agent](https://developers.openai.com/api/docs/guides/responses-multi-agent.md): Enable Responses API Multi-agent, handle client-side HTTP and WebSocket flows, and read Multi-agent output items.
 - [Node reference](https://developers.openai.com/api/docs/guides/node-reference.md): Explore all available nodes for composing workflows in Agent Builder.
 - [OpenAI CLI](https://developers.openai.com/api/docs/libraries/openai-cli.md): Install and use the generated openai command-line tool for Responses, structured outputs, images, speech, and shell workflows.
 - [OpenAI models in Amazon Bedrock](https://developers.openai.com/api/docs/guides/amazon-bedrock.md): Learn how Amazon Bedrock availability differs from the OpenAI API, including supported capabilities, AWS-managed controls, and pricing considerations.

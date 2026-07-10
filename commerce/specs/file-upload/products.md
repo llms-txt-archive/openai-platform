@@ -4,20 +4,27 @@
     <div data-product-feed-version-fragment>
       <h2 id="feed-reference">Feed Reference</h2>
       <p>
-        To make your products discoverable inside ChatGPT, merchants provide a
-        structured product feed file that OpenAI ingests and indexes. This
-        specification defines the product schema for file uploads: field names,
-        data types, constraints, and example values needed for accurate
-        discovery, pricing, availability, and seller context.
+        This reference defines the shared flat-file schema that OpenAI ingests
+        and indexes. For a non-Ads product feed, follow the Required and
+        Optional labels on this page. Ads product feeds use the same base schema
+        plus the additional eligibility requirement in the 
+        <a href="/ads/product-feeds#use-the-correct-feed-schema">
+          Ads product feeds guide
+        </a>
+        {"."}
       </p>
       <p>
         Each table below groups fields by schema object and indicates whether a
-        field is Required or Optional, along with validation rules to help your
-        engineering team build and maintain a compliant upload file.
+        field is Required or Optional for a non-Ads feed, along with validation
+        rules to help your engineering team build and maintain a compliant
+        upload file.
       </p>
       <p>
         Supplying all required fields ensures your products can be displayed
-        correctly, while optional fields enrich relevance and user trust.
+        correctly. For Ads processing, also set 
+        <code>is_ads_eligible</code> to <code>true</code> on each product that
+        Ads should process.
       </p>
       </div>
+
   </div>

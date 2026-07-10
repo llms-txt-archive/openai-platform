@@ -42,9 +42,23 @@ The public Advertiser API does not provide endpoints to create a feed
   connection, list linked feeds, or upload a catalog file. This Ads catalog
   transfer uses SFTP; `POST /upload` is only for static ad creative assets.
 
-Keep the catalog current as products, prices, and availability change. Set the
-canonical `is_ads_eligible` field to `true` for products intended for
-advertising. The legacy `is_eligible_ads` alias is also accepted. Ads
+## Use the correct feed schema
+
+The [stable product feed specification](https://developers.openai.com/commerce/specs/file-upload/products)
+is the complete flat-file field reference. Its `Required` labels describe the
+non-Ads feed requirement set. Ads product feeds use the same base schema and
+add one per-product eligibility requirement.
+
+| Feed type            | Required schema                                                                                                                                                                                                       |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Non-Ads product feed | Include every field marked `Required` in the stable product feed specification. `is_ads_eligible` is optional; omit it or set it to `false` to keep the product out of Ads processing.                                |
+| Ads product feed     | Include every base field marked `Required`, and set `is_ads_eligible` to `true` for every product that Ads should process. The legacy `is_eligible_ads` alias is accepted, but use the canonical field for new feeds. |
+
+> **Important:** Use `is_ads_eligible`, not `is_ads_enabled`. Ads feed
+> ingestion reads `is_ads_eligible` and the legacy `is_eligible_ads` alias;
+> it does not read `is_ads_enabled`.
+
+Keep the catalog current as products, prices, and availability change. Ads
 eligibility is necessary, but it does not guarantee that a product will serve.
 
 ## Create a product-feed campaign

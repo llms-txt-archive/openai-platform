@@ -5,6 +5,10 @@ minimal back-and-forth, and use the
 [products spec](https://developers.openai.com/commerce/specs/file-upload/products) for full schema and field
 definitions.
 
+If you upload a product feed through Ads Manager, use the [Ads product feeds
+guide](https://developers.openai.com/ads/product-feeds#use-the-correct-feed-schema) for the additional Ads
+eligibility requirement before you upload.
+
 ## Feed model and delivery
 
 ### Supported feed type
