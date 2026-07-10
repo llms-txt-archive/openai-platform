@@ -95,7 +95,7 @@ for review from the [plugin submission portal](https://platform.openai.com/plugi
 In the plugin submission portal:
 
 1. Add your MCP server details (as well as OAuth credentials if OAuth is selected), and then select **Scan Tools**.
-2. Complete the required fields in the submission form and check all confirmation boxes. You will need to submit your app name, logo, description, company and privacy policy URLs, MCP and tool information, screenshots, test prompts and responses, and localization information.
+2. Complete the required fields in the submission form and check all confirmation boxes. You will need to submit your app name, logo, description, company and privacy policy URLs, MCP and tool information, test prompts and responses, and localization information. If your app has a UI, you may also submit optional screenshots. Don't submit screenshots for apps without a UI.
 3. Select **Submit for review**.
 
 ### Metadata stored during tool scanning

@@ -32,9 +32,9 @@ Apps must behave predictably and reliably. Results should be accurate and releva
 
 Before submission, apps must be thoroughly tested to ensure stability, responsiveness, and low latency across a wide range of scenarios. Apps should not crash, hang, or show inconsistent behavior. Apps should be complete and any app submitted as a trial or demo will not be accepted.
 
-### App name, description, and screenshots
+### App name, description, and optional screenshots
 
-App names and descriptions must be clear, accurate, and easy to understand. Avoid overly generic names—especially single-word dictionary terms that aren’t clearly tied to your brand—as they may be rejected. Screenshots must accurately represent your app's functionality and comply with the required dimensions.
+App names and descriptions must be clear, accurate, and easy to understand. Avoid overly generic names—especially single-word dictionary terms that aren’t clearly tied to your brand—as they may be rejected. Screenshots are optional for apps with a UI. Don't submit screenshots for apps without a UI. If you include screenshots, they must accurately represent your app's functionality and comply with the required dimensions.
 
 ### Tools
 
