@@ -717,7 +717,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Plugins](https://developers.openai.com/codex/plugins.md): Browse, install, and use plugins in ChatGPT and Codex clients
 
 ## Codex — Pricing
-- [Codex Pricing](https://developers.openai.com/codex/pricing.md): Codex is included in your ChatGPT Free, Go, Plus, Pro, Business, Edu, or Enterprise plan
+- [Pricing](https://developers.openai.com/codex/pricing.md): ChatGPT Work and Codex are included in your ChatGPT Free, Go, Plus, Pro, Business, Edu, or Enterprise plan
 
 ## Codex — Projects
 - [Projects, chats, and tasks](https://developers.openai.com/codex/projects.md): Keep related chats, tasks, files, and sources together in ChatGPT

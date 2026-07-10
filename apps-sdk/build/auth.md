@@ -142,10 +142,20 @@ Use [Client ID Metadata Documents (CIMD)](https://modelcontextprotocol.io/specif
 
 If you support CIMD, set `client_id_metadata_document_supported: true` in your authorization server metadata. This lets ChatGPT use one stable client identity for connectors that choose CIMD, which your authorization server can use for redirect URI allowlists, rate limits, and other policies.
 
-ChatGPT supports two token endpoint authentication methods for CIMD-backed clients:
+ChatGPT's production CIMD document advertises both supported client authentication methods using the [OpenID Connect RP Metadata Choices](https://openid.net/specs/openid-connect-rp-metadata-choices-1_0-final.html) client metadata field:
+
+```json
+{
+  "token_endpoint_auth_methods_supported": ["none", "private_key_jwt"]
+}
+```
+
+The same field name has different perspectives in the two documents: in authorization server metadata, it lists the methods your token endpoint accepts; in ChatGPT's CIMD document, it lists the methods ChatGPT can use. The `client_id` URL is stable and does not use query parameters to select a method-specific document. At runtime, ChatGPT compares both lists and prefers the stronger `private_key_jwt` method when your authorization server supports it; otherwise, it uses `none`.
+
+The supported methods are:
 
 - `none`: use this public-client flow when your token endpoint supports PKCE-based authorization-code exchange without client authentication. ChatGPT does not store a per-client secret.
-- `private_key_jwt`: use this signed client assertion flow when your token endpoint requires client authentication. ChatGPT publishes CIMD metadata with `token_endpoint_auth_method: "private_key_jwt"` and a public JWKS URL. The JWKS is served from `/oauth/jwks.json` on the metadata origin. ChatGPT signs token requests server-side with a managed private key and `kid`; your authorization server verifies the assertion against the public JWKS.
+- `private_key_jwt`: use this signed client assertion flow when your token endpoint requires client authentication. ChatGPT publishes a public JWKS URL in its CIMD metadata. The JWKS is served from `/oauth/jwks.json` on the metadata origin. ChatGPT signs token requests server-side with a managed private key and `kid`; your authorization server verifies the assertion against the public JWKS.
 
 DCR is still supported. If you include `registration_endpoint`, ChatGPT can register dynamically when the app creator chooses DCR or CIMD is not available. ChatGPT runs DCR once per app instance, then keeps and reuses the registered OAuth client for that instance. DCR can still create many registered clients across many separate app instances, so CIMD is usually easier to administer at scale.
 
