@@ -1,4 +1,4 @@
-# Submit and maintain an app in a plugin
+# Prepare and maintain an app for plugin submission
 
 Prepare an MCP-backed app for public review as part of a plugin.
 
@@ -9,25 +9,25 @@ Apps are now submitted and published as plugins. If your plugin contains an
   submission flow and <a href="/codex/build-app">Build an app</a> for how apps
   fit into plugins.
 
-## Submit an app as part of a plugin
+## Prepare an app for plugin submission
 
 Use this page for the app-specific requirements that apply when a plugin
 contains an MCP-backed app: organization verification, app management
 permissions, MCP server requirements, review snapshots, and version
 maintenance.
 
-When your app works in [Developer Mode](https://developers.openai.com/apps-sdk/deploy/testing), submit it for
-review as part of a plugin in the
+When your app works in [Developer Mode](https://developers.openai.com/apps-sdk/deploy/testing), submit the
+plugin that contains it for review in the
 [plugin submission portal](https://platform.openai.com/plugins). This page
 covers the app and MCP server requirements for that submission.
 
-Only submit if you intend for the plugin to be publicly available in the
+Only submit the plugin if you intend for it to be publicly available in the
 countries you define during submission. For apps you intend to use privately or
 only within your workspace, use
 [developer mode](https://platform.openai.com/docs/guides/developer-mode)
 instead.
 
-Before submitting, review the [Apps SDK review guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines)
+Before submitting the plugin, review the [app guidelines](https://developers.openai.com/apps-sdk/app-guidelines)
 for MCP server and app experience expectations, and see
 [Submit plugins](https://developers.openai.com/codex/submit-plugins) for the full plugin submission,
 approval, and publishing flow.
@@ -35,7 +35,7 @@ approval, and publishing flow.
 For the complete flow, including skills-only plugins, plugins that contain apps,
 review, approval, and publishing, see [Submit plugins](https://developers.openai.com/codex/submit-plugins).
 
-## Before you submit
+## Before you submit the plugin
 
 ### Organization verification
 
@@ -95,7 +95,7 @@ for review from the [plugin submission portal](https://platform.openai.com/plugi
 In the plugin submission portal:
 
 1. Add your MCP server details (as well as OAuth credentials if OAuth is selected), and then select **Scan Tools**.
-2. Complete the required fields in the submission form and check all confirmation boxes. You will need to submit your app name, logo, description, company and privacy policy URLs, MCP and tool information, test prompts and responses, and localization information. If your app has a UI, you may also submit optional screenshots. Don't submit screenshots for apps without a UI.
+2. Complete the required fields in the submission form and check all confirmation boxes. You will need to provide your app name, logo, description, company and privacy policy URLs, MCP and tool information, test prompts and responses, and localization information. If your app has a UI, you may also provide optional screenshots. Don't provide screenshots for apps without a UI.
 3. Select **Submit for review**.
 
 ### Metadata stored during tool scanning

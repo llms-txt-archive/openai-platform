@@ -463,8 +463,8 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 ## Ads — Supported Events
 - [Supported events](https://developers.openai.com/ads/supported-events.md): Supported conversion events & data shapes.
 
-## Apps SDK — App Submission Guidelines
-- [App submission guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines.md): Guidelines for submitting ChatGPT apps for publishing.
+## Apps SDK — App Guidelines
+- [App guidelines](https://developers.openai.com/apps-sdk/app-guidelines.md): Requirements for ChatGPT apps included in published plugins.
 
 ## Apps SDK — Build
 - [Authentication](https://developers.openai.com/apps-sdk/build/auth.md): Authentication patterns for Apps SDK apps.
@@ -483,7 +483,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 ## Apps SDK — Deploy
 - [Deploy your app](https://developers.openai.com/apps-sdk/deploy.md): Learn how to deploy your MCP server
 - [Connect from ChatGPT](https://developers.openai.com/apps-sdk/deploy/connect-chatgpt.md): Connect your app to ChatGPT clients.
-- [Submit and maintain an app in a plugin](https://developers.openai.com/apps-sdk/deploy/submission.md): Prepare an MCP-backed app for public review as part of a plugin.
+- [Prepare and maintain an app for plugin submission](https://developers.openai.com/apps-sdk/deploy/submission.md): Prepare an MCP-backed app for public review as part of a plugin.
 - [Test your integration](https://developers.openai.com/apps-sdk/deploy/testing.md): Testing strategies for Apps SDK apps.
 - [Troubleshooting](https://developers.openai.com/apps-sdk/deploy/troubleshooting.md): Troubleshoot issues in Apps SDK apps.
 

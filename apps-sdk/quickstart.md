@@ -612,7 +612,7 @@ Refresh the app after each change to the MCP server (tools, metadata, etc.)
 When you're preparing for public distribution, remember that apps are now
 submitted and published as plugins. Review
 [Submit plugins](https://developers.openai.com/codex/submit-plugins), the
-[Apps SDK review guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines), and
+[app guidelines](https://developers.openai.com/apps-sdk/app-guidelines), and
 [research your use case](https://developers.openai.com/apps-sdk/plan/use-case). If you're building a UI, you
 can also review the [design guidelines](https://developers.openai.com/apps-sdk/concepts/design-guidelines).
 

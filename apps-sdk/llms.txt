@@ -8,8 +8,8 @@ Use this as a lightweight map for AI tools. Each Apps SDK page has a Markdown tw
 - [Combined Apps SDK docs](https://developers.openai.com/apps-sdk/llms-full.txt): Single-file Markdown export of the Apps SDK preview docs.
 - [Apps SDK reference (Markdown)](https://developers.openai.com/apps-sdk/reference.md): Schema and API fields for tools, resources, and components.
 
-## App Submission Guidelines
-- [App submission guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines.md): Guidelines for submitting ChatGPT apps for publishing.
+## App Guidelines
+- [App guidelines](https://developers.openai.com/apps-sdk/app-guidelines.md): Requirements for ChatGPT apps included in published plugins.
 
 ## Build
 - [Authentication](https://developers.openai.com/apps-sdk/build/auth.md): Authentication patterns for Apps SDK apps.
@@ -28,7 +28,7 @@ Use this as a lightweight map for AI tools. Each Apps SDK page has a Markdown tw
 ## Deploy
 - [Deploy your app](https://developers.openai.com/apps-sdk/deploy.md): Learn how to deploy your MCP server
 - [Connect from ChatGPT](https://developers.openai.com/apps-sdk/deploy/connect-chatgpt.md): Connect your app to ChatGPT clients.
-- [Submit and maintain an app in a plugin](https://developers.openai.com/apps-sdk/deploy/submission.md): Prepare an MCP-backed app for public review as part of a plugin.
+- [Prepare and maintain an app for plugin submission](https://developers.openai.com/apps-sdk/deploy/submission.md): Prepare an MCP-backed app for public review as part of a plugin.
 - [Test your integration](https://developers.openai.com/apps-sdk/deploy/testing.md): Testing strategies for Apps SDK apps.
 - [Troubleshooting](https://developers.openai.com/apps-sdk/deploy/troubleshooting.md): Troubleshoot issues in Apps SDK apps.
 

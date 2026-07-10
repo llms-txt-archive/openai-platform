@@ -59,12 +59,12 @@ Highlight what is unique about your app inside ChatGPT:
 
 ## Checklist before publishing
 
-Answer these yes/no questions before you submit your app through the current review flow. A “no” signals an opportunity to improve your app before broader distribution.
+Answer these yes/no questions before you submit a plugin that contains your app through the current review flow. A “no” signals an opportunity to improve your app before broader distribution.
 
 However, please note that we will evaluate each app on a case-by-case basis, and that answering "yes" to all of these questions does not guarantee that your app will be selected for distribution: it's only a baseline to help your app be a great fit for ChatGPT.
 
-To learn about strict requirements for publishing your app, see the [App
-  Submission Guidelines](https://developers.openai.com/apps-sdk/app-submission-guidelines).
+To learn about strict requirements for publishing a plugin that contains your
+  app, see the [app guidelines](https://developers.openai.com/apps-sdk/app-guidelines).
 
 - **Conversational value** – Does at least one primary capability rely on ChatGPT’s strengths (natural language, conversation context, multi-turn dialog)?
 - **Beyond base ChatGPT** – Does the app provide new knowledge, actions, or presentation that users cannot achieve without it (e.g., proprietary data, specialized UI, or a guided flow)?

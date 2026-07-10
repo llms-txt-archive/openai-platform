@@ -611,9 +611,10 @@ Caution: Using `frameDomains` is discouraged and should only be done when embedd
 ### Widget domains
 
 Set `_meta.ui.domain` on the widget resource template (the `registerAppResource`
-template). This is required for app submission and must be unique per app.
-ChatGPT renders the widget under `<domain>.web-sandbox.oaiusercontent.com`, which
-also enables the fullscreen punch-out button.
+template). This is required when submitting a plugin that contains the app and
+must be unique per app. ChatGPT renders the widget under
+`<domain>.web-sandbox.oaiusercontent.com`, which also enables the fullscreen
+punch-out button.
 
 ```json
 "_meta": {

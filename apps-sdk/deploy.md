@@ -78,4 +78,4 @@ When you are ready for production, update metadata, confirm auth and storage are
 
 - Validate tooling and telemetry with the [Test your integration](https://developers.openai.com/apps-sdk/deploy/testing) guide.
 - Keep a troubleshooting playbook handy via [Troubleshooting](https://developers.openai.com/apps-sdk/deploy/troubleshooting) so on-call responders can quickly diagnose issues.
-- Submit a plugin that contains your app through the plugin submission flow. Learn more in the [Submit and maintain an app in a plugin](https://developers.openai.com/apps-sdk/deploy/submission) guide and the canonical [Submit plugins](https://developers.openai.com/codex/submit-plugins) guide.
+- Submit a plugin that contains your app through the plugin submission flow. Learn more in the [Prepare and maintain an app for plugin submission](https://developers.openai.com/apps-sdk/deploy/submission) guide and the canonical [Submit plugins](https://developers.openai.com/codex/submit-plugins) guide.
