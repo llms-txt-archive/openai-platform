@@ -1,4 +1,4 @@
-# App submission guidelines
+# App guidelines
 
 Apps are now submitted and published as plugins. These guidelines cover the
   app and MCP server portion of a plugin. For the plugin submission flow,
@@ -16,7 +16,7 @@ Before getting into specifics, we recommend first familiarizing yourself with tw
 
 You should also read our blog post on [what makes a great ChatGPT app](https://developers.openai.com/blog/what-makes-a-great-chatgpt-app/) to get a sense of the overall approach to building with the Apps SDK.
 
-The guidelines below outline the minimum standard developers must meet for their app to be considered for publication in ChatGPT, and for their app to remain published and available to ChatGPT users. Apps that demonstrate strong real-world utility and high user satisfaction may be eligible for enhanced distribution opportunities—such as directory placement or proactive suggestions.
+The guidelines below outline the minimum standard an app must meet to be included in a published plugin and remain available to ChatGPT users. Apps that demonstrate strong real-world utility and high user satisfaction may make their plugins eligible for enhanced distribution opportunities—such as directory placement or proactive suggestions.
 
 ## App fundamentals
 
@@ -30,7 +30,7 @@ Only use intellectual property that you own or have permission to use. Do not en
 
 Apps must behave predictably and reliably. Results should be accurate and relevant to user input. Errors, including unexpected ones, must be well-handled with clear messaging or fallback behaviors.
 
-Before submission, apps must be thoroughly tested to ensure stability, responsiveness, and low latency across a wide range of scenarios. Apps should not crash, hang, or show inconsistent behavior. Apps should be complete and any app submitted as a trial or demo will not be accepted.
+Before submitting a plugin, thoroughly test every app it contains to ensure stability, responsiveness, and low latency across a wide range of scenarios. Apps should not crash, hang, or show inconsistent behavior. Apps should be complete; trial or demo apps will not be accepted.
 
 ### App name, description, and optional screenshots
 
@@ -64,7 +64,7 @@ Each tool must include a description that explains its purpose clearly and accur
 - You should label a tool with the `readOnlyHint` annotation if it only retrieves or lists data, but does not change anything outside of ChatGPT.
 - Write or destructive tools (e.g., creating, updating, deleting, posting, sending) must be clearly marked using the `readOnlyHint` and `destructiveHint`.
 - Tools that interact with external systems, accounts, public platforms, or create publicly-visible content must be explicitly labeled using the `openWorldHint` annotation.
-- Incorrect or missing action labels are a common cause of rejection. Double-check to ensure that the `readOnlyHint`, `openWorldHint`, and `destructiveHint` annotations are correctly set and provide a detailed justification for each at submission time.
+- Incorrect or missing action labels are a common cause of rejection. Double-check that the `readOnlyHint`, `openWorldHint`, and `destructiveHint` annotations are correctly set, and provide a detailed justification for each when submitting the plugin.
 
 #### Minimal and purpose-driven inputs
 
@@ -90,7 +90,7 @@ If your app requires authentication, the flow must be transparent and explicit. 
 
 #### Test credentials
 
-When submitting an authenticated app for review, you must provide a login and password for a fully-featured demo account that includes sample data. Apps requiring any additional steps for login—such as requiring new account sign-up or 2FA through an inaccessible account—will be rejected.
+When submitting a plugin that contains an authenticated app, you must provide a login and password for a fully featured demo account that includes sample data. Apps requiring any additional steps for login—such as requiring new account sign-up or 2FA through an inaccessible account—will be rejected.
 
 ## Commerce and monetization
 
@@ -198,7 +198,7 @@ without this pattern. If you choose to use `frameDomains`, be aware that:
 
 ### Privacy policy
 
-Submissions must include a clear, published privacy policy explaining - at minimum - the categories of personal data collected, the purposes of use, the categories of recipients, data retention timelines, and any controls offered to your users. Follow this policy at all times. Users can review your privacy policy before installing your app.
+Plugin submissions must include a clear, published privacy policy explaining, at minimum, the categories of personal data collected, the purposes of use, the categories of recipients, data retention timelines, and any controls offered to your users. Follow this policy at all times. Users can review your privacy policy before installing the plugin.
 
 ### Data collection
 
@@ -224,20 +224,8 @@ Submissions must include a clear, published privacy policy explaining - at minim
 
 ### Verification
 
-All submissions must come from verified individuals or organizations. Inside the [OpenAI Platform Dashboard general settings](https://platform.openai.com/settings/organization/general), we provide a way to confirm your identity and affiliation with any business you wish to publish on behalf of. Misrepresentation, hidden behavior, or attempts to game the system may result in removal from the program.
+All plugin submissions must come from verified individuals or organizations. Inside the [OpenAI Platform Dashboard general settings](https://platform.openai.com/settings/organization/general), we provide a way to confirm your identity and affiliation with any business you wish to publish on behalf of. Misrepresentation, hidden behavior, or attempts to game the system may result in removal from the program.
 
 ### Support contact details
 
 You must provide customer support contact details where end users can reach you for help. Keep this information accurate and up to date.
-
-## Skills
-
-You can add [skills](https://developers.openai.com/codex/submit-plugins#skills) to your plugin submission by uploading them. Uploaded skills are automatically scanned for policy compliance and security risks, including sensitive information, unnecessary access requests, and instructions that may conflict with safe or expected plugin behavior. Skills must follow the same standards as the rest of the plugin and may block submission or require remediation if they fail automated scanning.
-
-## Submitting your app
-
-Users with the Owner role or the `api.apps.write` permission can create plugin drafts that contain apps and submit them from the [plugin submission portal](https://platform.openai.com/plugins). Users with `api.apps.read` can view drafts and review status in the Dashboard.
-
-While you can publish multiple unique plugins within a single Platform organization, each may only have one version in review at a time. You can review the status of the review within the Dashboard and will receive an email notification informing you of any status changes.
-
-To learn more about the plugin submission process, see [Submit plugins](https://developers.openai.com/codex/submit-plugins).
