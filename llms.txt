@@ -639,7 +639,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Record & Replay](https://developers.openai.com/codex/extend/record-and-replay.md): Show Codex a workflow once and turn it into a reusable skill
 
 ## Codex — Feature Maturity
-- [Feature Maturity](https://developers.openai.com/codex/feature-maturity.md): How to interpret feature maturity levels in Codex docs and releases
+- [Feature Maturity](https://developers.openai.com/codex/feature-maturity.md): How to interpret feature maturity levels in ChatGPT releases
 
 ## Codex — Features
 - [Features](https://developers.openai.com/codex/features.md): Explore workflows, capabilities, commands, and settings in ChatGPT
