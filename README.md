@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260714T213945Z` | 2026-07-14 21:39 UTC | [Multi-agent output and apply-patch guide fixes](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260714T213945Z) |
 | `archive-20260714T184602Z` | 2026-07-14 18:46 UTC | [GPT-5.6 Deployment Guidance Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260714T184602Z) |
 | `archive-20260714T164950Z` | 2026-07-14 16:50 UTC | [Reasoning Guide Model Recommendation Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260714T164950Z) |
 | `archive-20260713T213641Z` | 2026-07-13 21:37 UTC | [Amazon Bedrock guide refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260713T213641Z) |
 | `archive-20260713T153352Z` | 2026-07-13 15:34 UTC | [Webhook Reference Removal and ChatGPT Terminology Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260713T153352Z) |
 | `archive-20260712T074838Z` | 2026-07-12 07:50 UTC | [Responses and Realtime Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260712T074838Z) |
-| `archive-20260711T072627Z` | 2026-07-11 07:27 UTC | [Plugin Guidelines Reshaped and Reasoning Advice Updated](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260711T072627Z) |
