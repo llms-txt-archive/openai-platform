@@ -619,6 +619,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [ChatGPT usage limits and spend controls](https://developers.openai.com/codex/enterprise/usage-limits.md): Understand when ChatGPT workspace credit controls can affect plan-dependent Codex usage
 - [ChatGPT Work Admin FAQ](https://developers.openai.com/codex/enterprise/work-admin-faq.md): Manage access, data, governance, observability, usage, and incident controls for ChatGPT Work
 - [Compliance API and audit events](https://developers.openai.com/codex/enterprise/compliance-api.md): Understand the purpose and administration boundary of the Compliance API
+- [Deploy the Windows app](https://developers.openai.com/codex/enterprise/windows-deployment.md): Choose an enterprise installation and update path for the ChatGPT desktop app on Windows
 - [Governance](https://developers.openai.com/codex/enterprise/governance.md): Choose the appropriate analytics, usage, and audit surface for each administration question
 - [Groups and provisioning](https://developers.openai.com/codex/enterprise/groups-and-provisioning.md): Understand group membership sources and their workspace access boundary
 - [Managed configuration](https://developers.openai.com/codex/enterprise/managed-configuration.md): Enforce runtime requirements across supported local clients and distribute managed defaults
