@@ -12231,7 +12231,7 @@ Schema name: `BetaResponseCreatedEvent`
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -21860,7 +21860,7 @@ Schema name: `BetaResponseCreatedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 15 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -32537,11 +32537,11 @@ Schema name: `BetaResponseCreatedEvent`
     "optional": true,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+      "kind": "HttpTypeArray",
+      "elementType": {
+        "kind": "HttpTypeUnion",
+        "types": [
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -32558,11 +32558,7 @@ Schema name: `BetaResponseCreatedEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -32582,11 +32578,7 @@ Schema name: `BetaResponseCreatedEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -32608,20 +32600,20 @@ Schema name: `BetaResponseCreatedEvent`
                 "ident": "type"
               }
             ]
-          },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
-        }
-      ],
+          }
+        ],
+        "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items"
+      },
       "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations"
     },
     "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations",
     "deprecated": false,
-    "schemaType": "union",
+    "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) type > (member) 0": {
@@ -43781,115 +43773,103 @@ Schema name: `BetaResponseCreatedEvent`
       "literal": "output_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/0",
+    "ident": "FileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1",
-    "ident": "UnionMember1",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/1",
+    "ident": "URLCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "title"
-          },
-          {
-            "ident": "type"
-          },
-          {
-            "ident": "url"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "title"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "url"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2",
-    "ident": "UnionMember2",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/2",
+    "ident": "ContainerFileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "container_id"
-          },
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "container_id"
+        },
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) name": {
@@ -52868,7 +52848,7 @@ Schema name: `BetaResponseCreatedEvent`
       "literal": "encrypted_content"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the file.",
     "key": "file_id",
@@ -52885,7 +52865,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the file cited.",
     "key": "filename",
@@ -52899,7 +52879,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the file in the list of files.",
     "key": "index",
@@ -52916,7 +52896,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `file_citation`.",
     "key": "type",
@@ -52938,10 +52918,10 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -52958,7 +52938,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -52975,7 +52955,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title": {
     "kind": "HttpDeclProperty",
     "docstring": "The title of the cited resource.",
     "key": "title",
@@ -52989,7 +52969,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `url_citation`.",
     "key": "type",
@@ -53011,10 +52991,10 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url": {
     "kind": "HttpDeclProperty",
     "docstring": "The URL of the cited resource.",
     "key": "url",
@@ -53031,7 +53011,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container.",
     "key": "container_id",
@@ -53048,7 +53028,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -53065,7 +53045,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container file.",
     "key": "file_id",
@@ -53082,7 +53062,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the container file cited.",
     "key": "filename",
@@ -53096,7 +53076,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -53113,7 +53093,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `container_file_citation`.",
     "key": "type",
@@ -53135,7 +53115,7 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) type > (member) 0": {
@@ -58048,21 +58028,21 @@ Schema name: `BetaResponseCreatedEvent`
       "literal": "explicit"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "file_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "url_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -75668,7 +75648,7 @@ Schema name: `BetaResponseInProgressEvent`
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -85297,7 +85277,7 @@ Schema name: `BetaResponseInProgressEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 15 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -95974,11 +95954,11 @@ Schema name: `BetaResponseInProgressEvent`
     "optional": true,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+      "kind": "HttpTypeArray",
+      "elementType": {
+        "kind": "HttpTypeUnion",
+        "types": [
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -95995,11 +95975,7 @@ Schema name: `BetaResponseInProgressEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -96019,11 +95995,7 @@ Schema name: `BetaResponseInProgressEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -96045,20 +96017,20 @@ Schema name: `BetaResponseInProgressEvent`
                 "ident": "type"
               }
             ]
-          },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
-        }
-      ],
+          }
+        ],
+        "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items"
+      },
       "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations"
     },
     "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations",
     "deprecated": false,
-    "schemaType": "union",
+    "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) type > (member) 0": {
@@ -107218,115 +107190,103 @@ Schema name: `BetaResponseInProgressEvent`
       "literal": "output_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/0",
+    "ident": "FileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1",
-    "ident": "UnionMember1",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/1",
+    "ident": "URLCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "title"
-          },
-          {
-            "ident": "type"
-          },
-          {
-            "ident": "url"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "title"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "url"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2",
-    "ident": "UnionMember2",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/2",
+    "ident": "ContainerFileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "container_id"
-          },
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "container_id"
+        },
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) name": {
@@ -116305,7 +116265,7 @@ Schema name: `BetaResponseInProgressEvent`
       "literal": "encrypted_content"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the file.",
     "key": "file_id",
@@ -116322,7 +116282,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the file cited.",
     "key": "filename",
@@ -116336,7 +116296,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the file in the list of files.",
     "key": "index",
@@ -116353,7 +116313,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `file_citation`.",
     "key": "type",
@@ -116375,10 +116335,10 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -116395,7 +116355,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -116412,7 +116372,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title": {
     "kind": "HttpDeclProperty",
     "docstring": "The title of the cited resource.",
     "key": "title",
@@ -116426,7 +116386,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `url_citation`.",
     "key": "type",
@@ -116448,10 +116408,10 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url": {
     "kind": "HttpDeclProperty",
     "docstring": "The URL of the cited resource.",
     "key": "url",
@@ -116468,7 +116428,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container.",
     "key": "container_id",
@@ -116485,7 +116445,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -116502,7 +116462,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container file.",
     "key": "file_id",
@@ -116519,7 +116479,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the container file cited.",
     "key": "filename",
@@ -116533,7 +116493,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -116550,7 +116510,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `container_file_citation`.",
     "key": "type",
@@ -116572,7 +116532,7 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) type > (member) 0": {
@@ -121485,21 +121445,21 @@ Schema name: `BetaResponseInProgressEvent`
       "literal": "explicit"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "file_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "url_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -139105,7 +139065,7 @@ Schema name: `BetaResponseCompletedEvent`
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -148734,7 +148694,7 @@ Schema name: `BetaResponseCompletedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 15 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -159411,11 +159371,11 @@ Schema name: `BetaResponseCompletedEvent`
     "optional": true,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+      "kind": "HttpTypeArray",
+      "elementType": {
+        "kind": "HttpTypeUnion",
+        "types": [
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -159432,11 +159392,7 @@ Schema name: `BetaResponseCompletedEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -159456,11 +159412,7 @@ Schema name: `BetaResponseCompletedEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -159482,20 +159434,20 @@ Schema name: `BetaResponseCompletedEvent`
                 "ident": "type"
               }
             ]
-          },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
-        }
-      ],
+          }
+        ],
+        "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items"
+      },
       "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations"
     },
     "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations",
     "deprecated": false,
-    "schemaType": "union",
+    "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) type > (member) 0": {
@@ -170655,115 +170607,103 @@ Schema name: `BetaResponseCompletedEvent`
       "literal": "output_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/0",
+    "ident": "FileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1",
-    "ident": "UnionMember1",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/1",
+    "ident": "URLCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "title"
-          },
-          {
-            "ident": "type"
-          },
-          {
-            "ident": "url"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "title"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "url"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2",
-    "ident": "UnionMember2",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/2",
+    "ident": "ContainerFileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "container_id"
-          },
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "container_id"
+        },
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) name": {
@@ -179742,7 +179682,7 @@ Schema name: `BetaResponseCompletedEvent`
       "literal": "encrypted_content"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the file.",
     "key": "file_id",
@@ -179759,7 +179699,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the file cited.",
     "key": "filename",
@@ -179773,7 +179713,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the file in the list of files.",
     "key": "index",
@@ -179790,7 +179730,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `file_citation`.",
     "key": "type",
@@ -179812,10 +179752,10 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -179832,7 +179772,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -179849,7 +179789,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title": {
     "kind": "HttpDeclProperty",
     "docstring": "The title of the cited resource.",
     "key": "title",
@@ -179863,7 +179803,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `url_citation`.",
     "key": "type",
@@ -179885,10 +179825,10 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url": {
     "kind": "HttpDeclProperty",
     "docstring": "The URL of the cited resource.",
     "key": "url",
@@ -179905,7 +179845,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container.",
     "key": "container_id",
@@ -179922,7 +179862,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -179939,7 +179879,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container file.",
     "key": "file_id",
@@ -179956,7 +179896,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the container file cited.",
     "key": "filename",
@@ -179970,7 +179910,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -179987,7 +179927,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `container_file_citation`.",
     "key": "type",
@@ -180009,7 +179949,7 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) type > (member) 0": {
@@ -184922,21 +184862,21 @@ Schema name: `BetaResponseCompletedEvent`
       "literal": "explicit"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "file_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "url_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -202559,7 +202499,7 @@ Schema name: `BetaResponseFailedEvent`
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -212188,7 +212128,7 @@ Schema name: `BetaResponseFailedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 15 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -222865,11 +222805,11 @@ Schema name: `BetaResponseFailedEvent`
     "optional": true,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+      "kind": "HttpTypeArray",
+      "elementType": {
+        "kind": "HttpTypeUnion",
+        "types": [
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -222886,11 +222826,7 @@ Schema name: `BetaResponseFailedEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -222910,11 +222846,7 @@ Schema name: `BetaResponseFailedEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -222936,20 +222868,20 @@ Schema name: `BetaResponseFailedEvent`
                 "ident": "type"
               }
             ]
-          },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
-        }
-      ],
+          }
+        ],
+        "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items"
+      },
       "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations"
     },
     "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations",
     "deprecated": false,
-    "schemaType": "union",
+    "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) type > (member) 0": {
@@ -234109,115 +234041,103 @@ Schema name: `BetaResponseFailedEvent`
       "literal": "output_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/0",
+    "ident": "FileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1",
-    "ident": "UnionMember1",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/1",
+    "ident": "URLCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "title"
-          },
-          {
-            "ident": "type"
-          },
-          {
-            "ident": "url"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "title"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "url"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2",
-    "ident": "UnionMember2",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/2",
+    "ident": "ContainerFileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "container_id"
-          },
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "container_id"
+        },
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) name": {
@@ -243196,7 +243116,7 @@ Schema name: `BetaResponseFailedEvent`
       "literal": "encrypted_content"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the file.",
     "key": "file_id",
@@ -243213,7 +243133,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the file cited.",
     "key": "filename",
@@ -243227,7 +243147,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the file in the list of files.",
     "key": "index",
@@ -243244,7 +243164,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `file_citation`.",
     "key": "type",
@@ -243266,10 +243186,10 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -243286,7 +243206,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -243303,7 +243223,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title": {
     "kind": "HttpDeclProperty",
     "docstring": "The title of the cited resource.",
     "key": "title",
@@ -243317,7 +243237,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `url_citation`.",
     "key": "type",
@@ -243339,10 +243259,10 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url": {
     "kind": "HttpDeclProperty",
     "docstring": "The URL of the cited resource.",
     "key": "url",
@@ -243359,7 +243279,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container.",
     "key": "container_id",
@@ -243376,7 +243296,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -243393,7 +243313,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container file.",
     "key": "file_id",
@@ -243410,7 +243330,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the container file cited.",
     "key": "filename",
@@ -243424,7 +243344,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -243441,7 +243361,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `container_file_citation`.",
     "key": "type",
@@ -243463,7 +243383,7 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) type > (member) 0": {
@@ -248376,21 +248296,21 @@ Schema name: `BetaResponseFailedEvent`
       "literal": "explicit"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "file_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "url_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -265994,7 +265914,7 @@ Schema name: `BetaResponseIncompleteEvent`
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -275623,7 +275543,7 @@ Schema name: `BetaResponseIncompleteEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 15 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -286300,11 +286220,11 @@ Schema name: `BetaResponseIncompleteEvent`
     "optional": true,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+      "kind": "HttpTypeArray",
+      "elementType": {
+        "kind": "HttpTypeUnion",
+        "types": [
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -286321,11 +286241,7 @@ Schema name: `BetaResponseIncompleteEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -286345,11 +286261,7 @@ Schema name: `BetaResponseIncompleteEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -286371,20 +286283,20 @@ Schema name: `BetaResponseIncompleteEvent`
                 "ident": "type"
               }
             ]
-          },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
-        }
-      ],
+          }
+        ],
+        "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items"
+      },
       "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations"
     },
     "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations",
     "deprecated": false,
-    "schemaType": "union",
+    "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) type > (member) 0": {
@@ -297544,115 +297456,103 @@ Schema name: `BetaResponseIncompleteEvent`
       "literal": "output_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/0",
+    "ident": "FileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1",
-    "ident": "UnionMember1",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/1",
+    "ident": "URLCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "title"
-          },
-          {
-            "ident": "type"
-          },
-          {
-            "ident": "url"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "title"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "url"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2",
-    "ident": "UnionMember2",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/2",
+    "ident": "ContainerFileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "container_id"
-          },
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "container_id"
+        },
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) name": {
@@ -306631,7 +306531,7 @@ Schema name: `BetaResponseIncompleteEvent`
       "literal": "encrypted_content"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the file.",
     "key": "file_id",
@@ -306648,7 +306548,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the file cited.",
     "key": "filename",
@@ -306662,7 +306562,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the file in the list of files.",
     "key": "index",
@@ -306679,7 +306579,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `file_citation`.",
     "key": "type",
@@ -306701,10 +306601,10 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -306721,7 +306621,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -306738,7 +306638,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title": {
     "kind": "HttpDeclProperty",
     "docstring": "The title of the cited resource.",
     "key": "title",
@@ -306752,7 +306652,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `url_citation`.",
     "key": "type",
@@ -306774,10 +306674,10 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url": {
     "kind": "HttpDeclProperty",
     "docstring": "The URL of the cited resource.",
     "key": "url",
@@ -306794,7 +306694,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container.",
     "key": "container_id",
@@ -306811,7 +306711,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -306828,7 +306728,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container file.",
     "key": "file_id",
@@ -306845,7 +306745,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the container file cited.",
     "key": "filename",
@@ -306859,7 +306759,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -306876,7 +306776,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `container_file_citation`.",
     "key": "type",
@@ -306898,7 +306798,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) type > (member) 0": {
@@ -311811,21 +311711,21 @@ Schema name: `BetaResponseIncompleteEvent`
       "literal": "explicit"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "file_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "url_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -321439,7 +321339,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -348558,7 +348458,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -393078,7 +392978,7 @@ Schema name: `BetaResponseQueuedEvent`
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -402707,7 +402607,7 @@ Schema name: `BetaResponseQueuedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 15 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -413384,11 +413284,11 @@ Schema name: `BetaResponseQueuedEvent`
     "optional": true,
     "nullable": false,
     "type": {
-      "kind": "HttpTypeUnion",
-      "types": [
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+      "kind": "HttpTypeArray",
+      "elementType": {
+        "kind": "HttpTypeUnion",
+        "types": [
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -413405,11 +413305,7 @@ Schema name: `BetaResponseQueuedEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -413429,11 +413325,7 @@ Schema name: `BetaResponseQueuedEvent`
               }
             ]
           },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
-        },
-        {
-          "kind": "HttpTypeArray",
-          "elementType": {
+          {
             "kind": "HttpTypeObject",
             "members": [
               {
@@ -413455,20 +413347,20 @@ Schema name: `BetaResponseQueuedEvent`
                 "ident": "type"
               }
             ]
-          },
-          "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
-        }
-      ],
+          }
+        ],
+        "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items"
+      },
       "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations"
     },
     "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations",
     "deprecated": false,
-    "schemaType": "union",
+    "schemaType": "array",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) type > (member) 0": {
@@ -424628,115 +424520,103 @@ Schema name: `BetaResponseQueuedEvent`
       "literal": "output_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0",
-    "ident": "UnionMember0",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/0",
+    "ident": "FileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/0"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1",
-    "ident": "UnionMember1",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/1",
+    "ident": "URLCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "title"
-          },
-          {
-            "ident": "type"
-          },
-          {
-            "ident": "url"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/1"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "title"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "url"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2",
-    "ident": "UnionMember2",
+    "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/items/oneOf/2",
+    "ident": "ContainerFileCitation",
     "type": {
-      "kind": "HttpTypeArray",
-      "elementType": {
-        "kind": "HttpTypeObject",
-        "members": [
-          {
-            "ident": "container_id"
-          },
-          {
-            "ident": "end_index"
-          },
-          {
-            "ident": "file_id"
-          },
-          {
-            "ident": "filename"
-          },
-          {
-            "ident": "start_index"
-          },
-          {
-            "ident": "type"
-          }
-        ]
-      },
-      "oasRef": "#/components/schemas/BetaOutputTextContentParam/properties/annotations/oneOf/2"
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "container_id"
+        },
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) name": {
@@ -433715,7 +433595,7 @@ Schema name: `BetaResponseQueuedEvent`
       "literal": "encrypted_content"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the file.",
     "key": "file_id",
@@ -433732,7 +433612,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the file cited.",
     "key": "filename",
@@ -433746,7 +433626,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the file in the list of files.",
     "key": "index",
@@ -433763,7 +433643,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `file_citation`.",
     "key": "type",
@@ -433785,10 +433665,10 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -433805,7 +433685,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -433822,7 +433702,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) title": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) title": {
     "kind": "HttpDeclProperty",
     "docstring": "The title of the cited resource.",
     "key": "title",
@@ -433836,7 +433716,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `url_citation`.",
     "key": "type",
@@ -433858,10 +433738,10 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) url": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) url": {
     "kind": "HttpDeclProperty",
     "docstring": "The URL of the cited resource.",
     "key": "url",
@@ -433878,7 +433758,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) container_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) container_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container.",
     "key": "container_id",
@@ -433895,7 +433775,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) end_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) end_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the last character of the citation in the message.",
     "key": "end_index",
@@ -433912,7 +433792,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) file_id": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) file_id": {
     "kind": "HttpDeclProperty",
     "docstring": "The ID of the container file.",
     "key": "file_id",
@@ -433929,7 +433809,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) filename": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) filename": {
     "kind": "HttpDeclProperty",
     "docstring": "The filename of the container file cited.",
     "key": "filename",
@@ -433943,7 +433823,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) start_index": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) start_index": {
     "kind": "HttpDeclProperty",
     "docstring": "The index of the first character of the citation in the message.",
     "key": "start_index",
@@ -433960,7 +433840,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "docstring": "The citation type. Always `container_file_citation`.",
     "key": "type",
@@ -433982,7 +433862,7 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0 > (property) type > (member) 0": {
@@ -438895,21 +438775,21 @@ Schema name: `BetaResponseQueuedEvent`
       "literal": "explicit"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 0 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "file_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 1 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "url_citation"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (variant) 2 > (items) > (property) type > (member) 0": {
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) output > (items) > (property) annotations > (items) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",

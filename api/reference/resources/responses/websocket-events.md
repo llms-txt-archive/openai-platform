@@ -12272,7 +12272,7 @@ Schema name: `ResponsesClientEventResponseCreate`
   },
   "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 12 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -44682,7 +44682,7 @@ Schema name: `ResponseCreatedEvent`
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -53170,7 +53170,7 @@ Schema name: `ResponseCreatedEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 12 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -98155,7 +98155,7 @@ Schema name: `ResponseInProgressEvent`
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -106643,7 +106643,7 @@ Schema name: `ResponseInProgressEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 12 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -151628,7 +151628,7 @@ Schema name: `ResponseCompletedEvent`
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -160116,7 +160116,7 @@ Schema name: `ResponseCompletedEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 12 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -205118,7 +205118,7 @@ Schema name: `ResponseFailedEvent`
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -213606,7 +213606,7 @@ Schema name: `ResponseFailedEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 12 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -258589,7 +258589,7 @@ Schema name: `ResponseIncompleteEvent`
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -267077,7 +267077,7 @@ Schema name: `ResponseIncompleteEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 12 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -304575,7 +304575,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -327619,7 +327619,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -366039,7 +366039,7 @@ Schema name: `ResponseQueuedEvent`
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
@@ -374527,7 +374527,7 @@ Schema name: `ResponseQueuedEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 12 > (property) encrypted_content": {
     "kind": "HttpDeclProperty",
-    "docstring": "The encrypted content of the reasoning item - populated when a response is\ngenerated with `reasoning.encrypted_content` in the `include` parameter.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
     "key": "encrypted_content",
     "optional": true,
     "nullable": true,
