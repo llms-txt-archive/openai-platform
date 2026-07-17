@@ -16,12 +16,13 @@ curl -X POST "https://bzr.openai.com/v1/events?pid=<PIXEL-ID>" \
   }'
 ```
 
-You can provision a Pixel ID and Conversions API key from the conversions tab on your Ads Manager account.
-| Value | Required | Description |
+You can provision a Pixel ID and Conversions API key from the conversions tab in Ads Manager. Approved API partners can use the Ads API key associated with a client account to provision both resources with the [conversion setup endpoints](https://developers.openai.com/ads/api-reference/conversion-setup).
+
+| Value           | Required | Description                                       |
 | --------------- | -------- | ------------------------------------------------- |
-| `pid` | Yes | Your Pixel ID. |
-| `validate_only` | No | Validates events without saving them when `true`. |
-| `events` | Yes | The events to send. |
+| `pid`           | Yes      | Your Pixel ID.                                    |
+| `validate_only` | No       | Validates events without saving them when `true`. |
+| `events`        | Yes      | The events to send.                               |
 
 The API accepts batches of up to 1,000 events. If one event in the batch fails,
 the full batch fails.

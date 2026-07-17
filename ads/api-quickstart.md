@@ -23,12 +23,16 @@ Response:
 
 ```json
 {
-  "id": "act_123",
+  "id": "adacct_123",
   "name": "Acme Ads",
   "url": "https://www.acme.example",
-  "preview_url": "https://preview.acme.example",
+  "preview_url": null,
+  "status": "active",
   "timezone": "UTC",
-  "currency_code": "USD"
+  "currency_code": "USD",
+  "review": {
+    "status": "approved"
+  }
 }
 ```
 
@@ -81,16 +85,19 @@ Response:
 {
   "id": "cmpn_101",
   "created_at": 1735689600,
-  "updated_at": 1735689600,
-  "name": "Spring launch",
-  "description": null,
   "status": "active",
-  "start_time": null,
-  "end_time": null,
+  "bidding_type": "impressions",
   "budget": {
     "lifetime_spend_limit_micros": 25000000
   },
-  "targeting": {}
+  "conversion_event_setting_ids": [],
+  "description": null,
+  "end_time": null,
+  "mode": null,
+  "name": "Spring launch",
+  "start_time": null,
+  "targeting": {},
+  "updated_at": 1735689600
 }
 ```
 

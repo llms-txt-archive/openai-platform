@@ -56,8 +56,8 @@ Create an ad group for a campaign.
 | `description`                       | string   | No                         | Ad group description.                                                                        |
 | `context_hints`                     | string[] | No                         | Free-form audience or placement hints.                                                       |
 | `status`                            | string   | Yes                        | `active` or `paused`.                                                                        |
-| `bidding_config.billing_event_type` | string   | Yes                        | Currently `impression`.                                                                      |
-| `bidding_config.max_bid_micros`     | integer  | Yes                        | Between `1` and `100000000`.                                                                 |
+| `bidding_config.billing_event_type` | string   | Yes                        | `impression` for impression campaigns; `click` for click campaigns.                          |
+| `bidding_config.max_bid_micros`     | integer  | Yes                        | Minimum `1`; the maximum depends on campaign bidding type and account currency.              |
 | `product_set`                       | object   | For product-feed campaigns | Selects a linked feed and optional product filters. See [Product feeds](https://developers.openai.com/ads/product-feeds). |
 | `product_set.product_feed_id`       | string   | For product-feed campaigns | Feed ID linked to the current ad account.                                                    |
 | `product_set.filters`               | object[] | No                         | Product filters. Don't repeat the same field within one product set.                         |

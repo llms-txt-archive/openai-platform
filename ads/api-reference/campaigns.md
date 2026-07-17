@@ -25,15 +25,19 @@ curl -X GET "https://api.ads.openai.com/v1/campaigns?limit=20&order=desc" \
     {
       "id": "cmpn_101",
       "created_at": 1735689600,
-      "updated_at": 1735776000,
-      "name": "Spring launch",
-      "description": "Promote the new productivity bundle.",
       "status": "active",
-      "start_time": 1735689600,
-      "end_time": 1738368000,
+      "bidding_type": "impressions",
       "budget": {
         "lifetime_spend_limit_micros": 25000000
-      }
+      },
+      "conversion_event_setting_ids": [],
+      "description": "Promote the new productivity bundle.",
+      "end_time": 1738368000,
+      "mode": null,
+      "name": "Spring launch",
+      "start_time": 1735689600,
+      "targeting": {},
+      "updated_at": 1735776000
     }
   ],
   "first_id": "cmpn_101",
@@ -65,6 +69,8 @@ Note that time and currency fields will respect your account-set timezone and cu
 | `status`                             | string   | Yes      | `active` or `paused`.                                                          |
 | `budget.lifetime_spend_limit_micros` | integer  | Yes      | Minimum `1000000`.                                                             |
 | `mode`                               | string   | No       | Set to `product_feed` to create a [product-feed campaign](https://developers.openai.com/ads/product-feeds). |
+| `bidding_type`                       | string   | No       | `impressions` or `clicks`. Defaults to `impressions`.                          |
+| `conversion_event_setting_ids`       | string[] | No       | Conversion event settings associated with the campaign.                        |
 | `targeting.locations.include`        | object[] | No       | Included location IDs.                                                         |
 
 ```bash
@@ -101,6 +107,7 @@ curl -X POST "https://api.ads.openai.com/v1/campaigns" \
   "budget": {
     "lifetime_spend_limit_micros": 25000000
   },
+  "bidding_type": "impressions",
   "targeting": {
     "locations": {
       "include": [
@@ -144,7 +151,7 @@ Update a campaign with `POST`, not `PATCH` or `PUT`.
 All fields are optional on update. If you include `budget`, send the full
 budget object. `description`, `start_time`, `end_time`, and `targeting` can be
 set to `null` to clear them. `status` accepts `active`, `paused`, or
-`archived`. You cannot change `mode` after campaign creation.
+`archived`. You cannot update `bidding_type`.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns/cmpn_101" \
@@ -185,6 +192,7 @@ curl -X POST "https://api.ads.openai.com/v1/campaigns/cmpn_101/pause" \
   "end_time": 1738368000,
   "budget": {
     "lifetime_spend_limit_micros": 25000000
-  }
+  },
+  "bidding_type": "impressions"
 }
 ```

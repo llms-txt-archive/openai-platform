@@ -17,6 +17,9 @@ every request:
 | --------------- | ---------------------------- |
 | `Authorization` | `Bearer $OPENAI_ADS_API_KEY` |
 
+Each Ads API key is scoped to one ad account. API partners should use the key
+associated with the client account they are configuring.
+
 ## Request formats
 
 Most Ads API endpoints accept `application/json`. The upload endpoint supports
@@ -37,11 +40,15 @@ curl -X GET "https://api.ads.openai.com/v1/ad_account" \
 
 ```json
 {
-  "id": "act_123",
+  "id": "adacct_123",
   "name": "Acme Ads",
   "url": "https://www.acme.example",
-  "preview_url": "https://preview.acme.example",
+  "preview_url": null,
+  "status": "active",
   "timezone": "UTC",
-  "currency_code": "USD"
+  "currency_code": "USD",
+  "review": {
+    "status": "approved"
+  }
 }
 ```

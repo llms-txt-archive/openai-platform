@@ -65,9 +65,9 @@ roles in the [OpenAI Platform Dashboard](https://platform.openai.com/settings/or
 
 ### Template MCP server URLs
 
-Most apps should submit a universal MCP server URL: a single hosted MCP endpoint that works for all users and organizations.
+Most apps should submit a universal MCP server URL: a single hosted MCP endpoint that works for all users and organizations. Choose **Template** only if your app uses workspace-specific MCP server URLs, such as when each customer has a separate tenant, workspace, or managed MCP endpoint. We only support the use of templated URLs for trusted developers with whom we have an established relationship.
 
-Choose **Template** only if your app uses workspace-specific MCP server URLs, such as when each customer has a separate tenant, workspace, or managed MCP endpoint. Template submissions require two URL values:
+Template submissions require two URL values:
 
 - **MCP Server URL:** A concrete, working MCP endpoint for review and automated checks.
 - **Template MCP Server URL:** The URL pattern that describes which part of the MCP endpoint changes across customer workspaces.

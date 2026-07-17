@@ -31,6 +31,35 @@ curl -X POST "https://api.ads.openai.com/v1/upload" \
   -F "file=@workspace-planner-card.png"
 ```
 
+## Upload an account favicon
+
+Set `purpose` to `account_favicon` when you upload an image for account brand
+review. The image must be at least 128 × 128 pixels.
+
+The API can resolve a favicon from the client's website:
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/upload" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "image_url": "https://www.acme.example",
+    "purpose": "account_favicon"
+  }'
+```
+
+To upload a local image, send `purpose` as a multipart form field:
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/upload" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" \
+  -F "purpose=account_favicon" \
+  -F "file=@acme-favicon.png"
+```
+
+Assign the returned `file_id` with
+[`POST /ad_account/brand`](https://developers.openai.com/ads/api-reference/ad-account#update-account-brand-metadata).
+
 ## Use the uploaded file in an ad
 
 Pass the returned `file_id` when you create or update an ad creative.
