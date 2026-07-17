@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260716T214335Z` | 2026-07-16 21:43 UTC | [Responses Event Reference Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260716T214335Z) |
+| `archive-20260717T044655Z` | 2026-07-17 04:46 UTC | [Codex Security and Work Mode Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260717T044655Z) |
+| `archive-20260716T214335Z` | 2026-07-16 21:44 UTC | [Responses Event Reference Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260716T214335Z) |
 | `archive-20260716T175020Z` | 2026-07-16 17:50 UTC | [Deployment Checklist Link Fixes](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260716T175020Z) |
 | `archive-20260715T165459Z` | 2026-07-15 16:55 UTC | [Stateless reasoning docs clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260715T165459Z) |
 | `archive-20260715T043354Z` | 2026-07-15 04:35 UTC | [Quickstart and Core Guide Expansion](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260715T043354Z) |
 | `archive-20260714T213945Z` | 2026-07-14 21:40 UTC | [Multi-agent output and apply-patch guide fixes](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260714T213945Z) |
-| `archive-20260714T184602Z` | 2026-07-14 18:46 UTC | [GPT-5.6 Deployment Guidance Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260714T184602Z) |
