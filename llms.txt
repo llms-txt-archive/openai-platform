@@ -526,7 +526,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Subagents](https://developers.openai.com/codex/agent-configuration/subagents.md): Use subagents in ChatGPT and Codex, and configure custom Codex agents
 
 ## Codex — Amazon Bedrock
-- [Use Codex with Amazon Bedrock](https://developers.openai.com/codex/amazon-bedrock.md): Configure Codex to use OpenAI models available through Amazon Bedrock.
+- [Use ChatGPT Work and Codex with Amazon Bedrock](https://developers.openai.com/codex/amazon-bedrock.md): Configure local ChatGPT Work and Codex surfaces to use OpenAI models available through Amazon Bedrock.
 
 ## Codex — App
 - [ChatGPT desktop app](https://developers.openai.com/codex/app.md): Use the ChatGPT desktop app for projects, files, and long-running work.

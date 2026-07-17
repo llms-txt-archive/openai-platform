@@ -44,6 +44,7 @@ Each event includes the event metadata and a `data` object.
   "source_url": "https://shop.example.com/checkout/confirmation",
   "action_source": "web",
   "user": {
+    "obref": "123e4567-e89b-42d3-a456-426614174000",
     "email_sha256": "b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514",
     "external_id_sha256": "73d83a078369bb4f0971b317aa7797a91cf5c0df1b62161c2e47d75c33ab5b6e",
     "country": "US",
@@ -91,6 +92,7 @@ Place this object inside an event at `events[].user`:
 
 ```json
 {
+  "obref": "123e4567-e89b-42d3-a456-426614174000",
   "email_sha256": "b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514",
   "external_id_sha256": "73d83a078369bb4f0971b317aa7797a91cf5c0df1b62161c2e47d75c33ab5b6e",
   "country": "US",
@@ -103,6 +105,7 @@ Place this object inside an event at `events[].user`:
 
 | Field                | Description                                                                                        |
 | -------------------- | -------------------------------------------------------------------------------------------------- |
+| `obref`              | Opaque browser reference from the Pixel's `__obref` cookie. Pass it without hashing.               |
 | `email_sha256`       | SHA-256 hash of the email address after trimming whitespace and converting it to lowercase.        |
 | `external_id_sha256` | SHA-256 hash of a stable, pseudonymous customer identifier from your system.                       |
 | `country`            | Two-letter ISO 3166-1 country code, such as `US`.                                                  |
@@ -110,6 +113,13 @@ Place this object inside an event at `events[].user`:
 | `zip_code`           | Postal or ZIP code. Use letters, numbers, spaces, or hyphens, with a maximum of 32 characters.     |
 | `ip_address`         | Valid IPv4 or IPv6 address.                                                                        |
 | `user_agent`         | Non-empty user agent string from the client that generated the event.                              |
+
+For hybrid Pixel and Conversions API integrations, read the `__obref`
+first-party cookie in the browser, send it to your server, and include it
+unchanged as `events[].user.obref` when available. Send a non-blank string.
+Before collecting or forwarding the cookie, follow your site's measurement
+consent requirements. If the user revokes consent, stop sending it. Unlike
+`oppref`, which is an event-level field, `obref` belongs inside `user`.
 
 Send hashes as lowercase, 64-character hexadecimal strings. Send the geographic,
 IP address, and user agent fields as raw values. Don't send raw email addresses,
@@ -132,6 +142,7 @@ curl -X POST "https://bzr.openai.com/v1/events?pid=<PIXEL-ID>" \
         "source_url": "https://shop.example.com/checkout/confirmation",
         "action_source": "web",
         "user": {
+          "obref": "123e4567-e89b-42d3-a456-426614174000",
           "email_sha256": "b4c9a289323b21a01c3e940f150eb9b8c542587f1abfd8f0e1cc1ffc5e475514",
           "external_id_sha256": "73d83a078369bb4f0971b317aa7797a91cf5c0df1b62161c2e47d75c33ab5b6e",
           "country": "US",
