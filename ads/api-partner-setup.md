@@ -22,6 +22,10 @@ contact your OpenAI partner representative. A `Client data source not found`
 response means an event setting references a source that does not exist in the
 current ad account.
 
+Conversion-optimized campaigns must also be enabled for the client account. If
+campaign creation returns `403` with `Conversion bidding is not enabled`,
+contact your OpenAI partner representative.
+
 ## 1. Confirm account access
 
 Use `GET /ad_account` to verify that the key is associated with the intended
@@ -154,6 +158,50 @@ Follow the [Ads API quickstart](https://developers.openai.com/ads/api-quickstart
 group, creative asset, and ad in the correct order. For partner setup, create
 the campaign as `paused` instead of `active`, then activate it after all child
 resources are ready.
+
+To create a conversion-optimized campaign (oCPC), set `bidding_type` to
+`conversions` and pass exactly one event setting ID:
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/campaigns" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Acme purchases",
+    "status": "paused",
+    "budget": {
+      "lifetime_spend_limit_micros": 250000000
+    },
+    "bidding_type": "conversions",
+    "conversion_event_setting_ids": ["ces_123"]
+  }'
+```
+
+The event setting must be active, belong to the current ad account, connect to
+one active conversion source, and use a [standard supported
+event](https://developers.openai.com/ads/supported-events) such as `order_created`, `lead_created`, or
+`registration_completed`. Custom events cannot be optimization goals.
+Product-feed campaigns cannot use oCPC. You cannot change the campaign
+objective or selected conversion event after creation.
+
+Next, create each ad group with `billing_event_type` set to `click`. For an
+oCPC campaign, `max_bid_micros` is the CPA bid; for example, `150000000` is a
+$150.00 CPA bid for a USD account.
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/ad_groups" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "campaign_id": "cmpn_101",
+    "name": "US English",
+    "status": "active",
+    "bidding_config": {
+      "billing_event_type": "click",
+      "max_bid_micros": 150000000
+    }
+  }'
+```
 
 Create campaigns as `paused` while you add and validate their ad groups and ads.
 Activate the campaign only after all child resources are ready.

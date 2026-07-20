@@ -60,18 +60,18 @@ Note that time and currency fields will respect your account-set timezone and cu
 
 `POST /campaigns`
 
-| Field                                | Type     | Required | Notes                                                                          |
-| ------------------------------------ | -------- | -------- | ------------------------------------------------------------------------------ |
-| `name`                               | string   | Yes      | `3` to `1000` chars and must include a non-space character.                    |
-| `description`                        | string   | No       | Campaign description.                                                          |
-| `start_time`                         | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                           |
-| `end_time`                           | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                           |
-| `status`                             | string   | Yes      | `active` or `paused`.                                                          |
-| `budget.lifetime_spend_limit_micros` | integer  | Yes      | Minimum `1000000`.                                                             |
-| `mode`                               | string   | No       | Set to `product_feed` to create a [product-feed campaign](https://developers.openai.com/ads/product-feeds). |
-| `bidding_type`                       | string   | No       | `impressions` or `clicks`. Defaults to `impressions`.                          |
-| `conversion_event_setting_ids`       | string[] | No       | Conversion event settings associated with the campaign.                        |
-| `targeting.locations.include`        | object[] | No       | Included location IDs.                                                         |
+| Field                                | Type     | Required | Notes                                                                              |
+| ------------------------------------ | -------- | -------- | ---------------------------------------------------------------------------------- |
+| `name`                               | string   | Yes      | `3` to `1000` chars and must include a non-space character.                        |
+| `description`                        | string   | No       | Campaign description.                                                              |
+| `start_time`                         | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                               |
+| `end_time`                           | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                               |
+| `status`                             | string   | Yes      | `active` or `paused`.                                                              |
+| `budget.lifetime_spend_limit_micros` | integer  | Yes      | Minimum `1000000`.                                                                 |
+| `mode`                               | string   | No       | Set to `product_feed` to create a [product-feed campaign](https://developers.openai.com/ads/product-feeds).     |
+| `bidding_type`                       | string   | No       | `impressions`, `clicks`, or `conversions`. Defaults to `impressions`.              |
+| `conversion_event_setting_ids`       | string[] | No       | For `conversions`, exactly one active standard event setting ID from this account. |
+| `targeting.locations.include`        | object[] | No       | Included location IDs.                                                             |
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns" \
@@ -131,6 +131,34 @@ curl -X POST "https://api.ads.openai.com/v1/campaigns" \
 }
 ```
 
+### Create a conversion-optimized campaign
+
+To use oCPC, set `bidding_type` to `conversions` and pass exactly one active
+standard conversion event setting from the current ad account. The event
+setting must connect to one active conversion source. Custom event settings
+cannot be optimization goals.
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/campaigns" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Acme purchases",
+    "status": "paused",
+    "budget": {
+      "lifetime_spend_limit_micros": 250000000
+    },
+    "bidding_type": "conversions",
+    "conversion_event_setting_ids": ["ces_123"]
+  }'
+```
+
+Conversion bidding must be enabled for the ad account. Product-feed campaigns
+cannot use oCPC. You cannot change the campaign objective or selected
+conversion event after creation. For the complete setup flow, including the
+required ad-group bid configuration, see [API partner
+setup](https://developers.openai.com/ads/api-partner-setup).
+
 ## Retrieve a campaign
 
 Fetch one campaign by ID.
@@ -151,7 +179,8 @@ Update a campaign with `POST`, not `PATCH` or `PUT`.
 All fields are optional on update. If you include `budget`, send the full
 budget object. `description`, `start_time`, `end_time`, and `targeting` can be
 set to `null` to clear them. `status` accepts `active`, `paused`, or
-`archived`. You cannot update `bidding_type`.
+`archived`. You cannot update `bidding_type`. For a conversion-optimized
+campaign, you also cannot update `conversion_event_setting_ids`.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns/cmpn_101" \

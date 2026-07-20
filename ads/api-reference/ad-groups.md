@@ -56,7 +56,7 @@ Create an ad group for a campaign.
 | `description`                       | string   | No                         | Ad group description.                                                                        |
 | `context_hints`                     | string[] | No                         | Free-form audience or placement hints.                                                       |
 | `status`                            | string   | Yes                        | `active` or `paused`.                                                                        |
-| `bidding_config.billing_event_type` | string   | Yes                        | `impression` for impression campaigns; `click` for click campaigns.                          |
+| `bidding_config.billing_event_type` | string   | Yes                        | `impression` for impression campaigns; `click` for click and conversion campaigns.           |
 | `bidding_config.max_bid_micros`     | integer  | Yes                        | Minimum `1`; the maximum depends on campaign bidding type and account currency.              |
 | `product_set`                       | object   | For product-feed campaigns | Selects a linked feed and optional product filters. See [Product feeds](https://developers.openai.com/ads/product-feeds). |
 | `product_set.product_feed_id`       | string   | For product-feed campaigns | Feed ID linked to the current ad account.                                                    |
@@ -75,6 +75,11 @@ Product-set filters support `title`, `body`, `item_id`, `offer_id`, `price`,
 Context hints provide extra information on when you think your ads might be useful, and help guide when they appear. Provide a list of descriptions or keywords for when the product or service might be useful to show.
 
 Micros are millionths of the main currency unit (e.g., Dollars). The max_bid field is per event, so a $60CPM ($0.06 per impression) is passed as 60,000 to the API. Note that currency fields respect your ad account's default currency.
+
+For a conversion-optimized campaign (oCPC), set
+`bidding_config.billing_event_type` to `click`. `max_bid_micros` is the CPA
+bid even though the billing event is a click. For example, `150000000` is a
+$150.00 CPA bid for a USD account.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/ad_groups" \
