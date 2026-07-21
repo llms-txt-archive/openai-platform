@@ -722,6 +722,9 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 ## Codex — Pets
 - [Pets](https://developers.openai.com/codex/pets.md): Choose an animated companion and follow chat activity across supported interfaces
 
+## Codex — Plugin Submission Errors
+- [Plugin submission errors](https://developers.openai.com/codex/plugin-submission-errors.md): Find and fix validation errors for plugins submitted to the public directory
+
 ## Codex — Plugins
 - [Plugins](https://developers.openai.com/codex/plugins.md): Browse, install, and use plugins on supported ChatGPT and Codex surfaces
 
