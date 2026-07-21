@@ -449,6 +449,9 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Files](https://developers.openai.com/ads/api-reference/files.md): Upload remote images or binary files and reuse the returned file ID in ad creatives.
 - [Insights](https://developers.openai.com/ads/api-reference/insights.md): Retrieve aggregated insights data across ad account, campaigns, ad groups, and ads.
 
+## Ads — Bulk Api
+- [Bulk API](https://developers.openai.com/ads/bulk-api.md): Create and update campaigns, ad groups, and ads in bulk.
+
 ## Ads — Campaign Targeting
 - [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting.md): Target campaigns by country, region, or DMA.
 
@@ -776,7 +779,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Submit plugins](https://developers.openai.com/codex/submit-plugins.md): Submit a plugin for review through the OpenAI Platform
 
 ## Codex — Third Party
-- [Codex code review in GitHub](https://developers.openai.com/codex/third-party/github.md): Set up Codex code review for GitHub pull requests, request reviews with @codex review, enable automatic reviews, and customize review guidelines.
+- [Codex code review in GitHub](https://developers.openai.com/codex/third-party/github.md): Set up Codex code review for GitHub pull requests, request reviews with @codex review, enable automatic reviews, and write custom review rules in AGENTS.md.
 - [Use Codex in Linear](https://developers.openai.com/codex/third-party/linear.md): Run Codex chats from Linear issues
 - [Use Codex in Slack](https://developers.openai.com/codex/third-party/slack.md): Ask Codex to work from Slack channels and threads
 
