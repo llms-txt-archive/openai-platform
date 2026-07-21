@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260721T075740Z` | 2026-07-21 07:57 UTC | [Realtime, Computer Use, and Video Guide Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260721T075740Z) |
+| `archive-20260721T152440Z` | 2026-07-21 15:24 UTC | [Amazon Bedrock retention guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260721T152440Z) |
+| `archive-20260721T075740Z` | 2026-07-21 07:59 UTC | [Realtime, Computer Use, and Video Guide Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260721T075740Z) |
 | `archive-20260720T223709Z` | 2026-07-20 22:37 UTC | [Legacy audio and realtime deprecations added](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260720T223709Z) |
 | `archive-20260720T191619Z` | 2026-07-20 19:17 UTC | [Ads API docs add oCPC setup guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260720T191619Z) |
 | `archive-20260718T223015Z` | 2026-07-18 22:30 UTC | [Reasoning Guide Adds `max` Effort](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260718T223015Z) |
 | `archive-20260717T213026Z` | 2026-07-17 21:31 UTC | [Ads API partner setup and conversion docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260717T213026Z) |
-| `archive-20260717T194712Z` | 2026-07-17 19:47 UTC | [Ads obref docs and broader Bedrock setup coverage](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260717T194712Z) |
