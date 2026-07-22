@@ -455,6 +455,9 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 ## Ads — Campaign Targeting
 - [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting.md): Target campaigns by country, region, or DMA.
 
+## Ads — Conversion Optimized Campaigns
+- [Conversion-optimized campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns.md): Optimize campaigns toward a selected conversion event while paying per click.
+
 ## Ads — Conversions Api
 - [Conversions API](https://developers.openai.com/ads/conversions-api.md): Server-to-server conversion events.
 

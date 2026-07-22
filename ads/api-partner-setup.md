@@ -160,7 +160,9 @@ the campaign as `paused` instead of `active`, then activate it after all child
 resources are ready.
 
 To create a conversion-optimized campaign (oCPC), set `bidding_type` to
-`conversions` and pass exactly one event setting ID:
+`conversions` and pass exactly one event setting ID. For the bidding model,
+prerequisites, and reporting guidance, see [Conversion-optimized
+campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns).
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns" \
@@ -185,8 +187,8 @@ Product-feed campaigns cannot use oCPC. You cannot change the campaign
 objective or selected conversion event after creation.
 
 Next, create each ad group with `billing_event_type` set to `click`. For an
-oCPC campaign, `max_bid_micros` is the CPA bid; for example, `150000000` is a
-$150.00 CPA bid for a USD account.
+oCPC campaign, `max_bid_micros` is the CPA bid; for example, `100000000` is a
+$100.00 CPA bid for a USD account.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/ad_groups" \
@@ -198,7 +200,7 @@ curl -X POST "https://api.ads.openai.com/v1/ad_groups" \
     "status": "active",
     "bidding_config": {
       "billing_event_type": "click",
-      "max_bid_micros": 150000000
+      "max_bid_micros": 100000000
     }
   }'
 ```

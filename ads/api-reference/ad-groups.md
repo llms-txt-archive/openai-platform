@@ -78,8 +78,9 @@ Micros are millionths of the main currency unit (e.g., Dollars). The max_bid fie
 
 For a conversion-optimized campaign (oCPC), set
 `bidding_config.billing_event_type` to `click`. `max_bid_micros` is the CPA
-bid even though the billing event is a click. For example, `150000000` is a
-$150.00 CPA bid for a USD account.
+bid even though the billing event is a click. For example, `100000000` is a
+$100.00 CPA bid for a USD account. For the full setup and reporting workflow,
+see [Conversion-optimized campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns).
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/ad_groups" \

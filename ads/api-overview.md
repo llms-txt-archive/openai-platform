@@ -72,6 +72,10 @@ ad account. See [Bulk API limits](https://developers.openai.com/ads/bulk-api#lim
 
 - Added support for passing the Pixel browser reference as `events[].user.obref` in [Conversions API](https://developers.openai.com/ads/conversions-api) requests.
 
+### June 16th, 2026
+
+- Added conversion-optimized campaign bidding with `bidding_type: "conversions"` and one standard conversion event setting.
+
 ### June 11th, 2026
 
 - Added segmented insights for product, country, and device breakdowns, plus zero-impression product expansion.
