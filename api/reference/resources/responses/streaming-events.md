@@ -1643,7 +1643,7 @@ Schema name: `ResponseCreatedEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -1742,7 +1742,7 @@ Schema name: `ResponseCreatedEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -2123,6 +2123,10 @@ Schema name: `ResponseCreatedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -2211,7 +2215,8 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17",
-      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18"
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18",
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) responses > (model) response_error > (schema) > (property) message": {
@@ -6832,7 +6837,7 @@ Schema name: `ResponseCreatedEvent`
   },
   "(resource) $shared > (model) reasoning > (schema) > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -7179,7 +7184,7 @@ Schema name: `ResponseCreatedEvent`
   },
   "(resource) responses > (model) response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -7397,108 +7402,115 @@ Schema name: `ResponseCreatedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -55116,7 +55128,7 @@ Schema name: `ResponseInProgressEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -55215,7 +55227,7 @@ Schema name: `ResponseInProgressEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -55596,6 +55608,10 @@ Schema name: `ResponseInProgressEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -55684,7 +55700,8 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17",
-      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18"
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18",
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) responses > (model) response_error > (schema) > (property) message": {
@@ -60305,7 +60322,7 @@ Schema name: `ResponseInProgressEvent`
   },
   "(resource) $shared > (model) reasoning > (schema) > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -60652,7 +60669,7 @@ Schema name: `ResponseInProgressEvent`
   },
   "(resource) responses > (model) response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -60870,108 +60887,115 @@ Schema name: `ResponseInProgressEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -108589,7 +108613,7 @@ Schema name: `ResponseCompletedEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -108688,7 +108712,7 @@ Schema name: `ResponseCompletedEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -109069,6 +109093,10 @@ Schema name: `ResponseCompletedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -109157,7 +109185,8 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17",
-      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18"
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18",
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) responses > (model) response_error > (schema) > (property) message": {
@@ -113778,7 +113807,7 @@ Schema name: `ResponseCompletedEvent`
   },
   "(resource) $shared > (model) reasoning > (schema) > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -114125,7 +114154,7 @@ Schema name: `ResponseCompletedEvent`
   },
   "(resource) responses > (model) response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -114343,108 +114372,115 @@ Schema name: `ResponseCompletedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -162079,7 +162115,7 @@ Schema name: `ResponseFailedEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -162178,7 +162214,7 @@ Schema name: `ResponseFailedEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -162559,6 +162595,10 @@ Schema name: `ResponseFailedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -162647,7 +162687,8 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17",
-      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18"
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18",
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) responses > (model) response_error > (schema) > (property) message": {
@@ -167268,7 +167309,7 @@ Schema name: `ResponseFailedEvent`
   },
   "(resource) $shared > (model) reasoning > (schema) > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -167615,7 +167656,7 @@ Schema name: `ResponseFailedEvent`
   },
   "(resource) responses > (model) response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -167833,108 +167874,115 @@ Schema name: `ResponseFailedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -215550,7 +215598,7 @@ Schema name: `ResponseIncompleteEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -215649,7 +215697,7 @@ Schema name: `ResponseIncompleteEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -216030,6 +216078,10 @@ Schema name: `ResponseIncompleteEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -216118,7 +216170,8 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17",
-      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18"
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18",
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) responses > (model) response_error > (schema) > (property) message": {
@@ -220739,7 +220792,7 @@ Schema name: `ResponseIncompleteEvent`
   },
   "(resource) $shared > (model) reasoning > (schema) > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -221086,7 +221139,7 @@ Schema name: `ResponseIncompleteEvent`
   },
   "(resource) responses > (model) response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -221304,108 +221357,115 @@ Schema name: `ResponseIncompleteEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -323000,7 +323060,7 @@ Schema name: `ResponseQueuedEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -323099,7 +323159,7 @@ Schema name: `ResponseQueuedEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -323480,6 +323540,10 @@ Schema name: `ResponseQueuedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -323568,7 +323632,8 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16",
       "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17",
-      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18"
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18",
+      "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) responses > (model) response_error > (schema) > (property) message": {
@@ -328189,7 +328254,7 @@ Schema name: `ResponseQueuedEvent`
   },
   "(resource) $shared > (model) reasoning > (schema) > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -328536,7 +328601,7 @@ Schema name: `ResponseQueuedEvent`
   },
   "(resource) responses > (model) response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -328754,108 +328819,115 @@ Schema name: `ResponseQueuedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) responses > (model) response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) responses > (model) response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",

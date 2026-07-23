@@ -2223,7 +2223,7 @@ Schema name: `BetaResponseCreatedEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -2335,7 +2335,7 @@ Schema name: `BetaResponseCreatedEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -2730,6 +2730,10 @@ Schema name: `BetaResponseCreatedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -2818,7 +2822,8 @@ Schema name: `BetaResponseCreatedEvent`
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17",
-      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18"
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18",
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) message": {
@@ -7531,7 +7536,7 @@ Schema name: `BetaResponseCreatedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -7871,7 +7876,7 @@ Schema name: `BetaResponseCreatedEvent`
   },
   "(resource) beta.responses > (model) beta_response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -8089,108 +8094,115 @@ Schema name: `BetaResponseCreatedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -65640,7 +65652,7 @@ Schema name: `BetaResponseInProgressEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -65752,7 +65764,7 @@ Schema name: `BetaResponseInProgressEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -66147,6 +66159,10 @@ Schema name: `BetaResponseInProgressEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -66235,7 +66251,8 @@ Schema name: `BetaResponseInProgressEvent`
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17",
-      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18"
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18",
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) message": {
@@ -70948,7 +70965,7 @@ Schema name: `BetaResponseInProgressEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -71288,7 +71305,7 @@ Schema name: `BetaResponseInProgressEvent`
   },
   "(resource) beta.responses > (model) beta_response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -71506,108 +71523,115 @@ Schema name: `BetaResponseInProgressEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -129057,7 +129081,7 @@ Schema name: `BetaResponseCompletedEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -129169,7 +129193,7 @@ Schema name: `BetaResponseCompletedEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -129564,6 +129588,10 @@ Schema name: `BetaResponseCompletedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -129652,7 +129680,8 @@ Schema name: `BetaResponseCompletedEvent`
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17",
-      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18"
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18",
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) message": {
@@ -134365,7 +134394,7 @@ Schema name: `BetaResponseCompletedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -134705,7 +134734,7 @@ Schema name: `BetaResponseCompletedEvent`
   },
   "(resource) beta.responses > (model) beta_response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -134923,108 +134952,115 @@ Schema name: `BetaResponseCompletedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -192491,7 +192527,7 @@ Schema name: `BetaResponseFailedEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -192603,7 +192639,7 @@ Schema name: `BetaResponseFailedEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -192998,6 +193034,10 @@ Schema name: `BetaResponseFailedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -193086,7 +193126,8 @@ Schema name: `BetaResponseFailedEvent`
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17",
-      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18"
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18",
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) message": {
@@ -197799,7 +197840,7 @@ Schema name: `BetaResponseFailedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -198139,7 +198180,7 @@ Schema name: `BetaResponseFailedEvent`
   },
   "(resource) beta.responses > (model) beta_response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -198357,108 +198398,115 @@ Schema name: `BetaResponseFailedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -255906,7 +255954,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -256018,7 +256066,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -256413,6 +256461,10 @@ Schema name: `BetaResponseIncompleteEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -256501,7 +256553,8 @@ Schema name: `BetaResponseIncompleteEvent`
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17",
-      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18"
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18",
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) message": {
@@ -261214,7 +261267,7 @@ Schema name: `BetaResponseIncompleteEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -261554,7 +261607,7 @@ Schema name: `BetaResponseIncompleteEvent`
   },
   "(resource) beta.responses > (model) beta_response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -261772,108 +261825,115 @@ Schema name: `BetaResponseIncompleteEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -382970,7 +383030,7 @@ Schema name: `BetaResponseQueuedEvent`
     "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
     "key": "prompt_cache_key",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -383082,7 +383142,7 @@ Schema name: `BetaResponseQueuedEvent`
     "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
     "key": "safety_identifier",
     "optional": true,
-    "nullable": false,
+    "nullable": true,
     "type": {
       "kind": "HttpTypeString"
     },
@@ -383477,6 +383537,10 @@ Schema name: `BetaResponseQueuedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "data_residency_mismatch"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "bio_policy"
         },
         {
@@ -383565,7 +383629,8 @@ Schema name: `BetaResponseQueuedEvent`
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16",
       "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17",
-      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18"
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18",
+      "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19"
     ]
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) message": {
@@ -388278,7 +388343,7 @@ Schema name: `BetaResponseQueuedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) context": {
     "kind": "HttpDeclProperty",
-    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
+    "docstring": "Controls which reasoning items are rendered back to the model on later turns.\nIf omitted or set to `auto`, the model determines the context mode. The\n`gpt-5.6` model family defaults to `all_turns`; earlier models default to\n`current_turn`.\n\nWhen returned on a response, this is the effective reasoning context mode\nused for the response.\n",
     "key": "context",
     "optional": true,
     "nullable": true,
@@ -388618,7 +388683,7 @@ Schema name: `BetaResponseQueuedEvent`
   },
   "(resource) beta.responses > (model) beta_response_text_config > (schema) > (property) verbosity": {
     "kind": "HttpDeclProperty",
-    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`.\n",
+    "docstring": "Constrains the verbosity of the model's response. Lower values will result in\nmore concise responses, while higher values will result in more verbose responses.\nCurrently supported values are `low`, `medium`, and `high`. The default is\n`medium`.\n",
     "key": "verbosity",
     "optional": true,
     "nullable": true,
@@ -388836,108 +388901,115 @@ Schema name: `BetaResponseQueuedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "bio_policy"
+      "literal": "data_residency_mismatch"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "vector_store_timeout"
+      "literal": "bio_policy"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image"
+      "literal": "vector_store_timeout"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_format"
+      "literal": "invalid_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_base64_image"
+      "literal": "invalid_image_format"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_url"
+      "literal": "invalid_base64_image"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_large"
+      "literal": "invalid_image_url"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_too_small"
+      "literal": "image_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_parse_error"
+      "literal": "image_too_small"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_content_policy_violation"
+      "literal": "image_parse_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "invalid_image_mode"
+      "literal": "image_content_policy_violation"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "image_file_too_large"
+      "literal": "invalid_image_mode"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "unsupported_image_media_type"
+      "literal": "image_file_too_large"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "empty_image_file"
+      "literal": "unsupported_image_media_type"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "failed_to_download_image"
+      "literal": "empty_image_file"
     }
   },
   "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 18": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "failed_to_download_image"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_error > (schema) > (property) code > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",

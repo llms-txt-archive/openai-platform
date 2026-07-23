@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260723T105127Z` | 2026-07-23 10:51 UTC | [ChatGPT Work Naming Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T105127Z) |
+| `archive-20260723T184850Z` | 2026-07-23 18:48 UTC | [Responses Event Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T184850Z) |
+| `archive-20260723T105127Z` | 2026-07-23 10:52 UTC | [ChatGPT Work Naming Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T105127Z) |
 | `archive-20260723T045747Z` | 2026-07-23 04:58 UTC | [Deprecation guidance now points to GPT-5.6](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T045747Z) |
 | `archive-20260723T011238Z` | 2026-07-23 01:13 UTC | [Clarified spend and quota guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T011238Z) |
 | `archive-20260722T204324Z` | 2026-07-22 20:44 UTC | [Clearer prompt examples and citation regex docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260722T204324Z) |
 | `archive-20260722T170015Z` | 2026-07-22 17:01 UTC | [Spend limits guidance added](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260722T170015Z) |
-| `archive-20260722T104958Z` | 2026-07-22 10:50 UTC | [Amazon Bedrock data-handling clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260722T104958Z) |
