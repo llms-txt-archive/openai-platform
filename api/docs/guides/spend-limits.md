@@ -1,23 +1,28 @@
 # Spend limits
 
-Spend limits help you control API costs by setting monthly budgets for your organization or for individual projects. You can use them as a soft budget for monitoring spend, or enforce a hard limit so API responses fail after spend reaches the limit.
+Use spend alerts to track monthly API costs. To stop traffic after tracked spend reaches a configured amount, enforce a hard spend limit for your organization or an individual project.
 
-## How spend limits work
+Hard spend limits can interrupt production traffic. When tracked spend reaches
+  an applicable hard limit, affected API requests return a `429` error with the
+  `insufficient_quota` code. Enforcement is not instantaneous, so recorded spend
+  can slightly exceed the configured amount.
 
-Spend limits are monthly limits measured in U.S. dollars. They can apply at two levels:
+## Choose a spend control
 
-- **Organization spend limits** apply across the organization.
-- **Project spend limits** apply to a single project.
+Spend alerts and hard spend limits have different effects:
 
-You can also enforce either level as a hard limit, which makes API responses fail after spend reaches the monthly limit.
+| Control          | What happens at the configured amount       | Use it when you want to                       |
+| ---------------- | ------------------------------------------- | --------------------------------------------- |
+| Spend alert      | Sends a notification; API traffic continues | Track spend without interrupting traffic      |
+| Hard spend limit | Affected API requests return a `429` error  | Enforce a monthly organization or project cap |
 
-## Using hard limits
+Spend alerts do not enforce a cap. They remain active when you add a hard spend limit, so you can use alerts for notification before a hard limit interrupts traffic.
 
-A hard limit causes API responses to fail after the organization or project reaches its monthly spend limit. After spend reaches a hard limit, API responses return a `429` error until you increase the spend limit or the limit resets.
+OpenAI also assigns your organization an approved monthly [usage limit based on its usage tier](https://developers.openai.com/api/docs/guides/rate-limits#usage-tiers). This OpenAI-approved usage limit is separate from the spend limits you configure.
 
-Use hard limits when you need to prevent unexpected spend, such as for experiments, development projects, or customer-specific projects with fixed budgets.
+## Configure a spend limit
 
-## Configuring spend limits
+You need permission to manage the applicable organization or project settings. For details, see [API Platform permissions](https://developers.openai.com/api/docs/guides/rbac).
 
 
 
@@ -45,8 +50,26 @@ Use hard limits when you need to prevent unexpected spend, such as for experimen
 
 
 
+## Understand hard-limit behavior
+
+Organization and project hard limits can both apply to a request:
+
+- An organization hard limit applies to API traffic across all projects in the organization.
+- A project hard limit applies only to API traffic billed to that project.
+- Reaching either applicable hard limit causes affected requests to return `429` errors with the `insufficient_quota` code.
+- Raising or removing the reached limit allows traffic to resume after the update propagates. Otherwise, the limit resets with the next monthly cycle.
+
+Enforcement is not instantaneous. The API Platform can process a small amount of extra usage while the limit state propagates, so recorded spend can slightly exceed the configured amount.
+
 ## Spend alerts
 
-Use spend alerts to get notified before spend reaches the monthly limit. Add alerts at thresholds that give your team enough time to adjust usage, increase the limit, or investigate unexpected traffic.
+Use spend alerts to get notified before spend reaches a hard limit. Add alerts at thresholds that allow time to adjust usage, raise the limit, or investigate unexpected traffic.
 
-For broader usage analysis, review the [usage dashboard](https://platform.openai.com/settings/organization/usage). For request-rate constraints, see the [rate limits guide](https://developers.openai.com/api/docs/guides/rate-limits).
+## Restore API traffic
+
+If requests return quota-related `429` errors:
+
+1. Compare [current usage](https://platform.openai.com/settings/organization/usage) with the organization and project spend limits that apply to the request.
+2. Raise or remove the reached hard limit if traffic should resume before the monthly reset.
+3. If tracked spend is below every applicable hard limit, check whether the organization exhausted prepaid credits or reached its OpenAI-approved usage limit.
+4. If the error reports a request or token rate limit instead of `insufficient_quota`, follow the [rate limit guide](https://developers.openai.com/api/docs/guides/rate-limits).
