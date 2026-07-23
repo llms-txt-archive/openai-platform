@@ -655,6 +655,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 
 ## Codex — Features
 - [Features](https://developers.openai.com/codex/features.md): Explore workflows, capabilities, commands, and settings in ChatGPT
+- [ChatGPT Voice](https://developers.openai.com/codex/features/voice.md): Try voice in Chat, Work, and Codex in the ChatGPT desktop app.
 - [Codex Micro](https://developers.openai.com/codex/features/codex-micro.md): Your command center for Codex chats.
 
 ## Codex — Get Started With Work
