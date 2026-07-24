@@ -11,4 +11,4 @@ Use this as a compact map of Workspace Agents docs. Each page has a Markdown twi
 - [Authenticate with Workspace Agent access tokens](https://developers.openai.com/workspace-agents/authentication.md): Provision and use bearer credentials for the Workspace Agents API.
 
 ## Trigger Runs
-- [Trigger workspace agent runs](https://developers.openai.com/workspace-agents/trigger-runs.md): Kick off ChatGPT workspace agents from backend systems or automations.
+- [Trigger workspace agent runs](https://developers.openai.com/workspace-agents/trigger-runs.md): Kick off ChatGPT workspace agents from server-side systems or automations.

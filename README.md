@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260723T204032Z` | 2026-07-23 20:40 UTC | [ChatGPT Voice added to Codex docs index](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T204032Z) |
+| `archive-20260724T045320Z` | 2026-07-24 04:53 UTC | [Workspace Agent Trigger Runs Add Status Polling](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260724T045320Z) |
+| `archive-20260723T204032Z` | 2026-07-23 20:41 UTC | [ChatGPT Voice added to Codex docs index](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T204032Z) |
 | `archive-20260723T184850Z` | 2026-07-23 18:49 UTC | [Responses Event Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T184850Z) |
 | `archive-20260723T105127Z` | 2026-07-23 10:52 UTC | [ChatGPT Work Naming Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T105127Z) |
 | `archive-20260723T045747Z` | 2026-07-23 04:58 UTC | [Deprecation guidance now points to GPT-5.6](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T045747Z) |
 | `archive-20260723T011238Z` | 2026-07-23 01:13 UTC | [Clarified spend and quota guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T011238Z) |
-| `archive-20260722T204324Z` | 2026-07-22 20:44 UTC | [Clearer prompt examples and citation regex docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260722T204324Z) |

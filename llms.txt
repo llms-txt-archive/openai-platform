@@ -522,7 +522,7 @@ Each section links to Markdown twins under the product path (e.g., `/apps-sdk/<s
 - [Authenticate with Workspace Agent access tokens](https://developers.openai.com/workspace-agents/authentication.md): Provision and use bearer credentials for the Workspace Agents API.
 
 ## Workspace Agents — Trigger Runs
-- [Trigger workspace agent runs](https://developers.openai.com/workspace-agents/trigger-runs.md): Kick off ChatGPT workspace agents from backend systems or automations.
+- [Trigger workspace agent runs](https://developers.openai.com/workspace-agents/trigger-runs.md): Kick off ChatGPT workspace agents from server-side systems or automations.
 
 ## Codex — Administration
 - [Administration](https://developers.openai.com/codex/administration.md): Set access and policy boundaries for ChatGPT, Codex developer tools, APIs, plugins, and connected systems
