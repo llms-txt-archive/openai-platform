@@ -31,7 +31,7 @@ Reference docs are available at `/api/reference/<slug>.md`.
 - [Audio and speech](https://developers.openai.com/api/docs/guides/audio.md): Learn core audio and speech concepts for building with the OpenAI API.
 - [Background mode](https://developers.openai.com/api/docs/guides/background.md): Run long running tasks asynchronously in the background.
 - [Batch API](https://developers.openai.com/api/docs/guides/batch.md): Learn how to use OpenAI's Batch API for processing jobs with asynchronous requests, increased rate limits, and cost efficiency.
-- [Building MCP servers for ChatGPT Apps and API integrations](https://developers.openai.com/api/docs/mcp.md): Learn how to build MCP servers for use with ChatGPT Apps, deep research, or API integrations.
+- [Building MCP servers for plugins and API integrations](https://developers.openai.com/api/docs/mcp.md): Learn how to build MCP servers for use with plugins, deep research, or API integrations.
 - [ChatGPT Developer mode](https://developers.openai.com/api/docs/guides/developer-mode.md): Full MCP client access for apps and tools.
 - [ChatKit](https://developers.openai.com/api/docs/guides/chatkit.md): Embed a widget to build your own chat experiences.
 - [ChatKit widgets](https://developers.openai.com/api/docs/guides/chatkit-widgets.md): Learn how to design widgets in your chat experience with ChatKit.

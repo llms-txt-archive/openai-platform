@@ -35,6 +35,26 @@ conversions. Put the script near the top of your `<head>` to ensure early conver
 `pixelId` is required. Create a new pixelId in the conversions tab of Ads Manager. `debug` is optional and logs SDK activity to the browser
 console while you test your integration.
 
+## Control measurement consent
+
+If consent is required to track conversion events, use the Pixel's consent
+feature. Set consent before initializing the Pixel:
+
+```js
+oaiq("consent", false);
+oaiq("init", {
+  pixelId: "<YOUR-PIXEL-ID>",
+});
+
+// Call this after the user grants measurement consent.
+oaiq("consent", true);
+```
+
+The Pixel initializes consent to `true` by default unless you set it to `false`
+or the Pixel finds a stored denial. When consent is `false`, the Pixel doesn't
+send measurement-event pings. Setting it to `true` allows future measurement
+events; blocked events aren't replayed.
+
 ## Configure a content security policy
 
 If your site enforces a Content Security Policy (CSP), merge these sources into
