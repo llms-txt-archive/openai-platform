@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260724T200050Z` | 2026-07-24 20:00 UTC | [Admin APIs add spend limit setup guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260724T200050Z) |
+| `archive-20260725T073601Z` | 2026-07-25 07:36 UTC | [Migration, ChatKit, Realtime, and Speech Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260725T073601Z) |
+| `archive-20260724T200050Z` | 2026-07-24 20:01 UTC | [Admin APIs add spend limit setup guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260724T200050Z) |
 | `archive-20260724T180437Z` | 2026-07-24 18:06 UTC | [Plugins Docs Reorganization](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260724T180437Z) |
 | `archive-20260724T045320Z` | 2026-07-24 04:53 UTC | [Workspace Agent Trigger Runs Add Status Polling](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260724T045320Z) |
 | `archive-20260723T204032Z` | 2026-07-23 20:41 UTC | [ChatGPT Voice added to Codex docs index](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T204032Z) |
 | `archive-20260723T184850Z` | 2026-07-23 18:49 UTC | [Responses Event Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T184850Z) |
-| `archive-20260723T105127Z` | 2026-07-23 10:52 UTC | [ChatGPT Work Naming Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260723T105127Z) |
