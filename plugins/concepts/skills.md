@@ -1,8 +1,9 @@
 # Skills
 
 Skills are folders of instructions and resources that teach ChatGPT and Codex
-how to complete repeatable workflows. A plugin can include one skill or a group
-of related skills.
+how to complete repeatable workflows. In an MCP-backed plugin, skills
+complement the server by teaching the model how to combine its tools for
+recognizable user goals.
 
 Each skill has a `SKILL.md` file with:
 
@@ -11,21 +12,24 @@ Each skill has a `SKILL.md` file with:
 - Instructions for completing the workflow.
 - Optional references, scripts, templates, and other assets.
 
-## When to use a skill
+## How skills complement an MCP server
 
-Use a skill when the model can complete a use case with instructions, examples,
-bundled resources, and tools it already has.
+An MCP server provides live information and controlled actions. A skill
+provides the workflow around those tools: when to call them, in what order, how
+to handle incomplete results, and what the final output should contain.
 
 For example, a skill can define how to:
 
-- Turn meeting notes into a recap and follow-up.
-- Apply an organization's writing or review standards.
-- Generate a report from files the user provides.
-- Follow a repeatable debugging or deployment procedure.
+- Retrieve account activity and turn it into a customer briefing.
+- Review project data, identify risks, and draft a status update.
+- Combine search and fetch tools into a sourced research workflow.
+- Apply an organization's writing or review standards to MCP results.
 
-Add an [MCP server](https://developers.openai.com/plugins/concepts/mcp-server) when the workflow also needs
-live data, authentication, controlled actions, or code that runs on
-infrastructure you operate.
+Keep the boundary clear: the [MCP server](https://developers.openai.com/plugins/concepts/mcp-server)
+provides data, authentication, authorization, and actions; the skill provides
+reusable instructions, examples, templates, and other resources. A skill can
+also work without an MCP server when the workflow needs only packaged
+instructions and resources.
 
 ## How skills activate
 
@@ -41,10 +45,10 @@ body.
 
 Skills are the workflow layer of a plugin. They can:
 
-- Work on their own.
 - Guide the model through tools exposed by the plugin's MCP server.
 - Package organization-specific procedures with reusable templates and
   references.
+- Work on their own when no live data or controlled action is required.
 
 Skills and MCP tools should have clear, complementary roles. A skill explains
 how to complete the workflow; an MCP server provides live information and

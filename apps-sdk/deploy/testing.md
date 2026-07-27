@@ -1,49 +1,151 @@
-# Test your integration
+# Connect and test your plugin
 
-## Goals
+Test each capability before testing the complete installed plugin. If the
+plugin includes an MCP server, start by connecting and evaluating the server in
+developer mode. Then package the plugin with its skills and test the complete
+experience. Skills-only plugins can skip the first section.
 
-Testing validates that your app behaves predictably before you expose it to users. Focus on three areas: tool correctness, component UX, and discovery precision.
+Keep your evaluation prompts and results throughout development so you can
+compare behavior across releases.
 
-## Unit test your tool handlers
+## Test an MCP server (optional)
 
-- Exercise each tool function directly with representative inputs. Verify schema validation, error handling, and edge cases (empty results, missing IDs).
-- Include automated tests for authentication flows if you issue tokens or require linking.
-- Keep test fixtures close to your MCP code so they stay up to date as schemas evolve.
+### Prepare the endpoint
 
-## Use MCP Inspector during development
+Confirm that:
 
-The [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) is the fastest way to debug your server locally:
+- The MCP server is available at a public HTTPS endpoint.
+- The endpoint supports streamable HTTP, typically at `/mcp`.
+- Tool names, descriptions, schemas, and annotations are present.
+- Authentication discovery works for tools that require an account.
 
-1. Run your MCP server.
-2. Launch the inspector: `npx @modelcontextprotocol/inspector@latest`.
-3. Enter your server URL (for example `http://127.0.0.1:2091/mcp`).
-4. Click **List Tools** and **Call Tool** to inspect the raw requests and responses.
+For local development, use
+[Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels), a development tunnel,
+or another HTTPS forwarding service.
 
-Inspector renders components inline and surfaces errors immediately. Capture screenshots for your launch review.
+### Inspect the MCP server
 
-## Validate in ChatGPT developer mode
+Use [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) to
+list and call tools directly:
 
-After your app's MCP server is reachable over HTTPS:
+```bash
+npx @modelcontextprotocol/inspector@latest
+```
 
-- In [ChatGPT](https://chatgpt.com), open **Settings → Security and login** and turn on **Developer mode**.
-- Open **Settings → Plugins** or [chatgpt.com/plugins](https://chatgpt.com/plugins), select the plus button, and create a developer-mode app that points to your HTTPS `/mcp` endpoint.
-- Toggle the app on in a new conversation and run through your golden prompt set (direct, indirect, negative). Record when the model selects the right tool, what arguments it passed, and whether confirmation prompts appear as expected.
-- Test mobile layouts by invoking the app in the ChatGPT iOS or Android apps.
+Exercise each tool with representative inputs, edge cases, missing identifiers,
+and empty results. Verify schema validation, authentication errors, annotations,
+confirmation behavior, and the model-readable result.
 
-## Connect via the API Playground
+### Enable developer mode
 
-If you need raw logs or want to test without the full ChatGPT UI, open the [API Playground](https://platform.openai.com/playground):
+In ChatGPT:
+
+1. Open **Settings**.
+2. Select **Security and login**.
+3. Turn on **Developer mode**.
+
+Developer mode availability can depend on account and workspace policy.
+
+### Add the MCP server
+
+1. Go to [ChatGPT Plugins](https://chatgpt.com/plugins).
+2. Select the plus button.
+3. Enter a user-facing name and description.
+4. Enter the public MCP server URL, including the `/mcp` path.
+5. Create the connection.
+6. Review the tools and metadata discovered from the server.
+
+If ChatGPT cannot connect, verify the HTTPS endpoint with MCP Inspector.
+Resolve transport, initialization, schema, or authentication errors before
+continuing.
+
+### Check tool selection
+
+Start a new conversation and add the MCP connection from the tools menu. Create
+an evaluation set that includes:
+
+- Direct requests that should call a specific tool.
+- Indirect requests that express the same goal.
+- Follow-up requests that reuse identifiers from earlier results.
+- Write actions that require authorization or confirmation.
+- Unsupported requests that shouldn't call a tool.
+
+For each request, record the selected tool, arguments, result, errors, and
+confirmation behavior. Rerun the set whenever you change tool names,
+descriptions, schemas, or annotations.
+
+If the server returns optional UI, test both the component and the
+model-readable result.
+
+### Test through the API Playground
+
+For raw request and response logs, open the
+[API Playground](https://platform.openai.com/playground):
 
 1. Choose **Tools → Add → MCP Server**.
-2. Provide your HTTPS endpoint and connect.
-3. Issue test prompts and inspect the JSON request/response pairs in the right-hand panel.
+2. Enter the HTTPS endpoint and connect.
+3. Run test prompts and inspect the request and response data.
 
-## Regression checklist before launch
+### Refresh metadata
 
-- Tool list matches your documentation and unused prototypes are removed.
-- Structured content matches the declared `outputSchema` for every tool.
-- Widgets render without console errors, inject their own styling, and restore state correctly.
-- OAuth or custom auth flows return valid tokens and reject invalid ones with meaningful messages.
-- Discovery behaves as expected across your golden prompts and does not trigger on negative prompts.
+After changing tool names, descriptions, schemas, annotations, authentication,
+or UI resources:
 
-Capture findings in a doc so you can compare results release over release. Consistent testing keeps your app reliable as ChatGPT and your backend evolve.
+1. Deploy or restart the MCP server.
+2. Open the connection at [ChatGPT Plugins](https://chatgpt.com/plugins).
+3. Select **Refresh**.
+4. Confirm that the advertised metadata changed.
+5. Start a new conversation and rerun the affected tests.
+
+This refresh flow applies to MCP servers connected in developer mode.
+Published plugins with MCP use reviewed
+[metadata snapshots](https://developers.openai.com/plugins/deploy/submission#how-published-mcp-metadata-versions-work).
+To update published metadata, scan the server, submit a new version, and
+publish the approved version.
+
+Before packaging the plugin, confirm that:
+
+- The tool list matches the documented capabilities.
+- Structured results match each tool's declared output schema.
+- Authentication failures return useful errors.
+- Positive prompts select the expected tools and negative prompts don't.
+- Optional UI renders without console errors and restores state correctly.
+
+## Test the complete plugin
+
+After the MCP server works—or immediately for a skills-only plugin—package and
+install the complete plugin from a local source:
+
+1. [Package the plugin](https://developers.openai.com/plugins/build/plugins) with its skills, manifest, and
+   MCP server connection when applicable.
+2. Add the plugin to a local marketplace and install it from the Plugins
+   Directory.
+3. Start a new conversation with the plugin enabled.
+4. Run representative requests from the plugin's use-case inventory.
+
+Create an evaluation set that includes:
+
+- Direct requests that should use a skill.
+- Indirect requests that express the same goal.
+- Follow-up requests that depend on an earlier result.
+- Negative requests that shouldn't use the plugin.
+- Boundary cases that the plugin intentionally doesn't support.
+
+For each request, check that the plugin follows the skill instructions, uses
+the expected resources, completes every required step, and produces a useful
+result. Record any missing steps, unnecessary activations, or inconsistent
+results.
+
+For plugins with an MCP server, also confirm that skills invoke the right tools,
+tool results return to the workflow, authentication works after installation,
+and users can complete each combined workflow from start to finish.
+
+Before submission, confirm that:
+
+- Each skill activates for the intended requests.
+- Similar phrasing produces consistent behavior.
+- Unsupported requests don't activate the plugin.
+- Bundled files and references resolve after installation.
+- The plugin's starter prompts represent workflows it can complete.
+- For plugins with an MCP server, bundled skills and tools work together as
+  intended.

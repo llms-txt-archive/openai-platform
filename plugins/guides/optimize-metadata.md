@@ -38,8 +38,8 @@ For each tool:
 {/* vale Vale.Terms = YES */}
 
 1. In ChatGPT, turn on Developer mode from **Settings → Security and login**,
-   then register your MCP server from **Settings → Plugins** or
-   [plugin settings](https://chatgpt.com/plugins).
+   then register your MCP server at
+   [ChatGPT Plugins](https://chatgpt.com/plugins).
 2. Run through the golden prompt set and record the outcome: which tool was selected, what arguments were passed, and whether the component rendered.
 3. For each prompt, track precision (did the right tool run?) and recall (did the tool run when it should?).
 

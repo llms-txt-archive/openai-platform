@@ -1,21 +1,25 @@
 # Build skills
 
-A skill teaches ChatGPT and Codex how to complete a repeatable workflow. Use a
-skill when instructions, examples, templates, or bundled resources are enough
-to produce the result. Add an MCP server when the workflow also needs live data
-or controlled actions.
+A skill complements your MCP server by teaching ChatGPT and Codex how to use
+its tools in a repeatable workflow. Use the server for live data,
+authentication, authorization, and controlled actions. Use the skill for tool
+sequences, decision points, output requirements, examples, templates, and
+other reusable guidance.
 
 A plugin can contain one skill or a group of related skills. Keep every skill
 focused on a recognizable user goal from your
-[use-case inventory](https://developers.openai.com/plugins/plan/use-case).
+[use-case inventory](https://developers.openai.com/plugins/plan/use-case). A skill can also work without an
+MCP server when the workflow needs only packaged instructions and resources.
 
 ## Create a skill
 
-The fastest way to start is with the built-in skill creator:
+The fastest way to start is with the built-in skill creator. Describe the user
+goal and the MCP tools that support it:
 
 ```text
-@skill-creator Create a skill that turns meeting notes into a recap,
-an action register, and a customer follow-up draft.
+@skill-creator Create a skill named tabletop-dice that understands dice
+notation such as 3d6, calls roll_dice once for each die, and reports every
+roll and the total.
 ```
 
 In Codex, invoke the same creator as `$skill-creator`.
@@ -29,20 +33,19 @@ Start the file with a name and a description, followed by the instructions:
 
 ```md
 ---
-name: meeting-follow-up
-description: Turn meeting notes into a recap, action register, and customer follow-up draft.
+name: tabletop-dice
+description: Roll one or more dice for tabletop games and report each result and the total.
 ---
 
-Use this skill when the user provides meeting notes or a transcript and asks
-for a follow-up.
+Use this skill when the user asks to roll dice.
 
-1. Summarize the outcome in two or three sentences.
-2. List decisions that were made.
-3. List action items with an owner when the source identifies one.
-4. Draft a concise customer follow-up email.
+1. Parse requests written as `NdS` as N dice with S sides. For example, `3d6`
+   means three six-sided dice.
+2. Call `roll_dice` once for each requested die and pass S as `sides`.
+3. Report each tool result in order.
+4. When the user requests multiple dice, add the results and report the total.
 
-Do not invent owners, deadlines, decisions, or commitments that are missing
-from the source.
+Do not invent, replace, or reroll a result unless the user asks you to.
 ```
 
 The description determines when the model considers the skill. State the
@@ -91,10 +94,10 @@ If a skill requires an MCP server, declare the dependency in
 dependencies:
   tools:
     - type: "mcp"
-      value: "acme-projects"
-      description: "Read and update Acme projects"
+      value: "dice-roller"
+      description: "Roll an N-sided die"
       transport: "streamable_http"
-      url: "https://example.com/mcp"
+      url: "https://tinymcp.dev/api/moldy-aloof-zettabyte/mcp"
 ```
 
 A dependency makes the required tool available; it does not replace clear
@@ -122,13 +125,13 @@ Point the plugin manifest at the skills directory:
 
 ```json
 {
-  "name": "meeting-follow-up",
+  "name": "dice-roller",
   "version": "1.0.0",
-  "description": "Turn meeting notes into consistent follow-ups",
-  "skills": "./skills/"
+  "description": "Roll dice for tabletop games",
+  "skills": "./skills/",
+  "apps": "./.app.json"
 }
 ```
 
 See [Package your plugin](https://developers.openai.com/plugins/build/plugins) for the complete manifest,
-local testing, and distribution flow. If the workflow needs live data or
-actions, continue with [Build an MCP server](https://developers.openai.com/plugins/build/mcp-server).
+MCP server mapping, local testing, and distribution flow.

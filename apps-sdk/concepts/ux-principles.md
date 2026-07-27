@@ -1,88 +1,106 @@
-# UX principles
+# Brainstorm plugin use cases
 
-## Overview
+Start by listing the things people will expect your plugin to do. The plugin's
+name, description, skills, tools, and connection to an existing product all
+create expectations. Your implementation should cover those expectations or
+have a deliberate reason not to.
 
-Creating a great ChatGPT app is about delivering a focused, conversational experience that feels native to ChatGPT.
+This work determines what belongs in the plugin:
 
-The goal is to design experiences that feel consistent and useful while extending what you can do in ChatGPT conversations in ways that add real value.
+- Add a **skill** when instructions, examples, or bundled resources can guide
+  the model through the workflow.
+- Add an **MCP server** when the workflow needs live data, authentication,
+  controlled tools, or code that runs on infrastructure you operate.
+- Add **UI to the MCP server** only when visual interaction materially improves
+  part of the workflow.
 
-Good examples include booking a ride, ordering food, checking availability, or tracking a delivery. These are tasks that are conversational, time bound, and easy to summarize visually with a clear call to action. Poor examples include replicating long form content from a website, requiring complex multi step workflows, or using the space for ads or irrelevant messaging.
+## Start from user expectations
 
-Use the UX principles below to guide your development.
+Imagine that a person has installed your plugin but has not read its
+documentation. What would they reasonably ask it to do?
 
-## Principles for great app UX
+Gather likely requests from:
 
-An app should do at least one thing _better_ because it lives in ChatGPT:
+- Tasks people already complete in your product or service.
+- User interviews, support requests, search queries, and feature requests.
+- Common terms people use for your product, data, and workflows.
+- Existing workarounds that require copying data between tools.
+- The plugin name, listing, screenshots, and starter prompts.
 
-- **Conversational leverage** – natural language, thread context, and multi-turn guidance unlock workflows that traditional UI cannot.
-- **Native fit** – the app feels embedded in ChatGPT, with seamless hand-offs between the model and your tools.
-- **Composability** – actions are small, reusable building blocks that the model can mix with other apps to complete richer tasks.
+Include direct requests that name your plugin and indirect requests that state
+the goal. For example, a project-management plugin might need to handle both
+“Show my Acme launch board” and “What is blocking the launch?”
 
-If you cannot describe the clear benefit of running inside ChatGPT, keep iterating before preparing your app for distribution.
+Do not limit the brainstorm to workflows that fit your current API. First
+capture what people will expect. Then compare those expectations with what you
+can support safely and reliably.
 
-On the other hand, your app should also _improve the user experience_ in ChatGPT by either providing something new to know, new to do, or a better way to show information.
+## Build a use-case inventory
 
-Below are a few principles you should follow to help ensure your app is a great fit for ChatGPT.
+For each use case, record:
 
-### 1. Extract, don’t port
+| Field             | Question to answer                                                         |
+| ----------------- | -------------------------------------------------------------------------- |
+| User goal         | What is the person trying to accomplish?                                   |
+| Example requests  | How might they ask directly or indirectly?                                 |
+| Expected result   | What would make the interaction successful?                                |
+| Required context  | What information, account access, or prior state is needed?                |
+| Plugin capability | Can a skill handle it, or does it need an MCP tool?                        |
+| Safety boundary   | Could it expose data, change state, spend money, or affect another person? |
+| Support decision  | Will the first version support it, defer it, or intentionally exclude it?  |
 
-Focus on the core jobs users use your product for. Instead of mirroring your full website or native app, identify a few atomic actions that can be extracted as tools. Each tool should expose the minimum inputs and outputs needed for the model to take the next step confidently.
+Group requests that share the same goal. “List my open tasks,” “What do I need
+to do today?” and “Show overdue work” may belong to one task-review use case
+with different filters rather than three unrelated features.
 
-### 2. Design for conversational entry
+## Check coverage
 
-Expect users to arrive mid-conversation, with a specific task in mind, or with fuzzy intent.
-Your app should support:
+Review every expectation against the proposed plugin capabilities:
 
-- Open-ended prompts (e.g. "Help me plan a team offsite").
-- Direct commands (e.g. "Book the conference room Thursday at 3pm").
-- First-run onboarding (teach new users how to engage through ChatGPT).
+1. Confirm that each supported use case has a complete path from request to
+   useful result.
+2. Identify missing skills, tools, data, permissions, or error states.
+3. Look for tools that expose technical operations without completing a
+   recognizable user goal.
+4. Verify that write actions include appropriate authorization and confirmation.
+5. Check that the plugin can explain what it cannot do and offer a useful next
+   step.
 
-### 3. Design for the ChatGPT environment
+A plugin should not imply broad capability while supporting only a narrow
+slice of the expected workflow. If users can create projects but cannot list,
+inspect, or update them, either add the missing coverage or narrow the plugin's
+positioning.
 
-ChatGPT provides the conversational surface. Use your UI selectively to clarify actions, capture inputs, or present structured results. Skip ornamental components that do not advance the current task, and lean on the conversation for relevant history, confirmation, and follow-up.
+## Document intentional exclusions
 
-### 4. Optimize for conversation, not navigation
+You do not need to implement every imaginable request. You should have a good
+reason for each important exclusion, such as:
 
-The model handles state management and routing. Your app supplies:
+- The action would create unacceptable safety or privacy risk.
+- The underlying product or API does not support it reliably.
+- The workflow requires permissions that the plugin cannot verify.
+- The result would be misleading without information the plugin cannot access.
+- The use case is out of scope for the first release and the plugin's listing
+  sets that expectation.
 
-- Clear, declarative actions with well-typed parameters.
-- Concise responses that keep the chat moving (tables, lists, or short paragraphs instead of dashboards).
-- Helpful follow-up suggestions so the model can keep the user in flow.
+Record these decisions. They should inform skill boundaries, tool
+descriptions, refusal behavior, test cases, and public listing copy.
 
-### 5. Embrace the ecosystem moment
+## Turn use cases into build decisions
 
-Highlight what is unique about your app inside ChatGPT:
+For each supported use case, choose the smallest implementation that can
+complete it:
 
-- Accept rich natural language instead of form fields.
-- Personalize with relevant context gleaned from the conversation.
-- (Optional) Compose with other apps when it saves the user time or cognitive load.
+- [Build a skill](https://developers.openai.com/plugins/build/skills) for repeatable instructions and
+  resources.
+- [Build an MCP server](https://developers.openai.com/plugins/build/mcp-server) for live data and
+  controlled actions.
+- [Add UI to the MCP server](https://developers.openai.com/plugins/build/chatgpt-ui) when people need to
+  inspect, compare, edit, confirm, or navigate structured information.
 
-## Checklist before publishing
+Keep the use-case inventory as a test plan. Add representative direct,
+indirect, edge-case, and out-of-scope requests, then verify that the finished
+plugin behaves as intended for each one.
 
-Answer these yes/no questions before you submit a plugin that contains your app through the current review flow. A “no” signals an opportunity to improve your app before broader distribution.
-
-However, please note that we will evaluate each app on a case-by-case basis, and that answering "yes" to all of these questions does not guarantee that your app will be selected for distribution: it's only a baseline to help your app be a great fit for ChatGPT.
-
-To learn about strict requirements for publishing a plugin that contains your
-  app, see the [app guidelines](https://developers.openai.com/apps-sdk/app-guidelines).
-
-- **Conversational value** – Does at least one primary capability rely on ChatGPT’s strengths (natural language, conversation context, multi-turn dialog)?
-- **Beyond base ChatGPT** – Does the app provide new knowledge, actions, or presentation that users cannot achieve without it (e.g., proprietary data, specialized UI, or a guided flow)?
-- **Atomic, model-friendly actions** – Are tools indivisible, self-contained, and defined with explicit inputs and outputs so the model can invoke them without clarifying questions?
-- **Helpful UI only** – Would replacing every custom widget with plain text meaningfully degrade the user experience?
-- **End-to-end in-chat completion** – Can users finish at least one meaningful task without leaving ChatGPT or juggling external tabs?
-- **Performance & responsiveness** – Does the app respond quickly enough to maintain the rhythm of a chat?
-- **Discoverability** – Is it easy to imagine prompts where the model would select this app confidently?
-- **Platform fit** – Does the app take advantage of core platform behaviors (rich prompts, prior context, multi-tool composition, multimodality, or memory)?
-
-Additionally, ensure that you avoid:
-
-- Displaying **long-form or static content** better suited for a website or app.
-- Requiring **complex multi-step workflows** that exceed the inline or fullscreen display modes.
-- Using the space for **ads, upsells, or irrelevant messaging**.
-- Surfacing **sensitive or private information** directly in a card where others might see it.
-- **Duplicating ChatGPT’s system functions** (for example, recreating the input composer).
-
-### Next steps
-
-Once you have made sure your app has great UX, you can polish your app's UI by following our recommendations in the [UI guidelines](https://developers.openai.com/apps-sdk/concepts/ui-guidelines).
+If the plugin needs live data or controlled actions, continue with
+[Define tools](https://developers.openai.com/plugins/plan/tools).

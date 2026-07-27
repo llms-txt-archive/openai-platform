@@ -24,7 +24,7 @@ ChatGPT developer mode provides full Model Context Protocol (MCP) client support
 - **Eligibility:** Available to Pro, Plus, Business, Enterprise, and Education accounts on the web.
 - **Enable developer mode:** In [ChatGPT](https://chatgpt.com), open **Settings → Security and login** and turn on **Developer mode**.
 - **Create apps from MCP servers:**
-  - Open **Settings → Plugins** or go directly to [chatgpt.com/plugins](https://chatgpt.com/plugins).
+  - Go to [ChatGPT Plugins](https://chatgpt.com/plugins).
   - Select the plus button and create a developer-mode app for your remote MCP server. It will appear in the composer's **Developer mode** tool later during conversations. The plus button will only create developer-mode apps after you turn on Developer mode.
     - Supported MCP protocols: SSE and streaming HTTP.
     - Authentication supported: OAuth, No Authentication, and Mixed Authentication

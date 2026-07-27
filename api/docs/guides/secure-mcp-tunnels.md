@@ -116,7 +116,7 @@ Run `tunnel-client` in the same trust boundary that can already reach the privat
 
 ## Connect from ChatGPT
 
-Open **Settings → Plugins** or [chatgpt.com/plugins](https://chatgpt.com/plugins), select the plus button to create a developer-mode app, and choose **Tunnel** under **Connection**. Select an available tunnel when ChatGPT lists it, or paste a valid `tunnel_id` if you already have one.
+Go to [ChatGPT Plugins](https://chatgpt.com/plugins), select the plus button to create a developer-mode app, and choose **Tunnel** under **Connection**. Select an available tunnel when ChatGPT lists it, or paste a valid `tunnel_id` if you already have one.
 
 If the tunnel does not appear in ChatGPT, verify that the tunnel is associated with the target ChatGPT workspace, not only with a Platform organization, and that the app creator has Tunnels **Read** + **Use**.
 
@@ -170,14 +170,14 @@ Use this when you need to reach a small set of private REST endpoints without ex
 ## Where to configure it
 
 - Manage OpenAI-hosted MCP tunnel endpoints in [Platform tunnel settings](https://platform.openai.com/settings/organization/tunnels).
-- Use a tunnel when creating a developer-mode app from **Settings → Plugins** or [chatgpt.com/plugins](https://chatgpt.com/plugins).
+- Use a tunnel when creating a developer-mode app at [ChatGPT Plugins](https://chatgpt.com/plugins).
 - For Codex or API flows, use the tunnel-backed MCP target exposed by the supported product surface.
 
 ## Next steps
 
 - Create or manage the tunnel in [Platform tunnel settings](https://platform.openai.com/settings/organization/tunnels).
 - Validate your `tunnel-client` profile with `tunnel-client doctor --profile <profile> --explain`.
-- Connect the tunnel from **Settings → Plugins**, [chatgpt.com/plugins](https://chatgpt.com/plugins), or the supported OpenAI surface you are using.
+- Connect the tunnel from [ChatGPT Plugins](https://chatgpt.com/plugins) or the supported OpenAI surface you are using.
 
 <div class="not-prose my-8 grid gap-4 lg:grid-cols-2">
   <figure>

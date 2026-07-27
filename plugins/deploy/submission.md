@@ -48,7 +48,14 @@ permission **Apps Management**.
    submit plugin drafts.
 6. Reload the [plugin submission portal](https://platform.openai.com/plugins).
 
-![Apps Management write permission in Platform role settings](https://developers.openai.com/images/codex/plugins/submit/apps-management-permissions.webp)
+<div class="not-prose my-6 max-w-3xl">
+  <img src="https://developers.openai.com/images/codex/plugins/submit/apps-management-permissions.webp"
+    alt="Apps Management write permission in Platform role settings"
+    width="1518"
+    height="1570"
+    class="block h-auto w-full rounded-lg border border-default"
+  />
+</div>
 
 Organization owners already have these permissions. Non-owner submitters need
 write access to create or submit drafts, and read access to view drafts and
@@ -108,8 +115,6 @@ Before opening the form, collect:
    - **With MCP** for an MCP-only plugin.
    - **With MCP** for a plugin that combines an MCP server with bundled skills.
 
-![Create plugin menu showing MCP and skills-only options](https://developers.openai.com/images/codex/plugins/submit/create-plugin-menu.webp)
-
 The portal saves the submission as a draft while you complete the form.
 
 ## Complete the form
@@ -127,9 +132,14 @@ Complete the public listing and publisher fields:
 - **Website, support, privacy, and terms URLs:** Use public URLs that match the
   publisher and disclose relevant data handling.
 
-![Info tab with plugin listing and developer identity fields filled out](https://developers.openai.com/images/codex/plugins/submit/info-fields.webp)
-
-![Info tab with publisher and policy URLs filled out](https://developers.openai.com/images/codex/plugins/submit/developer-identity.webp)
+<div class="not-prose my-6 max-w-3xl">
+  <img src="https://developers.openai.com/images/codex/plugins/submit/developer-identity.webp"
+    alt="Info tab with publisher and policy URLs filled out"
+    width="1450"
+    height="1314"
+    class="block h-auto w-full rounded-lg border border-default"
+  />
+</div>
 
 Review your MCP responses against your privacy policy before you submit. Remove
 unnecessary personal data, auth secrets, debug payloads, internal identifiers,
@@ -139,19 +149,61 @@ and undisclosed user-related fields from tool responses.
 
 For submissions with MCP:
 
-1. Enter the production MCP server URL.
-2. Configure authentication and provide reviewer-ready demo credentials if the
+1. Choose the MCP server URL type:
+   - Choose **Universal** when one fixed MCP server URL works for all users and
+     organizations.
+   - Choose **Template** only when OpenAI has approved a workspace-specific URL,
+     such as when each customer has a separate tenant, workspace, or managed MCP
+     endpoint.
+2. Enter the required URL:
+   - For **Universal**, enter the production **MCP Server URL**.
+   - For **Template**, enter both an **Example MCP Server URL** and a **Template
+     MCP Server URL**. The example must be a concrete, working endpoint that
+     matches the template and works with the submitted test credentials.
+3. Configure authentication and provide reviewer-ready demo credentials if the
    server requires sign-in.
-3. Define a content security policy that allows the exact domains your UI
+4. Define a content security policy that allows the exact domains your UI
    fetches from.
-4. Complete domain verification if the portal shows a **Domain not verified**
+5. Complete domain verification if the portal shows a **Domain not verified**
    challenge. Use an HTTPS origin on the MCP host name or a parent host name, and
    host the exact token at `/.well-known/openai-apps-challenge`.
-5. Select **Scan Tools**.
-6. Review the discovered tools, domains, validation output, and tool metadata.
-7. Fix server or metadata issues, deploy the fix, then scan again.
+6. Select **Scan Tools**.
+7. Review the discovered tools, domains, validation output, and tool metadata.
+8. Fix server or metadata issues, deploy the fix, then scan again.
 
-![MCP tab after scanning a demo MCP server with metadata recommendations](https://developers.openai.com/images/codex/plugins/submit/mcp-scan.webp)
+<div class="not-prose my-6 max-w-3xl">
+  <img src="https://developers.openai.com/images/codex/plugins/submit/mcp-scan.webp"
+    alt="MCP tab after scanning a demo MCP server with metadata recommendations"
+    width="1450"
+    height="1314"
+    class="block h-auto w-full rounded-lg border border-default"
+  />
+</div>
+
+#### Template MCP server URLs
+
+Most plugins should use **Universal**. Template MCP server URLs are available
+only in limited cases where different groups of users or data require different
+MCP server URLs. OpenAI supports template-based URLs only for trusted developers
+with whom we have an established relationship. If OpenAI has not approved your
+use of a template URL, submit a universal URL.
+
+In the **Template MCP Server URL**, use `{name}` placeholders for the parts that
+a workspace admin configures. Placeholder names must start with a letter,
+contain only letters, numbers, or underscores, and be unique within the URL.
+The **Example MCP Server URL** must replace each placeholder with a real value.
+
+For example:
+
+```text
+Example MCP Server URL: https://acme.example.com/mcp
+Template MCP Server URL: https://{workspace}.example.com/mcp
+```
+
+The example URL must be publicly accessible during review. Don't enter a
+placeholder URL in the **Example MCP Server URL** field. For the complete MCP
+review requirements, see
+[Template MCP server URLs](https://developers.openai.com/plugins/deploy/app-review#template-mcp-server-urls).
 
 Do not enter an existing integration ID or try to point the portal at an
 existing published integration. The submission must provide the MCP server URL
@@ -203,8 +255,6 @@ Set tool annotations to match each tool's real behavior:
 | `openWorldHint`   | For write tools, set to `true` if the tool can change publicly visible internet state, such as posting online, sending external messages, publishing content, pushing code, or submitting forms to third parties. Set to `false` only if the tool operates entirely within closed or private systems and can't change publicly visible internet state. |
 | `destructiveHint` | For write tools, set to `true` if the tool can delete, overwrite, revoke access, send messages or transactions that can't be undone, or cause another irreversible side effect. Otherwise, set it to `false`.                                                                                                                                          |
 
-![MCP tool metadata with explicit annotations and justifications](https://developers.openai.com/images/codex/plugins/submit/mcp-tool-metadata.webp)
-
 For implementation details, see
 [tool annotations and elicitation](https://developers.openai.com/plugins/build/mcp-server#tool-annotations-and-elicitation).
 For review expectations, see the
@@ -215,7 +265,14 @@ For review expectations, see the
 Upload the final skill bundle for skills-only or skills-plus-MCP submissions.
 Use the same file tree and instructions you tested locally.
 
-![Skills tab with a skill bundle ready to upload](https://developers.openai.com/images/codex/plugins/submit/skills-upload.webp)
+<div class="not-prose my-6 max-w-3xl">
+  <img src="https://developers.openai.com/images/codex/plugins/submit/skills-upload.webp"
+    alt="Skills tab ready for a skill bundle upload"
+    width="1442"
+    height="952"
+    class="block h-auto w-full rounded-lg border border-default"
+  />
+</div>
 
 Each skill should include:
 
@@ -243,7 +300,14 @@ Examples:
   deploys."
 - "Review unsuccessful deployment logs and recommend the next debugging step."
 
-![Prompts tab with example starter prompts](https://developers.openai.com/images/codex/plugins/submit/prompts.webp)
+<div class="not-prose my-6 max-w-3xl">
+  <img src="https://developers.openai.com/images/codex/plugins/submit/prompts.webp"
+    alt="Prompts tab with example starter prompts"
+    width="1452"
+    height="1102"
+    class="block h-auto w-full rounded-lg border border-default"
+  />
+</div>
 
 ### Testing
 
@@ -266,7 +330,14 @@ Use test cases that reviewers can run without internal context. If your plugin
 requires authentication, make sure the provided demo credentials can complete
 each test without MFA, SMS, email confirmation, or private-network access.
 
-![Testing tab with positive and negative test cases](https://developers.openai.com/images/codex/plugins/submit/testing.webp)
+<div class="not-prose my-6 max-w-3xl">
+  <img src="https://developers.openai.com/images/codex/plugins/submit/testing.webp"
+    alt="Testing tab with a test case for the roll_dice tool"
+    width="1452"
+    height="1102"
+    class="block h-auto w-full rounded-lg border border-default"
+  />
+</div>
 
 ### Global
 
@@ -274,7 +345,14 @@ Choose the countries or regions where the plugin should be available. Only
 select locations where the publisher, product, support process, and legal terms
 are ready for users.
 
-![Global tab for country and region availability](https://developers.openai.com/images/codex/plugins/submit/global.webp)
+<div class="not-prose my-6 max-w-3xl">
+  <img src="https://developers.openai.com/images/codex/plugins/submit/global.webp"
+    alt="Global tab for country and region availability"
+    width="1452"
+    height="964"
+    class="block h-auto w-full rounded-lg border border-default"
+  />
+</div>
 
 ### Submit
 
@@ -292,7 +370,14 @@ Complete the policy attestations only after confirming the listing, server,
 skills, prompts, tests, and availability are accurate. Then select
 **Submit for Review**.
 
-![Submit tab with release notes and final attestations](https://developers.openai.com/images/codex/plugins/submit/submit.webp)
+<div class="not-prose my-6 max-w-3xl">
+  <img src="https://developers.openai.com/images/codex/plugins/submit/submit.webp"
+    alt="Submit tab with release notes and final attestations"
+    width="1452"
+    height="964"
+    class="block h-auto w-full rounded-lg border border-default"
+  />
+</div>
 
 ## Public publishing flow
 

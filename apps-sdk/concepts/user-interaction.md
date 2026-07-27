@@ -1,65 +1,106 @@
-# User Interaction
+# Brainstorm plugin use cases
 
-## Discovery
+Start by listing the things people will expect your plugin to do. The plugin's
+name, description, skills, tools, and connection to an existing product all
+create expectations. Your implementation should cover those expectations or
+have a deliberate reason not to.
 
-Discovery refers to the different ways a user or the model can find out about your app and the tools it provides: natural-language prompts, directory browsing, and proactive [entry points](#entry-points). Apps SDK leans on your tool metadata and past usage to make intelligent choices. Good discovery hygiene means your app appears when it should and stays quiet when it should not.
+This work determines what belongs in the plugin:
 
-For public distribution, apps are now submitted and published as plugins. The
-user-facing experience still starts from the app you build with Apps SDK, and
-the plugin is the package users discover and install. See
-[Submit plugins](https://developers.openai.com/codex/submit-plugins) for the source-of-truth submission and
-publishing flow.
+- Add a **skill** when instructions, examples, or bundled resources can guide
+  the model through the workflow.
+- Add an **MCP server** when the workflow needs live data, authentication,
+  controlled tools, or code that runs on infrastructure you operate.
+- Add **UI to the MCP server** only when visual interaction materially improves
+  part of the workflow.
 
-### Named mention
+## Start from user expectations
 
-When a user mentions the name of your app at the beginning of a prompt, your app will be surfaced automatically in the response. The user must specify your app name at the beginning of their prompt. If they do not, your app can also appear as a suggestion through in-conversation discovery.
+Imagine that a person has installed your plugin but has not read its
+documentation. What would they reasonably ask it to do?
 
-### In-conversation discovery
+Gather likely requests from:
 
-When a user sends a prompt, the model evaluates:
+- Tasks people already complete in your product or service.
+- User interviews, support requests, search queries, and feature requests.
+- Common terms people use for your product, data, and workflows.
+- Existing workarounds that require copying data between tools.
+- The plugin name, listing, screenshots, and starter prompts.
 
-- **Conversation context** – the chat history, including previous tool results, memories, and explicit tool preferences
-- **Conversation brand mentions and citations** - whether your brand is explicitly requested in the query or is surfaced as a source/citation in search results.
-- **Tool metadata** – the names, descriptions, and parameter documentation you provide in your MCP server.
-- **User linking state** – whether the user already granted access to your app, or needs to connect it before the tool can run.
+Include direct requests that name your plugin and indirect requests that state
+the goal. For example, a project-management plugin might need to handle both
+“Show my Acme launch board” and “What is blocking the launch?”
 
-You influence in-conversation discovery by:
+Do not limit the brainstorm to workflows that fit your current API. First
+capture what people will expect. Then compare those expectations with what you
+can support safely and reliably.
 
-1. Writing action-oriented [tool descriptions](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#tool) (“Use this when the user wants to view their kanban board”) rather than generic copy.
-2. Writing clear [component descriptions](https://developers.openai.com/apps-sdk/reference#add-component-descriptions) on the resource UI template metadata.
-3. Regularly testing your golden prompt set in ChatGPT developer mode and logging precision/recall.
+## Build a use-case inventory
 
-If the assistant selects your tool, it handles arguments, displays confirmation if needed, and renders the component inline. If no linked tool is an obvious match, the model will default to built-in capabilities, so keep evaluating and improving your metadata.
+For each use case, record:
 
-### Directory
+| Field             | Question to answer                                                         |
+| ----------------- | -------------------------------------------------------------------------- |
+| User goal         | What is the person trying to accomplish?                                   |
+| Example requests  | How might they ask directly or indirectly?                                 |
+| Expected result   | What would make the interaction successful?                                |
+| Required context  | What information, account access, or prior state is needed?                |
+| Plugin capability | Can a skill handle it, or does it need an MCP tool?                        |
+| Safety boundary   | Could it expose data, change state, spend money, or affect another person? |
+| Support decision  | Will the first version support it, defer it, or intentionally exclude it?  |
 
-The directory is a shared catalog of publicly available plugins that users can
-browse in ChatGPT and Codex. It gives users a place to find plugins that
-contain apps, skills-only plugins, and plugins that combine apps with skills.
-Your listing in this directory will include:
+Group requests that share the same goal. “List my open tasks,” “What do I need
+to do today?” and “Show overdue work” may belong to one task-review use case
+with different filters rather than three unrelated features.
 
-- App name and icon
-- Short and long descriptions
-- Tags or categories (where supported)
-- Optional onboarding instructions or screenshots
+## Check coverage
 
-## Entry points
+Review every expectation against the proposed plugin capabilities:
 
-Once a user links your app, ChatGPT can surface it through several entry points. Understanding each surface helps you design flows that feel native and discoverable.
+1. Confirm that each supported use case has a complete path from request to
+   useful result.
+2. Identify missing skills, tools, data, permissions, or error states.
+3. Look for tools that expose technical operations without completing a
+   recognizable user goal.
+4. Verify that write actions include appropriate authorization and confirmation.
+5. Check that the plugin can explain what it cannot do and offer a useful next
+   step.
 
-### In-conversation entry
+A plugin should not imply broad capability while supporting only a narrow
+slice of the expected workflow. If users can create projects but cannot list,
+inspect, or update them, either add the missing coverage or narrow the plugin's
+positioning.
 
-Linked tools are always on in the model’s context. When the user writes a prompt, the assistant decides whether to call your tool based on the conversation state and metadata you supplied. Best practices:
+## Document intentional exclusions
 
-- Keep tool descriptions action oriented so the model can disambiguate similar apps.
-- Return structured content that references stable IDs so follow-up prompts can mutate or summarise prior results.
-- Provide `_meta` [hints](https://developers.openai.com/apps-sdk/reference#tool-descriptor-parameters) so the client can streamline confirmation and rendering.
+You do not need to implement every imaginable request. You should have a good
+reason for each important exclusion, such as:
 
-When a call succeeds, the component renders inline and inherits the current theme, composer, and confirmation settings.
+- The action would create unacceptable safety or privacy risk.
+- The underlying product or API does not support it reliably.
+- The workflow requires permissions that the plugin cannot verify.
+- The result would be misleading without information the plugin cannot access.
+- The use case is out of scope for the first release and the plugin's listing
+  sets that expectation.
 
-### Launcher
+Record these decisions. They should inform skill boundaries, tool
+descriptions, refusal behavior, test cases, and public listing copy.
 
-The launcher (available from the + button in the composer) is a high-intent entry point where users can explicitly choose an app. Your listing should include a succinct label and icon. Consider:
+## Turn use cases into build decisions
 
-- **Deep linking** – include starter prompts or entry arguments so the user lands on the most useful tool immediately.
-- **Context awareness** – the launcher ranks apps using the current conversation as a signal, so keep metadata aligned with the scenarios you support.
+For each supported use case, choose the smallest implementation that can
+complete it:
+
+- [Build a skill](https://developers.openai.com/plugins/build/skills) for repeatable instructions and
+  resources.
+- [Build an MCP server](https://developers.openai.com/plugins/build/mcp-server) for live data and
+  controlled actions.
+- [Add UI to the MCP server](https://developers.openai.com/plugins/build/chatgpt-ui) when people need to
+  inspect, compare, edit, confirm, or navigate structured information.
+
+Keep the use-case inventory as a test plan. Add representative direct,
+indirect, edge-case, and out-of-scope requests, then verify that the finished
+plugin behaves as intended for each one.
+
+If the plugin needs live data or controlled actions, continue with
+[Define tools](https://developers.openai.com/plugins/plan/tools).

@@ -502,11 +502,11 @@ Use the following guidance to choose a detail level:
 | Detail level | Best for                                                                                                                                       |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `low`        | Fast, low-cost understanding when fine visual detail is not important. The model receives a low-resolution 512px x 512px version of the image. |
-| `high`       | Standard high-fidelity image understanding.                                                                                                    |
+| `high`       | Standard high-fidelity image understanding when precise original-image coordinates are not required.                                           |
 | `original`   | Large, dense, spatially sensitive, or computer-use images. Available on `gpt-5.4` and future models.                                           |
 | `auto`       | Automatic detail selection. On `gpt-5.5` and GPT-5.6 models, `auto` and the omitted/default behavior are equivalent to `original`.             |
 
-For computer use, localization, and click-accuracy use cases on `gpt-5.4` and future models, we recommend `"detail": "original"`. See the [Computer use guide](https://developers.openai.com/api/docs/guides/tools-computer-use) for more detail.
+For high-accuracy tasks that require fine visual detail or precise coordinates in the original image, such as optical character recognition (OCR), small-object detection, bounding boxes, localization, or computer use, set `"detail": "original"` when supported. The `low` and `high` detail levels may resize the image before analysis, which can obscure small details and cause model-generated coordinates to no longer match the original image. On `gpt-5.4` and `gpt-5.5`, `original` can also resize images that exceed the model's patch or dimension limits; for coordinate-sensitive tasks, resize those images before sending them and remap returned coordinates to the original image. Use `low` or `high` when lower cost or latency is more important than fine-detail recognition or spatial accuracy. See the [Computer use guide](https://developers.openai.com/api/docs/guides/tools-computer-use) for more detail.
 
 Read more about how models resize images in the [Model sizing
   behavior](#model-sizing-behavior) section, and about token costs in the

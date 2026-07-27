@@ -56,7 +56,7 @@ First, enable developer mode in ChatGPT:
 
 Then register the MCP server in developer mode:
 
-1. Open **Settings → Plugins** or [the Plugins page](https://chatgpt.com/plugins).
+1. Go to [ChatGPT Plugins](https://chatgpt.com/plugins).
 2. Select the plus button.
 3. Complete the modal with your MCP server URL and connection details.
 4. After ChatGPT creates the connection, copy its technical ID from the browser

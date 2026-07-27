@@ -72,20 +72,20 @@ Most plugins should submit a universal MCP server URL: a single hosted MCP endpo
 
 Template submissions require two URL values:
 
-- **MCP Server URL:** A concrete, working MCP endpoint for review and automated checks.
+- **Example MCP Server URL:** A concrete, working MCP endpoint for review and automated checks.
 - **Template MCP Server URL:** The URL pattern that describes which part of the MCP endpoint changes across customer workspaces.
 
-The review MCP server URL must be a real endpoint that OpenAI can connect to during submission review. Don't enter a placeholder URL in the **MCP Server URL** field.
+The example MCP server URL must be a real endpoint that OpenAI can connect to during submission review. Don't enter a placeholder URL in the **Example MCP Server URL** field.
 
 Use placeholders in the **Template MCP Server URL** for the parts that a workspace admin will configure later. Placeholders must use `{name}` syntax, start with a letter, and contain only letters, numbers, or underscores. Each placeholder name must be unique.
 
-Make sure the concrete **MCP Server URL** matches the template pattern after replacing each placeholder with a real value.
+Make sure the concrete **Example MCP Server URL** matches the template pattern after replacing each placeholder with a real value.
 
 For example:
 
 ```text
-https://{workspace}.example.com/mcp
-https://mcp.example.com/{tenant}/mcp
+Example MCP Server URL: https://acme.example.com/mcp
+Template MCP Server URL: https://{workspace}.example.com/mcp
 ```
 
 ## Submit for review

@@ -15,7 +15,7 @@ Use this as a lightweight map for AI tools. Each Plugins page has a Markdown twi
 - [Add UI to your MCP server](https://developers.openai.com/plugins/build/chatgpt-ui.md): Return optional UI resources from selected MCP tools.
 - [Authentication](https://developers.openai.com/plugins/build/auth.md): Authentication patterns for plugin MCP servers.
 - [Build an MCP server](https://developers.openai.com/plugins/build/mcp-server.md): Add live data and controlled tools to your plugin.
-- [Build skills](https://developers.openai.com/plugins/build/skills.md): Add repeatable instructions and resources to your plugin.
+- [Build skills](https://developers.openai.com/plugins/build/skills.md): Add repeatable workflows around your plugin's MCP tools.
 - [Checkout API reference](https://developers.openai.com/plugins/build/monetization.md): Implement checkout from optional plugin UI.
 - [Examples](https://developers.openai.com/plugins/build/examples.md): End-to-end examples of MCP servers with optional UI.
 - [MCP server and UI quickstart](https://developers.openai.com/plugins/build/app-quickstart.md): Build an MCP server for ChatGPT and Codex, with optional UI in ChatGPT.
@@ -24,7 +24,7 @@ Use this as a lightweight map for AI tools. Each Plugins page has a Markdown twi
 ## Concepts
 - [MCP server](https://developers.openai.com/plugins/concepts/mcp-server.md): Understand how an MCP server gives a plugin tools and access to external systems.
 - [Plugin architecture](https://developers.openai.com/plugins/concepts/plugins.md): Understand how plugins combine skills, MCP servers, and optional UI.
-- [Skills](https://developers.openai.com/plugins/concepts/skills.md): Understand how skills add repeatable workflows to a plugin.
+- [Skills](https://developers.openai.com/plugins/concepts/skills.md): Understand how skills add repeatable workflows around MCP tools.
 - [UI guidelines](https://developers.openai.com/plugins/concepts/ui-guidelines.md): Guidelines for designing optional plugin UI in ChatGPT.
 
 ## Deploy
@@ -45,7 +45,7 @@ Use this as a lightweight map for AI tools. Each Plugins page has a Markdown twi
 - [Define tools](https://developers.openai.com/plugins/plan/tools.md): Translate plugin use cases into a focused MCP tool surface.
 
 ## Quickstart
-- [Quickstart](https://developers.openai.com/plugins/quickstart.md): Create and test a plugin with a reusable skill.
+- [Quickstart](https://developers.openai.com/plugins/quickstart.md): Connect an MCP server and test the resulting plugin in ChatGPT Work.
 
 ## Reference
 - [Reference](https://developers.openai.com/plugins/reference.md): Reference for ChatGPT-specific UI extensions and metadata.

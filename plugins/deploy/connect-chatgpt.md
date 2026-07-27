@@ -48,8 +48,7 @@ Developer mode availability can depend on account and workspace policy.
 
 ### Add the MCP server
 
-1. Open **Settings → Plugins** or
-   [plugin settings](https://chatgpt.com/plugins).
+1. Go to [ChatGPT Plugins](https://chatgpt.com/plugins).
 2. Select the plus button.
 3. Enter a user-facing name and description.
 4. Enter the public MCP server URL, including the `/mcp` path.
@@ -93,7 +92,7 @@ After changing tool names, descriptions, schemas, annotations, authentication,
 or UI resources:
 
 1. Deploy or restart the MCP server.
-2. Open the connection in **Settings → Plugins**.
+2. Open the connection at [ChatGPT Plugins](https://chatgpt.com/plugins).
 3. Select **Refresh**.
 4. Confirm that the advertised metadata changed.
 5. Start a new conversation and rerun the affected tests.

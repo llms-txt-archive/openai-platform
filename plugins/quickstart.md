@@ -8,107 +8,50 @@ ChatGPT and Codex share one universal plugin directory. Public plugins are
 published once and become discoverable from supported surfaces in both
 products.
 
-This tutorial creates a small skills-only plugin. It is the fastest way to
-learn the plugin package structure before you add an MCP server or custom
-UI.
+This tutorial creates a personal plugin by connecting an MCP server. By the
+end, you will find the plugin in your personal Plugins directory and invoke its
+tool from ChatGPT Work on the web. Custom UI is optional and is not part of
+this quickstart.
 
-By the end, you will have a plugin that teaches ChatGPT and Codex how to turn
-meeting notes into a consistent follow-up.
+This quickstart uses a public example MCP server at
+  `https://tinymcp.dev/api/moldy-aloof-zettabyte/mcp`. It exposes a read-only
+  `roll_dice` tool and does not require authentication.
 
-## Create the plugin
+## Connect your MCP server
 
-The fastest way to start is to ask the built-in plugin creator:
+First, add your deployed MCP server in ChatGPT developer mode:
 
-```text
-@plugin-creator Create a plugin named meeting-follow-up.
-Add a skill that turns meeting notes into a concise recap with decisions,
-action items, owners, and a customer follow-up draft.
-```
-
-In Codex, invoke the same skill as `$plugin-creator`.
-
-The generated plugin should have this structure:
-
-## Review the manifest
-
-The plugin manifest is stored at `.codex-plugin/plugin.json`. For this
-skills-only plugin, it points to the bundled skills directory:
-
-```json
-{
-  "name": "meeting-follow-up",
-  "version": "1.0.0",
-  "description": "Turn meeting notes into consistent follow-ups",
-  "skills": "./skills/"
-}
-```
-
-Use a stable, kebab-case `name`. Keep the description focused on the outcome
-the plugin helps someone achieve.
-
-## Review the skill
-
-Each skill lives in its own directory and includes a `SKILL.md` file. A minimal
-version looks like this:
-
-```md
----
-name: meeting-follow-up
-description: Turn meeting notes into a recap, action register, and customer follow-up draft.
----
-
-Use this skill when the user provides meeting notes or a transcript and asks
-for a follow-up.
-
-1. Summarize the outcome in two or three sentences.
-2. List decisions that were made.
-3. List action items with an owner when the source identifies one.
-4. Draft a concise customer follow-up email.
-
-Do not invent owners, deadlines, decisions, or commitments that are missing
-from the source.
-```
-
-Adjust the instructions to match the workflow you want to make repeatable.
-Keep inputs, required sections, and boundaries explicit.
+1. Open [ChatGPT](https://chatgpt.com).
+2. Open **Settings → Security and login** and turn on **Developer mode**.
+3. Go to [ChatGPT Plugins](https://chatgpt.com/plugins), select the plus
+   button, and enter
+   `https://tinymcp.dev/api/moldy-aloof-zettabyte/mcp` as the MCP server URL.
+4. Complete the connection details and create the plugin.
 
 ## Test the plugin
 
-Ask the plugin creator to add the plugin to a personal marketplace for local
-testing. Restart the ChatGPT desktop app, open the Plugins Directory, select
-your local source, and install the plugin. This personal marketplace is a local
-testing source; it does not publish the plugin to the universal directory.
+1. Go to [your personal plugins](https://chatgpt.com/plugins?view=personal).
+   The plugin you created from the MCP server should appear there.
+2. Open the plugin and select the plus button to install it.
+3. Return to the [ChatGPT homepage](https://chatgpt.com).
+4. At the top of the homepage, switch the tab from **Chat** to **Work**.
+5. Start a new Work chat. In the prompt box, type `@` and select your plugin to
+   invoke it directly.
+6. Ask the plugin to roll one 20-sided die. Confirm that it calls `roll_dice`
+   once with `sides` set to 20 and returns one value from 1 through 20.
 
-Start a new chat with the plugin enabled and provide representative meeting
-notes:
+Test several realistic inputs, including different die sizes, invalid values,
+  and requests that should not call the tool. Refine the tool metadata when the
+  wrong tool is selected or its arguments are inconsistent.
 
-```text
-Use the meeting follow-up skill on these notes. Keep unknown owners and dates
-unassigned.
+## Add more capabilities
 
-We agreed to move the launch to the first week of August. Priya will update the
-rollout checklist. The customer wants a revised security summary before the
-next review.
-```
-
-Verify that the response includes the decision, assigns only the known action
-owner, and does not invent an owner or date for the security summary.
-
-Test several realistic inputs, including incomplete notes and requests that
-  should not use the skill. Refine the skill description and instructions when
-  the plugin activates at the wrong time or produces inconsistent results.
-
-## Add an MCP server when you need tools
-
-This plugin does not need an MCP server because its workflow can use
-information already provided to the model. Add an MCP server when the plugin needs to
-connect to a service, authenticate users, expose controlled tools, or run code
-on infrastructure you operate.
-
-Continue with the
-[MCP server and UI quickstart](https://developers.openai.com/plugins/build/app-quickstart), or read
-[Plugin architecture](https://developers.openai.com/plugins/concepts/plugins) to compare plugin shapes.
-Custom UI remains optional even when a plugin contains an MCP server.
+Add more focused tools when the use-case inventory calls for them. To package
+reusable instructions with the MCP server, continue with [Build
+skills](https://developers.openai.com/plugins/build/skills) and [Package your
+plugin](https://developers.openai.com/plugins/build/plugins). If a workflow benefits from visual
+interaction, continue with [Add UI to your MCP
+server](https://developers.openai.com/plugins/build/chatgpt-ui). UI remains optional.
 
 ## Publish the plugin
 

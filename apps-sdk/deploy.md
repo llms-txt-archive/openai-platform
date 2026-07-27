@@ -1,81 +1,285 @@
-# Deploy your app
+# Build an MCP server
 
-## Local development
+Add an MCP server when a plugin use case needs live data, authentication,
+controlled actions, or code that runs on infrastructure you operate. The
+server defines the tools available to ChatGPT and Codex. It does not need to
+return custom UI.
 
-During development you can expose your local server to ChatGPT using a tunnel such as ngrok:
+Start from the supported goals in your
+[use-case inventory](https://developers.openai.com/plugins/plan/use-case). Each tool should help complete a
+recognizable user goal and should expose only the data and actions required for
+that goal.
+
+Build the tools first. After the server works without custom UI, you can [add
+  UI to the MCP server](https://developers.openai.com/plugins/build/chatgpt-ui) for workflows that need
+  visual interaction.
+
+## Choose an MCP software development kit
+
+The official software development kits provide schema helpers, server scaffolding, and streamable
+HTTP transport:
+
+- [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk),
+  published as `@modelcontextprotocol/sdk`.
+- [Python SDK](https://github.com/modelcontextprotocol/python-sdk), published
+  as `mcp`.
+
+Install the SDK that matches your server stack:
 
 ```bash
-ngrok http 2091
-# https://<subdomain>.ngrok.app/mcp → http://127.0.0.1:2091/mcp
+# TypeScript
+npm install @modelcontextprotocol/sdk zod
+
+# Python
+pip install mcp
 ```
 
-Keep the tunnel running while you iterate on your app. When you change code:
+## Create the server
 
-1. Rebuild the component bundle (`npm run build`).
-2. Restart your MCP server.
-3. Refresh the developer-mode app under **Settings → Plugins** or at [chatgpt.com/plugins](https://chatgpt.com/plugins) to pull the latest metadata.
+Create an MCP server with a stable name and version:
 
-## Deployment options
+```ts
 
-Once you have a working MCP server and component bundle, host them behind a stable HTTPS endpoint. The key requirements are low-latency streaming responses on `/mcp`, dependable TLS, and the ability to surface logs and metrics when something goes wrong.
 
-### Manufact
+const server = new McpServer({
+  name: "acme-projects",
+  version: "1.0.0",
+});
+```
 
-[Manufact](https://manufact.com/) maintains `mcp-use`, a community MCP framework for building MCP servers, clients, agents, and app widgets in TypeScript and Python.
+MCP servers can also return an
+[`instructions` field](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle#initialization)
+during initialization. ChatGPT and Codex use these instructions alongside tool
+metadata.
 
-For ChatGPT apps, `mcp-use` can generate MCP Apps metadata with ChatGPT-compatible fields. It also includes a local inspector for testing tools and widgets, and supports deployment through Manufact Cloud. Use the OpenAI Apps SDK docs as the canonical reference for ChatGPT behavior, metadata, and review requirements.
+Use server instructions for guidance that applies across tools, such as
+required tool sequences or shared rate limits. Keep the most important details
+in the first 512 characters. Do not repeat every tool description or try to
+change the model's personality.
 
-See the [`mcp-use` MCP Apps docs](https://manufact.com/docs/typescript/server/mcp-apps) and [`create-mcp-use-app`](https://manufact.com/docs/typescript/getting-started) to get started.
+```ts
+const server = new McpServer(
+  { name: "acme-projects", version: "1.0.0" },
+  {
+    instructions:
+      "Before updating a project, call get_project to confirm its ID and current status.",
+  }
+);
+```
 
-### Vercel
+## Define tools from user goals
 
-Vercel is another strong fit when you want quick deploys, preview environments for review, and automatic HTTPS.
-[They have announced support for ChatGPT Apps hosting](https://vercel.com/changelog/chatgpt-apps-support-on-vercel), so you can ship MCP endpoints alongside your frontend and use Vercel previews to validate app behavior before promoting to production.
+Create one tool for each distinct action the plugin must support. Prefer
+focused operations such as `list_projects`, `get_project`, and
+`update_project` over one tool with many unrelated modes.
 
-You can use their Next.js [starter template](https://vercel.com/templates/ai/chatgpt-app-with-next-js) to get started.
+Each tool needs:
 
-### Alpic
+- An action-oriented name and human-readable title.
+- A description that explains when to use it.
+- An explicit input schema.
+- An output schema when the tool returns structured data.
+- Accurate safety annotations.
+- A handler that authorizes the request and performs the operation.
 
-[Alpic](https://alpic.ai/) maintains [Skybridge](https://skybridge.tech), an open-source TypeScript framework for ChatGPT and MCP Apps. Skybridge provides a full development environment with a local emulator, HMR and persistent tunnel to easily test your app inside ChatGPT. It also provides React hooks and higher-level abstractions to handle the state of your widgets and synchronize it with the model, as well as a compatibility layer to help your app work across all MCP clients.
+The model uses this metadata to decide whether and how to call the tool. Treat
+names, descriptions, schemas, and annotations as part of the plugin's
+user-facing behavior.
 
-Alpic also provides a one-click deploy solution with [Alpic Cloud](https://app.alpic.ai/) and an [auditing tool](https://beacon.alpic.ai/) to check how ready your app is for publication in the store.
+```ts
 
-If you’re looking for a reference implementation with HMR for widgets plus a production deployment path, the [Skybridge starter kit](https://docs.skybridge.tech/quickstart/create-new-app) gets you up and running fast.
 
-### MCPcat
+server.registerTool(
+  "list_projects",
+  {
+    title: "List projects",
+    description:
+      "Use this when the user wants to find or review projects in their Acme workspace.",
+    inputSchema: {
+      status: z.enum(["active", "archived"]).optional(),
+    },
+    outputSchema: {
+      projects: z.array(
+        z.object({
+          id: z.string(),
+          name: z.string(),
+          status: z.string(),
+        })
+      ),
+    },
+    annotations: {
+      readOnlyHint: true,
+      openWorldHint: false,
+      destructiveHint: false,
+    },
+  },
+  async ({ status }) => {
+    const projects = await listProjects({ status });
 
-To understand what your users are doing with your MCP server after deployment, [MCPcat](https://mcpcat.io/) maintains open-source SDKs that work with any ChatGPT app, regardless of how it's hosted.
+    return {
+      structuredContent: { projects },
+      content: [
+        {
+          type: "text",
+          text: `Found ${projects.length} projects.`,
+        },
+      ],
+    };
+  }
+);
+```
 
-On top of tool call and session metrics, MCPcat infers the user’s goal for each session, so you can see the actual workflows your app supports.
+## Return useful results without UI
 
-You can use their [TypeScript](https://github.com/mcpcat/mcpcat-typescript-sdk), [Python](https://github.com/mcpcat/mcpcat-python-sdk), or [Go](https://github.com/mcpcat/mcpcat-go-sdk) SDK to get started.
+A tool result can include:
 
-### Other hosting options
+- `structuredContent`: concise data the model can inspect and use in later
+  calls.
+- `content`: text or other MCP content that helps the model answer the user.
+- `_meta`: client-specific data hidden from the model.
 
-- **Managed containers**: Fly.io, Render, or Railway for quick spin-up and automatic TLS, plus predictable streaming behavior for long-lived requests.
-- **Cloud serverless**: Google Cloud Run or Azure Container Apps if you need scale-to-zero, keeping in mind that long cold starts can interrupt streaming HTTP.
-- **Kubernetes**: for teams that already run clusters. Front your pods with an ingress controller that supports server-sent events.
+Return enough information for the model to complete the workflow without a
+component. Use stable identifiers in structured results so later tools can
+refer to the same records.
 
-Regardless of platform, make sure `/mcp` stays responsive, supports streaming responses, and returns appropriate HTTP status codes for errors.
+Do not put secrets, access tokens, or unnecessary personal data in tool
+results. Treat `_meta` as hidden from the model, not as a substitute for
+authorization or secure storage.
 
-## Environment configuration
+## Authenticate and authorize requests
 
-- **Secrets**: store API keys or OAuth client secrets outside your repo. Use platform-specific secret managers and inject them as environment variables.
-- **Logging**: log tool-call IDs, request latency, and error payloads. This helps debug user reports once the app is live.
-- **Observability**: monitor CPU, memory, and request counts so you can right-size your deployment.
+Add authentication when a tool reads private data or takes action for a user.
+Enforce authorization in the MCP server for every request; never rely on the
+model to decide whether a user has access.
 
-## Dogfood and rollout
+See [Authenticate users](https://developers.openai.com/plugins/build/auth) for OAuth discovery, security
+schemes, and authorization challenges.
 
-Before launching broadly:
+## Tool annotations and elicitation
 
-1. **Gate access**: test your app in developer mode until you are confident in stability.
-2. **Run golden prompts**: exercise the discovery prompts you drafted during planning and note precision/recall changes with each release.
-3. **Capture artifacts**: record screenshots or screen captures showing the component in MCP Inspector and ChatGPT for reference.
+Set annotations according to actual behavior:
 
-When you are ready for production, update metadata, confirm auth and storage are configured correctly, and submit a plugin that contains your app through the plugin submission flow.
+- `readOnlyHint`: `true` only when the tool cannot change state.
+- `destructiveHint`: `true` when a tool can cause irreversible or difficult to
+  reverse outcomes.
+- `openWorldHint`: `true` when a tool can affect public or external systems.
 
-## Next steps
+Annotations help ChatGPT and Codex choose appropriate confirmation and safety
+behavior. They do not replace authorization, validation, or confirmation in
+your server.
 
-- Validate tooling and telemetry with the [Test your integration](https://developers.openai.com/apps-sdk/deploy/testing) guide.
-- Keep a troubleshooting playbook handy via [Troubleshooting](https://developers.openai.com/apps-sdk/deploy/troubleshooting) so on-call responders can quickly diagnose issues.
-- Submit a plugin that contains your app through the plugin submission flow. Learn more in the [Prepare and maintain an app for plugin submission](https://developers.openai.com/apps-sdk/deploy/submission) guide and the canonical [Submit plugins](https://developers.openai.com/codex/submit-plugins) guide.
+Use MCP elicitation when the server needs structured information that was not
+provided in the original tool call. Keep elicitation focused on information
+the user can reasonably supply. Do not use it to collect secrets or bypass
+normal authentication.
+
+## Company knowledge compatibility
+
+Company knowledge can use read-only tools from your MCP server. To make a
+plugin eligible as a company knowledge source, implement the standard
+`search` and `fetch` tool input schemas and mark other read-only tools with
+`readOnlyHint: true`.
+
+Return absolute, user-openable URLs for sources that the model should cite. Keep
+internal document identifiers in the result's `id` field. For the required
+schemas and result shapes, see
+[Building MCP servers for ChatGPT and API integrations](https://platform.openai.com/docs/mcp).
+
+## Run and test locally
+
+Expose a streamable HTTP endpoint, typically at `/mcp`, then inspect it with
+[MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector):
+
+```bash
+npx @modelcontextprotocol/inspector
+```
+
+In the Inspector UI, select **Streamable HTTP** and enter
+`http://localhost:3000/mcp`.
+
+Use the inspector to:
+
+1. Confirm that initialization succeeds.
+2. Review server instructions and the advertised tool list.
+3. Call every tool with representative and invalid inputs.
+4. Verify schemas, results, errors, and annotations.
+5. Confirm that authorization is enforced for private data and write actions.
+
+Then connect the server to ChatGPT in
+[developer mode](https://developers.openai.com/plugins/deploy/connect-chatgpt) and run the direct,
+indirect, edge-case, and out-of-scope requests from your use-case inventory.
+
+## Deploy the endpoint
+
+Deploy the MCP server before connecting it in developer mode or submitting the
+plugin. Host the server at a public HTTPS endpoint that:
+
+- Supports the MCP streamable HTTP transport.
+- Responds at a stable URL, typically ending in `/mcp`.
+- Meets the latency and availability needs of the plugin's workflows.
+- Can reach required services and data stores.
+- Preserves authentication and authorization boundaries.
+- Produces logs and metrics for failed initialization and tool calls.
+
+Do not use a temporary tunnel or local endpoint for public submission.
+
+### Choose infrastructure
+
+You can deploy the MCP server to serverless, container, edge, or traditional
+application infrastructure. Choose a platform based on:
+
+- Runtime and dependency support.
+- Streaming response behavior.
+- Cold-start and request latency.
+- Network access to required services.
+- Data residency and compliance requirements.
+- Secret management.
+- Logging, tracing, and alerting.
+- Rollback and versioning support.
+
+If the server also hosts optional UI assets, deploy those assets at stable
+origins allowed by the component's
+[content security policy](https://developers.openai.com/plugins/build/chatgpt-ui#content-security-policy-csp).
+
+### Configure the production endpoint
+
+Before deployment:
+
+1. Set production credentials through the host's secret-management system.
+2. Configure the authorization server and allowed redirect behavior.
+3. Apply timeouts and rate limits to expensive or externally visible tools.
+4. Remove debug responses and unnecessary personal data.
+5. Confirm that logs do not contain access tokens or sensitive tool results.
+
+After deployment, call the production endpoint with
+[MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector). Verify
+initialization, server instructions, tools, schemas, annotations,
+authentication, results, and errors.
+
+### Plan for updates
+
+Keep published tool names and schemas backward compatible. Add fields or tools
+without breaking existing contracts. If metadata changes, refresh the
+developer-mode connection and rerun the evaluation set before submission.
+
+For optional UI, version resource identifiers when HTML, JavaScript, or CSS
+changes in a way that could break a cached component.
+
+## Add optional UI
+
+After tools work end to end, decide whether any use case needs visual
+interaction. A table, map, editable schedule, or comparison view may benefit
+from UI. A lookup, status check, or background action often does not.
+
+Continue with [Add UI to your MCP server](https://developers.openai.com/plugins/build/chatgpt-ui) to
+register an MCP Apps resource and associate it with selected tools.
+
+## Security reminders
+
+- Treat every tool input as untrusted.
+- Validate parameters and enforce authorization on the server.
+- Require confirmation for consequential write actions.
+- Keep secrets and sensitive data out of tool metadata and results.
+- Log enough context to investigate failures without logging credentials or
+  unnecessary personal data.
+- Rate-limit expensive or externally visible actions.

@@ -601,7 +601,7 @@ Once your MCP server and web component work locally, connect the server in
 ChatGPT:
 
 1. In [ChatGPT](https://chatgpt.com), open **Settings → Security and login** and turn on **Developer mode**.
-2. Open **Settings → Plugins** or [ChatGPT plugin settings](https://chatgpt.com/plugins), and select the plus button.
+2. Go to [ChatGPT Plugins](https://chatgpt.com/plugins) and select the plus button.
 3. Paste the HTTPS + `/mcp` URL from your tunnel or deployment (for example, `https://<subdomain>.ngrok.app/mcp`), name the connection, provide a short description, and click **Create**.
 
 <div style={{ width: "50%", margin: "0 auto", display: "block" }}>
@@ -619,9 +619,7 @@ ChatGPT:
 From there, you can iterate on the UI/UX, prompts, tool metadata, and the overall experience.
 
 Refresh the plugin connection after each change to the MCP server (tools,
-  metadata, and related configuration). You can do this from the detail page
-  under
-  <strong>Settings → Plugins</strong> or at
+  metadata, and related configuration). You can do this from the detail page at
   <a href="https://chatgpt.com/plugins">chatgpt.com/plugins</a>.
 
 When you're preparing for public distribution, review
