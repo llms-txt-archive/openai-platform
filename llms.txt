@@ -1,6 +1,6 @@
 # OpenAI Developers
 
-> Documentation hub for OpenAI API, Ads, Plugins, Workspace Agents, Codex, and Agentic Commerce.
+> Complete documentation hub for OpenAI API, Ads, Plugins, Workspace Agents, Codex, Agentic Commerce, the developer blog, Cookbook, learning resources, and learning tracks.
 
 Each section links to Markdown twins under the product path (e.g., `/plugins/<slug>.md`).
 
@@ -17,6 +17,13 @@ Each section links to Markdown twins under the product path (e.g., `/plugins/<sl
 - [Codex full docs](https://developers.openai.com/codex/llms-full.txt)
 - [Commerce index](https://developers.openai.com/commerce/llms.txt)
 - [Commerce full docs](https://developers.openai.com/commerce/llms-full.txt)
+- [Developer blog index](https://developers.openai.com/blog/llms.txt)
+- [Developer blog full posts](https://developers.openai.com/blog/llms-full.txt)
+- [Cookbook index](https://developers.openai.com/cookbook/llms.txt)
+- [Cookbook full docs](https://developers.openai.com/cookbook/llms-full.txt)
+- [Learning resources index](https://developers.openai.com/learn/llms.txt)
+- [Learning resources full docs](https://developers.openai.com/learn/llms-full.txt)
+- [Learning tracks index (Markdown)](https://developers.openai.com/tracks.md)
 - [API docs index](https://developers.openai.com/api/docs/llms.txt)
 - [API docs full docs](https://developers.openai.com/api/docs/llms-full.txt)
 - [API reference index](https://developers.openai.com/api/reference/llms.txt)
@@ -164,7 +171,6 @@ Each section links to Markdown twins under the product path (e.g., `/plugins/<sl
 - [Theming and customization in ChatKit](https://developers.openai.com/api/docs/guides/chatkit-themes.md): Configure colors, typography, density, and component variants in your ChatKit implementation.
 - [Tool search](https://developers.openai.com/api/docs/guides/tools-tool-search.md): Use tool search to defer large tool surfaces, group related tools with namespaces, and load only the relevant functions at runtime.
 - [Trace grading](https://developers.openai.com/api/docs/guides/trace-grading.md): Use trace grading to create datasets, configure graders, and track evaluation runs for your models.
-- [UI Kit Demo](https://developers.openai.com/api/docs/ui-kit-demo.md): Component demos for the platform docs UI kit.
 - [Under 18 API Guidance](https://developers.openai.com/api/docs/guides/safety-checks/under-18-api-guidance.md)
 - [Upgrading to GPT-5.4](https://developers.openai.com/api/docs/guides/upgrading-to-gpt-5p4.md): Guidance for upgrading OpenAI API model strings and directly related prompts to GPT-5.4.
 - [Upgrading to GPT-5.5](https://developers.openai.com/api/docs/guides/upgrading-to-gpt-5p5.md): Guidance for upgrading OpenAI API model strings and directly related prompts to GPT-5.5.

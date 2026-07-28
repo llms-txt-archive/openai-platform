@@ -1,14 +1,10 @@
 # Best practices
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Onboarding product feeds in ChatGPT is currently available to approved
   partners. To apply for access, fill out this form 
-  <a
-    href="https://chatgpt.com/merchants"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    here
-  </a>
+  [here](https://chatgpt.com/merchants)
 
 ## Content quality
 
@@ -27,7 +23,9 @@ Onboarding product feeds in ChatGPT is currently available to approved
 - Ensure `url`, `media.url`, and seller link URLs are valid and encoded.
 - Encode spaces and unsafe characters (for example, use `%20` for spaces).
 
-<div class="not-prose my-10 h-2 rounded-md border border-subtle bg-surface-secondary"></div>
+
+
+
 
 ## Seller and policy
 
@@ -37,7 +35,9 @@ Onboarding product feeds in ChatGPT is currently available to approved
 - Use durable, public URLs in `seller.links`.
 - Reuse supported `Link.type` values consistently across your catalog.
 
-<div class="not-prose my-10 h-2 rounded-md border border-subtle bg-surface-secondary"></div>
+
+
+
 
 ## Variants
 
@@ -48,7 +48,9 @@ Onboarding product feeds in ChatGPT is currently available to approved
 - Populate `variant_options` with the user-facing option dimensions, such as color or size.
 - Use product-level `media` only when the assets apply across every variant.
 
-<div class="not-prose my-10 h-2 rounded-md border border-subtle bg-surface-secondary"></div>
+
+
+
 
 ## Attribution
 

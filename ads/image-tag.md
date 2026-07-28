@@ -1,5 +1,7 @@
 # Image tag
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use an image tag to send a website conversion when a page loads without
 running JavaScript. Each image request sends one event.
 

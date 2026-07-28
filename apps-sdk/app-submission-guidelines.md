@@ -1,9 +1,11 @@
 # Plugin guidelines
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 These guidelines cover the MCP server and optional UI in a plugin. For the
   complete submission flow, including skills, portal steps, review, approval,
   and publishing, see
-  <a href="/plugins/deploy/submission">Submit plugins</a>.
+  [Submit plugins](https://developers.openai.com/plugins/deploy/submission).
 
 ## Overview
 

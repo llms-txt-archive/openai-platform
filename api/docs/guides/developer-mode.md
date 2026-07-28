@@ -1,19 +1,16 @@
 # ChatGPT Developer mode
 
-<div class="not-prose mt-2 mb-6">
-  <a
-    href="https://help.openai.com/en/articles/20001062"
-    class="inline-flex items-center gap-1 rounded-full border px-2 py-1 text-[11px] font-semibold leading-none uppercase tracking-[0.02em] no-underline transition-colors hover:opacity-90"
-    style="background-color: var(--color-background-warning-soft); color: var(--color-text-warning-outline); border-color: var(--color-border-warning-outline);"
-  >
-    <span
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
+[<span
       aria-hidden="true"
       class="h-4 w-4 shrink-0 bg-current"
       style="-webkit-mask: url('/images/codex/exclamation-shield.svg') no-repeat center / contain; mask: url('/images/codex/exclamation-shield.svg') no-repeat center / contain;"
-    ></span>
-    Elevated risk
-  </a>
-</div>
+    >
+
+    Elevated risk](https://help.openai.com/en/articles/20001062)
+
+
 
 ## What is ChatGPT developer mode
 
@@ -45,17 +42,17 @@ ChatGPT developer mode provides full Model Context Protocol (MCP) client support
 
   Examples:
 
-  ```
+```
   Schedule a 30‑minute meeting tomorrow at 3pm PT with
   alice@example.com and bob@example.com using "Calendar.create_event".
   Do not use any other scheduling tools.
-  ```
+```
 
-  ```
+```
   Create a pull request using "GitHub.open_pull_request" from branch
   "feat-retry" into "main" with title "Add retry logic" and body "…".
   Do not push directly to main.
-  ```
+```
 
 - **Reviewing and confirming tool calls:**
   - Inspect JSON tool payloads verify correctness and debug problems. For each tool call, you can use the carat to expand and collapse the tool call details. Full JSON contents of the tool input and output are available.

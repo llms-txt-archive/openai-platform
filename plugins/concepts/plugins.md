@@ -1,5 +1,7 @@
 # Plugin architecture
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Plugins are the packages people discover, install, share, and publish in
 ChatGPT and Codex. A plugin can contain:
 

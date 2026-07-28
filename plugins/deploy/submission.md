@@ -1,5 +1,7 @@
 # Submit plugins
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use the plugin submission portal to submit a plugin for review when you're
 ready to publish it for public use.
 
@@ -48,14 +50,16 @@ permission **Apps Management**.
    submit plugin drafts.
 6. Reload the [plugin submission portal](https://platform.openai.com/plugins).
 
-<div class="not-prose my-6 max-w-3xl">
+
+
   <img src="https://developers.openai.com/images/codex/plugins/submit/apps-management-permissions.webp"
     alt="Apps Management write permission in Platform role settings"
     width="1518"
     height="1570"
     class="block h-auto w-full rounded-lg border border-default"
   />
-</div>
+
+
 
 Organization owners already have these permissions. Non-owner submitters need
 write access to create or submit drafts, and read access to view drafts and
@@ -132,14 +136,16 @@ Complete the public listing and publisher fields:
 - **Website, support, privacy, and terms URLs:** Use public URLs that match the
   publisher and disclose relevant data handling.
 
-<div class="not-prose my-6 max-w-3xl">
+
+
   <img src="https://developers.openai.com/images/codex/plugins/submit/developer-identity.webp"
     alt="Info tab with publisher and policy URLs filled out"
     width="1450"
     height="1314"
     class="block h-auto w-full rounded-lg border border-default"
   />
-</div>
+
+
 
 Review your MCP responses against your privacy policy before you submit. Remove
 unnecessary personal data, auth secrets, debug payloads, internal identifiers,
@@ -171,14 +177,16 @@ For submissions with MCP:
 7. Review the discovered tools, domains, validation output, and tool metadata.
 8. Fix server or metadata issues, deploy the fix, then scan again.
 
-<div class="not-prose my-6 max-w-3xl">
+
+
   <img src="https://developers.openai.com/images/codex/plugins/submit/mcp-scan.webp"
     alt="MCP tab after scanning a demo MCP server with metadata recommendations"
     width="1450"
     height="1314"
     class="block h-auto w-full rounded-lg border border-default"
   />
-</div>
+
+
 
 #### Template MCP server URLs
 
@@ -265,14 +273,16 @@ For review expectations, see the
 Upload the final skill bundle for skills-only or skills-plus-MCP submissions.
 Use the same file tree and instructions you tested locally.
 
-<div class="not-prose my-6 max-w-3xl">
+
+
   <img src="https://developers.openai.com/images/codex/plugins/submit/skills-upload.webp"
     alt="Skills tab ready for a skill bundle upload"
     width="1442"
     height="952"
     class="block h-auto w-full rounded-lg border border-default"
   />
-</div>
+
+
 
 Each skill should include:
 
@@ -300,14 +310,16 @@ Examples:
   deploys."
 - "Review unsuccessful deployment logs and recommend the next debugging step."
 
-<div class="not-prose my-6 max-w-3xl">
+
+
   <img src="https://developers.openai.com/images/codex/plugins/submit/prompts.webp"
     alt="Prompts tab with example starter prompts"
     width="1452"
     height="1102"
     class="block h-auto w-full rounded-lg border border-default"
   />
-</div>
+
+
 
 ### Testing
 
@@ -330,14 +342,16 @@ Use test cases that reviewers can run without internal context. If your plugin
 requires authentication, make sure the provided demo credentials can complete
 each test without MFA, SMS, email confirmation, or private-network access.
 
-<div class="not-prose my-6 max-w-3xl">
+
+
   <img src="https://developers.openai.com/images/codex/plugins/submit/testing.webp"
     alt="Testing tab with a test case for the roll_dice tool"
     width="1452"
     height="1102"
     class="block h-auto w-full rounded-lg border border-default"
   />
-</div>
+
+
 
 ### Global
 
@@ -345,14 +359,16 @@ Choose the countries or regions where the plugin should be available. Only
 select locations where the publisher, product, support process, and legal terms
 are ready for users.
 
-<div class="not-prose my-6 max-w-3xl">
+
+
   <img src="https://developers.openai.com/images/codex/plugins/submit/global.webp"
     alt="Global tab for country and region availability"
     width="1452"
     height="964"
     class="block h-auto w-full rounded-lg border border-default"
   />
-</div>
+
+
 
 ### Submit
 
@@ -370,14 +386,16 @@ Complete the policy attestations only after confirming the listing, server,
 skills, prompts, tests, and availability are accurate. Then select
 **Submit for Review**.
 
-<div class="not-prose my-6 max-w-3xl">
+
+
   <img src="https://developers.openai.com/images/codex/plugins/submit/submit.webp"
     alt="Submit tab with release notes and final attestations"
     width="1452"
     height="964"
     class="block h-auto w-full rounded-lg border border-default"
   />
-</div>
+
+
 
 ## Public publishing flow
 

@@ -1,5 +1,7 @@
 # Configuring workload identity federation for Oracle Cloud Infrastructure
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use Oracle Cloud Infrastructure (OCI) as a Workload Identity Provider by exchanging an Oracle Identity Cloud Service (IDCS) access token for a short-lived OpenAI access token. An OCI instance principal signs a token exchange request to an identity domain in the same tenancy. OpenAI validates the resulting token and authorizes the OCI workload to act as a mapped OpenAI service account.
 
 This setup does not require an OpenAI API key, a custom Oracle OAuth resource application, or dynamic group grants to a custom application.

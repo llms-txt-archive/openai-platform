@@ -1,5 +1,7 @@
 # Trigger workspace agent runs
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use the Workspace Agents API to programmatically trigger a published ChatGPT
 workspace agent through API.
 

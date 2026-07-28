@@ -1,5 +1,7 @@
 # Agentic commerce in production
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Testing and launch certification
 
 Before going live, complete and document the following tests in a sandbox environment.

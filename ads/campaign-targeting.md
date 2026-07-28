@@ -1,5 +1,7 @@
 # Campaign Targeting
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use campaign targeting to control where your ads can deliver. OpenAI Ads supports
 country, region, and DMA targeting. Look up the locations you want, copy their
 location IDs, then pass those IDs when you create or update a campaign.
@@ -39,9 +41,7 @@ curl -G "https://api.ads.openai.com/v1/geo_lookup/search" \
 
 You can also download the current location catalog as a CSV:
 
-<a href="/ads/openai-geotargets.csv" download>
-  {"Download OpenAI Ads locations"}
-</a>
+[{"Download OpenAI Ads locations"}](https://developers.openai.com/ads/openai-geotargets.csv)
 
 ## Campaign creation
 

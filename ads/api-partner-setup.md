@@ -1,5 +1,7 @@
 # API partner setup
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 API partners can use the Ads API to configure measurement and campaign
 resources for client accounts. Use the API key associated with the client ad
 account for every request in this guide.

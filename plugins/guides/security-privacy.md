@@ -1,5 +1,7 @@
 # Security & Privacy
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Principles
 
 Plugin tools can access user data, third-party APIs, and write actions. Treat

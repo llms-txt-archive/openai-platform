@@ -1,5 +1,7 @@
 # Workload identity federation
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Workload identity federation lets trusted workloads exchange externally issued identity tokens for short-lived OpenAI access tokens. Use these guides to configure your external identity provider, create OpenAI service account mappings, and authenticate workloads without storing long-lived API keys.
 
 For token exchange request and response details, authorization behavior, and current limitations, see the [workload identity token exchange reference](https://developers.openai.com/api/reference/workload-identity-federation).
@@ -19,8 +21,17 @@ You must be an organization owner to configure this feature. To access it, go to
 
 Start with the guide that matches where your workload runs:
 
-<div className="my-4 w-full max-w-full overflow-hidden">
-  </div>
+
+
+  - **[Kubernetes](https://developers.openai.com/api/docs/guides/workload-identity-federation/kubernetes)**: Use projected service account tokens in self-managed clusters.
+- **[AWS](https://developers.openai.com/api/docs/guides/workload-identity-federation/aws)**: Use outbound identity federation or Amazon EKS projected tokens.
+- **[Microsoft Azure](https://developers.openai.com/api/docs/guides/workload-identity-federation/microsoft-azure)**: Use managed identity tokens or AKS projected service account tokens.
+- **[Google Cloud](https://developers.openai.com/api/docs/guides/workload-identity-federation/google-cloud)**: Use metadata server identity tokens or GKE projected service account tokens.
+- **[Oracle Cloud Infrastructure](https://developers.openai.com/api/docs/guides/workload-identity-federation/oracle-cloud)**: Use instance principal tokens from an Oracle identity domain.
+- **[GitHub Actions](https://developers.openai.com/api/docs/guides/workload-identity-federation/github-actions)**: Use OIDC tokens in continuous integration workflows.
+- **[SPIFFE](https://developers.openai.com/api/docs/guides/workload-identity-federation/spiffe)**: Use SPIFFE JWT-SVIDs issued by SPIRE or a compatible provider.
+
+
 
 OpenAI supports OIDC-compatible JWT subject tokens in the documented configurations, including SPIFFE JWT-SVIDs. If you need an OIDC provider that isn't listed, contact us.
 

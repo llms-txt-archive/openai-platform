@@ -1,5 +1,7 @@
 # Overview
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 The API lets you manage product feed data through three API surfaces:
 
 - [Feeds](https://developers.openai.com/commerce/specs/api/feeds) creates product feeds and retrieves feed

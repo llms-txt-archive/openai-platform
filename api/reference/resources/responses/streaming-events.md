@@ -1,5 +1,7 @@
 # Responses streaming events
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 When you [create a Response](https://developers.openai.com/docs/api-reference/responses/create) with
 `stream` set to `true`, the server will emit server-sent events to the
 client as the Response is generated. This section contains the events that

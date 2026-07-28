@@ -1,5 +1,7 @@
 # Overview
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use this guide to move from first sample to production feed delivery with
 minimal back-and-forth, and use the
 [products spec](https://developers.openai.com/commerce/specs/file-upload/products) for full schema and field
@@ -18,14 +20,14 @@ eligibility requirement before you upload.
 
 ### Delivery and file requirements
 
-| <span class="whitespace-nowrap">Topic</span>              | Guidance                                                                                                                                           |
+| Topic              | Guidance                                                                                                                                           |
 | :-------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span class="whitespace-nowrap">Delivery model</span>     | Push feeds to OpenAI via SFTP.                                                                                                                     |
-| <span class="whitespace-nowrap">Formats</span>            | Prefer `parquet` (ideally with `ztsd` compression). `jsonl.gz`, `csv.gz`, and `tsv.gz` are also supported.                                         |
-| <span class="whitespace-nowrap">Encoding</span>           | UTF-8                                                                                                                                              |
-| <span class="whitespace-nowrap">Filename stability</span> | Use a stable file name. Keep the same file name on every update and overwrite it with the latest snapshot instead of creating a new name each run. |
-| <span class="whitespace-nowrap">Update behavior</span>    | If you use multiple shard files, keep that shard set stable and replace the same shard files on each update.                                       |
-| <span class="whitespace-nowrap">Shard sizing</span>       | Up to 500k items per shard is recommended; target shard files under ~500MB                                                                         |
+| Delivery model     | Push feeds to OpenAI via SFTP.                                                                                                                     |
+| Formats            | Prefer `parquet` (ideally with `ztsd` compression). `jsonl.gz`, `csv.gz`, and `tsv.gz` are also supported.                                         |
+| Encoding           | UTF-8                                                                                                                                              |
+| Filename stability | Use a stable file name. Keep the same file name on every update and overwrite it with the latest snapshot instead of creating a new name each run. |
+| Update behavior    | If you use multiple shard files, keep that shard set stable and replace the same shard files on each update.                                       |
+| Shard sizing       | Up to 500k items per shard is recommended; target shard files under ~500MB                                                                         |
 
 ### Watch common ingestion failures
 

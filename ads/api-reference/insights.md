@@ -1,5 +1,7 @@
 # Insights
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Endpoint
 
 Use the endpoint that matches the scope you want to get results for. Each endpoint

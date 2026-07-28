@@ -1,5 +1,7 @@
 # Product feeds
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 A product feed is a merchant catalog that keeps product details such as titles,
 descriptions, prices, availability, images, and destination URLs up to date.
 Instead of creating a separate ad for every item, you connect the feed to a

@@ -1,5 +1,7 @@
 # Define tools
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Tools are the actions and data that a plugin's MCP server exposes to ChatGPT
 and Codex. Define them after you
 [brainstorm use cases](https://developers.openai.com/plugins/plan/use-case) and before you implement the

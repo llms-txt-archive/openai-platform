@@ -1,14 +1,10 @@
 # Get Started
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Onboarding product feeds in ChatGPT is currently available to approved
   partners. To apply for access, fill out this form 
-  <a
-    href="https://chatgpt.com/merchants"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    here
-  </a>
+  [here](https://chatgpt.com/merchants)
 
 ## Overview
 

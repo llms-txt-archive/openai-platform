@@ -1,5 +1,7 @@
 # Build skills
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 A skill complements your MCP server by teaching ChatGPT and Codex how to use
 its tools in a repeatable workflow. Use the server for live data,
 authentication, authorization, and controlled actions. Use the skill for tool

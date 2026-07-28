@@ -1,14 +1,10 @@
 # Restaurant reservation conversion spec
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Restaurant reservation conversion plugins in ChatGPT are currently in beta and
   being tested with approved partners. To apply for access, fill out this form 
-  <a
-    href="https://chatgpt.com/merchants"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    here
-  </a>
+  [here](https://chatgpt.com/merchants)
 
 ## Purpose
 

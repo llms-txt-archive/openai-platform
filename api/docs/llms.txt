@@ -27,6 +27,9 @@ Each entry has a Markdown twin at `/api/docs/<slug>.md`.
 ## Bots
 - [Overview of OpenAI Crawlers](https://developers.openai.com/api/docs/bots.md)
 
+## Changelog
+- [API changelog](https://developers.openai.com/api/docs/changelog.md): Customer-visible changes to the OpenAI API and models.
+
 ## Concepts
 - [Key concepts](https://developers.openai.com/api/docs/concepts.md): Key concepts to understand when working with the OpenAI API.
 
@@ -186,6 +189,11 @@ Each entry has a Markdown twin at `/api/docs/<slug>.md`.
 ## Mcp
 - [Building MCP servers for plugins and API integrations](https://developers.openai.com/api/docs/mcp.md): Learn how to build MCP servers for use with plugins, deep research, or API integrations.
 
+## Models
+- [Models](https://developers.openai.com/api/docs/models.md): Catalog of models available through the OpenAI API.
+- [All models](https://developers.openai.com/api/docs/models/all.md): Browse the complete OpenAI API model catalog.
+- [Compare models](https://developers.openai.com/api/docs/models/compare.md): Compare model capabilities, context windows, and pricing.
+
 ## Pricing
 - [Pricing](https://developers.openai.com/api/docs/pricing.md): Pricing information for the OpenAI platform.
 
@@ -198,6 +206,3 @@ Each entry has a Markdown twin at `/api/docs/<slug>.md`.
 ## Tutorials
 - [Meeting minutes](https://developers.openai.com/api/docs/tutorials/meeting-minutes.md): Create an automated meeting minutes generator with Whisper and a GPT model.
 - [Web QA with embeddings](https://developers.openai.com/api/docs/tutorials/web-qa-embeddings.md): How to build an AI that can answer questions about your website.
-
-## Ui Kit Demo
-- [UI Kit Demo](https://developers.openai.com/api/docs/ui-kit-demo.md): Component demos for the platform docs UI kit.

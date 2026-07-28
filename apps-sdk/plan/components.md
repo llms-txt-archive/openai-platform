@@ -1,5 +1,7 @@
 # Add UI to your MCP server
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Overview
 
 Custom UI is optional. Add it when a plugin use case requires people to

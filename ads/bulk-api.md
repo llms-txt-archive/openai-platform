@@ -1,5 +1,7 @@
 # Bulk API
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 The Bulk API creates or updates campaigns, ad groups, and ads in a single
 asynchronous job. Submit up to 1,000 operations, poll the job, and inspect the
 result of each operation.

@@ -1,5 +1,7 @@
 # Products
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Overview
 
 Use these endpoints to retrieve the current products for a feed or upsert
@@ -7,10 +9,10 @@ partial product changes matched by `id`.
 
 ## REST endpoints
 
-- <code>GET /product_feeds/&#123;id&#125;/products</code> returns the products
+- `GET /product_feeds/&#123;id&#125;/products` returns the products
   for the specified feed.
-- <code>PATCH /product_feeds/&#123;id&#125;/products</code> upserts products
-  into the specified feed. Products are matched by <code>id</code>, and products
+- `PATCH /product_feeds/&#123;id&#125;/products` upserts products
+  into the specified feed. Products are matched by `id`, and products
   not included in the request remain unchanged.
 
 ### **GET /product_feeds/&#123;id&#125;/products**

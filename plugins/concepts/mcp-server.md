@@ -1,5 +1,7 @@
 # MCP server
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 The [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) is an open
 specification for connecting AI clients to external tools and data. A plugin
 can include an MCP server when it needs to read live information, take actions,

@@ -1,13 +1,15 @@
 # MCP server review requirements
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Prepare an MCP server and its optional UI for public review as part of a
 plugin.
 
 Submit and publish the complete plugin, including its skills, MCP server, and
   optional UI, through the plugin submission portal. See
-  <a href="/plugins/deploy/submission">Submit plugins</a> for the
+  [Submit plugins](https://developers.openai.com/plugins/deploy/submission) for the
   source-of-truth submission flow and 
-  <a href="/plugins/build/mcp-server">Build an MCP server</a> for how
+  [Build an MCP server](https://developers.openai.com/plugins/build/mcp-server) for how
   server-backed capabilities fit into plugins.
 
 ## Prepare MCP capabilities for plugin submission

@@ -1,5 +1,7 @@
 # Promotions
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Overview
 
 Use these endpoints to retrieve the current promotions for a feed or upsert
@@ -7,10 +9,10 @@ partial promotion changes matched by `id`.
 
 ## REST endpoints
 
-- <code>GET /product_feeds/&#123;id&#125;/promotions</code> returns the
+- `GET /product_feeds/&#123;id&#125;/promotions` returns the
   promotions for the specified feed.
-- <code>PATCH /product_feeds/&#123;id&#125;/promotions</code> upserts promotions
-  into the specified feed. Promotions are matched by <code>id</code>, and
+- `PATCH /product_feeds/&#123;id&#125;/promotions` upserts promotions
+  into the specified feed. Promotions are matched by `id`, and
   promotions not included in the request remain unchanged.
 
 ### **GET /product_feeds/&#123;id&#125;/promotions**

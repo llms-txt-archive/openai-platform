@@ -1,5 +1,7 @@
 # Authentication
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Authenticate your users
 
 Many plugin MCP servers can operate in a read-only, anonymous mode, but
@@ -182,12 +184,8 @@ CIMD further strengthens client identification by giving your authorization serv
 
 ChatGPT now presents an OpenAI-managed client certificate when establishing TLS connections to MCP servers. If your application validates client certificates, configure it to trust the OpenAI certificate chain below.
 
-- <a href="/plugins/mtls/openai-root-ca.pem" download>
-    Download OpenAI Root CA
-  </a>
-- <a href="/plugins/mtls/openai-connectors-mtls-ca.pem" download>
-    Download OpenAI Connectors mTLS intermediate CA
-  </a>
+- [Download OpenAI Root CA](https://developers.openai.com/plugins/mtls/openai-root-ca.pem)
+- [Download OpenAI Connectors mTLS intermediate CA](https://developers.openai.com/plugins/mtls/openai-connectors-mtls-ca.pem)
 
 To validate the client certificate when establishing the TLS connection to your MCP server:
 
@@ -268,7 +266,7 @@ Triggering the tool-level OAuth flow requires both metadata (`securitySchemes` a
 
    Example (public + optional auth)—TypeScript SDK
 
-   ```ts
+```ts
 
 
 
@@ -295,11 +293,11 @@ Triggering the tool-level OAuth flow requires both metadata (`securitySchemes` a
        };
      }
    );
-   ```
+```
 
    Example (auth required)—TypeScript SDK
 
-   ```ts
+```ts
 
 
 
@@ -323,13 +321,13 @@ Triggering the tool-level OAuth flow requires both metadata (`securitySchemes` a
        };
      }
    );
-   ```
+```
 
 3. **Check tokens inside the tool handler and emit `_meta["mcp/www_authenticate"]`** when you want ChatGPT to trigger the authentication UI. Inspect the token and verify issuer, audience, expiry, and scopes. If no valid token is present, return an error result that includes `_meta["mcp/www_authenticate"]` and make sure the value contains both an `error` and `error_description` parameter. This `WWW-Authenticate` payload is what actually triggers the tool-level OAuth UI once steps 1 and 2 are in place. When a challenge prompts reauthorization, your provider can [preserve the user's existing login context](#preserve-login-context-during-reauthorization) during that flow.
 
    Example
 
-   ```json
+```json
    {
      "jsonrpc": "2.0",
      "id": 4,
@@ -348,4 +346,4 @@ Triggering the tool-level OAuth flow requires both metadata (`securitySchemes` a
        "isError": true
      }
    }
-   ```
+```

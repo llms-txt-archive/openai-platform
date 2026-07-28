@@ -1,5 +1,7 @@
 # Quickstart
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Plugins extend and customize ChatGPT and Codex. They can add capabilities,
 connect to external services, or both. A plugin can include skills that provide
 instructions and resources, an MCP server that exposes tools, or both.

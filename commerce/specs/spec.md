@@ -1,5 +1,7 @@
 # Product Feed Spec
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Feed Reference
 
 This reference describes non-Ads Commerce product feeds. If you are setting up

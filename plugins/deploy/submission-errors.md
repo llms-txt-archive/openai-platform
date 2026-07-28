@@ -1,5 +1,7 @@
 # Plugin submission errors
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Plugins submitted to the public directory are held to a higher standard than
 plugins installed in a workspace. Directory submissions must pass the shared
 package checks and the additional checks for listing fields, review materials,

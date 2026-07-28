@@ -1,5 +1,7 @@
 # Checkout API reference
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Overview
 
 Plugin developers are responsible for choosing how to monetize their experience. Today, the **recommended** and **generally available** approach is to use **external checkout**, where users complete purchases on the developer’s own domain. While current approval is limited to plugins for physical goods purchases, we are actively working to support a wider range of commerce use cases.

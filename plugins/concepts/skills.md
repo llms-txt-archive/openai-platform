@@ -1,5 +1,7 @@
 # Skills
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Skills are folders of instructions and resources that teach ChatGPT and Codex
 how to complete repeatable workflows. In an MCP-backed plugin, skills
 complement the server by teaching the model how to combine its tools for

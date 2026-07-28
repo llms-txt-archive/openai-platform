@@ -1,5 +1,7 @@
 # Package your plugin
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 After building your [skills](https://developers.openai.com/plugins/build/skills) and, when needed, an
 [MCP server](https://developers.openai.com/plugins/build/mcp-server), assemble those parts into the plugin
 people will install. Packaging gives the plugin a stable identity and tells
@@ -65,18 +67,26 @@ Then register the MCP server in developer mode:
 Give that `plugin_asdk_app...` ID to `@plugin-creator` in Work mode in ChatGPT
 or `$plugin-creator` in Codex. For example, in Work mode:
 
-<div class="not-prose my-6 overflow-hidden rounded-xl border border-subtle bg-surface shadow-sm">
-  <div class="border-b border-subtle bg-surface-secondary px-4 py-3">
-    <span class="inline-flex rounded-md bg-purple-100 px-2.5 py-1 text-sm font-medium text-purple-700 dark:bg-purple-950/60 dark:text-purple-200">
+
+
+  
+
+    
+
       Plugin Creator prompt
-    </span>
-  </div>
-  <div class="overflow-x-auto p-4 font-mono text-sm leading-6 text-primary">
-    <code class="whitespace-pre-wrap break-words">{`@plugin-creator create a plugin for ChatGPT and Codex using my MCP server.
+    
+
+  
+
+  
+
+    `{`@plugin-creator create a plugin for ChatGPT and Codex using my MCP server.
 Use plugin_asdk_app_6a4c0062f3b88191855c0a80eac5d53d and name it Acme Support.
-Include a personal marketplace entry so I can test it locally.`}</code>
-  </div>
-</div>
+Include a personal marketplace entry so I can test it locally.`}`
+  
+
+
+
 
 The plugin-creator skill will create the plugin folder, create the required
 `.codex-plugin/plugin.json`, and add MCP server wiring for the plugin. If you ask
@@ -206,8 +216,7 @@ able to access the plugin or curated list.
 
 
 
-<div slot="workspace">
-    Add a marketplace file at `$REPO_ROOT/.agents/plugins/marketplace.json`
+Add a marketplace file at `$REPO_ROOT/.agents/plugins/marketplace.json`
     and store your plugins under `$REPO_ROOT/plugins/`.
 
     **Repo marketplace example**
@@ -245,9 +254,11 @@ cp -R /absolute/path/to/my-plugin ./plugins/my-plugin
 
     Step 3: Restart the ChatGPT desktop app and verify that the plugin appears.
 
-  </div>
+  
 
-  <div slot="global">
+
+  
+
     Add a marketplace file at `~/.agents/plugins/marketplace.json` and store
     your plugins under `~/.codex/plugins/`.
 
@@ -264,8 +275,6 @@ cp -R /absolute/path/to/my-plugin ~/.codex/plugins/my-plugin
     plugin entry's `source.path` points to that directory.
 
     Step 3: Restart the ChatGPT desktop app and verify that the plugin appears.
-
-  </div>
 
 
 

@@ -1,11 +1,11 @@
 # Reference
 
-<strong>Start with the open standard.</strong> Use the 
-  <a href="https://modelcontextprotocol.io/docs/extensions/apps">
-    MCP Apps specification
-  </a> 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
+**Start with the open standard.** Use the 
+  [MCP Apps specification](https://modelcontextprotocol.io/docs/extensions/apps) 
   for shared UI fields and bridge methods.
-  <strong>OpenAI extensions are optional</strong> and live in `window.openai`
+  **OpenAI extensions are optional** and live in `window.openai`
   when you want ChatGPT-specific capabilities.
 
 ## `window.openai` component bridge
@@ -387,7 +387,8 @@ server.registerTool(
 );
 ```
 
-<span id="add-component-descriptions" />
+
+
 
 ## Component resource `_meta` fields
 

@@ -1,5 +1,7 @@
 # JavaScript Pixel
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 The OpenAI Ads Measurement Pixel is a browser SDK for measuring website events
 after someone clicks an ad in ChatGPT. Use the pixel by adding the script to your site, initializing
 it with your Pixel ID, and call `oaiq("measure", ...)` when a conversion

@@ -1,13 +1,15 @@
 # Feeds
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Overview
 
 Use these endpoints to create a product feed and retrieve feed metadata.
 
 ## REST endpoints
 
-- <code>GET /product_feeds/&#123;id&#125;</code> returns metadata for a feed.
-- <code>POST /product_feeds</code> creates a new product feed and returns its
+- `GET /product_feeds/&#123;id&#125;` returns metadata for a feed.
+- `POST /product_feeds` creates a new product feed and returns its
   metadata.
 
 ### **GET /product_feeds/&#123;id&#125;**

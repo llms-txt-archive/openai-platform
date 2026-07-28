@@ -1,5 +1,7 @@
 # Conversion-optimized campaigns
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use a conversion-optimized cost-per-click (oCPC) campaign when you want to
 optimize delivery toward one tracked conversion event while continuing to pay
 for valid clicks. In the Ads API, oCPC uses `bidding_type: "conversions"`.

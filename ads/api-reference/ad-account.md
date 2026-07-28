@@ -1,5 +1,7 @@
 # Ad account
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Update account brand metadata
 
 Set the account name or favicon and start a new brand review.

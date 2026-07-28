@@ -1,5 +1,7 @@
 # Optimize Metadata
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Why metadata matters
 
 ChatGPT and Codex decide when to call your tool based on the metadata you

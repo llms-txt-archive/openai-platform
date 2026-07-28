@@ -1,5 +1,7 @@
 # Overview
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 The Advertiser API lets you manage ad campaigns, ad groups, ads, files, and
 reporting from one API. It supports CRUD-like functions with standard JSON content types.
 
@@ -62,9 +64,7 @@ ad account. See [Bulk API limits](https://developers.openai.com/ads/bulk-api#lim
 
 ## OpenAPI spec
 
-<a href="/ads/openapi.json" download>
-  {"Download the OpenAPI spec"}
-</a>
+[{"Download the OpenAPI spec"}](https://developers.openai.com/ads/openapi.json)
 
 ## Changelog
 

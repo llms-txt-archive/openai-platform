@@ -1,5 +1,7 @@
 # UI guidelines
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Overview
 
 Optional plugin UI can extend what users can do without breaking the flow of

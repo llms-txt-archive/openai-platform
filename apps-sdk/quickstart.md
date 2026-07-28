@@ -1,5 +1,7 @@
 # MCP server and UI quickstart
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 ## Introduction
 
 Plugins use the [Model Context Protocol
@@ -604,11 +606,13 @@ ChatGPT:
 2. Go to [ChatGPT Plugins](https://chatgpt.com/plugins) and select the plus button.
 3. Paste the HTTPS + `/mcp` URL from your tunnel or deployment (for example, `https://<subdomain>.ngrok.app/mcp`), name the connection, provide a short description, and click **Create**.
 
-<div style={{ width: "50%", margin: "0 auto", display: "block" }}>
+
+
   <img src="https://developers.openai.com/images/apps-sdk/new_connector.jpg"
     alt="Connect an MCP server in ChatGPT"
   />
-</div>
+
+
 
 4. Open a new chat, select the plugin from the **More** menu (accessible after clicking the **+** button), and prompt the model (for example, “Add a new task to read my book”). ChatGPT will stream tool payloads so you can confirm inputs and outputs.
 
@@ -620,7 +624,7 @@ From there, you can iterate on the UI/UX, prompts, tool metadata, and the overal
 
 Refresh the plugin connection after each change to the MCP server (tools,
   metadata, and related configuration). You can do this from the detail page at
-  <a href="https://chatgpt.com/plugins">chatgpt.com/plugins</a>.
+  [chatgpt.com/plugins](https://chatgpt.com/plugins).
 
 When you're preparing for public distribution, review
 [Submit plugins](https://developers.openai.com/plugins/deploy/submission), the

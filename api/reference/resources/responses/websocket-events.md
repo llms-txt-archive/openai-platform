@@ -1,5 +1,7 @@
 # WebSocket events
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Send client events and receive server events over a persistent Responses API WebSocket connection. [Learn more about WebSocket mode.](https://developers.openai.com/api/docs/guides/websocket-mode)
 
 ## Client events

@@ -1,5 +1,7 @@
 # Authenticate with Workspace Agent access tokens
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Workspace Agents API calls authenticate with Workspace Agent access tokens.
 These tokens are provisioned from the ChatGPT admin access-token flow and are
 scoped for workspace use.

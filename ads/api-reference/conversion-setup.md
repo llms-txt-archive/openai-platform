@@ -1,5 +1,7 @@
 # Conversion setup
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Use the Ads API to configure conversion measurement for the current ad account.
 These endpoints create the resources that the JavaScript Pixel and Conversions
 API use to send events.

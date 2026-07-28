@@ -1,5 +1,7 @@
 # Connect and test your plugin
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Test each capability before testing the complete installed plugin. If the
 plugin includes an MCP server, start by connecting and evaluating the server in
 developer mode. Then package the plugin with its skills and test the complete

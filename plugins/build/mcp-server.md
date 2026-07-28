@@ -1,5 +1,7 @@
 # Build an MCP server
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Add an MCP server when a plugin use case needs live data, authentication,
 controlled actions, or code that runs on infrastructure you operate. The
 server defines the tools available to ChatGPT and Codex. It does not need to

@@ -1,5 +1,7 @@
 # Brainstorm plugin use cases
 
+> For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
+
 Start by listing the things people will expect your plugin to do. The plugin's
 name, description, skills, tools, and connection to an existing product all
 create expectations. Your implementation should cover those expectations or
