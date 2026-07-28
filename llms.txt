@@ -767,6 +767,7 @@ Each section links to Markdown twins under the product path (e.g., `/plugins/<sl
 
 ## Codex — Security
 - [Codex Security](https://developers.openai.com/codex/security.md): Find and remediate vulnerabilities with the Codex Security plugin, CLI, TypeScript SDK, or cloud.
+- [Codex Security CLI FAQ](https://developers.openai.com/codex/security/cli/faq.md): Answers about Codex Security scans, findings, false positives, coverage, cost, and CI.
 - [Codex Security CLI quickstart](https://developers.openai.com/codex/security/cli.md): Set up Codex Security, run a local scan, and review the report, findings, and coverage.
 - [Codex Security CLI reference](https://developers.openai.com/codex/security/cli/reference.md): Arguments, output formats, scan artifacts, and exit codes for the Codex Security CLI.
 - [Codex Security cloud FAQ](https://developers.openai.com/codex/security/faq.md): Common questions about Codex Security cloud.
@@ -781,6 +782,7 @@ Each section links to Markdown twins under the product path (e.g., `/plugins/<sl
 - [Review code changes for security](https://developers.openai.com/codex/security/plugin/code-changes.md): Review pull requests and local changes for security regressions manually or in CI/CD.
 - [Run a Codex Security scan](https://developers.openai.com/codex/security/plugin/scans.md): Scan an authorized repository or one scoped folder and review findings, coverage, and artifacts.
 - [Run a deep security scan](https://developers.openai.com/codex/security/plugin/deep-scans.md): Run a slower, more thorough review of a repository or scoped folder.
+- [Run bulk security scans](https://developers.openai.com/codex/security/cli/bulk-scans.md): Discover GitHub repositories or run resumable security scans from a CSV inventory.
 - [Run Codex Security in CI](https://developers.openai.com/codex/security/cli/ci.md): Scan pull-request changes, preserve structured results, upload SARIF, and set a severity policy.
 - [Triage a backlog](https://developers.openai.com/codex/security/plugin/triage-backlog.md): Review existing security findings against a repository and order follow-up work.
 - [Write vulnerability reports](https://developers.openai.com/codex/security/plugin/vulnerability-reports.md): Turn findings, disclosure notes, source, and proof-of-concept material into polished, source-backed vulnerability reports.
