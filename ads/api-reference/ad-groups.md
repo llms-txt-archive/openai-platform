@@ -51,21 +51,21 @@ Create an ad group for a campaign.
 
 `POST /ad_groups`
 
-| Field                               | Type     | Required                   | Notes                                                                                        |
-| ----------------------------------- | -------- | -------------------------- | -------------------------------------------------------------------------------------------- |
-| `campaign_id`                       | string   | Yes                        | Parent campaign ID.                                                                          |
-| `name`                              | string   | Yes                        | `3` to `1000` chars and must include a non-space character.                                  |
-| `description`                       | string   | No                         | Ad group description.                                                                        |
-| `context_hints`                     | string[] | No                         | Free-form audience or placement hints.                                                       |
-| `status`                            | string   | Yes                        | `active` or `paused`.                                                                        |
-| `bidding_config.billing_event_type` | string   | Yes                        | `impression` for impression campaigns; `click` for click and conversion campaigns.           |
-| `bidding_config.max_bid_micros`     | integer  | Yes                        | Minimum `1`; the maximum depends on campaign bidding type and account currency.              |
-| `product_set`                       | object   | For product-feed campaigns | Selects a linked feed and optional product filters. See [Product feeds](https://developers.openai.com/ads/product-feeds). |
-| `product_set.product_feed_id`       | string   | For product-feed campaigns | Feed ID linked to the current ad account.                                                    |
-| `product_set.filters`               | object[] | No                         | Product filters. Don't repeat the same field within one product set.                         |
-| `product_set.filters[].field`       | string   | Yes, in each filter        | Feed attribute to filter.                                                                    |
-| `product_set.filters[].operator`    | string   | Yes, in each filter        | `in`, `gt`, `gte`, `lt`, or `lte`.                                                           |
-| `product_set.filters[].values`      | string[] | Yes, in each filter        | Match values. Send numeric comparison values as strings, such as `"4.5"`.                    |
+| Field                               | Type     | Required              | Notes                                                                               |
+| ----------------------------------- | -------- | --------------------- | ----------------------------------------------------------------------------------- |
+| `campaign_id`                       | string   | Yes                   | Parent campaign ID.                                                                 |
+| `name`                              | string   | Yes                   | `3` to `1000` chars and must include a non-space character.                         |
+| `description`                       | string   | No                    | Ad group description.                                                               |
+| `context_hints`                     | string[] | No                    | Free-form audience or placement hints.                                              |
+| `status`                            | string   | Yes                   | `active` or `paused`.                                                               |
+| `bidding_config.billing_event_type` | string   | Yes                   | `impression` for impression campaigns; `click` for click and conversion campaigns.  |
+| `bidding_config.max_bid_micros`     | integer  | Yes                   | Minimum `1`; the maximum depends on campaign bidding type and account currency.     |
+| `product_set`                       | object   | No                    | Inherits the campaign's feed when omitted. Include only to specify product filters. |
+| `product_set.product_feed_id`       | string   | Yes, in `product_set` | Must match the campaign's product feed.                                             |
+| `product_set.filters`               | object[] | No                    | Product filters. Don't repeat the same field within one product set.                |
+| `product_set.filters[].field`       | string   | Yes, in each filter   | Feed attribute to filter.                                                           |
+| `product_set.filters[].operator`    | string   | Yes, in each filter   | `in`, `gt`, `gte`, `lt`, or `lte`.                                                  |
+| `product_set.filters[].values`      | string[] | Yes, in each filter   | Match values. Send numeric comparison values as strings, such as `"4.5"`.           |
 
 ### Field notes
 
@@ -81,8 +81,13 @@ Micros are millionths of the main currency unit (e.g., Dollars). The max_bid fie
 For a conversion-optimized campaign (oCPC), set
 `bidding_config.billing_event_type` to `click`. `max_bid_micros` is the CPA
 bid even though the billing event is a click. For example, `100000000` is a
-$100.00 CPA bid for a USD account. For the full setup and reporting workflow,
-see [Conversion-optimized campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns).
+$100.00 CPA bid for a USD account. For a beta-enabled product-feed oCPC
+campaign, use the same `POST /ad_groups` endpoint. The ad group automatically
+inherits the campaign's product feed. Include `product_set` only when you want
+to specify product filters; its `product_feed_id` must match the campaign's
+feed. For the full setup and reporting workflow, see
+[Conversion-optimized campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns) and
+[Product feeds](https://developers.openai.com/ads/product-feeds).
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/ad_groups" \

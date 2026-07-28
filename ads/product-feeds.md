@@ -65,8 +65,12 @@ eligibility is necessary, but it does not guarantee that a product will serve.
 
 ## Create a product-feed campaign
 
-Create a campaign with `mode` set to `product_feed`. You cannot change the mode
-after creation.
+Create a campaign with `mode` set to `product_feed` and the ID of a feed linked
+to your ad account. You cannot change the mode after creation.
+
+Product-feed conversion bidding (oCPC) is in beta. Beta-enabled ad accounts
+  can use the same `POST /campaigns` and `POST /ad_groups` endpoints for
+  standard and product-feed conversion-optimized campaigns.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns" \
@@ -76,6 +80,7 @@ curl -X POST "https://api.ads.openai.com/v1/campaigns" \
     "name": "Running shoes catalog",
     "status": "active",
     "mode": "product_feed",
+    "product_feed_id": "product_feed_123",
     "budget": {
       "lifetime_spend_limit_micros": 25000000
     }
@@ -88,13 +93,65 @@ campaign ID for the next request.
 See the [campaigns reference](https://developers.openai.com/ads/api-reference/campaigns) for scheduling,
 targeting, budget, update, and state-control fields.
 
+### Optimize a product-feed campaign for conversions
+
+For beta-enabled ad accounts, set `bidding_type` to `conversions`, include the
+linked `product_feed_id`, and pass exactly one active standard conversion
+event setting. Use the existing campaign endpoint:
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/campaigns" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Running shoes catalog purchases",
+    "status": "paused",
+    "mode": "product_feed",
+    "product_feed_id": "product_feed_123",
+    "budget": {
+      "lifetime_spend_limit_micros": 250000000
+    },
+    "bidding_type": "conversions",
+    "conversion_event_setting_ids": ["ces_123"]
+  }'
+```
+
+Create the child ad group through the existing `POST /ad_groups` endpoint and
+set `billing_event_type` to `click`. The ad group automatically inherits the
+campaign's product feed:
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/ad_groups" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "campaign_id": "cmpn_101",
+    "name": "Running shoes catalog purchases",
+    "status": "active",
+    "bidding_config": {
+      "billing_event_type": "click",
+      "max_bid_micros": 100000000
+    }
+  }'
+```
+
+The campaign optimizes for the selected conversion event, and you continue to
+pay per valid click. See
+[Conversion-optimized campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns) for
+conversion measurement prerequisites and bid configuration.
+
 ## Select products in an ad group
 
-Create an ad group with a `product_set`. Its `product_feed_id` must identify a
-feed linked to the same ad account as your API key.
+Product-feed ad groups automatically inherit the campaign's product feed.
+Include `product_set` only when you want to specify product filters. Its
+`product_feed_id` must match the campaign's feed.
 
-Use `filters` to narrow which products can serve. Omit `filters` to use all
-eligible products in the feed.
+Use `filters` to narrow which products can serve. Omit `product_set` to use all
+eligible products in the campaign's feed.
+
+The following example creates a regular, impression-billed product-feed ad
+group and filters the catalog by brand. For an oCPC ad group, set
+`billing_event_type` to `click` instead.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/ad_groups" \

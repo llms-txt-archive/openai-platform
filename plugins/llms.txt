@@ -35,6 +35,7 @@ Use this as a lightweight map for AI tools. Each Plugins page has a Markdown twi
 - [Troubleshooting](https://developers.openai.com/plugins/deploy/troubleshooting.md): Troubleshoot plugin tools and optional UI.
 
 ## Guides
+- [Local services Get Quote conversion spec](https://developers.openai.com/plugins/guides/local-services-request-quote-conversion-spec.md): Contract for integrating a local services quote-request plugin into ChatGPT's conversion flow.
 - [Optimize Metadata](https://developers.openai.com/plugins/guides/optimize-metadata.md): Improve discovery and behavior with rich metadata.
 - [Product checkout conversion spec](https://developers.openai.com/plugins/guides/product-checkout-conversion-spec.md): Contract for integrating a product checkout plugin into ChatGPT's conversion flow.
 - [Restaurant reservation conversion spec](https://developers.openai.com/plugins/guides/restaurant-reservation-conversion-spec.md): Contract for integrating a restaurant reservation plugin into ChatGPT's Reserve flow.
