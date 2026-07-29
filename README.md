@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260729T153345Z` | 2026-07-29 15:33 UTC | [Live Call and Transcription Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260729T153345Z) |
 | `archive-20260728T224104Z` | 2026-07-28 22:41 UTC | [GPT-5.6 reasoning defaults clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260728T224104Z) |
 | `archive-20260728T204741Z` | 2026-07-28 20:48 UTC | [Terraform Guides and Product-Feed oCPC Beta Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260728T204741Z) |
 | `archive-20260728T185612Z` | 2026-07-28 18:57 UTC | [Transcription Docs Split](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260728T185612Z) |
 | `archive-20260728T035111Z` | 2026-07-28 03:52 UTC | [API Docs Hub and Reference Expansion](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260728T035111Z) |
 | `archive-20260727T181216Z` | 2026-07-27 18:13 UTC | [OCI federation guide and custom OIDC discovery updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260727T181216Z) |
-| `archive-20260727T160159Z` | 2026-07-27 16:03 UTC | [MCP-First Plugin Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260727T160159Z) |
