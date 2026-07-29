@@ -16,14 +16,18 @@ compare behavior across releases.
 
 Confirm that:
 
-- The MCP server is available at a public HTTPS endpoint.
-- The endpoint supports streamable HTTP, typically at `/mcp`.
+- The MCP server is reachable through a public HTTPS endpoint or
+  [Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels).
+- A public endpoint supports streamable HTTP, typically at `/mcp`, or the
+  tunnel can reach its configured stdio or HTTP MCP server.
 - Tool names, descriptions, schemas, and annotations are present.
 - Authentication discovery works for tools that require an account.
 
-For local development, use
-[Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels), a development tunnel,
-or another HTTPS forwarding service.
+Use Secure MCP Tunnel to connect a private MCP server in developer mode without
+exposing the server to the public internet. A development tunnel or another
+HTTPS forwarding service can also provide an endpoint for local testing. These
+testing options do not replace the public HTTPS endpoint required for
+[plugin submission](https://developers.openai.com/plugins/build/mcp-server#deploy-the-endpoint).
 
 ### Inspect the MCP server
 
@@ -53,13 +57,16 @@ Developer mode availability can depend on account and workspace policy.
 1. Go to [ChatGPT Plugins](https://chatgpt.com/plugins).
 2. Select the plus button.
 3. Enter a user-facing name and description.
-4. Enter the public MCP server URL, including the `/mcp` path.
+4. Under **Connection**, choose the connection method:
+   - For a public endpoint, enter the MCP server URL, including the `/mcp` path.
+   - For Secure MCP Tunnel, select **Tunnel**, then choose an available tunnel
+     or enter its `tunnel_id`.
 5. Create the connection.
 6. Review the tools and metadata discovered from the server.
 
-If ChatGPT cannot connect, verify the HTTPS endpoint with MCP Inspector.
-Resolve transport, initialization, schema, or authentication errors before
-continuing.
+If ChatGPT cannot connect, verify the public HTTPS endpoint with MCP Inspector,
+or check the tunnel's workspace association and `tunnel-client` status. Resolve
+transport, initialization, schema, or authentication errors before continuing.
 
 ### Check tool selection
 

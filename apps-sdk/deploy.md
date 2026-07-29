@@ -213,17 +213,33 @@ indirect, edge-case, and out-of-scope requests from your use-case inventory.
 
 ## Deploy the endpoint
 
-Deploy the MCP server before connecting it in developer mode or submitting the
-plugin. Host the server at a public HTTPS endpoint that:
+For public plugin submission, deploy the MCP server at a stable, publicly
+reachable HTTPS endpoint. [Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels)
+can connect a private MCP server in developer mode, but it does not satisfy
+public submission requirements.
 
-- Supports the MCP streamable HTTP transport.
-- Responds at a stable URL, typically ending in `/mcp`.
-- Meets the latency and availability needs of the plugin's workflows.
-- Can reach required services and data stores.
-- Preserves authentication and authorization boundaries.
-- Produces logs and metrics for failed initialization and tool calls.
+The production endpoint must:
 
-Do not use a temporary tunnel or local endpoint for public submission.
+- Support the MCP streamable HTTP transport.
+- Respond at a stable URL, typically ending in `/mcp`.
+- Meet the latency and availability needs of the plugin's workflows.
+- Reach required services and data stores.
+- Preserve authentication and authorization boundaries.
+- Produce logs and metrics for failed initialization and tool calls.
+
+If the MCP server must remain private, deploy a public HTTPS proxy that forwards
+MCP requests to the private server. Use
+[OpenAI-managed mTLS](https://developers.openai.com/plugins/build/auth#mutual-tls-mtls) to authenticate
+ChatGPT as the MCP client, and use [OAuth 2.1](https://developers.openai.com/plugins/build/auth) when your
+plugin requires user authentication. If your network requires an IP allowlist,
+use the published [ChatGPT connectors IP ranges](https://developers.openai.com/api/docs/guides/ip-addresses)
+and update the allowlist automatically. An IP allowlist does not replace
+authentication or authorization.
+
+The public endpoint must remain reachable for plugin review and
+[domain verification](https://developers.openai.com/plugins/deploy/submission#domain-verification). Do not
+use Secure MCP Tunnel alone, a temporary tunnel, or a local endpoint for public
+submission.
 
 ### Choose infrastructure
 

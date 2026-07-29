@@ -66,13 +66,14 @@ your existing policy:
 | ------------- | --------------------------- | -------------------------------------------- |
 | `script-src`  | `https://bzrcdn.openai.com` | Load the Measurement Pixel SDK.              |
 | `connect-src` | `https://bzr.openai.com`    | Send events with `fetch` or `sendBeacon`.    |
+| `connect-src` | `https://bzrcdn.openai.com` | Fetch per-pixel configuration.               |
 | `img-src`     | `https://bzr.openai.com`    | Send events with the image request fallback. |
 
 For example, a policy that otherwise allows only same-origin resources and uses
 a nonce would include:
 
 ```http
-Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-<NONCE>' https://bzrcdn.openai.com; connect-src 'self' https://bzr.openai.com; img-src 'self' https://bzr.openai.com;
+Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-<NONCE>' https://bzrcdn.openai.com; connect-src 'self' https://bzr.openai.com https://bzrcdn.openai.com; img-src 'self' https://bzr.openai.com;
 ```
 
 Replace `<NONCE>` with a fresh nonce for each response and add the same value to
