@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260729T183936Z` | 2026-07-29 18:39 UTC | [Secure MCP Tunnel and MCP deployment guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260729T183936Z) |
+| `archive-20260729T213346Z` | 2026-07-29 21:33 UTC | [Terraform Provider Added to Changelog](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260729T213346Z) |
+| `archive-20260729T183936Z` | 2026-07-29 18:40 UTC | [Secure MCP Tunnel and MCP deployment guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260729T183936Z) |
 | `archive-20260729T153345Z` | 2026-07-29 15:36 UTC | [Live Call and Transcription Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260729T153345Z) |
 | `archive-20260728T224104Z` | 2026-07-28 22:41 UTC | [GPT-5.6 reasoning defaults clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260728T224104Z) |
 | `archive-20260728T204741Z` | 2026-07-28 20:48 UTC | [Terraform Guides and Product-Feed oCPC Beta Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260728T204741Z) |
 | `archive-20260728T185612Z` | 2026-07-28 18:57 UTC | [Transcription Docs Split](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260728T185612Z) |
-| `archive-20260728T035111Z` | 2026-07-28 03:52 UTC | [API Docs Hub and Reference Expansion](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260728T035111Z) |
