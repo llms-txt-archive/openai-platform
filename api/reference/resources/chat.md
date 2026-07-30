@@ -1038,13 +1038,14 @@ chunk objects if the request is streamed.
   If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.
   Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend.
 
-- `service_tier: optional "auto" or "default" or "flex" or 2 more`
+- `service_tier: optional "auto" or "default" or "flex" or 3 more`
 
   Specifies the processing type used for serving the request.
 
   - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.
   - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
-  - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.
+  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
+  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
   - When not set, the default behavior is 'auto'.
 
   When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -1058,6 +1059,8 @@ chunk objects if the request is streamed.
   - `"scale"`
 
   - `"priority"`
+
+  - `"fast"`
 
 - `stop: optional string or array of string`
 
@@ -1783,13 +1786,14 @@ chunk objects if the request is streamed.
 
           - `"error"`
 
-  - `service_tier: optional "auto" or "default" or "flex" or 2 more`
+  - `service_tier: optional "auto" or "default" or "flex" or 3 more`
 
     Specifies the processing type used for serving the request.
 
     - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
-    - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.
+    - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
+    - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -1803,6 +1807,8 @@ chunk objects if the request is streamed.
     - `"scale"`
 
     - `"priority"`
+
+    - `"fast"`
 
   - `system_fingerprint: optional string`
 
@@ -2997,13 +3003,14 @@ with the `store` parameter set to `true` will be returned.
 
           - `"error"`
 
-  - `service_tier: optional "auto" or "default" or "flex" or 2 more`
+  - `service_tier: optional "auto" or "default" or "flex" or 3 more`
 
     Specifies the processing type used for serving the request.
 
     - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
-    - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.
+    - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
+    - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -3017,6 +3024,8 @@ with the `store` parameter set to `true` will be returned.
     - `"scale"`
 
     - `"priority"`
+
+    - `"fast"`
 
   - `system_fingerprint: optional string`
 
@@ -3730,13 +3739,14 @@ with the `store` parameter set to `true` will be returned.
 
           - `"error"`
 
-  - `service_tier: optional "auto" or "default" or "flex" or 2 more`
+  - `service_tier: optional "auto" or "default" or "flex" or 3 more`
 
     Specifies the processing type used for serving the request.
 
     - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
-    - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.
+    - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
+    - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -3750,6 +3760,8 @@ with the `store` parameter set to `true` will be returned.
     - `"scale"`
 
     - `"priority"`
+
+    - `"fast"`
 
   - `system_fingerprint: optional string`
 
@@ -4441,13 +4453,14 @@ the only supported modification is to update the `metadata` field.
 
           - `"error"`
 
-  - `service_tier: optional "auto" or "default" or "flex" or 2 more`
+  - `service_tier: optional "auto" or "default" or "flex" or 3 more`
 
     Specifies the processing type used for serving the request.
 
     - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
-    - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.
+    - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
+    - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -4461,6 +4474,8 @@ the only supported modification is to update the `metadata` field.
     - `"scale"`
 
     - `"priority"`
+
+    - `"fast"`
 
   - `system_fingerprint: optional string`
 
@@ -5172,13 +5187,14 @@ curl -X POST https://api.openai.com/v1/chat/completions/chat_abc123 \
 
           - `"error"`
 
-  - `service_tier: optional "auto" or "default" or "flex" or 2 more`
+  - `service_tier: optional "auto" or "default" or "flex" or 3 more`
 
     Specifies the processing type used for serving the request.
 
     - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
-    - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.
+    - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
+    - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -5192,6 +5208,8 @@ curl -X POST https://api.openai.com/v1/chat/completions/chat_abc123 \
     - `"scale"`
 
     - `"priority"`
+
+    - `"fast"`
 
   - `system_fingerprint: optional string`
 
@@ -5847,13 +5865,14 @@ curl -X POST https://api.openai.com/v1/chat/completions/chat_abc123 \
 
           - `"error"`
 
-  - `service_tier: optional "auto" or "default" or "flex" or 2 more`
+  - `service_tier: optional "auto" or "default" or "flex" or 3 more`
 
     Specifies the processing type used for serving the request.
 
     - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
-    - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.
+    - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
+    - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -5867,6 +5886,8 @@ curl -X POST https://api.openai.com/v1/chat/completions/chat_abc123 \
     - `"scale"`
 
     - `"priority"`
+
+    - `"fast"`
 
   - `system_fingerprint: optional string`
 

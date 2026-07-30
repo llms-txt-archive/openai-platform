@@ -1764,7 +1764,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
@@ -1788,6 +1788,10 @@ Schema name: `ResponseCreatedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
         }
       ]
     },
@@ -1801,7 +1805,8 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -7072,6 +7077,13 @@ Schema name: `ResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "fast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
@@ -55249,7 +55261,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
@@ -55273,6 +55285,10 @@ Schema name: `ResponseInProgressEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
         }
       ]
     },
@@ -55286,7 +55302,8 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -60557,6 +60574,13 @@ Schema name: `ResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "fast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
@@ -108734,7 +108758,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
@@ -108758,6 +108782,10 @@ Schema name: `ResponseCompletedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
         }
       ]
     },
@@ -108771,7 +108799,8 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -114042,6 +114071,13 @@ Schema name: `ResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "fast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
@@ -162236,7 +162272,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
@@ -162260,6 +162296,10 @@ Schema name: `ResponseFailedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
         }
       ]
     },
@@ -162273,7 +162313,8 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -167544,6 +167585,13 @@ Schema name: `ResponseFailedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "fast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
@@ -215719,7 +215767,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
@@ -215743,6 +215791,10 @@ Schema name: `ResponseIncompleteEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
         }
       ]
     },
@@ -215756,7 +215808,8 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -221027,6 +221080,13 @@ Schema name: `ResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "fast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
@@ -323181,7 +323241,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)' or '[priority](https://openai.com/api-priority-processing/)', then the request will be processed with the corresponding service tier.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
@@ -323205,6 +323265,10 @@ Schema name: `ResponseQueuedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
         }
       ]
     },
@@ -323218,7 +323282,8 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -328489,6 +328554,13 @@ Schema name: `ResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "fast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
