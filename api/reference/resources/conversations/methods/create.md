@@ -971,7 +971,7 @@ Create a conversation.
 
       - `"incomplete"`
 
-  - `FunctionCallOutput object { call_id, output, type, 3 more }`
+  - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
     The output of a function tool call.
 
@@ -1134,6 +1134,14 @@ Create a conversation.
           The caller type. Always `program`.
 
           - `"program"`
+
+    - `name: optional string`
+
+      The name of the tool that produced the output.
+
+    - `namespace: optional string`
+
+      The namespace of the tool that produced the output.
 
     - `status: optional "in_progress" or "completed" or "incomplete"`
 

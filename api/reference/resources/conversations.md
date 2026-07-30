@@ -973,7 +973,7 @@ Create a conversation.
 
       - `"incomplete"`
 
-  - `FunctionCallOutput object { call_id, output, type, 3 more }`
+  - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
     The output of a function tool call.
 
@@ -1136,6 +1136,14 @@ Create a conversation.
           The caller type. Always `program`.
 
           - `"program"`
+
+    - `name: optional string`
+
+      The name of the tool that produced the output.
+
+    - `namespace: optional string`
+
+      The namespace of the tool that produced the output.
 
     - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -5852,7 +5860,7 @@ Create items in a conversation with the given ID.
 
       - `"incomplete"`
 
-  - `FunctionCallOutput object { call_id, output, type, 3 more }`
+  - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
     The output of a function tool call.
 
@@ -6015,6 +6023,14 @@ Create items in a conversation with the given ID.
           The caller type. Always `program`.
 
           - `"program"`
+
+    - `name: optional string`
+
+      The name of the tool that produced the output.
+
+    - `namespace: optional string`
+
+      The namespace of the tool that produced the output.
 
     - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -9387,7 +9403,7 @@ Create items in a conversation with the given ID.
 
         The namespace of the function to run.
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -9466,6 +9482,14 @@ Create items in a conversation with the given ID.
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `FileSearchCall object { id, queries, status, 2 more }`
 
@@ -13616,7 +13640,7 @@ List all items for a conversation with the given ID.
 
         The namespace of the function to run.
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -13695,6 +13719,14 @@ List all items for a conversation with the given ID.
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `FileSearchCall object { id, queries, status, 2 more }`
 
@@ -17251,7 +17283,7 @@ Get a single item from a conversation with the given IDs.
 
 ### Returns
 
-- `ConversationItem = Message or object { id, arguments, call_id, 6 more }  or object { id, call_id, output, 4 more }  or 25 more`
+- `ConversationItem = Message or object { id, arguments, call_id, 6 more }  or object { id, call_id, output, 6 more }  or 25 more`
 
   A single item within a conversation. The set of possible types are the same as the `output` type of a [Response object](/docs/api-reference/responses/object#responses/object-output).
 
@@ -17706,7 +17738,7 @@ Get a single item from a conversation with the given IDs.
 
       The namespace of the function to run.
 
-  - `FunctionCallOutput object { id, call_id, output, 4 more }`
+  - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
     - `id: string`
 
@@ -17785,6 +17817,14 @@ Get a single item from a conversation with the given IDs.
     - `created_by: optional string`
 
       The identifier of the actor that created the item.
+
+    - `name: optional string`
+
+      The name of the tool that produced the output.
+
+    - `namespace: optional string`
+
+      The namespace of the tool that produced the output.
 
   - `FileSearchCall object { id, queries, status, 2 more }`
 
@@ -21274,7 +21314,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
 ### Conversation Item
 
-- `ConversationItem = Message or object { id, arguments, call_id, 6 more }  or object { id, call_id, output, 4 more }  or 25 more`
+- `ConversationItem = Message or object { id, arguments, call_id, 6 more }  or object { id, call_id, output, 6 more }  or 25 more`
 
   A single item within a conversation. The set of possible types are the same as the `output` type of a [Response object](/docs/api-reference/responses/object#responses/object-output).
 
@@ -21729,7 +21769,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       The namespace of the function to run.
 
-  - `FunctionCallOutput object { id, call_id, output, 4 more }`
+  - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
     - `id: string`
 
@@ -21808,6 +21848,14 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
     - `created_by: optional string`
 
       The identifier of the actor that created the item.
+
+    - `name: optional string`
+
+      The name of the tool that produced the output.
+
+    - `namespace: optional string`
+
+      The namespace of the tool that produced the output.
 
   - `FileSearchCall object { id, queries, status, 2 more }`
 
@@ -25705,7 +25753,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The namespace of the function to run.
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -25784,6 +25832,14 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `FileSearchCall object { id, queries, status, 2 more }`
 

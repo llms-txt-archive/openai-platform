@@ -1109,7 +1109,7 @@ Retrieves a model response with the given ID.
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { call_id, output, type, 3 more }`
+      - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
         The output of a function tool call.
 
@@ -1272,6 +1272,14 @@ Retrieves a model response with the given ID.
               The caller type. Always `program`.
 
               - `"program"`
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -4546,7 +4554,7 @@ Retrieves a model response with the given ID.
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -4625,6 +4633,14 @@ Retrieves a model response with the given ID.
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `WebSearchCall object { id, action, status, type }`
 

@@ -1067,7 +1067,7 @@ the `background` parameter set to `true` can be cancelled.
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { call_id, output, type, 3 more }`
+      - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
         The output of a function tool call.
 
@@ -1230,6 +1230,14 @@ the `background` parameter set to `true` can be cancelled.
               The caller type. Always `program`.
 
               - `"program"`
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -4504,7 +4512,7 @@ the `background` parameter set to `true` can be cancelled.
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -4583,6 +4591,14 @@ the `background` parameter set to `true` can be cancelled.
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `WebSearchCall object { id, action, status, type }`
 
@@ -10438,7 +10454,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { call_id, output, type, 3 more }`
+    - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
       The output of a function tool call.
 
@@ -10601,6 +10617,14 @@ Learn when and how to compact long-running conversations in the [conversation st
             The caller type. Always `program`.
 
             - `"program"`
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -13551,13 +13575,16 @@ Learn when and how to compact long-running conversations in the [conversation st
 
   - `"24h"`
 
-- `service_tier: optional "auto" or "default" or "flex" or "priority"`
+- `service_tier: optional "auto" or "default" or "fast" or 2 more`
 
-  The service tier to use for this request.
+  Specifies the processing type used for serving the request.   - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.   - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.   - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.   - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.   - When not set, the default behavior is 'auto'.
+  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
 
   - `"auto"`
 
   - `"default"`
+
+  - `"fast"`
 
   - `"flex"`
 
@@ -16074,7 +16101,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
         - `"additional_tools"`
 
-    - `FunctionCallOutput object { call_id, output, type, 3 more }`
+    - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
       The output of a function tool call.
 
@@ -16141,6 +16168,14 @@ Learn when and how to compact long-running conversations in the [conversation st
             The caller type. Always `program`.
 
             - `"program"`
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -18767,7 +18802,7 @@ as input for the model's response.
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { call_id, output, type, 3 more }`
+    - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
       The output of a function tool call.
 
@@ -18930,6 +18965,14 @@ as input for the model's response.
             The caller type. Always `program`.
 
             - `"program"`
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -24520,7 +24563,7 @@ as input for the model's response.
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { call_id, output, type, 3 more }`
+      - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
         The output of a function tool call.
 
@@ -24683,6 +24726,14 @@ as input for the model's response.
               The caller type. Always `program`.
 
               - `"program"`
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -27957,7 +28008,7 @@ as input for the model's response.
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -28036,6 +28087,14 @@ as input for the model's response.
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `WebSearchCall object { id, action, status, type }`
 
@@ -34562,7 +34621,7 @@ Retrieves a model response with the given ID.
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { call_id, output, type, 3 more }`
+      - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
         The output of a function tool call.
 
@@ -34725,6 +34784,14 @@ Retrieves a model response with the given ID.
               The caller type. Always `program`.
 
               - `"program"`
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -37999,7 +38066,7 @@ Retrieves a model response with the given ID.
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -38078,6 +38145,14 @@ Retrieves a model response with the given ID.
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `WebSearchCall object { id, action, status, type }`
 
@@ -45274,7 +45349,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"additional_tools"`
 
-    - `FunctionCallOutput object { call_id, output, type, 3 more }`
+    - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
       The output of a function tool call.
 
@@ -45341,6 +45416,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
             The caller type. Always `program`.
 
             - `"program"`
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -48691,7 +48774,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { call_id, output, type, 3 more }`
+      - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
         The output of a function tool call.
 
@@ -48854,6 +48937,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
               The caller type. Always `program`.
 
               - `"program"`
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -52128,7 +52219,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -52207,6 +52298,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `WebSearchCall object { id, action, status, type }`
 
@@ -57899,7 +57998,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"incomplete"`
 
-        - `FunctionCallOutput object { call_id, output, type, 3 more }`
+        - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
           The output of a function tool call.
 
@@ -58062,6 +58161,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 The caller type. Always `program`.
 
                 - `"program"`
+
+          - `name: optional string`
+
+            The name of the tool that produced the output.
+
+          - `namespace: optional string`
+
+            The namespace of the tool that produced the output.
 
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -61336,7 +61443,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { id, call_id, output, 4 more }`
+      - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
         - `id: string`
 
@@ -61415,6 +61522,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `created_by: optional string`
 
           The identifier of the actor that created the item.
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
       - `WebSearchCall object { id, action, status, type }`
 
@@ -67616,7 +67731,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"incomplete"`
 
-        - `FunctionCallOutput object { call_id, output, type, 3 more }`
+        - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
           The output of a function tool call.
 
@@ -67779,6 +67894,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 The caller type. Always `program`.
 
                 - `"program"`
+
+          - `name: optional string`
+
+            The name of the tool that produced the output.
+
+          - `namespace: optional string`
+
+            The namespace of the tool that produced the output.
 
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -71053,7 +71176,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { id, call_id, output, 4 more }`
+      - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
         - `id: string`
 
@@ -71132,6 +71255,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `created_by: optional string`
 
           The identifier of the actor that created the item.
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
       - `WebSearchCall object { id, action, status, type }`
 
@@ -76772,7 +76903,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"incomplete"`
 
-        - `FunctionCallOutput object { call_id, output, type, 3 more }`
+        - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
           The output of a function tool call.
 
@@ -76935,6 +77066,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 The caller type. Always `program`.
 
                 - `"program"`
+
+          - `name: optional string`
+
+            The name of the tool that produced the output.
+
+          - `namespace: optional string`
+
+            The namespace of the tool that produced the output.
 
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -80209,7 +80348,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { id, call_id, output, 4 more }`
+      - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
         - `id: string`
 
@@ -80288,6 +80427,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `created_by: optional string`
 
           The identifier of the actor that created the item.
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
       - `WebSearchCall object { id, action, status, type }`
 
@@ -86177,7 +86324,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"incomplete"`
 
-        - `FunctionCallOutput object { call_id, output, type, 3 more }`
+        - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
           The output of a function tool call.
 
@@ -86340,6 +86487,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 The caller type. Always `program`.
 
                 - `"program"`
+
+          - `name: optional string`
+
+            The name of the tool that produced the output.
+
+          - `namespace: optional string`
+
+            The namespace of the tool that produced the output.
 
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -89614,7 +89769,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { id, call_id, output, 4 more }`
+      - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
         - `id: string`
 
@@ -89693,6 +89848,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `created_by: optional string`
 
           The identifier of the actor that created the item.
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
       - `WebSearchCall object { id, action, status, type }`
 
@@ -95226,7 +95389,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"incomplete"`
 
-        - `FunctionCallOutput object { call_id, output, type, 3 more }`
+        - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
           The output of a function tool call.
 
@@ -95389,6 +95552,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 The caller type. Always `program`.
 
                 - `"program"`
+
+          - `name: optional string`
+
+            The name of the tool that produced the output.
+
+          - `namespace: optional string`
+
+            The namespace of the tool that produced the output.
 
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -98663,7 +98834,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { id, call_id, output, 4 more }`
+      - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
         - `id: string`
 
@@ -98742,6 +98913,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `created_by: optional string`
 
           The identifier of the actor that created the item.
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
       - `WebSearchCall object { id, action, status, type }`
 
@@ -104384,7 +104563,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       - `"incomplete"`
 
-  - `FunctionCallOutput object { id, call_id, output, 4 more }`
+  - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
     - `id: string`
 
@@ -104561,6 +104740,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
     - `created_by: optional string`
 
       The identifier of the actor that created the item.
+
+    - `name: optional string`
+
+      The name of the tool that produced the output.
+
+    - `namespace: optional string`
+
+      The namespace of the tool that produced the output.
 
   - `WebSearchCall object { id, action, status, type }`
 
@@ -108273,7 +108460,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -108450,6 +108637,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `WebSearchCall object { id, action, status, type }`
 
@@ -112176,7 +112371,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -112353,6 +112548,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `WebSearchCall object { id, action, status, type }`
 
@@ -117317,7 +117520,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"incomplete"`
 
-        - `FunctionCallOutput object { call_id, output, type, 3 more }`
+        - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
           The output of a function tool call.
 
@@ -117480,6 +117683,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 The caller type. Always `program`.
 
                 - `"program"`
+
+          - `name: optional string`
+
+            The name of the tool that produced the output.
+
+          - `namespace: optional string`
+
+            The namespace of the tool that produced the output.
 
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -120754,7 +120965,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { id, call_id, output, 4 more }`
+      - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
         - `id: string`
 
@@ -120833,6 +121044,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `created_by: optional string`
 
           The identifier of the actor that created the item.
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
       - `WebSearchCall object { id, action, status, type }`
 
@@ -126823,7 +127042,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"incomplete"`
 
-          - `FunctionCallOutput object { call_id, output, type, 3 more }`
+          - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
             The output of a function tool call.
 
@@ -126986,6 +127205,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
                   The caller type. Always `program`.
 
                   - `"program"`
+
+            - `name: optional string`
+
+              The name of the tool that produced the output.
+
+            - `namespace: optional string`
+
+              The namespace of the tool that produced the output.
 
             - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -130260,7 +130487,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"incomplete"`
 
-        - `FunctionCallOutput object { id, call_id, output, 4 more }`
+        - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
           - `id: string`
 
@@ -130339,6 +130566,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
           - `created_by: optional string`
 
             The identifier of the actor that created the item.
+
+          - `name: optional string`
+
+            The name of the tool that produced the output.
+
+          - `namespace: optional string`
+
+            The namespace of the tool that produced the output.
 
         - `WebSearchCall object { id, action, status, type }`
 
@@ -135126,7 +135361,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
         A tool call to run a function. See the
         [function calling guide](/docs/guides/function-calling) for more information.
 
-      - `FunctionCallOutput object { id, call_id, output, 4 more }`
+      - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `WebSearchCall object { id, action, status, type }`
 
@@ -137449,7 +137684,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { call_id, output, type, 3 more }`
+      - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
         The output of a function tool call.
 
@@ -137612,6 +137847,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
               The caller type. Always `program`.
 
               - `"program"`
+
+        - `name: optional string`
+
+          The name of the tool that produced the output.
+
+        - `namespace: optional string`
+
+          The namespace of the tool that produced the output.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -143394,7 +143637,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"incomplete"`
 
-          - `FunctionCallOutput object { call_id, output, type, 3 more }`
+          - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
             The output of a function tool call.
 
@@ -143557,6 +143800,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
                   The caller type. Always `program`.
 
                   - `"program"`
+
+            - `name: optional string`
+
+              The name of the tool that produced the output.
+
+            - `namespace: optional string`
+
+              The namespace of the tool that produced the output.
 
             - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -146831,7 +147082,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"incomplete"`
 
-        - `FunctionCallOutput object { id, call_id, output, 4 more }`
+        - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
           - `id: string`
 
@@ -146910,6 +147161,14 @@ curl https://api.openai.com/v1/responses/resp_123 \
           - `created_by: optional string`
 
             The identifier of the actor that created the item.
+
+          - `name: optional string`
+
+            The name of the tool that produced the output.
+
+          - `namespace: optional string`
+
+            The namespace of the tool that produced the output.
 
         - `WebSearchCall object { id, action, status, type }`
 
@@ -151697,7 +151956,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
         A tool call to run a function. See the
         [function calling guide](/docs/guides/function-calling) for more information.
 
-      - `FunctionCallOutput object { id, call_id, output, 4 more }`
+      - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `WebSearchCall object { id, action, status, type }`
 
@@ -153817,7 +154076,7 @@ Returns a list of input items for a given response.
 
         The namespace of the function to run.
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -153896,6 +154155,14 @@ Returns a list of input items for a given response.
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `ToolSearchCall object { id, arguments, call_id, 4 more }`
 
@@ -157857,7 +158124,7 @@ curl https://api.openai.com/v1/responses/resp_abc123/input_items \
 
         The namespace of the function to run.
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -157936,6 +158203,14 @@ curl https://api.openai.com/v1/responses/resp_abc123/input_items \
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `ToolSearchCall object { id, arguments, call_id, 4 more }`
 
@@ -161903,7 +162178,7 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { call_id, output, type, 3 more }`
+    - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
       The output of a function tool call.
 
@@ -162066,6 +162341,14 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
             The caller type. Always `program`.
 
             - `"program"`
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 

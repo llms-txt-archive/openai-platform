@@ -1181,7 +1181,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { call_id, output, type, 3 more }`
+    - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
       The output of a function tool call.
 
@@ -1344,6 +1344,14 @@ Learn when and how to compact long-running conversations in the [conversation st
             The caller type. Always `program`.
 
             - `"program"`
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -4294,13 +4302,16 @@ Learn when and how to compact long-running conversations in the [conversation st
 
   - `"24h"`
 
-- `service_tier: optional "auto" or "default" or "flex" or "priority"`
+- `service_tier: optional "auto" or "default" or "fast" or 2 more`
 
-  The service tier to use for this request.
+  Specifies the processing type used for serving the request.   - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.   - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.   - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.   - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.   - When not set, the default behavior is 'auto'.
+  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
 
   - `"auto"`
 
   - `"default"`
+
+  - `"fast"`
 
   - `"flex"`
 
@@ -6817,7 +6828,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
         - `"additional_tools"`
 
-    - `FunctionCallOutput object { call_id, output, type, 3 more }`
+    - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
       The output of a function tool call.
 
@@ -6884,6 +6895,14 @@ Learn when and how to compact long-running conversations in the [conversation st
             The caller type. Always `program`.
 
             - `"program"`
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
