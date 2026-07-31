@@ -1057,7 +1057,7 @@ as input for the model's response.
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { call_id, output, type, 5 more }`
+    - `FunctionCallOutput object { call_id, output, type, 3 more }`
 
       The output of a function tool call.
 
@@ -1220,14 +1220,6 @@ as input for the model's response.
             The caller type. Always `program`.
 
             - `"program"`
-
-      - `name: optional string or null`
-
-        The name of the tool that produced the output.
-
-      - `namespace: optional string or null`
-
-        The namespace of the tool that produced the output.
 
       - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
@@ -6818,7 +6810,7 @@ as input for the model's response.
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { call_id, output, type, 5 more }`
+      - `FunctionCallOutput object { call_id, output, type, 3 more }`
 
         The output of a function tool call.
 
@@ -6981,14 +6973,6 @@ as input for the model's response.
               The caller type. Always `program`.
 
               - `"program"`
-
-        - `name: optional string or null`
-
-          The name of the tool that produced the output.
-
-        - `namespace: optional string or null`
-
-          The namespace of the tool that produced the output.
 
         - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
@@ -10263,7 +10247,7 @@ as input for the model's response.
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { id, call_id, output, 6 more }`
+    - `FunctionCallOutput object { id, call_id, output, 4 more }`
 
       - `id: string`
 
@@ -10342,14 +10326,6 @@ as input for the model's response.
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
-
-      - `name: optional string`
-
-        The name of the tool that produced the output.
-
-      - `namespace: optional string`
-
-        The namespace of the tool that produced the output.
 
     - `WebSearchCall object { id, action, status, type }`
 

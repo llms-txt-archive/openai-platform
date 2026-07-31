@@ -1065,7 +1065,7 @@ the `background` parameter set to `true` can be cancelled.
 
           - `"incomplete"`
 
-      - `FunctionCallOutput object { call_id, output, type, 5 more }`
+      - `FunctionCallOutput object { call_id, output, type, 3 more }`
 
         The output of a function tool call.
 
@@ -1228,14 +1228,6 @@ the `background` parameter set to `true` can be cancelled.
               The caller type. Always `program`.
 
               - `"program"`
-
-        - `name: optional string or null`
-
-          The name of the tool that produced the output.
-
-        - `namespace: optional string or null`
-
-          The namespace of the tool that produced the output.
 
         - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
@@ -4510,7 +4502,7 @@ the `background` parameter set to `true` can be cancelled.
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { id, call_id, output, 6 more }`
+    - `FunctionCallOutput object { id, call_id, output, 4 more }`
 
       - `id: string`
 
@@ -4589,14 +4581,6 @@ the `background` parameter set to `true` can be cancelled.
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
-
-      - `name: optional string`
-
-        The name of the tool that produced the output.
-
-      - `namespace: optional string`
-
-        The namespace of the tool that produced the output.
 
     - `WebSearchCall object { id, action, status, type }`
 

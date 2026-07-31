@@ -521,7 +521,7 @@ List all items for a conversation with the given ID.
 
         The namespace of the function to run.
 
-    - `FunctionCallOutput object { id, call_id, output, 6 more }`
+    - `FunctionCallOutput object { id, call_id, output, 4 more }`
 
       - `id: string`
 
@@ -600,14 +600,6 @@ List all items for a conversation with the given ID.
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
-
-      - `name: optional string`
-
-        The name of the tool that produced the output.
-
-      - `namespace: optional string`
-
-        The namespace of the tool that produced the output.
 
     - `FileSearchCall object { id, queries, status, 2 more }`
 
