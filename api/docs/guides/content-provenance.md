@@ -8,7 +8,7 @@ supported OpenAI provenance signals. Send a file to
 results in the same response. Use these signals in content review,
 fact-checking, labeling, and trust and safety workflows.
 
-To check a file in your browser, use our web tool at
+To check a file in your browser, use the web tool at
 [openai.com/verify](https://openai.com/verify/).
 
 For request parameters and response schemas, see the
@@ -42,54 +42,68 @@ API.
 
 ## Verify a file
 
-Send an image or audio file as the `file` field in a `multipart/form-data`
-request. Authenticate with your OpenAI API key:
+Send an image or audio file as the `file` field with the OpenAI SDK. The SDK
+builds the multipart request and reads your API key from the `OPENAI_API_KEY`
+environment variable:
 
 Verify an image
 
 ```python
-import os
+from openai import OpenAI
 
-import requests
+client = OpenAI()
 
 with open("./example.png", "rb") as image:
-    response = requests.post(
-        "https://api.openai.com/v1/content_provenance_checks",
-        headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"},
-        files={"file": ("example.png", image, "image/png")},
-        timeout=600,
+    result = client.content_provenance_checks.create(
+        file=("example.png", image, "image/png"),
     )
 
-response.raise_for_status()
-print(response.json())
+print(result)
 ```
 
-```javascript
-import { openAsBlob } from "node:fs";
+```go
+package main
 
-const image = await openAsBlob(process.argv[2] ?? "./example.png", {
-  type: "image/png",
-});
-const form = new FormData();
+import (
+	"context"
+	"fmt"
+	"os"
 
-form.append("file", image, "example.png");
+	"github.com/openai/openai-go/v3"
+)
 
-const response = await fetch(
-  "https://api.openai.com/v1/content_provenance_checks",
-  {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-    },
-    body: form,
-  }
-);
+func main() {
+	client := openai.NewClient()
 
-if (!response.ok) {
-  throw new Error(`Content verification failed: ${response.status}`);
+	image, err := os.Open("./example.png")
+	if err != nil {
+		panic(err)
+	}
+	defer image.Close()
+
+	result, err := client.ContentProvenanceChecks.New(
+		context.Background(),
+		openai.ContentProvenanceCheckNewParams{
+			File: openai.File(image, "example.png", "image/png"),
+		},
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(result)
 }
+```
 
-console.log(await response.json());
+```ruby
+require "openai"
+require "pathname"
+
+client = OpenAI::Client.new
+image = OpenAI::FilePart.new(Pathname("./example.png"), content_type: "image/png")
+result = client.content_provenance_checks.create(file: image)
+
+puts result
 ```
 
 ```bash
@@ -99,8 +113,8 @@ curl https://api.openai.com/v1/content_provenance_checks \
 ```
 
 
-The Python example uses `requests`. The JavaScript example uses Node.js built-in
-`fetch`.
+Use these OpenAI SDK versions or later: Python 2.52.0, Go 3.49.0, and Ruby
+0.75.0.
 
 To verify Opus audio, use the same endpoint and set the uploaded file's media
 type to `audio/ogg`:
