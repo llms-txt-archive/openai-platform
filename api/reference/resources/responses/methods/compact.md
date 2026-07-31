@@ -1181,7 +1181,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
         - `"incomplete"`
 
-    - `FunctionCallOutput object { call_id, output, type, 3 more }`
+    - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
       The output of a function tool call.
 
@@ -1344,6 +1344,14 @@ Learn when and how to compact long-running conversations in the [conversation st
             The caller type. Always `program`.
 
             - `"program"`
+
+      - `name: optional string or null`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string or null`
+
+        The namespace of the tool that produced the output.
 
       - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
@@ -6820,7 +6828,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
         - `"additional_tools"`
 
-    - `FunctionCallOutput object { call_id, output, type, 3 more }`
+    - `FunctionCallOutput object { call_id, output, type, 5 more }`
 
       The output of a function tool call.
 
@@ -6887,6 +6895,14 @@ Learn when and how to compact long-running conversations in the [conversation st
             The caller type. Always `program`.
 
             - `"program"`
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 

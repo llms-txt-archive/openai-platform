@@ -978,7 +978,7 @@ Returns a list of input items for a given response.
 
         The namespace of the function to run.
 
-    - `FunctionCallOutput object { id, call_id, output, 4 more }`
+    - `FunctionCallOutput object { id, call_id, output, 6 more }`
 
       - `id: string`
 
@@ -1057,6 +1057,14 @@ Returns a list of input items for a given response.
       - `created_by: optional string`
 
         The identifier of the actor that created the item.
+
+      - `name: optional string`
+
+        The name of the tool that produced the output.
+
+      - `namespace: optional string`
+
+        The namespace of the tool that produced the output.
 
     - `ToolSearchCall object { id, arguments, call_id, 4 more }`
 
