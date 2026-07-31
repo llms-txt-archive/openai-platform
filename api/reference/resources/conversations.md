@@ -10,7 +10,7 @@ Create a conversation.
 
 ### Body Parameters
 
-- `items: optional array of EasyInputMessage or object { content, role, status, type }  or ResponseOutputMessage or 29 more`
+- `items: optional array of EasyInputMessage or object { content, role, status, type }  or ResponseOutputMessage or 29 more or null`
 
   Initial items to include in the conversation context. You may add up to 20 items at a time.
 
@@ -82,11 +82,11 @@ Create a conversation.
 
             - `"input_image"`
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
-          - `image_url: optional string`
+          - `image_url: optional string or null`
 
             The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
@@ -124,7 +124,7 @@ Create a conversation.
 
             The content of the file to be sent to the model.
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
@@ -159,7 +159,7 @@ Create a conversation.
 
       - `"developer"`
 
-    - `phase: optional "commentary" or "final_answer"`
+    - `phase: optional "commentary" or "final_answer" or null`
 
       Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`).
       For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend
@@ -392,7 +392,7 @@ Create a conversation.
 
       - `"message"`
 
-    - `phase: optional "commentary" or "final_answer"`
+    - `phase: optional "commentary" or "final_answer" or null`
 
       Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`).
       For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend
@@ -436,11 +436,11 @@ Create a conversation.
 
       - `"file_search_call"`
 
-    - `results: optional array of object { attributes, file_id, filename, 2 more }`
+    - `results: optional array of object { attributes, file_id, filename, 2 more }  or null`
 
       The results of the file search tool call.
 
-      - `attributes: optional map[string or number or boolean]`
+      - `attributes: optional map[string or number or boolean] or null`
 
         Set of 16 key-value pairs that can be attached to an object. This can be
         useful for storing additional information about the object in a structured
@@ -491,11 +491,11 @@ Create a conversation.
 
         The ID of the pending safety check.
 
-      - `code: optional string`
+      - `code: optional string or null`
 
         The type of the pending safety check.
 
-      - `message: optional string`
+      - `message: optional string or null`
 
         Details about the pending safety check.
 
@@ -552,7 +552,7 @@ Create a conversation.
 
           The y-coordinate where the click occurred.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while clicking.
 
@@ -560,7 +560,7 @@ Create a conversation.
 
         A double click action.
 
-        - `keys: array of string`
+        - `keys: array of string or null`
 
           The keys being held while double-clicking.
 
@@ -607,7 +607,7 @@ Create a conversation.
 
           - `"drag"`
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while dragging the mouse.
 
@@ -643,7 +643,7 @@ Create a conversation.
 
           The y-coordinate to move to.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while moving the mouse.
 
@@ -683,7 +683,7 @@ Create a conversation.
 
           The y-coordinate where the scroll occurred.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while scrolling.
 
@@ -785,11 +785,11 @@ Create a conversation.
 
       - `"computer_call_output"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The ID of the computer tool call output.
 
-    - `acknowledged_safety_checks: optional array of object { id, code, message }`
+    - `acknowledged_safety_checks: optional array of object { id, code, message }  or null`
 
       The safety checks reported by the API that have been acknowledged by the developer.
 
@@ -797,15 +797,15 @@ Create a conversation.
 
         The ID of the pending safety check.
 
-      - `code: optional string`
+      - `code: optional string or null`
 
         The type of the pending safety check.
 
-      - `message: optional string`
+      - `message: optional string or null`
 
         Details about the pending safety check.
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
 
@@ -871,7 +871,7 @@ Create a conversation.
 
           - `"open_page"`
 
-        - `url: optional string`
+        - `url: optional string or null`
 
           The URL opened by the model.
 
@@ -938,7 +938,7 @@ Create a conversation.
 
       The unique ID of the function tool call.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -1007,7 +1007,7 @@ Create a conversation.
 
             - `"input_text"`
 
-          - `prompt_cache_breakpoint: optional object { mode }`
+          - `prompt_cache_breakpoint: optional object { mode }  or null`
 
             Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -1027,7 +1027,7 @@ Create a conversation.
 
             - `"input_image"`
 
-          - `detail: optional "low" or "high" or "auto" or "original"`
+          - `detail: optional "low" or "high" or "auto" or "original" or null`
 
             The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.
 
@@ -1039,15 +1039,15 @@ Create a conversation.
 
             - `"original"`
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
-          - `image_url: optional string`
+          - `image_url: optional string or null`
 
             The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
-          - `prompt_cache_breakpoint: optional object { mode }`
+          - `prompt_cache_breakpoint: optional object { mode }  or null`
 
             Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -1077,23 +1077,23 @@ Create a conversation.
 
             - `"high"`
 
-          - `file_data: optional string`
+          - `file_data: optional string or null`
 
             The base64-encoded data of the file to be sent to the model.
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
-          - `file_url: optional string`
+          - `file_url: optional string or null`
 
             The URL of the file to be sent to the model.
 
-          - `filename: optional string`
+          - `filename: optional string or null`
 
             The name of the file to be sent to the model.
 
-          - `prompt_cache_breakpoint: optional object { mode }`
+          - `prompt_cache_breakpoint: optional object { mode }  or null`
 
             Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -1109,11 +1109,11 @@ Create a conversation.
 
       - `"function_call_output"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the function tool call output. Populated when this item is returned via API.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -1137,15 +1137,15 @@ Create a conversation.
 
           - `"program"`
 
-    - `name: optional string`
+    - `name: optional string or null`
 
       The name of the tool that produced the output.
 
-    - `namespace: optional string`
+    - `namespace: optional string or null`
 
       The namespace of the tool that produced the output.
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 
@@ -1167,11 +1167,11 @@ Create a conversation.
 
       - `"tool_search_call"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of this tool search call.
 
-    - `call_id: optional string`
+    - `call_id: optional string or null`
 
       The unique ID of the tool search call generated by the model.
 
@@ -1183,7 +1183,7 @@ Create a conversation.
 
       - `"client"`
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the tool search call.
 
@@ -1207,11 +1207,11 @@ Create a conversation.
 
           The name of the function to call.
 
-        - `parameters: map[unknown]`
+        - `parameters: map[unknown] or null`
 
           A JSON schema object describing the parameters of the function.
 
-        - `strict: boolean`
+        - `strict: boolean or null`
 
           Whether strict parameter validation is enforced for this function tool.
 
@@ -1221,7 +1221,7 @@ Create a conversation.
 
           - `"function"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -1233,11 +1233,11 @@ Create a conversation.
 
           Whether this function is deferred and loaded via tool search.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           A description of the function. Used by the model to determine whether or not to call the function.
 
-        - `output_schema: optional map[unknown]`
+        - `output_schema: optional map[unknown] or null`
 
           A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -1255,7 +1255,7 @@ Create a conversation.
 
           The IDs of the vector stores to search.
 
-        - `filters: optional ComparisonFilter or CompoundFilter`
+        - `filters: optional ComparisonFilter or CompoundFilter or null`
 
           A filter to apply.
 
@@ -1421,11 +1421,11 @@ Create a conversation.
 
           - `"web_search_2025_08_26"`
 
-        - `filters: optional object { allowed_domains }`
+        - `filters: optional object { allowed_domains }  or null`
 
           Filters for the search.
 
-          - `allowed_domains: optional array of string`
+          - `allowed_domains: optional array of string or null`
 
             Allowed domains for the search. If not provided, all domains are allowed.
             Subdomains of the provided domains are allowed as well.
@@ -1442,23 +1442,23 @@ Create a conversation.
 
           - `"high"`
 
-        - `user_location: optional object { city, country, region, 2 more }`
+        - `user_location: optional object { city, country, region, 2 more }  or null`
 
           The approximate location of the user.
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -1483,7 +1483,7 @@ Create a conversation.
 
           - `"mcp"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -1491,7 +1491,7 @@ Create a conversation.
 
           - `"programmatic"`
 
-        - `allowed_tools: optional array of string or object { read_only, tool_names }`
+        - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
           List of allowed tool names or a filter object.
 
@@ -1556,12 +1556,12 @@ Create a conversation.
 
           Whether this MCP tool is deferred and discovered via tool search.
 
-        - `headers: optional map[string]`
+        - `headers: optional map[string] or null`
 
           Optional HTTP headers to send to the MCP server. Use for authentication
           or other purposes.
 
-        - `require_approval: optional object { always, never }  or "always" or "never"`
+        - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
           Specify which of the MCP server's tools require approval.
 
@@ -1651,7 +1651,7 @@ Create a conversation.
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the code interpreter container.
 
@@ -1709,7 +1709,7 @@ Create a conversation.
 
           - `"code_interpreter"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -1756,7 +1756,7 @@ Create a conversation.
 
           - `"auto"`
 
-        - `input_fidelity: optional "high" or "low"`
+        - `input_fidelity: optional "high" or "low" or null`
 
           Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -1871,7 +1871,7 @@ Create a conversation.
 
           - `"shell"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -1879,7 +1879,7 @@ Create a conversation.
 
           - `"programmatic"`
 
-        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
           - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -1893,7 +1893,7 @@ Create a conversation.
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the container.
 
@@ -2019,7 +2019,7 @@ Create a conversation.
 
           - `"custom"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -2095,7 +2095,7 @@ Create a conversation.
 
               - `"function"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -2107,15 +2107,15 @@ Create a conversation.
 
               Whether this function should be deferred and discovered via tool search.
 
-            - `description: optional string`
+            - `description: optional string or null`
 
-            - `output_schema: optional map[unknown]`
+            - `output_schema: optional map[unknown] or null`
 
               A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-            - `parameters: optional unknown`
+            - `parameters: optional unknown or null`
 
-            - `strict: optional boolean`
+            - `strict: optional boolean or null`
 
               Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -2133,7 +2133,7 @@ Create a conversation.
 
               - `"custom"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -2169,7 +2169,7 @@ Create a conversation.
 
           - `"tool_search"`
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           Description shown to the model for a client-executed tool search tool.
 
@@ -2181,7 +2181,7 @@ Create a conversation.
 
           - `"client"`
 
-        - `parameters: optional unknown`
+        - `parameters: optional unknown or null`
 
           Parameter schema for a client-executed tool search tool.
 
@@ -2213,7 +2213,7 @@ Create a conversation.
 
           - `"high"`
 
-        - `user_location: optional object { type, city, country, 2 more }`
+        - `user_location: optional object { type, city, country, 2 more }  or null`
 
           The user's location.
 
@@ -2223,19 +2223,19 @@ Create a conversation.
 
             - `"approximate"`
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -2249,7 +2249,7 @@ Create a conversation.
 
           - `"apply_patch"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -2263,11 +2263,11 @@ Create a conversation.
 
       - `"tool_search_output"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of this tool search output.
 
-    - `call_id: optional string`
+    - `call_id: optional string or null`
 
       The unique ID of the tool search call generated by the model.
 
@@ -2279,7 +2279,7 @@ Create a conversation.
 
       - `"client"`
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the tool search output.
 
@@ -2309,11 +2309,11 @@ Create a conversation.
 
           The name of the function to call.
 
-        - `parameters: map[unknown]`
+        - `parameters: map[unknown] or null`
 
           A JSON schema object describing the parameters of the function.
 
-        - `strict: boolean`
+        - `strict: boolean or null`
 
           Whether strict parameter validation is enforced for this function tool.
 
@@ -2323,7 +2323,7 @@ Create a conversation.
 
           - `"function"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -2335,11 +2335,11 @@ Create a conversation.
 
           Whether this function is deferred and loaded via tool search.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           A description of the function. Used by the model to determine whether or not to call the function.
 
-        - `output_schema: optional map[unknown]`
+        - `output_schema: optional map[unknown] or null`
 
           A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -2357,7 +2357,7 @@ Create a conversation.
 
           The IDs of the vector stores to search.
 
-        - `filters: optional ComparisonFilter or CompoundFilter`
+        - `filters: optional ComparisonFilter or CompoundFilter or null`
 
           A filter to apply.
 
@@ -2456,11 +2456,11 @@ Create a conversation.
 
           - `"web_search_2025_08_26"`
 
-        - `filters: optional object { allowed_domains }`
+        - `filters: optional object { allowed_domains }  or null`
 
           Filters for the search.
 
-          - `allowed_domains: optional array of string`
+          - `allowed_domains: optional array of string or null`
 
             Allowed domains for the search. If not provided, all domains are allowed.
             Subdomains of the provided domains are allowed as well.
@@ -2477,23 +2477,23 @@ Create a conversation.
 
           - `"high"`
 
-        - `user_location: optional object { city, country, region, 2 more }`
+        - `user_location: optional object { city, country, region, 2 more }  or null`
 
           The approximate location of the user.
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -2518,7 +2518,7 @@ Create a conversation.
 
           - `"mcp"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -2526,7 +2526,7 @@ Create a conversation.
 
           - `"programmatic"`
 
-        - `allowed_tools: optional array of string or object { read_only, tool_names }`
+        - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
           List of allowed tool names or a filter object.
 
@@ -2591,12 +2591,12 @@ Create a conversation.
 
           Whether this MCP tool is deferred and discovered via tool search.
 
-        - `headers: optional map[string]`
+        - `headers: optional map[string] or null`
 
           Optional HTTP headers to send to the MCP server. Use for authentication
           or other purposes.
 
-        - `require_approval: optional object { always, never }  or "always" or "never"`
+        - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
           Specify which of the MCP server's tools require approval.
 
@@ -2686,7 +2686,7 @@ Create a conversation.
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the code interpreter container.
 
@@ -2712,7 +2712,7 @@ Create a conversation.
 
           - `"code_interpreter"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -2759,7 +2759,7 @@ Create a conversation.
 
           - `"auto"`
 
-        - `input_fidelity: optional "high" or "low"`
+        - `input_fidelity: optional "high" or "low" or null`
 
           Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -2874,7 +2874,7 @@ Create a conversation.
 
           - `"shell"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -2882,7 +2882,7 @@ Create a conversation.
 
           - `"programmatic"`
 
-        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
           - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -2904,7 +2904,7 @@ Create a conversation.
 
           - `"custom"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -2948,7 +2948,7 @@ Create a conversation.
 
               - `"function"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -2960,15 +2960,15 @@ Create a conversation.
 
               Whether this function should be deferred and discovered via tool search.
 
-            - `description: optional string`
+            - `description: optional string or null`
 
-            - `output_schema: optional map[unknown]`
+            - `output_schema: optional map[unknown] or null`
 
               A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-            - `parameters: optional unknown`
+            - `parameters: optional unknown or null`
 
-            - `strict: optional boolean`
+            - `strict: optional boolean or null`
 
               Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -2986,7 +2986,7 @@ Create a conversation.
 
               - `"custom"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -3022,7 +3022,7 @@ Create a conversation.
 
           - `"tool_search"`
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           Description shown to the model for a client-executed tool search tool.
 
@@ -3034,7 +3034,7 @@ Create a conversation.
 
           - `"client"`
 
-        - `parameters: optional unknown`
+        - `parameters: optional unknown or null`
 
           Parameter schema for a client-executed tool search tool.
 
@@ -3066,7 +3066,7 @@ Create a conversation.
 
           - `"high"`
 
-        - `user_location: optional object { type, city, country, 2 more }`
+        - `user_location: optional object { type, city, country, 2 more }  or null`
 
           The user's location.
 
@@ -3076,19 +3076,19 @@ Create a conversation.
 
             - `"approximate"`
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -3102,7 +3102,7 @@ Create a conversation.
 
           - `"apply_patch"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -3116,7 +3116,7 @@ Create a conversation.
 
       - `"additional_tools"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of this additional tools item.
 
@@ -3165,7 +3165,7 @@ Create a conversation.
 
         - `"reasoning_text"`
 
-    - `encrypted_content: optional string`
+    - `encrypted_content: optional string or null`
 
       The encrypted content of the reasoning item. This is populated by default
       for reasoning items returned by `POST /v1/responses` and WebSocket
@@ -3196,7 +3196,7 @@ Create a conversation.
 
       - `"compaction"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The ID of the compaction item.
 
@@ -3208,7 +3208,7 @@ Create a conversation.
 
       The unique ID of the image generation call.
 
-    - `result: string`
+    - `result: string or null`
 
       The generated image encoded in base64.
 
@@ -3238,7 +3238,7 @@ Create a conversation.
 
       The unique ID of the code interpreter tool call.
 
-    - `code: string`
+    - `code: string or null`
 
       The code to run, or null if not available.
 
@@ -3246,7 +3246,7 @@ Create a conversation.
 
       The ID of the container used to run the code.
 
-    - `outputs: array of object { logs, type }  or object { type, url }`
+    - `outputs: array of object { logs, type }  or object { type, url }  or null`
 
       The outputs generated by the code interpreter, such as logs or images.
       Can be null if no outputs are available.
@@ -3325,15 +3325,15 @@ Create a conversation.
 
         - `"exec"`
 
-      - `timeout_ms: optional number`
+      - `timeout_ms: optional number or null`
 
         Optional timeout in milliseconds for the command.
 
-      - `user: optional string`
+      - `user: optional string or null`
 
         Optional user to run the command as.
 
-      - `working_directory: optional string`
+      - `working_directory: optional string or null`
 
         Optional working directory to run the command in.
 
@@ -3375,7 +3375,7 @@ Create a conversation.
 
       - `"local_shell_call_output"`
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -3397,11 +3397,11 @@ Create a conversation.
 
         Ordered shell commands for the execution environment to run.
 
-      - `max_output_length: optional number`
+      - `max_output_length: optional number or null`
 
         Maximum number of UTF-8 characters to capture from combined stdout and stderr output.
 
-      - `timeout_ms: optional number`
+      - `timeout_ms: optional number or null`
 
         Maximum wall-clock time in milliseconds to allow the shell commands to run.
 
@@ -3415,11 +3415,11 @@ Create a conversation.
 
       - `"shell_call"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the shell tool call. Populated when this item is returned via API.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -3443,7 +3443,7 @@ Create a conversation.
 
           - `"program"`
 
-    - `environment: optional LocalEnvironment or ContainerReference`
+    - `environment: optional LocalEnvironment or ContainerReference or null`
 
       The environment to execute the shell commands in.
 
@@ -3451,7 +3451,7 @@ Create a conversation.
 
       - `ContainerReference object { container_id, type }`
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the shell call. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -3515,11 +3515,11 @@ Create a conversation.
 
       - `"shell_call_output"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the shell tool call output. Populated when this item is returned via API.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -3543,11 +3543,11 @@ Create a conversation.
 
           - `"program"`
 
-    - `max_output_length: optional number`
+    - `max_output_length: optional number or null`
 
       The maximum number of UTF-8 characters captured for this shell call's combined output.
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the shell call output.
 
@@ -3633,11 +3633,11 @@ Create a conversation.
 
       - `"apply_patch_call"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the apply patch tool call. Populated when this item is returned via API.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -3683,11 +3683,11 @@ Create a conversation.
 
       - `"apply_patch_call_output"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the apply patch tool call output. Populated when this item is returned via API.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -3711,7 +3711,7 @@ Create a conversation.
 
           - `"program"`
 
-    - `output: optional string`
+    - `output: optional string or null`
 
       Optional human-readable log text from the apply patch tool (e.g., patch results or errors).
 
@@ -3739,11 +3739,11 @@ Create a conversation.
 
         The name of the tool.
 
-      - `annotations: optional unknown`
+      - `annotations: optional unknown or null`
 
         Additional annotations about the tool.
 
-      - `description: optional string`
+      - `description: optional string or null`
 
         The description of the tool.
 
@@ -3753,7 +3753,7 @@ Create a conversation.
 
       - `"mcp_list_tools"`
 
-    - `error: optional string`
+    - `error: optional string or null`
 
       Error message if the server could not list tools.
 
@@ -3801,11 +3801,11 @@ Create a conversation.
 
       - `"mcp_approval_response"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the approval response
 
-    - `reason: optional string`
+    - `reason: optional string or null`
 
       Optional reason for the decision.
 
@@ -3835,16 +3835,16 @@ Create a conversation.
 
       - `"mcp_call"`
 
-    - `approval_request_id: optional string`
+    - `approval_request_id: optional string or null`
 
       Unique identifier for the MCP tool call approval request.
       Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-    - `error: optional string`
+    - `error: optional string or null`
 
       The error from the tool call, if any.
 
-    - `output: optional string`
+    - `output: optional string or null`
 
       The output from the tool call.
 
@@ -3905,7 +3905,7 @@ Create a conversation.
 
       The unique ID of the custom tool call output in the OpenAI platform.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -3955,7 +3955,7 @@ Create a conversation.
 
       The unique ID of the custom tool call in the OpenAI platform.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -3997,7 +3997,7 @@ Create a conversation.
 
       The ID of the item to reference.
 
-    - `type: optional "item_reference"`
+    - `type: optional "item_reference" or null`
 
       The type of item to reference. Always `item_reference`.
 
@@ -4055,7 +4055,7 @@ Create a conversation.
 
       - `"program_output"`
 
-- `metadata: optional Metadata`
+- `metadata: optional Metadata or null`
 
   Set of 16 key-value pairs that can be attached to an object. This can be
   useful for storing additional information about the object in a structured
@@ -4273,7 +4273,7 @@ Update a conversation
 
 ### Body Parameters
 
-- `metadata: Metadata`
+- `metadata: Metadata or null`
 
   Set of 16 key-value pairs that can be attached to an object. This can be
   useful for storing additional information about the object in a structured
@@ -4371,11 +4371,11 @@ curl https://api.openai.com/v1/conversations/conv_123 \
 
     - `"original"`
 
-  - `file_id: string`
+  - `file_id: string or null`
 
     The identifier of an uploaded file that contains the screenshot.
 
-  - `image_url: string`
+  - `image_url: string or null`
 
     The URL of the screenshot image.
 
@@ -4684,11 +4684,11 @@ curl https://api.openai.com/v1/conversations/conv_123 \
 
         - `"input_image"`
 
-      - `file_id: optional string`
+      - `file_id: optional string or null`
 
         The ID of the file to be sent to the model.
 
-      - `image_url: optional string`
+      - `image_url: optional string or null`
 
         The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
@@ -4718,11 +4718,11 @@ curl https://api.openai.com/v1/conversations/conv_123 \
 
         - `"original"`
 
-      - `file_id: string`
+      - `file_id: string or null`
 
         The identifier of an uploaded file that contains the screenshot.
 
-      - `image_url: string`
+      - `image_url: string or null`
 
         The URL of the screenshot image.
 
@@ -4766,7 +4766,7 @@ curl https://api.openai.com/v1/conversations/conv_123 \
 
         The content of the file to be sent to the model.
 
-      - `file_id: optional string`
+      - `file_id: optional string or null`
 
         The ID of the file to be sent to the model.
 
@@ -4824,7 +4824,7 @@ curl https://api.openai.com/v1/conversations/conv_123 \
 
     - `"message"`
 
-  - `phase: optional "commentary" or "final_answer"`
+  - `phase: optional "commentary" or "final_answer" or null`
 
     Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`). For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend phase on all assistant messages — dropping it can degrade performance. Not used for user messages.
 
@@ -4969,11 +4969,11 @@ Create items in a conversation with the given ID.
 
             - `"input_image"`
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
-          - `image_url: optional string`
+          - `image_url: optional string or null`
 
             The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
@@ -5011,7 +5011,7 @@ Create items in a conversation with the given ID.
 
             The content of the file to be sent to the model.
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
@@ -5046,7 +5046,7 @@ Create items in a conversation with the given ID.
 
       - `"developer"`
 
-    - `phase: optional "commentary" or "final_answer"`
+    - `phase: optional "commentary" or "final_answer" or null`
 
       Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`).
       For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend
@@ -5279,7 +5279,7 @@ Create items in a conversation with the given ID.
 
       - `"message"`
 
-    - `phase: optional "commentary" or "final_answer"`
+    - `phase: optional "commentary" or "final_answer" or null`
 
       Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`).
       For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend
@@ -5323,11 +5323,11 @@ Create items in a conversation with the given ID.
 
       - `"file_search_call"`
 
-    - `results: optional array of object { attributes, file_id, filename, 2 more }`
+    - `results: optional array of object { attributes, file_id, filename, 2 more }  or null`
 
       The results of the file search tool call.
 
-      - `attributes: optional map[string or number or boolean]`
+      - `attributes: optional map[string or number or boolean] or null`
 
         Set of 16 key-value pairs that can be attached to an object. This can be
         useful for storing additional information about the object in a structured
@@ -5378,11 +5378,11 @@ Create items in a conversation with the given ID.
 
         The ID of the pending safety check.
 
-      - `code: optional string`
+      - `code: optional string or null`
 
         The type of the pending safety check.
 
-      - `message: optional string`
+      - `message: optional string or null`
 
         Details about the pending safety check.
 
@@ -5439,7 +5439,7 @@ Create items in a conversation with the given ID.
 
           The y-coordinate where the click occurred.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while clicking.
 
@@ -5447,7 +5447,7 @@ Create items in a conversation with the given ID.
 
         A double click action.
 
-        - `keys: array of string`
+        - `keys: array of string or null`
 
           The keys being held while double-clicking.
 
@@ -5494,7 +5494,7 @@ Create items in a conversation with the given ID.
 
           - `"drag"`
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while dragging the mouse.
 
@@ -5530,7 +5530,7 @@ Create items in a conversation with the given ID.
 
           The y-coordinate to move to.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while moving the mouse.
 
@@ -5570,7 +5570,7 @@ Create items in a conversation with the given ID.
 
           The y-coordinate where the scroll occurred.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while scrolling.
 
@@ -5672,11 +5672,11 @@ Create items in a conversation with the given ID.
 
       - `"computer_call_output"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The ID of the computer tool call output.
 
-    - `acknowledged_safety_checks: optional array of object { id, code, message }`
+    - `acknowledged_safety_checks: optional array of object { id, code, message }  or null`
 
       The safety checks reported by the API that have been acknowledged by the developer.
 
@@ -5684,15 +5684,15 @@ Create items in a conversation with the given ID.
 
         The ID of the pending safety check.
 
-      - `code: optional string`
+      - `code: optional string or null`
 
         The type of the pending safety check.
 
-      - `message: optional string`
+      - `message: optional string or null`
 
         Details about the pending safety check.
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
 
@@ -5758,7 +5758,7 @@ Create items in a conversation with the given ID.
 
           - `"open_page"`
 
-        - `url: optional string`
+        - `url: optional string or null`
 
           The URL opened by the model.
 
@@ -5825,7 +5825,7 @@ Create items in a conversation with the given ID.
 
       The unique ID of the function tool call.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -5894,7 +5894,7 @@ Create items in a conversation with the given ID.
 
             - `"input_text"`
 
-          - `prompt_cache_breakpoint: optional object { mode }`
+          - `prompt_cache_breakpoint: optional object { mode }  or null`
 
             Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -5914,7 +5914,7 @@ Create items in a conversation with the given ID.
 
             - `"input_image"`
 
-          - `detail: optional "low" or "high" or "auto" or "original"`
+          - `detail: optional "low" or "high" or "auto" or "original" or null`
 
             The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.
 
@@ -5926,15 +5926,15 @@ Create items in a conversation with the given ID.
 
             - `"original"`
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
-          - `image_url: optional string`
+          - `image_url: optional string or null`
 
             The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
-          - `prompt_cache_breakpoint: optional object { mode }`
+          - `prompt_cache_breakpoint: optional object { mode }  or null`
 
             Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -5964,23 +5964,23 @@ Create items in a conversation with the given ID.
 
             - `"high"`
 
-          - `file_data: optional string`
+          - `file_data: optional string or null`
 
             The base64-encoded data of the file to be sent to the model.
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
-          - `file_url: optional string`
+          - `file_url: optional string or null`
 
             The URL of the file to be sent to the model.
 
-          - `filename: optional string`
+          - `filename: optional string or null`
 
             The name of the file to be sent to the model.
 
-          - `prompt_cache_breakpoint: optional object { mode }`
+          - `prompt_cache_breakpoint: optional object { mode }  or null`
 
             Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -5996,11 +5996,11 @@ Create items in a conversation with the given ID.
 
       - `"function_call_output"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the function tool call output. Populated when this item is returned via API.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -6024,15 +6024,15 @@ Create items in a conversation with the given ID.
 
           - `"program"`
 
-    - `name: optional string`
+    - `name: optional string or null`
 
       The name of the tool that produced the output.
 
-    - `namespace: optional string`
+    - `namespace: optional string or null`
 
       The namespace of the tool that produced the output.
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 
@@ -6054,11 +6054,11 @@ Create items in a conversation with the given ID.
 
       - `"tool_search_call"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of this tool search call.
 
-    - `call_id: optional string`
+    - `call_id: optional string or null`
 
       The unique ID of the tool search call generated by the model.
 
@@ -6070,7 +6070,7 @@ Create items in a conversation with the given ID.
 
       - `"client"`
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the tool search call.
 
@@ -6094,11 +6094,11 @@ Create items in a conversation with the given ID.
 
           The name of the function to call.
 
-        - `parameters: map[unknown]`
+        - `parameters: map[unknown] or null`
 
           A JSON schema object describing the parameters of the function.
 
-        - `strict: boolean`
+        - `strict: boolean or null`
 
           Whether strict parameter validation is enforced for this function tool.
 
@@ -6108,7 +6108,7 @@ Create items in a conversation with the given ID.
 
           - `"function"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -6120,11 +6120,11 @@ Create items in a conversation with the given ID.
 
           Whether this function is deferred and loaded via tool search.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           A description of the function. Used by the model to determine whether or not to call the function.
 
-        - `output_schema: optional map[unknown]`
+        - `output_schema: optional map[unknown] or null`
 
           A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -6142,7 +6142,7 @@ Create items in a conversation with the given ID.
 
           The IDs of the vector stores to search.
 
-        - `filters: optional ComparisonFilter or CompoundFilter`
+        - `filters: optional ComparisonFilter or CompoundFilter or null`
 
           A filter to apply.
 
@@ -6308,11 +6308,11 @@ Create items in a conversation with the given ID.
 
           - `"web_search_2025_08_26"`
 
-        - `filters: optional object { allowed_domains }`
+        - `filters: optional object { allowed_domains }  or null`
 
           Filters for the search.
 
-          - `allowed_domains: optional array of string`
+          - `allowed_domains: optional array of string or null`
 
             Allowed domains for the search. If not provided, all domains are allowed.
             Subdomains of the provided domains are allowed as well.
@@ -6329,23 +6329,23 @@ Create items in a conversation with the given ID.
 
           - `"high"`
 
-        - `user_location: optional object { city, country, region, 2 more }`
+        - `user_location: optional object { city, country, region, 2 more }  or null`
 
           The approximate location of the user.
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -6370,7 +6370,7 @@ Create items in a conversation with the given ID.
 
           - `"mcp"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -6378,7 +6378,7 @@ Create items in a conversation with the given ID.
 
           - `"programmatic"`
 
-        - `allowed_tools: optional array of string or object { read_only, tool_names }`
+        - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
           List of allowed tool names or a filter object.
 
@@ -6443,12 +6443,12 @@ Create items in a conversation with the given ID.
 
           Whether this MCP tool is deferred and discovered via tool search.
 
-        - `headers: optional map[string]`
+        - `headers: optional map[string] or null`
 
           Optional HTTP headers to send to the MCP server. Use for authentication
           or other purposes.
 
-        - `require_approval: optional object { always, never }  or "always" or "never"`
+        - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
           Specify which of the MCP server's tools require approval.
 
@@ -6538,7 +6538,7 @@ Create items in a conversation with the given ID.
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the code interpreter container.
 
@@ -6596,7 +6596,7 @@ Create items in a conversation with the given ID.
 
           - `"code_interpreter"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -6643,7 +6643,7 @@ Create items in a conversation with the given ID.
 
           - `"auto"`
 
-        - `input_fidelity: optional "high" or "low"`
+        - `input_fidelity: optional "high" or "low" or null`
 
           Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -6758,7 +6758,7 @@ Create items in a conversation with the given ID.
 
           - `"shell"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -6766,7 +6766,7 @@ Create items in a conversation with the given ID.
 
           - `"programmatic"`
 
-        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
           - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -6780,7 +6780,7 @@ Create items in a conversation with the given ID.
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the container.
 
@@ -6906,7 +6906,7 @@ Create items in a conversation with the given ID.
 
           - `"custom"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -6982,7 +6982,7 @@ Create items in a conversation with the given ID.
 
               - `"function"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -6994,15 +6994,15 @@ Create items in a conversation with the given ID.
 
               Whether this function should be deferred and discovered via tool search.
 
-            - `description: optional string`
+            - `description: optional string or null`
 
-            - `output_schema: optional map[unknown]`
+            - `output_schema: optional map[unknown] or null`
 
               A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-            - `parameters: optional unknown`
+            - `parameters: optional unknown or null`
 
-            - `strict: optional boolean`
+            - `strict: optional boolean or null`
 
               Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -7020,7 +7020,7 @@ Create items in a conversation with the given ID.
 
               - `"custom"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -7056,7 +7056,7 @@ Create items in a conversation with the given ID.
 
           - `"tool_search"`
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           Description shown to the model for a client-executed tool search tool.
 
@@ -7068,7 +7068,7 @@ Create items in a conversation with the given ID.
 
           - `"client"`
 
-        - `parameters: optional unknown`
+        - `parameters: optional unknown or null`
 
           Parameter schema for a client-executed tool search tool.
 
@@ -7100,7 +7100,7 @@ Create items in a conversation with the given ID.
 
           - `"high"`
 
-        - `user_location: optional object { type, city, country, 2 more }`
+        - `user_location: optional object { type, city, country, 2 more }  or null`
 
           The user's location.
 
@@ -7110,19 +7110,19 @@ Create items in a conversation with the given ID.
 
             - `"approximate"`
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -7136,7 +7136,7 @@ Create items in a conversation with the given ID.
 
           - `"apply_patch"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -7150,11 +7150,11 @@ Create items in a conversation with the given ID.
 
       - `"tool_search_output"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of this tool search output.
 
-    - `call_id: optional string`
+    - `call_id: optional string or null`
 
       The unique ID of the tool search call generated by the model.
 
@@ -7166,7 +7166,7 @@ Create items in a conversation with the given ID.
 
       - `"client"`
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the tool search output.
 
@@ -7196,11 +7196,11 @@ Create items in a conversation with the given ID.
 
           The name of the function to call.
 
-        - `parameters: map[unknown]`
+        - `parameters: map[unknown] or null`
 
           A JSON schema object describing the parameters of the function.
 
-        - `strict: boolean`
+        - `strict: boolean or null`
 
           Whether strict parameter validation is enforced for this function tool.
 
@@ -7210,7 +7210,7 @@ Create items in a conversation with the given ID.
 
           - `"function"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -7222,11 +7222,11 @@ Create items in a conversation with the given ID.
 
           Whether this function is deferred and loaded via tool search.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           A description of the function. Used by the model to determine whether or not to call the function.
 
-        - `output_schema: optional map[unknown]`
+        - `output_schema: optional map[unknown] or null`
 
           A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -7244,7 +7244,7 @@ Create items in a conversation with the given ID.
 
           The IDs of the vector stores to search.
 
-        - `filters: optional ComparisonFilter or CompoundFilter`
+        - `filters: optional ComparisonFilter or CompoundFilter or null`
 
           A filter to apply.
 
@@ -7343,11 +7343,11 @@ Create items in a conversation with the given ID.
 
           - `"web_search_2025_08_26"`
 
-        - `filters: optional object { allowed_domains }`
+        - `filters: optional object { allowed_domains }  or null`
 
           Filters for the search.
 
-          - `allowed_domains: optional array of string`
+          - `allowed_domains: optional array of string or null`
 
             Allowed domains for the search. If not provided, all domains are allowed.
             Subdomains of the provided domains are allowed as well.
@@ -7364,23 +7364,23 @@ Create items in a conversation with the given ID.
 
           - `"high"`
 
-        - `user_location: optional object { city, country, region, 2 more }`
+        - `user_location: optional object { city, country, region, 2 more }  or null`
 
           The approximate location of the user.
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -7405,7 +7405,7 @@ Create items in a conversation with the given ID.
 
           - `"mcp"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -7413,7 +7413,7 @@ Create items in a conversation with the given ID.
 
           - `"programmatic"`
 
-        - `allowed_tools: optional array of string or object { read_only, tool_names }`
+        - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
           List of allowed tool names or a filter object.
 
@@ -7478,12 +7478,12 @@ Create items in a conversation with the given ID.
 
           Whether this MCP tool is deferred and discovered via tool search.
 
-        - `headers: optional map[string]`
+        - `headers: optional map[string] or null`
 
           Optional HTTP headers to send to the MCP server. Use for authentication
           or other purposes.
 
-        - `require_approval: optional object { always, never }  or "always" or "never"`
+        - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
           Specify which of the MCP server's tools require approval.
 
@@ -7573,7 +7573,7 @@ Create items in a conversation with the given ID.
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the code interpreter container.
 
@@ -7599,7 +7599,7 @@ Create items in a conversation with the given ID.
 
           - `"code_interpreter"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -7646,7 +7646,7 @@ Create items in a conversation with the given ID.
 
           - `"auto"`
 
-        - `input_fidelity: optional "high" or "low"`
+        - `input_fidelity: optional "high" or "low" or null`
 
           Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -7761,7 +7761,7 @@ Create items in a conversation with the given ID.
 
           - `"shell"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -7769,7 +7769,7 @@ Create items in a conversation with the given ID.
 
           - `"programmatic"`
 
-        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
           - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -7791,7 +7791,7 @@ Create items in a conversation with the given ID.
 
           - `"custom"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -7835,7 +7835,7 @@ Create items in a conversation with the given ID.
 
               - `"function"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -7847,15 +7847,15 @@ Create items in a conversation with the given ID.
 
               Whether this function should be deferred and discovered via tool search.
 
-            - `description: optional string`
+            - `description: optional string or null`
 
-            - `output_schema: optional map[unknown]`
+            - `output_schema: optional map[unknown] or null`
 
               A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-            - `parameters: optional unknown`
+            - `parameters: optional unknown or null`
 
-            - `strict: optional boolean`
+            - `strict: optional boolean or null`
 
               Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -7873,7 +7873,7 @@ Create items in a conversation with the given ID.
 
               - `"custom"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -7909,7 +7909,7 @@ Create items in a conversation with the given ID.
 
           - `"tool_search"`
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           Description shown to the model for a client-executed tool search tool.
 
@@ -7921,7 +7921,7 @@ Create items in a conversation with the given ID.
 
           - `"client"`
 
-        - `parameters: optional unknown`
+        - `parameters: optional unknown or null`
 
           Parameter schema for a client-executed tool search tool.
 
@@ -7953,7 +7953,7 @@ Create items in a conversation with the given ID.
 
           - `"high"`
 
-        - `user_location: optional object { type, city, country, 2 more }`
+        - `user_location: optional object { type, city, country, 2 more }  or null`
 
           The user's location.
 
@@ -7963,19 +7963,19 @@ Create items in a conversation with the given ID.
 
             - `"approximate"`
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -7989,7 +7989,7 @@ Create items in a conversation with the given ID.
 
           - `"apply_patch"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -8003,7 +8003,7 @@ Create items in a conversation with the given ID.
 
       - `"additional_tools"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of this additional tools item.
 
@@ -8052,7 +8052,7 @@ Create items in a conversation with the given ID.
 
         - `"reasoning_text"`
 
-    - `encrypted_content: optional string`
+    - `encrypted_content: optional string or null`
 
       The encrypted content of the reasoning item. This is populated by default
       for reasoning items returned by `POST /v1/responses` and WebSocket
@@ -8083,7 +8083,7 @@ Create items in a conversation with the given ID.
 
       - `"compaction"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The ID of the compaction item.
 
@@ -8095,7 +8095,7 @@ Create items in a conversation with the given ID.
 
       The unique ID of the image generation call.
 
-    - `result: string`
+    - `result: string or null`
 
       The generated image encoded in base64.
 
@@ -8125,7 +8125,7 @@ Create items in a conversation with the given ID.
 
       The unique ID of the code interpreter tool call.
 
-    - `code: string`
+    - `code: string or null`
 
       The code to run, or null if not available.
 
@@ -8133,7 +8133,7 @@ Create items in a conversation with the given ID.
 
       The ID of the container used to run the code.
 
-    - `outputs: array of object { logs, type }  or object { type, url }`
+    - `outputs: array of object { logs, type }  or object { type, url }  or null`
 
       The outputs generated by the code interpreter, such as logs or images.
       Can be null if no outputs are available.
@@ -8212,15 +8212,15 @@ Create items in a conversation with the given ID.
 
         - `"exec"`
 
-      - `timeout_ms: optional number`
+      - `timeout_ms: optional number or null`
 
         Optional timeout in milliseconds for the command.
 
-      - `user: optional string`
+      - `user: optional string or null`
 
         Optional user to run the command as.
 
-      - `working_directory: optional string`
+      - `working_directory: optional string or null`
 
         Optional working directory to run the command in.
 
@@ -8262,7 +8262,7 @@ Create items in a conversation with the given ID.
 
       - `"local_shell_call_output"`
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -8284,11 +8284,11 @@ Create items in a conversation with the given ID.
 
         Ordered shell commands for the execution environment to run.
 
-      - `max_output_length: optional number`
+      - `max_output_length: optional number or null`
 
         Maximum number of UTF-8 characters to capture from combined stdout and stderr output.
 
-      - `timeout_ms: optional number`
+      - `timeout_ms: optional number or null`
 
         Maximum wall-clock time in milliseconds to allow the shell commands to run.
 
@@ -8302,11 +8302,11 @@ Create items in a conversation with the given ID.
 
       - `"shell_call"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the shell tool call. Populated when this item is returned via API.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -8330,7 +8330,7 @@ Create items in a conversation with the given ID.
 
           - `"program"`
 
-    - `environment: optional LocalEnvironment or ContainerReference`
+    - `environment: optional LocalEnvironment or ContainerReference or null`
 
       The environment to execute the shell commands in.
 
@@ -8338,7 +8338,7 @@ Create items in a conversation with the given ID.
 
       - `ContainerReference object { container_id, type }`
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the shell call. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -8402,11 +8402,11 @@ Create items in a conversation with the given ID.
 
       - `"shell_call_output"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the shell tool call output. Populated when this item is returned via API.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -8430,11 +8430,11 @@ Create items in a conversation with the given ID.
 
           - `"program"`
 
-    - `max_output_length: optional number`
+    - `max_output_length: optional number or null`
 
       The maximum number of UTF-8 characters captured for this shell call's combined output.
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the shell call output.
 
@@ -8520,11 +8520,11 @@ Create items in a conversation with the given ID.
 
       - `"apply_patch_call"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the apply patch tool call. Populated when this item is returned via API.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -8570,11 +8570,11 @@ Create items in a conversation with the given ID.
 
       - `"apply_patch_call_output"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the apply patch tool call output. Populated when this item is returned via API.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -8598,7 +8598,7 @@ Create items in a conversation with the given ID.
 
           - `"program"`
 
-    - `output: optional string`
+    - `output: optional string or null`
 
       Optional human-readable log text from the apply patch tool (e.g., patch results or errors).
 
@@ -8626,11 +8626,11 @@ Create items in a conversation with the given ID.
 
         The name of the tool.
 
-      - `annotations: optional unknown`
+      - `annotations: optional unknown or null`
 
         Additional annotations about the tool.
 
-      - `description: optional string`
+      - `description: optional string or null`
 
         The description of the tool.
 
@@ -8640,7 +8640,7 @@ Create items in a conversation with the given ID.
 
       - `"mcp_list_tools"`
 
-    - `error: optional string`
+    - `error: optional string or null`
 
       Error message if the server could not list tools.
 
@@ -8688,11 +8688,11 @@ Create items in a conversation with the given ID.
 
       - `"mcp_approval_response"`
 
-    - `id: optional string`
+    - `id: optional string or null`
 
       The unique ID of the approval response
 
-    - `reason: optional string`
+    - `reason: optional string or null`
 
       Optional reason for the decision.
 
@@ -8722,16 +8722,16 @@ Create items in a conversation with the given ID.
 
       - `"mcp_call"`
 
-    - `approval_request_id: optional string`
+    - `approval_request_id: optional string or null`
 
       Unique identifier for the MCP tool call approval request.
       Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-    - `error: optional string`
+    - `error: optional string or null`
 
       The error from the tool call, if any.
 
-    - `output: optional string`
+    - `output: optional string or null`
 
       The output from the tool call.
 
@@ -8792,7 +8792,7 @@ Create items in a conversation with the given ID.
 
       The unique ID of the custom tool call output in the OpenAI platform.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -8842,7 +8842,7 @@ Create items in a conversation with the given ID.
 
       The unique ID of the custom tool call in the OpenAI platform.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -8884,7 +8884,7 @@ Create items in a conversation with the given ID.
 
       The ID of the item to reference.
 
-    - `type: optional "item_reference"`
+    - `type: optional "item_reference" or null`
 
       The type of item to reference. Always `item_reference`.
 
@@ -9192,11 +9192,11 @@ Create items in a conversation with the given ID.
 
             - `"input_image"`
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
-          - `image_url: optional string`
+          - `image_url: optional string or null`
 
             The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
@@ -9226,11 +9226,11 @@ Create items in a conversation with the given ID.
 
             - `"original"`
 
-          - `file_id: string`
+          - `file_id: string or null`
 
             The identifier of an uploaded file that contains the screenshot.
 
-          - `image_url: string`
+          - `image_url: string or null`
 
             The URL of the screenshot image.
 
@@ -9274,7 +9274,7 @@ Create items in a conversation with the given ID.
 
             The content of the file to be sent to the model.
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
@@ -9332,7 +9332,7 @@ Create items in a conversation with the given ID.
 
         - `"message"`
 
-      - `phase: optional "commentary" or "final_answer"`
+      - `phase: optional "commentary" or "final_answer" or null`
 
         Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`). For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend phase on all assistant messages — dropping it can degrade performance. Not used for user messages.
 
@@ -9375,7 +9375,7 @@ Create items in a conversation with the given ID.
 
         - `"function_call"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -9455,7 +9455,7 @@ Create items in a conversation with the given ID.
 
         - `"function_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -9525,11 +9525,11 @@ Create items in a conversation with the given ID.
 
         - `"file_search_call"`
 
-      - `results: optional array of object { attributes, file_id, filename, 2 more }`
+      - `results: optional array of object { attributes, file_id, filename, 2 more }  or null`
 
         The results of the file search tool call.
 
-        - `attributes: optional map[string or number or boolean]`
+        - `attributes: optional map[string or number or boolean] or null`
 
           Set of 16 key-value pairs that can be attached to an object. This can be
           useful for storing additional information about the object in a structured
@@ -9615,7 +9615,7 @@ Create items in a conversation with the given ID.
 
             - `"open_page"`
 
-          - `url: optional string`
+          - `url: optional string or null`
 
             The URL opened by the model.
 
@@ -9663,7 +9663,7 @@ Create items in a conversation with the given ID.
 
         The unique ID of the image generation call.
 
-      - `result: string`
+      - `result: string or null`
 
         The generated image encoded in base64.
 
@@ -9706,11 +9706,11 @@ Create items in a conversation with the given ID.
 
           The ID of the pending safety check.
 
-        - `code: optional string`
+        - `code: optional string or null`
 
           The type of the pending safety check.
 
-        - `message: optional string`
+        - `message: optional string or null`
 
           Details about the pending safety check.
 
@@ -9767,7 +9767,7 @@ Create items in a conversation with the given ID.
 
             The y-coordinate where the click occurred.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while clicking.
 
@@ -9775,7 +9775,7 @@ Create items in a conversation with the given ID.
 
           A double click action.
 
-          - `keys: array of string`
+          - `keys: array of string or null`
 
             The keys being held while double-clicking.
 
@@ -9822,7 +9822,7 @@ Create items in a conversation with the given ID.
 
             - `"drag"`
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while dragging the mouse.
 
@@ -9858,7 +9858,7 @@ Create items in a conversation with the given ID.
 
             The y-coordinate to move to.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while moving the mouse.
 
@@ -9898,7 +9898,7 @@ Create items in a conversation with the given ID.
 
             The y-coordinate where the scroll occurred.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while scrolling.
 
@@ -10024,11 +10024,11 @@ Create items in a conversation with the given ID.
 
           The ID of the pending safety check.
 
-        - `code: optional string`
+        - `code: optional string or null`
 
           The type of the pending safety check.
 
-        - `message: optional string`
+        - `message: optional string or null`
 
           Details about the pending safety check.
 
@@ -10046,7 +10046,7 @@ Create items in a conversation with the given ID.
 
         Arguments used for the tool search call.
 
-      - `call_id: string`
+      - `call_id: string or null`
 
         The unique ID of the tool search call generated by the model.
 
@@ -10084,7 +10084,7 @@ Create items in a conversation with the given ID.
 
         The unique ID of the tool search output item.
 
-      - `call_id: string`
+      - `call_id: string or null`
 
         The unique ID of the tool search call generated by the model.
 
@@ -10118,11 +10118,11 @@ Create items in a conversation with the given ID.
 
             The name of the function to call.
 
-          - `parameters: map[unknown]`
+          - `parameters: map[unknown] or null`
 
             A JSON schema object describing the parameters of the function.
 
-          - `strict: boolean`
+          - `strict: boolean or null`
 
             Whether strict parameter validation is enforced for this function tool.
 
@@ -10132,7 +10132,7 @@ Create items in a conversation with the given ID.
 
             - `"function"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -10144,11 +10144,11 @@ Create items in a conversation with the given ID.
 
             Whether this function is deferred and loaded via tool search.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             A description of the function. Used by the model to determine whether or not to call the function.
 
-          - `output_schema: optional map[unknown]`
+          - `output_schema: optional map[unknown] or null`
 
             A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -10166,7 +10166,7 @@ Create items in a conversation with the given ID.
 
             The IDs of the vector stores to search.
 
-          - `filters: optional ComparisonFilter or CompoundFilter`
+          - `filters: optional ComparisonFilter or CompoundFilter or null`
 
             A filter to apply.
 
@@ -10332,11 +10332,11 @@ Create items in a conversation with the given ID.
 
             - `"web_search_2025_08_26"`
 
-          - `filters: optional object { allowed_domains }`
+          - `filters: optional object { allowed_domains }  or null`
 
             Filters for the search.
 
-            - `allowed_domains: optional array of string`
+            - `allowed_domains: optional array of string or null`
 
               Allowed domains for the search. If not provided, all domains are allowed.
               Subdomains of the provided domains are allowed as well.
@@ -10353,23 +10353,23 @@ Create items in a conversation with the given ID.
 
             - `"high"`
 
-          - `user_location: optional object { city, country, region, 2 more }`
+          - `user_location: optional object { city, country, region, 2 more }  or null`
 
             The approximate location of the user.
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -10394,7 +10394,7 @@ Create items in a conversation with the given ID.
 
             - `"mcp"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -10402,7 +10402,7 @@ Create items in a conversation with the given ID.
 
             - `"programmatic"`
 
-          - `allowed_tools: optional array of string or object { read_only, tool_names }`
+          - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
             List of allowed tool names or a filter object.
 
@@ -10467,12 +10467,12 @@ Create items in a conversation with the given ID.
 
             Whether this MCP tool is deferred and discovered via tool search.
 
-          - `headers: optional map[string]`
+          - `headers: optional map[string] or null`
 
             Optional HTTP headers to send to the MCP server. Use for authentication
             or other purposes.
 
-          - `require_approval: optional object { always, never }  or "always" or "never"`
+          - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
             Specify which of the MCP server's tools require approval.
 
@@ -10562,7 +10562,7 @@ Create items in a conversation with the given ID.
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the code interpreter container.
 
@@ -10620,7 +10620,7 @@ Create items in a conversation with the given ID.
 
             - `"code_interpreter"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -10667,7 +10667,7 @@ Create items in a conversation with the given ID.
 
             - `"auto"`
 
-          - `input_fidelity: optional "high" or "low"`
+          - `input_fidelity: optional "high" or "low" or null`
 
             Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -10782,7 +10782,7 @@ Create items in a conversation with the given ID.
 
             - `"shell"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -10790,7 +10790,7 @@ Create items in a conversation with the given ID.
 
             - `"programmatic"`
 
-          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
             - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -10804,7 +10804,7 @@ Create items in a conversation with the given ID.
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the container.
 
@@ -10930,7 +10930,7 @@ Create items in a conversation with the given ID.
 
             - `"custom"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11006,7 +11006,7 @@ Create items in a conversation with the given ID.
 
                 - `"function"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -11018,15 +11018,15 @@ Create items in a conversation with the given ID.
 
                 Whether this function should be deferred and discovered via tool search.
 
-              - `description: optional string`
+              - `description: optional string or null`
 
-              - `output_schema: optional map[unknown]`
+              - `output_schema: optional map[unknown] or null`
 
                 A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-              - `parameters: optional unknown`
+              - `parameters: optional unknown or null`
 
-              - `strict: optional boolean`
+              - `strict: optional boolean or null`
 
                 Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -11044,7 +11044,7 @@ Create items in a conversation with the given ID.
 
                 - `"custom"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -11080,7 +11080,7 @@ Create items in a conversation with the given ID.
 
             - `"tool_search"`
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             Description shown to the model for a client-executed tool search tool.
 
@@ -11092,7 +11092,7 @@ Create items in a conversation with the given ID.
 
             - `"client"`
 
-          - `parameters: optional unknown`
+          - `parameters: optional unknown or null`
 
             Parameter schema for a client-executed tool search tool.
 
@@ -11124,7 +11124,7 @@ Create items in a conversation with the given ID.
 
             - `"high"`
 
-          - `user_location: optional object { type, city, country, 2 more }`
+          - `user_location: optional object { type, city, country, 2 more }  or null`
 
             The user's location.
 
@@ -11134,19 +11134,19 @@ Create items in a conversation with the given ID.
 
               - `"approximate"`
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -11160,7 +11160,7 @@ Create items in a conversation with the given ID.
 
             - `"apply_patch"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11216,11 +11216,11 @@ Create items in a conversation with the given ID.
 
             The name of the function to call.
 
-          - `parameters: map[unknown]`
+          - `parameters: map[unknown] or null`
 
             A JSON schema object describing the parameters of the function.
 
-          - `strict: boolean`
+          - `strict: boolean or null`
 
             Whether strict parameter validation is enforced for this function tool.
 
@@ -11230,7 +11230,7 @@ Create items in a conversation with the given ID.
 
             - `"function"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11242,11 +11242,11 @@ Create items in a conversation with the given ID.
 
             Whether this function is deferred and loaded via tool search.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             A description of the function. Used by the model to determine whether or not to call the function.
 
-          - `output_schema: optional map[unknown]`
+          - `output_schema: optional map[unknown] or null`
 
             A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -11264,7 +11264,7 @@ Create items in a conversation with the given ID.
 
             The IDs of the vector stores to search.
 
-          - `filters: optional ComparisonFilter or CompoundFilter`
+          - `filters: optional ComparisonFilter or CompoundFilter or null`
 
             A filter to apply.
 
@@ -11363,11 +11363,11 @@ Create items in a conversation with the given ID.
 
             - `"web_search_2025_08_26"`
 
-          - `filters: optional object { allowed_domains }`
+          - `filters: optional object { allowed_domains }  or null`
 
             Filters for the search.
 
-            - `allowed_domains: optional array of string`
+            - `allowed_domains: optional array of string or null`
 
               Allowed domains for the search. If not provided, all domains are allowed.
               Subdomains of the provided domains are allowed as well.
@@ -11384,23 +11384,23 @@ Create items in a conversation with the given ID.
 
             - `"high"`
 
-          - `user_location: optional object { city, country, region, 2 more }`
+          - `user_location: optional object { city, country, region, 2 more }  or null`
 
             The approximate location of the user.
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -11425,7 +11425,7 @@ Create items in a conversation with the given ID.
 
             - `"mcp"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11433,7 +11433,7 @@ Create items in a conversation with the given ID.
 
             - `"programmatic"`
 
-          - `allowed_tools: optional array of string or object { read_only, tool_names }`
+          - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
             List of allowed tool names or a filter object.
 
@@ -11498,12 +11498,12 @@ Create items in a conversation with the given ID.
 
             Whether this MCP tool is deferred and discovered via tool search.
 
-          - `headers: optional map[string]`
+          - `headers: optional map[string] or null`
 
             Optional HTTP headers to send to the MCP server. Use for authentication
             or other purposes.
 
-          - `require_approval: optional object { always, never }  or "always" or "never"`
+          - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
             Specify which of the MCP server's tools require approval.
 
@@ -11593,7 +11593,7 @@ Create items in a conversation with the given ID.
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the code interpreter container.
 
@@ -11619,7 +11619,7 @@ Create items in a conversation with the given ID.
 
             - `"code_interpreter"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11666,7 +11666,7 @@ Create items in a conversation with the given ID.
 
             - `"auto"`
 
-          - `input_fidelity: optional "high" or "low"`
+          - `input_fidelity: optional "high" or "low" or null`
 
             Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -11781,7 +11781,7 @@ Create items in a conversation with the given ID.
 
             - `"shell"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11789,7 +11789,7 @@ Create items in a conversation with the given ID.
 
             - `"programmatic"`
 
-          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
             - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -11811,7 +11811,7 @@ Create items in a conversation with the given ID.
 
             - `"custom"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11855,7 +11855,7 @@ Create items in a conversation with the given ID.
 
                 - `"function"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -11867,15 +11867,15 @@ Create items in a conversation with the given ID.
 
                 Whether this function should be deferred and discovered via tool search.
 
-              - `description: optional string`
+              - `description: optional string or null`
 
-              - `output_schema: optional map[unknown]`
+              - `output_schema: optional map[unknown] or null`
 
                 A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-              - `parameters: optional unknown`
+              - `parameters: optional unknown or null`
 
-              - `strict: optional boolean`
+              - `strict: optional boolean or null`
 
                 Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -11893,7 +11893,7 @@ Create items in a conversation with the given ID.
 
                 - `"custom"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -11929,7 +11929,7 @@ Create items in a conversation with the given ID.
 
             - `"tool_search"`
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             Description shown to the model for a client-executed tool search tool.
 
@@ -11941,7 +11941,7 @@ Create items in a conversation with the given ID.
 
             - `"client"`
 
-          - `parameters: optional unknown`
+          - `parameters: optional unknown or null`
 
             Parameter schema for a client-executed tool search tool.
 
@@ -11973,7 +11973,7 @@ Create items in a conversation with the given ID.
 
             - `"high"`
 
-          - `user_location: optional object { type, city, country, 2 more }`
+          - `user_location: optional object { type, city, country, 2 more }  or null`
 
             The user's location.
 
@@ -11983,19 +11983,19 @@ Create items in a conversation with the given ID.
 
               - `"approximate"`
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -12009,7 +12009,7 @@ Create items in a conversation with the given ID.
 
             - `"apply_patch"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -12066,7 +12066,7 @@ Create items in a conversation with the given ID.
 
           - `"reasoning_text"`
 
-      - `encrypted_content: optional string`
+      - `encrypted_content: optional string or null`
 
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
@@ -12165,7 +12165,7 @@ Create items in a conversation with the given ID.
 
         The unique ID of the code interpreter tool call.
 
-      - `code: string`
+      - `code: string or null`
 
         The code to run, or null if not available.
 
@@ -12173,7 +12173,7 @@ Create items in a conversation with the given ID.
 
         The ID of the container used to run the code.
 
-      - `outputs: array of object { logs, type }  or object { type, url }`
+      - `outputs: array of object { logs, type }  or object { type, url }  or null`
 
         The outputs generated by the code interpreter, such as logs or images.
         Can be null if no outputs are available.
@@ -12252,15 +12252,15 @@ Create items in a conversation with the given ID.
 
           - `"exec"`
 
-        - `timeout_ms: optional number`
+        - `timeout_ms: optional number or null`
 
           Optional timeout in milliseconds for the command.
 
-        - `user: optional string`
+        - `user: optional string or null`
 
           Optional user to run the command as.
 
-        - `working_directory: optional string`
+        - `working_directory: optional string or null`
 
           Optional working directory to run the command in.
 
@@ -12302,7 +12302,7 @@ Create items in a conversation with the given ID.
 
         - `"local_shell_call_output"`
 
-      - `status: optional "in_progress" or "completed" or "incomplete"`
+      - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
         The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -12326,11 +12326,11 @@ Create items in a conversation with the given ID.
 
         - `commands: array of string`
 
-        - `max_output_length: number`
+        - `max_output_length: number or null`
 
           Optional maximum number of characters to return from each command.
 
-        - `timeout_ms: number`
+        - `timeout_ms: number or null`
 
           Optional timeout in milliseconds for the commands.
 
@@ -12338,7 +12338,7 @@ Create items in a conversation with the given ID.
 
         The unique ID of the shell tool call generated by the model.
 
-      - `environment: ResponseLocalEnvironment or ResponseContainerReference`
+      - `environment: ResponseLocalEnvironment or ResponseContainerReference or null`
 
         Represents the use of a local environment to perform shell actions.
 
@@ -12380,7 +12380,7 @@ Create items in a conversation with the given ID.
 
         - `"shell_call"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -12416,7 +12416,7 @@ Create items in a conversation with the given ID.
 
         The unique ID of the shell tool call generated by the model.
 
-      - `max_output_length: number`
+      - `max_output_length: number or null`
 
         The maximum length of the shell command output. This is generated by the model and should be passed back with the raw output.
 
@@ -12480,7 +12480,7 @@ Create items in a conversation with the given ID.
 
         - `"shell_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -12584,7 +12584,7 @@ Create items in a conversation with the given ID.
 
         - `"apply_patch_call"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -12634,7 +12634,7 @@ Create items in a conversation with the given ID.
 
         - `"apply_patch_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -12658,7 +12658,7 @@ Create items in a conversation with the given ID.
 
         The ID of the entity that created this tool call output.
 
-      - `output: optional string`
+      - `output: optional string or null`
 
         Optional textual output returned by the apply patch tool.
 
@@ -12686,11 +12686,11 @@ Create items in a conversation with the given ID.
 
           The name of the tool.
 
-        - `annotations: optional unknown`
+        - `annotations: optional unknown or null`
 
           Additional annotations about the tool.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           The description of the tool.
 
@@ -12700,7 +12700,7 @@ Create items in a conversation with the given ID.
 
         - `"mcp_list_tools"`
 
-      - `error: optional string`
+      - `error: optional string or null`
 
         Error message if the server could not list tools.
 
@@ -12752,7 +12752,7 @@ Create items in a conversation with the given ID.
 
         - `"mcp_approval_response"`
 
-      - `reason: optional string`
+      - `reason: optional string or null`
 
         Optional reason for the decision.
 
@@ -12782,16 +12782,16 @@ Create items in a conversation with the given ID.
 
         - `"mcp_call"`
 
-      - `approval_request_id: optional string`
+      - `approval_request_id: optional string or null`
 
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string`
+      - `error: optional string or null`
 
         The error from the tool call, if any.
 
-      - `output: optional string`
+      - `output: optional string or null`
 
         The output from the tool call.
 
@@ -12835,7 +12835,7 @@ Create items in a conversation with the given ID.
 
         The unique ID of the custom tool call in the OpenAI platform.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -12902,7 +12902,7 @@ Create items in a conversation with the given ID.
 
         The unique ID of the custom tool call output in the OpenAI platform.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -13429,11 +13429,11 @@ List all items for a conversation with the given ID.
 
             - `"input_image"`
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
-          - `image_url: optional string`
+          - `image_url: optional string or null`
 
             The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
@@ -13463,11 +13463,11 @@ List all items for a conversation with the given ID.
 
             - `"original"`
 
-          - `file_id: string`
+          - `file_id: string or null`
 
             The identifier of an uploaded file that contains the screenshot.
 
-          - `image_url: string`
+          - `image_url: string or null`
 
             The URL of the screenshot image.
 
@@ -13511,7 +13511,7 @@ List all items for a conversation with the given ID.
 
             The content of the file to be sent to the model.
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
@@ -13569,7 +13569,7 @@ List all items for a conversation with the given ID.
 
         - `"message"`
 
-      - `phase: optional "commentary" or "final_answer"`
+      - `phase: optional "commentary" or "final_answer" or null`
 
         Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`). For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend phase on all assistant messages — dropping it can degrade performance. Not used for user messages.
 
@@ -13612,7 +13612,7 @@ List all items for a conversation with the given ID.
 
         - `"function_call"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -13692,7 +13692,7 @@ List all items for a conversation with the given ID.
 
         - `"function_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -13762,11 +13762,11 @@ List all items for a conversation with the given ID.
 
         - `"file_search_call"`
 
-      - `results: optional array of object { attributes, file_id, filename, 2 more }`
+      - `results: optional array of object { attributes, file_id, filename, 2 more }  or null`
 
         The results of the file search tool call.
 
-        - `attributes: optional map[string or number or boolean]`
+        - `attributes: optional map[string or number or boolean] or null`
 
           Set of 16 key-value pairs that can be attached to an object. This can be
           useful for storing additional information about the object in a structured
@@ -13852,7 +13852,7 @@ List all items for a conversation with the given ID.
 
             - `"open_page"`
 
-          - `url: optional string`
+          - `url: optional string or null`
 
             The URL opened by the model.
 
@@ -13900,7 +13900,7 @@ List all items for a conversation with the given ID.
 
         The unique ID of the image generation call.
 
-      - `result: string`
+      - `result: string or null`
 
         The generated image encoded in base64.
 
@@ -13943,11 +13943,11 @@ List all items for a conversation with the given ID.
 
           The ID of the pending safety check.
 
-        - `code: optional string`
+        - `code: optional string or null`
 
           The type of the pending safety check.
 
-        - `message: optional string`
+        - `message: optional string or null`
 
           Details about the pending safety check.
 
@@ -14004,7 +14004,7 @@ List all items for a conversation with the given ID.
 
             The y-coordinate where the click occurred.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while clicking.
 
@@ -14012,7 +14012,7 @@ List all items for a conversation with the given ID.
 
           A double click action.
 
-          - `keys: array of string`
+          - `keys: array of string or null`
 
             The keys being held while double-clicking.
 
@@ -14059,7 +14059,7 @@ List all items for a conversation with the given ID.
 
             - `"drag"`
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while dragging the mouse.
 
@@ -14095,7 +14095,7 @@ List all items for a conversation with the given ID.
 
             The y-coordinate to move to.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while moving the mouse.
 
@@ -14135,7 +14135,7 @@ List all items for a conversation with the given ID.
 
             The y-coordinate where the scroll occurred.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while scrolling.
 
@@ -14261,11 +14261,11 @@ List all items for a conversation with the given ID.
 
           The ID of the pending safety check.
 
-        - `code: optional string`
+        - `code: optional string or null`
 
           The type of the pending safety check.
 
-        - `message: optional string`
+        - `message: optional string or null`
 
           Details about the pending safety check.
 
@@ -14283,7 +14283,7 @@ List all items for a conversation with the given ID.
 
         Arguments used for the tool search call.
 
-      - `call_id: string`
+      - `call_id: string or null`
 
         The unique ID of the tool search call generated by the model.
 
@@ -14321,7 +14321,7 @@ List all items for a conversation with the given ID.
 
         The unique ID of the tool search output item.
 
-      - `call_id: string`
+      - `call_id: string or null`
 
         The unique ID of the tool search call generated by the model.
 
@@ -14355,11 +14355,11 @@ List all items for a conversation with the given ID.
 
             The name of the function to call.
 
-          - `parameters: map[unknown]`
+          - `parameters: map[unknown] or null`
 
             A JSON schema object describing the parameters of the function.
 
-          - `strict: boolean`
+          - `strict: boolean or null`
 
             Whether strict parameter validation is enforced for this function tool.
 
@@ -14369,7 +14369,7 @@ List all items for a conversation with the given ID.
 
             - `"function"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -14381,11 +14381,11 @@ List all items for a conversation with the given ID.
 
             Whether this function is deferred and loaded via tool search.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             A description of the function. Used by the model to determine whether or not to call the function.
 
-          - `output_schema: optional map[unknown]`
+          - `output_schema: optional map[unknown] or null`
 
             A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -14403,7 +14403,7 @@ List all items for a conversation with the given ID.
 
             The IDs of the vector stores to search.
 
-          - `filters: optional ComparisonFilter or CompoundFilter`
+          - `filters: optional ComparisonFilter or CompoundFilter or null`
 
             A filter to apply.
 
@@ -14569,11 +14569,11 @@ List all items for a conversation with the given ID.
 
             - `"web_search_2025_08_26"`
 
-          - `filters: optional object { allowed_domains }`
+          - `filters: optional object { allowed_domains }  or null`
 
             Filters for the search.
 
-            - `allowed_domains: optional array of string`
+            - `allowed_domains: optional array of string or null`
 
               Allowed domains for the search. If not provided, all domains are allowed.
               Subdomains of the provided domains are allowed as well.
@@ -14590,23 +14590,23 @@ List all items for a conversation with the given ID.
 
             - `"high"`
 
-          - `user_location: optional object { city, country, region, 2 more }`
+          - `user_location: optional object { city, country, region, 2 more }  or null`
 
             The approximate location of the user.
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -14631,7 +14631,7 @@ List all items for a conversation with the given ID.
 
             - `"mcp"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -14639,7 +14639,7 @@ List all items for a conversation with the given ID.
 
             - `"programmatic"`
 
-          - `allowed_tools: optional array of string or object { read_only, tool_names }`
+          - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
             List of allowed tool names or a filter object.
 
@@ -14704,12 +14704,12 @@ List all items for a conversation with the given ID.
 
             Whether this MCP tool is deferred and discovered via tool search.
 
-          - `headers: optional map[string]`
+          - `headers: optional map[string] or null`
 
             Optional HTTP headers to send to the MCP server. Use for authentication
             or other purposes.
 
-          - `require_approval: optional object { always, never }  or "always" or "never"`
+          - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
             Specify which of the MCP server's tools require approval.
 
@@ -14799,7 +14799,7 @@ List all items for a conversation with the given ID.
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the code interpreter container.
 
@@ -14857,7 +14857,7 @@ List all items for a conversation with the given ID.
 
             - `"code_interpreter"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -14904,7 +14904,7 @@ List all items for a conversation with the given ID.
 
             - `"auto"`
 
-          - `input_fidelity: optional "high" or "low"`
+          - `input_fidelity: optional "high" or "low" or null`
 
             Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -15019,7 +15019,7 @@ List all items for a conversation with the given ID.
 
             - `"shell"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -15027,7 +15027,7 @@ List all items for a conversation with the given ID.
 
             - `"programmatic"`
 
-          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
             - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -15041,7 +15041,7 @@ List all items for a conversation with the given ID.
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the container.
 
@@ -15167,7 +15167,7 @@ List all items for a conversation with the given ID.
 
             - `"custom"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -15243,7 +15243,7 @@ List all items for a conversation with the given ID.
 
                 - `"function"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -15255,15 +15255,15 @@ List all items for a conversation with the given ID.
 
                 Whether this function should be deferred and discovered via tool search.
 
-              - `description: optional string`
+              - `description: optional string or null`
 
-              - `output_schema: optional map[unknown]`
+              - `output_schema: optional map[unknown] or null`
 
                 A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-              - `parameters: optional unknown`
+              - `parameters: optional unknown or null`
 
-              - `strict: optional boolean`
+              - `strict: optional boolean or null`
 
                 Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -15281,7 +15281,7 @@ List all items for a conversation with the given ID.
 
                 - `"custom"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -15317,7 +15317,7 @@ List all items for a conversation with the given ID.
 
             - `"tool_search"`
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             Description shown to the model for a client-executed tool search tool.
 
@@ -15329,7 +15329,7 @@ List all items for a conversation with the given ID.
 
             - `"client"`
 
-          - `parameters: optional unknown`
+          - `parameters: optional unknown or null`
 
             Parameter schema for a client-executed tool search tool.
 
@@ -15361,7 +15361,7 @@ List all items for a conversation with the given ID.
 
             - `"high"`
 
-          - `user_location: optional object { type, city, country, 2 more }`
+          - `user_location: optional object { type, city, country, 2 more }  or null`
 
             The user's location.
 
@@ -15371,19 +15371,19 @@ List all items for a conversation with the given ID.
 
               - `"approximate"`
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -15397,7 +15397,7 @@ List all items for a conversation with the given ID.
 
             - `"apply_patch"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -15453,11 +15453,11 @@ List all items for a conversation with the given ID.
 
             The name of the function to call.
 
-          - `parameters: map[unknown]`
+          - `parameters: map[unknown] or null`
 
             A JSON schema object describing the parameters of the function.
 
-          - `strict: boolean`
+          - `strict: boolean or null`
 
             Whether strict parameter validation is enforced for this function tool.
 
@@ -15467,7 +15467,7 @@ List all items for a conversation with the given ID.
 
             - `"function"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -15479,11 +15479,11 @@ List all items for a conversation with the given ID.
 
             Whether this function is deferred and loaded via tool search.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             A description of the function. Used by the model to determine whether or not to call the function.
 
-          - `output_schema: optional map[unknown]`
+          - `output_schema: optional map[unknown] or null`
 
             A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -15501,7 +15501,7 @@ List all items for a conversation with the given ID.
 
             The IDs of the vector stores to search.
 
-          - `filters: optional ComparisonFilter or CompoundFilter`
+          - `filters: optional ComparisonFilter or CompoundFilter or null`
 
             A filter to apply.
 
@@ -15600,11 +15600,11 @@ List all items for a conversation with the given ID.
 
             - `"web_search_2025_08_26"`
 
-          - `filters: optional object { allowed_domains }`
+          - `filters: optional object { allowed_domains }  or null`
 
             Filters for the search.
 
-            - `allowed_domains: optional array of string`
+            - `allowed_domains: optional array of string or null`
 
               Allowed domains for the search. If not provided, all domains are allowed.
               Subdomains of the provided domains are allowed as well.
@@ -15621,23 +15621,23 @@ List all items for a conversation with the given ID.
 
             - `"high"`
 
-          - `user_location: optional object { city, country, region, 2 more }`
+          - `user_location: optional object { city, country, region, 2 more }  or null`
 
             The approximate location of the user.
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -15662,7 +15662,7 @@ List all items for a conversation with the given ID.
 
             - `"mcp"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -15670,7 +15670,7 @@ List all items for a conversation with the given ID.
 
             - `"programmatic"`
 
-          - `allowed_tools: optional array of string or object { read_only, tool_names }`
+          - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
             List of allowed tool names or a filter object.
 
@@ -15735,12 +15735,12 @@ List all items for a conversation with the given ID.
 
             Whether this MCP tool is deferred and discovered via tool search.
 
-          - `headers: optional map[string]`
+          - `headers: optional map[string] or null`
 
             Optional HTTP headers to send to the MCP server. Use for authentication
             or other purposes.
 
-          - `require_approval: optional object { always, never }  or "always" or "never"`
+          - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
             Specify which of the MCP server's tools require approval.
 
@@ -15830,7 +15830,7 @@ List all items for a conversation with the given ID.
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the code interpreter container.
 
@@ -15856,7 +15856,7 @@ List all items for a conversation with the given ID.
 
             - `"code_interpreter"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -15903,7 +15903,7 @@ List all items for a conversation with the given ID.
 
             - `"auto"`
 
-          - `input_fidelity: optional "high" or "low"`
+          - `input_fidelity: optional "high" or "low" or null`
 
             Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -16018,7 +16018,7 @@ List all items for a conversation with the given ID.
 
             - `"shell"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -16026,7 +16026,7 @@ List all items for a conversation with the given ID.
 
             - `"programmatic"`
 
-          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
             - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -16048,7 +16048,7 @@ List all items for a conversation with the given ID.
 
             - `"custom"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -16092,7 +16092,7 @@ List all items for a conversation with the given ID.
 
                 - `"function"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -16104,15 +16104,15 @@ List all items for a conversation with the given ID.
 
                 Whether this function should be deferred and discovered via tool search.
 
-              - `description: optional string`
+              - `description: optional string or null`
 
-              - `output_schema: optional map[unknown]`
+              - `output_schema: optional map[unknown] or null`
 
                 A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-              - `parameters: optional unknown`
+              - `parameters: optional unknown or null`
 
-              - `strict: optional boolean`
+              - `strict: optional boolean or null`
 
                 Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -16130,7 +16130,7 @@ List all items for a conversation with the given ID.
 
                 - `"custom"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -16166,7 +16166,7 @@ List all items for a conversation with the given ID.
 
             - `"tool_search"`
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             Description shown to the model for a client-executed tool search tool.
 
@@ -16178,7 +16178,7 @@ List all items for a conversation with the given ID.
 
             - `"client"`
 
-          - `parameters: optional unknown`
+          - `parameters: optional unknown or null`
 
             Parameter schema for a client-executed tool search tool.
 
@@ -16210,7 +16210,7 @@ List all items for a conversation with the given ID.
 
             - `"high"`
 
-          - `user_location: optional object { type, city, country, 2 more }`
+          - `user_location: optional object { type, city, country, 2 more }  or null`
 
             The user's location.
 
@@ -16220,19 +16220,19 @@ List all items for a conversation with the given ID.
 
               - `"approximate"`
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -16246,7 +16246,7 @@ List all items for a conversation with the given ID.
 
             - `"apply_patch"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -16303,7 +16303,7 @@ List all items for a conversation with the given ID.
 
           - `"reasoning_text"`
 
-      - `encrypted_content: optional string`
+      - `encrypted_content: optional string or null`
 
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
@@ -16402,7 +16402,7 @@ List all items for a conversation with the given ID.
 
         The unique ID of the code interpreter tool call.
 
-      - `code: string`
+      - `code: string or null`
 
         The code to run, or null if not available.
 
@@ -16410,7 +16410,7 @@ List all items for a conversation with the given ID.
 
         The ID of the container used to run the code.
 
-      - `outputs: array of object { logs, type }  or object { type, url }`
+      - `outputs: array of object { logs, type }  or object { type, url }  or null`
 
         The outputs generated by the code interpreter, such as logs or images.
         Can be null if no outputs are available.
@@ -16489,15 +16489,15 @@ List all items for a conversation with the given ID.
 
           - `"exec"`
 
-        - `timeout_ms: optional number`
+        - `timeout_ms: optional number or null`
 
           Optional timeout in milliseconds for the command.
 
-        - `user: optional string`
+        - `user: optional string or null`
 
           Optional user to run the command as.
 
-        - `working_directory: optional string`
+        - `working_directory: optional string or null`
 
           Optional working directory to run the command in.
 
@@ -16539,7 +16539,7 @@ List all items for a conversation with the given ID.
 
         - `"local_shell_call_output"`
 
-      - `status: optional "in_progress" or "completed" or "incomplete"`
+      - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
         The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -16563,11 +16563,11 @@ List all items for a conversation with the given ID.
 
         - `commands: array of string`
 
-        - `max_output_length: number`
+        - `max_output_length: number or null`
 
           Optional maximum number of characters to return from each command.
 
-        - `timeout_ms: number`
+        - `timeout_ms: number or null`
 
           Optional timeout in milliseconds for the commands.
 
@@ -16575,7 +16575,7 @@ List all items for a conversation with the given ID.
 
         The unique ID of the shell tool call generated by the model.
 
-      - `environment: ResponseLocalEnvironment or ResponseContainerReference`
+      - `environment: ResponseLocalEnvironment or ResponseContainerReference or null`
 
         Represents the use of a local environment to perform shell actions.
 
@@ -16617,7 +16617,7 @@ List all items for a conversation with the given ID.
 
         - `"shell_call"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -16653,7 +16653,7 @@ List all items for a conversation with the given ID.
 
         The unique ID of the shell tool call generated by the model.
 
-      - `max_output_length: number`
+      - `max_output_length: number or null`
 
         The maximum length of the shell command output. This is generated by the model and should be passed back with the raw output.
 
@@ -16717,7 +16717,7 @@ List all items for a conversation with the given ID.
 
         - `"shell_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -16821,7 +16821,7 @@ List all items for a conversation with the given ID.
 
         - `"apply_patch_call"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -16871,7 +16871,7 @@ List all items for a conversation with the given ID.
 
         - `"apply_patch_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -16895,7 +16895,7 @@ List all items for a conversation with the given ID.
 
         The ID of the entity that created this tool call output.
 
-      - `output: optional string`
+      - `output: optional string or null`
 
         Optional textual output returned by the apply patch tool.
 
@@ -16923,11 +16923,11 @@ List all items for a conversation with the given ID.
 
           The name of the tool.
 
-        - `annotations: optional unknown`
+        - `annotations: optional unknown or null`
 
           Additional annotations about the tool.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           The description of the tool.
 
@@ -16937,7 +16937,7 @@ List all items for a conversation with the given ID.
 
         - `"mcp_list_tools"`
 
-      - `error: optional string`
+      - `error: optional string or null`
 
         Error message if the server could not list tools.
 
@@ -16989,7 +16989,7 @@ List all items for a conversation with the given ID.
 
         - `"mcp_approval_response"`
 
-      - `reason: optional string`
+      - `reason: optional string or null`
 
         Optional reason for the decision.
 
@@ -17019,16 +17019,16 @@ List all items for a conversation with the given ID.
 
         - `"mcp_call"`
 
-      - `approval_request_id: optional string`
+      - `approval_request_id: optional string or null`
 
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string`
+      - `error: optional string or null`
 
         The error from the tool call, if any.
 
-      - `output: optional string`
+      - `output: optional string or null`
 
         The output from the tool call.
 
@@ -17072,7 +17072,7 @@ List all items for a conversation with the given ID.
 
         The unique ID of the custom tool call in the OpenAI platform.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -17139,7 +17139,7 @@ List all items for a conversation with the given ID.
 
         The unique ID of the custom tool call output in the OpenAI platform.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -17527,11 +17527,11 @@ Get a single item from a conversation with the given IDs.
 
           - `"input_image"`
 
-        - `file_id: optional string`
+        - `file_id: optional string or null`
 
           The ID of the file to be sent to the model.
 
-        - `image_url: optional string`
+        - `image_url: optional string or null`
 
           The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
@@ -17561,11 +17561,11 @@ Get a single item from a conversation with the given IDs.
 
           - `"original"`
 
-        - `file_id: string`
+        - `file_id: string or null`
 
           The identifier of an uploaded file that contains the screenshot.
 
-        - `image_url: string`
+        - `image_url: string or null`
 
           The URL of the screenshot image.
 
@@ -17609,7 +17609,7 @@ Get a single item from a conversation with the given IDs.
 
           The content of the file to be sent to the model.
 
-        - `file_id: optional string`
+        - `file_id: optional string or null`
 
           The ID of the file to be sent to the model.
 
@@ -17667,7 +17667,7 @@ Get a single item from a conversation with the given IDs.
 
       - `"message"`
 
-    - `phase: optional "commentary" or "final_answer"`
+    - `phase: optional "commentary" or "final_answer" or null`
 
       Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`). For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend phase on all assistant messages — dropping it can degrade performance. Not used for user messages.
 
@@ -17710,7 +17710,7 @@ Get a single item from a conversation with the given IDs.
 
       - `"function_call"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -17790,7 +17790,7 @@ Get a single item from a conversation with the given IDs.
 
       - `"function_call_output"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -17860,11 +17860,11 @@ Get a single item from a conversation with the given IDs.
 
       - `"file_search_call"`
 
-    - `results: optional array of object { attributes, file_id, filename, 2 more }`
+    - `results: optional array of object { attributes, file_id, filename, 2 more }  or null`
 
       The results of the file search tool call.
 
-      - `attributes: optional map[string or number or boolean]`
+      - `attributes: optional map[string or number or boolean] or null`
 
         Set of 16 key-value pairs that can be attached to an object. This can be
         useful for storing additional information about the object in a structured
@@ -17950,7 +17950,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"open_page"`
 
-        - `url: optional string`
+        - `url: optional string or null`
 
           The URL opened by the model.
 
@@ -17998,7 +17998,7 @@ Get a single item from a conversation with the given IDs.
 
       The unique ID of the image generation call.
 
-    - `result: string`
+    - `result: string or null`
 
       The generated image encoded in base64.
 
@@ -18041,11 +18041,11 @@ Get a single item from a conversation with the given IDs.
 
         The ID of the pending safety check.
 
-      - `code: optional string`
+      - `code: optional string or null`
 
         The type of the pending safety check.
 
-      - `message: optional string`
+      - `message: optional string or null`
 
         Details about the pending safety check.
 
@@ -18102,7 +18102,7 @@ Get a single item from a conversation with the given IDs.
 
           The y-coordinate where the click occurred.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while clicking.
 
@@ -18110,7 +18110,7 @@ Get a single item from a conversation with the given IDs.
 
         A double click action.
 
-        - `keys: array of string`
+        - `keys: array of string or null`
 
           The keys being held while double-clicking.
 
@@ -18157,7 +18157,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"drag"`
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while dragging the mouse.
 
@@ -18193,7 +18193,7 @@ Get a single item from a conversation with the given IDs.
 
           The y-coordinate to move to.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while moving the mouse.
 
@@ -18233,7 +18233,7 @@ Get a single item from a conversation with the given IDs.
 
           The y-coordinate where the scroll occurred.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while scrolling.
 
@@ -18359,11 +18359,11 @@ Get a single item from a conversation with the given IDs.
 
         The ID of the pending safety check.
 
-      - `code: optional string`
+      - `code: optional string or null`
 
         The type of the pending safety check.
 
-      - `message: optional string`
+      - `message: optional string or null`
 
         Details about the pending safety check.
 
@@ -18381,7 +18381,7 @@ Get a single item from a conversation with the given IDs.
 
       Arguments used for the tool search call.
 
-    - `call_id: string`
+    - `call_id: string or null`
 
       The unique ID of the tool search call generated by the model.
 
@@ -18419,7 +18419,7 @@ Get a single item from a conversation with the given IDs.
 
       The unique ID of the tool search output item.
 
-    - `call_id: string`
+    - `call_id: string or null`
 
       The unique ID of the tool search call generated by the model.
 
@@ -18453,11 +18453,11 @@ Get a single item from a conversation with the given IDs.
 
           The name of the function to call.
 
-        - `parameters: map[unknown]`
+        - `parameters: map[unknown] or null`
 
           A JSON schema object describing the parameters of the function.
 
-        - `strict: boolean`
+        - `strict: boolean or null`
 
           Whether strict parameter validation is enforced for this function tool.
 
@@ -18467,7 +18467,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"function"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -18479,11 +18479,11 @@ Get a single item from a conversation with the given IDs.
 
           Whether this function is deferred and loaded via tool search.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           A description of the function. Used by the model to determine whether or not to call the function.
 
-        - `output_schema: optional map[unknown]`
+        - `output_schema: optional map[unknown] or null`
 
           A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -18501,7 +18501,7 @@ Get a single item from a conversation with the given IDs.
 
           The IDs of the vector stores to search.
 
-        - `filters: optional ComparisonFilter or CompoundFilter`
+        - `filters: optional ComparisonFilter or CompoundFilter or null`
 
           A filter to apply.
 
@@ -18667,11 +18667,11 @@ Get a single item from a conversation with the given IDs.
 
           - `"web_search_2025_08_26"`
 
-        - `filters: optional object { allowed_domains }`
+        - `filters: optional object { allowed_domains }  or null`
 
           Filters for the search.
 
-          - `allowed_domains: optional array of string`
+          - `allowed_domains: optional array of string or null`
 
             Allowed domains for the search. If not provided, all domains are allowed.
             Subdomains of the provided domains are allowed as well.
@@ -18688,23 +18688,23 @@ Get a single item from a conversation with the given IDs.
 
           - `"high"`
 
-        - `user_location: optional object { city, country, region, 2 more }`
+        - `user_location: optional object { city, country, region, 2 more }  or null`
 
           The approximate location of the user.
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -18729,7 +18729,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"mcp"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -18737,7 +18737,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"programmatic"`
 
-        - `allowed_tools: optional array of string or object { read_only, tool_names }`
+        - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
           List of allowed tool names or a filter object.
 
@@ -18802,12 +18802,12 @@ Get a single item from a conversation with the given IDs.
 
           Whether this MCP tool is deferred and discovered via tool search.
 
-        - `headers: optional map[string]`
+        - `headers: optional map[string] or null`
 
           Optional HTTP headers to send to the MCP server. Use for authentication
           or other purposes.
 
-        - `require_approval: optional object { always, never }  or "always" or "never"`
+        - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
           Specify which of the MCP server's tools require approval.
 
@@ -18897,7 +18897,7 @@ Get a single item from a conversation with the given IDs.
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the code interpreter container.
 
@@ -18955,7 +18955,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"code_interpreter"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -19002,7 +19002,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"auto"`
 
-        - `input_fidelity: optional "high" or "low"`
+        - `input_fidelity: optional "high" or "low" or null`
 
           Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -19117,7 +19117,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"shell"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -19125,7 +19125,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"programmatic"`
 
-        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
           - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -19139,7 +19139,7 @@ Get a single item from a conversation with the given IDs.
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the container.
 
@@ -19265,7 +19265,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"custom"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -19341,7 +19341,7 @@ Get a single item from a conversation with the given IDs.
 
               - `"function"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -19353,15 +19353,15 @@ Get a single item from a conversation with the given IDs.
 
               Whether this function should be deferred and discovered via tool search.
 
-            - `description: optional string`
+            - `description: optional string or null`
 
-            - `output_schema: optional map[unknown]`
+            - `output_schema: optional map[unknown] or null`
 
               A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-            - `parameters: optional unknown`
+            - `parameters: optional unknown or null`
 
-            - `strict: optional boolean`
+            - `strict: optional boolean or null`
 
               Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -19379,7 +19379,7 @@ Get a single item from a conversation with the given IDs.
 
               - `"custom"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -19415,7 +19415,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"tool_search"`
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           Description shown to the model for a client-executed tool search tool.
 
@@ -19427,7 +19427,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"client"`
 
-        - `parameters: optional unknown`
+        - `parameters: optional unknown or null`
 
           Parameter schema for a client-executed tool search tool.
 
@@ -19459,7 +19459,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"high"`
 
-        - `user_location: optional object { type, city, country, 2 more }`
+        - `user_location: optional object { type, city, country, 2 more }  or null`
 
           The user's location.
 
@@ -19469,19 +19469,19 @@ Get a single item from a conversation with the given IDs.
 
             - `"approximate"`
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -19495,7 +19495,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"apply_patch"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -19551,11 +19551,11 @@ Get a single item from a conversation with the given IDs.
 
           The name of the function to call.
 
-        - `parameters: map[unknown]`
+        - `parameters: map[unknown] or null`
 
           A JSON schema object describing the parameters of the function.
 
-        - `strict: boolean`
+        - `strict: boolean or null`
 
           Whether strict parameter validation is enforced for this function tool.
 
@@ -19565,7 +19565,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"function"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -19577,11 +19577,11 @@ Get a single item from a conversation with the given IDs.
 
           Whether this function is deferred and loaded via tool search.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           A description of the function. Used by the model to determine whether or not to call the function.
 
-        - `output_schema: optional map[unknown]`
+        - `output_schema: optional map[unknown] or null`
 
           A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -19599,7 +19599,7 @@ Get a single item from a conversation with the given IDs.
 
           The IDs of the vector stores to search.
 
-        - `filters: optional ComparisonFilter or CompoundFilter`
+        - `filters: optional ComparisonFilter or CompoundFilter or null`
 
           A filter to apply.
 
@@ -19698,11 +19698,11 @@ Get a single item from a conversation with the given IDs.
 
           - `"web_search_2025_08_26"`
 
-        - `filters: optional object { allowed_domains }`
+        - `filters: optional object { allowed_domains }  or null`
 
           Filters for the search.
 
-          - `allowed_domains: optional array of string`
+          - `allowed_domains: optional array of string or null`
 
             Allowed domains for the search. If not provided, all domains are allowed.
             Subdomains of the provided domains are allowed as well.
@@ -19719,23 +19719,23 @@ Get a single item from a conversation with the given IDs.
 
           - `"high"`
 
-        - `user_location: optional object { city, country, region, 2 more }`
+        - `user_location: optional object { city, country, region, 2 more }  or null`
 
           The approximate location of the user.
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -19760,7 +19760,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"mcp"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -19768,7 +19768,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"programmatic"`
 
-        - `allowed_tools: optional array of string or object { read_only, tool_names }`
+        - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
           List of allowed tool names or a filter object.
 
@@ -19833,12 +19833,12 @@ Get a single item from a conversation with the given IDs.
 
           Whether this MCP tool is deferred and discovered via tool search.
 
-        - `headers: optional map[string]`
+        - `headers: optional map[string] or null`
 
           Optional HTTP headers to send to the MCP server. Use for authentication
           or other purposes.
 
-        - `require_approval: optional object { always, never }  or "always" or "never"`
+        - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
           Specify which of the MCP server's tools require approval.
 
@@ -19928,7 +19928,7 @@ Get a single item from a conversation with the given IDs.
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the code interpreter container.
 
@@ -19954,7 +19954,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"code_interpreter"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -20001,7 +20001,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"auto"`
 
-        - `input_fidelity: optional "high" or "low"`
+        - `input_fidelity: optional "high" or "low" or null`
 
           Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -20116,7 +20116,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"shell"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -20124,7 +20124,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"programmatic"`
 
-        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
           - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -20146,7 +20146,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"custom"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -20190,7 +20190,7 @@ Get a single item from a conversation with the given IDs.
 
               - `"function"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -20202,15 +20202,15 @@ Get a single item from a conversation with the given IDs.
 
               Whether this function should be deferred and discovered via tool search.
 
-            - `description: optional string`
+            - `description: optional string or null`
 
-            - `output_schema: optional map[unknown]`
+            - `output_schema: optional map[unknown] or null`
 
               A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-            - `parameters: optional unknown`
+            - `parameters: optional unknown or null`
 
-            - `strict: optional boolean`
+            - `strict: optional boolean or null`
 
               Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -20228,7 +20228,7 @@ Get a single item from a conversation with the given IDs.
 
               - `"custom"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -20264,7 +20264,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"tool_search"`
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           Description shown to the model for a client-executed tool search tool.
 
@@ -20276,7 +20276,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"client"`
 
-        - `parameters: optional unknown`
+        - `parameters: optional unknown or null`
 
           Parameter schema for a client-executed tool search tool.
 
@@ -20308,7 +20308,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"high"`
 
-        - `user_location: optional object { type, city, country, 2 more }`
+        - `user_location: optional object { type, city, country, 2 more }  or null`
 
           The user's location.
 
@@ -20318,19 +20318,19 @@ Get a single item from a conversation with the given IDs.
 
             - `"approximate"`
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -20344,7 +20344,7 @@ Get a single item from a conversation with the given IDs.
 
           - `"apply_patch"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -20401,7 +20401,7 @@ Get a single item from a conversation with the given IDs.
 
         - `"reasoning_text"`
 
-    - `encrypted_content: optional string`
+    - `encrypted_content: optional string or null`
 
       The encrypted content of the reasoning item. This is populated by default
       for reasoning items returned by `POST /v1/responses` and WebSocket
@@ -20500,7 +20500,7 @@ Get a single item from a conversation with the given IDs.
 
       The unique ID of the code interpreter tool call.
 
-    - `code: string`
+    - `code: string or null`
 
       The code to run, or null if not available.
 
@@ -20508,7 +20508,7 @@ Get a single item from a conversation with the given IDs.
 
       The ID of the container used to run the code.
 
-    - `outputs: array of object { logs, type }  or object { type, url }`
+    - `outputs: array of object { logs, type }  or object { type, url }  or null`
 
       The outputs generated by the code interpreter, such as logs or images.
       Can be null if no outputs are available.
@@ -20587,15 +20587,15 @@ Get a single item from a conversation with the given IDs.
 
         - `"exec"`
 
-      - `timeout_ms: optional number`
+      - `timeout_ms: optional number or null`
 
         Optional timeout in milliseconds for the command.
 
-      - `user: optional string`
+      - `user: optional string or null`
 
         Optional user to run the command as.
 
-      - `working_directory: optional string`
+      - `working_directory: optional string or null`
 
         Optional working directory to run the command in.
 
@@ -20637,7 +20637,7 @@ Get a single item from a conversation with the given IDs.
 
       - `"local_shell_call_output"`
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -20661,11 +20661,11 @@ Get a single item from a conversation with the given IDs.
 
       - `commands: array of string`
 
-      - `max_output_length: number`
+      - `max_output_length: number or null`
 
         Optional maximum number of characters to return from each command.
 
-      - `timeout_ms: number`
+      - `timeout_ms: number or null`
 
         Optional timeout in milliseconds for the commands.
 
@@ -20673,7 +20673,7 @@ Get a single item from a conversation with the given IDs.
 
       The unique ID of the shell tool call generated by the model.
 
-    - `environment: ResponseLocalEnvironment or ResponseContainerReference`
+    - `environment: ResponseLocalEnvironment or ResponseContainerReference or null`
 
       Represents the use of a local environment to perform shell actions.
 
@@ -20715,7 +20715,7 @@ Get a single item from a conversation with the given IDs.
 
       - `"shell_call"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -20751,7 +20751,7 @@ Get a single item from a conversation with the given IDs.
 
       The unique ID of the shell tool call generated by the model.
 
-    - `max_output_length: number`
+    - `max_output_length: number or null`
 
       The maximum length of the shell command output. This is generated by the model and should be passed back with the raw output.
 
@@ -20815,7 +20815,7 @@ Get a single item from a conversation with the given IDs.
 
       - `"shell_call_output"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -20919,7 +20919,7 @@ Get a single item from a conversation with the given IDs.
 
       - `"apply_patch_call"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -20969,7 +20969,7 @@ Get a single item from a conversation with the given IDs.
 
       - `"apply_patch_call_output"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -20993,7 +20993,7 @@ Get a single item from a conversation with the given IDs.
 
       The ID of the entity that created this tool call output.
 
-    - `output: optional string`
+    - `output: optional string or null`
 
       Optional textual output returned by the apply patch tool.
 
@@ -21021,11 +21021,11 @@ Get a single item from a conversation with the given IDs.
 
         The name of the tool.
 
-      - `annotations: optional unknown`
+      - `annotations: optional unknown or null`
 
         Additional annotations about the tool.
 
-      - `description: optional string`
+      - `description: optional string or null`
 
         The description of the tool.
 
@@ -21035,7 +21035,7 @@ Get a single item from a conversation with the given IDs.
 
       - `"mcp_list_tools"`
 
-    - `error: optional string`
+    - `error: optional string or null`
 
       Error message if the server could not list tools.
 
@@ -21087,7 +21087,7 @@ Get a single item from a conversation with the given IDs.
 
       - `"mcp_approval_response"`
 
-    - `reason: optional string`
+    - `reason: optional string or null`
 
       Optional reason for the decision.
 
@@ -21117,16 +21117,16 @@ Get a single item from a conversation with the given IDs.
 
       - `"mcp_call"`
 
-    - `approval_request_id: optional string`
+    - `approval_request_id: optional string or null`
 
       Unique identifier for the MCP tool call approval request.
       Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-    - `error: optional string`
+    - `error: optional string or null`
 
       The error from the tool call, if any.
 
-    - `output: optional string`
+    - `output: optional string or null`
 
       The output from the tool call.
 
@@ -21170,7 +21170,7 @@ Get a single item from a conversation with the given IDs.
 
       The unique ID of the custom tool call in the OpenAI platform.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -21237,7 +21237,7 @@ Get a single item from a conversation with the given IDs.
 
       The unique ID of the custom tool call output in the OpenAI platform.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -21558,11 +21558,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"input_image"`
 
-        - `file_id: optional string`
+        - `file_id: optional string or null`
 
           The ID of the file to be sent to the model.
 
-        - `image_url: optional string`
+        - `image_url: optional string or null`
 
           The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
@@ -21592,11 +21592,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"original"`
 
-        - `file_id: string`
+        - `file_id: string or null`
 
           The identifier of an uploaded file that contains the screenshot.
 
-        - `image_url: string`
+        - `image_url: string or null`
 
           The URL of the screenshot image.
 
@@ -21640,7 +21640,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           The content of the file to be sent to the model.
 
-        - `file_id: optional string`
+        - `file_id: optional string or null`
 
           The ID of the file to be sent to the model.
 
@@ -21698,7 +21698,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"message"`
 
-    - `phase: optional "commentary" or "final_answer"`
+    - `phase: optional "commentary" or "final_answer" or null`
 
       Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`). For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend phase on all assistant messages — dropping it can degrade performance. Not used for user messages.
 
@@ -21741,7 +21741,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"function_call"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -21821,7 +21821,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"function_call_output"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -21891,11 +21891,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"file_search_call"`
 
-    - `results: optional array of object { attributes, file_id, filename, 2 more }`
+    - `results: optional array of object { attributes, file_id, filename, 2 more }  or null`
 
       The results of the file search tool call.
 
-      - `attributes: optional map[string or number or boolean]`
+      - `attributes: optional map[string or number or boolean] or null`
 
         Set of 16 key-value pairs that can be attached to an object. This can be
         useful for storing additional information about the object in a structured
@@ -21981,7 +21981,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"open_page"`
 
-        - `url: optional string`
+        - `url: optional string or null`
 
           The URL opened by the model.
 
@@ -22029,7 +22029,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       The unique ID of the image generation call.
 
-    - `result: string`
+    - `result: string or null`
 
       The generated image encoded in base64.
 
@@ -22072,11 +22072,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The ID of the pending safety check.
 
-      - `code: optional string`
+      - `code: optional string or null`
 
         The type of the pending safety check.
 
-      - `message: optional string`
+      - `message: optional string or null`
 
         Details about the pending safety check.
 
@@ -22133,7 +22133,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           The y-coordinate where the click occurred.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while clicking.
 
@@ -22141,7 +22141,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         A double click action.
 
-        - `keys: array of string`
+        - `keys: array of string or null`
 
           The keys being held while double-clicking.
 
@@ -22188,7 +22188,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"drag"`
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while dragging the mouse.
 
@@ -22224,7 +22224,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           The y-coordinate to move to.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while moving the mouse.
 
@@ -22264,7 +22264,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           The y-coordinate where the scroll occurred.
 
-        - `keys: optional array of string`
+        - `keys: optional array of string or null`
 
           The keys being held while scrolling.
 
@@ -22390,11 +22390,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The ID of the pending safety check.
 
-      - `code: optional string`
+      - `code: optional string or null`
 
         The type of the pending safety check.
 
-      - `message: optional string`
+      - `message: optional string or null`
 
         Details about the pending safety check.
 
@@ -22412,7 +22412,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       Arguments used for the tool search call.
 
-    - `call_id: string`
+    - `call_id: string or null`
 
       The unique ID of the tool search call generated by the model.
 
@@ -22450,7 +22450,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       The unique ID of the tool search output item.
 
-    - `call_id: string`
+    - `call_id: string or null`
 
       The unique ID of the tool search call generated by the model.
 
@@ -22484,11 +22484,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           The name of the function to call.
 
-        - `parameters: map[unknown]`
+        - `parameters: map[unknown] or null`
 
           A JSON schema object describing the parameters of the function.
 
-        - `strict: boolean`
+        - `strict: boolean or null`
 
           Whether strict parameter validation is enforced for this function tool.
 
@@ -22498,7 +22498,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"function"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -22510,11 +22510,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           Whether this function is deferred and loaded via tool search.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           A description of the function. Used by the model to determine whether or not to call the function.
 
-        - `output_schema: optional map[unknown]`
+        - `output_schema: optional map[unknown] or null`
 
           A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -22532,7 +22532,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           The IDs of the vector stores to search.
 
-        - `filters: optional ComparisonFilter or CompoundFilter`
+        - `filters: optional ComparisonFilter or CompoundFilter or null`
 
           A filter to apply.
 
@@ -22698,11 +22698,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"web_search_2025_08_26"`
 
-        - `filters: optional object { allowed_domains }`
+        - `filters: optional object { allowed_domains }  or null`
 
           Filters for the search.
 
-          - `allowed_domains: optional array of string`
+          - `allowed_domains: optional array of string or null`
 
             Allowed domains for the search. If not provided, all domains are allowed.
             Subdomains of the provided domains are allowed as well.
@@ -22719,23 +22719,23 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"high"`
 
-        - `user_location: optional object { city, country, region, 2 more }`
+        - `user_location: optional object { city, country, region, 2 more }  or null`
 
           The approximate location of the user.
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -22760,7 +22760,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"mcp"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -22768,7 +22768,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"programmatic"`
 
-        - `allowed_tools: optional array of string or object { read_only, tool_names }`
+        - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
           List of allowed tool names or a filter object.
 
@@ -22833,12 +22833,12 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           Whether this MCP tool is deferred and discovered via tool search.
 
-        - `headers: optional map[string]`
+        - `headers: optional map[string] or null`
 
           Optional HTTP headers to send to the MCP server. Use for authentication
           or other purposes.
 
-        - `require_approval: optional object { always, never }  or "always" or "never"`
+        - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
           Specify which of the MCP server's tools require approval.
 
@@ -22928,7 +22928,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the code interpreter container.
 
@@ -22986,7 +22986,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"code_interpreter"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -23033,7 +23033,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"auto"`
 
-        - `input_fidelity: optional "high" or "low"`
+        - `input_fidelity: optional "high" or "low" or null`
 
           Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -23148,7 +23148,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"shell"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -23156,7 +23156,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"programmatic"`
 
-        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
           - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -23170,7 +23170,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the container.
 
@@ -23296,7 +23296,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"custom"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -23372,7 +23372,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
               - `"function"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -23384,15 +23384,15 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
               Whether this function should be deferred and discovered via tool search.
 
-            - `description: optional string`
+            - `description: optional string or null`
 
-            - `output_schema: optional map[unknown]`
+            - `output_schema: optional map[unknown] or null`
 
               A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-            - `parameters: optional unknown`
+            - `parameters: optional unknown or null`
 
-            - `strict: optional boolean`
+            - `strict: optional boolean or null`
 
               Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -23410,7 +23410,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
               - `"custom"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -23446,7 +23446,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"tool_search"`
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           Description shown to the model for a client-executed tool search tool.
 
@@ -23458,7 +23458,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"client"`
 
-        - `parameters: optional unknown`
+        - `parameters: optional unknown or null`
 
           Parameter schema for a client-executed tool search tool.
 
@@ -23490,7 +23490,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"high"`
 
-        - `user_location: optional object { type, city, country, 2 more }`
+        - `user_location: optional object { type, city, country, 2 more }  or null`
 
           The user's location.
 
@@ -23500,19 +23500,19 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"approximate"`
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -23526,7 +23526,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"apply_patch"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -23582,11 +23582,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           The name of the function to call.
 
-        - `parameters: map[unknown]`
+        - `parameters: map[unknown] or null`
 
           A JSON schema object describing the parameters of the function.
 
-        - `strict: boolean`
+        - `strict: boolean or null`
 
           Whether strict parameter validation is enforced for this function tool.
 
@@ -23596,7 +23596,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"function"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -23608,11 +23608,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           Whether this function is deferred and loaded via tool search.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           A description of the function. Used by the model to determine whether or not to call the function.
 
-        - `output_schema: optional map[unknown]`
+        - `output_schema: optional map[unknown] or null`
 
           A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -23630,7 +23630,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           The IDs of the vector stores to search.
 
-        - `filters: optional ComparisonFilter or CompoundFilter`
+        - `filters: optional ComparisonFilter or CompoundFilter or null`
 
           A filter to apply.
 
@@ -23729,11 +23729,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"web_search_2025_08_26"`
 
-        - `filters: optional object { allowed_domains }`
+        - `filters: optional object { allowed_domains }  or null`
 
           Filters for the search.
 
-          - `allowed_domains: optional array of string`
+          - `allowed_domains: optional array of string or null`
 
             Allowed domains for the search. If not provided, all domains are allowed.
             Subdomains of the provided domains are allowed as well.
@@ -23750,23 +23750,23 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"high"`
 
-        - `user_location: optional object { city, country, region, 2 more }`
+        - `user_location: optional object { city, country, region, 2 more }  or null`
 
           The approximate location of the user.
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -23791,7 +23791,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"mcp"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -23799,7 +23799,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"programmatic"`
 
-        - `allowed_tools: optional array of string or object { read_only, tool_names }`
+        - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
           List of allowed tool names or a filter object.
 
@@ -23864,12 +23864,12 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           Whether this MCP tool is deferred and discovered via tool search.
 
-        - `headers: optional map[string]`
+        - `headers: optional map[string] or null`
 
           Optional HTTP headers to send to the MCP server. Use for authentication
           or other purposes.
 
-        - `require_approval: optional object { always, never }  or "always" or "never"`
+        - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
           Specify which of the MCP server's tools require approval.
 
@@ -23959,7 +23959,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
               An optional list of uploaded files to make available to your code.
 
-            - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+            - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
               The memory limit for the code interpreter container.
 
@@ -23985,7 +23985,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"code_interpreter"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -24032,7 +24032,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"auto"`
 
-        - `input_fidelity: optional "high" or "low"`
+        - `input_fidelity: optional "high" or "low" or null`
 
           Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -24147,7 +24147,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"shell"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -24155,7 +24155,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"programmatic"`
 
-        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+        - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
           - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -24177,7 +24177,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"custom"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -24221,7 +24221,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
               - `"function"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -24233,15 +24233,15 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
               Whether this function should be deferred and discovered via tool search.
 
-            - `description: optional string`
+            - `description: optional string or null`
 
-            - `output_schema: optional map[unknown]`
+            - `output_schema: optional map[unknown] or null`
 
               A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-            - `parameters: optional unknown`
+            - `parameters: optional unknown or null`
 
-            - `strict: optional boolean`
+            - `strict: optional boolean or null`
 
               Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -24259,7 +24259,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
               - `"custom"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -24295,7 +24295,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"tool_search"`
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           Description shown to the model for a client-executed tool search tool.
 
@@ -24307,7 +24307,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"client"`
 
-        - `parameters: optional unknown`
+        - `parameters: optional unknown or null`
 
           Parameter schema for a client-executed tool search tool.
 
@@ -24339,7 +24339,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"high"`
 
-        - `user_location: optional object { type, city, country, 2 more }`
+        - `user_location: optional object { type, city, country, 2 more }  or null`
 
           The user's location.
 
@@ -24349,19 +24349,19 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"approximate"`
 
-          - `city: optional string`
+          - `city: optional string or null`
 
             Free text input for the city of the user, e.g. `San Francisco`.
 
-          - `country: optional string`
+          - `country: optional string or null`
 
             The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-          - `region: optional string`
+          - `region: optional string or null`
 
             Free text input for the region of the user, e.g. `California`.
 
-          - `timezone: optional string`
+          - `timezone: optional string or null`
 
             The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -24375,7 +24375,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"apply_patch"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -24432,7 +24432,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"reasoning_text"`
 
-    - `encrypted_content: optional string`
+    - `encrypted_content: optional string or null`
 
       The encrypted content of the reasoning item. This is populated by default
       for reasoning items returned by `POST /v1/responses` and WebSocket
@@ -24531,7 +24531,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       The unique ID of the code interpreter tool call.
 
-    - `code: string`
+    - `code: string or null`
 
       The code to run, or null if not available.
 
@@ -24539,7 +24539,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       The ID of the container used to run the code.
 
-    - `outputs: array of object { logs, type }  or object { type, url }`
+    - `outputs: array of object { logs, type }  or object { type, url }  or null`
 
       The outputs generated by the code interpreter, such as logs or images.
       Can be null if no outputs are available.
@@ -24618,15 +24618,15 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"exec"`
 
-      - `timeout_ms: optional number`
+      - `timeout_ms: optional number or null`
 
         Optional timeout in milliseconds for the command.
 
-      - `user: optional string`
+      - `user: optional string or null`
 
         Optional user to run the command as.
 
-      - `working_directory: optional string`
+      - `working_directory: optional string or null`
 
         Optional working directory to run the command in.
 
@@ -24668,7 +24668,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"local_shell_call_output"`
 
-    - `status: optional "in_progress" or "completed" or "incomplete"`
+    - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
       The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -24692,11 +24692,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `commands: array of string`
 
-      - `max_output_length: number`
+      - `max_output_length: number or null`
 
         Optional maximum number of characters to return from each command.
 
-      - `timeout_ms: number`
+      - `timeout_ms: number or null`
 
         Optional timeout in milliseconds for the commands.
 
@@ -24704,7 +24704,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       The unique ID of the shell tool call generated by the model.
 
-    - `environment: ResponseLocalEnvironment or ResponseContainerReference`
+    - `environment: ResponseLocalEnvironment or ResponseContainerReference or null`
 
       Represents the use of a local environment to perform shell actions.
 
@@ -24746,7 +24746,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"shell_call"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -24782,7 +24782,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       The unique ID of the shell tool call generated by the model.
 
-    - `max_output_length: number`
+    - `max_output_length: number or null`
 
       The maximum length of the shell command output. This is generated by the model and should be passed back with the raw output.
 
@@ -24846,7 +24846,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"shell_call_output"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -24950,7 +24950,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"apply_patch_call"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -25000,7 +25000,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"apply_patch_call_output"`
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -25024,7 +25024,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       The ID of the entity that created this tool call output.
 
-    - `output: optional string`
+    - `output: optional string or null`
 
       Optional textual output returned by the apply patch tool.
 
@@ -25052,11 +25052,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The name of the tool.
 
-      - `annotations: optional unknown`
+      - `annotations: optional unknown or null`
 
         Additional annotations about the tool.
 
-      - `description: optional string`
+      - `description: optional string or null`
 
         The description of the tool.
 
@@ -25066,7 +25066,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"mcp_list_tools"`
 
-    - `error: optional string`
+    - `error: optional string or null`
 
       Error message if the server could not list tools.
 
@@ -25118,7 +25118,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"mcp_approval_response"`
 
-    - `reason: optional string`
+    - `reason: optional string or null`
 
       Optional reason for the decision.
 
@@ -25148,16 +25148,16 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       - `"mcp_call"`
 
-    - `approval_request_id: optional string`
+    - `approval_request_id: optional string or null`
 
       Unique identifier for the MCP tool call approval request.
       Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-    - `error: optional string`
+    - `error: optional string or null`
 
       The error from the tool call, if any.
 
-    - `output: optional string`
+    - `output: optional string or null`
 
       The output from the tool call.
 
@@ -25201,7 +25201,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       The unique ID of the custom tool call in the OpenAI platform.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -25268,7 +25268,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
       The unique ID of the custom tool call output in the OpenAI platform.
 
-    - `caller: optional object { type }  or object { caller_id, type }`
+    - `caller: optional object { type }  or object { caller_id, type }  or null`
 
       The execution context that produced this tool call.
 
@@ -25542,11 +25542,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"input_image"`
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
-          - `image_url: optional string`
+          - `image_url: optional string or null`
 
             The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
@@ -25576,11 +25576,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"original"`
 
-          - `file_id: string`
+          - `file_id: string or null`
 
             The identifier of an uploaded file that contains the screenshot.
 
-          - `image_url: string`
+          - `image_url: string or null`
 
             The URL of the screenshot image.
 
@@ -25624,7 +25624,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             The content of the file to be sent to the model.
 
-          - `file_id: optional string`
+          - `file_id: optional string or null`
 
             The ID of the file to be sent to the model.
 
@@ -25682,7 +25682,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"message"`
 
-      - `phase: optional "commentary" or "final_answer"`
+      - `phase: optional "commentary" or "final_answer" or null`
 
         Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`). For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend phase on all assistant messages — dropping it can degrade performance. Not used for user messages.
 
@@ -25725,7 +25725,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"function_call"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -25805,7 +25805,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"function_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -25875,11 +25875,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"file_search_call"`
 
-      - `results: optional array of object { attributes, file_id, filename, 2 more }`
+      - `results: optional array of object { attributes, file_id, filename, 2 more }  or null`
 
         The results of the file search tool call.
 
-        - `attributes: optional map[string or number or boolean]`
+        - `attributes: optional map[string or number or boolean] or null`
 
           Set of 16 key-value pairs that can be attached to an object. This can be
           useful for storing additional information about the object in a structured
@@ -25965,7 +25965,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"open_page"`
 
-          - `url: optional string`
+          - `url: optional string or null`
 
             The URL opened by the model.
 
@@ -26013,7 +26013,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The unique ID of the image generation call.
 
-      - `result: string`
+      - `result: string or null`
 
         The generated image encoded in base64.
 
@@ -26056,11 +26056,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           The ID of the pending safety check.
 
-        - `code: optional string`
+        - `code: optional string or null`
 
           The type of the pending safety check.
 
-        - `message: optional string`
+        - `message: optional string or null`
 
           Details about the pending safety check.
 
@@ -26117,7 +26117,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             The y-coordinate where the click occurred.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while clicking.
 
@@ -26125,7 +26125,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           A double click action.
 
-          - `keys: array of string`
+          - `keys: array of string or null`
 
             The keys being held while double-clicking.
 
@@ -26172,7 +26172,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"drag"`
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while dragging the mouse.
 
@@ -26208,7 +26208,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             The y-coordinate to move to.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while moving the mouse.
 
@@ -26248,7 +26248,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             The y-coordinate where the scroll occurred.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while scrolling.
 
@@ -26374,11 +26374,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           The ID of the pending safety check.
 
-        - `code: optional string`
+        - `code: optional string or null`
 
           The type of the pending safety check.
 
-        - `message: optional string`
+        - `message: optional string or null`
 
           Details about the pending safety check.
 
@@ -26396,7 +26396,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         Arguments used for the tool search call.
 
-      - `call_id: string`
+      - `call_id: string or null`
 
         The unique ID of the tool search call generated by the model.
 
@@ -26434,7 +26434,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The unique ID of the tool search output item.
 
-      - `call_id: string`
+      - `call_id: string or null`
 
         The unique ID of the tool search call generated by the model.
 
@@ -26468,11 +26468,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             The name of the function to call.
 
-          - `parameters: map[unknown]`
+          - `parameters: map[unknown] or null`
 
             A JSON schema object describing the parameters of the function.
 
-          - `strict: boolean`
+          - `strict: boolean or null`
 
             Whether strict parameter validation is enforced for this function tool.
 
@@ -26482,7 +26482,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"function"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -26494,11 +26494,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             Whether this function is deferred and loaded via tool search.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             A description of the function. Used by the model to determine whether or not to call the function.
 
-          - `output_schema: optional map[unknown]`
+          - `output_schema: optional map[unknown] or null`
 
             A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -26516,7 +26516,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             The IDs of the vector stores to search.
 
-          - `filters: optional ComparisonFilter or CompoundFilter`
+          - `filters: optional ComparisonFilter or CompoundFilter or null`
 
             A filter to apply.
 
@@ -26682,11 +26682,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"web_search_2025_08_26"`
 
-          - `filters: optional object { allowed_domains }`
+          - `filters: optional object { allowed_domains }  or null`
 
             Filters for the search.
 
-            - `allowed_domains: optional array of string`
+            - `allowed_domains: optional array of string or null`
 
               Allowed domains for the search. If not provided, all domains are allowed.
               Subdomains of the provided domains are allowed as well.
@@ -26703,23 +26703,23 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"high"`
 
-          - `user_location: optional object { city, country, region, 2 more }`
+          - `user_location: optional object { city, country, region, 2 more }  or null`
 
             The approximate location of the user.
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -26744,7 +26744,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"mcp"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -26752,7 +26752,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"programmatic"`
 
-          - `allowed_tools: optional array of string or object { read_only, tool_names }`
+          - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
             List of allowed tool names or a filter object.
 
@@ -26817,12 +26817,12 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             Whether this MCP tool is deferred and discovered via tool search.
 
-          - `headers: optional map[string]`
+          - `headers: optional map[string] or null`
 
             Optional HTTP headers to send to the MCP server. Use for authentication
             or other purposes.
 
-          - `require_approval: optional object { always, never }  or "always" or "never"`
+          - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
             Specify which of the MCP server's tools require approval.
 
@@ -26912,7 +26912,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the code interpreter container.
 
@@ -26970,7 +26970,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"code_interpreter"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -27017,7 +27017,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"auto"`
 
-          - `input_fidelity: optional "high" or "low"`
+          - `input_fidelity: optional "high" or "low" or null`
 
             Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -27132,7 +27132,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"shell"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -27140,7 +27140,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"programmatic"`
 
-          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
             - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -27154,7 +27154,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the container.
 
@@ -27280,7 +27280,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"custom"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -27356,7 +27356,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
                 - `"function"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -27368,15 +27368,15 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
                 Whether this function should be deferred and discovered via tool search.
 
-              - `description: optional string`
+              - `description: optional string or null`
 
-              - `output_schema: optional map[unknown]`
+              - `output_schema: optional map[unknown] or null`
 
                 A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-              - `parameters: optional unknown`
+              - `parameters: optional unknown or null`
 
-              - `strict: optional boolean`
+              - `strict: optional boolean or null`
 
                 Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -27394,7 +27394,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
                 - `"custom"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -27430,7 +27430,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"tool_search"`
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             Description shown to the model for a client-executed tool search tool.
 
@@ -27442,7 +27442,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"client"`
 
-          - `parameters: optional unknown`
+          - `parameters: optional unknown or null`
 
             Parameter schema for a client-executed tool search tool.
 
@@ -27474,7 +27474,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"high"`
 
-          - `user_location: optional object { type, city, country, 2 more }`
+          - `user_location: optional object { type, city, country, 2 more }  or null`
 
             The user's location.
 
@@ -27484,19 +27484,19 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
               - `"approximate"`
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -27510,7 +27510,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"apply_patch"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -27566,11 +27566,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             The name of the function to call.
 
-          - `parameters: map[unknown]`
+          - `parameters: map[unknown] or null`
 
             A JSON schema object describing the parameters of the function.
 
-          - `strict: boolean`
+          - `strict: boolean or null`
 
             Whether strict parameter validation is enforced for this function tool.
 
@@ -27580,7 +27580,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"function"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -27592,11 +27592,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             Whether this function is deferred and loaded via tool search.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             A description of the function. Used by the model to determine whether or not to call the function.
 
-          - `output_schema: optional map[unknown]`
+          - `output_schema: optional map[unknown] or null`
 
             A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -27614,7 +27614,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             The IDs of the vector stores to search.
 
-          - `filters: optional ComparisonFilter or CompoundFilter`
+          - `filters: optional ComparisonFilter or CompoundFilter or null`
 
             A filter to apply.
 
@@ -27713,11 +27713,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"web_search_2025_08_26"`
 
-          - `filters: optional object { allowed_domains }`
+          - `filters: optional object { allowed_domains }  or null`
 
             Filters for the search.
 
-            - `allowed_domains: optional array of string`
+            - `allowed_domains: optional array of string or null`
 
               Allowed domains for the search. If not provided, all domains are allowed.
               Subdomains of the provided domains are allowed as well.
@@ -27734,23 +27734,23 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"high"`
 
-          - `user_location: optional object { city, country, region, 2 more }`
+          - `user_location: optional object { city, country, region, 2 more }  or null`
 
             The approximate location of the user.
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -27775,7 +27775,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"mcp"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -27783,7 +27783,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"programmatic"`
 
-          - `allowed_tools: optional array of string or object { read_only, tool_names }`
+          - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
             List of allowed tool names or a filter object.
 
@@ -27848,12 +27848,12 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             Whether this MCP tool is deferred and discovered via tool search.
 
-          - `headers: optional map[string]`
+          - `headers: optional map[string] or null`
 
             Optional HTTP headers to send to the MCP server. Use for authentication
             or other purposes.
 
-          - `require_approval: optional object { always, never }  or "always" or "never"`
+          - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
             Specify which of the MCP server's tools require approval.
 
@@ -27943,7 +27943,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the code interpreter container.
 
@@ -27969,7 +27969,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"code_interpreter"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -28016,7 +28016,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"auto"`
 
-          - `input_fidelity: optional "high" or "low"`
+          - `input_fidelity: optional "high" or "low" or null`
 
             Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -28131,7 +28131,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"shell"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -28139,7 +28139,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"programmatic"`
 
-          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
             - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -28161,7 +28161,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"custom"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -28205,7 +28205,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
                 - `"function"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -28217,15 +28217,15 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
                 Whether this function should be deferred and discovered via tool search.
 
-              - `description: optional string`
+              - `description: optional string or null`
 
-              - `output_schema: optional map[unknown]`
+              - `output_schema: optional map[unknown] or null`
 
                 A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-              - `parameters: optional unknown`
+              - `parameters: optional unknown or null`
 
-              - `strict: optional boolean`
+              - `strict: optional boolean or null`
 
                 Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -28243,7 +28243,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
                 - `"custom"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -28279,7 +28279,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"tool_search"`
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             Description shown to the model for a client-executed tool search tool.
 
@@ -28291,7 +28291,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"client"`
 
-          - `parameters: optional unknown`
+          - `parameters: optional unknown or null`
 
             Parameter schema for a client-executed tool search tool.
 
@@ -28323,7 +28323,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"high"`
 
-          - `user_location: optional object { type, city, country, 2 more }`
+          - `user_location: optional object { type, city, country, 2 more }  or null`
 
             The user's location.
 
@@ -28333,19 +28333,19 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
               - `"approximate"`
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -28359,7 +28359,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
             - `"apply_patch"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -28416,7 +28416,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"reasoning_text"`
 
-      - `encrypted_content: optional string`
+      - `encrypted_content: optional string or null`
 
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
@@ -28515,7 +28515,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The unique ID of the code interpreter tool call.
 
-      - `code: string`
+      - `code: string or null`
 
         The code to run, or null if not available.
 
@@ -28523,7 +28523,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The ID of the container used to run the code.
 
-      - `outputs: array of object { logs, type }  or object { type, url }`
+      - `outputs: array of object { logs, type }  or object { type, url }  or null`
 
         The outputs generated by the code interpreter, such as logs or images.
         Can be null if no outputs are available.
@@ -28602,15 +28602,15 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           - `"exec"`
 
-        - `timeout_ms: optional number`
+        - `timeout_ms: optional number or null`
 
           Optional timeout in milliseconds for the command.
 
-        - `user: optional string`
+        - `user: optional string or null`
 
           Optional user to run the command as.
 
-        - `working_directory: optional string`
+        - `working_directory: optional string or null`
 
           Optional working directory to run the command in.
 
@@ -28652,7 +28652,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"local_shell_call_output"`
 
-      - `status: optional "in_progress" or "completed" or "incomplete"`
+      - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
         The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -28676,11 +28676,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `commands: array of string`
 
-        - `max_output_length: number`
+        - `max_output_length: number or null`
 
           Optional maximum number of characters to return from each command.
 
-        - `timeout_ms: number`
+        - `timeout_ms: number or null`
 
           Optional timeout in milliseconds for the commands.
 
@@ -28688,7 +28688,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The unique ID of the shell tool call generated by the model.
 
-      - `environment: ResponseLocalEnvironment or ResponseContainerReference`
+      - `environment: ResponseLocalEnvironment or ResponseContainerReference or null`
 
         Represents the use of a local environment to perform shell actions.
 
@@ -28730,7 +28730,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"shell_call"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -28766,7 +28766,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The unique ID of the shell tool call generated by the model.
 
-      - `max_output_length: number`
+      - `max_output_length: number or null`
 
         The maximum length of the shell command output. This is generated by the model and should be passed back with the raw output.
 
@@ -28830,7 +28830,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"shell_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -28934,7 +28934,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"apply_patch_call"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -28984,7 +28984,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"apply_patch_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -29008,7 +29008,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The ID of the entity that created this tool call output.
 
-      - `output: optional string`
+      - `output: optional string or null`
 
         Optional textual output returned by the apply patch tool.
 
@@ -29036,11 +29036,11 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
           The name of the tool.
 
-        - `annotations: optional unknown`
+        - `annotations: optional unknown or null`
 
           Additional annotations about the tool.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           The description of the tool.
 
@@ -29050,7 +29050,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"mcp_list_tools"`
 
-      - `error: optional string`
+      - `error: optional string or null`
 
         Error message if the server could not list tools.
 
@@ -29102,7 +29102,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"mcp_approval_response"`
 
-      - `reason: optional string`
+      - `reason: optional string or null`
 
         Optional reason for the decision.
 
@@ -29132,16 +29132,16 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         - `"mcp_call"`
 
-      - `approval_request_id: optional string`
+      - `approval_request_id: optional string or null`
 
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string`
+      - `error: optional string or null`
 
         The error from the tool call, if any.
 
-      - `output: optional string`
+      - `output: optional string or null`
 
         The output from the tool call.
 
@@ -29185,7 +29185,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The unique ID of the custom tool call in the OpenAI platform.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -29252,7 +29252,7 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
 
         The unique ID of the custom tool call output in the OpenAI platform.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 

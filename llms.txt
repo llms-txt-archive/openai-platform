@@ -785,6 +785,7 @@ Each section links to Markdown twins under the product path (e.g., `/plugins/<sl
 - [Run bulk security scans](https://developers.openai.com/codex/security/cli/bulk-scans.md): Discover GitHub repositories or run resumable security scans from a CSV inventory.
 - [Run Codex Security in CI](https://developers.openai.com/codex/security/cli/ci.md): Scan pull-request changes, preserve structured results, upload SARIF, and set a severity policy.
 - [Triage a backlog](https://developers.openai.com/codex/security/plugin/triage-backlog.md): Review existing security findings against a repository and order follow-up work.
+- [Use the Codex Security workbench](https://developers.openai.com/codex/security/plugin/workbench.md): Start security scans, review findings, and inspect repository history in the Codex desktop app.
 - [Write vulnerability reports](https://developers.openai.com/codex/security/plugin/vulnerability-reports.md): Turn findings, disclosure notes, source, and proof-of-concept material into polished, source-backed vulnerability reports.
 
 ## Codex — Security Administration

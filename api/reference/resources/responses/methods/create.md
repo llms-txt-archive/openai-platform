@@ -14,12 +14,12 @@ as input for the model's response.
 
 ### Body Parameters
 
-- `background: optional boolean`
+- `background: optional boolean or null`
 
   Whether to run the model response in the background.
   [Learn more](/docs/guides/background).
 
-- `context_management: optional array of object { type, compact_threshold }`
+- `context_management: optional array of object { type, compact_threshold }  or null`
 
   Context management configuration for this request.
 
@@ -27,11 +27,11 @@ as input for the model's response.
 
     The context management entry type. Currently only 'compaction' is supported.
 
-  - `compact_threshold: optional number`
+  - `compact_threshold: optional number or null`
 
     Token threshold at which compaction should be triggered for this entry.
 
-- `conversation: optional string or ResponseConversationParam`
+- `conversation: optional string or ResponseConversationParam or null`
 
   The conversation that this response belongs to. Items from this conversation are prepended to `input_items` for this response request.
   Input items and output items from this response are automatically added to this conversation after this response completes.
@@ -48,7 +48,7 @@ as input for the model's response.
 
       The unique ID of the conversation.
 
-- `include: optional array of ResponseIncludable`
+- `include: optional array of ResponseIncludable or null`
 
   Specify additional output data to include in the model response. Currently supported values are:
 
@@ -166,11 +166,11 @@ as input for the model's response.
 
               - `"input_image"`
 
-            - `file_id: optional string`
+            - `file_id: optional string or null`
 
               The ID of the file to be sent to the model.
 
-            - `image_url: optional string`
+            - `image_url: optional string or null`
 
               The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
@@ -208,7 +208,7 @@ as input for the model's response.
 
               The content of the file to be sent to the model.
 
-            - `file_id: optional string`
+            - `file_id: optional string or null`
 
               The ID of the file to be sent to the model.
 
@@ -243,7 +243,7 @@ as input for the model's response.
 
         - `"developer"`
 
-      - `phase: optional "commentary" or "final_answer"`
+      - `phase: optional "commentary" or "final_answer" or null`
 
         Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`).
         For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend
@@ -476,7 +476,7 @@ as input for the model's response.
 
         - `"message"`
 
-      - `phase: optional "commentary" or "final_answer"`
+      - `phase: optional "commentary" or "final_answer" or null`
 
         Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`).
         For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend
@@ -520,11 +520,11 @@ as input for the model's response.
 
         - `"file_search_call"`
 
-      - `results: optional array of object { attributes, file_id, filename, 2 more }`
+      - `results: optional array of object { attributes, file_id, filename, 2 more }  or null`
 
         The results of the file search tool call.
 
-        - `attributes: optional map[string or number or boolean]`
+        - `attributes: optional map[string or number or boolean] or null`
 
           Set of 16 key-value pairs that can be attached to an object. This can be
           useful for storing additional information about the object in a structured
@@ -575,11 +575,11 @@ as input for the model's response.
 
           The ID of the pending safety check.
 
-        - `code: optional string`
+        - `code: optional string or null`
 
           The type of the pending safety check.
 
-        - `message: optional string`
+        - `message: optional string or null`
 
           Details about the pending safety check.
 
@@ -636,7 +636,7 @@ as input for the model's response.
 
             The y-coordinate where the click occurred.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while clicking.
 
@@ -644,7 +644,7 @@ as input for the model's response.
 
           A double click action.
 
-          - `keys: array of string`
+          - `keys: array of string or null`
 
             The keys being held while double-clicking.
 
@@ -691,7 +691,7 @@ as input for the model's response.
 
             - `"drag"`
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while dragging the mouse.
 
@@ -727,7 +727,7 @@ as input for the model's response.
 
             The y-coordinate to move to.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while moving the mouse.
 
@@ -767,7 +767,7 @@ as input for the model's response.
 
             The y-coordinate where the scroll occurred.
 
-          - `keys: optional array of string`
+          - `keys: optional array of string or null`
 
             The keys being held while scrolling.
 
@@ -869,11 +869,11 @@ as input for the model's response.
 
         - `"computer_call_output"`
 
-      - `id: optional string`
+      - `id: optional string or null`
 
         The ID of the computer tool call output.
 
-      - `acknowledged_safety_checks: optional array of object { id, code, message }`
+      - `acknowledged_safety_checks: optional array of object { id, code, message }  or null`
 
         The safety checks reported by the API that have been acknowledged by the developer.
 
@@ -881,15 +881,15 @@ as input for the model's response.
 
           The ID of the pending safety check.
 
-        - `code: optional string`
+        - `code: optional string or null`
 
           The type of the pending safety check.
 
-        - `message: optional string`
+        - `message: optional string or null`
 
           Details about the pending safety check.
 
-      - `status: optional "in_progress" or "completed" or "incomplete"`
+      - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
         The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
 
@@ -955,7 +955,7 @@ as input for the model's response.
 
             - `"open_page"`
 
-          - `url: optional string`
+          - `url: optional string or null`
 
             The URL opened by the model.
 
@@ -1022,7 +1022,7 @@ as input for the model's response.
 
         The unique ID of the function tool call.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -1091,7 +1091,7 @@ as input for the model's response.
 
               - `"input_text"`
 
-            - `prompt_cache_breakpoint: optional object { mode }`
+            - `prompt_cache_breakpoint: optional object { mode }  or null`
 
               Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -1111,7 +1111,7 @@ as input for the model's response.
 
               - `"input_image"`
 
-            - `detail: optional "low" or "high" or "auto" or "original"`
+            - `detail: optional "low" or "high" or "auto" or "original" or null`
 
               The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.
 
@@ -1123,15 +1123,15 @@ as input for the model's response.
 
               - `"original"`
 
-            - `file_id: optional string`
+            - `file_id: optional string or null`
 
               The ID of the file to be sent to the model.
 
-            - `image_url: optional string`
+            - `image_url: optional string or null`
 
               The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
-            - `prompt_cache_breakpoint: optional object { mode }`
+            - `prompt_cache_breakpoint: optional object { mode }  or null`
 
               Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -1161,23 +1161,23 @@ as input for the model's response.
 
               - `"high"`
 
-            - `file_data: optional string`
+            - `file_data: optional string or null`
 
               The base64-encoded data of the file to be sent to the model.
 
-            - `file_id: optional string`
+            - `file_id: optional string or null`
 
               The ID of the file to be sent to the model.
 
-            - `file_url: optional string`
+            - `file_url: optional string or null`
 
               The URL of the file to be sent to the model.
 
-            - `filename: optional string`
+            - `filename: optional string or null`
 
               The name of the file to be sent to the model.
 
-            - `prompt_cache_breakpoint: optional object { mode }`
+            - `prompt_cache_breakpoint: optional object { mode }  or null`
 
               Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -1193,11 +1193,11 @@ as input for the model's response.
 
         - `"function_call_output"`
 
-      - `id: optional string`
+      - `id: optional string or null`
 
         The unique ID of the function tool call output. Populated when this item is returned via API.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -1221,15 +1221,15 @@ as input for the model's response.
 
             - `"program"`
 
-      - `name: optional string`
+      - `name: optional string or null`
 
         The name of the tool that produced the output.
 
-      - `namespace: optional string`
+      - `namespace: optional string or null`
 
         The namespace of the tool that produced the output.
 
-      - `status: optional "in_progress" or "completed" or "incomplete"`
+      - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
         The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 
@@ -1251,11 +1251,11 @@ as input for the model's response.
 
         - `"tool_search_call"`
 
-      - `id: optional string`
+      - `id: optional string or null`
 
         The unique ID of this tool search call.
 
-      - `call_id: optional string`
+      - `call_id: optional string or null`
 
         The unique ID of the tool search call generated by the model.
 
@@ -1267,7 +1267,7 @@ as input for the model's response.
 
         - `"client"`
 
-      - `status: optional "in_progress" or "completed" or "incomplete"`
+      - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
         The status of the tool search call.
 
@@ -1291,11 +1291,11 @@ as input for the model's response.
 
             The name of the function to call.
 
-          - `parameters: map[unknown]`
+          - `parameters: map[unknown] or null`
 
             A JSON schema object describing the parameters of the function.
 
-          - `strict: boolean`
+          - `strict: boolean or null`
 
             Whether strict parameter validation is enforced for this function tool.
 
@@ -1305,7 +1305,7 @@ as input for the model's response.
 
             - `"function"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -1317,11 +1317,11 @@ as input for the model's response.
 
             Whether this function is deferred and loaded via tool search.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             A description of the function. Used by the model to determine whether or not to call the function.
 
-          - `output_schema: optional map[unknown]`
+          - `output_schema: optional map[unknown] or null`
 
             A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -1339,7 +1339,7 @@ as input for the model's response.
 
             The IDs of the vector stores to search.
 
-          - `filters: optional ComparisonFilter or CompoundFilter`
+          - `filters: optional ComparisonFilter or CompoundFilter or null`
 
             A filter to apply.
 
@@ -1505,11 +1505,11 @@ as input for the model's response.
 
             - `"web_search_2025_08_26"`
 
-          - `filters: optional object { allowed_domains }`
+          - `filters: optional object { allowed_domains }  or null`
 
             Filters for the search.
 
-            - `allowed_domains: optional array of string`
+            - `allowed_domains: optional array of string or null`
 
               Allowed domains for the search. If not provided, all domains are allowed.
               Subdomains of the provided domains are allowed as well.
@@ -1526,23 +1526,23 @@ as input for the model's response.
 
             - `"high"`
 
-          - `user_location: optional object { city, country, region, 2 more }`
+          - `user_location: optional object { city, country, region, 2 more }  or null`
 
             The approximate location of the user.
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -1567,7 +1567,7 @@ as input for the model's response.
 
             - `"mcp"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -1575,7 +1575,7 @@ as input for the model's response.
 
             - `"programmatic"`
 
-          - `allowed_tools: optional array of string or object { read_only, tool_names }`
+          - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
             List of allowed tool names or a filter object.
 
@@ -1640,12 +1640,12 @@ as input for the model's response.
 
             Whether this MCP tool is deferred and discovered via tool search.
 
-          - `headers: optional map[string]`
+          - `headers: optional map[string] or null`
 
             Optional HTTP headers to send to the MCP server. Use for authentication
             or other purposes.
 
-          - `require_approval: optional object { always, never }  or "always" or "never"`
+          - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
             Specify which of the MCP server's tools require approval.
 
@@ -1735,7 +1735,7 @@ as input for the model's response.
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the code interpreter container.
 
@@ -1793,7 +1793,7 @@ as input for the model's response.
 
             - `"code_interpreter"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -1840,7 +1840,7 @@ as input for the model's response.
 
             - `"auto"`
 
-          - `input_fidelity: optional "high" or "low"`
+          - `input_fidelity: optional "high" or "low" or null`
 
             Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -1955,7 +1955,7 @@ as input for the model's response.
 
             - `"shell"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -1963,7 +1963,7 @@ as input for the model's response.
 
             - `"programmatic"`
 
-          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
             - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -1977,7 +1977,7 @@ as input for the model's response.
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the container.
 
@@ -2103,7 +2103,7 @@ as input for the model's response.
 
             - `"custom"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -2179,7 +2179,7 @@ as input for the model's response.
 
                 - `"function"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -2191,15 +2191,15 @@ as input for the model's response.
 
                 Whether this function should be deferred and discovered via tool search.
 
-              - `description: optional string`
+              - `description: optional string or null`
 
-              - `output_schema: optional map[unknown]`
+              - `output_schema: optional map[unknown] or null`
 
                 A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-              - `parameters: optional unknown`
+              - `parameters: optional unknown or null`
 
-              - `strict: optional boolean`
+              - `strict: optional boolean or null`
 
                 Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -2217,7 +2217,7 @@ as input for the model's response.
 
                 - `"custom"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -2253,7 +2253,7 @@ as input for the model's response.
 
             - `"tool_search"`
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             Description shown to the model for a client-executed tool search tool.
 
@@ -2265,7 +2265,7 @@ as input for the model's response.
 
             - `"client"`
 
-          - `parameters: optional unknown`
+          - `parameters: optional unknown or null`
 
             Parameter schema for a client-executed tool search tool.
 
@@ -2297,7 +2297,7 @@ as input for the model's response.
 
             - `"high"`
 
-          - `user_location: optional object { type, city, country, 2 more }`
+          - `user_location: optional object { type, city, country, 2 more }  or null`
 
             The user's location.
 
@@ -2307,19 +2307,19 @@ as input for the model's response.
 
               - `"approximate"`
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -2333,7 +2333,7 @@ as input for the model's response.
 
             - `"apply_patch"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -2347,11 +2347,11 @@ as input for the model's response.
 
         - `"tool_search_output"`
 
-      - `id: optional string`
+      - `id: optional string or null`
 
         The unique ID of this tool search output.
 
-      - `call_id: optional string`
+      - `call_id: optional string or null`
 
         The unique ID of the tool search call generated by the model.
 
@@ -2363,7 +2363,7 @@ as input for the model's response.
 
         - `"client"`
 
-      - `status: optional "in_progress" or "completed" or "incomplete"`
+      - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
         The status of the tool search output.
 
@@ -2393,11 +2393,11 @@ as input for the model's response.
 
             The name of the function to call.
 
-          - `parameters: map[unknown]`
+          - `parameters: map[unknown] or null`
 
             A JSON schema object describing the parameters of the function.
 
-          - `strict: boolean`
+          - `strict: boolean or null`
 
             Whether strict parameter validation is enforced for this function tool.
 
@@ -2407,7 +2407,7 @@ as input for the model's response.
 
             - `"function"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -2419,11 +2419,11 @@ as input for the model's response.
 
             Whether this function is deferred and loaded via tool search.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             A description of the function. Used by the model to determine whether or not to call the function.
 
-          - `output_schema: optional map[unknown]`
+          - `output_schema: optional map[unknown] or null`
 
             A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -2441,7 +2441,7 @@ as input for the model's response.
 
             The IDs of the vector stores to search.
 
-          - `filters: optional ComparisonFilter or CompoundFilter`
+          - `filters: optional ComparisonFilter or CompoundFilter or null`
 
             A filter to apply.
 
@@ -2540,11 +2540,11 @@ as input for the model's response.
 
             - `"web_search_2025_08_26"`
 
-          - `filters: optional object { allowed_domains }`
+          - `filters: optional object { allowed_domains }  or null`
 
             Filters for the search.
 
-            - `allowed_domains: optional array of string`
+            - `allowed_domains: optional array of string or null`
 
               Allowed domains for the search. If not provided, all domains are allowed.
               Subdomains of the provided domains are allowed as well.
@@ -2561,23 +2561,23 @@ as input for the model's response.
 
             - `"high"`
 
-          - `user_location: optional object { city, country, region, 2 more }`
+          - `user_location: optional object { city, country, region, 2 more }  or null`
 
             The approximate location of the user.
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -2602,7 +2602,7 @@ as input for the model's response.
 
             - `"mcp"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -2610,7 +2610,7 @@ as input for the model's response.
 
             - `"programmatic"`
 
-          - `allowed_tools: optional array of string or object { read_only, tool_names }`
+          - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
             List of allowed tool names or a filter object.
 
@@ -2675,12 +2675,12 @@ as input for the model's response.
 
             Whether this MCP tool is deferred and discovered via tool search.
 
-          - `headers: optional map[string]`
+          - `headers: optional map[string] or null`
 
             Optional HTTP headers to send to the MCP server. Use for authentication
             or other purposes.
 
-          - `require_approval: optional object { always, never }  or "always" or "never"`
+          - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
             Specify which of the MCP server's tools require approval.
 
@@ -2770,7 +2770,7 @@ as input for the model's response.
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the code interpreter container.
 
@@ -2796,7 +2796,7 @@ as input for the model's response.
 
             - `"code_interpreter"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -2843,7 +2843,7 @@ as input for the model's response.
 
             - `"auto"`
 
-          - `input_fidelity: optional "high" or "low"`
+          - `input_fidelity: optional "high" or "low" or null`
 
             Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -2958,7 +2958,7 @@ as input for the model's response.
 
             - `"shell"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -2966,7 +2966,7 @@ as input for the model's response.
 
             - `"programmatic"`
 
-          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
             - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -2988,7 +2988,7 @@ as input for the model's response.
 
             - `"custom"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -3032,7 +3032,7 @@ as input for the model's response.
 
                 - `"function"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -3044,15 +3044,15 @@ as input for the model's response.
 
                 Whether this function should be deferred and discovered via tool search.
 
-              - `description: optional string`
+              - `description: optional string or null`
 
-              - `output_schema: optional map[unknown]`
+              - `output_schema: optional map[unknown] or null`
 
                 A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-              - `parameters: optional unknown`
+              - `parameters: optional unknown or null`
 
-              - `strict: optional boolean`
+              - `strict: optional boolean or null`
 
                 Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -3070,7 +3070,7 @@ as input for the model's response.
 
                 - `"custom"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -3106,7 +3106,7 @@ as input for the model's response.
 
             - `"tool_search"`
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             Description shown to the model for a client-executed tool search tool.
 
@@ -3118,7 +3118,7 @@ as input for the model's response.
 
             - `"client"`
 
-          - `parameters: optional unknown`
+          - `parameters: optional unknown or null`
 
             Parameter schema for a client-executed tool search tool.
 
@@ -3150,7 +3150,7 @@ as input for the model's response.
 
             - `"high"`
 
-          - `user_location: optional object { type, city, country, 2 more }`
+          - `user_location: optional object { type, city, country, 2 more }  or null`
 
             The user's location.
 
@@ -3160,19 +3160,19 @@ as input for the model's response.
 
               - `"approximate"`
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -3186,7 +3186,7 @@ as input for the model's response.
 
             - `"apply_patch"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -3200,7 +3200,7 @@ as input for the model's response.
 
         - `"additional_tools"`
 
-      - `id: optional string`
+      - `id: optional string or null`
 
         The unique ID of this additional tools item.
 
@@ -3249,7 +3249,7 @@ as input for the model's response.
 
           - `"reasoning_text"`
 
-      - `encrypted_content: optional string`
+      - `encrypted_content: optional string or null`
 
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
@@ -3280,7 +3280,7 @@ as input for the model's response.
 
         - `"compaction"`
 
-      - `id: optional string`
+      - `id: optional string or null`
 
         The ID of the compaction item.
 
@@ -3292,7 +3292,7 @@ as input for the model's response.
 
         The unique ID of the image generation call.
 
-      - `result: string`
+      - `result: string or null`
 
         The generated image encoded in base64.
 
@@ -3322,7 +3322,7 @@ as input for the model's response.
 
         The unique ID of the code interpreter tool call.
 
-      - `code: string`
+      - `code: string or null`
 
         The code to run, or null if not available.
 
@@ -3330,7 +3330,7 @@ as input for the model's response.
 
         The ID of the container used to run the code.
 
-      - `outputs: array of object { logs, type }  or object { type, url }`
+      - `outputs: array of object { logs, type }  or object { type, url }  or null`
 
         The outputs generated by the code interpreter, such as logs or images.
         Can be null if no outputs are available.
@@ -3409,15 +3409,15 @@ as input for the model's response.
 
           - `"exec"`
 
-        - `timeout_ms: optional number`
+        - `timeout_ms: optional number or null`
 
           Optional timeout in milliseconds for the command.
 
-        - `user: optional string`
+        - `user: optional string or null`
 
           Optional user to run the command as.
 
-        - `working_directory: optional string`
+        - `working_directory: optional string or null`
 
           Optional working directory to run the command in.
 
@@ -3459,7 +3459,7 @@ as input for the model's response.
 
         - `"local_shell_call_output"`
 
-      - `status: optional "in_progress" or "completed" or "incomplete"`
+      - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
         The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -3481,11 +3481,11 @@ as input for the model's response.
 
           Ordered shell commands for the execution environment to run.
 
-        - `max_output_length: optional number`
+        - `max_output_length: optional number or null`
 
           Maximum number of UTF-8 characters to capture from combined stdout and stderr output.
 
-        - `timeout_ms: optional number`
+        - `timeout_ms: optional number or null`
 
           Maximum wall-clock time in milliseconds to allow the shell commands to run.
 
@@ -3499,11 +3499,11 @@ as input for the model's response.
 
         - `"shell_call"`
 
-      - `id: optional string`
+      - `id: optional string or null`
 
         The unique ID of the shell tool call. Populated when this item is returned via API.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -3527,7 +3527,7 @@ as input for the model's response.
 
             - `"program"`
 
-      - `environment: optional LocalEnvironment or ContainerReference`
+      - `environment: optional LocalEnvironment or ContainerReference or null`
 
         The environment to execute the shell commands in.
 
@@ -3535,7 +3535,7 @@ as input for the model's response.
 
         - `ContainerReference object { container_id, type }`
 
-      - `status: optional "in_progress" or "completed" or "incomplete"`
+      - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
         The status of the shell call. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -3599,11 +3599,11 @@ as input for the model's response.
 
         - `"shell_call_output"`
 
-      - `id: optional string`
+      - `id: optional string or null`
 
         The unique ID of the shell tool call output. Populated when this item is returned via API.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -3627,11 +3627,11 @@ as input for the model's response.
 
             - `"program"`
 
-      - `max_output_length: optional number`
+      - `max_output_length: optional number or null`
 
         The maximum number of UTF-8 characters captured for this shell call's combined output.
 
-      - `status: optional "in_progress" or "completed" or "incomplete"`
+      - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
         The status of the shell call output.
 
@@ -3717,11 +3717,11 @@ as input for the model's response.
 
         - `"apply_patch_call"`
 
-      - `id: optional string`
+      - `id: optional string or null`
 
         The unique ID of the apply patch tool call. Populated when this item is returned via API.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -3767,11 +3767,11 @@ as input for the model's response.
 
         - `"apply_patch_call_output"`
 
-      - `id: optional string`
+      - `id: optional string or null`
 
         The unique ID of the apply patch tool call output. Populated when this item is returned via API.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -3795,7 +3795,7 @@ as input for the model's response.
 
             - `"program"`
 
-      - `output: optional string`
+      - `output: optional string or null`
 
         Optional human-readable log text from the apply patch tool (e.g., patch results or errors).
 
@@ -3823,11 +3823,11 @@ as input for the model's response.
 
           The name of the tool.
 
-        - `annotations: optional unknown`
+        - `annotations: optional unknown or null`
 
           Additional annotations about the tool.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           The description of the tool.
 
@@ -3837,7 +3837,7 @@ as input for the model's response.
 
         - `"mcp_list_tools"`
 
-      - `error: optional string`
+      - `error: optional string or null`
 
         Error message if the server could not list tools.
 
@@ -3885,11 +3885,11 @@ as input for the model's response.
 
         - `"mcp_approval_response"`
 
-      - `id: optional string`
+      - `id: optional string or null`
 
         The unique ID of the approval response
 
-      - `reason: optional string`
+      - `reason: optional string or null`
 
         Optional reason for the decision.
 
@@ -3919,16 +3919,16 @@ as input for the model's response.
 
         - `"mcp_call"`
 
-      - `approval_request_id: optional string`
+      - `approval_request_id: optional string or null`
 
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string`
+      - `error: optional string or null`
 
         The error from the tool call, if any.
 
-      - `output: optional string`
+      - `output: optional string or null`
 
         The output from the tool call.
 
@@ -3989,7 +3989,7 @@ as input for the model's response.
 
         The unique ID of the custom tool call output in the OpenAI platform.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -4039,7 +4039,7 @@ as input for the model's response.
 
         The unique ID of the custom tool call in the OpenAI platform.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -4081,7 +4081,7 @@ as input for the model's response.
 
         The ID of the item to reference.
 
-      - `type: optional "item_reference"`
+      - `type: optional "item_reference" or null`
 
         The type of item to reference. Always `item_reference`.
 
@@ -4139,7 +4139,7 @@ as input for the model's response.
 
         - `"program_output"`
 
-- `instructions: optional string`
+- `instructions: optional string or null`
 
   A system (or developer) message inserted into the model's context.
 
@@ -4147,15 +4147,15 @@ as input for the model's response.
   response will not be carried over to the next response. This makes it simple
   to swap out system (or developer) messages in new responses.
 
-- `max_output_tokens: optional number`
+- `max_output_tokens: optional number or null`
 
   An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).
 
-- `max_tool_calls: optional number`
+- `max_tool_calls: optional number or null`
 
   The maximum number of total calls to built-in tools that can be processed in a response. This maximum number applies across all built-in tool calls, not per individual tool. Any further attempts to call a tool by the model will be ignored.
 
-- `metadata: optional Metadata`
+- `metadata: optional Metadata or null`
 
   Set of 16 key-value pairs that can be attached to an object. This can be
   useful for storing additional information about the object in a structured
@@ -4367,7 +4367,7 @@ as input for the model's response.
 
     - `"gpt-5.1-codex-max"`
 
-- `moderation: optional object { model, policy }`
+- `moderation: optional object { model, policy }  or null`
 
   Configuration for running moderation on the input and output of this response.
 
@@ -4375,11 +4375,11 @@ as input for the model's response.
 
     The moderation model to use for moderated completions, e.g. 'omni-moderation-latest'.
 
-  - `policy: optional object { input, output }`
+  - `policy: optional object { input, output }  or null`
 
     The policy to apply to moderated response input and output.
 
-    - `input: optional object { mode }`
+    - `input: optional object { mode }  or null`
 
       The moderation policy for the response input.
 
@@ -4389,7 +4389,7 @@ as input for the model's response.
 
         - `"block"`
 
-    - `output: optional object { mode }`
+    - `output: optional object { mode }  or null`
 
       The moderation policy for the response output.
 
@@ -4399,17 +4399,17 @@ as input for the model's response.
 
         - `"block"`
 
-- `parallel_tool_calls: optional boolean`
+- `parallel_tool_calls: optional boolean or null`
 
   Whether to allow the model to run tool calls in parallel.
 
-- `previous_response_id: optional string`
+- `previous_response_id: optional string or null`
 
   The unique ID of the previous response to the model. Use this to
   create multi-turn conversations. Learn more about
   [conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.
 
-- `prompt: optional ResponsePrompt`
+- `prompt: optional ResponsePrompt or null`
 
   Reference to a prompt template and its variables.
   [Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).
@@ -4418,7 +4418,7 @@ as input for the model's response.
 
     The unique identifier of the prompt template to use.
 
-  - `variables: optional map[string or ResponseInputText or ResponseInputImage or ResponseInputFile]`
+  - `variables: optional map[string or ResponseInputText or ResponseInputImage or ResponseInputFile] or null`
 
     Optional map of values to substitute in for variables in your
     prompt. The substitution values can either be strings, or other
@@ -4438,11 +4438,11 @@ as input for the model's response.
 
       A file input to the model.
 
-  - `version: optional string`
+  - `version: optional string or null`
 
     Optional version of the prompt template.
 
-- `prompt_cache_key: optional string`
+- `prompt_cache_key: optional string or null`
 
   Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
@@ -4464,7 +4464,7 @@ as input for the model's response.
 
     - `"30m"`
 
-- `prompt_cache_retention: optional "in_memory" or "24h"`
+- `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
   Deprecated. Use `prompt_cache_options.ttl` instead.
 
@@ -4483,14 +4483,14 @@ as input for the model's response.
 
   - `"24h"`
 
-- `reasoning: optional Reasoning`
+- `reasoning: optional Reasoning or null`
 
   **gpt-5 and o-series models only**
 
   Configuration options for
   [reasoning models](https://platform.openai.com/docs/guides/reasoning).
 
-  - `context: optional "auto" or "current_turn" or "all_turns"`
+  - `context: optional "auto" or "current_turn" or "all_turns" or null`
 
     Controls which reasoning items are rendered back to the model on later turns.
     If omitted or set to `auto`, the model determines the context mode. The
@@ -4506,7 +4506,7 @@ as input for the model's response.
 
     - `"all_turns"`
 
-  - `effort: optional ReasoningEffort`
+  - `effort: optional ReasoningEffort or null`
 
     Constrains effort on reasoning for reasoning models. Currently supported
     values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.
@@ -4530,7 +4530,7 @@ as input for the model's response.
 
     - `"max"`
 
-  - `generate_summary: optional "auto" or "concise" or "detailed"`
+  - `generate_summary: optional "auto" or "concise" or "detailed" or null`
 
     **Deprecated:** use `summary` instead.
 
@@ -4562,7 +4562,7 @@ as input for the model's response.
 
       - `"pro"`
 
-  - `summary: optional "auto" or "concise" or "detailed"`
+  - `summary: optional "auto" or "concise" or "detailed" or null`
 
     A summary of the reasoning performed by the model. This can be
     useful for debugging and understanding the model's reasoning process.
@@ -4576,12 +4576,12 @@ as input for the model's response.
 
     - `"detailed"`
 
-- `safety_identifier: optional string`
+- `safety_identifier: optional string or null`
 
   A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
   The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-- `service_tier: optional "auto" or "default" or "flex" or 3 more`
+- `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
 
   Specifies the processing type used for serving the request.
 
@@ -4605,19 +4605,19 @@ as input for the model's response.
 
   - `"fast"`
 
-- `store: optional boolean`
+- `store: optional boolean or null`
 
   Whether to store the generated model response for later retrieval via
   API.
 
-- `stream: optional boolean`
+- `stream: optional boolean or null`
 
   If set to true, the model response data will be streamed to the client
   as it is generated using [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format).
   See the [Streaming section below](/docs/api-reference/responses-streaming)
   for more information.
 
-- `stream_options: optional object { include_obfuscation }`
+- `stream_options: optional object { include_obfuscation }  or null`
 
   Options for streaming responses. Only set this when you set `stream: true`.
 
@@ -4631,7 +4631,7 @@ as input for the model's response.
     false to optimize for bandwidth if you trust the network links between
     your application and the OpenAI API.
 
-- `temperature: optional number`
+- `temperature: optional number or null`
 
   What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
   We generally recommend altering this or `top_p` but not both.
@@ -4696,7 +4696,7 @@ as input for the model's response.
         A description of what the response format is for, used by the model to
         determine how to respond in the format.
 
-      - `strict: optional boolean`
+      - `strict: optional boolean or null`
 
         Whether to enable strict schema adherence when generating the output.
         If set to true, the model will always follow the exact schema defined
@@ -4717,7 +4717,7 @@ as input for the model's response.
 
         - `"json_object"`
 
-  - `verbosity: optional "low" or "medium" or "high"`
+  - `verbosity: optional "low" or "medium" or "high" or null`
 
     Constrains the verbosity of the model's response. Lower values will result in
     more concise responses, while higher values will result in more verbose responses.
@@ -4854,7 +4854,7 @@ as input for the model's response.
 
       - `"mcp"`
 
-    - `name: optional string`
+    - `name: optional string or null`
 
       The name of the tool to call on the server.
 
@@ -4928,11 +4928,11 @@ as input for the model's response.
 
       The name of the function to call.
 
-    - `parameters: map[unknown]`
+    - `parameters: map[unknown] or null`
 
       A JSON schema object describing the parameters of the function.
 
-    - `strict: boolean`
+    - `strict: boolean or null`
 
       Whether strict parameter validation is enforced for this function tool.
 
@@ -4942,7 +4942,7 @@ as input for the model's response.
 
       - `"function"`
 
-    - `allowed_callers: optional array of "direct" or "programmatic"`
+    - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
       The tool invocation context(s).
 
@@ -4954,11 +4954,11 @@ as input for the model's response.
 
       Whether this function is deferred and loaded via tool search.
 
-    - `description: optional string`
+    - `description: optional string or null`
 
       A description of the function. Used by the model to determine whether or not to call the function.
 
-    - `output_schema: optional map[unknown]`
+    - `output_schema: optional map[unknown] or null`
 
       A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -4976,7 +4976,7 @@ as input for the model's response.
 
       The IDs of the vector stores to search.
 
-    - `filters: optional ComparisonFilter or CompoundFilter`
+    - `filters: optional ComparisonFilter or CompoundFilter or null`
 
       A filter to apply.
 
@@ -5075,11 +5075,11 @@ as input for the model's response.
 
       - `"web_search_2025_08_26"`
 
-    - `filters: optional object { allowed_domains }`
+    - `filters: optional object { allowed_domains }  or null`
 
       Filters for the search.
 
-      - `allowed_domains: optional array of string`
+      - `allowed_domains: optional array of string or null`
 
         Allowed domains for the search. If not provided, all domains are allowed.
         Subdomains of the provided domains are allowed as well.
@@ -5096,23 +5096,23 @@ as input for the model's response.
 
       - `"high"`
 
-    - `user_location: optional object { city, country, region, 2 more }`
+    - `user_location: optional object { city, country, region, 2 more }  or null`
 
       The approximate location of the user.
 
-      - `city: optional string`
+      - `city: optional string or null`
 
         Free text input for the city of the user, e.g. `San Francisco`.
 
-      - `country: optional string`
+      - `country: optional string or null`
 
         The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-      - `region: optional string`
+      - `region: optional string or null`
 
         Free text input for the region of the user, e.g. `California`.
 
-      - `timezone: optional string`
+      - `timezone: optional string or null`
 
         The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -5137,7 +5137,7 @@ as input for the model's response.
 
       - `"mcp"`
 
-    - `allowed_callers: optional array of "direct" or "programmatic"`
+    - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
       The tool invocation context(s).
 
@@ -5145,7 +5145,7 @@ as input for the model's response.
 
       - `"programmatic"`
 
-    - `allowed_tools: optional array of string or object { read_only, tool_names }`
+    - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
       List of allowed tool names or a filter object.
 
@@ -5210,12 +5210,12 @@ as input for the model's response.
 
       Whether this MCP tool is deferred and discovered via tool search.
 
-    - `headers: optional map[string]`
+    - `headers: optional map[string] or null`
 
       Optional HTTP headers to send to the MCP server. Use for authentication
       or other purposes.
 
-    - `require_approval: optional object { always, never }  or "always" or "never"`
+    - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
       Specify which of the MCP server's tools require approval.
 
@@ -5305,7 +5305,7 @@ as input for the model's response.
 
           An optional list of uploaded files to make available to your code.
 
-        - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+        - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
           The memory limit for the code interpreter container.
 
@@ -5331,7 +5331,7 @@ as input for the model's response.
 
       - `"code_interpreter"`
 
-    - `allowed_callers: optional array of "direct" or "programmatic"`
+    - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
       The tool invocation context(s).
 
@@ -5378,7 +5378,7 @@ as input for the model's response.
 
       - `"auto"`
 
-    - `input_fidelity: optional "high" or "low"`
+    - `input_fidelity: optional "high" or "low" or null`
 
       Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -5493,7 +5493,7 @@ as input for the model's response.
 
       - `"shell"`
 
-    - `allowed_callers: optional array of "direct" or "programmatic"`
+    - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
       The tool invocation context(s).
 
@@ -5501,7 +5501,7 @@ as input for the model's response.
 
       - `"programmatic"`
 
-    - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+    - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
       - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -5523,7 +5523,7 @@ as input for the model's response.
 
       - `"custom"`
 
-    - `allowed_callers: optional array of "direct" or "programmatic"`
+    - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
       The tool invocation context(s).
 
@@ -5567,7 +5567,7 @@ as input for the model's response.
 
           - `"function"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -5579,15 +5579,15 @@ as input for the model's response.
 
           Whether this function should be deferred and discovered via tool search.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
-        - `output_schema: optional map[unknown]`
+        - `output_schema: optional map[unknown] or null`
 
           A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-        - `parameters: optional unknown`
+        - `parameters: optional unknown or null`
 
-        - `strict: optional boolean`
+        - `strict: optional boolean or null`
 
           Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -5605,7 +5605,7 @@ as input for the model's response.
 
           - `"custom"`
 
-        - `allowed_callers: optional array of "direct" or "programmatic"`
+        - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
           The tool invocation context(s).
 
@@ -5641,7 +5641,7 @@ as input for the model's response.
 
       - `"tool_search"`
 
-    - `description: optional string`
+    - `description: optional string or null`
 
       Description shown to the model for a client-executed tool search tool.
 
@@ -5653,7 +5653,7 @@ as input for the model's response.
 
       - `"client"`
 
-    - `parameters: optional unknown`
+    - `parameters: optional unknown or null`
 
       Parameter schema for a client-executed tool search tool.
 
@@ -5685,7 +5685,7 @@ as input for the model's response.
 
       - `"high"`
 
-    - `user_location: optional object { type, city, country, 2 more }`
+    - `user_location: optional object { type, city, country, 2 more }  or null`
 
       The user's location.
 
@@ -5695,19 +5695,19 @@ as input for the model's response.
 
         - `"approximate"`
 
-      - `city: optional string`
+      - `city: optional string or null`
 
         Free text input for the city of the user, e.g. `San Francisco`.
 
-      - `country: optional string`
+      - `country: optional string or null`
 
         The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-      - `region: optional string`
+      - `region: optional string or null`
 
         Free text input for the region of the user, e.g. `California`.
 
-      - `timezone: optional string`
+      - `timezone: optional string or null`
 
         The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -5721,7 +5721,7 @@ as input for the model's response.
 
       - `"apply_patch"`
 
-    - `allowed_callers: optional array of "direct" or "programmatic"`
+    - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
       The tool invocation context(s).
 
@@ -5729,14 +5729,14 @@ as input for the model's response.
 
       - `"programmatic"`
 
-- `top_logprobs: optional number`
+- `top_logprobs: optional number or null`
 
   An integer between 0 and 20 specifying the maximum number of most likely
   tokens to return at each token position, each with an associated log
   probability. In some cases, the number of returned tokens may be fewer than
   requested.
 
-- `top_p: optional number`
+- `top_p: optional number or null`
 
   An alternative to sampling with temperature, called nucleus sampling,
   where the model considers the results of the tokens with top_p probability
@@ -5745,7 +5745,7 @@ as input for the model's response.
 
   We generally recommend altering this or `temperature` but not both.
 
-- `truncation: optional "auto" or "disabled"`
+- `truncation: optional "auto" or "disabled" or null`
 
   The truncation strategy to use for the model response.
 
@@ -5777,7 +5777,7 @@ as input for the model's response.
 
     Unix timestamp (in seconds) of when this Response was created.
 
-  - `error: ResponseError`
+  - `error: ResponseError or null`
 
     An error object returned when the model fails to generate a Response.
 
@@ -5829,7 +5829,7 @@ as input for the model's response.
 
       A human-readable description of the error.
 
-  - `incomplete_details: object { reason }`
+  - `incomplete_details: object { reason }  or null`
 
     Details about why the response is incomplete.
 
@@ -5841,7 +5841,7 @@ as input for the model's response.
 
       - `"content_filter"`
 
-  - `instructions: string or array of EasyInputMessage or object { content, role, status, type }  or ResponseOutputMessage or 29 more`
+  - `instructions: string or array of EasyInputMessage or object { content, role, status, type }  or ResponseOutputMessage or 29 more or null`
 
     A system (or developer) message inserted into the model's context.
 
@@ -5927,11 +5927,11 @@ as input for the model's response.
 
                 - `"input_image"`
 
-              - `file_id: optional string`
+              - `file_id: optional string or null`
 
                 The ID of the file to be sent to the model.
 
-              - `image_url: optional string`
+              - `image_url: optional string or null`
 
                 The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
@@ -5969,7 +5969,7 @@ as input for the model's response.
 
                 The content of the file to be sent to the model.
 
-              - `file_id: optional string`
+              - `file_id: optional string or null`
 
                 The ID of the file to be sent to the model.
 
@@ -6004,7 +6004,7 @@ as input for the model's response.
 
           - `"developer"`
 
-        - `phase: optional "commentary" or "final_answer"`
+        - `phase: optional "commentary" or "final_answer" or null`
 
           Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`).
           For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend
@@ -6237,7 +6237,7 @@ as input for the model's response.
 
           - `"message"`
 
-        - `phase: optional "commentary" or "final_answer"`
+        - `phase: optional "commentary" or "final_answer" or null`
 
           Labels an `assistant` message as intermediate commentary (`commentary`) or the final answer (`final_answer`).
           For models like `gpt-5.3-codex` and beyond, when sending follow-up requests, preserve and resend
@@ -6281,11 +6281,11 @@ as input for the model's response.
 
           - `"file_search_call"`
 
-        - `results: optional array of object { attributes, file_id, filename, 2 more }`
+        - `results: optional array of object { attributes, file_id, filename, 2 more }  or null`
 
           The results of the file search tool call.
 
-          - `attributes: optional map[string or number or boolean]`
+          - `attributes: optional map[string or number or boolean] or null`
 
             Set of 16 key-value pairs that can be attached to an object. This can be
             useful for storing additional information about the object in a structured
@@ -6336,11 +6336,11 @@ as input for the model's response.
 
             The ID of the pending safety check.
 
-          - `code: optional string`
+          - `code: optional string or null`
 
             The type of the pending safety check.
 
-          - `message: optional string`
+          - `message: optional string or null`
 
             Details about the pending safety check.
 
@@ -6397,7 +6397,7 @@ as input for the model's response.
 
               The y-coordinate where the click occurred.
 
-            - `keys: optional array of string`
+            - `keys: optional array of string or null`
 
               The keys being held while clicking.
 
@@ -6405,7 +6405,7 @@ as input for the model's response.
 
             A double click action.
 
-            - `keys: array of string`
+            - `keys: array of string or null`
 
               The keys being held while double-clicking.
 
@@ -6452,7 +6452,7 @@ as input for the model's response.
 
               - `"drag"`
 
-            - `keys: optional array of string`
+            - `keys: optional array of string or null`
 
               The keys being held while dragging the mouse.
 
@@ -6488,7 +6488,7 @@ as input for the model's response.
 
               The y-coordinate to move to.
 
-            - `keys: optional array of string`
+            - `keys: optional array of string or null`
 
               The keys being held while moving the mouse.
 
@@ -6528,7 +6528,7 @@ as input for the model's response.
 
               The y-coordinate where the scroll occurred.
 
-            - `keys: optional array of string`
+            - `keys: optional array of string or null`
 
               The keys being held while scrolling.
 
@@ -6630,11 +6630,11 @@ as input for the model's response.
 
           - `"computer_call_output"`
 
-        - `id: optional string`
+        - `id: optional string or null`
 
           The ID of the computer tool call output.
 
-        - `acknowledged_safety_checks: optional array of object { id, code, message }`
+        - `acknowledged_safety_checks: optional array of object { id, code, message }  or null`
 
           The safety checks reported by the API that have been acknowledged by the developer.
 
@@ -6642,15 +6642,15 @@ as input for the model's response.
 
             The ID of the pending safety check.
 
-          - `code: optional string`
+          - `code: optional string or null`
 
             The type of the pending safety check.
 
-          - `message: optional string`
+          - `message: optional string or null`
 
             Details about the pending safety check.
 
-        - `status: optional "in_progress" or "completed" or "incomplete"`
+        - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
           The status of the message input. One of `in_progress`, `completed`, or `incomplete`. Populated when input items are returned via API.
 
@@ -6716,7 +6716,7 @@ as input for the model's response.
 
               - `"open_page"`
 
-            - `url: optional string`
+            - `url: optional string or null`
 
               The URL opened by the model.
 
@@ -6783,7 +6783,7 @@ as input for the model's response.
 
           The unique ID of the function tool call.
 
-        - `caller: optional object { type }  or object { caller_id, type }`
+        - `caller: optional object { type }  or object { caller_id, type }  or null`
 
           The execution context that produced this tool call.
 
@@ -6852,7 +6852,7 @@ as input for the model's response.
 
                 - `"input_text"`
 
-              - `prompt_cache_breakpoint: optional object { mode }`
+              - `prompt_cache_breakpoint: optional object { mode }  or null`
 
                 Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -6872,7 +6872,7 @@ as input for the model's response.
 
                 - `"input_image"`
 
-              - `detail: optional "low" or "high" or "auto" or "original"`
+              - `detail: optional "low" or "high" or "auto" or "original" or null`
 
                 The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.
 
@@ -6884,15 +6884,15 @@ as input for the model's response.
 
                 - `"original"`
 
-              - `file_id: optional string`
+              - `file_id: optional string or null`
 
                 The ID of the file to be sent to the model.
 
-              - `image_url: optional string`
+              - `image_url: optional string or null`
 
                 The URL of the image to be sent to the model. A fully qualified URL or base64 encoded image in a data URL.
 
-              - `prompt_cache_breakpoint: optional object { mode }`
+              - `prompt_cache_breakpoint: optional object { mode }  or null`
 
                 Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -6922,23 +6922,23 @@ as input for the model's response.
 
                 - `"high"`
 
-              - `file_data: optional string`
+              - `file_data: optional string or null`
 
                 The base64-encoded data of the file to be sent to the model.
 
-              - `file_id: optional string`
+              - `file_id: optional string or null`
 
                 The ID of the file to be sent to the model.
 
-              - `file_url: optional string`
+              - `file_url: optional string or null`
 
                 The URL of the file to be sent to the model.
 
-              - `filename: optional string`
+              - `filename: optional string or null`
 
                 The name of the file to be sent to the model.
 
-              - `prompt_cache_breakpoint: optional object { mode }`
+              - `prompt_cache_breakpoint: optional object { mode }  or null`
 
                 Marks the exact end of a reusable prompt prefix. The breakpoint inherits its TTL from the request's `prompt_cache_options.ttl`; the boundary is not rounded to a token block.
 
@@ -6954,11 +6954,11 @@ as input for the model's response.
 
           - `"function_call_output"`
 
-        - `id: optional string`
+        - `id: optional string or null`
 
           The unique ID of the function tool call output. Populated when this item is returned via API.
 
-        - `caller: optional object { type }  or object { caller_id, type }`
+        - `caller: optional object { type }  or object { caller_id, type }  or null`
 
           The execution context that produced this tool call.
 
@@ -6982,15 +6982,15 @@ as input for the model's response.
 
               - `"program"`
 
-        - `name: optional string`
+        - `name: optional string or null`
 
           The name of the tool that produced the output.
 
-        - `namespace: optional string`
+        - `namespace: optional string or null`
 
           The namespace of the tool that produced the output.
 
-        - `status: optional "in_progress" or "completed" or "incomplete"`
+        - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
           The status of the item. One of `in_progress`, `completed`, or `incomplete`. Populated when items are returned via API.
 
@@ -7012,11 +7012,11 @@ as input for the model's response.
 
           - `"tool_search_call"`
 
-        - `id: optional string`
+        - `id: optional string or null`
 
           The unique ID of this tool search call.
 
-        - `call_id: optional string`
+        - `call_id: optional string or null`
 
           The unique ID of the tool search call generated by the model.
 
@@ -7028,7 +7028,7 @@ as input for the model's response.
 
           - `"client"`
 
-        - `status: optional "in_progress" or "completed" or "incomplete"`
+        - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
           The status of the tool search call.
 
@@ -7052,11 +7052,11 @@ as input for the model's response.
 
               The name of the function to call.
 
-            - `parameters: map[unknown]`
+            - `parameters: map[unknown] or null`
 
               A JSON schema object describing the parameters of the function.
 
-            - `strict: boolean`
+            - `strict: boolean or null`
 
               Whether strict parameter validation is enforced for this function tool.
 
@@ -7066,7 +7066,7 @@ as input for the model's response.
 
               - `"function"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -7078,11 +7078,11 @@ as input for the model's response.
 
               Whether this function is deferred and loaded via tool search.
 
-            - `description: optional string`
+            - `description: optional string or null`
 
               A description of the function. Used by the model to determine whether or not to call the function.
 
-            - `output_schema: optional map[unknown]`
+            - `output_schema: optional map[unknown] or null`
 
               A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -7100,7 +7100,7 @@ as input for the model's response.
 
               The IDs of the vector stores to search.
 
-            - `filters: optional ComparisonFilter or CompoundFilter`
+            - `filters: optional ComparisonFilter or CompoundFilter or null`
 
               A filter to apply.
 
@@ -7266,11 +7266,11 @@ as input for the model's response.
 
               - `"web_search_2025_08_26"`
 
-            - `filters: optional object { allowed_domains }`
+            - `filters: optional object { allowed_domains }  or null`
 
               Filters for the search.
 
-              - `allowed_domains: optional array of string`
+              - `allowed_domains: optional array of string or null`
 
                 Allowed domains for the search. If not provided, all domains are allowed.
                 Subdomains of the provided domains are allowed as well.
@@ -7287,23 +7287,23 @@ as input for the model's response.
 
               - `"high"`
 
-            - `user_location: optional object { city, country, region, 2 more }`
+            - `user_location: optional object { city, country, region, 2 more }  or null`
 
               The approximate location of the user.
 
-              - `city: optional string`
+              - `city: optional string or null`
 
                 Free text input for the city of the user, e.g. `San Francisco`.
 
-              - `country: optional string`
+              - `country: optional string or null`
 
                 The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-              - `region: optional string`
+              - `region: optional string or null`
 
                 Free text input for the region of the user, e.g. `California`.
 
-              - `timezone: optional string`
+              - `timezone: optional string or null`
 
                 The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -7328,7 +7328,7 @@ as input for the model's response.
 
               - `"mcp"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -7336,7 +7336,7 @@ as input for the model's response.
 
               - `"programmatic"`
 
-            - `allowed_tools: optional array of string or object { read_only, tool_names }`
+            - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
               List of allowed tool names or a filter object.
 
@@ -7401,12 +7401,12 @@ as input for the model's response.
 
               Whether this MCP tool is deferred and discovered via tool search.
 
-            - `headers: optional map[string]`
+            - `headers: optional map[string] or null`
 
               Optional HTTP headers to send to the MCP server. Use for authentication
               or other purposes.
 
-            - `require_approval: optional object { always, never }  or "always" or "never"`
+            - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
               Specify which of the MCP server's tools require approval.
 
@@ -7496,7 +7496,7 @@ as input for the model's response.
 
                   An optional list of uploaded files to make available to your code.
 
-                - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+                - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                   The memory limit for the code interpreter container.
 
@@ -7554,7 +7554,7 @@ as input for the model's response.
 
               - `"code_interpreter"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -7601,7 +7601,7 @@ as input for the model's response.
 
               - `"auto"`
 
-            - `input_fidelity: optional "high" or "low"`
+            - `input_fidelity: optional "high" or "low" or null`
 
               Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -7716,7 +7716,7 @@ as input for the model's response.
 
               - `"shell"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -7724,7 +7724,7 @@ as input for the model's response.
 
               - `"programmatic"`
 
-            - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+            - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
               - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -7738,7 +7738,7 @@ as input for the model's response.
 
                   An optional list of uploaded files to make available to your code.
 
-                - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+                - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                   The memory limit for the container.
 
@@ -7864,7 +7864,7 @@ as input for the model's response.
 
               - `"custom"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -7940,7 +7940,7 @@ as input for the model's response.
 
                   - `"function"`
 
-                - `allowed_callers: optional array of "direct" or "programmatic"`
+                - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                   The tool invocation context(s).
 
@@ -7952,15 +7952,15 @@ as input for the model's response.
 
                   Whether this function should be deferred and discovered via tool search.
 
-                - `description: optional string`
+                - `description: optional string or null`
 
-                - `output_schema: optional map[unknown]`
+                - `output_schema: optional map[unknown] or null`
 
                   A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-                - `parameters: optional unknown`
+                - `parameters: optional unknown or null`
 
-                - `strict: optional boolean`
+                - `strict: optional boolean or null`
 
                   Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -7978,7 +7978,7 @@ as input for the model's response.
 
                   - `"custom"`
 
-                - `allowed_callers: optional array of "direct" or "programmatic"`
+                - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                   The tool invocation context(s).
 
@@ -8014,7 +8014,7 @@ as input for the model's response.
 
               - `"tool_search"`
 
-            - `description: optional string`
+            - `description: optional string or null`
 
               Description shown to the model for a client-executed tool search tool.
 
@@ -8026,7 +8026,7 @@ as input for the model's response.
 
               - `"client"`
 
-            - `parameters: optional unknown`
+            - `parameters: optional unknown or null`
 
               Parameter schema for a client-executed tool search tool.
 
@@ -8058,7 +8058,7 @@ as input for the model's response.
 
               - `"high"`
 
-            - `user_location: optional object { type, city, country, 2 more }`
+            - `user_location: optional object { type, city, country, 2 more }  or null`
 
               The user's location.
 
@@ -8068,19 +8068,19 @@ as input for the model's response.
 
                 - `"approximate"`
 
-              - `city: optional string`
+              - `city: optional string or null`
 
                 Free text input for the city of the user, e.g. `San Francisco`.
 
-              - `country: optional string`
+              - `country: optional string or null`
 
                 The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-              - `region: optional string`
+              - `region: optional string or null`
 
                 Free text input for the region of the user, e.g. `California`.
 
-              - `timezone: optional string`
+              - `timezone: optional string or null`
 
                 The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -8094,7 +8094,7 @@ as input for the model's response.
 
               - `"apply_patch"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -8108,11 +8108,11 @@ as input for the model's response.
 
           - `"tool_search_output"`
 
-        - `id: optional string`
+        - `id: optional string or null`
 
           The unique ID of this tool search output.
 
-        - `call_id: optional string`
+        - `call_id: optional string or null`
 
           The unique ID of the tool search call generated by the model.
 
@@ -8124,7 +8124,7 @@ as input for the model's response.
 
           - `"client"`
 
-        - `status: optional "in_progress" or "completed" or "incomplete"`
+        - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
           The status of the tool search output.
 
@@ -8154,11 +8154,11 @@ as input for the model's response.
 
               The name of the function to call.
 
-            - `parameters: map[unknown]`
+            - `parameters: map[unknown] or null`
 
               A JSON schema object describing the parameters of the function.
 
-            - `strict: boolean`
+            - `strict: boolean or null`
 
               Whether strict parameter validation is enforced for this function tool.
 
@@ -8168,7 +8168,7 @@ as input for the model's response.
 
               - `"function"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -8180,11 +8180,11 @@ as input for the model's response.
 
               Whether this function is deferred and loaded via tool search.
 
-            - `description: optional string`
+            - `description: optional string or null`
 
               A description of the function. Used by the model to determine whether or not to call the function.
 
-            - `output_schema: optional map[unknown]`
+            - `output_schema: optional map[unknown] or null`
 
               A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -8202,7 +8202,7 @@ as input for the model's response.
 
               The IDs of the vector stores to search.
 
-            - `filters: optional ComparisonFilter or CompoundFilter`
+            - `filters: optional ComparisonFilter or CompoundFilter or null`
 
               A filter to apply.
 
@@ -8301,11 +8301,11 @@ as input for the model's response.
 
               - `"web_search_2025_08_26"`
 
-            - `filters: optional object { allowed_domains }`
+            - `filters: optional object { allowed_domains }  or null`
 
               Filters for the search.
 
-              - `allowed_domains: optional array of string`
+              - `allowed_domains: optional array of string or null`
 
                 Allowed domains for the search. If not provided, all domains are allowed.
                 Subdomains of the provided domains are allowed as well.
@@ -8322,23 +8322,23 @@ as input for the model's response.
 
               - `"high"`
 
-            - `user_location: optional object { city, country, region, 2 more }`
+            - `user_location: optional object { city, country, region, 2 more }  or null`
 
               The approximate location of the user.
 
-              - `city: optional string`
+              - `city: optional string or null`
 
                 Free text input for the city of the user, e.g. `San Francisco`.
 
-              - `country: optional string`
+              - `country: optional string or null`
 
                 The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-              - `region: optional string`
+              - `region: optional string or null`
 
                 Free text input for the region of the user, e.g. `California`.
 
-              - `timezone: optional string`
+              - `timezone: optional string or null`
 
                 The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -8363,7 +8363,7 @@ as input for the model's response.
 
               - `"mcp"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -8371,7 +8371,7 @@ as input for the model's response.
 
               - `"programmatic"`
 
-            - `allowed_tools: optional array of string or object { read_only, tool_names }`
+            - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
               List of allowed tool names or a filter object.
 
@@ -8436,12 +8436,12 @@ as input for the model's response.
 
               Whether this MCP tool is deferred and discovered via tool search.
 
-            - `headers: optional map[string]`
+            - `headers: optional map[string] or null`
 
               Optional HTTP headers to send to the MCP server. Use for authentication
               or other purposes.
 
-            - `require_approval: optional object { always, never }  or "always" or "never"`
+            - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
               Specify which of the MCP server's tools require approval.
 
@@ -8531,7 +8531,7 @@ as input for the model's response.
 
                   An optional list of uploaded files to make available to your code.
 
-                - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+                - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                   The memory limit for the code interpreter container.
 
@@ -8557,7 +8557,7 @@ as input for the model's response.
 
               - `"code_interpreter"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -8604,7 +8604,7 @@ as input for the model's response.
 
               - `"auto"`
 
-            - `input_fidelity: optional "high" or "low"`
+            - `input_fidelity: optional "high" or "low" or null`
 
               Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -8719,7 +8719,7 @@ as input for the model's response.
 
               - `"shell"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -8727,7 +8727,7 @@ as input for the model's response.
 
               - `"programmatic"`
 
-            - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+            - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
               - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -8749,7 +8749,7 @@ as input for the model's response.
 
               - `"custom"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -8793,7 +8793,7 @@ as input for the model's response.
 
                   - `"function"`
 
-                - `allowed_callers: optional array of "direct" or "programmatic"`
+                - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                   The tool invocation context(s).
 
@@ -8805,15 +8805,15 @@ as input for the model's response.
 
                   Whether this function should be deferred and discovered via tool search.
 
-                - `description: optional string`
+                - `description: optional string or null`
 
-                - `output_schema: optional map[unknown]`
+                - `output_schema: optional map[unknown] or null`
 
                   A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-                - `parameters: optional unknown`
+                - `parameters: optional unknown or null`
 
-                - `strict: optional boolean`
+                - `strict: optional boolean or null`
 
                   Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -8831,7 +8831,7 @@ as input for the model's response.
 
                   - `"custom"`
 
-                - `allowed_callers: optional array of "direct" or "programmatic"`
+                - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                   The tool invocation context(s).
 
@@ -8867,7 +8867,7 @@ as input for the model's response.
 
               - `"tool_search"`
 
-            - `description: optional string`
+            - `description: optional string or null`
 
               Description shown to the model for a client-executed tool search tool.
 
@@ -8879,7 +8879,7 @@ as input for the model's response.
 
               - `"client"`
 
-            - `parameters: optional unknown`
+            - `parameters: optional unknown or null`
 
               Parameter schema for a client-executed tool search tool.
 
@@ -8911,7 +8911,7 @@ as input for the model's response.
 
               - `"high"`
 
-            - `user_location: optional object { type, city, country, 2 more }`
+            - `user_location: optional object { type, city, country, 2 more }  or null`
 
               The user's location.
 
@@ -8921,19 +8921,19 @@ as input for the model's response.
 
                 - `"approximate"`
 
-              - `city: optional string`
+              - `city: optional string or null`
 
                 Free text input for the city of the user, e.g. `San Francisco`.
 
-              - `country: optional string`
+              - `country: optional string or null`
 
                 The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-              - `region: optional string`
+              - `region: optional string or null`
 
                 Free text input for the region of the user, e.g. `California`.
 
-              - `timezone: optional string`
+              - `timezone: optional string or null`
 
                 The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -8947,7 +8947,7 @@ as input for the model's response.
 
               - `"apply_patch"`
 
-            - `allowed_callers: optional array of "direct" or "programmatic"`
+            - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
               The tool invocation context(s).
 
@@ -8961,7 +8961,7 @@ as input for the model's response.
 
           - `"additional_tools"`
 
-        - `id: optional string`
+        - `id: optional string or null`
 
           The unique ID of this additional tools item.
 
@@ -9010,7 +9010,7 @@ as input for the model's response.
 
             - `"reasoning_text"`
 
-        - `encrypted_content: optional string`
+        - `encrypted_content: optional string or null`
 
           The encrypted content of the reasoning item. This is populated by default
           for reasoning items returned by `POST /v1/responses` and WebSocket
@@ -9041,7 +9041,7 @@ as input for the model's response.
 
           - `"compaction"`
 
-        - `id: optional string`
+        - `id: optional string or null`
 
           The ID of the compaction item.
 
@@ -9053,7 +9053,7 @@ as input for the model's response.
 
           The unique ID of the image generation call.
 
-        - `result: string`
+        - `result: string or null`
 
           The generated image encoded in base64.
 
@@ -9083,7 +9083,7 @@ as input for the model's response.
 
           The unique ID of the code interpreter tool call.
 
-        - `code: string`
+        - `code: string or null`
 
           The code to run, or null if not available.
 
@@ -9091,7 +9091,7 @@ as input for the model's response.
 
           The ID of the container used to run the code.
 
-        - `outputs: array of object { logs, type }  or object { type, url }`
+        - `outputs: array of object { logs, type }  or object { type, url }  or null`
 
           The outputs generated by the code interpreter, such as logs or images.
           Can be null if no outputs are available.
@@ -9170,15 +9170,15 @@ as input for the model's response.
 
             - `"exec"`
 
-          - `timeout_ms: optional number`
+          - `timeout_ms: optional number or null`
 
             Optional timeout in milliseconds for the command.
 
-          - `user: optional string`
+          - `user: optional string or null`
 
             Optional user to run the command as.
 
-          - `working_directory: optional string`
+          - `working_directory: optional string or null`
 
             Optional working directory to run the command in.
 
@@ -9220,7 +9220,7 @@ as input for the model's response.
 
           - `"local_shell_call_output"`
 
-        - `status: optional "in_progress" or "completed" or "incomplete"`
+        - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
           The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -9242,11 +9242,11 @@ as input for the model's response.
 
             Ordered shell commands for the execution environment to run.
 
-          - `max_output_length: optional number`
+          - `max_output_length: optional number or null`
 
             Maximum number of UTF-8 characters to capture from combined stdout and stderr output.
 
-          - `timeout_ms: optional number`
+          - `timeout_ms: optional number or null`
 
             Maximum wall-clock time in milliseconds to allow the shell commands to run.
 
@@ -9260,11 +9260,11 @@ as input for the model's response.
 
           - `"shell_call"`
 
-        - `id: optional string`
+        - `id: optional string or null`
 
           The unique ID of the shell tool call. Populated when this item is returned via API.
 
-        - `caller: optional object { type }  or object { caller_id, type }`
+        - `caller: optional object { type }  or object { caller_id, type }  or null`
 
           The execution context that produced this tool call.
 
@@ -9288,7 +9288,7 @@ as input for the model's response.
 
               - `"program"`
 
-        - `environment: optional LocalEnvironment or ContainerReference`
+        - `environment: optional LocalEnvironment or ContainerReference or null`
 
           The environment to execute the shell commands in.
 
@@ -9296,7 +9296,7 @@ as input for the model's response.
 
           - `ContainerReference object { container_id, type }`
 
-        - `status: optional "in_progress" or "completed" or "incomplete"`
+        - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
           The status of the shell call. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -9360,11 +9360,11 @@ as input for the model's response.
 
           - `"shell_call_output"`
 
-        - `id: optional string`
+        - `id: optional string or null`
 
           The unique ID of the shell tool call output. Populated when this item is returned via API.
 
-        - `caller: optional object { type }  or object { caller_id, type }`
+        - `caller: optional object { type }  or object { caller_id, type }  or null`
 
           The execution context that produced this tool call.
 
@@ -9388,11 +9388,11 @@ as input for the model's response.
 
               - `"program"`
 
-        - `max_output_length: optional number`
+        - `max_output_length: optional number or null`
 
           The maximum number of UTF-8 characters captured for this shell call's combined output.
 
-        - `status: optional "in_progress" or "completed" or "incomplete"`
+        - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
           The status of the shell call output.
 
@@ -9478,11 +9478,11 @@ as input for the model's response.
 
           - `"apply_patch_call"`
 
-        - `id: optional string`
+        - `id: optional string or null`
 
           The unique ID of the apply patch tool call. Populated when this item is returned via API.
 
-        - `caller: optional object { type }  or object { caller_id, type }`
+        - `caller: optional object { type }  or object { caller_id, type }  or null`
 
           The execution context that produced this tool call.
 
@@ -9528,11 +9528,11 @@ as input for the model's response.
 
           - `"apply_patch_call_output"`
 
-        - `id: optional string`
+        - `id: optional string or null`
 
           The unique ID of the apply patch tool call output. Populated when this item is returned via API.
 
-        - `caller: optional object { type }  or object { caller_id, type }`
+        - `caller: optional object { type }  or object { caller_id, type }  or null`
 
           The execution context that produced this tool call.
 
@@ -9556,7 +9556,7 @@ as input for the model's response.
 
               - `"program"`
 
-        - `output: optional string`
+        - `output: optional string or null`
 
           Optional human-readable log text from the apply patch tool (e.g., patch results or errors).
 
@@ -9584,11 +9584,11 @@ as input for the model's response.
 
             The name of the tool.
 
-          - `annotations: optional unknown`
+          - `annotations: optional unknown or null`
 
             Additional annotations about the tool.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             The description of the tool.
 
@@ -9598,7 +9598,7 @@ as input for the model's response.
 
           - `"mcp_list_tools"`
 
-        - `error: optional string`
+        - `error: optional string or null`
 
           Error message if the server could not list tools.
 
@@ -9646,11 +9646,11 @@ as input for the model's response.
 
           - `"mcp_approval_response"`
 
-        - `id: optional string`
+        - `id: optional string or null`
 
           The unique ID of the approval response
 
-        - `reason: optional string`
+        - `reason: optional string or null`
 
           Optional reason for the decision.
 
@@ -9680,16 +9680,16 @@ as input for the model's response.
 
           - `"mcp_call"`
 
-        - `approval_request_id: optional string`
+        - `approval_request_id: optional string or null`
 
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string`
+        - `error: optional string or null`
 
           The error from the tool call, if any.
 
-        - `output: optional string`
+        - `output: optional string or null`
 
           The output from the tool call.
 
@@ -9750,7 +9750,7 @@ as input for the model's response.
 
           The unique ID of the custom tool call output in the OpenAI platform.
 
-        - `caller: optional object { type }  or object { caller_id, type }`
+        - `caller: optional object { type }  or object { caller_id, type }  or null`
 
           The execution context that produced this tool call.
 
@@ -9800,7 +9800,7 @@ as input for the model's response.
 
           The unique ID of the custom tool call in the OpenAI platform.
 
-        - `caller: optional object { type }  or object { caller_id, type }`
+        - `caller: optional object { type }  or object { caller_id, type }  or null`
 
           The execution context that produced this tool call.
 
@@ -9842,7 +9842,7 @@ as input for the model's response.
 
           The ID of the item to reference.
 
-        - `type: optional "item_reference"`
+        - `type: optional "item_reference" or null`
 
           The type of item to reference. Always `item_reference`.
 
@@ -9900,7 +9900,7 @@ as input for the model's response.
 
           - `"program_output"`
 
-  - `metadata: Metadata`
+  - `metadata: Metadata or null`
 
     Set of 16 key-value pairs that can be attached to an object. This can be
     useful for storing additional information about the object in a structured
@@ -10167,11 +10167,11 @@ as input for the model's response.
 
         - `"file_search_call"`
 
-      - `results: optional array of object { attributes, file_id, filename, 2 more }`
+      - `results: optional array of object { attributes, file_id, filename, 2 more }  or null`
 
         The results of the file search tool call.
 
-        - `attributes: optional map[string or number or boolean]`
+        - `attributes: optional map[string or number or boolean] or null`
 
           Set of 16 key-value pairs that can be attached to an object. This can be
           useful for storing additional information about the object in a structured
@@ -10228,7 +10228,7 @@ as input for the model's response.
 
         The unique ID of the function tool call.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -10315,7 +10315,7 @@ as input for the model's response.
 
         - `"function_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -10407,7 +10407,7 @@ as input for the model's response.
 
             - `"open_page"`
 
-          - `url: optional string`
+          - `url: optional string or null`
 
             The URL opened by the model.
 
@@ -10468,11 +10468,11 @@ as input for the model's response.
 
           The ID of the pending safety check.
 
-        - `code: optional string`
+        - `code: optional string or null`
 
           The type of the pending safety check.
 
-        - `message: optional string`
+        - `message: optional string or null`
 
           Details about the pending safety check.
 
@@ -10544,11 +10544,11 @@ as input for the model's response.
 
           The ID of the pending safety check.
 
-        - `code: optional string`
+        - `code: optional string or null`
 
           The type of the pending safety check.
 
-        - `message: optional string`
+        - `message: optional string or null`
 
           Details about the pending safety check.
 
@@ -10599,7 +10599,7 @@ as input for the model's response.
 
           - `"reasoning_text"`
 
-      - `encrypted_content: optional string`
+      - `encrypted_content: optional string or null`
 
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
@@ -10678,7 +10678,7 @@ as input for the model's response.
 
         Arguments used for the tool search call.
 
-      - `call_id: string`
+      - `call_id: string or null`
 
         The unique ID of the tool search call generated by the model.
 
@@ -10716,7 +10716,7 @@ as input for the model's response.
 
         The unique ID of the tool search output item.
 
-      - `call_id: string`
+      - `call_id: string or null`
 
         The unique ID of the tool search call generated by the model.
 
@@ -10750,11 +10750,11 @@ as input for the model's response.
 
             The name of the function to call.
 
-          - `parameters: map[unknown]`
+          - `parameters: map[unknown] or null`
 
             A JSON schema object describing the parameters of the function.
 
-          - `strict: boolean`
+          - `strict: boolean or null`
 
             Whether strict parameter validation is enforced for this function tool.
 
@@ -10764,7 +10764,7 @@ as input for the model's response.
 
             - `"function"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -10776,11 +10776,11 @@ as input for the model's response.
 
             Whether this function is deferred and loaded via tool search.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             A description of the function. Used by the model to determine whether or not to call the function.
 
-          - `output_schema: optional map[unknown]`
+          - `output_schema: optional map[unknown] or null`
 
             A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -10798,7 +10798,7 @@ as input for the model's response.
 
             The IDs of the vector stores to search.
 
-          - `filters: optional ComparisonFilter or CompoundFilter`
+          - `filters: optional ComparisonFilter or CompoundFilter or null`
 
             A filter to apply.
 
@@ -10897,11 +10897,11 @@ as input for the model's response.
 
             - `"web_search_2025_08_26"`
 
-          - `filters: optional object { allowed_domains }`
+          - `filters: optional object { allowed_domains }  or null`
 
             Filters for the search.
 
-            - `allowed_domains: optional array of string`
+            - `allowed_domains: optional array of string or null`
 
               Allowed domains for the search. If not provided, all domains are allowed.
               Subdomains of the provided domains are allowed as well.
@@ -10918,23 +10918,23 @@ as input for the model's response.
 
             - `"high"`
 
-          - `user_location: optional object { city, country, region, 2 more }`
+          - `user_location: optional object { city, country, region, 2 more }  or null`
 
             The approximate location of the user.
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -10959,7 +10959,7 @@ as input for the model's response.
 
             - `"mcp"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -10967,7 +10967,7 @@ as input for the model's response.
 
             - `"programmatic"`
 
-          - `allowed_tools: optional array of string or object { read_only, tool_names }`
+          - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
             List of allowed tool names or a filter object.
 
@@ -11032,12 +11032,12 @@ as input for the model's response.
 
             Whether this MCP tool is deferred and discovered via tool search.
 
-          - `headers: optional map[string]`
+          - `headers: optional map[string] or null`
 
             Optional HTTP headers to send to the MCP server. Use for authentication
             or other purposes.
 
-          - `require_approval: optional object { always, never }  or "always" or "never"`
+          - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
             Specify which of the MCP server's tools require approval.
 
@@ -11127,7 +11127,7 @@ as input for the model's response.
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the code interpreter container.
 
@@ -11153,7 +11153,7 @@ as input for the model's response.
 
             - `"code_interpreter"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11200,7 +11200,7 @@ as input for the model's response.
 
             - `"auto"`
 
-          - `input_fidelity: optional "high" or "low"`
+          - `input_fidelity: optional "high" or "low" or null`
 
             Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -11315,7 +11315,7 @@ as input for the model's response.
 
             - `"shell"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11323,7 +11323,7 @@ as input for the model's response.
 
             - `"programmatic"`
 
-          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
             - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -11345,7 +11345,7 @@ as input for the model's response.
 
             - `"custom"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11389,7 +11389,7 @@ as input for the model's response.
 
                 - `"function"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -11401,15 +11401,15 @@ as input for the model's response.
 
                 Whether this function should be deferred and discovered via tool search.
 
-              - `description: optional string`
+              - `description: optional string or null`
 
-              - `output_schema: optional map[unknown]`
+              - `output_schema: optional map[unknown] or null`
 
                 A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-              - `parameters: optional unknown`
+              - `parameters: optional unknown or null`
 
-              - `strict: optional boolean`
+              - `strict: optional boolean or null`
 
                 Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -11427,7 +11427,7 @@ as input for the model's response.
 
                 - `"custom"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -11463,7 +11463,7 @@ as input for the model's response.
 
             - `"tool_search"`
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             Description shown to the model for a client-executed tool search tool.
 
@@ -11475,7 +11475,7 @@ as input for the model's response.
 
             - `"client"`
 
-          - `parameters: optional unknown`
+          - `parameters: optional unknown or null`
 
             Parameter schema for a client-executed tool search tool.
 
@@ -11507,7 +11507,7 @@ as input for the model's response.
 
             - `"high"`
 
-          - `user_location: optional object { type, city, country, 2 more }`
+          - `user_location: optional object { type, city, country, 2 more }  or null`
 
             The user's location.
 
@@ -11517,19 +11517,19 @@ as input for the model's response.
 
               - `"approximate"`
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -11543,7 +11543,7 @@ as input for the model's response.
 
             - `"apply_patch"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11599,11 +11599,11 @@ as input for the model's response.
 
             The name of the function to call.
 
-          - `parameters: map[unknown]`
+          - `parameters: map[unknown] or null`
 
             A JSON schema object describing the parameters of the function.
 
-          - `strict: boolean`
+          - `strict: boolean or null`
 
             Whether strict parameter validation is enforced for this function tool.
 
@@ -11613,7 +11613,7 @@ as input for the model's response.
 
             - `"function"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11625,11 +11625,11 @@ as input for the model's response.
 
             Whether this function is deferred and loaded via tool search.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             A description of the function. Used by the model to determine whether or not to call the function.
 
-          - `output_schema: optional map[unknown]`
+          - `output_schema: optional map[unknown] or null`
 
             A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -11647,7 +11647,7 @@ as input for the model's response.
 
             The IDs of the vector stores to search.
 
-          - `filters: optional ComparisonFilter or CompoundFilter`
+          - `filters: optional ComparisonFilter or CompoundFilter or null`
 
             A filter to apply.
 
@@ -11746,11 +11746,11 @@ as input for the model's response.
 
             - `"web_search_2025_08_26"`
 
-          - `filters: optional object { allowed_domains }`
+          - `filters: optional object { allowed_domains }  or null`
 
             Filters for the search.
 
-            - `allowed_domains: optional array of string`
+            - `allowed_domains: optional array of string or null`
 
               Allowed domains for the search. If not provided, all domains are allowed.
               Subdomains of the provided domains are allowed as well.
@@ -11767,23 +11767,23 @@ as input for the model's response.
 
             - `"high"`
 
-          - `user_location: optional object { city, country, region, 2 more }`
+          - `user_location: optional object { city, country, region, 2 more }  or null`
 
             The approximate location of the user.
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -11808,7 +11808,7 @@ as input for the model's response.
 
             - `"mcp"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -11816,7 +11816,7 @@ as input for the model's response.
 
             - `"programmatic"`
 
-          - `allowed_tools: optional array of string or object { read_only, tool_names }`
+          - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
             List of allowed tool names or a filter object.
 
@@ -11881,12 +11881,12 @@ as input for the model's response.
 
             Whether this MCP tool is deferred and discovered via tool search.
 
-          - `headers: optional map[string]`
+          - `headers: optional map[string] or null`
 
             Optional HTTP headers to send to the MCP server. Use for authentication
             or other purposes.
 
-          - `require_approval: optional object { always, never }  or "always" or "never"`
+          - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
             Specify which of the MCP server's tools require approval.
 
@@ -11976,7 +11976,7 @@ as input for the model's response.
 
                 An optional list of uploaded files to make available to your code.
 
-              - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+              - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
                 The memory limit for the code interpreter container.
 
@@ -12002,7 +12002,7 @@ as input for the model's response.
 
             - `"code_interpreter"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -12049,7 +12049,7 @@ as input for the model's response.
 
             - `"auto"`
 
-          - `input_fidelity: optional "high" or "low"`
+          - `input_fidelity: optional "high" or "low" or null`
 
             Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -12164,7 +12164,7 @@ as input for the model's response.
 
             - `"shell"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -12172,7 +12172,7 @@ as input for the model's response.
 
             - `"programmatic"`
 
-          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+          - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
             - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -12194,7 +12194,7 @@ as input for the model's response.
 
             - `"custom"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -12238,7 +12238,7 @@ as input for the model's response.
 
                 - `"function"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -12250,15 +12250,15 @@ as input for the model's response.
 
                 Whether this function should be deferred and discovered via tool search.
 
-              - `description: optional string`
+              - `description: optional string or null`
 
-              - `output_schema: optional map[unknown]`
+              - `output_schema: optional map[unknown] or null`
 
                 A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-              - `parameters: optional unknown`
+              - `parameters: optional unknown or null`
 
-              - `strict: optional boolean`
+              - `strict: optional boolean or null`
 
                 Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -12276,7 +12276,7 @@ as input for the model's response.
 
                 - `"custom"`
 
-              - `allowed_callers: optional array of "direct" or "programmatic"`
+              - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
                 The tool invocation context(s).
 
@@ -12312,7 +12312,7 @@ as input for the model's response.
 
             - `"tool_search"`
 
-          - `description: optional string`
+          - `description: optional string or null`
 
             Description shown to the model for a client-executed tool search tool.
 
@@ -12324,7 +12324,7 @@ as input for the model's response.
 
             - `"client"`
 
-          - `parameters: optional unknown`
+          - `parameters: optional unknown or null`
 
             Parameter schema for a client-executed tool search tool.
 
@@ -12356,7 +12356,7 @@ as input for the model's response.
 
             - `"high"`
 
-          - `user_location: optional object { type, city, country, 2 more }`
+          - `user_location: optional object { type, city, country, 2 more }  or null`
 
             The user's location.
 
@@ -12366,19 +12366,19 @@ as input for the model's response.
 
               - `"approximate"`
 
-            - `city: optional string`
+            - `city: optional string or null`
 
               Free text input for the city of the user, e.g. `San Francisco`.
 
-            - `country: optional string`
+            - `country: optional string or null`
 
               The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-            - `region: optional string`
+            - `region: optional string or null`
 
               Free text input for the region of the user, e.g. `California`.
 
-            - `timezone: optional string`
+            - `timezone: optional string or null`
 
               The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -12392,7 +12392,7 @@ as input for the model's response.
 
             - `"apply_patch"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -12436,7 +12436,7 @@ as input for the model's response.
 
         The unique ID of the image generation call.
 
-      - `result: string`
+      - `result: string or null`
 
         The generated image encoded in base64.
 
@@ -12466,7 +12466,7 @@ as input for the model's response.
 
         The unique ID of the code interpreter tool call.
 
-      - `code: string`
+      - `code: string or null`
 
         The code to run, or null if not available.
 
@@ -12474,7 +12474,7 @@ as input for the model's response.
 
         The ID of the container used to run the code.
 
-      - `outputs: array of object { logs, type }  or object { type, url }`
+      - `outputs: array of object { logs, type }  or object { type, url }  or null`
 
         The outputs generated by the code interpreter, such as logs or images.
         Can be null if no outputs are available.
@@ -12553,15 +12553,15 @@ as input for the model's response.
 
           - `"exec"`
 
-        - `timeout_ms: optional number`
+        - `timeout_ms: optional number or null`
 
           Optional timeout in milliseconds for the command.
 
-        - `user: optional string`
+        - `user: optional string or null`
 
           Optional user to run the command as.
 
-        - `working_directory: optional string`
+        - `working_directory: optional string or null`
 
           Optional working directory to run the command in.
 
@@ -12603,7 +12603,7 @@ as input for the model's response.
 
         - `"local_shell_call_output"`
 
-      - `status: optional "in_progress" or "completed" or "incomplete"`
+      - `status: optional "in_progress" or "completed" or "incomplete" or null`
 
         The status of the item. One of `in_progress`, `completed`, or `incomplete`.
 
@@ -12627,11 +12627,11 @@ as input for the model's response.
 
         - `commands: array of string`
 
-        - `max_output_length: number`
+        - `max_output_length: number or null`
 
           Optional maximum number of characters to return from each command.
 
-        - `timeout_ms: number`
+        - `timeout_ms: number or null`
 
           Optional timeout in milliseconds for the commands.
 
@@ -12639,7 +12639,7 @@ as input for the model's response.
 
         The unique ID of the shell tool call generated by the model.
 
-      - `environment: ResponseLocalEnvironment or ResponseContainerReference`
+      - `environment: ResponseLocalEnvironment or ResponseContainerReference or null`
 
         Represents the use of a local environment to perform shell actions.
 
@@ -12681,7 +12681,7 @@ as input for the model's response.
 
         - `"shell_call"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -12717,7 +12717,7 @@ as input for the model's response.
 
         The unique ID of the shell tool call generated by the model.
 
-      - `max_output_length: number`
+      - `max_output_length: number or null`
 
         The maximum length of the shell command output. This is generated by the model and should be passed back with the raw output.
 
@@ -12781,7 +12781,7 @@ as input for the model's response.
 
         - `"shell_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -12885,7 +12885,7 @@ as input for the model's response.
 
         - `"apply_patch_call"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -12935,7 +12935,7 @@ as input for the model's response.
 
         - `"apply_patch_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -12959,7 +12959,7 @@ as input for the model's response.
 
         The ID of the entity that created this tool call output.
 
-      - `output: optional string`
+      - `output: optional string or null`
 
         Optional textual output returned by the apply patch tool.
 
@@ -12989,16 +12989,16 @@ as input for the model's response.
 
         - `"mcp_call"`
 
-      - `approval_request_id: optional string`
+      - `approval_request_id: optional string or null`
 
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string`
+      - `error: optional string or null`
 
         The error from the tool call, if any.
 
-      - `output: optional string`
+      - `output: optional string or null`
 
         The output from the tool call.
 
@@ -13040,11 +13040,11 @@ as input for the model's response.
 
           The name of the tool.
 
-        - `annotations: optional unknown`
+        - `annotations: optional unknown or null`
 
           Additional annotations about the tool.
 
-        - `description: optional string`
+        - `description: optional string or null`
 
           The description of the tool.
 
@@ -13054,7 +13054,7 @@ as input for the model's response.
 
         - `"mcp_list_tools"`
 
-      - `error: optional string`
+      - `error: optional string or null`
 
         Error message if the server could not list tools.
 
@@ -13106,7 +13106,7 @@ as input for the model's response.
 
         - `"mcp_approval_response"`
 
-      - `reason: optional string`
+      - `reason: optional string or null`
 
         Optional reason for the decision.
 
@@ -13136,7 +13136,7 @@ as input for the model's response.
 
         The unique ID of the custom tool call in the OpenAI platform.
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -13212,7 +13212,7 @@ as input for the model's response.
 
         - `"custom_tool_call_output"`
 
-      - `caller: optional object { type }  or object { caller_id, type }`
+      - `caller: optional object { type }  or object { caller_id, type }  or null`
 
         The execution context that produced this tool call.
 
@@ -13244,7 +13244,7 @@ as input for the model's response.
 
     Whether to allow the model to run tool calls in parallel.
 
-  - `temperature: number`
+  - `temperature: number or null`
 
     What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
     We generally recommend altering this or `top_p` but not both.
@@ -13373,7 +13373,7 @@ as input for the model's response.
 
         - `"mcp"`
 
-      - `name: optional string`
+      - `name: optional string or null`
 
         The name of the tool to call on the server.
 
@@ -13447,11 +13447,11 @@ as input for the model's response.
 
         The name of the function to call.
 
-      - `parameters: map[unknown]`
+      - `parameters: map[unknown] or null`
 
         A JSON schema object describing the parameters of the function.
 
-      - `strict: boolean`
+      - `strict: boolean or null`
 
         Whether strict parameter validation is enforced for this function tool.
 
@@ -13461,7 +13461,7 @@ as input for the model's response.
 
         - `"function"`
 
-      - `allowed_callers: optional array of "direct" or "programmatic"`
+      - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
         The tool invocation context(s).
 
@@ -13473,11 +13473,11 @@ as input for the model's response.
 
         Whether this function is deferred and loaded via tool search.
 
-      - `description: optional string`
+      - `description: optional string or null`
 
         A description of the function. Used by the model to determine whether or not to call the function.
 
-      - `output_schema: optional map[unknown]`
+      - `output_schema: optional map[unknown] or null`
 
         A JSON schema object describing the JSON value encoded in string outputs for this function.
 
@@ -13495,7 +13495,7 @@ as input for the model's response.
 
         The IDs of the vector stores to search.
 
-      - `filters: optional ComparisonFilter or CompoundFilter`
+      - `filters: optional ComparisonFilter or CompoundFilter or null`
 
         A filter to apply.
 
@@ -13594,11 +13594,11 @@ as input for the model's response.
 
         - `"web_search_2025_08_26"`
 
-      - `filters: optional object { allowed_domains }`
+      - `filters: optional object { allowed_domains }  or null`
 
         Filters for the search.
 
-        - `allowed_domains: optional array of string`
+        - `allowed_domains: optional array of string or null`
 
           Allowed domains for the search. If not provided, all domains are allowed.
           Subdomains of the provided domains are allowed as well.
@@ -13615,23 +13615,23 @@ as input for the model's response.
 
         - `"high"`
 
-      - `user_location: optional object { city, country, region, 2 more }`
+      - `user_location: optional object { city, country, region, 2 more }  or null`
 
         The approximate location of the user.
 
-        - `city: optional string`
+        - `city: optional string or null`
 
           Free text input for the city of the user, e.g. `San Francisco`.
 
-        - `country: optional string`
+        - `country: optional string or null`
 
           The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-        - `region: optional string`
+        - `region: optional string or null`
 
           Free text input for the region of the user, e.g. `California`.
 
-        - `timezone: optional string`
+        - `timezone: optional string or null`
 
           The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -13656,7 +13656,7 @@ as input for the model's response.
 
         - `"mcp"`
 
-      - `allowed_callers: optional array of "direct" or "programmatic"`
+      - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
         The tool invocation context(s).
 
@@ -13664,7 +13664,7 @@ as input for the model's response.
 
         - `"programmatic"`
 
-      - `allowed_tools: optional array of string or object { read_only, tool_names }`
+      - `allowed_tools: optional array of string or object { read_only, tool_names }  or null`
 
         List of allowed tool names or a filter object.
 
@@ -13729,12 +13729,12 @@ as input for the model's response.
 
         Whether this MCP tool is deferred and discovered via tool search.
 
-      - `headers: optional map[string]`
+      - `headers: optional map[string] or null`
 
         Optional HTTP headers to send to the MCP server. Use for authentication
         or other purposes.
 
-      - `require_approval: optional object { always, never }  or "always" or "never"`
+      - `require_approval: optional object { always, never }  or "always" or "never" or null`
 
         Specify which of the MCP server's tools require approval.
 
@@ -13824,7 +13824,7 @@ as input for the model's response.
 
             An optional list of uploaded files to make available to your code.
 
-          - `memory_limit: optional "1g" or "4g" or "16g" or "64g"`
+          - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
 
             The memory limit for the code interpreter container.
 
@@ -13850,7 +13850,7 @@ as input for the model's response.
 
         - `"code_interpreter"`
 
-      - `allowed_callers: optional array of "direct" or "programmatic"`
+      - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
         The tool invocation context(s).
 
@@ -13897,7 +13897,7 @@ as input for the model's response.
 
         - `"auto"`
 
-      - `input_fidelity: optional "high" or "low"`
+      - `input_fidelity: optional "high" or "low" or null`
 
         Control how much effort the model will exert to match the style and features, especially facial features, of input images. This parameter is only supported for `gpt-image-1` and `gpt-image-1.5` and later models, unsupported for `gpt-image-1-mini`. Supports `high` and `low`. Defaults to `low`.
 
@@ -14012,7 +14012,7 @@ as input for the model's response.
 
         - `"shell"`
 
-      - `allowed_callers: optional array of "direct" or "programmatic"`
+      - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
         The tool invocation context(s).
 
@@ -14020,7 +14020,7 @@ as input for the model's response.
 
         - `"programmatic"`
 
-      - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference`
+      - `environment: optional ContainerAuto or LocalEnvironment or ContainerReference or null`
 
         - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
 
@@ -14042,7 +14042,7 @@ as input for the model's response.
 
         - `"custom"`
 
-      - `allowed_callers: optional array of "direct" or "programmatic"`
+      - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
         The tool invocation context(s).
 
@@ -14086,7 +14086,7 @@ as input for the model's response.
 
             - `"function"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -14098,15 +14098,15 @@ as input for the model's response.
 
             Whether this function should be deferred and discovered via tool search.
 
-          - `description: optional string`
+          - `description: optional string or null`
 
-          - `output_schema: optional map[unknown]`
+          - `output_schema: optional map[unknown] or null`
 
             A JSON Schema describing the JSON value encoded in string outputs for this function tool. This does not describe content-array outputs.
 
-          - `parameters: optional unknown`
+          - `parameters: optional unknown or null`
 
-          - `strict: optional boolean`
+          - `strict: optional boolean or null`
 
             Whether to enforce strict parameter validation. If omitted, Responses attempts to use strict validation when the schema is compatible, and falls back to non-strict validation otherwise.
 
@@ -14124,7 +14124,7 @@ as input for the model's response.
 
             - `"custom"`
 
-          - `allowed_callers: optional array of "direct" or "programmatic"`
+          - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
             The tool invocation context(s).
 
@@ -14160,7 +14160,7 @@ as input for the model's response.
 
         - `"tool_search"`
 
-      - `description: optional string`
+      - `description: optional string or null`
 
         Description shown to the model for a client-executed tool search tool.
 
@@ -14172,7 +14172,7 @@ as input for the model's response.
 
         - `"client"`
 
-      - `parameters: optional unknown`
+      - `parameters: optional unknown or null`
 
         Parameter schema for a client-executed tool search tool.
 
@@ -14204,7 +14204,7 @@ as input for the model's response.
 
         - `"high"`
 
-      - `user_location: optional object { type, city, country, 2 more }`
+      - `user_location: optional object { type, city, country, 2 more }  or null`
 
         The user's location.
 
@@ -14214,19 +14214,19 @@ as input for the model's response.
 
           - `"approximate"`
 
-        - `city: optional string`
+        - `city: optional string or null`
 
           Free text input for the city of the user, e.g. `San Francisco`.
 
-        - `country: optional string`
+        - `country: optional string or null`
 
           The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of the user, e.g. `US`.
 
-        - `region: optional string`
+        - `region: optional string or null`
 
           Free text input for the region of the user, e.g. `California`.
 
-        - `timezone: optional string`
+        - `timezone: optional string or null`
 
           The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the user, e.g. `America/Los_Angeles`.
 
@@ -14240,7 +14240,7 @@ as input for the model's response.
 
         - `"apply_patch"`
 
-      - `allowed_callers: optional array of "direct" or "programmatic"`
+      - `allowed_callers: optional array of "direct" or "programmatic" or null`
 
         The tool invocation context(s).
 
@@ -14248,7 +14248,7 @@ as input for the model's response.
 
         - `"programmatic"`
 
-  - `top_p: number`
+  - `top_p: number or null`
 
     An alternative to sampling with temperature, called nucleus sampling,
     where the model considers the results of the tokens with top_p probability
@@ -14257,17 +14257,17 @@ as input for the model's response.
 
     We generally recommend altering this or `temperature` but not both.
 
-  - `background: optional boolean`
+  - `background: optional boolean or null`
 
     Whether to run the model response in the background.
     [Learn more](/docs/guides/background).
 
-  - `completed_at: optional number`
+  - `completed_at: optional number or null`
 
     Unix timestamp (in seconds) of when this Response was completed.
     Only present when the status is `completed`.
 
-  - `conversation: optional object { id }`
+  - `conversation: optional object { id }  or null`
 
     The conversation that this response belonged to. Input items and output items from this response were automatically added to this conversation.
 
@@ -14275,15 +14275,15 @@ as input for the model's response.
 
       The unique ID of the conversation that this response was associated with.
 
-  - `max_output_tokens: optional number`
+  - `max_output_tokens: optional number or null`
 
     An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).
 
-  - `max_tool_calls: optional number`
+  - `max_tool_calls: optional number or null`
 
     The maximum number of total calls to built-in tools that can be processed in a response. This maximum number applies across all built-in tool calls, not per individual tool. Any further attempts to call a tool by the model will be ignored.
 
-  - `moderation: optional object { input, output }`
+  - `moderation: optional object { input, output }  or null`
 
     Moderation results for the response input and output, if moderated completions were requested.
 
@@ -14399,19 +14399,19 @@ as input for the model's response.
 
           - `"error"`
 
-  - `output_text: optional string`
+  - `output_text: optional string or null`
 
     SDK-only convenience property that contains the aggregated text output
     from all `output_text` items in the `output` array, if any are present.
     Supported in the Python and JavaScript SDKs.
 
-  - `previous_response_id: optional string`
+  - `previous_response_id: optional string or null`
 
     The unique ID of the previous response to the model. Use this to
     create multi-turn conversations. Learn more about
     [conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.
 
-  - `prompt: optional ResponsePrompt`
+  - `prompt: optional ResponsePrompt or null`
 
     Reference to a prompt template and its variables.
     [Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).
@@ -14420,7 +14420,7 @@ as input for the model's response.
 
       The unique identifier of the prompt template to use.
 
-    - `variables: optional map[string or ResponseInputText or ResponseInputImage or ResponseInputFile]`
+    - `variables: optional map[string or ResponseInputText or ResponseInputImage or ResponseInputFile] or null`
 
       Optional map of values to substitute in for variables in your
       prompt. The substitution values can either be strings, or other
@@ -14440,11 +14440,11 @@ as input for the model's response.
 
         A file input to the model.
 
-    - `version: optional string`
+    - `version: optional string or null`
 
       Optional version of the prompt template.
 
-  - `prompt_cache_key: optional string`
+  - `prompt_cache_key: optional string or null`
 
     Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
@@ -14466,7 +14466,7 @@ as input for the model's response.
 
       - `"30m"`
 
-  - `prompt_cache_retention: optional "in_memory" or "24h"`
+  - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
     Deprecated. Use `prompt_cache_options.ttl` instead.
 
@@ -14485,14 +14485,14 @@ as input for the model's response.
 
     - `"24h"`
 
-  - `reasoning: optional Reasoning`
+  - `reasoning: optional Reasoning or null`
 
     **gpt-5 and o-series models only**
 
     Configuration options for
     [reasoning models](https://platform.openai.com/docs/guides/reasoning).
 
-    - `context: optional "auto" or "current_turn" or "all_turns"`
+    - `context: optional "auto" or "current_turn" or "all_turns" or null`
 
       Controls which reasoning items are rendered back to the model on later turns.
       If omitted or set to `auto`, the model determines the context mode. The
@@ -14508,7 +14508,7 @@ as input for the model's response.
 
       - `"all_turns"`
 
-    - `effort: optional ReasoningEffort`
+    - `effort: optional ReasoningEffort or null`
 
       Constrains effort on reasoning for reasoning models. Currently supported
       values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.
@@ -14532,7 +14532,7 @@ as input for the model's response.
 
       - `"max"`
 
-    - `generate_summary: optional "auto" or "concise" or "detailed"`
+    - `generate_summary: optional "auto" or "concise" or "detailed" or null`
 
       **Deprecated:** use `summary` instead.
 
@@ -14564,7 +14564,7 @@ as input for the model's response.
 
         - `"pro"`
 
-    - `summary: optional "auto" or "concise" or "detailed"`
+    - `summary: optional "auto" or "concise" or "detailed" or null`
 
       A summary of the reasoning performed by the model. This can be
       useful for debugging and understanding the model's reasoning process.
@@ -14578,12 +14578,12 @@ as input for the model's response.
 
       - `"detailed"`
 
-  - `safety_identifier: optional string`
+  - `safety_identifier: optional string or null`
 
     A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
     The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-  - `service_tier: optional "auto" or "default" or "flex" or 3 more`
+  - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
 
     Specifies the processing type used for serving the request.
 
@@ -14684,7 +14684,7 @@ as input for the model's response.
           A description of what the response format is for, used by the model to
           determine how to respond in the format.
 
-        - `strict: optional boolean`
+        - `strict: optional boolean or null`
 
           Whether to enable strict schema adherence when generating the output.
           If set to true, the model will always follow the exact schema defined
@@ -14705,7 +14705,7 @@ as input for the model's response.
 
           - `"json_object"`
 
-    - `verbosity: optional "low" or "medium" or "high"`
+    - `verbosity: optional "low" or "medium" or "high" or null`
 
       Constrains the verbosity of the model's response. Lower values will result in
       more concise responses, while higher values will result in more verbose responses.
@@ -14718,14 +14718,14 @@ as input for the model's response.
 
       - `"high"`
 
-  - `top_logprobs: optional number`
+  - `top_logprobs: optional number or null`
 
     An integer between 0 and 20 specifying the maximum number of most likely
     tokens to return at each token position, each with an associated log
     probability. In some cases, the number of returned tokens may be fewer than
     requested.
 
-  - `truncation: optional "auto" or "disabled"`
+  - `truncation: optional "auto" or "disabled" or null`
 
     The truncation strategy to use for the model response.
 
