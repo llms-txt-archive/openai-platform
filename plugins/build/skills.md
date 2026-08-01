@@ -106,6 +106,22 @@ A dependency makes the required tool available; it does not replace clear
   workflow instructions. Tell the model which tools to use, in what order, and
   how to handle missing or ambiguous results.
 
+## Import a skill from MCP
+
+You can upload a packaged skill during submission or import it from the
+plugin's MCP server. The MCP option keeps the skill's instructions and
+supporting files with the server deployment.
+
+OpenAI imports skills from MCP when you select **Scan Tools** in the plugin
+submission portal. The imported files become a snapshot in the draft; ChatGPT
+and Codex do not fetch them from your MCP server at runtime. After changing the
+skill, deploy the server and scan it again before submitting a new plugin
+version.
+
+For the capability declaration, discovery methods, resource manifest, and
+import limits, see
+[Import skills from the MCP server](https://developers.openai.com/plugins/build/mcp-server#import-skills-from-the-mcp-server).
+
 ## Test the skill
 
 Test with representative requests from the use-case inventory:

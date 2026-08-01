@@ -148,6 +148,123 @@ Do not put secrets, access tokens, or unnecessary personal data in tool
 results. Treat `_meta` as hidden from the model, not as a substitute for
 authorization or secure storage.
 
+## Import skills from the MCP server
+
+Configure the MCP server to supply skills when you want to version and deploy
+their instructions and supporting files with the server. During plugin
+submission, **Scan Tools** imports a static snapshot of those skills into the
+draft.
+
+OpenAI currently supports a bounded, static subset of the
+[draft SEP-2640 Skills extension](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2640).
+This proposal is not yet part of the stable MCP specification.
+
+### Advertise the extension
+
+Declare `io.modelcontextprotocol/skills` in the server's initialization
+capabilities:
+
+```json
+{
+  "capabilities": {
+    "extensions": {
+      "io.modelcontextprotocol/skills": {}
+    }
+  }
+}
+```
+
+The declaration must be under `capabilities.extensions`. OpenAI does not
+recognize the earlier `experimental` declaration.
+
+### List the skills and their resources
+
+Support the paginated `skills/list` method. Each entry must include:
+
+- A `uri` that points to the skill's `SKILL.md`.
+- `frontmatter` containing every entry from the parsed `SKILL.md` front matter.
+  Include the `name` and `description` entries.
+- A complete `resources` list containing `SKILL.md` and every supporting file.
+- A SHA-256 digest for each resource in the form
+  `sha256:<64 lowercase hexadecimal characters>`.
+
+Use the `skill://` URI convention. The directory containing `SKILL.md` must
+match the skill name. For example:
+
+```json
+{
+  "skills": [
+    {
+      "uri": "skill://dice-roller/tabletop-dice/SKILL.md",
+      "frontmatter": {
+        "name": "tabletop-dice",
+        "description": "Roll one or more dice and report each result and the total."
+      },
+      "resources": [
+        {
+          "uri": "skill://dice-roller/tabletop-dice/SKILL.md",
+          "digest": "sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+        },
+        {
+          "uri": "skill://dice-roller/tabletop-dice/references/notation.md",
+          "digest": "sha256:abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789"
+        }
+      ]
+    }
+  ],
+  "nextCursor": "optional-next-page-cursor"
+}
+```
+
+The example digests show the required format. For a text resource, hash the
+UTF-8 bytes of `content.text`. For a blob resource, base64-decode
+`content.blob`, then hash the decoded bytes.
+
+Also support `skills/get` for each listed `SKILL.md` URI. Return a `skill` object
+with the same complete entry shape as `skills/list`.
+
+Use these request parameters:
+
+- For the first `skills/list` request, accept an empty object (`{}`).
+- For each later `skills/list` request, accept the returned cursor, such as
+  `{ "cursor": "next-page-cursor" }`.
+- For `skills/get`, accept the catalog URI, such as
+  `{ "uri": "skill://dice-roller/tabletop-dice/SKILL.md" }`.
+
+### Return every listed resource
+
+Support `resources/read` for every URI in the manifest. Return exactly one
+content item whose URI matches the request. OpenAI accepts UTF-8 text or a
+base64-encoded blob.
+
+During import, OpenAI verifies that:
+
+- OpenAI can fetch every listed resource and confirm its digest.
+- The fetched `SKILL.md` front matter exactly matches the catalog entry.
+- Resource paths are safe, unique, and free of normalization conflicts.
+- The complete skill fits the import limits.
+
+The importer accepts up to five uniquely named skills across 10 catalog pages.
+Each skill can contain up to 100 files, with these size limits:
+
+| Content                               | Limit   |
+| ------------------------------------- | ------- |
+| `SKILL.md`                            | 256 KiB |
+| Each supporting file                  | 1 MiB   |
+| All resources for one skill           | 5 MiB   |
+| Generated skill archives for one scan | 8 MiB   |
+
+The combined archive limit includes ZIP packaging overhead.
+
+If any entry fails validation or exceeds a limit, **Scan Tools** still returns
+the server's tools but does not update the draft's imported skills. Fix the
+server and scan again.
+
+Skills imported from MCP are submission-time snapshots, not live runtime
+resources. After changing a skill, run **Scan Tools** again, review the imported
+skills, and submit a new plugin version. See
+[Submit plugins](https://developers.openai.com/plugins/deploy/submission#mcp) for the complete flow.
+
 ## Authenticate and authorize requests
 
 Add authentication when a tool reads private data or takes action for a user.

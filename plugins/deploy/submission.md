@@ -13,10 +13,10 @@ A plugin can contain skills, an MCP server, or both. You can submit:
 
 - A skills-only plugin that packages reusable workflows.
 - An MCP-only plugin. Custom UI is optional.
-- A plugin that combines an MCP server with bundled skills.
+- A plugin that combines an MCP server with uploaded or MCP-imported skills.
 
-The submission form collects listing information, MCP server details, bundled
-skills, starter prompts, test cases, country availability, and policy
+The submission form collects listing information, MCP server details, skills,
+starter prompts, test cases, country availability, and policy
 attestations. Which fields you complete depends on whether the plugin includes
 skills, an MCP server, or both.
 
@@ -104,7 +104,7 @@ Before opening the form, collect:
 | Developer identity | Verified individual or business identity in the OpenAI Platform.                                                                                                                  |
 | MCP server         | For plugins with MCP: public MCP server URL, domain verification access, authentication details, demo credentials if needed, content security policy, and accurate tool metadata. |
 | Tool annotations   | For plugins with MCP: `readOnlyHint`, `openWorldHint`, and `destructiveHint` values for every MCP tool.                                                                           |
-| Skills             | For skills plugins: skill bundle or ZIP with the final skill file tree.                                                                                                           |
+| Skills             | For skills plugins: a final skill bundle or an MCP server that exposes static skills for **Scan Tools** to import.                                                                |
 | Prompts            | Starter prompts that show useful, realistic workflows.                                                                                                                            |
 | Test cases         | Five positive test cases and three negative test cases with clear expected behavior.                                                                                              |
 | Availability       | Countries or regions where the plugin should be available.                                                                                                                        |
@@ -117,7 +117,8 @@ Before opening the form, collect:
 3. Choose the submission type:
    - **Skills only** for a plugin that only packages skills.
    - **With MCP** for an MCP-only plugin.
-   - **With MCP** for a plugin that combines an MCP server with bundled skills.
+   - **With MCP** for a plugin that combines an MCP server with uploaded or
+     MCP-imported skills.
 
 The portal saves the submission as a draft while you complete the form.
 
@@ -174,8 +175,9 @@ For submissions with MCP:
    challenge. Use an HTTPS origin on the MCP host name or a parent host name, and
    host the exact token at `/.well-known/openai-apps-challenge`.
 6. Select **Scan Tools**.
-7. Review the discovered tools, domains, validation output, and tool metadata.
-8. Fix server or metadata issues, deploy the fix, then scan again.
+7. Review the discovered tools, imported skills, domains, validation output,
+   and tool metadata.
+8. Fix server, skill, or metadata issues, deploy the fix, then scan again.
 
 
 
@@ -270,8 +272,15 @@ For review expectations, see the
 
 ### Skills
 
-Upload the final skill bundle for skills-only or skills-plus-MCP submissions.
-Use the same file tree and instructions you tested locally.
+Add skills to the draft in either of these ways:
+
+- Upload the final skill bundle for skills-only or skills-plus-MCP submissions.
+- For submissions with MCP, import static skills from the MCP server. When you
+  select **Scan Tools**, OpenAI imports them into the draft.
+
+Use the same file tree and instructions you tested locally. To import skills
+from MCP, follow the
+[draft skills extension and static resource manifest](https://developers.openai.com/plugins/build/mcp-server#import-skills-from-the-mcp-server).
 
 
 
@@ -290,11 +299,21 @@ Each skill should include:
 - Any referenced scripts, templates, or assets.
 - Minimal, scoped instructions that fit the plugin's purpose.
 
-Uploaded skills are scanned for policy compliance and security risks, including
-sensitive information, unnecessary access requests, and instructions that may
-conflict with safe or expected plugin behavior. Skills must follow the same
-standards as the rest of the plugin and may block submission or require
-remediation if they fail automated scanning.
+OpenAI scans uploaded and MCP-imported skills for policy compliance and security
+risks, including sensitive information, unnecessary access requests, and
+instructions that may conflict with safe or expected plugin behavior. Skills
+must follow the same standards as the rest of the plugin and may block
+submission or require remediation if they fail automated scanning.
+
+OpenAI imports skills from MCP as a submission-time snapshot. Published plugins
+do not update those skills live. After changing a skill on the server, select
+**Scan Tools** again and review the updated skills before submitting a new
+plugin version.
+
+To remove every MCP-imported skill, keep the skills extension enabled, return
+`{ "skills": [] }` without a `nextCursor`, and scan again. Removing the
+extension or returning a response that does not pass validation preserves the
+previous snapshot.
 
 ### Prompts
 
@@ -415,11 +434,10 @@ appear in the Plugins Directory.
 
 ### How published MCP metadata versions work
 
-Plugins with MCP publish a reviewed metadata snapshot. To change that
+Plugins with MCP publish reviewed metadata and skill snapshots. To change a
 snapshot, scan the MCP server, submit a new version for review, and publish the
-approved version. See
-[MCP server review requirements](https://developers.openai.com/plugins/deploy/app-review#how-published-mcp-metadata-versions-work)
-for the complete maintenance rules.
+approved version. For metadata-specific maintenance rules, see
+[MCP server review requirements](https://developers.openai.com/plugins/deploy/app-review#how-published-mcp-metadata-versions-work).
 
 ## Final checklist
 
@@ -438,6 +456,7 @@ Before submitting, confirm:
 - Tool responses don't include unnecessary personal data, auth secrets, debug
   payloads, internal identifiers, or undisclosed user-related fields.
 - You tested the skills locally with the final file tree.
+- MCP-imported skills match the latest **Scan Tools** snapshot.
 - Starter prompts show realistic user workflows.
 - The submission includes five positive and three negative test cases.
 - Privacy policy, terms, support, and website URLs are public and match the
