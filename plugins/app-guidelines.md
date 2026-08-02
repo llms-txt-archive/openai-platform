@@ -135,6 +135,8 @@ through an inaccessible account, will be rejected.
 
 Currently, plugins may conduct commerce **only for physical goods**. Selling digital products or services—including subscriptions, digital content, tokens, or credits—is not allowed, whether offered directly or indirectly (for example, through freemium upsells).
 
+Users may sign in to an existing paid account and access features already included in their subscription. Plugins must not display subscription plans, initiate new subscriptions, or promote upgrades.
+
 In addition, plugins may not be used to sell, promote, facilitate, or meaningfully enable the following goods or services:
 
 #### **Prohibited goods**
