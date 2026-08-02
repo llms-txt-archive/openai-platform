@@ -697,7 +697,7 @@ Each section links to Markdown twins under the product path (e.g., `/plugins/<sl
 - [Image inputs](https://developers.openai.com/codex/image-inputs.md): Attach screenshots, diagrams, and visual references to ChatGPT prompts
 
 ## Codex — Import
-- [Import from another agent](https://developers.openai.com/codex/import.md): Bring supported setup and recent work from another agent into ChatGPT.
+- [Import from another agent](https://developers.openai.com/codex/import.md): Bring supported setup and recent work from another agent into ChatGPT or Codex.
 
 ## Codex — Integrated Terminal
 - [Integrated terminal](https://developers.openai.com/codex/integrated-terminal.md): Run commands and inspect output without leaving your chat
@@ -718,7 +718,7 @@ Each section links to Markdown twins under the product path (e.g., `/plugins/<sl
 - [Non-interactive mode](https://developers.openai.com/codex/non-interactive-mode.md): Use `codex exec` to run Codex in scripts and CI
 
 ## Codex — Notifications
-- [Notifications](https://developers.openai.com/codex/notifications.md): Choose how you are notified when work needs attention
+- [Notifications](https://developers.openai.com/codex/notifications.md): Choose how ChatGPT notifies you when work needs attention
 
 ## Codex — Open Source
 - [Open Source](https://developers.openai.com/codex/open-source.md): Open-source components of Codex and where to collaborate
@@ -804,7 +804,7 @@ Each section links to Markdown twins under the product path (e.g., `/plugins/<sl
 - [Use Codex in Slack](https://developers.openai.com/codex/third-party/slack.md): Ask Codex to work from Slack channels and threads
 
 ## Codex — Use Chatgpt
-- [Use ChatGPT](https://developers.openai.com/codex/use-chatgpt.md): Learn how to ask for what you need, add useful context, and refine the result.
+- [Use ChatGPT](https://developers.openai.com/codex/use-chatgpt.md): Choose Chat, ChatGPT Work, or Codex, add useful context, and refine the result.
 
 ## Codex — Videos
 - [Videos](https://developers.openai.com/codex/videos.md): Learn how to use Codex with demos, walkthroughs, and talks
