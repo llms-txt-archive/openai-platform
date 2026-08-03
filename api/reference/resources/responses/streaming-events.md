@@ -3120,6 +3120,10 @@ Schema name: `ResponseCreatedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -3514,7 +3518,8 @@ Schema name: `ResponseCreatedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -3627,6 +3632,10 @@ Schema name: `ResponseCreatedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.6-luna"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -8968,542 +8977,549 @@ Schema name: `ResponseCreatedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -56715,6 +56731,10 @@ Schema name: `ResponseInProgressEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -57109,7 +57129,8 @@ Schema name: `ResponseInProgressEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -57222,6 +57243,10 @@ Schema name: `ResponseInProgressEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.6-luna"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -62563,542 +62588,549 @@ Schema name: `ResponseInProgressEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -110310,6 +110342,10 @@ Schema name: `ResponseCompletedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -110704,7 +110740,8 @@ Schema name: `ResponseCompletedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -110817,6 +110854,10 @@ Schema name: `ResponseCompletedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.6-luna"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -116158,542 +116199,549 @@ Schema name: `ResponseCompletedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -163922,6 +163970,10 @@ Schema name: `ResponseFailedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -164316,7 +164368,8 @@ Schema name: `ResponseFailedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -164429,6 +164482,10 @@ Schema name: `ResponseFailedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.6-luna"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -169770,542 +169827,549 @@ Schema name: `ResponseFailedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -217515,6 +217579,10 @@ Schema name: `ResponseIncompleteEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -217909,7 +217977,8 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -218022,6 +218091,10 @@ Schema name: `ResponseIncompleteEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.6-luna"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -223363,542 +223436,549 @@ Schema name: `ResponseIncompleteEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -325171,6 +325251,10 @@ Schema name: `ResponseQueuedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -325565,7 +325649,8 @@ Schema name: `ResponseQueuedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -325678,6 +325763,10 @@ Schema name: `ResponseQueuedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.6-luna"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -331019,542 +331108,549 @@ Schema name: `ResponseQueuedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",

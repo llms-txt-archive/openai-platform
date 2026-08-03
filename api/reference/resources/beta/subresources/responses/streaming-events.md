@@ -1127,6 +1127,10 @@ Schema name: `BetaResponseCreatedEvent`
             },
             {
               "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
               "literal": "gpt-5.4"
             },
             {
@@ -3863,6 +3867,10 @@ Schema name: `BetaResponseCreatedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -4327,7 +4335,8 @@ Schema name: `BetaResponseCreatedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -9915,640 +9924,647 @@ Schema name: `BetaResponseCreatedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k-0613"
+      "literal": "gpt-3.5-turbo-0125"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro"
+      "literal": "gpt-3.5-turbo-16k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro-2025-03-19"
+      "literal": "o1-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 83": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro"
+      "literal": "o1-pro-2025-03-19"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 84": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro-2025-06-10"
+      "literal": "o3-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 85": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research"
+      "literal": "o3-pro-2025-06-10"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 86": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research-2025-06-26"
+      "literal": "o3-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 87": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research"
+      "literal": "o3-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 88": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research-2025-06-26"
+      "literal": "o4-mini-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 89": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview"
+      "literal": "o4-mini-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 90": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview-2025-03-11"
+      "literal": "computer-use-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "computer-use-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5-pro-2025-10-06"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -64666,6 +64682,10 @@ Schema name: `BetaResponseInProgressEvent`
             },
             {
               "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
               "literal": "gpt-5.4"
             },
             {
@@ -67402,6 +67422,10 @@ Schema name: `BetaResponseInProgressEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -67866,7 +67890,8 @@ Schema name: `BetaResponseInProgressEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -73454,640 +73479,647 @@ Schema name: `BetaResponseInProgressEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k-0613"
+      "literal": "gpt-3.5-turbo-0125"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro"
+      "literal": "gpt-3.5-turbo-16k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro-2025-03-19"
+      "literal": "o1-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 83": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro"
+      "literal": "o1-pro-2025-03-19"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 84": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro-2025-06-10"
+      "literal": "o3-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 85": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research"
+      "literal": "o3-pro-2025-06-10"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 86": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research-2025-06-26"
+      "literal": "o3-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 87": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research"
+      "literal": "o3-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 88": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research-2025-06-26"
+      "literal": "o4-mini-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 89": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview"
+      "literal": "o4-mini-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 90": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview-2025-03-11"
+      "literal": "computer-use-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "computer-use-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5-pro-2025-10-06"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -128205,6 +128237,10 @@ Schema name: `BetaResponseCompletedEvent`
             },
             {
               "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
               "literal": "gpt-5.4"
             },
             {
@@ -130941,6 +130977,10 @@ Schema name: `BetaResponseCompletedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -131405,7 +131445,8 @@ Schema name: `BetaResponseCompletedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -136993,640 +137034,647 @@ Schema name: `BetaResponseCompletedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k-0613"
+      "literal": "gpt-3.5-turbo-0125"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro"
+      "literal": "gpt-3.5-turbo-16k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro-2025-03-19"
+      "literal": "o1-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 83": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro"
+      "literal": "o1-pro-2025-03-19"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 84": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro-2025-06-10"
+      "literal": "o3-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 85": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research"
+      "literal": "o3-pro-2025-06-10"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 86": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research-2025-06-26"
+      "literal": "o3-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 87": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research"
+      "literal": "o3-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 88": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research-2025-06-26"
+      "literal": "o4-mini-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 89": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview"
+      "literal": "o4-mini-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 90": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview-2025-03-11"
+      "literal": "computer-use-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "computer-use-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5-pro-2025-10-06"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -191761,6 +191809,10 @@ Schema name: `BetaResponseFailedEvent`
             },
             {
               "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
               "literal": "gpt-5.4"
             },
             {
@@ -194497,6 +194549,10 @@ Schema name: `BetaResponseFailedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -194961,7 +195017,8 @@ Schema name: `BetaResponseFailedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -200549,640 +200606,647 @@ Schema name: `BetaResponseFailedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k-0613"
+      "literal": "gpt-3.5-turbo-0125"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro"
+      "literal": "gpt-3.5-turbo-16k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro-2025-03-19"
+      "literal": "o1-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 83": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro"
+      "literal": "o1-pro-2025-03-19"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 84": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro-2025-06-10"
+      "literal": "o3-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 85": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research"
+      "literal": "o3-pro-2025-06-10"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 86": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research-2025-06-26"
+      "literal": "o3-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 87": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research"
+      "literal": "o3-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 88": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research-2025-06-26"
+      "literal": "o4-mini-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 89": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview"
+      "literal": "o4-mini-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 90": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview-2025-03-11"
+      "literal": "computer-use-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "computer-use-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5-pro-2025-10-06"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -255298,6 +255362,10 @@ Schema name: `BetaResponseIncompleteEvent`
             },
             {
               "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
               "literal": "gpt-5.4"
             },
             {
@@ -258034,6 +258102,10 @@ Schema name: `BetaResponseIncompleteEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -258498,7 +258570,8 @@ Schema name: `BetaResponseIncompleteEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -264086,640 +264159,647 @@ Schema name: `BetaResponseIncompleteEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k-0613"
+      "literal": "gpt-3.5-turbo-0125"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro"
+      "literal": "gpt-3.5-turbo-16k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro-2025-03-19"
+      "literal": "o1-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 83": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro"
+      "literal": "o1-pro-2025-03-19"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 84": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro-2025-06-10"
+      "literal": "o3-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 85": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research"
+      "literal": "o3-pro-2025-06-10"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 86": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research-2025-06-26"
+      "literal": "o3-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 87": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research"
+      "literal": "o3-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 88": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research-2025-06-26"
+      "literal": "o4-mini-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 89": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview"
+      "literal": "o4-mini-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 90": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview-2025-03-11"
+      "literal": "computer-use-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "computer-use-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5-pro-2025-10-06"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -382568,6 +382648,10 @@ Schema name: `BetaResponseQueuedEvent`
             },
             {
               "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
               "literal": "gpt-5.4"
             },
             {
@@ -385304,6 +385388,10 @@ Schema name: `BetaResponseQueuedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -385768,7 +385856,8 @@ Schema name: `BetaResponseQueuedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -391356,640 +391445,647 @@ Schema name: `BetaResponseQueuedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k-0613"
+      "literal": "gpt-3.5-turbo-0125"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 81": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro"
+      "literal": "gpt-3.5-turbo-16k-0613"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-pro-2025-03-19"
+      "literal": "o1-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 83": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro"
+      "literal": "o1-pro-2025-03-19"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 84": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-pro-2025-06-10"
+      "literal": "o3-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 85": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research"
+      "literal": "o3-pro-2025-06-10"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 86": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-deep-research-2025-06-26"
+      "literal": "o3-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 87": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research"
+      "literal": "o3-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 88": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-deep-research-2025-06-26"
+      "literal": "o4-mini-deep-research"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 89": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview"
+      "literal": "o4-mini-deep-research-2025-06-26"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 90": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "computer-use-preview-2025-03-11"
+      "literal": "computer-use-preview"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 91": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "computer-use-preview-2025-03-11"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5-pro-2025-10-06"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
