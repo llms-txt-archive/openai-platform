@@ -7,6 +7,9 @@ after someone clicks an ad in ChatGPT. Use the pixel by adding the script to you
 it with your Pixel ID, and call `oaiq("measure", ...)` when a conversion
 happens.
 
+If a page needs to measure conversions for more than one Pixel ID, see
+[Configure more than one Pixel ID](https://developers.openai.com/ads/multiple-pixels).
+
 ## Install the Measurement Pixel
 
 Add the following snippet to the `<head>` section every page where you want to capture
@@ -121,8 +124,10 @@ Send hashes as lowercase, 64-character hexadecimal strings. Don't send raw email
 addresses, raw external IDs, phone numbers, or phone number hashes.
 
 If user data becomes available after the first `init` call, such as after login,
-call `init` again with the complete `user` object. You can omit `pixelId` after
-the first successful initialization.
+call `init` again with the complete `user` object. When a page initializes only
+one pixel, you can omit `pixelId` after the first successful initialization. If
+a page initializes more than one pixel, always include the intended `pixelId`
+when updating user data.
 
 ## Send events
 
