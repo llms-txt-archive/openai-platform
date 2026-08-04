@@ -154,6 +154,11 @@ delivery, use the [JavaScript Pixel](https://developers.openai.com/ads/measureme
 [Conversions API](https://developers.openai.com/ads/conversions-api), or both with shared event IDs for
 deduplication.
 
+When you send conversion events on behalf of a client, include the same
+`integration_source` identifier on every request. See [Identify partner
+integrations](https://developers.openai.com/ads/conversions-api#identify-partner-integrations) for the
+request format and naming requirements.
+
 ## 4. Create campaigns and ads
 
 Follow the [Ads API quickstart](https://developers.openai.com/ads/api-quickstart) to create a campaign, ad

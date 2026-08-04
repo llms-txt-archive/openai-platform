@@ -20,11 +20,12 @@ curl -X POST "https://bzr.openai.com/v1/events?pid=<PIXEL-ID>" \
 
 You can provision a Pixel ID and Conversions API key from the conversions tab in Ads Manager. Approved API partners can use the Ads API key associated with a client account to provision both resources with the [conversion setup endpoints](https://developers.openai.com/ads/api-reference/conversion-setup).
 
-| Value           | Required | Description                                       |
-| --------------- | -------- | ------------------------------------------------- |
-| `pid`           | Yes      | Your Pixel ID.                                    |
-| `validate_only` | No       | Validates events without saving them when `true`. |
-| `events`        | Yes      | The events to send.                               |
+| Value                | Required | Description                                              |
+| -------------------- | -------- | -------------------------------------------------------- |
+| `pid`                | Yes      | Your Pixel ID.                                           |
+| `validate_only`      | No       | Validates events without saving them when `true`.        |
+| `integration_source` | No       | Stable identifier for the integration sending the batch. |
+| `events`             | Yes      | The events to send.                                      |
 
 The API accepts batches of up to 1,000 events. If one event in the batch fails,
 the full batch fails.
@@ -33,6 +34,43 @@ For app lifecycle events, use the Pixel ID from an existing web data source.
 Send `app_installed` and `app_opened` from your server with `action_source`
 set to `mobile_app`. Native mobile SDK setup and mobile data sources are not
 currently supported.
+
+## Identify partner integrations
+
+If you send events on behalf of advertisers, include `integration_source` at
+the top level of every Conversions API request. Mobile measurement partners
+and other integrations should use the same stable identifier on every request,
+such as `acme_measurement` or `example_analytics`. The value applies to every
+event in the batch.
+
+For example, a measurement partner can identify itself when sending an app
+install event:
+
+```json
+{
+  "integration_source": "acme_measurement",
+  "events": [
+    {
+      "id": "app_installed_123",
+      "type": "app_installed",
+      "timestamp_ms": <TIMESTAMP_MS>,
+      "action_source": "mobile_app",
+      "data": {
+        "type": "customer_action"
+      }
+    }
+  ]
+}
+```
+
+Replace `<TIMESTAMP_MS>` with the event timestamp in milliseconds.
+
+Use 1–64 ASCII characters. Start with a letter or digit, and use only letters,
+digits, periods (`.`), underscores (`_`), or hyphens (`-`). The API trims
+whitespace and converts the value to lowercase before validation.
+
+Use `integration_source` to identify the integration sending the request. This
+field does not affect authentication or authorization.
 
 ## Event structure
 
