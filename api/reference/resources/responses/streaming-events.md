@@ -15992,9 +15992,6 @@ Schema name: `ResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -33502,9 +33499,6 @@ Schema name: `ResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -35496,9 +35490,6 @@ Schema name: `ResponseCreatedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -40309,9 +40300,6 @@ Schema name: `ResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -42303,9 +42291,6 @@ Schema name: `ResponseCreatedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -69603,9 +69588,6 @@ Schema name: `ResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -87113,9 +87095,6 @@ Schema name: `ResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -89107,9 +89086,6 @@ Schema name: `ResponseInProgressEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -93920,9 +93896,6 @@ Schema name: `ResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -95914,9 +95887,6 @@ Schema name: `ResponseInProgressEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -123214,9 +123184,6 @@ Schema name: `ResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -140724,9 +140691,6 @@ Schema name: `ResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -142718,9 +142682,6 @@ Schema name: `ResponseCompletedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -147531,9 +147492,6 @@ Schema name: `ResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -149525,9 +149483,6 @@ Schema name: `ResponseCompletedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -176842,9 +176797,6 @@ Schema name: `ResponseFailedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -194352,9 +194304,6 @@ Schema name: `ResponseFailedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -196346,9 +196295,6 @@ Schema name: `ResponseFailedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -201159,9 +201105,6 @@ Schema name: `ResponseFailedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -203153,9 +203096,6 @@ Schema name: `ResponseFailedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -230451,9 +230391,6 @@ Schema name: `ResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -247961,9 +247898,6 @@ Schema name: `ResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -249955,9 +249889,6 @@ Schema name: `ResponseIncompleteEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -254768,9 +254699,6 @@ Schema name: `ResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -256762,9 +256690,6 @@ Schema name: `ResponseIncompleteEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -281399,9 +281324,6 @@ Schema name: `ResponseOutputItemAddedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -283393,9 +283315,6 @@ Schema name: `ResponseOutputItemAddedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -304485,9 +304404,6 @@ Schema name: `ResponseOutputItemDoneEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -306479,9 +306395,6 @@ Schema name: `ResponseOutputItemDoneEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -338123,9 +338036,6 @@ Schema name: `ResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -355633,9 +355543,6 @@ Schema name: `ResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -357627,9 +357534,6 @@ Schema name: `ResponseQueuedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -362440,9 +362344,6 @@ Schema name: `ResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -364434,9 +364335,6 @@ Schema name: `ResponseQueuedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,

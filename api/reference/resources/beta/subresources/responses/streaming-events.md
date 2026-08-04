@@ -18074,9 +18074,6 @@ Schema name: `BetaResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -38585,9 +38582,6 @@ Schema name: `BetaResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -40615,9 +40609,6 @@ Schema name: `BetaResponseCreatedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -45642,9 +45633,6 @@ Schema name: `BetaResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -47672,9 +47660,6 @@ Schema name: `BetaResponseCreatedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -81629,9 +81614,6 @@ Schema name: `BetaResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -102140,9 +102122,6 @@ Schema name: `BetaResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -104170,9 +104149,6 @@ Schema name: `BetaResponseInProgressEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -109197,9 +109173,6 @@ Schema name: `BetaResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -111227,9 +111200,6 @@ Schema name: `BetaResponseInProgressEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -145184,9 +145154,6 @@ Schema name: `BetaResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -165695,9 +165662,6 @@ Schema name: `BetaResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -167725,9 +167689,6 @@ Schema name: `BetaResponseCompletedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -172752,9 +172713,6 @@ Schema name: `BetaResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -174782,9 +174740,6 @@ Schema name: `BetaResponseCompletedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -208756,9 +208711,6 @@ Schema name: `BetaResponseFailedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -229267,9 +229219,6 @@ Schema name: `BetaResponseFailedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -231297,9 +231246,6 @@ Schema name: `BetaResponseFailedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -236324,9 +236270,6 @@ Schema name: `BetaResponseFailedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -238354,9 +238297,6 @@ Schema name: `BetaResponseFailedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -272309,9 +272249,6 @@ Schema name: `BetaResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -292820,9 +292757,6 @@ Schema name: `BetaResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -294850,9 +294784,6 @@ Schema name: `BetaResponseIncompleteEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -299877,9 +299808,6 @@ Schema name: `BetaResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -301907,9 +301835,6 @@ Schema name: `BetaResponseIncompleteEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -333894,9 +333819,6 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -335924,9 +335846,6 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -361055,9 +360974,6 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -363085,9 +363001,6 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -399595,9 +399508,6 @@ Schema name: `BetaResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -420106,9 +420016,6 @@ Schema name: `BetaResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -422136,9 +422043,6 @@ Schema name: `BetaResponseQueuedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
@@ -427163,9 +427067,6 @@ Schema name: `BetaResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeString"
     },
-    "constraints": {
-      "minLength": 1
-    },
     "optional": false,
     "nullable": false,
     "schemaType": "string",
@@ -429193,9 +429094,6 @@ Schema name: `BetaResponseQueuedEvent`
     "docstring": "A description of the namespace shown to the model.",
     "type": {
       "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1
     },
     "optional": false,
     "nullable": false,
