@@ -116,11 +116,10 @@ jobs:
     # 5 – Let Codex implement & commit (no push yet)
     - name: Codex implement & commit
       env:
-        OPENAI_API_KEY:  ${{ secrets.OPENAI_API_KEY }}
-        CODEX_QUIET_MODE: "1"          # suppress chatty logs
+        CODEX_API_KEY:  ${{ secrets.OPENAI_API_KEY }}
       run: |
         set -e
-        codex --approval-mode full-auto --no-terminal --quiet \
+        codex exec --sandbox workspace-write \
               "Implement JIRA ticket $ISSUE_KEY: $TITLE. $DESC"
 
         git add -A
@@ -169,7 +168,7 @@ jobs:
 
 1. **Codex Implementation & Commit** (Step 5)
    - Uses OpenAI API to implement the JIRA ticket requirements
-   - Runs codex CLI in full-auto mode without terminal interaction
+   - Runs the Codex CLI non-interactively with workspace write access
    - Commits all changes with standardized commit message
 
 2. **Create Pull Request** (Step 6) 

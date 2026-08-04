@@ -33,14 +33,14 @@ from pydantic import BaseModel
 from openai import AsyncOpenAI
 
 # Use env var for API key and set a long timeout
-client = AsyncOpenAI(api_key="", timeout=600.0)
+client = AsyncOpenAI(timeout=600.0)
 set_default_openai_client(client)
 os.environ["OPENAI_AGENTS_DISABLE_TRACING"] = "1" # Disable tracing for Zero Data Retention (ZDR) Organizations
 ```
 
 ### Basic Deep Research Agent
 
-The Basic Research Agent performs Deep Research using the o4-mini-deep-research-alpha model. It has native WebSearch access to the public internet and streams its findings directly back into the notebook. In this case we are using the `o4-mini-deep-research-alpha` model, because it is faster than the full o3 deep research model, with acceptable intelligence.
+The Basic Research Agent performs deep research using the `gpt-5.6-terra` model, which balances intelligence and cost. It uses `WebSearchTool` to access the public internet and streams its findings directly back into the notebook.
 
 **Learning objective:**
 
@@ -50,7 +50,7 @@ After this, you can run a single-agent research task and stream its progress.
 # Define the research agent
 research_agent = Agent(
     name="Research Agent",
-    model="o4-mini-deep-research-2025-06-26",
+    model="gpt-5.6-terra",
     tools=[WebSearchTool()],
     instructions="You perform deep empirical research based on the user's question."
 )
@@ -170,7 +170,7 @@ RESEARCH_INSTRUCTION_AGENT_PROMPT = """
 3. **Instruction Builder Agent**  
    - Converts the enriched input into a precise research brief  
 
-4. **Research Agent** (`o3-deep-research`)  
+4. **Research Agent** (`gpt-5.6-sol`)  
    - Performs web-scale empirical research with `WebSearchTool`
    - Performs a search against internal knowledge store using MCP, if there are relevant documents, the agent incorporates those relevant snippets in its reference material.   
    - Streams intermediate events for transparency
@@ -192,7 +192,7 @@ class Clarifications(BaseModel):
 # ─────────────────────────────────────────────────────────────
 research_agent = Agent(
     name="Research Agent",
-    model="o3-deep-research-2025-06-26",
+    model="gpt-5.6-sol",
     instructions="Perform deep empirical research based on the user's instructions.",
     tools=[WebSearchTool(),
            HostedMCPTool(
