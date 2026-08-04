@@ -191,7 +191,7 @@ async
 
    Your frontend code
 
-```react
+```tsx
 import { ChatKit, useChatKit } from '@openai/chatkit-react';
 
    export function MyChat({ getAppAuthToken }) {
