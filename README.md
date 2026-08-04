@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260804T224233Z` | 2026-08-04 22:42 UTC | [Conversion Partner IDs and SIP Routing Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260804T224233Z) |
+| `archive-20260804T234404Z` | 2026-08-04 23:44 UTC | [Deprecation tables and Bedrock capability updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260804T234404Z) |
+| `archive-20260804T224233Z` | 2026-08-04 22:43 UTC | [Conversion Partner IDs and SIP Routing Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260804T224233Z) |
 | `archive-20260804T205339Z` | 2026-08-04 20:54 UTC | [Response Event Reference Constraint Cleanup](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260804T205339Z) |
 | `archive-20260804T191129Z` | 2026-08-04 19:12 UTC | [Quickstart and Tool Guide Layout Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260804T191129Z) |
 | `archive-20260804T171741Z` | 2026-08-04 17:18 UTC | [ChatKit Guide TSX Retag](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260804T171741Z) |
 | `archive-20260804T035340Z` | 2026-08-04 03:54 UTC | [Codex CLI and Deep Research Example Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260804T035340Z) |
-| `archive-20260803T234558Z` | 2026-08-03 23:46 UTC | [Ads Docs: Multiple Pixel Guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260803T234558Z) |
