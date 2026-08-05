@@ -25,6 +25,7 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 
 ## Examples
 - [Agents SDK Deployment Manager](https://developers.openai.com/cookbook/examples/agents_sdk/deployment_manager/readme.md): Run, inspect, and trace local Agents SDK demo apps from a browser-based deployment manager.
+- [AML Analysis with the Agents SDK on Amazon Bedrock](https://developers.openai.com/cookbook/examples/partners/aws/evidence_grounded_aml_agent_with_bedrock.md): Run a synthetic AML analysis with the OpenAI Agents SDK and GPT-5.6 Sol on Amazon Bedrock, verify structured claims against deterministic evidence, test failure cases, and enforce an application-owned human review gate.
 - [Automate Jira ↔ GitHub with Codex](https://developers.openai.com/cookbook/examples/codex/jira-github.md)
 - [Automating Code Quality and Security Fixes with Codex CLI on GitLab](https://developers.openai.com/cookbook/examples/codex/secure_quality_gitlab.md)
 - [Better performance from reasoning models using the Responses API](https://developers.openai.com/cookbook/examples/responses_api/reasoning_items.md)

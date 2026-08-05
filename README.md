@@ -7,7 +7,7 @@ Every change to the upstream docs produces a git commit and a GitHub release, so
 | | |
 |---|---|
 | **Source** | [https://developers.openai.com/llms.txt](https://developers.openai.com/llms.txt) |
-| **Documents** | 735 Markdown files |
+| **Documents** | 736 Markdown files |
 | **Schedule** | Hourly at :42 UTC |
 
 ## How it works
@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260805T170920Z` | 2026-08-05 17:09 UTC | [Amazon Bedrock AML cookbook addition](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260805T170920Z) |
 | `archive-20260805T150009Z` | 2026-08-05 15:00 UTC | [Clarified plan-entitlement guidance for app and plugin docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260805T150009Z) |
 | `archive-20260805T034846Z` | 2026-08-05 03:49 UTC | [Responses and Conversations Schema Alignment](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260805T034846Z) |
 | `archive-20260804T234404Z` | 2026-08-04 23:44 UTC | [Deprecation tables and Bedrock capability updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260804T234404Z) |
 | `archive-20260804T224233Z` | 2026-08-04 22:43 UTC | [Conversion Partner IDs and SIP Routing Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260804T224233Z) |
 | `archive-20260804T205339Z` | 2026-08-04 20:54 UTC | [Response Event Reference Constraint Cleanup](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260804T205339Z) |
-| `archive-20260804T191129Z` | 2026-08-04 19:12 UTC | [Quickstart and Tool Guide Layout Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260804T191129Z) |
