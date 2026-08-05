@@ -81,8 +81,8 @@ Micros are millionths of the main currency unit (e.g., Dollars). The max_bid fie
 For a conversion-optimized campaign (oCPC), set
 `bidding_config.billing_event_type` to `click`. `max_bid_micros` is the CPA
 bid even though the billing event is a click. For example, `100000000` is a
-$100.00 CPA bid for a USD account. For a beta-enabled product-feed oCPC
-campaign, use the same `POST /ad_groups` endpoint. The ad group automatically
+$100.00 CPA bid for a USD account. For a product-feed oCPC campaign in open
+beta, use the same `POST /ad_groups` endpoint. The ad group automatically
 inherits the campaign's product feed. Include `product_set` only when you want
 to specify product filters; its `product_feed_id` must match the campaign's
 feed. For the full setup and reporting workflow, see

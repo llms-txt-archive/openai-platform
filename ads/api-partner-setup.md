@@ -190,9 +190,9 @@ The event setting must be active, belong to the current ad account, connect to
 one active conversion source, and use an event from [Supported
 Events](https://developers.openai.com/ads/supported-events), such as `order_created`, `lead_created`, or
 `registration_completed`. Custom events cannot be optimization goals.
-For beta-enabled product-feed campaigns, use the same campaign endpoint and
-add `mode: "product_feed"` and the linked `product_feed_id`. You cannot change
-the campaign objective or selected conversion event after creation.
+For product-feed campaigns in open beta, use the same campaign endpoint and add
+`mode: "product_feed"` and the linked `product_feed_id`. You cannot change the
+campaign objective or selected conversion event after creation.
 
 Next, create each ad group with `billing_event_type` set to `click`. For an
 oCPC campaign, `max_bid_micros` is the CPA bid; for example, `100000000` is a

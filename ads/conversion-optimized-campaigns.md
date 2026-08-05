@@ -6,9 +6,9 @@ Use a conversion-optimized cost-per-click (oCPC) campaign when you want to
 optimize delivery toward one tracked conversion event while continuing to pay
 for valid clicks. In the Ads API, oCPC uses `bidding_type: "conversions"`.
 
-Product-feed oCPC is in beta. Beta-enabled ad accounts can use the same
-  campaign and ad-group endpoints to optimize both standard and product-feed
-  campaigns for conversions while continuing to pay per valid click.
+oCPC is in open beta for both standard and product-feed campaigns. Use the
+  same campaign and ad-group endpoints to optimize for conversions while
+  continuing to pay per valid click.
 
 Choose the campaign goal that matches the outcome you want:
 
@@ -35,9 +35,9 @@ Before you create an oCPC campaign, make sure:
 - The conversion event setting belongs to the current ad account and connects
   to one active conversion source.
 
-Product-feed conversion bidding is available to beta-enabled ad accounts. Each
-oCPC campaign uses one selected conversion event, and you cannot change the
-goal or event after campaign creation.
+Product-feed conversion bidding is available in open beta. Each oCPC campaign
+uses one selected conversion event, and you cannot change the goal or event
+after campaign creation.
 
 ## Create a conversion-optimized campaign
 
@@ -172,7 +172,7 @@ still uses valid clicks.
 
 ### Product-feed campaigns
 
-Yes. Product-feed oCPC is available in beta for enabled ad accounts. Set
+Yes. Product-feed oCPC is available in open beta. Set
 `mode` to `product_feed`, include the linked `product_feed_id`, and set
 `bidding_type` to `conversions` when creating the campaign. Create its ad group
 with `billing_event_type: "click"`. The ad group inherits the campaign's feed;

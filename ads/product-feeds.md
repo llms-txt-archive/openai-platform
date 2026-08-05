@@ -68,9 +68,9 @@ eligibility is necessary, but it does not guarantee that a product will serve.
 Create a campaign with `mode` set to `product_feed` and the ID of a feed linked
 to your ad account. You cannot change the mode after creation.
 
-Product-feed conversion bidding (oCPC) is in beta. Beta-enabled ad accounts
-  can use the same `POST /campaigns` and `POST /ad_groups` endpoints for
-  standard and product-feed conversion-optimized campaigns.
+oCPC is in open beta for both standard and product-feed campaigns. Use the
+  same `POST /campaigns` and `POST /ad_groups` endpoints to create and manage
+  conversion-optimized campaigns.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns" \
@@ -95,9 +95,9 @@ targeting, budget, update, and state-control fields.
 
 ### Optimize a product-feed campaign for conversions
 
-For beta-enabled ad accounts, set `bidding_type` to `conversions`, include the
-linked `product_feed_id`, and pass exactly one active standard conversion
-event setting. Use the existing campaign endpoint:
+During the open beta, set `bidding_type` to `conversions`, include the linked
+`product_feed_id`, and pass exactly one active standard conversion event
+setting. Use the existing campaign endpoint:
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns" \
