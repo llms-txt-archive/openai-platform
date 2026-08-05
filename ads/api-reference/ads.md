@@ -58,7 +58,7 @@ Create an ad for an ad group.
 | --------------------- | ------ | --------------- | ------------------------------------------------------------------------------------------------------------- |
 | `ad_group_id`         | string | Yes             | Parent ad group ID.                                                                                           |
 | `name`                | string | Yes             | `3` to `1000` chars and must include a non-space character. Used for organization, is not shown to end users. |
-| `creative.type`       | string | Yes             | `chat_card` or `product_ad_template`. See [Product feeds](https://developers.openai.com/ads/product-feeds).                                |
+| `creative.type`       | string | Yes             | `chat_card` or `product_ad_template`. See [Product Feeds](https://developers.openai.com/ads/product-feeds).                                |
 | `creative.title`      | string | Yes             | `3` to `50` chars.                                                                                            |
 | `creative.body`       | string | Yes             | Maximum `100` chars.                                                                                          |
 | `creative.price`      | string | No              | Price text or `{{product.price}}` for a product-ad template.                                                  |

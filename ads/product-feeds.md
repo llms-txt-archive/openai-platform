@@ -1,4 +1,4 @@
-# Product feeds
+# Product Feeds
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
@@ -137,7 +137,7 @@ curl -X POST "https://api.ads.openai.com/v1/ad_groups" \
 
 The campaign optimizes for the selected conversion event, and you continue to
 pay per valid click. See
-[Conversion-optimized campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns) for
+[Conversion-Optimized Campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns) for
 conversion measurement prerequisites and bid configuration.
 
 ## Select products in an ad group
@@ -254,11 +254,11 @@ key.
 | Resource       | Public endpoints                                                                                                                          | Product-feed use                                                           |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | Campaigns      | `POST /campaigns`, `GET /campaigns`, `GET /campaigns/{campaign_id}`, `POST /campaigns/{campaign_id}`                                      | Create and manage a campaign whose `mode` is `product_feed`.               |
-| Campaign state | `POST /campaigns/{campaign_id}/activate`, `POST /campaigns/{campaign_id}/pause`, `POST /campaigns/{campaign_id}/archive`                  | Control whether the product-feed campaign can deliver.                     |
-| Ad groups      | `POST /ad_groups`, `GET /ad_groups?campaign_id={campaign_id}`, `GET /ad_groups/{ad_group_id}`, `POST /ad_groups/{ad_group_id}`            | Create and manage the feed selection and product filters in `product_set`. |
-| Ad-group state | `POST /ad_groups/{ad_group_id}/activate`, `POST /ad_groups/{ad_group_id}/pause`, `POST /ad_groups/{ad_group_id}/archive`                  | Control whether the product set can deliver.                               |
+| Campaign State | `POST /campaigns/{campaign_id}/activate`, `POST /campaigns/{campaign_id}/pause`, `POST /campaigns/{campaign_id}/archive`                  | Control whether the product-feed campaign can deliver.                     |
+| Ad Groups      | `POST /ad_groups`, `GET /ad_groups?campaign_id={campaign_id}`, `GET /ad_groups/{ad_group_id}`, `POST /ad_groups/{ad_group_id}`            | Create and manage the feed selection and product filters in `product_set`. |
+| Ad Group State | `POST /ad_groups/{ad_group_id}/activate`, `POST /ad_groups/{ad_group_id}/pause`, `POST /ad_groups/{ad_group_id}/archive`                  | Control whether the product set can deliver.                               |
 | Ads            | `POST /ads`, `GET /ads?ad_group_id={ad_group_id}`, `GET /ads/{ad_id}`, `POST /ads/{ad_id}`                                                | Create and manage the `product_ad_template`.                               |
-| Ad state       | `POST /ads/{ad_id}/activate`, `POST /ads/{ad_id}/pause`, `POST /ads/{ad_id}/archive`                                                      | Control whether the template can deliver.                                  |
+| Ad State       | `POST /ads/{ad_id}/activate`, `POST /ads/{ad_id}/pause`, `POST /ads/{ad_id}/archive`                                                      | Control whether the template can deliver.                                  |
 | Insights       | `GET /ad_account/insights`, `GET /campaigns/{campaign_id}/insights`, `GET /ad_groups/{ad_group_id}/insights`, `GET /ads/{ad_id}/insights` | Query product-segmented delivery and performance.                          |
 
 The Ads Manager feed-connection APIs and OpenAI's internal feed-processing and

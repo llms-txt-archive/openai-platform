@@ -174,6 +174,8 @@ The supported methods are:
 
 DCR is still supported. If you include `registration_endpoint`, ChatGPT can register dynamically when the plugin builder chooses DCR or CIMD is not available. ChatGPT runs DCR once per MCP server connection, then keeps and reuses the registered OAuth client for that connection. DCR can still create many registered clients across many separate connections, so CIMD is usually easier to administer at scale.
 
+Keep the registered OAuth client and any client secret valid while the connector is in use. If your authorization server expires, deletes, or replaces either credential, users and reviewers may receive an `invalid_client` error when they connect. Access and refresh tokens can still expire or rotate normally.
+
 ### Client identification
 
 A frequent question is how your MCP server can confirm that a request actually comes from ChatGPT. ChatGPT presents an OpenAI-managed client certificate when connecting to MCP servers, so you can verify the client at the transport layer with mTLS. You can also allowlist ChatGPT’s [published egress IP ranges](https://developers.openai.com/api/docs/guides/ip-addresses). ChatGPT does **not** support machine-to-machine OAuth grants such as client credentials, service accounts, or JWT bearer assertions, nor can it present custom API keys or customer-provided mTLS certificates.

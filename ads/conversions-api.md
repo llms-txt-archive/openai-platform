@@ -113,7 +113,7 @@ Each event includes the event metadata and a `data` object.
 | `opt_out`           | No       | Set to `true` to opt out the event from future user-level personalization. Defaults to `false`.                                                                            |
 | `data`              | Yes      | Event data matching the event type.                                                                                                                                        |
 
-See [Supported events](https://developers.openai.com/ads/supported-events) for event names and data shapes.
+See [Supported Events](https://developers.openai.com/ads/supported-events) for event names and data shapes.
 
 Unlike the pixel, the API does not capture `oppref` for you. Capture the value
 yourself and pass it with the server event when it is available.

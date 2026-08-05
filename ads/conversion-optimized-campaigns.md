@@ -1,4 +1,4 @@
-# Conversion-optimized campaigns
+# Conversion-Optimized Campaigns
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
@@ -61,7 +61,7 @@ curl -X POST "https://api.ads.openai.com/v1/campaigns" \
 Replace `ces_123` with the active conversion event setting ID that represents
 your goal, such as `order_created`, `lead_created`, or
 `registration_completed`. See [Conversion
-setup](https://developers.openai.com/ads/api-reference/conversion-setup) to create and manage event
+Setup](https://developers.openai.com/ads/api-reference/conversion-setup) to create and manage event
 settings.
 
 For a product-feed campaign, use the same `POST /campaigns` endpoint. Include
@@ -107,14 +107,14 @@ curl -X POST "https://api.ads.openai.com/v1/ad_groups" \
 For a product-feed campaign, the ad group automatically inherits the campaign's
 product feed. Include `product_set` only when you want to specify product
 filters; its `product_feed_id` must match the campaign's feed. See
-[Product feeds](https://developers.openai.com/ads/product-feeds) for the complete product-feed campaign,
+[Product Feeds](https://developers.openai.com/ads/product-feeds) for the complete product-feed campaign,
 ad-group, and product-ad template workflow.
 
 Create ads as you normally would, then activate the campaign after all child
-resources are ready. For the complete resource-creation sequence, see the [Ads
-API quickstart](https://developers.openai.com/ads/api-quickstart). For all campaign and ad-group fields, see
-the [campaigns](https://developers.openai.com/ads/api-reference/campaigns) and [ad
-groups](https://developers.openai.com/ads/api-reference/ad-groups) references.
+resources are ready. For the complete resource-creation sequence, see the
+[Quickstart](https://developers.openai.com/ads/api-quickstart). For all campaign and ad-group fields, see
+[Campaigns](https://developers.openai.com/ads/api-reference/campaigns) and [Ad
+Groups](https://developers.openai.com/ads/api-reference/ad-groups).
 
 ## Understand delivery and billing
 
@@ -153,7 +153,7 @@ To improve performance:
 
 An oCPC campaign supports exactly one active standard conversion event setting.
 Custom event settings are not supported as optimization goals. See [Supported
-events](https://developers.openai.com/ads/supported-events) for the standard event names.
+Events](https://developers.openai.com/ads/supported-events) for the standard event names.
 
 ### Changing an existing campaign
 

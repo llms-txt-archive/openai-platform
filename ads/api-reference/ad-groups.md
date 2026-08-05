@@ -86,8 +86,8 @@ campaign, use the same `POST /ad_groups` endpoint. The ad group automatically
 inherits the campaign's product feed. Include `product_set` only when you want
 to specify product filters; its `product_feed_id` must match the campaign's
 feed. For the full setup and reporting workflow, see
-[Conversion-optimized campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns) and
-[Product feeds](https://developers.openai.com/ads/product-feeds).
+[Conversion-Optimized Campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns) and
+[Product Feeds](https://developers.openai.com/ads/product-feeds).
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/ad_groups" \

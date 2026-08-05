@@ -1,4 +1,4 @@
-# API partner setup
+# API Partner Setup
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
@@ -149,7 +149,7 @@ curl -X POST "https://api.ads.openai.com/v1/conversions/event_settings" \
 ```
 
 Save the returned event setting `id`. For endpoint fields and responses, see
-[Conversion setup](https://developers.openai.com/ads/api-reference/conversion-setup). To implement event
+[Conversion Setup](https://developers.openai.com/ads/api-reference/conversion-setup). To implement event
 delivery, use the [JavaScript Pixel](https://developers.openai.com/ads/measurement-pixel), the
 [Conversions API](https://developers.openai.com/ads/conversions-api), or both with shared event IDs for
 deduplication.
@@ -161,15 +161,15 @@ request format and naming requirements.
 
 ## 4. Create campaigns and ads
 
-Follow the [Ads API quickstart](https://developers.openai.com/ads/api-quickstart) to create a campaign, ad
+Follow the [Quickstart](https://developers.openai.com/ads/api-quickstart) to create a campaign, ad
 group, creative asset, and ad in the correct order. For partner setup, create
 the campaign as `paused` instead of `active`, then activate it after all child
 resources are ready.
 
 To create a conversion-optimized campaign (oCPC), set `bidding_type` to
 `conversions` and pass exactly one event setting ID. For the bidding model,
-prerequisites, and reporting guidance, see [Conversion-optimized
-campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns).
+prerequisites, and reporting guidance, see [Conversion-Optimized
+Campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns).
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns" \
@@ -187,8 +187,8 @@ curl -X POST "https://api.ads.openai.com/v1/campaigns" \
 ```
 
 The event setting must be active, belong to the current ad account, connect to
-one active conversion source, and use a [standard supported
-event](https://developers.openai.com/ads/supported-events) such as `order_created`, `lead_created`, or
+one active conversion source, and use an event from [Supported
+Events](https://developers.openai.com/ads/supported-events), such as `order_created`, `lead_created`, or
 `registration_completed`. Custom events cannot be optimization goals.
 For beta-enabled product-feed campaigns, use the same campaign endpoint and
 add `mode: "product_feed"` and the linked `product_feed_id`. You cannot change
@@ -219,10 +219,10 @@ Activate the campaign only after all child resources are ready.
 ## Next steps
 
 - [Authentication](https://developers.openai.com/ads/api-reference/authentication)
-- [Ad account reference](https://developers.openai.com/ads/api-reference/ad-account)
-- [Conversion setup](https://developers.openai.com/ads/api-reference/conversion-setup)
+- [Ad Account](https://developers.openai.com/ads/api-reference/ad-account)
+- [Conversion Setup](https://developers.openai.com/ads/api-reference/conversion-setup)
 - [Campaigns](https://developers.openai.com/ads/api-reference/campaigns)
-- [Ad groups](https://developers.openai.com/ads/api-reference/ad-groups)
+- [Ad Groups](https://developers.openai.com/ads/api-reference/ad-groups)
 - [Ads](https://developers.openai.com/ads/api-reference/ads)
 - [Files](https://developers.openai.com/ads/api-reference/files)
 - [Insights](https://developers.openai.com/ads/api-reference/insights)

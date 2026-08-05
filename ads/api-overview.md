@@ -18,20 +18,21 @@ Authorization: Bearer $OPENAI_ADS_API_KEY
 
 The Ads API works in the context of one ad account. API partners should use
   the key associated with the client account they are configuring. See [API
-  partner setup](https://developers.openai.com/ads/api-partner-setup). To request partner access, [contact
+  Partner Setup](https://developers.openai.com/ads/api-partner-setup). To request partner access, [contact
   us](https://openai.com/advertisers/).
 
 ## Endpoints
 
 | Resource                  | Use for                                                                         |
 | ------------------------- | ------------------------------------------------------------------------------- |
+| Ad Account                | Update and retrieve metadata for the current ad account.                        |
 | Campaigns                 | Create, list, retrieve, update, and change campaign state.                      |
 | Ad Groups                 | Create, list, retrieve, update, and change ad group state.                      |
 | Ads                       | Create, list, retrieve, update, and change ad state.                            |
-| [Bulk API](https://developers.openai.com/ads/bulk-api) | Create or update campaigns, ad groups, and ads in an asynchronous job.          |
-| Product feeds             | Use a merchant catalog to create product-feed campaigns.                        |
-| Files                     | Upload creative assets for use in ads.                                          |
 | Insights                  | Retrieve performance data across ad account, campaign, ad group, and ad scopes. |
+| Files                     | Upload creative assets for use in ads.                                          |
+| [Bulk API](https://developers.openai.com/ads/bulk-api) | Create or update campaigns, ad groups, and ads in an asynchronous job.          |
+| Product Feeds             | Use a merchant catalog to create product-feed campaigns.                        |
 | Conversions               | Create pixels, server-side keys, and conversion event settings when enabled.    |
 
 Every resource belongs to the ad account associated with the API key.
@@ -40,13 +41,15 @@ enablement. Contact your OpenAI partner representative if these operations are
 not available for the account.
 
 Use the [Quickstart](https://developers.openai.com/ads/api-quickstart) for a minimal end-to-end workflow, or go
-directly to the [API reference](https://developers.openai.com/ads/api-reference/authentication). API partners
-can start with [API partner setup](https://developers.openai.com/ads/api-partner-setup). To advertise
-from a merchant catalog, follow the [product feeds guide](https://developers.openai.com/ads/product-feeds).
+directly to the [API Reference](https://developers.openai.com/ads/api-reference/authentication). API partners
+can start with [API Partner Setup](https://developers.openai.com/ads/api-partner-setup). To advertise
+from a merchant catalog, see [Product Feeds](https://developers.openai.com/ads/product-feeds).
 
-## Object Statuses
+## Object statuses
 
-For an ad to show to users, the ad, and its parent ad group and campaign all have to be enabled. Further, the Ad has to be reviewed. Reviews typically only take a few minutes, you can monitor with the `review_status` field.
+For an ad to show to users, the ad and its parent ad group and campaign all
+have to be enabled. The ad also has to be reviewed. Reviews typically take only
+a few minutes. Monitor the status with the `review_status` field.
 
 ## Rate limits
 

@@ -226,10 +226,11 @@ Once the basic flow works, use the full reference for each part of the
 integration:
 
 - [Authentication](https://developers.openai.com/ads/api-reference/authentication)
+- [Ad Account](https://developers.openai.com/ads/api-reference/ad-account)
 - [Campaigns](https://developers.openai.com/ads/api-reference/campaigns)
-- [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting)
-- [Product feeds](https://developers.openai.com/ads/product-feeds)
 - [Ad Groups](https://developers.openai.com/ads/api-reference/ad-groups)
 - [Ads](https://developers.openai.com/ads/api-reference/ads)
-- [Files](https://developers.openai.com/ads/api-reference/files)
+- [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting)
+- [Product Feeds](https://developers.openai.com/ads/product-feeds)
 - [Insights](https://developers.openai.com/ads/api-reference/insights)
+- [Files](https://developers.openai.com/ads/api-reference/files)

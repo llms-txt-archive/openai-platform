@@ -33,6 +33,7 @@ behavior.
 
 - **401 errors:** Include a `WWW-Authenticate` header in the error response so ChatGPT knows to start the OAuth flow again. Double-check issuer URLs and audience claims.
 - **Client registration fails:** If you use CIMD, confirm your authorization server metadata includes `client_id_metadata_document_supported: true` and can fetch ChatGPT's client metadata document. For `private_key_jwt`, confirm your authorization server can fetch ChatGPT's public JWKS and check the signed client assertion. If you use DCR, confirm your authorization server exposes `registration_endpoint` and that newly created clients have at least one login connection enabled.
+- **An existing connector returns `invalid_client`:** Confirm that the dynamically registered OAuth client still exists and that your authorization server accepts its client secret, if it has one. ChatGPT reuses these credentials, so restore them instead of creating a new client. An expired access token requires a different fix.
 
 ## Deployment problems
 

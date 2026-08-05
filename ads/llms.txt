@@ -8,23 +8,23 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 - [Combined Ads docs](https://developers.openai.com/ads/llms-full.txt): Single-file Markdown export of the Ads docs.
 
 ## Api Overview
-- [Overview](https://developers.openai.com/ads/api-overview.md): Advertiser API endpoints & usage
+- [Overview](https://developers.openai.com/ads/api-overview.md): Advertiser API endpoints and usage
 
 ## Api Partner Setup
-- [API partner setup](https://developers.openai.com/ads/api-partner-setup.md): Configure client accounts, conversions, and campaigns with the Ads API.
+- [API Partner Setup](https://developers.openai.com/ads/api-partner-setup.md): Configure client accounts, conversions, and campaigns with the Ads API.
 
 ## Api Quickstart
 - [Quickstart](https://developers.openai.com/ads/api-quickstart.md): Launch your first Ads API workflow
 
 ## Api Reference
-- [Ad account](https://developers.openai.com/ads/api-reference/ad-account.md): Update and retrieve account metadata.
+- [Ad Account](https://developers.openai.com/ads/api-reference/ad-account.md): Update and retrieve account metadata.
 - [Ad Groups](https://developers.openai.com/ads/api-reference/ad-groups.md): Create, list, retrieve, update, and change ad group state.
 - [Ads](https://developers.openai.com/ads/api-reference/ads.md): Create, list, retrieve, update, and change ad state.
 - [Authentication](https://developers.openai.com/ads/api-reference/authentication.md): Setting up bearer token authentication.
 - [Campaigns](https://developers.openai.com/ads/api-reference/campaigns.md): Create, list, retrieve, update, and change campaign state.
-- [Conversion setup](https://developers.openai.com/ads/api-reference/conversion-setup.md): Create pixels, Conversions API keys, and event settings.
+- [Conversion Setup](https://developers.openai.com/ads/api-reference/conversion-setup.md): Create pixels, Conversions API keys, and event settings.
 - [Files](https://developers.openai.com/ads/api-reference/files.md): Upload remote images or binary files and reuse the returned file ID in ad creatives.
-- [Insights](https://developers.openai.com/ads/api-reference/insights.md): Retrieve aggregated insights data across ad account, campaigns, ad groups, and ads.
+- [Insights](https://developers.openai.com/ads/api-reference/insights.md): Retrieve aggregated insights data across ad accounts, campaigns, ad groups, and ads.
 
 ## Bulk Api
 - [Bulk API](https://developers.openai.com/ads/bulk-api.md): Create and update campaigns, ad groups, and ads in bulk.
@@ -33,22 +33,22 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 - [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting.md): Target campaigns by country, region, or DMA.
 
 ## Conversion Optimized Campaigns
-- [Conversion-optimized campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns.md): Optimize campaigns toward a selected conversion event while paying per click.
+- [Conversion-Optimized Campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns.md): Optimize campaigns toward a selected conversion event while paying per click.
 
 ## Conversions Api
 - [Conversions API](https://developers.openai.com/ads/conversions-api.md): Server-to-server conversion events.
 
 ## Image Tag
-- [Image tag](https://developers.openai.com/ads/image-tag.md): Send conversion events from HTML without JavaScript.
+- [Image Tag](https://developers.openai.com/ads/image-tag.md): Send conversion events from HTML without JavaScript.
 
 ## Measurement Pixel
 - [JavaScript Pixel](https://developers.openai.com/ads/measurement-pixel.md): Send conversion events from web pages.
 
 ## Multiple Pixels
-- [Multiple pixel IDs](https://developers.openai.com/ads/multiple-pixels.md): Send events to multiple pixels or target one specific pixel.
+- [Multiple Pixel IDs](https://developers.openai.com/ads/multiple-pixels.md): Send events to multiple pixels or target one specific pixel.
 
 ## Product Feeds
-- [Product feeds](https://developers.openai.com/ads/product-feeds.md): Use a merchant catalog to create and measure product-feed ads.
+- [Product Feeds](https://developers.openai.com/ads/product-feeds.md): Use a merchant catalog to create and measure product-feed ads.
 
 ## Supported Events
-- [Supported events](https://developers.openai.com/ads/supported-events.md): Supported conversion events & data shapes.
+- [Supported Events](https://developers.openai.com/ads/supported-events.md): Supported conversion events & data shapes.
