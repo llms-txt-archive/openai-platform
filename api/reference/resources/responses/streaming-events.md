@@ -380,9 +380,6 @@ Schema name: `ResponseCreatedEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -390,6 +387,9 @@ Schema name: `ResponseCreatedEvent`
                   },
                   {
                     "ident": "id"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -2465,9 +2465,6 @@ Schema name: `ResponseCreatedEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -2475,6 +2472,9 @@ Schema name: `ResponseCreatedEvent`
               },
               {
                 "ident": "id"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -4137,9 +4137,6 @@ Schema name: `ResponseCreatedEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -4147,6 +4144,9 @@ Schema name: `ResponseCreatedEvent`
         },
         {
           "ident": "type"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -4165,10 +4165,10 @@ Schema name: `ResponseCreatedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) name",
@@ -5146,9 +5146,6 @@ Schema name: `ResponseCreatedEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -5156,6 +5153,9 @@ Schema name: `ResponseCreatedEvent`
             },
             {
               "ident": "type"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -7841,9 +7841,6 @@ Schema name: `ResponseCreatedEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -7851,6 +7848,9 @@ Schema name: `ResponseCreatedEvent`
         },
         {
           "ident": "id"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -7868,10 +7868,10 @@ Schema name: `ResponseCreatedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -9948,20 +9948,6 @@ Schema name: `ResponseCreatedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/output",
@@ -10068,6 +10054,20 @@ Schema name: `ResponseCreatedEvent`
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type > (member) 0"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -17928,24 +17928,6 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/output",
@@ -18032,6 +18014,24 @@ Schema name: `ResponseCreatedEvent`
     "examples": [
       "fc_123"
     ],
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
     "optional": true,
     "nullable": true,
     "schemaType": "string",
@@ -53976,9 +53976,6 @@ Schema name: `ResponseInProgressEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -53986,6 +53983,9 @@ Schema name: `ResponseInProgressEvent`
                   },
                   {
                     "ident": "id"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -56061,9 +56061,6 @@ Schema name: `ResponseInProgressEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -56071,6 +56068,9 @@ Schema name: `ResponseInProgressEvent`
               },
               {
                 "ident": "id"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -57733,9 +57733,6 @@ Schema name: `ResponseInProgressEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -57743,6 +57740,9 @@ Schema name: `ResponseInProgressEvent`
         },
         {
           "ident": "type"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -57761,10 +57761,10 @@ Schema name: `ResponseInProgressEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) name",
@@ -58742,9 +58742,6 @@ Schema name: `ResponseInProgressEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -58752,6 +58749,9 @@ Schema name: `ResponseInProgressEvent`
             },
             {
               "ident": "type"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -61437,9 +61437,6 @@ Schema name: `ResponseInProgressEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -61447,6 +61444,9 @@ Schema name: `ResponseInProgressEvent`
         },
         {
           "ident": "id"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -61464,10 +61464,10 @@ Schema name: `ResponseInProgressEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -63544,20 +63544,6 @@ Schema name: `ResponseInProgressEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/output",
@@ -63664,6 +63650,20 @@ Schema name: `ResponseInProgressEvent`
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type > (member) 0"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -71524,24 +71524,6 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/output",
@@ -71628,6 +71610,24 @@ Schema name: `ResponseInProgressEvent`
     "examples": [
       "fc_123"
     ],
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
     "optional": true,
     "nullable": true,
     "schemaType": "string",
@@ -107572,9 +107572,6 @@ Schema name: `ResponseCompletedEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -107582,6 +107579,9 @@ Schema name: `ResponseCompletedEvent`
                   },
                   {
                     "ident": "id"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -109657,9 +109657,6 @@ Schema name: `ResponseCompletedEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -109667,6 +109664,9 @@ Schema name: `ResponseCompletedEvent`
               },
               {
                 "ident": "id"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -111329,9 +111329,6 @@ Schema name: `ResponseCompletedEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -111339,6 +111336,9 @@ Schema name: `ResponseCompletedEvent`
         },
         {
           "ident": "type"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -111357,10 +111357,10 @@ Schema name: `ResponseCompletedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) name",
@@ -112338,9 +112338,6 @@ Schema name: `ResponseCompletedEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -112348,6 +112345,9 @@ Schema name: `ResponseCompletedEvent`
             },
             {
               "ident": "type"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -115033,9 +115033,6 @@ Schema name: `ResponseCompletedEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -115043,6 +115040,9 @@ Schema name: `ResponseCompletedEvent`
         },
         {
           "ident": "id"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -115060,10 +115060,10 @@ Schema name: `ResponseCompletedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -117140,20 +117140,6 @@ Schema name: `ResponseCompletedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/output",
@@ -117260,6 +117246,20 @@ Schema name: `ResponseCompletedEvent`
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type > (member) 0"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -125120,24 +125120,6 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/output",
@@ -125224,6 +125206,24 @@ Schema name: `ResponseCompletedEvent`
     "examples": [
       "fc_123"
     ],
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
     "optional": true,
     "nullable": true,
     "schemaType": "string",
@@ -161185,9 +161185,6 @@ Schema name: `ResponseFailedEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -161195,6 +161192,9 @@ Schema name: `ResponseFailedEvent`
                   },
                   {
                     "ident": "id"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -163270,9 +163270,6 @@ Schema name: `ResponseFailedEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -163280,6 +163277,9 @@ Schema name: `ResponseFailedEvent`
               },
               {
                 "ident": "id"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -164942,9 +164942,6 @@ Schema name: `ResponseFailedEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -164952,6 +164949,9 @@ Schema name: `ResponseFailedEvent`
         },
         {
           "ident": "type"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -164970,10 +164970,10 @@ Schema name: `ResponseFailedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) name",
@@ -165951,9 +165951,6 @@ Schema name: `ResponseFailedEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -165961,6 +165958,9 @@ Schema name: `ResponseFailedEvent`
             },
             {
               "ident": "type"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -168646,9 +168646,6 @@ Schema name: `ResponseFailedEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -168656,6 +168653,9 @@ Schema name: `ResponseFailedEvent`
         },
         {
           "ident": "id"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -168673,10 +168673,10 @@ Schema name: `ResponseFailedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -170753,20 +170753,6 @@ Schema name: `ResponseFailedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/output",
@@ -170873,6 +170859,20 @@ Schema name: `ResponseFailedEvent`
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type > (member) 0"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -178733,24 +178733,6 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/output",
@@ -178837,6 +178819,24 @@ Schema name: `ResponseFailedEvent`
     "examples": [
       "fc_123"
     ],
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
     "optional": true,
     "nullable": true,
     "schemaType": "string",
@@ -214779,9 +214779,6 @@ Schema name: `ResponseIncompleteEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -214789,6 +214786,9 @@ Schema name: `ResponseIncompleteEvent`
                   },
                   {
                     "ident": "id"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -216864,9 +216864,6 @@ Schema name: `ResponseIncompleteEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -216874,6 +216871,9 @@ Schema name: `ResponseIncompleteEvent`
               },
               {
                 "ident": "id"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -218536,9 +218536,6 @@ Schema name: `ResponseIncompleteEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -218546,6 +218543,9 @@ Schema name: `ResponseIncompleteEvent`
         },
         {
           "ident": "type"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -218564,10 +218564,10 @@ Schema name: `ResponseIncompleteEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) name",
@@ -219545,9 +219545,6 @@ Schema name: `ResponseIncompleteEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -219555,6 +219552,9 @@ Schema name: `ResponseIncompleteEvent`
             },
             {
               "ident": "type"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -222240,9 +222240,6 @@ Schema name: `ResponseIncompleteEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -222250,6 +222247,9 @@ Schema name: `ResponseIncompleteEvent`
         },
         {
           "ident": "id"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -222267,10 +222267,10 @@ Schema name: `ResponseIncompleteEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -224347,20 +224347,6 @@ Schema name: `ResponseIncompleteEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/output",
@@ -224467,6 +224453,20 @@ Schema name: `ResponseIncompleteEvent`
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type > (member) 0"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -232327,24 +232327,6 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/output",
@@ -232431,6 +232413,24 @@ Schema name: `ResponseIncompleteEvent`
     "examples": [
       "fc_123"
     ],
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
     "optional": true,
     "nullable": true,
     "schemaType": "string",
@@ -268250,9 +268250,6 @@ Schema name: `ResponseOutputItemAddedEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -268260,6 +268257,9 @@ Schema name: `ResponseOutputItemAddedEvent`
         },
         {
           "ident": "type"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -268278,10 +268278,10 @@ Schema name: `ResponseOutputItemAddedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) name",
@@ -269259,9 +269259,6 @@ Schema name: `ResponseOutputItemAddedEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -269269,6 +269266,9 @@ Schema name: `ResponseOutputItemAddedEvent`
             },
             {
               "ident": "type"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -270396,20 +270396,6 @@ Schema name: `ResponseOutputItemAddedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/output",
@@ -270516,6 +270502,20 @@ Schema name: `ResponseOutputItemAddedEvent`
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type > (member) 0"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -291330,9 +291330,6 @@ Schema name: `ResponseOutputItemDoneEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -291340,6 +291337,9 @@ Schema name: `ResponseOutputItemDoneEvent`
         },
         {
           "ident": "type"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -291358,10 +291358,10 @@ Schema name: `ResponseOutputItemDoneEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) name",
@@ -292339,9 +292339,6 @@ Schema name: `ResponseOutputItemDoneEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -292349,6 +292346,9 @@ Schema name: `ResponseOutputItemDoneEvent`
             },
             {
               "ident": "type"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -293476,20 +293476,6 @@ Schema name: `ResponseOutputItemDoneEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/output",
@@ -293596,6 +293582,20 @@ Schema name: `ResponseOutputItemDoneEvent`
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type > (member) 0"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -322424,9 +322424,6 @@ Schema name: `ResponseQueuedEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -322434,6 +322431,9 @@ Schema name: `ResponseQueuedEvent`
                   },
                   {
                     "ident": "id"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -324509,9 +324509,6 @@ Schema name: `ResponseQueuedEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -324519,6 +324516,9 @@ Schema name: `ResponseQueuedEvent`
               },
               {
                 "ident": "id"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -326181,9 +326181,6 @@ Schema name: `ResponseQueuedEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -326191,6 +326188,9 @@ Schema name: `ResponseQueuedEvent`
         },
         {
           "ident": "type"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -326209,10 +326209,10 @@ Schema name: `ResponseQueuedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) name",
@@ -327190,9 +327190,6 @@ Schema name: `ResponseQueuedEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -327200,6 +327197,9 @@ Schema name: `ResponseQueuedEvent`
             },
             {
               "ident": "type"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -329885,9 +329885,6 @@ Schema name: `ResponseQueuedEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -329895,6 +329892,9 @@ Schema name: `ResponseQueuedEvent`
         },
         {
           "ident": "id"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -329912,10 +329912,10 @@ Schema name: `ResponseQueuedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -331992,20 +331992,6 @@ Schema name: `ResponseQueuedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/output",
@@ -332112,6 +332098,20 @@ Schema name: `ResponseQueuedEvent`
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) type > (member) 0"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -339972,24 +339972,6 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/output",
@@ -340076,6 +340058,24 @@ Schema name: `ResponseQueuedEvent`
     "examples": [
       "fc_123"
     ],
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
     "optional": true,
     "nullable": true,
     "schemaType": "string",

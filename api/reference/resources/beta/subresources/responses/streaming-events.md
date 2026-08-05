@@ -424,9 +424,6 @@ Schema name: `BetaResponseCreatedEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -437,6 +434,9 @@ Schema name: `BetaResponseCreatedEvent`
                   },
                   {
                     "ident": "agent"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -3094,9 +3094,6 @@ Schema name: `BetaResponseCreatedEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -3107,6 +3104,9 @@ Schema name: `BetaResponseCreatedEvent`
               },
               {
                 "ident": "agent"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -4472,9 +4472,6 @@ Schema name: `BetaResponseCreatedEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -4485,6 +4482,9 @@ Schema name: `BetaResponseCreatedEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -4503,11 +4503,11 @@ Schema name: `BetaResponseCreatedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) type",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) name",
@@ -5698,9 +5698,6 @@ Schema name: `BetaResponseCreatedEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -5711,6 +5708,9 @@ Schema name: `BetaResponseCreatedEvent`
             },
             {
               "ident": "agent"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -8558,9 +8558,6 @@ Schema name: `BetaResponseCreatedEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -8571,6 +8568,9 @@ Schema name: `BetaResponseCreatedEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -8588,11 +8588,11 @@ Schema name: `BetaResponseCreatedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -10939,20 +10939,6 @@ Schema name: `BetaResponseCreatedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/output",
@@ -11081,6 +11067,20 @@ Schema name: `BetaResponseCreatedEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -20110,24 +20110,6 @@ Schema name: `BetaResponseCreatedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/output",
@@ -20240,6 +20222,24 @@ Schema name: `BetaResponseCreatedEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -63964,9 +63964,6 @@ Schema name: `BetaResponseInProgressEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -63977,6 +63974,9 @@ Schema name: `BetaResponseInProgressEvent`
                   },
                   {
                     "ident": "agent"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -66634,9 +66634,6 @@ Schema name: `BetaResponseInProgressEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -66647,6 +66644,9 @@ Schema name: `BetaResponseInProgressEvent`
               },
               {
                 "ident": "agent"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -68012,9 +68012,6 @@ Schema name: `BetaResponseInProgressEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -68025,6 +68022,9 @@ Schema name: `BetaResponseInProgressEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -68043,11 +68043,11 @@ Schema name: `BetaResponseInProgressEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) type",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) name",
@@ -69238,9 +69238,6 @@ Schema name: `BetaResponseInProgressEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -69251,6 +69248,9 @@ Schema name: `BetaResponseInProgressEvent`
             },
             {
               "ident": "agent"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -72098,9 +72098,6 @@ Schema name: `BetaResponseInProgressEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -72111,6 +72108,9 @@ Schema name: `BetaResponseInProgressEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -72128,11 +72128,11 @@ Schema name: `BetaResponseInProgressEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -74479,20 +74479,6 @@ Schema name: `BetaResponseInProgressEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/output",
@@ -74621,6 +74607,20 @@ Schema name: `BetaResponseInProgressEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -83650,24 +83650,6 @@ Schema name: `BetaResponseInProgressEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/output",
@@ -83780,6 +83762,24 @@ Schema name: `BetaResponseInProgressEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -127504,9 +127504,6 @@ Schema name: `BetaResponseCompletedEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -127517,6 +127514,9 @@ Schema name: `BetaResponseCompletedEvent`
                   },
                   {
                     "ident": "agent"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -130174,9 +130174,6 @@ Schema name: `BetaResponseCompletedEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -130187,6 +130184,9 @@ Schema name: `BetaResponseCompletedEvent`
               },
               {
                 "ident": "agent"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -131552,9 +131552,6 @@ Schema name: `BetaResponseCompletedEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -131565,6 +131562,9 @@ Schema name: `BetaResponseCompletedEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -131583,11 +131583,11 @@ Schema name: `BetaResponseCompletedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) type",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) name",
@@ -132778,9 +132778,6 @@ Schema name: `BetaResponseCompletedEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -132791,6 +132788,9 @@ Schema name: `BetaResponseCompletedEvent`
             },
             {
               "ident": "agent"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -135638,9 +135638,6 @@ Schema name: `BetaResponseCompletedEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -135651,6 +135648,9 @@ Schema name: `BetaResponseCompletedEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -135668,11 +135668,11 @@ Schema name: `BetaResponseCompletedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -138019,20 +138019,6 @@ Schema name: `BetaResponseCompletedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/output",
@@ -138161,6 +138147,20 @@ Schema name: `BetaResponseCompletedEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -147190,24 +147190,6 @@ Schema name: `BetaResponseCompletedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/output",
@@ -147320,6 +147302,24 @@ Schema name: `BetaResponseCompletedEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -191061,9 +191061,6 @@ Schema name: `BetaResponseFailedEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -191074,6 +191071,9 @@ Schema name: `BetaResponseFailedEvent`
                   },
                   {
                     "ident": "agent"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -193731,9 +193731,6 @@ Schema name: `BetaResponseFailedEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -193744,6 +193741,9 @@ Schema name: `BetaResponseFailedEvent`
               },
               {
                 "ident": "agent"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -195109,9 +195109,6 @@ Schema name: `BetaResponseFailedEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -195122,6 +195119,9 @@ Schema name: `BetaResponseFailedEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -195140,11 +195140,11 @@ Schema name: `BetaResponseFailedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) type",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) name",
@@ -196335,9 +196335,6 @@ Schema name: `BetaResponseFailedEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -196348,6 +196345,9 @@ Schema name: `BetaResponseFailedEvent`
             },
             {
               "ident": "agent"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -199195,9 +199195,6 @@ Schema name: `BetaResponseFailedEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -199208,6 +199205,9 @@ Schema name: `BetaResponseFailedEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -199225,11 +199225,11 @@ Schema name: `BetaResponseFailedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -201576,20 +201576,6 @@ Schema name: `BetaResponseFailedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/output",
@@ -201718,6 +201704,20 @@ Schema name: `BetaResponseFailedEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -210747,24 +210747,6 @@ Schema name: `BetaResponseFailedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/output",
@@ -210877,6 +210859,24 @@ Schema name: `BetaResponseFailedEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -254599,9 +254599,6 @@ Schema name: `BetaResponseIncompleteEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -254612,6 +254609,9 @@ Schema name: `BetaResponseIncompleteEvent`
                   },
                   {
                     "ident": "agent"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -257269,9 +257269,6 @@ Schema name: `BetaResponseIncompleteEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -257282,6 +257279,9 @@ Schema name: `BetaResponseIncompleteEvent`
               },
               {
                 "ident": "agent"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -258647,9 +258647,6 @@ Schema name: `BetaResponseIncompleteEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -258660,6 +258657,9 @@ Schema name: `BetaResponseIncompleteEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -258678,11 +258678,11 @@ Schema name: `BetaResponseIncompleteEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) type",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) name",
@@ -259873,9 +259873,6 @@ Schema name: `BetaResponseIncompleteEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -259886,6 +259883,9 @@ Schema name: `BetaResponseIncompleteEvent`
             },
             {
               "ident": "agent"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -262733,9 +262733,6 @@ Schema name: `BetaResponseIncompleteEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -262746,6 +262743,9 @@ Schema name: `BetaResponseIncompleteEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -262763,11 +262763,11 @@ Schema name: `BetaResponseIncompleteEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -265114,20 +265114,6 @@ Schema name: `BetaResponseIncompleteEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/output",
@@ -265256,6 +265242,20 @@ Schema name: `BetaResponseIncompleteEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -274285,24 +274285,6 @@ Schema name: `BetaResponseIncompleteEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/output",
@@ -274415,6 +274397,24 @@ Schema name: `BetaResponseIncompleteEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -318008,9 +318008,6 @@ Schema name: `BetaResponseOutputItemAddedEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -318021,6 +318018,9 @@ Schema name: `BetaResponseOutputItemAddedEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -318039,11 +318039,11 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) type",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) name",
@@ -319234,9 +319234,6 @@ Schema name: `BetaResponseOutputItemAddedEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -319247,6 +319244,9 @@ Schema name: `BetaResponseOutputItemAddedEvent`
             },
             {
               "ident": "agent"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -320602,20 +320602,6 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/output",
@@ -320744,6 +320730,20 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -345163,9 +345163,6 @@ Schema name: `BetaResponseOutputItemDoneEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -345176,6 +345173,9 @@ Schema name: `BetaResponseOutputItemDoneEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -345194,11 +345194,11 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) type",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) name",
@@ -346389,9 +346389,6 @@ Schema name: `BetaResponseOutputItemDoneEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -346402,6 +346399,9 @@ Schema name: `BetaResponseOutputItemDoneEvent`
             },
             {
               "ident": "agent"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -347757,20 +347757,6 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/output",
@@ -347899,6 +347885,20 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -381858,9 +381858,6 @@ Schema name: `BetaResponseQueuedEvent`
                 "kind": "HttpTypeObject",
                 "members": [
                   {
-                    "ident": "call_id"
-                  },
-                  {
                     "ident": "output"
                   },
                   {
@@ -381871,6 +381868,9 @@ Schema name: `BetaResponseQueuedEvent`
                   },
                   {
                     "ident": "agent"
+                  },
+                  {
+                    "ident": "call_id"
                   },
                   {
                     "ident": "caller"
@@ -384528,9 +384528,6 @@ Schema name: `BetaResponseQueuedEvent`
             "kind": "HttpTypeObject",
             "members": [
               {
-                "ident": "call_id"
-              },
-              {
                 "ident": "output"
               },
               {
@@ -384541,6 +384538,9 @@ Schema name: `BetaResponseQueuedEvent`
               },
               {
                 "ident": "agent"
+              },
+              {
+                "ident": "call_id"
               },
               {
                 "ident": "caller"
@@ -385906,9 +385906,6 @@ Schema name: `BetaResponseQueuedEvent`
           "ident": "id"
         },
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -385919,6 +385916,9 @@ Schema name: `BetaResponseQueuedEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -385937,11 +385937,11 @@ Schema name: `BetaResponseQueuedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) id",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) status",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) type",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) created_by",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) name",
@@ -387132,9 +387132,6 @@ Schema name: `BetaResponseQueuedEvent`
               "ident": "id"
             },
             {
-              "ident": "call_id"
-            },
-            {
               "ident": "output"
             },
             {
@@ -387145,6 +387142,9 @@ Schema name: `BetaResponseQueuedEvent`
             },
             {
               "ident": "agent"
+            },
+            {
+              "ident": "call_id"
             },
             {
               "ident": "caller"
@@ -389992,9 +389992,6 @@ Schema name: `BetaResponseQueuedEvent`
       "kind": "HttpTypeObject",
       "members": [
         {
-          "ident": "call_id"
-        },
-        {
           "ident": "output"
         },
         {
@@ -390005,6 +390002,9 @@ Schema name: `BetaResponseQueuedEvent`
         },
         {
           "ident": "agent"
+        },
+        {
+          "ident": "call_id"
         },
         {
           "ident": "caller"
@@ -390022,11 +390022,11 @@ Schema name: `BetaResponseQueuedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) type",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) name",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) namespace",
@@ -392373,20 +392373,6 @@ Schema name: `BetaResponseQueuedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/output",
@@ -392515,6 +392501,20 @@ Schema name: `BetaResponseQueuedEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionToolCallOutput/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 3 > (property) caller": {
     "kind": "HttpDeclProperty",
@@ -401544,24 +401544,6 @@ Schema name: `BetaResponseQueuedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7 > (property) status > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
-    "deprecated": false,
-    "key": "call_id",
-    "docstring": "The unique ID of the function tool call generated by the model.",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "constraints": {
-      "minLength": 1,
-      "maxLength": 64
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) output": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/output",
@@ -401674,6 +401656,24 @@ Schema name: `BetaResponseQueuedEvent`
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) agent > (property) agent_name"
     ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) call_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFunctionCallOutputItemParam/properties/call_id",
+    "deprecated": false,
+    "key": "call_id",
+    "docstring": "The unique ID of the function tool call generated by the model.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "optional": true,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 8 > (property) caller": {
     "kind": "HttpDeclProperty",
