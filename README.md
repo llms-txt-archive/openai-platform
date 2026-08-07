@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260807T002941Z` | 2026-08-07 00:29 UTC | [X.509 federation, Measurement Pixel, and residency doc updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260807T002941Z) |
+| `archive-20260807T182834Z` | 2026-08-07 18:28 UTC | [Ads API Pixel Matching Defaults Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260807T182834Z) |
+| `archive-20260807T002941Z` | 2026-08-07 00:30 UTC | [X.509 federation, Measurement Pixel, and residency doc updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260807T002941Z) |
 | `archive-20260805T224130Z` | 2026-08-05 22:42 UTC | [Ads docs clarify open beta product-feed oCPC](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260805T224130Z) |
 | `archive-20260805T190510Z` | 2026-08-05 19:06 UTC | [Go SDK Coverage and Fast Mode Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260805T190510Z) |
 | `archive-20260805T170920Z` | 2026-08-05 17:09 UTC | [Amazon Bedrock AML cookbook addition](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260805T170920Z) |
 | `archive-20260805T150009Z` | 2026-08-05 15:00 UTC | [Clarified plan-entitlement guidance for app and plugin docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260805T150009Z) |
-| `archive-20260805T034846Z` | 2026-08-05 03:49 UTC | [Responses and Conversations Schema Alignment](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260805T034846Z) |

@@ -71,6 +71,11 @@ ad account. See [Bulk API limits](https://developers.openai.com/ads/bulk-api#lim
 
 ## Changelog
 
+### August 17th, 2026
+
+- New Web pixels created through the Ads API have automatic advanced matching enabled when `automatic_advanced_matching_enabled` is omitted. Pass `false` explicitly to disable it.
+- Automatic advanced matching will be enabled for all existing Web pixels created through the Ads API, unless it was explicitly disabled or the ad account opted out.
+
 ### July 16th, 2026
 
 - Added support for passing the Pixel browser reference as `events[].user.obref` in [Conversions API](https://developers.openai.com/ads/conversions-api) requests.

@@ -104,9 +104,20 @@ curl -X POST "https://api.ads.openai.com/v1/conversions/pixels" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Acme website",
-    "client_type": "web"
+    "client_type": "web",
+    "automatic_advanced_matching_enabled": true
   }'
 ```
+
+Pass `automatic_advanced_matching_enabled` explicitly when you create a Web
+pixel. Set it to `true` to enable [automatic advanced
+matching](https://developers.openai.com/ads/measurement-pixel#automatic-advanced-matching) or `false` to
+disable it. Beginning August 17, 2026, the field defaults to `true` when
+omitted. Before August 17, it defaults to `false`.
+
+Also on August 17, OpenAI will enable automatic advanced matching for all
+existing Web pixels created through the Ads API, unless it was explicitly
+disabled or the ad account opted out.
 
 Save both returned identifiers. Use `id` when you create an event setting and
 use `pixel_id` when you send conversion events.
@@ -116,7 +127,8 @@ use `pixel_id` when you send conversion events.
   "id": "clidsrc_123",
   "client_type": "web",
   "name": "Acme website",
-  "pixel_id": "134534..."
+  "pixel_id": "134534...",
+  "automatic_advanced_matching_enabled": true
 }
 ```
 

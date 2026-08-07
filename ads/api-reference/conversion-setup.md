@@ -18,11 +18,20 @@ Create a web conversion source and its Pixel ID.
 
 `POST /conversions/pixels`
 
-| Field                                 | Type    | Required | Notes                                                                     |
-| ------------------------------------- | ------- | -------- | ------------------------------------------------------------------------- |
-| `name`                                | string  | Yes      | A descriptive name from 3 to 1,000 characters.                            |
-| `client_type`                         | string  | Yes      | Use `web`.                                                                |
-| `automatic_advanced_matching_enabled` | boolean | No       | Set to `true` to enable automatic advanced matching. Defaults to `false`. |
+| Field                                 | Type    | Required | Notes                                                                                                         |
+| ------------------------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| `name`                                | string  | Yes      | A descriptive name from 3 to 1,000 characters.                                                                |
+| `client_type`                         | string  | Yes      | Use `web`.                                                                                                    |
+| `automatic_advanced_matching_enabled` | boolean | No       | Set to `true` to enable automatic advanced matching or `false` to disable it. See the default behavior below. |
+
+> **Note:** Beginning August 17, 2026, new Web pixels created through the Ads
+> API have automatic advanced matching enabled when this field is omitted. Pass
+> `false` explicitly to disable it. Before August 17, the field defaults to
+> `false`.
+
+Also on August 17, OpenAI will enable automatic advanced matching for all
+existing Web pixels created through the Ads API, unless it was explicitly
+disabled or the ad account opted out.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/conversions/pixels" \
