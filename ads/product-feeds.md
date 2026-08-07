@@ -44,6 +44,10 @@ The public Advertiser API does not provide endpoints to create a feed
   connection, list linked feeds, or upload a catalog file. This Ads catalog
   transfer uses SFTP; `POST /upload` is only for static ad creative assets.
 
+After the initial catalog upload, use the
+[Delta Feeds API](https://developers.openai.com/ads/delta-feeds) to update availability or titles for
+existing product variants without uploading the entire catalog again.
+
 ## Use the correct feed schema
 
 The [stable product feed specification](https://developers.openai.com/commerce/specs/file-upload/products)
@@ -253,6 +257,7 @@ key.
 
 | Resource       | Public endpoints                                                                                                                          | Product-feed use                                                           |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Feed updates   | `PATCH /feeds/{feed_id}/products`                                                                                                         | Update availability and titles for existing variants in a linked feed.     |
 | Campaigns      | `POST /campaigns`, `GET /campaigns`, `GET /campaigns/{campaign_id}`, `POST /campaigns/{campaign_id}`                                      | Create and manage a campaign whose `mode` is `product_feed`.               |
 | Campaign State | `POST /campaigns/{campaign_id}/activate`, `POST /campaigns/{campaign_id}/pause`, `POST /campaigns/{campaign_id}/archive`                  | Control whether the product-feed campaign can deliver.                     |
 | Ad Groups      | `POST /ad_groups`, `GET /ad_groups?campaign_id={campaign_id}`, `GET /ad_groups/{ad_group_id}`, `POST /ad_groups/{ad_group_id}`            | Create and manage the feed selection and product filters in `product_set`. |

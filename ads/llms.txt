@@ -38,6 +38,9 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 ## Conversions Api
 - [Conversions API](https://developers.openai.com/ads/conversions-api.md): Server-to-server conversion events.
 
+## Delta Feeds
+- [Delta Feeds API](https://developers.openai.com/ads/delta-feeds.md): Update product availability without uploading your entire catalog.
+
 ## Image Tag
 - [Image Tag](https://developers.openai.com/ads/image-tag.md): Send conversion events from HTML without JavaScript.
 
