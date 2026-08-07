@@ -42,7 +42,7 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 - [Image Tag](https://developers.openai.com/ads/image-tag.md): Send conversion events from HTML without JavaScript.
 
 ## Measurement Pixel
-- [JavaScript Pixel](https://developers.openai.com/ads/measurement-pixel.md): Send conversion events from web pages.
+- [Measurement Pixel](https://developers.openai.com/ads/measurement-pixel.md): Send conversion events from web pages.
 
 ## Multiple Pixels
 - [Multiple Pixel IDs](https://developers.openai.com/ads/multiple-pixels.md): Send events to multiple pixels or target one specific pixel.

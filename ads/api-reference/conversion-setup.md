@@ -18,10 +18,11 @@ Create a web conversion source and its Pixel ID.
 
 `POST /conversions/pixels`
 
-| Field         | Type   | Required | Notes                                          |
-| ------------- | ------ | -------- | ---------------------------------------------- |
-| `name`        | string | Yes      | A descriptive name from 3 to 1,000 characters. |
-| `client_type` | string | Yes      | Use `web`.                                     |
+| Field                                 | Type    | Required | Notes                                                                     |
+| ------------------------------------- | ------- | -------- | ------------------------------------------------------------------------- |
+| `name`                                | string  | Yes      | A descriptive name from 3 to 1,000 characters.                            |
+| `client_type`                         | string  | Yes      | Use `web`.                                                                |
+| `automatic_advanced_matching_enabled` | boolean | No       | Set to `true` to enable automatic advanced matching. Defaults to `false`. |
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/conversions/pixels" \
@@ -29,7 +30,8 @@ curl -X POST "https://api.ads.openai.com/v1/conversions/pixels" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Acme website",
-    "client_type": "web"
+    "client_type": "web",
+    "automatic_advanced_matching_enabled": true
   }'
 ```
 
@@ -38,13 +40,16 @@ curl -X POST "https://api.ads.openai.com/v1/conversions/pixels" \
   "id": "clidsrc_123",
   "client_type": "web",
   "name": "Acme website",
-  "pixel_id": "134534..."
+  "pixel_id": "134534...",
+  "automatic_advanced_matching_enabled": true
 }
 ```
 
 Use `id` as a `source_ids` value when you create an event setting. Use
 `pixel_id` to initialize the JavaScript Pixel and when you send Conversions API
-events.
+events. Automatic advanced matching is available only for web pixels. See
+[Automatic advanced matching](https://developers.openai.com/ads/measurement-pixel#automatic-advanced-matching)
+for details about how the Pixel collects and hashes customer information.
 
 ## Create a Conversions API key
 

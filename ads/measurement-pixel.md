@@ -1,8 +1,8 @@
-# JavaScript Pixel
+# Measurement Pixel
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-The OpenAI Ads Measurement Pixel is a browser SDK for measuring website events
+The ChatGPT Ads Measurement Pixel is a browser SDK for measuring website events
 after someone clicks an ad in ChatGPT. Use the pixel by adding the script to your site, initializing
 it with your Pixel ID, and call `oaiq("measure", ...)` when a conversion
 happens.
@@ -129,9 +129,23 @@ one pixel, you can omit `pixelId` after the first successful initialization. If
 a page initializes more than one pixel, always include the intended `pixelId`
 when updating user data.
 
+## Automatic advanced matching
+
+Automatic advanced matching improves website conversion measurement by helping
+match more conversions to your ads when a click identifier is unavailable.
+
+When enabled, the OpenAI Pixel automatically detects supported customer
+information entered into website forms. The Pixel normalizes and securely hashes
+this information in the browser using SHA-256 before including it with conversion
+events. Raw customer information is not sent to OpenAI through automatic
+advanced matching.
+
+You do not need to manually pass customer information or make any changes to
+your Pixel implementation.
+
 ## Send events
 
-The JavaScript Pixel does not support `app_installed` or `app_opened`.
+The Measurement Pixel does not support `app_installed` or `app_opened`.
 
 Send these events server-side through the
 [Conversions API](https://developers.openai.com/ads/conversions-api).
@@ -359,6 +373,9 @@ The Pixel handles several transport details for you:
   reuse it.
 - It adds the current page origin as `source_url`.
 - It timestamps each event and batches closely grouped `measure` calls.
+- When automatic advanced matching is enabled, it detects supported customer
+  information in website forms and includes its SHA-256 hash with conversion
+  events.
 
 No manual configuration of these details is necessary when using the pixel.
 
