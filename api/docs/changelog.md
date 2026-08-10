@@ -12,11 +12,13 @@ Upcoming deprecations are listed on the [deprecations page](/api/docs/deprecatio
 
 Feature · Model: gpt-5.6-cyber · Model: daybreak-red-latest · Model: daybreak-blue-latest · API: v1/responses
 
-Released [**GPT-5.6 Cyber**](https://developers.openai.com/api/docs/models/gpt-5.6-cyber), available through [Daybreak Red](https://developers.openai.com/api/docs/models/daybreak-red-latest). Built on GPT-5.6 Sol, it is trained to improve capabilities on several specialized cybersecurity tasks (for example, finding zero-day exploit chains) and to reduce refusals for highly dual-use cyber tasks.
+Daybreak now offers two access tiers for approved defenders: Daybreak Blue and Daybreak Red. Use them to move from security findings to validated fixes in explicitly authorized engagements.
 
-Released [**Daybreak Blue**](https://developers.openai.com/api/docs/models/daybreak-blue-latest), an alias for our frontier general-purpose models, with safeguards calibrated for defensive cybersecurity work.
+Start with Daybreak Blue for most defensive security work. It provides access to general-purpose models such as GPT-5.6 Sol for vulnerability discovery, secure code review, detection engineering, incident response, malware analysis, and patch validation. Read more [here](https://developers.openai.com/api/docs/models/daybreak-blue-latest).
 
-These models require separate approval and provisioning. You can apply to join the Daybreak program [here](https://developers-site-git-agent-add-daybreak-models-openai.vercel.app/codex/cyber-safety#trusted-access-for-cyber).
+Daybreak Red provides separately approved access to purpose-trained models such as [GPT-5.6 Cyber](https://developers.openai.com/api/docs/models/gpt-5.6-cyber) for authorized vulnerability reproduction, exploit validation, penetration testing, red teaming, and complex system analysis.
+
+These models require separate approval and provisioning. You can apply to join the Daybreak program [here](https://openai.com/daybreak/). More details on pricing [here](https://developers.openai.com/api/docs/pricing).
 
 ### Aug 6
 
@@ -28,7 +30,7 @@ Updated the **chat-latest** snapshot, which points to the latest model available
 
 Update · Model: gpt-5.6-sol · Model: gpt-5.6-terra · Model: gpt-5.6-luna
 
-Fast mode now supports long-context requests for GPT-5.6 Sol, GPT-5.6 Terra, and GPT-5.6 Luna. As of today, long-context prompts exceeding 272K tokens can run in [Fast mode](https://developers-site-git-agent-add-gpt-5-6-fast-long-c-d938fe-openai.vercel.app/api/docs/guides/fast-mode), delivering speeds up to 2.5× faster than the Standard tier. See [pricing details](https://developers-site-git-agent-add-gpt-5-6-fast-long-c-d938fe-openai.vercel.app/api/docs/pricing?latest-pricing=fast).
+Fast mode now supports long-context requests for GPT-5.6 Sol, GPT-5.6 Terra, and GPT-5.6 Luna. As of today, long-context prompts exceeding 272K tokens can run in [Fast mode](https://developers.openai.com/api/docs/guides/fast-mode), delivering speeds up to 2.5× faster than the Standard tier. See [pricing details](https://developers.openai.com/api/docs/pricing).
 
 ### Aug 4
 
