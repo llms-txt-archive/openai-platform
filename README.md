@@ -7,7 +7,7 @@ Every change to the upstream docs produces a git commit and a GitHub release, so
 | | |
 |---|---|
 | **Source** | [https://developers.openai.com/llms.txt](https://developers.openai.com/llms.txt) |
-| **Documents** | 738 Markdown files |
+| **Documents** | 739 Markdown files |
 | **Schedule** | Hourly at :42 UTC |
 
 ## How it works
@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260810T162954Z` | 2026-08-10 16:29 UTC | [Workspace publishing and OAuth domain restriction docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260810T162954Z) |
+| `archive-20260810T173356Z` | 2026-08-10 17:33 UTC | [Daybreak Cyber Docs and IP Allowlist](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260810T173356Z) |
+| `archive-20260810T162954Z` | 2026-08-10 16:30 UTC | [Workspace publishing and OAuth domain restriction docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260810T162954Z) |
 | `archive-20260807T221703Z` | 2026-08-07 22:17 UTC | [Ads docs add Delta Feeds guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260807T221703Z) |
 | `archive-20260807T182834Z` | 2026-08-07 18:29 UTC | [Ads API Pixel Matching Defaults Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260807T182834Z) |
 | `archive-20260807T002941Z` | 2026-08-07 00:30 UTC | [X.509 federation, Measurement Pixel, and residency doc updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260807T002941Z) |
 | `archive-20260805T224130Z` | 2026-08-05 22:42 UTC | [Ads docs clarify open beta product-feed oCPC](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260805T224130Z) |
-| `archive-20260805T190510Z` | 2026-08-05 19:06 UTC | [Go SDK Coverage and Fast Mode Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260805T190510Z) |

@@ -8,6 +8,16 @@ Upcoming deprecations are listed on the [deprecations page](/api/docs/deprecatio
 
 ## August, 2026
 
+### Aug 7
+
+Feature · Model: gpt-5.6-cyber · Model: daybreak-red-latest · Model: daybreak-blue-latest · API: v1/responses
+
+Released [**GPT-5.6 Cyber**](https://developers.openai.com/api/docs/models/gpt-5.6-cyber), available through [Daybreak Red](https://developers.openai.com/api/docs/models/daybreak-red-latest). Built on GPT-5.6 Sol, it is trained to improve capabilities on several specialized cybersecurity tasks (for example, finding zero-day exploit chains) and to reduce refusals for highly dual-use cyber tasks.
+
+Released [**Daybreak Blue**](https://developers.openai.com/api/docs/models/daybreak-blue-latest), an alias for our frontier general-purpose models, with safeguards calibrated for defensive cybersecurity work.
+
+These models require separate approval and provisioning. You can apply to join the Daybreak program [here](https://developers-site-git-agent-add-daybreak-models-openai.vercel.app/codex/cyber-safety#trusted-access-for-cyber).
+
 ### Aug 6
 
 Update · Model: chat-latest
