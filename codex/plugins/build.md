@@ -287,29 +287,29 @@ After you change the plugin, update the plugin directory that your marketplace
 entry points to and restart the ChatGPT desktop app so the local install picks
 up the new files.
 
-### Share a local plugin with your workspace
+<a id="share-a-local-plugin-with-your-workspace"></a>
 
-After you create a plugin, add it from the ChatGPT desktop app. Select ChatGPT
-and switch to Work mode, or select Codex, then open **Plugins**. You can then
-share it with other members of your ChatGPT workspace.
+### Publish a local plugin to your workspace
 
-1. Open **Plugins** in the ChatGPT desktop app.
-2. Go to **Created by you** and open the plugin details page.
-3. Select **Share**.
-4. Add workspace members or workspace groups, or copy a share link.
-5. Choose who has access, then send the invitation or link.
+You must be a workspace admin to publish a plugin to your workspace.
 
-People you share with can find the plugin under **Shared with you** in the
-Plugins Directory. Sharing a local plugin with your workspace doesn't publish
-it to the universal public Plugins Directory shared by ChatGPT and Codex.
-Shared plugins stay within your workspace and organization boundary; accounts
-that aren't signed in to that workspace can't access them. Use groups when a
-team or role should share the same plugin access. Use a marketplace when you
-want repo or CLI distribution, and use workspace sharing when you want selected
-teammates to install a plugin from the ChatGPT desktop app.
+After you create and add a plugin, you can publish it to your ChatGPT workspace:
 
-Workspace admins can disable plugin sharing from cloud-managed requirements by
-adding `features.plugin_sharing = false` to `requirements.toml`:
+1. Go to [ChatGPT Plugins](https://chatgpt.com/plugins).
+2. Select **Personal**.
+3. Find the plugin you want to publish and open its three-dot menu.
+4. Select **Publish**.
+5. Specify the workspace roles that should have access to the plugin.
+
+Publishing a local plugin to your workspace doesn't publish it to the universal
+public Plugins Directory shared by ChatGPT and Codex. Workspace-published
+plugins stay within your workspace and organization boundary; accounts that
+aren't signed in to that workspace can't access them. Use a marketplace for
+repo or CLI distribution, and publish to your workspace when you want to make a
+plugin available to selected roles.
+
+Workspace admins can disable workspace plugin publishing through cloud-managed
+requirements by adding `features.plugin_sharing = false` to `requirements.toml`:
 
 ```toml
 features.plugin_sharing = false

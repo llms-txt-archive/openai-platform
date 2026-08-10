@@ -8,6 +8,12 @@ Upcoming deprecations are listed on the [deprecations page](/api/docs/deprecatio
 
 ## August, 2026
 
+### Aug 6
+
+Update · Model: chat-latest
+
+Updated the **chat-latest** snapshot, which points to the latest model available in ChatGPT for Plus and Pro users. We recommend leveraging [GPT-5.6 Sol](https://developers.openai.com/api/docs/models/gpt-5.6-sol) for production API usage, but feel free to use this model to test the latest improvements for chat use cases. The underlying model snapshot will be regularly updated. Read more [here](https://developers.openai.com/api/docs/models/chat-latest).
+
 ### Aug 5
 
 Update · Model: gpt-5.6-sol · Model: gpt-5.6-terra · Model: gpt-5.6-luna

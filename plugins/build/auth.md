@@ -104,6 +104,28 @@ That single header lets ChatGPT discover the metadata URL even if it has not see
 - If your provider advertises OIDC scopes (for example, `openid`, `email`, `profile`) in `scopes_supported` of its `.well-known/oauth-authorization-server` or `.well-known/openid-configuration` document, ChatGPT requests those scopes by default during the OAuth flow.
 - Some identity providers may not enable advertised OIDC scopes by default. Check your provider's configuration settings and make sure every advertised scope is enabled for the OAuth client, whether it uses CIMD, was created manually, or was created through DCR.
 
+#### Support workspace domain restrictions
+
+ChatGPT Enterprise workspaces can verify ownership of email domains. When an
+OAuth-linked plugin provides the user's verified email address, ChatGPT can use
+the email domain to prevent that corporate identity from linking the plugin in
+a personal workspace or another workspace outside the organization.
+
+To support this protection, configure your authorization server to:
+
+- Publish OpenID Connect discovery metadata.
+- Advertise and enable the `openid` and `email` scopes.
+- Advertise a UserInfo Endpoint that returns the user's `email` claim and
+  `email_verified: true`.
+
+You can also return these claims in an ID token during the OAuth flow, but the
+UserInfo Endpoint is required for workspace domain restrictions.
+
+The Enterprise workspace must also verify its domain. Your authorization server
+provides the user identity that ChatGPT compares with verified domains
+configured for the workspace; it does not verify workspace ownership of a
+domain.
+
 #### Preserve login context during reauthorization
 
 When ChatGPT reauthorizes an existing link, including to request additional OAuth scopes, it may include the prior OIDC ID token in the authorization request as the standard `id_token_hint` parameter. To let users grant additional scopes without starting login from scratch, configure your authorization server to issue an ID token during the original OAuth flow and honor `id_token_hint` during authorization.

@@ -190,6 +190,15 @@ For submissions with MCP:
 
 
 
+To support workspace domain restrictions for a plugin that uses OAuth,
+configure the authorization server to advertise a UserInfo Endpoint that
+returns the user's `email` claim and `email_verified: true`. Before submitting,
+confirm that the provider also advertises and enables the `openid` and `email`
+scopes. You can also return these claims in an ID token, but the UserInfo
+Endpoint is required for workspace domain restrictions. If the provider doesn't
+support these requirements, work with the provider to add support. See
+[Support workspace domain restrictions](https://developers.openai.com/plugins/build/auth#support-workspace-domain-restrictions).
+
 #### Template MCP server URLs
 
 Most plugins should use **Universal**. Template MCP server URLs are available
