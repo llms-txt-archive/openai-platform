@@ -3585,6 +3585,18 @@ Schema name: `ResponseCreatedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -3603,7 +3615,10 @@ Schema name: `ResponseCreatedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 10",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -4010,6 +4025,18 @@ Schema name: `ResponseCreatedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         }
@@ -9622,6 +9649,27 @@ Schema name: `ResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1 > (property) id": {
@@ -57181,6 +57229,18 @@ Schema name: `ResponseInProgressEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -57199,7 +57259,10 @@ Schema name: `ResponseInProgressEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 10",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -57606,6 +57669,18 @@ Schema name: `ResponseInProgressEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         }
@@ -63218,6 +63293,27 @@ Schema name: `ResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1 > (property) id": {
@@ -110777,6 +110873,18 @@ Schema name: `ResponseCompletedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -110795,7 +110903,10 @@ Schema name: `ResponseCompletedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 10",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -111202,6 +111313,18 @@ Schema name: `ResponseCompletedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         }
@@ -116814,6 +116937,27 @@ Schema name: `ResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1 > (property) id": {
@@ -164390,6 +164534,18 @@ Schema name: `ResponseFailedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -164408,7 +164564,10 @@ Schema name: `ResponseFailedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 10",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -164815,6 +164974,18 @@ Schema name: `ResponseFailedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         }
@@ -170427,6 +170598,27 @@ Schema name: `ResponseFailedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1 > (property) id": {
@@ -217984,6 +218176,18 @@ Schema name: `ResponseIncompleteEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -218002,7 +218206,10 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 10",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -218409,6 +218616,18 @@ Schema name: `ResponseIncompleteEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         }
@@ -224021,6 +224240,27 @@ Schema name: `ResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1 > (property) id": {
@@ -325629,6 +325869,18 @@ Schema name: `ResponseQueuedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -325647,7 +325899,10 @@ Schema name: `ResponseQueuedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 10",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -326054,6 +326309,18 @@ Schema name: `ResponseQueuedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         }
@@ -331666,6 +331933,27 @@ Schema name: `ResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1 > (property) id": {

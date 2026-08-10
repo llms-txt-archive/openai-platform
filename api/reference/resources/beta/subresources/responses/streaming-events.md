@@ -1496,6 +1496,18 @@ Schema name: `BetaResponseCreatedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         },
@@ -4236,6 +4248,18 @@ Schema name: `BetaResponseCreatedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -4336,7 +4360,10 @@ Schema name: `BetaResponseCreatedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -10569,6 +10596,27 @@ Schema name: `BetaResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1 > (property) id": {
@@ -65036,6 +65084,18 @@ Schema name: `BetaResponseInProgressEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         },
@@ -67776,6 +67836,18 @@ Schema name: `BetaResponseInProgressEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -67876,7 +67948,10 @@ Schema name: `BetaResponseInProgressEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -74109,6 +74184,27 @@ Schema name: `BetaResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1 > (property) id": {
@@ -128576,6 +128672,18 @@ Schema name: `BetaResponseCompletedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         },
@@ -131316,6 +131424,18 @@ Schema name: `BetaResponseCompletedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -131416,7 +131536,10 @@ Schema name: `BetaResponseCompletedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -137649,6 +137772,27 @@ Schema name: `BetaResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1 > (property) id": {
@@ -192133,6 +192277,18 @@ Schema name: `BetaResponseFailedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         },
@@ -194873,6 +195029,18 @@ Schema name: `BetaResponseFailedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -194973,7 +195141,10 @@ Schema name: `BetaResponseFailedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -201206,6 +201377,27 @@ Schema name: `BetaResponseFailedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1 > (property) id": {
@@ -255671,6 +255863,18 @@ Schema name: `BetaResponseIncompleteEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         },
@@ -258411,6 +258615,18 @@ Schema name: `BetaResponseIncompleteEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -258511,7 +258727,10 @@ Schema name: `BetaResponseIncompleteEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -264744,6 +264963,27 @@ Schema name: `BetaResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1 > (property) id": {
@@ -382930,6 +383170,18 @@ Schema name: `BetaResponseQueuedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.1-codex-max"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-blue-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-daybreak-red-latest"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.6-cyber"
             }
           ]
         },
@@ -385670,6 +385922,18 @@ Schema name: `BetaResponseQueuedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "gpt-5.1-codex-max"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-blue-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-daybreak-red-latest"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.6-cyber"
         }
       ]
     },
@@ -385770,7 +386034,10 @@ Schema name: `BetaResponseQueuedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 92",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 93",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 94",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 95",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 1": {
@@ -392003,6 +392270,27 @@ Schema name: `BetaResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "gpt-5.1-codex-max"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 96": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 97": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0 > (member) 98": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-5.6-cyber"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1 > (property) id": {
