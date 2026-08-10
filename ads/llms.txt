@@ -19,7 +19,7 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 ## Api Reference
 - [Ad Account](https://developers.openai.com/ads/api-reference/ad-account.md): Update and retrieve account metadata.
 - [Ad Groups](https://developers.openai.com/ads/api-reference/ad-groups.md): Create, list, retrieve, update, and change ad group state.
-- [Ads](https://developers.openai.com/ads/api-reference/ads.md): Create, list, retrieve, update, and change ad state.
+- [Ads](https://developers.openai.com/ads/api-reference/ads.md): Create, list, retrieve, update, preview, and change ad state.
 - [Authentication](https://developers.openai.com/ads/api-reference/authentication.md): Setting up bearer token authentication.
 - [Campaigns](https://developers.openai.com/ads/api-reference/campaigns.md): Create, list, retrieve, update, and change campaign state.
 - [Conversion Setup](https://developers.openai.com/ads/api-reference/conversion-setup.md): Create pixels, Conversions API keys, and event settings.

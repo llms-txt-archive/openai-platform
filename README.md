@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260810T212447Z` | 2026-08-10 21:24 UTC | [Ads Docs Add Preview Endpoint](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260810T212447Z) |
 | `archive-20260810T194006Z` | 2026-08-10 19:40 UTC | [Daybreak Changelog Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260810T194006Z) |
 | `archive-20260810T183144Z` | 2026-08-10 18:33 UTC | [Codex and Apps SDK pages drop from the archive as Responses refs expand](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260810T183144Z) |
 | `archive-20260810T173356Z` | 2026-08-10 17:34 UTC | [Daybreak Cyber Docs and IP Allowlist](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260810T173356Z) |
 | `archive-20260810T162954Z` | 2026-08-10 16:30 UTC | [Workspace publishing and OAuth domain restriction docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260810T162954Z) |
 | `archive-20260807T221703Z` | 2026-08-07 22:17 UTC | [Ads docs add Delta Feeds guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260807T221703Z) |
-| `archive-20260807T182834Z` | 2026-08-07 18:29 UTC | [Ads API Pixel Matching Defaults Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260807T182834Z) |
