@@ -131,6 +131,16 @@ curl -X POST "https://api.ads.openai.com/v1/ads/ad_501" \
   }'
 ```
 
+## Review status
+
+Every returned ad object includes `review_status`, which can be:
+
+- `in_review`
+- `rejected`
+- `approved`
+
+If your ad has been rejected, it violates one of our [ads policies](https://openai.com/policies/ad-policies/). Please edit your ad for it to be re-reviewed.
+
 ## Preview an ad
 
 Preview an existing ad by ID. The preview expires 24 hours after creation.
@@ -141,16 +151,6 @@ Preview an existing ad by ID. The preview expires 24 hours after creation.
 curl -X POST "https://api.ads.openai.com/v1/ads/ad_501/preview" \
   -H "Authorization: Bearer $OPENAI_ADS_API_KEY"
 ```
-
-## Review status
-
-Every ad response includes `review_status`, which can be:
-
-- `in_review`
-- `rejected`
-- `approved`
-
-If your ad has been rejected, it violates one of our [ads policies](https://openai.com/policies/ad-policies/). Please edit your ad for it to be re-reviewed.
 
 ## Change state with dedicated actions
 
