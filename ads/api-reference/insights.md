@@ -4,14 +4,64 @@
 
 ## Endpoints
 
-Use the endpoint that matches the scope of the results you want. Each endpoint
-returns the same top-level response shape, with IDs, metadata, and metrics
-appropriate to that scope.
+Use one of the four `GET` endpoints for general delivery insights. Each returns
+the same top-level response shape, with IDs, metadata, and metrics appropriate
+to its scope.
 
 - `GET /ad_account/insights`
 - `GET /campaigns/{campaign_id}/insights`
 - `GET /ad_groups/{ad_group_id}/insights`
 - `GET /ads/{ad_id}/insights`
+
+Use `POST /conversions/insights` for attributed conversion totals.
+
+## Conversion insights
+
+Authorized `POST /conversions/insights` responses include `conversions`,
+`click_through_conversions`, and `view_through_conversions`. `conversions` is
+always equal to `click_through_conversions`; view-through conversions are a
+separate, supplemental metric and are not added to that total.
+
+Click-through attribution follows the applicable configured click window.
+View-through reporting availability is independent of the advertiser's
+configured click window, and view-through attribution uses a fixed one-day
+window after an eligible ad impression. When a conversion is eligible for both,
+the click takes precedence.
+
+View-through conversions are for reporting only. CPA, post-click CVR, bidding,
+billing, and conversion optimization remain click-through-based. In Ads
+Manager, view-through conversion reporting is available at the campaign level
+for accounts with this reporting available.
+
+### Campaign example
+
+```bash
+curl -sS -X POST "https://api.ads.openai.com/v1/conversions/insights" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" \
+  -H "Content-Type: application/json" \
+  --data '{
+    "aggregation_level": "campaign",
+    "time_ranges": ["{\"type\":\"unix_range\",\"start\":\"1738368000\",\"end\":\"1738454400\"}"],
+    "entity_ids": ["campaign_1"]
+  }'
+```
+
+Representative response:
+
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "entity_id": "campaign_1",
+      "conversions": 7,
+      "click_through_conversions": 7,
+      "view_through_conversions": 3
+    }
+  ],
+  "count": 1
+}
+```
 
 ## Terminology
 
@@ -89,12 +139,12 @@ wire keys, such as `campaign.id` to `campaign_id`,
 
 #### Product example
 
-| Goal                 | Request shape                                                                                            |
-| -------------------- | -------------------------------------------------------------------------------------------------------- |
-| Product breakdown    | Add `segments[]=product` to an `ad_account`, `campaign`, `ad_group`, or `ad` aggregation level.          |
-| Product fields       | Project `product.*` fields from [Terminology](#terminology).                                             |
-| Product-first rows   | Set `override_segment_group_order[]=product`, then `override_segment_group_order[]=<aggregation_level>`. |
-| Zero-impression rows | Add `includes[]=zero_impression_products`; see [Includes](#includes) for required order and enablement.  |
+| Goal                 | Request shape                                                                                             |
+| -------------------- | --------------------------------------------------------------------------------------------------------- |
+| Product breakdown    | Add `segments[]=product` to an `ad_account`, `campaign`, `ad_group`, or `ad` aggregation level.           |
+| Product fields       | Project `product.*` fields from [Terminology](#terminology).                                              |
+| Product-first rows   | Set `override_segment_group_order[]=product`, then `override_segment_group_order[]=<aggregation_level>`.  |
+| Zero-impression rows | Add `includes[]=zero_impression_products`; see [Includes](#includes) for required order and availability. |
 
 ### Includes
 

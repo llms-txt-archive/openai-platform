@@ -35,6 +35,22 @@ Send `app_installed` and `app_opened` from your server with `action_source`
 set to `mobile_app`. Native mobile SDK setup and mobile data sources are not
 currently supported.
 
+## Web-event attribution reporting
+
+Web events support click-through attribution and, when available for your
+account, view-through attribution. Click-through attribution uses the applicable
+configured click window. View-through conversions use a fixed one-day window
+after an eligible ad impression. Whether view-through reporting is available
+does not depend on your configured click window. If a conversion is eligible
+for both, the click takes precedence.
+
+View-through attribution does not use a separate request or event field. Ads
+Manager reports view-through conversions as a separate, campaign-level metric.
+They are not included in `Conversions`, which remains the click-through
+conversion total. CPA, post-click CVR, bidding, billing, and conversion
+optimization also remain click-through-based. App lifecycle events and mobile
+measurement integrations remain click-through-based.
+
 ## Identify partner integrations
 
 If you send events on behalf of advertisers, include `integration_source` at
@@ -102,7 +118,7 @@ Each event includes the event metadata and a `data` object.
 
 | Field               | Required | Description                                                                                                                                                                |
 | ------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                | Yes      | Your unique event identifier. Used with `type` to deduplicate events.                                                                                                      |
+| `id`                | Yes      | Your unique event identifier. Used with `type` to avoid duplicate events.                                                                                                  |
 | `type`              | Yes      | A supported standard event name, or `custom`.                                                                                                                              |
 | `timestamp_ms`      | Yes      | Event time in milliseconds. Must be within the last 7 days and no more than 10 minutes ahead.                                                                              |
 | `custom_event_name` | Depends  | Required when `type` is `custom`.                                                                                                                                          |
@@ -116,7 +132,9 @@ Each event includes the event metadata and a `data` object.
 See [Supported Events](https://developers.openai.com/ads/supported-events) for event names and data shapes.
 
 Unlike the pixel, the API does not capture `oppref` for you. Capture the value
-yourself and pass it with the server event when it is available.
+yourself and pass it with the server event when it is available to support click
+matching. View-through attribution does not require a separate request or
+event field.
 
 ## Send user data
 
@@ -243,7 +261,11 @@ App lifecycle events use the `customer_action` data shape and require
 }
 ```
 
+{/* vale Vale.Spelling = NO */}
+
 ## Deduplicate browser and server events
+
+{/* vale Vale.Spelling = YES */}
 
 If you send the same conversion from the pixel and the Conversions API, reuse
 the same value as the API `id` and pixel `event_id`. Send both events with the
