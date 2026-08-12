@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260811T194423Z` | 2026-08-11 19:44 UTC | [Retired chat snapshots reclassified in docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260811T194423Z) |
+| `archive-20260812T004115Z` | 2026-08-12 00:41 UTC | [Your Data guide adds regional processing details](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260812T004115Z) |
+| `archive-20260811T194423Z` | 2026-08-11 19:45 UTC | [Retired chat snapshots reclassified in docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260811T194423Z) |
 | `archive-20260811T093946Z` | 2026-08-11 09:40 UTC | [Safety guide reference refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260811T093946Z) |
 | `archive-20260811T045241Z` | 2026-08-11 04:53 UTC | [Ads Attribution Reporting Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260811T045241Z) |
 | `archive-20260811T025032Z` | 2026-08-11 02:51 UTC | [Ads API review status clarification](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260811T025032Z) |
 | `archive-20260810T212447Z` | 2026-08-10 21:25 UTC | [Ads Docs Add Preview Endpoint](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260810T212447Z) |
-| `archive-20260810T194006Z` | 2026-08-10 19:40 UTC | [Daybreak Changelog Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260810T194006Z) |
