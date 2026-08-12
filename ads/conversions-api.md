@@ -2,7 +2,7 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-The Conversions API is a more reliable tracking source than the pixel alone. We encourage using the Conversions API when possible for more accurate insights.
+The Conversions API is a more reliable tracking source than the pixel alone. Use the Conversions API when possible for more accurate insights.
 
 ## Send events
 
@@ -116,18 +116,19 @@ Each event includes the event metadata and a `data` object.
 }
 ```
 
-| Field               | Required | Description                                                                                                                                                                |
-| ------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                | Yes      | Your unique event identifier. Used with `type` to avoid duplicate events.                                                                                                  |
-| `type`              | Yes      | A supported standard event name, or `custom`.                                                                                                                              |
-| `timestamp_ms`      | Yes      | Event time in milliseconds. Must be within the last 7 days and no more than 10 minutes ahead.                                                                              |
-| `custom_event_name` | Depends  | Required when `type` is `custom`.                                                                                                                                          |
-| `oppref`            | No       | OpenAI-provided privacy-preserving identifier.                                                                                                                             |
-| `source_url`        | Depends  | Required when `action_source` is `web`.                                                                                                                                    |
-| `action_source`     | Depends  | One of `web`, `mobile_app`, `offline`, `physical_store`, `phone_call`, `email`, or `other`. For `app_installed` and `app_opened`, you must set this field to `mobile_app`. |
-| `user`              | No       | Optional user fields that can improve attribution accuracy for advertising conversions.                                                                                    |
-| `opt_out`           | No       | Set to `true` to opt out the event from future user-level personalization. Defaults to `false`.                                                                            |
-| `data`              | Yes      | Event data matching the event type.                                                                                                                                        |
+| Field               | Required | Description                                                                                                                                                                                                                                                                         |
+| ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                | Yes      | A non-empty string that identifies the event. Reuse the same ID when retrying or sending the same conversion through another integration.                                                                                                                                           |
+| `type`              | Yes      | Use `appointment_scheduled`, `checkout_started`, `contents_viewed`, `custom`, `items_added`, `lead_created`, `order_created`, `page_viewed`, `registration_completed`, `subscription_created`, or `trial_started`. Native app events also support `app_installed` and `app_opened`. |
+| `timestamp_ms`      | Yes      | Event time as an integer Unix timestamp in milliseconds. The timestamp must be within the last 7 days and no more than 10 minutes in the future.                                                                                                                                    |
+| `custom_event_name` | Depends  | Required when `type` is `custom`. Use 1–64 letters, digits, underscores, or hyphens; start and end with a letter or digit. The name cannot match a standard event name. The API converts it to lowercase.                                                                           |
+| `oppref`            | No       | An opaque, OpenAI-provided attribution identifier. Pass the original string without modification.                                                                                                                                                                                   |
+| `oppcref`           | No       | An organic commerce reference formatted as a lowercase UUID version 4. Supported only for `checkout_started`, `items_added`, `order_created`, and `page_viewed` events.                                                                                                             |
+| `source_url`        | Depends  | Required for web events when `action_source` is `web`; optional for native app events. Use a URL with a scheme and host, such as `https://shop.example.com/checkout`.                                                                                                               |
+| `action_source`     | Depends  | Use `web`, `mobile_app`, `offline`, `physical_store`, `phone_call`, `email`, or `other`. The value must be `mobile_app` for `app_installed` and `app_opened` events.                                                                                                                |
+| `user`              | No       | An object containing optional matching fields: `email_sha256`, `external_id_sha256`, `country`, `city`, `zip_code`, `ip_address`, `user_agent`, or `obref`. See [Send user data](#send-user-data).                                                                                  |
+| `opt_out`           | No       | Use `true` to opt the event out of future user-level personalization, or `false` for the default behavior.                                                                                                                                                                          |
+| `data`              | Yes      | An object describing the conversion. Its `type` field must match the data shape required for the event name (see [Supported Events](https://developers.openai.com/ads/supported-events)) and use one of the event data shapes below.                                                                             |
 
 See [Supported Events](https://developers.openai.com/ads/supported-events) for event names and data shapes.
 
@@ -135,6 +136,28 @@ Unlike the pixel, the API does not capture `oppref` for you. Capture the value
 yourself and pass it with the server event when it is available to support click
 matching. View-through attribution does not require a separate request or
 event field.
+
+### Event data
+
+Each `events[].data` object supports the following fields. The available fields
+depend on its `type`.
+
+| Field                     | Required | Description                                                                                                                                                                   |
+| ------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                    | Yes      | Use `contents`, `customer_action`, `plan_enrollment`, or `custom`, as required by the event type. The `app_installed` and `app_opened` event types require `customer_action`. |
+| `amount`                  | No       | The event-level monetary value as an integer in the currency's standard minor unit. For example, use `4200` for $42.00 with `currency: "USD"`.                                |
+| `currency`                | Depends  | Required when `amount` is present. Use a valid three-letter ISO 4217 currency code, such as `USD`, `EUR`, or `JPY`; the API converts values to uppercase.                     |
+| `contents`                | No       | An array of item objects. Available when `data.type` is `contents`, `plan_enrollment`, or `custom`; not available for `customer_action`.                                      |
+| `contents[].id`           | No       | A string containing your internal product, item, or content identifier.                                                                                                       |
+| `contents[].group_id`     | No       | A string identifying the product group or parent item.                                                                                                                        |
+| `contents[].name`         | No       | A string containing the item's display name.                                                                                                                                  |
+| `contents[].content_type` | No       | A string describing the item category, such as `product`, `plan`, or `page`.                                                                                                  |
+| `contents[].quantity`     | No       | The item quantity as an integer.                                                                                                                                              |
+| `contents[].amount`       | No       | The item-level monetary value as an integer in the currency's standard minor unit.                                                                                            |
+| `contents[].currency`     | No       | A valid three-letter ISO 4217 currency code for the item, such as `USD`, `EUR`, or `JPY`.                                                                                     |
+| `contents[].variant_dict` | No       | An object whose keys and values are strings, such as `{"size": "medium", "color": "blue"}`.                                                                                   |
+| `plan_id`                 | No       | A string identifying your subscription or trial plan. Available when `data.type` is `plan_enrollment` or `custom`.                                                            |
+| `<custom_field>`          | No       | A custom property available only when `data.type` is `custom`. Values can be strings, numbers, boolean values, objects, arrays, or `null`.                                    |
 
 ## Send user data
 
@@ -162,16 +185,16 @@ Place this object inside an event at `events[].user`:
 }
 ```
 
-| Field                | Description                                                                                        |
-| -------------------- | -------------------------------------------------------------------------------------------------- |
-| `obref`              | Opaque browser reference from the Pixel's `__obref` cookie. Pass it without hashing.               |
-| `email_sha256`       | SHA-256 hash of the email address after trimming whitespace and converting it to lowercase.        |
-| `external_id_sha256` | SHA-256 hash of a stable, pseudonymous customer identifier from your system.                       |
-| `country`            | Two-letter ISO 3166-1 country code, such as `US`.                                                  |
-| `city`               | City name, with a maximum of 128 characters. OpenAI trims whitespace and converts it to lowercase. |
-| `zip_code`           | Postal or ZIP code. Use letters, numbers, spaces, or hyphens, with a maximum of 32 characters.     |
-| `ip_address`         | Valid IPv4 or IPv6 address.                                                                        |
-| `user_agent`         | Non-empty user agent string from the client that generated the event.                              |
+| Field                | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| `obref`              | Opaque browser reference from the Pixel's `__obref` cookie. Pass it without hashing.           |
+| `email_sha256`       | SHA-256 hash of the email address after trimming whitespace and converting it to lowercase.    |
+| `external_id_sha256` | SHA-256 hash of a stable, pseudonymous customer identifier from your system.                   |
+| `country`            | Two-letter ISO 3166-1 country code, such as `US`.                                              |
+| `city`               | City name, with a max of 128 characters. OpenAI trims whitespace and converts it to lowercase. |
+| `zip_code`           | Postal or ZIP code. Use letters, numbers, spaces, or hyphens, with a max of 32 characters.     |
+| `ip_address`         | Valid IPv4 or IPv6 address.                                                                    |
+| `user_agent`         | Non-empty user agent string from the client that generated the event.                          |
 
 For hybrid Pixel and Conversions API integrations, read the `__obref`
 first-party cookie in the browser, send it to your server, and include it

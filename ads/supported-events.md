@@ -74,16 +74,19 @@ you provide, for example `12999` for $129.99 with `currency: "USD"`.
 
 ### `Content`
 
-Use only these fields in each `contents[]` item.
+Use only these fields in each `contents[]` item. Fields marked as Conversions API
+only are not supported by the JavaScript Pixel.
 
 | Field          | Required | Type    | Notes                                                                                                                             |
 | -------------- | -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | `id`           | No       | string  | Your internal item identifier.                                                                                                    |
+| `group_id`     | No       | string  | Conversions API only. Your product group or parent item identifier.                                                               |
 | `name`         | No       | string  | Human-readable item name.                                                                                                         |
 | `content_type` | No       | string  | Optional non-empty category such as `product`, `plan`, or `page`.                                                                 |
 | `quantity`     | No       | integer | Quantity of the item. Use integers, not strings.                                                                                  |
 | `amount`       | No       | integer | Item-level monetary value in the currency's standard minor unit.                                                                  |
 | `currency`     | No       | string  | Include when you send an item-level `amount`, or rely on the event-level `currency` when one currency applies to the whole event. |
+| `variant_dict` | No       | object  | Conversions API only. An object with string keys and values, such as `{"size": "medium", "color": "blue"}`.                       |
 
 Use lowercase letters, numbers, underscores, or dashes in
 `custom_event_name`. Keep the name between 1 and 64 characters, and do not
