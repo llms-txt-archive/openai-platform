@@ -5,6 +5,10 @@
 Use the plugin submission portal to submit a plugin for review when you're
 ready to publish it for public use.
 
+If you're migrating an existing Claude Code plugin or connector, first review
+[Submit your Claude Code plugin to OpenAI](https://developers.openai.com/plugins/guides/submit-claude-plugin)
+to see what you need to change before starting the submission.
+
 If the portal returns an error code, use the
 [submission error reference](https://developers.openai.com/plugins/deploy/submission-errors) to find the
 matching requirement.

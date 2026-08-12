@@ -40,6 +40,7 @@ Use this as a lightweight map for AI tools. Each Plugins page has a Markdown twi
 - [Product checkout conversion spec](https://developers.openai.com/plugins/guides/product-checkout-conversion-spec.md): Contract for integrating a product checkout plugin into ChatGPT's conversion flow.
 - [Restaurant reservation conversion spec](https://developers.openai.com/plugins/guides/restaurant-reservation-conversion-spec.md): Contract for integrating a restaurant reservation plugin into ChatGPT's Reserve flow.
 - [Security & Privacy](https://developers.openai.com/plugins/guides/security-privacy.md): Security and privacy considerations for plugins.
+- [Submit your Claude Code plugin to OpenAI](https://developers.openai.com/plugins/guides/submit-claude-plugin.md): Convert a Claude Code plugin or connector into a plugin you can submit to OpenAI.
 
 ## Plan
 - [Brainstorm plugin use cases](https://developers.openai.com/plugins/plan/use-case.md): Decide what people should be able to accomplish with your plugin.

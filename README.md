@@ -7,7 +7,7 @@ Every change to the upstream docs produces a git commit and a GitHub release, so
 | | |
 |---|---|
 | **Source** | [https://developers.openai.com/llms.txt](https://developers.openai.com/llms.txt) |
-| **Documents** | 612 Markdown files |
+| **Documents** | 613 Markdown files |
 | **Schedule** | Hourly at :42 UTC |
 
 ## How it works
@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260812T031129Z` | 2026-08-12 03:11 UTC | [Conversions API schema expansion and Java example refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260812T031129Z) |
+| `archive-20260812T173928Z` | 2026-08-12 17:39 UTC | [Claude Code Plugin Submission Guide Added](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260812T173928Z) |
+| `archive-20260812T031129Z` | 2026-08-12 03:12 UTC | [Conversions API schema expansion and Java example refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260812T031129Z) |
 | `archive-20260812T004115Z` | 2026-08-12 00:41 UTC | [Your Data guide adds regional processing details](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260812T004115Z) |
 | `archive-20260811T194423Z` | 2026-08-11 19:45 UTC | [Retired chat snapshots reclassified in docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260811T194423Z) |
 | `archive-20260811T093946Z` | 2026-08-11 09:40 UTC | [Safety guide reference refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260811T093946Z) |
 | `archive-20260811T045241Z` | 2026-08-11 04:53 UTC | [Ads Attribution Reporting Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260811T045241Z) |
-| `archive-20260811T025032Z` | 2026-08-11 02:51 UTC | [Ads API review status clarification](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260811T025032Z) |
