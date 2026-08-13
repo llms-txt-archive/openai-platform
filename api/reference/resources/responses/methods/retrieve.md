@@ -4209,7 +4209,7 @@ Retrieves a model response with the given ID.
 
     - `string`
 
-    - `"gpt-5.6-sol" or "gpt-5.6-terra" or "gpt-5.6-luna" or 79 more`
+    - `"gpt-5.6-sol" or "gpt-5.6-terra" or "gpt-5.6-luna" or 80 more`
 
       - `"gpt-5.6-sol"`
 
@@ -4218,6 +4218,8 @@ Retrieves a model response with the given ID.
       - `"gpt-5.6-luna"`
 
       - `"gpt-5.5"`
+
+      - `"gpt-5.5-2026-04-23"`
 
       - `"gpt-5.4"`
 
@@ -4375,7 +4377,7 @@ Retrieves a model response with the given ID.
 
       - `"gpt-3.5-turbo-16k-0613"`
 
-    - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 14 more`
+    - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
 
       - `"o1-pro"`
 
@@ -4396,6 +4398,10 @@ Retrieves a model response with the given ID.
       - `"computer-use-preview"`
 
       - `"computer-use-preview-2025-03-11"`
+
+      - `"gpt-5.5-pro"`
+
+      - `"gpt-5.5-pro-2026-04-23"`
 
       - `"gpt-5-codex"`
 

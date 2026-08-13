@@ -11,11 +11,13 @@ Events sent by the client over a Responses API WebSocket connection.
 ### response.create
 
 Client event for creating a response over a persistent WebSocket connection.
-This payload uses the same top-level fields as `POST /v1/responses`.
+This payload uses the same top-level fields as `POST /v1/responses`, plus
+WebSocket-only envelope metadata.
 
 Notes:
 - `stream` is implicit over WebSocket and should not be sent.
 - `background` is not supported over WebSocket.
+- `stream_id` is WebSocket-only and is not part of `POST /v1/responses`.
 
 #### Schema
 
@@ -100,6 +102,9 @@ Schema name: `ResponsesClientEventResponseCreate`
           "ident": "stream"
         },
         {
+          "ident": "stream_id"
+        },
+        {
           "ident": "stream_options"
         },
         {
@@ -153,6 +158,7 @@ Schema name: `ResponsesClientEventResponseCreate`
       "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier",
       "(resource) responses > (model) responses_client_event > (schema) > (property) store",
       "(resource) responses > (model) responses_client_event > (schema) > (property) stream",
+      "(resource) responses > (model) responses_client_event > (schema) > (property) stream_id",
       "(resource) responses > (model) responses_client_event > (schema) > (property) stream_options",
       "(resource) responses > (model) responses_client_event > (schema) > (property) temperature",
       "(resource) responses > (model) responses_client_event > (schema) > (property) text",
@@ -1333,6 +1339,24 @@ Schema name: `ResponsesClientEventResponseCreate`
     "optional": true,
     "nullable": true,
     "schemaType": "boolean",
+    "children": []
+  },
+  "(resource) responses > (model) responses_client_event > (schema) > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesClientEventResponseCreate/allOf/0/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane for this response. Requests with the same\n`stream_id` are processed FIFO, and events for the response echo the\nsame `stream_id`.\n\n`stream_id` controls routing; `previous_response_id` controls\nconversation lineage, so a new lane can fork from a response created\non another lane.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
     "children": []
   },
   "(resource) responses > (model) responses_client_event > (schema) > (property) stream_options": {
@@ -2921,6 +2945,10 @@ Schema name: `ResponsesClientEventResponseCreate`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -3316,7 +3344,8 @@ Schema name: `ResponsesClientEventResponseCreate`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -3369,6 +3398,14 @@ Schema name: `ResponsesClientEventResponseCreate`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5-codex"
         },
         {
@@ -3415,7 +3452,9 @@ Schema name: `ResponsesClientEventResponseCreate`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -3448,6 +3487,10 @@ Schema name: `ResponsesClientEventResponseCreate`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -3806,6 +3849,14 @@ Schema name: `ResponsesClientEventResponseCreate`
             {
               "kind": "HttpTypeLiteral",
               "literal": "computer-use-preview-2025-03-11"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -6652,542 +6703,549 @@ Schema name: `ResponsesClientEventResponseCreate`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -7268,45 +7326,59 @@ Schema name: `ResponsesClientEventResponseCreate`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "gpt-5.5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5.5-pro-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex-max"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-blue-latest"
+      "literal": "gpt-5-pro-2025-10-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-red-latest"
+      "literal": "gpt-5.1-codex-max"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -34179,6 +34251,7 @@ Schema name: `ResponsesClientEventResponseCreate`
 ```json
 {
   "type": "response.create",
+  "stream_id": "agent_1",
   "model": "gpt-5.5",
   "input": "Say hello."
 }
@@ -34199,6 +34272,41 @@ Schema name: `ResponseCreatedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 12": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/12",
+    "docstring": "An event that is emitted when a response is created.\n",
+    "ident": "ResponseWsCreated",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/12",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseCreatedEvent",
+          "$ref": "(resource) responses > (model) response_created_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 12 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 12 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/12/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_created_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseCreatedEvent",
@@ -37304,6 +37412,10 @@ Schema name: `ResponseCreatedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -37699,7 +37811,8 @@ Schema name: `ResponseCreatedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -37752,6 +37865,14 @@ Schema name: `ResponseCreatedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5-codex"
         },
         {
@@ -37798,7 +37919,9 @@ Schema name: `ResponseCreatedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -37831,6 +37954,10 @@ Schema name: `ResponseCreatedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -38189,6 +38316,14 @@ Schema name: `ResponseCreatedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "computer-use-preview-2025-03-11"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -43191,542 +43326,549 @@ Schema name: `ResponseCreatedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -43807,45 +43949,59 @@ Schema name: `ResponseCreatedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "gpt-5.5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5.5-pro-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex-max"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-blue-latest"
+      "literal": "gpt-5-pro-2025-10-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-red-latest"
+      "literal": "gpt-5.1-codex-max"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -87843,6 +87999,41 @@ Schema name: `ResponseInProgressEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 19": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19",
+    "docstring": "Emitted when the response is in progress.",
+    "ident": "ResponseInWsProgress",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseInProgressEvent",
+          "$ref": "(resource) responses > (model) response_in_progress_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 19 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 19 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_in_progress_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseInProgressEvent",
@@ -90948,6 +91139,10 @@ Schema name: `ResponseInProgressEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -91343,7 +91538,8 @@ Schema name: `ResponseInProgressEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -91396,6 +91592,14 @@ Schema name: `ResponseInProgressEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5-codex"
         },
         {
@@ -91442,7 +91646,9 @@ Schema name: `ResponseInProgressEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -91475,6 +91681,10 @@ Schema name: `ResponseInProgressEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -91833,6 +92043,14 @@ Schema name: `ResponseInProgressEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "computer-use-preview-2025-03-11"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -96835,542 +97053,549 @@ Schema name: `ResponseInProgressEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -97451,45 +97676,59 @@ Schema name: `ResponseInProgressEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "gpt-5.5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5.5-pro-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex-max"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-blue-latest"
+      "literal": "gpt-5-pro-2025-10-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-red-latest"
+      "literal": "gpt-5.1-codex-max"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -141487,6 +141726,41 @@ Schema name: `ResponseCompletedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 9": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/9",
+    "docstring": "Emitted when the model response is complete.",
+    "ident": "ResponseWsCompleted",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/9",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseCompletedEvent",
+          "$ref": "(resource) responses > (model) response_completed_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 9 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 9 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/9/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_completed_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseCompletedEvent",
@@ -144592,6 +144866,10 @@ Schema name: `ResponseCompletedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -144987,7 +145265,8 @@ Schema name: `ResponseCompletedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -145040,6 +145319,14 @@ Schema name: `ResponseCompletedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5-codex"
         },
         {
@@ -145086,7 +145373,9 @@ Schema name: `ResponseCompletedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -145119,6 +145408,10 @@ Schema name: `ResponseCompletedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -145477,6 +145770,14 @@ Schema name: `ResponseCompletedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "computer-use-preview-2025-03-11"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -150479,542 +150780,549 @@ Schema name: `ResponseCompletedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -151095,45 +151403,59 @@ Schema name: `ResponseCompletedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "gpt-5.5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5.5-pro-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex-max"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-blue-latest"
+      "literal": "gpt-5-pro-2025-10-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-red-latest"
+      "literal": "gpt-5.1-codex-max"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -195148,6 +195470,41 @@ Schema name: `ResponseFailedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 20": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20",
+    "docstring": "An event that is emitted when a response fails.\n",
+    "ident": "ResponseWsFailed",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseFailedEvent",
+          "$ref": "(resource) responses > (model) response_failed_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 20 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 20 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_failed_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseFailedEvent",
@@ -198253,6 +198610,10 @@ Schema name: `ResponseFailedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -198648,7 +199009,8 @@ Schema name: `ResponseFailedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -198701,6 +199063,14 @@ Schema name: `ResponseFailedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5-codex"
         },
         {
@@ -198747,7 +199117,9 @@ Schema name: `ResponseFailedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -198780,6 +199152,10 @@ Schema name: `ResponseFailedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -199138,6 +199514,14 @@ Schema name: `ResponseFailedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "computer-use-preview-2025-03-11"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -204140,542 +204524,549 @@ Schema name: `ResponseFailedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -204756,45 +205147,59 @@ Schema name: `ResponseFailedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "gpt-5.5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5.5-pro-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex-max"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-blue-latest"
+      "literal": "gpt-5-pro-2025-10-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-red-latest"
+      "literal": "gpt-5.1-codex-max"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -248790,6 +249195,41 @@ Schema name: `ResponseIncompleteEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 21": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21",
+    "docstring": "An event that is emitted when a response finishes as incomplete.\n",
+    "ident": "ResponseWsIncomplete",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseIncompleteEvent",
+          "$ref": "(resource) responses > (model) response_incomplete_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 21 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 21 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_incomplete_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseIncompleteEvent",
@@ -251895,6 +252335,10 @@ Schema name: `ResponseIncompleteEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -252290,7 +252734,8 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -252343,6 +252788,14 @@ Schema name: `ResponseIncompleteEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5-codex"
         },
         {
@@ -252389,7 +252842,9 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -252422,6 +252877,10 @@ Schema name: `ResponseIncompleteEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -252780,6 +253239,14 @@ Schema name: `ResponseIncompleteEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "computer-use-preview-2025-03-11"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -257782,542 +258249,549 @@ Schema name: `ResponseIncompleteEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -258398,45 +258872,59 @@ Schema name: `ResponseIncompleteEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "gpt-5.5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5.5-pro-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex-max"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-blue-latest"
+      "literal": "gpt-5-pro-2025-10-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-red-latest"
+      "literal": "gpt-5.1-codex-max"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -302432,6 +302920,41 @@ Schema name: `ResponseOutputItemAddedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 22": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22",
+    "docstring": "Emitted when a new output item is added.",
+    "ident": "ResponseOutputItemWsAdded",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseOutputItemAddedEvent",
+          "$ref": "(resource) responses > (model) response_output_item_added_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 22 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 22 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_output_item_added_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseOutputItemAddedEvent",
@@ -325512,6 +326035,41 @@ Schema name: `ResponseOutputItemDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 23": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23",
+    "docstring": "Emitted when an output item is marked done.",
+    "ident": "ResponseOutputItemWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseOutputItemDoneEvent",
+          "$ref": "(resource) responses > (model) response_output_item_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 23 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 23 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_output_item_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseOutputItemDoneEvent",
@@ -348598,6 +349156,41 @@ Schema name: `ResponseContentPartAddedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 10": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/10",
+    "docstring": "Emitted when a new content part is added.",
+    "ident": "ResponseContentPartWsAdded",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/10",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseContentPartAddedEvent",
+          "$ref": "(resource) responses > (model) response_content_part_added_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 10 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 10 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/10/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_content_part_added_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseContentPartAddedEvent",
@@ -349747,6 +350340,41 @@ Schema name: `ResponseContentPartDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 11": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/11",
+    "docstring": "Emitted when a content part is done.",
+    "ident": "ResponseContentPartWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/11",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseContentPartDoneEvent",
+          "$ref": "(resource) responses > (model) response_content_part_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 11 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 11 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/11/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_content_part_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseContentPartDoneEvent",
@@ -350896,6 +351524,41 @@ Schema name: `ResponseTextDeltaEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 32": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32",
+    "docstring": "Emitted when there is an additional text delta.",
+    "ident": "ResponseTextWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseTextDeltaEvent",
+          "$ref": "(resource) responses > (model) response_text_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 32 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 32 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_text_delta_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseTextDeltaEvent",
@@ -351185,6 +351848,41 @@ Schema name: `ResponseTextDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 33": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33",
+    "docstring": "Emitted when text content is finalized.",
+    "ident": "ResponseTextWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseTextDoneEvent",
+          "$ref": "(resource) responses > (model) response_text_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 33 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 33 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_text_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseTextDoneEvent",
@@ -351474,6 +352172,41 @@ Schema name: `ResponseRefusalDeltaEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 30": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30",
+    "docstring": "Emitted when there is a partial refusal text.",
+    "ident": "ResponseRefusalWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseRefusalDeltaEvent",
+          "$ref": "(resource) responses > (model) response_refusal_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 30 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 30 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_refusal_delta_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseRefusalDeltaEvent",
@@ -351639,6 +352372,41 @@ Schema name: `ResponseRefusalDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 31": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31",
+    "docstring": "Emitted when refusal text is finalized.",
+    "ident": "ResponseRefusalWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseRefusalDoneEvent",
+          "$ref": "(resource) responses > (model) response_refusal_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 31 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 31 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_refusal_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseRefusalDoneEvent",
@@ -351804,6 +352572,41 @@ Schema name: `ResponseFunctionCallArgumentsDeltaEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 17": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/17",
+    "docstring": "Emitted when there is a partial function-call arguments delta.",
+    "ident": "ResponseFunctionCallArgumentsWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/17",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseFunctionCallArgumentsDeltaEvent",
+          "$ref": "(resource) responses > (model) response_function_call_arguments_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 17 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 17 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/17/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_function_call_arguments_delta_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseFunctionCallArgumentsDeltaEvent",
@@ -351950,6 +352753,41 @@ Schema name: `ResponseFunctionCallArgumentsDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 18": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18",
+    "docstring": "Emitted when function-call arguments are finalized.",
+    "ident": "ResponseFunctionCallArgumentsWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseFunctionCallArgumentsDoneEvent",
+          "$ref": "(resource) responses > (model) response_function_call_arguments_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 18 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 18 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_function_call_arguments_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseFunctionCallArgumentsDoneEvent",
@@ -352114,6 +352952,41 @@ Schema name: `ResponseFileSearchCallInProgressEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 15": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/15",
+    "docstring": "Emitted when a file search call is initiated.",
+    "ident": "ResponseFileSearchCallInWsProgress",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/15",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseFileSearchCallInProgressEvent",
+          "$ref": "(resource) responses > (model) response_file_search_call_in_progress_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 15 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 15 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/15/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_file_search_call_in_progress_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseFileSearchCallInProgressEvent",
@@ -352241,6 +353114,41 @@ Schema name: `ResponseFileSearchCallSearchingEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 16": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/16",
+    "docstring": "Emitted when a file search is currently searching.",
+    "ident": "ResponseFileSearchCallWsSearching",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/16",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseFileSearchCallSearchingEvent",
+          "$ref": "(resource) responses > (model) response_file_search_call_searching_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 16 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 16 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/16/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_file_search_call_searching_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseFileSearchCallSearchingEvent",
@@ -352368,6 +353276,41 @@ Schema name: `ResponseFileSearchCallCompletedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 14": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/14",
+    "docstring": "Emitted when a file search call is completed (results found).",
+    "ident": "ResponseFileSearchCallWsCompleted",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/14",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseFileSearchCallCompletedEvent",
+          "$ref": "(resource) responses > (model) response_file_search_call_completed_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 14 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 14 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/14/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_file_search_call_completed_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseFileSearchCallCompletedEvent",
@@ -352495,6 +353438,41 @@ Schema name: `ResponseWebSearchCallInProgressEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 35": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35",
+    "docstring": "Emitted when a web search call is initiated.",
+    "ident": "ResponseWebSearchCallInWsProgress",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseWebSearchCallInProgressEvent",
+          "$ref": "(resource) responses > (model) response_web_search_call_in_progress_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 35 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 35 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_web_search_call_in_progress_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseWebSearchCallInProgressEvent",
@@ -352622,6 +353600,41 @@ Schema name: `ResponseWebSearchCallSearchingEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 36": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36",
+    "docstring": "Emitted when a web search call is executing.",
+    "ident": "ResponseWebSearchCallWsSearching",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseWebSearchCallSearchingEvent",
+          "$ref": "(resource) responses > (model) response_web_search_call_searching_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 36 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 36 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_web_search_call_searching_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseWebSearchCallSearchingEvent",
@@ -352749,6 +353762,41 @@ Schema name: `ResponseWebSearchCallCompletedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 34": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34",
+    "docstring": "Emitted when a web search call is completed.",
+    "ident": "ResponseWebSearchCallWsCompleted",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseWebSearchCallCompletedEvent",
+          "$ref": "(resource) responses > (model) response_web_search_call_completed_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 34 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 34 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_web_search_call_completed_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseWebSearchCallCompletedEvent",
@@ -352876,6 +353924,41 @@ Schema name: `ResponseReasoningSummaryPartAddedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 24": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24",
+    "docstring": "Emitted when a new reasoning summary part is added.",
+    "ident": "ResponseReasoningSummaryPartWsAdded",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseReasoningSummaryPartAddedEvent",
+          "$ref": "(resource) responses > (model) response_reasoning_summary_part_added_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 24 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 24 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_reasoning_summary_part_added_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseReasoningSummaryPartAddedEvent",
@@ -353101,6 +354184,41 @@ Schema name: `ResponseReasoningSummaryPartDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 25": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25",
+    "docstring": "Emitted when a reasoning summary part is completed.",
+    "ident": "ResponseReasoningSummaryPartWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseReasoningSummaryPartDoneEvent",
+          "$ref": "(resource) responses > (model) response_reasoning_summary_part_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 25 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 25 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_reasoning_summary_part_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseReasoningSummaryPartDoneEvent",
@@ -353361,6 +354479,41 @@ Schema name: `ResponseReasoningSummaryTextDeltaEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 26": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26",
+    "docstring": "Emitted when a delta is added to a reasoning summary text.",
+    "ident": "ResponseReasoningSummaryTextWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseReasoningSummaryTextDeltaEvent",
+          "$ref": "(resource) responses > (model) response_reasoning_summary_text_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 26 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 26 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_reasoning_summary_text_delta_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseReasoningSummaryTextDeltaEvent",
@@ -353526,6 +354679,41 @@ Schema name: `ResponseReasoningSummaryTextDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 27": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27",
+    "docstring": "Emitted when a reasoning summary text is completed.",
+    "ident": "ResponseReasoningSummaryTextWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseReasoningSummaryTextDoneEvent",
+          "$ref": "(resource) responses > (model) response_reasoning_summary_text_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 27 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 27 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_reasoning_summary_text_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseReasoningSummaryTextDoneEvent",
@@ -353691,6 +354879,41 @@ Schema name: `ResponseReasoningTextDeltaEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 28": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28",
+    "docstring": "Emitted when a delta is added to a reasoning text.",
+    "ident": "ResponseReasoningTextWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseReasoningTextDeltaEvent",
+          "$ref": "(resource) responses > (model) response_reasoning_text_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 28 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 28 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_reasoning_text_delta_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseReasoningTextDeltaEvent",
@@ -353856,6 +355079,41 @@ Schema name: `ResponseReasoningTextDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 29": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29",
+    "docstring": "Emitted when a reasoning text is completed.",
+    "ident": "ResponseReasoningTextWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseReasoningTextDoneEvent",
+          "$ref": "(resource) responses > (model) response_reasoning_text_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 29 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 29 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_reasoning_text_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseReasoningTextDoneEvent",
@@ -354021,6 +355279,41 @@ Schema name: `ResponseImageGenCallCompletedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 37": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37",
+    "docstring": "Emitted when an image generation tool call has completed and the final image is available.\n",
+    "ident": "ResponseImageGenCallWsCompleted",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseImageGenCallCompletedEvent",
+          "$ref": "(resource) responses > (model) response_image_gen_call_completed_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 37 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 37 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_image_gen_call_completed_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseImageGenCallCompletedEvent",
@@ -354148,6 +355441,41 @@ Schema name: `ResponseImageGenCallGeneratingEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 38": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38",
+    "docstring": "Emitted when an image generation tool call is actively generating an image (intermediate state).\n",
+    "ident": "ResponseImageGenCallWsGenerating",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseImageGenCallGeneratingEvent",
+          "$ref": "(resource) responses > (model) response_image_gen_call_generating_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 38 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 38 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_image_gen_call_generating_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseImageGenCallGeneratingEvent",
@@ -354275,6 +355603,41 @@ Schema name: `ResponseImageGenCallInProgressEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 39": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39",
+    "docstring": "Emitted when an image generation tool call is in progress.\n",
+    "ident": "ResponseImageGenCallInWsProgress",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseImageGenCallInProgressEvent",
+          "$ref": "(resource) responses > (model) response_image_gen_call_in_progress_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 39 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 39 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_image_gen_call_in_progress_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseImageGenCallInProgressEvent",
@@ -354402,6 +355765,41 @@ Schema name: `ResponseImageGenCallPartialImageEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 40": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40",
+    "docstring": "Emitted when a partial image is available during image generation streaming.\n",
+    "ident": "ResponseImageGenCallPartialWsImage",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseImageGenCallPartialImageEvent",
+          "$ref": "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 40 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 40 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseImageGenCallPartialImageEvent",
@@ -354567,6 +355965,41 @@ Schema name: `ResponseMCPCallArgumentsDeltaEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 41": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41",
+    "docstring": "Emitted when there is a delta (partial update) to the arguments of an MCP tool call.\n",
+    "ident": "ResponseMcpCallArgumentsWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseMcpCallArgumentsDeltaEvent",
+          "$ref": "(resource) responses > (model) response_mcp_call_arguments_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 41 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 41 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_mcp_call_arguments_delta_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseMCPCallArgumentsDeltaEvent",
@@ -354713,6 +356146,41 @@ Schema name: `ResponseMCPCallArgumentsDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 42": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42",
+    "docstring": "Emitted when the arguments for an MCP tool call are finalized.\n",
+    "ident": "ResponseMcpCallArgumentsWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseMcpCallArgumentsDoneEvent",
+          "$ref": "(resource) responses > (model) response_mcp_call_arguments_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 42 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 42 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_mcp_call_arguments_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseMCPCallArgumentsDoneEvent",
@@ -354859,6 +356327,41 @@ Schema name: `ResponseMCPCallCompletedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 43": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43",
+    "docstring": "Emitted when an MCP  tool call has completed successfully.\n",
+    "ident": "ResponseMcpCallWsCompleted",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseMcpCallCompletedEvent",
+          "$ref": "(resource) responses > (model) response_mcp_call_completed_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 43 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 43 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_mcp_call_completed_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseMCPCallCompletedEvent",
@@ -354986,6 +356489,41 @@ Schema name: `ResponseMCPCallFailedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 44": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44",
+    "docstring": "Emitted when an MCP  tool call has failed.\n",
+    "ident": "ResponseMcpCallWsFailed",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseMcpCallFailedEvent",
+          "$ref": "(resource) responses > (model) response_mcp_call_failed_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 44 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 44 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_mcp_call_failed_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseMCPCallFailedEvent",
@@ -355113,6 +356651,41 @@ Schema name: `ResponseMCPCallInProgressEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 45": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45",
+    "docstring": "Emitted when an MCP  tool call is in progress.\n",
+    "ident": "ResponseMcpCallInWsProgress",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseMcpCallInProgressEvent",
+          "$ref": "(resource) responses > (model) response_mcp_call_in_progress_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 45 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 45 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_mcp_call_in_progress_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseMCPCallInProgressEvent",
@@ -355240,6 +356813,41 @@ Schema name: `ResponseMCPListToolsCompletedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 46": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46",
+    "docstring": "Emitted when the list of available MCP tools has been successfully retrieved.\n",
+    "ident": "ResponseMcpListToolsWsCompleted",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseMcpListToolsCompletedEvent",
+          "$ref": "(resource) responses > (model) response_mcp_list_tools_completed_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 46 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 46 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_mcp_list_tools_completed_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseMCPListToolsCompletedEvent",
@@ -355367,6 +356975,41 @@ Schema name: `ResponseMCPListToolsFailedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 47": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47",
+    "docstring": "Emitted when the attempt to list available MCP tools has failed.\n",
+    "ident": "ResponseMcpListToolsWsFailed",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseMcpListToolsFailedEvent",
+          "$ref": "(resource) responses > (model) response_mcp_list_tools_failed_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 47 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 47 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_mcp_list_tools_failed_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseMCPListToolsFailedEvent",
@@ -355494,6 +357137,41 @@ Schema name: `ResponseMCPListToolsInProgressEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 48": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48",
+    "docstring": "Emitted when the system is in the process of retrieving the list of available MCP tools.\n",
+    "ident": "ResponseMcpListToolsInWsProgress",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseMcpListToolsInProgressEvent",
+          "$ref": "(resource) responses > (model) response_mcp_list_tools_in_progress_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 48 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 48 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_mcp_list_tools_in_progress_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseMCPListToolsInProgressEvent",
@@ -355621,6 +357299,41 @@ Schema name: `ResponseCodeInterpreterCallInProgressEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 7": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/7",
+    "docstring": "Emitted when a code interpreter call is in progress.",
+    "ident": "ResponseCodeInterpreterCallInWsProgress",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/7",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseCodeInterpreterCallInProgressEvent",
+          "$ref": "(resource) responses > (model) response_code_interpreter_call_in_progress_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 7 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 7 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/7/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_code_interpreter_call_in_progress_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseCodeInterpreterCallInProgressEvent",
@@ -355748,6 +357461,41 @@ Schema name: `ResponseCodeInterpreterCallInterpretingEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 8": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/8",
+    "docstring": "Emitted when the code interpreter is actively interpreting the code snippet.",
+    "ident": "ResponseCodeInterpreterCallWsInterpreting",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/8",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseCodeInterpreterCallInterpretingEvent",
+          "$ref": "(resource) responses > (model) response_code_interpreter_call_interpreting_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 8 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 8 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/8/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_code_interpreter_call_interpreting_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseCodeInterpreterCallInterpretingEvent",
@@ -355875,6 +357623,41 @@ Schema name: `ResponseCodeInterpreterCallCompletedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 6": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/6",
+    "docstring": "Emitted when the code interpreter call is completed.",
+    "ident": "ResponseCodeInterpreterCallWsCompleted",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/6",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseCodeInterpreterCallCompletedEvent",
+          "$ref": "(resource) responses > (model) response_code_interpreter_call_completed_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 6 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 6 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/6/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_code_interpreter_call_completed_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseCodeInterpreterCallCompletedEvent",
@@ -356002,6 +357785,41 @@ Schema name: `ResponseCodeInterpreterCallCodeDeltaEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 4": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/4",
+    "docstring": "Emitted when a partial code snippet is streamed by the code interpreter.",
+    "ident": "ResponseCodeInterpreterCallCodeWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/4",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseCodeInterpreterCallCodeDeltaEvent",
+          "$ref": "(resource) responses > (model) response_code_interpreter_call_code_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 4 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 4 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/4/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_code_interpreter_call_code_delta_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseCodeInterpreterCallCodeDeltaEvent",
@@ -356148,6 +357966,41 @@ Schema name: `ResponseCodeInterpreterCallCodeDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 5": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/5",
+    "docstring": "Emitted when the code snippet is finalized by the code interpreter.",
+    "ident": "ResponseCodeInterpreterCallCodeWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/5",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseCodeInterpreterCallCodeDoneEvent",
+          "$ref": "(resource) responses > (model) response_code_interpreter_call_code_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 5 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 5 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/5/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_code_interpreter_call_code_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseCodeInterpreterCallCodeDoneEvent",
@@ -356294,6 +358147,41 @@ Schema name: `ResponseOutputTextAnnotationAddedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 49": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49",
+    "docstring": "Emitted when an annotation is added to output text content.\n",
+    "ident": "ResponseOutputTextAnnotationWsAdded",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseOutputTextAnnotationAddedEvent",
+          "$ref": "(resource) responses > (model) response_output_text_annotation_added_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 49 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 49 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_output_text_annotation_added_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseOutputTextAnnotationAddedEvent",
@@ -356483,6 +358371,41 @@ Schema name: `ResponseQueuedEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 50": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50",
+    "docstring": "Emitted when a response is queued and waiting to be processed.\n",
+    "ident": "ResponseWsQueued",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseQueuedEvent",
+          "$ref": "(resource) responses > (model) response_queued_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 50 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 50 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_queued_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseQueuedEvent",
@@ -359588,6 +361511,10 @@ Schema name: `ResponseQueuedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5.4"
         },
         {
@@ -359983,7 +361910,8 @@ Schema name: `ResponseQueuedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2": {
@@ -360036,6 +361964,14 @@ Schema name: `ResponseQueuedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "gpt-5.5-pro-2026-04-23"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "gpt-5-codex"
         },
         {
@@ -360082,7 +362018,9 @@ Schema name: `ResponseQueuedEvent`
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14",
       "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15",
-      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16"
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17",
+      "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18"
     ]
   },
   "(resource) $shared > (model) responses_model > (schema)": {
@@ -360115,6 +362053,10 @@ Schema name: `ResponseQueuedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "gpt-5.5"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -360473,6 +362415,14 @@ Schema name: `ResponseQueuedEvent`
             {
               "kind": "HttpTypeLiteral",
               "literal": "computer-use-preview-2025-03-11"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro"
+            },
+            {
+              "kind": "HttpTypeLiteral",
+              "literal": "gpt-5.5-pro-2026-04-23"
             },
             {
               "kind": "HttpTypeLiteral",
@@ -365475,542 +367425,549 @@ Schema name: `ResponseQueuedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4"
+      "literal": "gpt-5.5-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini"
+      "literal": "gpt-5.4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano"
+      "literal": "gpt-5.4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 7": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-mini-2026-03-17"
+      "literal": "gpt-5.4-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 8": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.4-nano-2026-03-17"
+      "literal": "gpt-5.4-mini-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 9": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.3-chat-latest"
+      "literal": "gpt-5.4-nano-2026-03-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 10": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2"
+      "literal": "gpt-5.3-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-2025-12-11"
+      "literal": "gpt-5.2"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-chat-latest"
+      "literal": "gpt-5.2-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro"
+      "literal": "gpt-5.2-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.2-pro-2025-12-11"
+      "literal": "gpt-5.2-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1"
+      "literal": "gpt-5.2-pro-2025-12-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 16": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-2025-11-13"
+      "literal": "gpt-5.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 17": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex"
+      "literal": "gpt-5.1-2025-11-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-mini"
+      "literal": "gpt-5.1-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 19": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-chat-latest"
+      "literal": "gpt-5.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 20": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5"
+      "literal": "gpt-5.1-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 21": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini"
+      "literal": "gpt-5"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 22": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano"
+      "literal": "gpt-5-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 23": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-2025-08-07"
+      "literal": "gpt-5-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 24": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-mini-2025-08-07"
+      "literal": "gpt-5-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 25": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-nano-2025-08-07"
+      "literal": "gpt-5-mini-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 26": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-chat-latest"
+      "literal": "gpt-5-nano-2025-08-07"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 27": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1"
+      "literal": "gpt-5-chat-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 28": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini"
+      "literal": "gpt-4.1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 29": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano"
+      "literal": "gpt-4.1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 30": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-2025-04-14"
+      "literal": "gpt-4.1-nano"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 31": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-mini-2025-04-14"
+      "literal": "gpt-4.1-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 32": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4.1-nano-2025-04-14"
+      "literal": "gpt-4.1-mini-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 33": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini"
+      "literal": "gpt-4.1-nano-2025-04-14"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 34": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o4-mini-2025-04-16"
+      "literal": "o4-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 35": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3"
+      "literal": "o4-mini-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 36": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-2025-04-16"
+      "literal": "o3"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 37": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini"
+      "literal": "o3-2025-04-16"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 38": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o3-mini-2025-01-31"
+      "literal": "o3-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 39": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1"
+      "literal": "o3-mini-2025-01-31"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 40": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-2024-12-17"
+      "literal": "o1"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 41": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview"
+      "literal": "o1-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 42": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-preview-2024-09-12"
+      "literal": "o1-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 43": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini"
+      "literal": "o1-preview-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 44": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "o1-mini-2024-09-12"
+      "literal": "o1-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 45": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o"
+      "literal": "o1-mini-2024-09-12"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 46": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-11-20"
+      "literal": "gpt-4o"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 47": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-08-06"
+      "literal": "gpt-4o-2024-11-20"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 48": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-2024-05-13"
+      "literal": "gpt-4o-2024-08-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 49": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview"
+      "literal": "gpt-4o-2024-05-13"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 50": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-10-01"
+      "literal": "gpt-4o-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 51": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2024-12-17"
+      "literal": "gpt-4o-audio-preview-2024-10-01"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 52": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-audio-preview-2025-06-03"
+      "literal": "gpt-4o-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 53": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview"
+      "literal": "gpt-4o-audio-preview-2025-06-03"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 54": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
+      "literal": "gpt-4o-mini-audio-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 55": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview"
+      "literal": "gpt-4o-mini-audio-preview-2024-12-17"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 56": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview"
+      "literal": "gpt-4o-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 57": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-search-preview-2025-03-11"
+      "literal": "gpt-4o-mini-search-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 58": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-search-preview-2025-03-11"
+      "literal": "gpt-4o-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 59": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "chatgpt-4o-latest"
+      "literal": "gpt-4o-mini-search-preview-2025-03-11"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 60": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "codex-mini-latest"
+      "literal": "chatgpt-4o-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 61": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini"
+      "literal": "codex-mini-latest"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 62": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4o-mini-2024-07-18"
+      "literal": "gpt-4o-mini"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 63": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo"
+      "literal": "gpt-4o-mini-2024-07-18"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 64": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-2024-04-09"
+      "literal": "gpt-4-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 65": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0125-preview"
+      "literal": "gpt-4-turbo-2024-04-09"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 66": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-turbo-preview"
+      "literal": "gpt-4-0125-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 67": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-1106-preview"
+      "literal": "gpt-4-turbo-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 68": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-vision-preview"
+      "literal": "gpt-4-1106-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 69": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4"
+      "literal": "gpt-4-vision-preview"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 70": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0314"
+      "literal": "gpt-4"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 71": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-0613"
+      "literal": "gpt-4-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 72": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k"
+      "literal": "gpt-4-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 73": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0314"
+      "literal": "gpt-4-32k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 74": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-4-32k-0613"
+      "literal": "gpt-4-32k-0314"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 75": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo"
+      "literal": "gpt-4-32k-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 76": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-16k"
+      "literal": "gpt-3.5-turbo"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 77": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0301"
+      "literal": "gpt-3.5-turbo-16k"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 78": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0613"
+      "literal": "gpt-3.5-turbo-0301"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 79": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-1106"
+      "literal": "gpt-3.5-turbo-0613"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 80": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-3.5-turbo-0125"
+      "literal": "gpt-3.5-turbo-1106"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 81": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-3.5-turbo-0125"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 1 > (member) 82": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -366091,45 +368048,59 @@ Schema name: `ResponseQueuedEvent`
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-codex"
+      "literal": "gpt-5.5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 11": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro"
+      "literal": "gpt-5.5-pro-2026-04-23"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 12": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5-pro-2025-10-06"
+      "literal": "gpt-5-codex"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 13": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-5.1-codex-max"
+      "literal": "gpt-5-pro"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 14": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-blue-latest"
+      "literal": "gpt-5-pro-2025-10-06"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 15": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
-      "literal": "gpt-daybreak-red-latest"
+      "literal": "gpt-5.1-codex-max"
     }
   },
   "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 16": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-blue-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 17": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "gpt-daybreak-red-latest"
+    }
+  },
+  "(resource) $shared > (model) responses_model > (schema) > (variant) 2 > (member) 18": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -410100,6 +412071,41 @@ Schema name: `ResponseCustomToolCallInputDeltaEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 51": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51",
+    "docstring": "Event representing a delta (partial update) to the input of a custom tool call.\n",
+    "ident": "ResponseCustomToolCallInputWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseCustomToolCallInputDeltaEvent",
+          "$ref": "(resource) responses > (model) response_custom_tool_call_input_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 51 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 51 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_custom_tool_call_input_delta_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseCustomToolCallInputDeltaEvent",
@@ -410245,6 +412251,41 @@ Schema name: `ResponseCustomToolCallInputDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/52",
+    "docstring": "Event indicating that input for a custom tool call is complete.\n",
+    "ident": "ResponseCustomToolCallInputWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/52",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseCustomToolCallInputDoneEvent",
+          "$ref": "(resource) responses > (model) response_custom_tool_call_input_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/52/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_custom_tool_call_input_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseCustomToolCallInputDoneEvent",
@@ -410390,6 +412431,41 @@ Schema name: `ResponseErrorEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 13": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/13",
+    "docstring": "Emitted when an error occurs.",
+    "ident": "ResponseWsError",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/13",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseErrorEvent",
+          "$ref": "(resource) responses > (model) response_error_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 13 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 13 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/13/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_error_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseErrorEvent",
@@ -410536,6 +412612,41 @@ Schema name: `ResponseAudioDeltaEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/0",
+    "docstring": "Emitted when there is a partial audio response.",
+    "ident": "ResponseAudioWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/0",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseAudioDeltaEvent",
+          "$ref": "(resource) responses > (model) response_audio_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 0 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 0 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/0/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_audio_delta_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseAudioDeltaEvent",
@@ -410645,6 +412756,41 @@ Schema name: `ResponseAudioDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/1",
+    "docstring": "Emitted when the audio response is complete.",
+    "ident": "ResponseAudioWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/1",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseAudioDoneEvent",
+          "$ref": "(resource) responses > (model) response_audio_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 1 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 1 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/1/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_audio_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseAudioDoneEvent",
@@ -410735,6 +412881,41 @@ Schema name: `ResponseAudioTranscriptDeltaEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/2",
+    "docstring": "Emitted when there is a partial transcript of audio.",
+    "ident": "ResponseAudioTranscriptWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/2",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseAudioTranscriptDeltaEvent",
+          "$ref": "(resource) responses > (model) response_audio_transcript_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 2 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 2 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/2/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_audio_transcript_delta_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseAudioTranscriptDeltaEvent",
@@ -410844,6 +413025,41 @@ Schema name: `ResponseAudioTranscriptDoneEvent`
 
 ```json
 {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/3",
+    "docstring": "Emitted when the full audio transcript is completed.",
+    "ident": "ResponseAudioTranscriptWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/3",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseAudioTranscriptDoneEvent",
+          "$ref": "(resource) responses > (model) response_audio_transcript_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 3 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 3 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/3/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_audio_transcript_done_event > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseAudioTranscriptDoneEvent",
