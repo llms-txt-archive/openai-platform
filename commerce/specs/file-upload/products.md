@@ -34,8 +34,7 @@ for field definitions.
 If OpenAI confirms that your registered feed supports this format, you can
 upload a compatible delimited product data feed without renaming its columns to
 OpenAI field names. Otherwise, continue to use the OpenAI specification. OpenAI
-maps the supported input fields into the stable product schema and ignores
-columns that it does not use.
+maps the supported input fields into the stable product schema.
 
 This compatibility path covers the core profile described in this section. It
 does not support every program, market, attribute, or feed representation. For
@@ -138,43 +137,26 @@ For accepted products, OpenAI enables search and disables checkout. For an Ads
 feed, Ads eligibility comes from the registered feed configuration. Uploaded
 eligibility fields do not override these settings.
 
-#### Fields accepted but not stored
+For Ads feeds, OpenAI retains selected Google-compatible fields for product
+filtering in Ads campaigns. This dynamically configured set currently includes
+`custom_label_0` through `custom_label_4` and a few other key columns. The
+available fields may change over time.
 
-OpenAI accepts the following input fields but does not store them in the
-normalized product:
-
-
-
-
-| Input field          | Current behavior                                                     |
-| :------------------- | :------------------------------------------------------------------- |
-| `adult`              | Accepted, but not used.                                              |
-| `external_seller_id` | Accepted, but not used.                                              |
-| `installment`        | Accepted, but not used.                                              |
-| `is_bundle`          | Accepted, but not used.                                              |
-| `is_digital`         | Accepted, but not used.                                              |
-| `loyalty_program`    | Accepted, but not used.                                              |
-| `multipack`          | Accepted, but not used.                                              |
-| `subscription_cost`  | Used only to validate an allowed zero `price`; otherwise not stored. |
-
-
-
+#### Zero-price validation
 
 For the zero-price exception, `google_product_category` must identify a
 supported mobile-device category and `subscription_cost` must use
 `month|year:positive integer:positive amount CURRENCY`. Its currency must match
 `price`.
 
-OpenAI also accepts and drops unrecognized columns. Uploaded `url`,
-`seller_url`, eligibility, checkout, return-policy, and Ads control fields do
-not control the normalized product. An uploaded `url` or `seller_url` that
-contains a username or password rejects the row; OpenAI redacts the credential
-from the validation details.
+Uploaded `url`, `seller_url`, eligibility, checkout, return-policy, and Ads
+control fields do not control the normalized product. An uploaded `url` or
+`seller_url` that contains a username or password rejects the row. OpenAI
+redacts the credential from the validation details.
 
-Upload History does not create a diagnostic for accepted-but-unused or
-unrecognized fields. It reports missing required columns and values in
-supported fields that fail validation. OpenAI can reject one malformed product
-while other valid rows in the upload continue processing.
+Upload History reports missing required columns and values in supported fields
+that fail validation. OpenAI can reject one malformed product while other valid
+rows in the upload continue processing.
 
 
 ### OpenAI Flags

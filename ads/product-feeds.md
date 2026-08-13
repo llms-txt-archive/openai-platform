@@ -50,6 +50,8 @@ existing product variants without uploading the entire catalog again.
 
 ## Use the correct feed schema
 
+OpenAI supports Google-compatible product data feeds.
+
 The [stable product feed specification](https://developers.openai.com/commerce/specs/file-upload/products)
 is the complete flat-file field reference. Its `Required` labels describe the
 non-Ads feed requirement set. Ads product feeds use the same base schema and
