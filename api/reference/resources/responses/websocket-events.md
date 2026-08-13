@@ -1263,13 +1263,13 @@ Schema name: `ResponsesClientEventResponseCreate`
   },
   "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+    "oasRef": "#/components/schemas/CreateResponse/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+      "oasRef": "#/components/schemas/CreateResponse/allOf/2/properties/service_tier",
       "types": [
         {
           "kind": "HttpTypeLiteral",
@@ -1294,6 +1294,10 @@ Schema name: `ResponsesClientEventResponseCreate`
         {
           "kind": "HttpTypeLiteral",
           "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
         }
       ]
     },
@@ -1308,7 +1312,8 @@ Schema name: `ResponsesClientEventResponseCreate`
       "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 3",
       "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 5"
+      "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 5",
+      "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 6"
     ]
   },
   "(resource) responses > (model) responses_client_event > (schema) > (property) store": {
@@ -1593,6 +1598,9 @@ Schema name: `ResponsesClientEventResponseCreate`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -4354,6 +4362,13 @@ Schema name: `ResponsesClientEventResponseCreate`
       "literal": "fast"
     }
   },
+  "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 6": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "ultrafast"
+    }
+  },
   "(resource) responses > (model) responses_client_event > (schema) > (property) stream_options > (property) include_obfuscation": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/ResponseStreamOptions/anyOf/0/properties/include_obfuscation",
@@ -4889,6 +4904,9 @@ Schema name: `ResponsesClientEventResponseCreate`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -4902,6 +4920,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) responses_client_event > (schema) > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) responses_client_event > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) responses_client_event > (schema) > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) responses_client_event > (schema) > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) responses_client_event > (schema) > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -8695,6 +8714,21 @@ Schema name: `ResponsesClientEventResponseCreate`
       "(resource) responses > (model) responses_client_event > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) responses_client_event > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) responses_client_event > (schema) > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -11603,6 +11637,9 @@ Schema name: `ResponsesClientEventResponseCreate`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -12090,6 +12127,9 @@ Schema name: `ResponsesClientEventResponseCreate`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -18454,6 +18494,9 @@ Schema name: `ResponsesClientEventResponseCreate`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -18467,6 +18510,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -19022,6 +19066,9 @@ Schema name: `ResponsesClientEventResponseCreate`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -19035,6 +19082,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -23900,6 +23948,21 @@ Schema name: `ResponsesClientEventResponseCreate`
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -25891,6 +25954,21 @@ Schema name: `ResponsesClientEventResponseCreate`
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -35504,6 +35582,9 @@ Schema name: `ResponseCreatedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -36055,13 +36136,13 @@ Schema name: `ResponseCreatedEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) service_tier": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+    "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
       "types": [
         {
           "kind": "HttpTypeLiteral",
@@ -36086,6 +36167,10 @@ Schema name: `ResponseCreatedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
         }
       ]
     },
@@ -36100,7 +36185,8 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -40537,6 +40623,9 @@ Schema name: `ResponseCreatedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -40550,6 +40639,7 @@ Schema name: `ResponseCreatedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -41461,6 +41551,13 @@ Schema name: `ResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "ultrafast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
@@ -45665,6 +45762,9 @@ Schema name: `ResponseCreatedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -46116,6 +46216,9 @@ Schema name: `ResponseCreatedEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -49213,6 +49316,21 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -52762,6 +52880,9 @@ Schema name: `ResponseCreatedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -53249,6 +53370,9 @@ Schema name: `ResponseCreatedEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -57559,6 +57683,9 @@ Schema name: `ResponseCreatedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -57572,6 +57699,7 @@ Schema name: `ResponseCreatedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -58141,6 +58269,9 @@ Schema name: `ResponseCreatedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -58154,6 +58285,7 @@ Schema name: `ResponseCreatedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -62960,6 +63092,9 @@ Schema name: `ResponseCreatedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -62973,6 +63108,7 @@ Schema name: `ResponseCreatedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -63528,6 +63664,9 @@ Schema name: `ResponseCreatedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -63541,6 +63680,7 @@ Schema name: `ResponseCreatedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -66721,6 +66861,21 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -68712,6 +68867,21 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -73522,6 +73692,21 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -75513,6 +75698,21 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -89231,6 +89431,9 @@ Schema name: `ResponseInProgressEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -89782,13 +89985,13 @@ Schema name: `ResponseInProgressEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) service_tier": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+    "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
       "types": [
         {
           "kind": "HttpTypeLiteral",
@@ -89813,6 +90016,10 @@ Schema name: `ResponseInProgressEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
         }
       ]
     },
@@ -89827,7 +90034,8 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -94264,6 +94472,9 @@ Schema name: `ResponseInProgressEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -94277,6 +94488,7 @@ Schema name: `ResponseInProgressEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -95188,6 +95400,13 @@ Schema name: `ResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "ultrafast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
@@ -99392,6 +99611,9 @@ Schema name: `ResponseInProgressEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -99843,6 +100065,9 @@ Schema name: `ResponseInProgressEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -102940,6 +103165,21 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -106489,6 +106729,9 @@ Schema name: `ResponseInProgressEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -106976,6 +107219,9 @@ Schema name: `ResponseInProgressEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -111286,6 +111532,9 @@ Schema name: `ResponseInProgressEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -111299,6 +111548,7 @@ Schema name: `ResponseInProgressEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -111868,6 +112118,9 @@ Schema name: `ResponseInProgressEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -111881,6 +112134,7 @@ Schema name: `ResponseInProgressEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -116687,6 +116941,9 @@ Schema name: `ResponseInProgressEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -116700,6 +116957,7 @@ Schema name: `ResponseInProgressEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -117255,6 +117513,9 @@ Schema name: `ResponseInProgressEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -117268,6 +117529,7 @@ Schema name: `ResponseInProgressEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -120448,6 +120710,21 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -122439,6 +122716,21 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -127249,6 +127541,21 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -129240,6 +129547,21 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -142958,6 +143280,9 @@ Schema name: `ResponseCompletedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -143509,13 +143834,13 @@ Schema name: `ResponseCompletedEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) service_tier": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+    "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
       "types": [
         {
           "kind": "HttpTypeLiteral",
@@ -143540,6 +143865,10 @@ Schema name: `ResponseCompletedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
         }
       ]
     },
@@ -143554,7 +143883,8 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -147991,6 +148321,9 @@ Schema name: `ResponseCompletedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -148004,6 +148337,7 @@ Schema name: `ResponseCompletedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -148915,6 +149249,13 @@ Schema name: `ResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "ultrafast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
@@ -153119,6 +153460,9 @@ Schema name: `ResponseCompletedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -153570,6 +153914,9 @@ Schema name: `ResponseCompletedEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -156667,6 +157014,21 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -160216,6 +160578,9 @@ Schema name: `ResponseCompletedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -160703,6 +161068,9 @@ Schema name: `ResponseCompletedEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -165013,6 +165381,9 @@ Schema name: `ResponseCompletedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -165026,6 +165397,7 @@ Schema name: `ResponseCompletedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -165595,6 +165967,9 @@ Schema name: `ResponseCompletedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -165608,6 +165983,7 @@ Schema name: `ResponseCompletedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -170414,6 +170790,9 @@ Schema name: `ResponseCompletedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -170427,6 +170806,7 @@ Schema name: `ResponseCompletedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -170982,6 +171362,9 @@ Schema name: `ResponseCompletedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -170995,6 +171378,7 @@ Schema name: `ResponseCompletedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -174175,6 +174559,21 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -176166,6 +176565,21 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -180976,6 +181390,21 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -182967,6 +183396,21 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -196702,6 +197146,9 @@ Schema name: `ResponseFailedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -197253,13 +197700,13 @@ Schema name: `ResponseFailedEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) service_tier": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+    "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
       "types": [
         {
           "kind": "HttpTypeLiteral",
@@ -197284,6 +197731,10 @@ Schema name: `ResponseFailedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
         }
       ]
     },
@@ -197298,7 +197749,8 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -201735,6 +202187,9 @@ Schema name: `ResponseFailedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -201748,6 +202203,7 @@ Schema name: `ResponseFailedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -202659,6 +203115,13 @@ Schema name: `ResponseFailedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "ultrafast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
@@ -206863,6 +207326,9 @@ Schema name: `ResponseFailedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -207314,6 +207780,9 @@ Schema name: `ResponseFailedEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -210411,6 +210880,21 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -213960,6 +214444,9 @@ Schema name: `ResponseFailedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -214447,6 +214934,9 @@ Schema name: `ResponseFailedEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -218757,6 +219247,9 @@ Schema name: `ResponseFailedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -218770,6 +219263,7 @@ Schema name: `ResponseFailedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -219339,6 +219833,9 @@ Schema name: `ResponseFailedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -219352,6 +219849,7 @@ Schema name: `ResponseFailedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -224158,6 +224656,9 @@ Schema name: `ResponseFailedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -224171,6 +224672,7 @@ Schema name: `ResponseFailedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -224726,6 +225228,9 @@ Schema name: `ResponseFailedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -224739,6 +225244,7 @@ Schema name: `ResponseFailedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -227919,6 +228425,21 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -229910,6 +230431,21 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -234720,6 +235256,21 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -236711,6 +237262,21 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -250427,6 +250993,9 @@ Schema name: `ResponseIncompleteEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -250978,13 +251547,13 @@ Schema name: `ResponseIncompleteEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) service_tier": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+    "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
       "types": [
         {
           "kind": "HttpTypeLiteral",
@@ -251009,6 +251578,10 @@ Schema name: `ResponseIncompleteEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
         }
       ]
     },
@@ -251023,7 +251596,8 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -255460,6 +256034,9 @@ Schema name: `ResponseIncompleteEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -255473,6 +256050,7 @@ Schema name: `ResponseIncompleteEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -256384,6 +256962,13 @@ Schema name: `ResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "ultrafast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
@@ -260588,6 +261173,9 @@ Schema name: `ResponseIncompleteEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -261039,6 +261627,9 @@ Schema name: `ResponseIncompleteEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -264136,6 +264727,21 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -267685,6 +268291,9 @@ Schema name: `ResponseIncompleteEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -268172,6 +268781,9 @@ Schema name: `ResponseIncompleteEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -272482,6 +273094,9 @@ Schema name: `ResponseIncompleteEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -272495,6 +273110,7 @@ Schema name: `ResponseIncompleteEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -273064,6 +273680,9 @@ Schema name: `ResponseIncompleteEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -273077,6 +273696,7 @@ Schema name: `ResponseIncompleteEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -277883,6 +278503,9 @@ Schema name: `ResponseIncompleteEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -277896,6 +278519,7 @@ Schema name: `ResponseIncompleteEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -278451,6 +279075,9 @@ Schema name: `ResponseIncompleteEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -278464,6 +279091,7 @@ Schema name: `ResponseIncompleteEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -281644,6 +282272,21 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -283635,6 +284278,21 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -288445,6 +289103,21 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -290436,6 +291109,21 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -306672,6 +307360,9 @@ Schema name: `ResponseOutputItemAddedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -307123,6 +307814,9 @@ Schema name: `ResponseOutputItemAddedEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -311110,6 +311804,9 @@ Schema name: `ResponseOutputItemAddedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -311123,6 +311820,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -311692,6 +312390,9 @@ Schema name: `ResponseOutputItemAddedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -311705,6 +312406,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -315105,6 +315807,21 @@ Schema name: `ResponseOutputItemAddedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -317096,6 +317813,21 @@ Schema name: `ResponseOutputItemAddedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -329787,6 +330519,9 @@ Schema name: `ResponseOutputItemDoneEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -330238,6 +330973,9 @@ Schema name: `ResponseOutputItemDoneEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -334225,6 +334963,9 @@ Schema name: `ResponseOutputItemDoneEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -334238,6 +334979,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -334807,6 +335549,9 @@ Schema name: `ResponseOutputItemDoneEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -334820,6 +335565,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -338220,6 +338966,21 @@ Schema name: `ResponseOutputItemDoneEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -340211,6 +340972,21 @@ Schema name: `ResponseOutputItemDoneEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -359603,6 +360379,9 @@ Schema name: `ResponseQueuedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -360154,13 +360933,13 @@ Schema name: `ResponseQueuedEvent`
   },
   "(resource) responses > (model) response > (schema) > (property) service_tier": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+    "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/ModelResponseProperties/properties/service_tier",
+      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
       "types": [
         {
           "kind": "HttpTypeLiteral",
@@ -360185,6 +360964,10 @@ Schema name: `ResponseQueuedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
         }
       ]
     },
@@ -360199,7 +360982,8 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
       "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5"
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
+      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -364636,6 +365420,9 @@ Schema name: `ResponseQueuedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -364649,6 +365436,7 @@ Schema name: `ResponseQueuedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -365560,6 +366348,13 @@ Schema name: `ResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
+    }
+  },
+  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "ultrafast"
     }
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
@@ -369764,6 +370559,9 @@ Schema name: `ResponseQueuedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -370215,6 +371013,9 @@ Schema name: `ResponseQueuedEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -373312,6 +374113,21 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -376861,6 +377677,9 @@ Schema name: `ResponseQueuedEvent`
                 "ident": "type"
               },
               {
+                "ident": "external_web_access"
+              },
+              {
                 "ident": "filters"
               },
               {
@@ -377348,6 +378167,9 @@ Schema name: `ResponseQueuedEvent`
             "members": [
               {
                 "ident": "type"
+              },
+              {
+                "ident": "external_web_access"
               },
               {
                 "ident": "filters"
@@ -381658,6 +382480,9 @@ Schema name: `ResponseQueuedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -381671,6 +382496,7 @@ Schema name: `ResponseQueuedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -382240,6 +383066,9 @@ Schema name: `ResponseQueuedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -382253,6 +383082,7 @@ Schema name: `ResponseQueuedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -387059,6 +387889,9 @@ Schema name: `ResponseQueuedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -387072,6 +387905,7 @@ Schema name: `ResponseQueuedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -387627,6 +388461,9 @@ Schema name: `ResponseQueuedEvent`
           "ident": "type"
         },
         {
+          "ident": "external_web_access"
+        },
+        {
           "ident": "filters"
         },
         {
@@ -387640,6 +388477,7 @@ Schema name: `ResponseQueuedEvent`
     "childrenParentSchema": "object",
     "children": [
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type",
+      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) search_context_size",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) user_location"
@@ -390820,6 +391658,21 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -392811,6 +393664,21 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
@@ -397621,6 +398489,21 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
   },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
+  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/WebSearchTool/properties/filters",
@@ -399612,6 +400495,21 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 0",
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) type > (member) 1"
     ]
+  },
+  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) external_web_access": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/WebSearchTool/properties/external_web_access",
+    "deprecated": false,
+    "key": "external_web_access",
+    "docstring": "Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.",
+    "type": {
+      "kind": "HttpTypeBoolean"
+    },
+    "default": true,
+    "optional": true,
+    "nullable": false,
+    "schemaType": "boolean",
+    "children": []
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4 > (property) filters": {
     "kind": "HttpDeclProperty",

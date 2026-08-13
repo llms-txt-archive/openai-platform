@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260813T194243Z` | 2026-08-13 19:42 UTC | [Responses WebSocket lane docs and event ref split](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260813T194243Z) |
+| `archive-20260813T212719Z` | 2026-08-13 21:27 UTC | [Web search controls and ultrafast tier docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260813T212719Z) |
+| `archive-20260813T194243Z` | 2026-08-13 19:44 UTC | [Responses WebSocket lane docs and event ref split](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260813T194243Z) |
 | `archive-20260813T080344Z` | 2026-08-13 08:04 UTC | [Prompt Caching Guide Reworked](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260813T080344Z) |
 | `archive-20260813T035327Z` | 2026-08-13 03:54 UTC | [Product Feed Compatibility Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260813T035327Z) |
 | `archive-20260812T212611Z` | 2026-08-12 21:26 UTC | [Pricing docs clarify Daybreak alias behavior](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260812T212611Z) |
 | `archive-20260812T173928Z` | 2026-08-12 17:40 UTC | [Claude Code Plugin Submission Guide Added](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260812T173928Z) |
-| `archive-20260812T031129Z` | 2026-08-12 03:12 UTC | [Conversions API schema expansion and Java example refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260812T031129Z) |

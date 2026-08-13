@@ -1500,7 +1500,7 @@ the `background` parameter set to `true` can be cancelled.
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -1512,6 +1512,10 @@ the `background` parameter set to `true` can be cancelled.
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -2535,7 +2539,7 @@ the `background` parameter set to `true` can be cancelled.
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -2547,6 +2551,10 @@ the `background` parameter set to `true` can be cancelled.
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -5145,7 +5153,7 @@ the `background` parameter set to `true` can be cancelled.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -5157,6 +5165,10 @@ the `background` parameter set to `true` can be cancelled.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -5994,7 +6006,7 @@ the `background` parameter set to `true` can be cancelled.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -6006,6 +6018,10 @@ the `background` parameter set to `true` can be cancelled.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -7842,7 +7858,7 @@ the `background` parameter set to `true` can be cancelled.
 
         - `"computer_use_preview"`
 
-    - `WebSearch object { type, filters, search_context_size, user_location }`
+    - `WebSearch object { type, external_web_access, filters, 2 more }`
 
       Search the Internet for sources related to the prompt. Learn more about the
       [web search tool](/docs/guides/tools-web-search).
@@ -7854,6 +7870,10 @@ the `background` parameter set to `true` can be cancelled.
         - `"web_search"`
 
         - `"web_search_2025_08_26"`
+
+      - `external_web_access: optional boolean`
+
+        Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
       - `filters: optional object { allowed_domains }  or null`
 
@@ -8844,7 +8864,7 @@ the `background` parameter set to `true` can be cancelled.
     A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
     The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-  - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+  - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
     Specifies the processing type used for serving the request.
 
@@ -8852,6 +8872,7 @@ the `background` parameter set to `true` can be cancelled.
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
     - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
     - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+    - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -8867,6 +8888,8 @@ the `background` parameter set to `true` can be cancelled.
     - `"priority"`
 
     - `"fast"`
+
+    - `"ultrafast"`
 
   - `status: optional ResponseStatus`
 

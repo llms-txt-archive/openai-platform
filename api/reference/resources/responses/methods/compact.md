@@ -1630,7 +1630,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -1642,6 +1642,10 @@ Learn when and how to compact long-running conversations in the [conversation st
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -2665,7 +2669,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -2677,6 +2681,10 @@ Learn when and how to compact long-running conversations in the [conversation st
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -5138,7 +5146,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -5150,6 +5158,10 @@ Learn when and how to compact long-running conversations in the [conversation st
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -6169,7 +6181,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -6181,6 +6193,10 @@ Learn when and how to compact long-running conversations in the [conversation st
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 

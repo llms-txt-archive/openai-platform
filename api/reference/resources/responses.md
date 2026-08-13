@@ -1502,7 +1502,7 @@ the `background` parameter set to `true` can be cancelled.
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -1514,6 +1514,10 @@ the `background` parameter set to `true` can be cancelled.
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -2537,7 +2541,7 @@ the `background` parameter set to `true` can be cancelled.
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -2549,6 +2553,10 @@ the `background` parameter set to `true` can be cancelled.
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -5147,7 +5155,7 @@ the `background` parameter set to `true` can be cancelled.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -5159,6 +5167,10 @@ the `background` parameter set to `true` can be cancelled.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -5996,7 +6008,7 @@ the `background` parameter set to `true` can be cancelled.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -6008,6 +6020,10 @@ the `background` parameter set to `true` can be cancelled.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -7844,7 +7860,7 @@ the `background` parameter set to `true` can be cancelled.
 
         - `"computer_use_preview"`
 
-    - `WebSearch object { type, filters, search_context_size, user_location }`
+    - `WebSearch object { type, external_web_access, filters, 2 more }`
 
       Search the Internet for sources related to the prompt. Learn more about the
       [web search tool](/docs/guides/tools-web-search).
@@ -7856,6 +7872,10 @@ the `background` parameter set to `true` can be cancelled.
         - `"web_search"`
 
         - `"web_search_2025_08_26"`
+
+      - `external_web_access: optional boolean`
+
+        Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
       - `filters: optional object { allowed_domains }  or null`
 
@@ -8846,7 +8866,7 @@ the `background` parameter set to `true` can be cancelled.
     A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
     The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-  - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+  - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
     Specifies the processing type used for serving the request.
 
@@ -8854,6 +8874,7 @@ the `background` parameter set to `true` can be cancelled.
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
     - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
     - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+    - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -8869,6 +8890,8 @@ the `background` parameter set to `true` can be cancelled.
     - `"priority"`
 
     - `"fast"`
+
+    - `"ultrafast"`
 
   - `status: optional ResponseStatus`
 
@@ -10917,7 +10940,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -10929,6 +10952,10 @@ Learn when and how to compact long-running conversations in the [conversation st
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -11952,7 +11979,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -11964,6 +11991,10 @@ Learn when and how to compact long-running conversations in the [conversation st
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -14425,7 +14456,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -14437,6 +14468,10 @@ Learn when and how to compact long-running conversations in the [conversation st
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -15456,7 +15491,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -15468,6 +15503,10 @@ Learn when and how to compact long-running conversations in the [conversation st
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -19265,7 +19304,7 @@ as input for the model's response.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -19277,6 +19316,10 @@ as input for the model's response.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -20300,7 +20343,7 @@ as input for the model's response.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -20312,6 +20355,10 @@ as input for the model's response.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -22368,7 +22415,7 @@ as input for the model's response.
   A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
   The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-- `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+- `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
   Specifies the processing type used for serving the request.
 
@@ -22376,6 +22423,7 @@ as input for the model's response.
   - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
   - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
   - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
   - When not set, the default behavior is 'auto'.
 
   When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -22391,6 +22439,8 @@ as input for the model's response.
   - `"priority"`
 
   - `"fast"`
+
+  - `"ultrafast"`
 
 - `store: optional boolean or null`
 
@@ -22849,7 +22899,7 @@ as input for the model's response.
 
       - `"computer_use_preview"`
 
-  - `WebSearch object { type, filters, search_context_size, user_location }`
+  - `WebSearch object { type, external_web_access, filters, 2 more }`
 
     Search the Internet for sources related to the prompt. Learn more about the
     [web search tool](/docs/guides/tools-web-search).
@@ -22861,6 +22911,10 @@ as input for the model's response.
       - `"web_search"`
 
       - `"web_search_2025_08_26"`
+
+    - `external_web_access: optional boolean`
+
+      Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
     - `filters: optional object { allowed_domains }  or null`
 
@@ -25040,7 +25094,7 @@ as input for the model's response.
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -25052,6 +25106,10 @@ as input for the model's response.
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -26075,7 +26133,7 @@ as input for the model's response.
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -26087,6 +26145,10 @@ as input for the model's response.
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -28685,7 +28747,7 @@ as input for the model's response.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -28697,6 +28759,10 @@ as input for the model's response.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -29534,7 +29600,7 @@ as input for the model's response.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -29546,6 +29612,10 @@ as input for the model's response.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -31382,7 +31452,7 @@ as input for the model's response.
 
         - `"computer_use_preview"`
 
-    - `WebSearch object { type, filters, search_context_size, user_location }`
+    - `WebSearch object { type, external_web_access, filters, 2 more }`
 
       Search the Internet for sources related to the prompt. Learn more about the
       [web search tool](/docs/guides/tools-web-search).
@@ -31394,6 +31464,10 @@ as input for the model's response.
         - `"web_search"`
 
         - `"web_search_2025_08_26"`
+
+      - `external_web_access: optional boolean`
+
+        Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
       - `filters: optional object { allowed_domains }  or null`
 
@@ -32384,7 +32458,7 @@ as input for the model's response.
     A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
     The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-  - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+  - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
     Specifies the processing type used for serving the request.
 
@@ -32392,6 +32466,7 @@ as input for the model's response.
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
     - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
     - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+    - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -32407,6 +32482,8 @@ as input for the model's response.
     - `"priority"`
 
     - `"fast"`
+
+    - `"ultrafast"`
 
   - `status: optional ResponseStatus`
 
@@ -35112,7 +35189,7 @@ Retrieves a model response with the given ID.
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -35124,6 +35201,10 @@ Retrieves a model response with the given ID.
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -36147,7 +36228,7 @@ Retrieves a model response with the given ID.
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -36159,6 +36240,10 @@ Retrieves a model response with the given ID.
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -38757,7 +38842,7 @@ Retrieves a model response with the given ID.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -38769,6 +38854,10 @@ Retrieves a model response with the given ID.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -39606,7 +39695,7 @@ Retrieves a model response with the given ID.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -39618,6 +39707,10 @@ Retrieves a model response with the given ID.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -41454,7 +41547,7 @@ Retrieves a model response with the given ID.
 
         - `"computer_use_preview"`
 
-    - `WebSearch object { type, filters, search_context_size, user_location }`
+    - `WebSearch object { type, external_web_access, filters, 2 more }`
 
       Search the Internet for sources related to the prompt. Learn more about the
       [web search tool](/docs/guides/tools-web-search).
@@ -41466,6 +41559,10 @@ Retrieves a model response with the given ID.
         - `"web_search"`
 
         - `"web_search_2025_08_26"`
+
+      - `external_web_access: optional boolean`
+
+        Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
       - `filters: optional object { allowed_domains }  or null`
 
@@ -42456,7 +42553,7 @@ Retrieves a model response with the given ID.
     A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
     The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-  - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+  - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
     Specifies the processing type used for serving the request.
 
@@ -42464,6 +42561,7 @@ Retrieves a model response with the given ID.
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
     - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
     - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+    - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -42479,6 +42577,8 @@ Retrieves a model response with the given ID.
     - `"priority"`
 
     - `"fast"`
+
+    - `"ultrafast"`
 
   - `status: optional ResponseStatus`
 
@@ -43715,7 +43815,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -43727,6 +43827,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -44746,7 +44850,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -44758,6 +44862,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -49279,7 +49387,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -49291,6 +49399,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -50314,7 +50426,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -50326,6 +50438,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -52924,7 +53040,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -52936,6 +53052,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -53773,7 +53893,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -53785,6 +53905,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -55621,7 +55745,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"computer_use_preview"`
 
-    - `WebSearch object { type, filters, search_context_size, user_location }`
+    - `WebSearch object { type, external_web_access, filters, 2 more }`
 
       Search the Internet for sources related to the prompt. Learn more about the
       [web search tool](/docs/guides/tools-web-search).
@@ -55633,6 +55757,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `"web_search"`
 
         - `"web_search_2025_08_26"`
+
+      - `external_web_access: optional boolean`
+
+        Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
       - `filters: optional object { allowed_domains }  or null`
 
@@ -56623,7 +56751,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
     A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
     The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-  - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+  - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
     Specifies the processing type used for serving the request.
 
@@ -56631,6 +56759,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
     - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
     - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+    - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -56646,6 +56775,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
     - `"priority"`
 
     - `"fast"`
+
+    - `"ultrafast"`
 
   - `status: optional ResponseStatus`
 
@@ -58517,7 +58648,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -58529,6 +58660,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -59552,7 +59687,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -59564,6 +59699,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -62162,7 +62301,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -62174,6 +62313,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -63011,7 +63154,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -63023,6 +63166,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -64859,7 +65006,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"computer_use_preview"`
 
-      - `WebSearch object { type, filters, search_context_size, user_location }`
+      - `WebSearch object { type, external_web_access, filters, 2 more }`
 
         Search the Internet for sources related to the prompt. Learn more about the
         [web search tool](/docs/guides/tools-web-search).
@@ -64871,6 +65018,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
           - `"web_search"`
 
           - `"web_search_2025_08_26"`
+
+        - `external_web_access: optional boolean`
+
+          Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
         - `filters: optional object { allowed_domains }  or null`
 
@@ -65861,7 +66012,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
       The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-    - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+    - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
       Specifies the processing type used for serving the request.
 
@@ -65869,6 +66020,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
       - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
       - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+      - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
       - When not set, the default behavior is 'auto'.
 
       When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -65884,6 +66036,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - `"priority"`
 
       - `"fast"`
+
+      - `"ultrafast"`
 
     - `status: optional ResponseStatus`
 
@@ -68264,7 +68418,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -68276,6 +68430,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -69299,7 +69457,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -69311,6 +69469,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -71909,7 +72071,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -71921,6 +72083,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -72758,7 +72924,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -72770,6 +72936,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -74606,7 +74776,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"computer_use_preview"`
 
-      - `WebSearch object { type, filters, search_context_size, user_location }`
+      - `WebSearch object { type, external_web_access, filters, 2 more }`
 
         Search the Internet for sources related to the prompt. Learn more about the
         [web search tool](/docs/guides/tools-web-search).
@@ -74618,6 +74788,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
           - `"web_search"`
 
           - `"web_search_2025_08_26"`
+
+        - `external_web_access: optional boolean`
+
+          Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
         - `filters: optional object { allowed_domains }  or null`
 
@@ -75608,7 +75782,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
       The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-    - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+    - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
       Specifies the processing type used for serving the request.
 
@@ -75616,6 +75790,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
       - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
       - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+      - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
       - When not set, the default behavior is 'auto'.
 
       When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -75631,6 +75806,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - `"priority"`
 
       - `"fast"`
+
+      - `"ultrafast"`
 
     - `status: optional ResponseStatus`
 
@@ -77450,7 +77627,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -77462,6 +77639,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -78485,7 +78666,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -78497,6 +78678,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -81095,7 +81280,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -81107,6 +81292,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -81944,7 +82133,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -81956,6 +82145,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -83792,7 +83985,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"computer_use_preview"`
 
-      - `WebSearch object { type, filters, search_context_size, user_location }`
+      - `WebSearch object { type, external_web_access, filters, 2 more }`
 
         Search the Internet for sources related to the prompt. Learn more about the
         [web search tool](/docs/guides/tools-web-search).
@@ -83804,6 +83997,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
           - `"web_search"`
 
           - `"web_search_2025_08_26"`
+
+        - `external_web_access: optional boolean`
+
+          Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
         - `filters: optional object { allowed_domains }  or null`
 
@@ -84794,7 +84991,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
       The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-    - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+    - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
       Specifies the processing type used for serving the request.
 
@@ -84802,6 +84999,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
       - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
       - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+      - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
       - When not set, the default behavior is 'auto'.
 
       When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -84817,6 +85015,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - `"priority"`
 
       - `"fast"`
+
+      - `"ultrafast"`
 
     - `status: optional ResponseStatus`
 
@@ -86885,7 +87085,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -86897,6 +87097,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -87920,7 +88124,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -87932,6 +88136,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -90530,7 +90738,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -90542,6 +90750,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -91379,7 +91591,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -91391,6 +91603,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -93227,7 +93443,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"computer_use_preview"`
 
-      - `WebSearch object { type, filters, search_context_size, user_location }`
+      - `WebSearch object { type, external_web_access, filters, 2 more }`
 
         Search the Internet for sources related to the prompt. Learn more about the
         [web search tool](/docs/guides/tools-web-search).
@@ -93239,6 +93455,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
           - `"web_search"`
 
           - `"web_search_2025_08_26"`
+
+        - `external_web_access: optional boolean`
+
+          Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
         - `filters: optional object { allowed_domains }  or null`
 
@@ -94229,7 +94449,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
       The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-    - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+    - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
       Specifies the processing type used for serving the request.
 
@@ -94237,6 +94457,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
       - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
       - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+      - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
       - When not set, the default behavior is 'auto'.
 
       When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -94252,6 +94473,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - `"priority"`
 
       - `"fast"`
+
+      - `"ultrafast"`
 
     - `status: optional ResponseStatus`
 
@@ -95964,7 +96187,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -95976,6 +96199,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -96999,7 +97226,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -97011,6 +97238,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -99609,7 +99840,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -99621,6 +99852,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -100458,7 +100693,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -100470,6 +100705,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -102306,7 +102545,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"computer_use_preview"`
 
-      - `WebSearch object { type, filters, search_context_size, user_location }`
+      - `WebSearch object { type, external_web_access, filters, 2 more }`
 
         Search the Internet for sources related to the prompt. Learn more about the
         [web search tool](/docs/guides/tools-web-search).
@@ -102318,6 +102557,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
           - `"web_search"`
 
           - `"web_search_2025_08_26"`
+
+        - `external_web_access: optional boolean`
+
+          Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
         - `filters: optional object { allowed_domains }  or null`
 
@@ -103308,7 +103551,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
       The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-    - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+    - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
       Specifies the processing type used for serving the request.
 
@@ -103316,6 +103559,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
       - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
       - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+      - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
       - When not set, the default behavior is 'auto'.
 
       When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -103331,6 +103575,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - `"priority"`
 
       - `"fast"`
+
+      - `"ultrafast"`
 
     - `status: optional ResponseStatus`
 
@@ -105747,7 +105993,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"computer_use_preview"`
 
-      - `WebSearch object { type, filters, search_context_size, user_location }`
+      - `WebSearch object { type, external_web_access, filters, 2 more }`
 
         Search the Internet for sources related to the prompt. Learn more about the
         [web search tool](/docs/guides/tools-web-search).
@@ -105759,6 +106005,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
           - `"web_search"`
 
           - `"web_search_2025_08_26"`
+
+        - `external_web_access: optional boolean`
+
+          Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
         - `filters: optional object { allowed_domains }  or null`
 
@@ -106778,7 +107028,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"computer_use_preview"`
 
-      - `WebSearch object { type, filters, search_context_size, user_location }`
+      - `WebSearch object { type, external_web_access, filters, 2 more }`
 
         Search the Internet for sources related to the prompt. Learn more about the
         [web search tool](/docs/guides/tools-web-search).
@@ -106790,6 +107040,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
           - `"web_search"`
 
           - `"web_search_2025_08_26"`
+
+        - `external_web_access: optional boolean`
+
+          Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
         - `filters: optional object { allowed_domains }  or null`
 
@@ -109644,7 +109898,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -109656,6 +109910,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -110675,7 +110933,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -110687,6 +110945,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -113555,7 +113817,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -113567,6 +113829,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -114586,7 +114852,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -114598,6 +114864,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -118109,7 +118379,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -118121,6 +118391,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -119144,7 +119418,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -119156,6 +119430,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -121754,7 +122032,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -121766,6 +122044,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -122603,7 +122885,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -122615,6 +122897,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -124451,7 +124737,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"computer_use_preview"`
 
-      - `WebSearch object { type, filters, search_context_size, user_location }`
+      - `WebSearch object { type, external_web_access, filters, 2 more }`
 
         Search the Internet for sources related to the prompt. Learn more about the
         [web search tool](/docs/guides/tools-web-search).
@@ -124463,6 +124749,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
           - `"web_search"`
 
           - `"web_search_2025_08_26"`
+
+        - `external_web_access: optional boolean`
+
+          Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
         - `filters: optional object { allowed_domains }  or null`
 
@@ -125453,7 +125743,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
       The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-    - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+    - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
       Specifies the processing type used for serving the request.
 
@@ -125461,6 +125751,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
       - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
       - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+      - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
       - When not set, the default behavior is 'auto'.
 
       When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -125476,6 +125767,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - `"priority"`
 
       - `"fast"`
+
+      - `"ultrafast"`
 
     - `status: optional ResponseStatus`
 
@@ -127645,7 +127938,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                   - `"computer_use_preview"`
 
-              - `WebSearch object { type, filters, search_context_size, user_location }`
+              - `WebSearch object { type, external_web_access, filters, 2 more }`
 
                 Search the Internet for sources related to the prompt. Learn more about the
                 [web search tool](/docs/guides/tools-web-search).
@@ -127657,6 +127950,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                   - `"web_search"`
 
                   - `"web_search_2025_08_26"`
+
+                - `external_web_access: optional boolean`
+
+                  Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
                 - `filters: optional object { allowed_domains }  or null`
 
@@ -128680,7 +128977,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                   - `"computer_use_preview"`
 
-              - `WebSearch object { type, filters, search_context_size, user_location }`
+              - `WebSearch object { type, external_web_access, filters, 2 more }`
 
                 Search the Internet for sources related to the prompt. Learn more about the
                 [web search tool](/docs/guides/tools-web-search).
@@ -128692,6 +128989,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                   - `"web_search"`
 
                   - `"web_search_2025_08_26"`
+
+                - `external_web_access: optional boolean`
+
+                  Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
                 - `filters: optional object { allowed_domains }  or null`
 
@@ -131290,7 +131591,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -131302,6 +131603,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -132139,7 +132444,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `"computer_use_preview"`
 
-            - `WebSearch object { type, filters, search_context_size, user_location }`
+            - `WebSearch object { type, external_web_access, filters, 2 more }`
 
               Search the Internet for sources related to the prompt. Learn more about the
               [web search tool](/docs/guides/tools-web-search).
@@ -132151,6 +132456,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
                 - `"web_search"`
 
                 - `"web_search_2025_08_26"`
+
+              - `external_web_access: optional boolean`
+
+                Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
               - `filters: optional object { allowed_domains }  or null`
 
@@ -133987,7 +134296,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -133999,6 +134308,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -134989,7 +135302,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
         A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
         The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-      - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+      - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
         Specifies the processing type used for serving the request.
 
@@ -134997,6 +135310,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
         - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
         - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+        - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
         - When not set, the default behavior is 'auto'.
 
         When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -135012,6 +135326,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `"priority"`
 
         - `"fast"`
+
+        - `"ultrafast"`
 
       - `status: optional ResponseStatus`
 
@@ -138301,7 +138617,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -138313,6 +138629,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -139336,7 +139656,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `"computer_use_preview"`
 
-          - `WebSearch object { type, filters, search_context_size, user_location }`
+          - `WebSearch object { type, external_web_access, filters, 2 more }`
 
             Search the Internet for sources related to the prompt. Learn more about the
             [web search tool](/docs/guides/tools-web-search).
@@ -139348,6 +139668,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
               - `"web_search"`
 
               - `"web_search_2025_08_26"`
+
+            - `external_web_access: optional boolean`
+
+              Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
             - `filters: optional object { allowed_domains }  or null`
 
@@ -141404,7 +141728,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
     A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.
     The IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).
 
-  - `service_tier: optional "auto" or "default" or "flex" or 3 more or null`
+  - `service_tier: optional "auto" or "default" or "flex" or 4 more or null`
 
     Specifies the processing type used for serving the request.
 
@@ -141412,6 +141736,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
     - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.
     - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.
     - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.
+    - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.
     - When not set, the default behavior is 'auto'.
 
     When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
@@ -141427,6 +141752,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
     - `"priority"`
 
     - `"fast"`
+
+    - `"ultrafast"`
 
   - `store: optional boolean or null`
 
@@ -141895,7 +142222,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"computer_use_preview"`
 
-    - `WebSearch object { type, filters, search_context_size, user_location }`
+    - `WebSearch object { type, external_web_access, filters, 2 more }`
 
       Search the Internet for sources related to the prompt. Learn more about the
       [web search tool](/docs/guides/tools-web-search).
@@ -141907,6 +142234,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `"web_search"`
 
         - `"web_search_2025_08_26"`
+
+      - `external_web_access: optional boolean`
+
+        Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
       - `filters: optional object { allowed_domains }  or null`
 
@@ -144675,7 +145006,7 @@ Returns a list of input items for a given response.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -144687,6 +145018,10 @@ Returns a list of input items for a given response.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -145706,7 +146041,7 @@ Returns a list of input items for a given response.
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -145718,6 +146053,10 @@ Returns a list of input items for a given response.
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -148723,7 +149062,7 @@ curl https://api.openai.com/v1/responses/resp_abc123/input_items \
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -148735,6 +149074,10 @@ curl https://api.openai.com/v1/responses/resp_abc123/input_items \
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -149754,7 +150097,7 @@ curl https://api.openai.com/v1/responses/resp_abc123/input_items \
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -149766,6 +150109,10 @@ curl https://api.openai.com/v1/responses/resp_abc123/input_items \
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -152841,7 +153188,7 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -152853,6 +153200,10 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -153876,7 +154227,7 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
 
             - `"computer_use_preview"`
 
-        - `WebSearch object { type, filters, search_context_size, user_location }`
+        - `WebSearch object { type, external_web_access, filters, 2 more }`
 
           Search the Internet for sources related to the prompt. Learn more about the
           [web search tool](/docs/guides/tools-web-search).
@@ -153888,6 +154239,10 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
             - `"web_search"`
 
             - `"web_search_2025_08_26"`
+
+          - `external_web_access: optional boolean`
+
+            Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
           - `filters: optional object { allowed_domains }  or null`
 
@@ -156017,7 +156372,7 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
 
       - `"computer_use_preview"`
 
-  - `WebSearch object { type, filters, search_context_size, user_location }`
+  - `WebSearch object { type, external_web_access, filters, 2 more }`
 
     Search the Internet for sources related to the prompt. Learn more about the
     [web search tool](/docs/guides/tools-web-search).
@@ -156029,6 +156384,10 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
       - `"web_search"`
 
       - `"web_search_2025_08_26"`
+
+    - `external_web_access: optional boolean`
+
+      Allow live internet access for web search. Defaults to true when omitted. When false, the web search tool runs in offline/cache-only mode and will not fetch new external content.
 
     - `filters: optional object { allowed_domains }  or null`
 
