@@ -149,8 +149,8 @@ Automatic advanced matching improves website conversion measurement by helping
 match more conversions to your ads when a click identifier is unavailable.
 
 When enabled, the OpenAI Pixel automatically detects supported customer
-information entered into website forms. The Pixel normalizes and securely hashes
-this information in the browser using SHA-256 before including it with conversion
+information from your website. The Pixel normalizes and securely hashes this
+information in the browser using SHA-256 before including it with conversion
 events. Raw customer information is not sent to OpenAI through automatic
 advanced matching.
 
@@ -392,8 +392,8 @@ The Pixel handles several transport details for you:
 - It adds the current page origin as `source_url`.
 - It timestamps each event and batches closely grouped `measure` calls.
 - When automatic advanced matching is enabled, it detects supported customer
-  information in website forms and includes its SHA-256 hash with conversion
-  events.
+  information from your website, securely hashes it using SHA-256, and includes
+  the resulting SHA-256 hash with conversion events.
 
 No manual configuration of these details is necessary when using the pixel.
 
