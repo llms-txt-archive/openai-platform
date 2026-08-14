@@ -3273,6 +3273,12 @@ the `background` parameter set to `true` can be cancelled.
           for reasoning items returned by `POST /v1/responses` and WebSocket
           `response.create` requests.
 
+          When streaming, use the completed reasoning item and its
+          `encrypted_content` from the `response.output_item.done` event in
+          subsequent requests. The `encrypted_content` in
+          `response.output_item.added` may be incomplete. This is especially
+          important when `store` is `false` or when using Zero Data Retention.
+
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
           The status of the item. One of `in_progress`, `completed`, or
@@ -4907,6 +4913,12 @@ the `background` parameter set to `true` can be cancelled.
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
+
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -12775,6 +12787,12 @@ Learn when and how to compact long-running conversations in the [conversation st
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
 
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
+
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
         The status of the item. One of `in_progress`, `completed`, or
@@ -16944,6 +16962,12 @@ Learn when and how to compact long-running conversations in the [conversation st
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
+
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -21202,6 +21226,12 @@ as input for the model's response.
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
+
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -27025,6 +27055,12 @@ as input for the model's response.
           for reasoning items returned by `POST /v1/responses` and WebSocket
           `response.create` requests.
 
+          When streaming, use the completed reasoning item and its
+          `encrypted_content` from the `response.output_item.done` event in
+          subsequent requests. The `encrypted_content` in
+          `response.output_item.added` may be incomplete. This is especially
+          important when `store` is `false` or when using Zero Data Retention.
+
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
           The status of the item. One of `in_progress`, `completed`, or
@@ -28659,6 +28695,12 @@ as input for the model's response.
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
+
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -37184,6 +37226,12 @@ Retrieves a model response with the given ID.
           for reasoning items returned by `POST /v1/responses` and WebSocket
           `response.create` requests.
 
+          When streaming, use the completed reasoning item and its
+          `encrypted_content` from the `response.output_item.done` event in
+          subsequent requests. The `encrypted_content` in
+          `response.output_item.added` may be incomplete. This is especially
+          important when `store` is `false` or when using Zero Data Retention.
+
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
           The status of the item. One of `in_progress`, `completed`, or
@@ -38818,6 +38866,12 @@ Retrieves a model response with the given ID.
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
+
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -46496,6 +46550,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
 
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
+
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
         The status of the item. One of `in_progress`, `completed`, or
@@ -51478,6 +51538,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
           for reasoning items returned by `POST /v1/responses` and WebSocket
           `response.create` requests.
 
+          When streaming, use the completed reasoning item and its
+          `encrypted_content` from the `response.output_item.done` event in
+          subsequent requests. The `encrypted_content` in
+          `response.output_item.added` may be incomplete. This is especially
+          important when `store` is `false` or when using Zero Data Retention.
+
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
           The status of the item. One of `in_progress`, `completed`, or
@@ -53112,6 +53178,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
+
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -60803,6 +60875,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
             for reasoning items returned by `POST /v1/responses` and WebSocket
             `response.create` requests.
 
+            When streaming, use the completed reasoning item and its
+            `encrypted_content` from the `response.output_item.done` event in
+            subsequent requests. The `encrypted_content` in
+            `response.output_item.added` may be incomplete. This is especially
+            important when `store` is `false` or when using Zero Data Retention.
+
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
             The status of the item. One of `in_progress`, `completed`, or
@@ -62437,6 +62515,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
           The encrypted content of the reasoning item. This is populated by default
           for reasoning items returned by `POST /v1/responses` and WebSocket
           `response.create` requests.
+
+          When streaming, use the completed reasoning item and its
+          `encrypted_content` from the `response.output_item.done` event in
+          subsequent requests. The `encrypted_content` in
+          `response.output_item.added` may be incomplete. This is especially
+          important when `store` is `false` or when using Zero Data Retention.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -70637,6 +70721,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
             for reasoning items returned by `POST /v1/responses` and WebSocket
             `response.create` requests.
 
+            When streaming, use the completed reasoning item and its
+            `encrypted_content` from the `response.output_item.done` event in
+            subsequent requests. The `encrypted_content` in
+            `response.output_item.added` may be incomplete. This is especially
+            important when `store` is `false` or when using Zero Data Retention.
+
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
             The status of the item. One of `in_progress`, `completed`, or
@@ -72271,6 +72361,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
           The encrypted content of the reasoning item. This is populated by default
           for reasoning items returned by `POST /v1/responses` and WebSocket
           `response.create` requests.
+
+          When streaming, use the completed reasoning item and its
+          `encrypted_content` from the `response.output_item.done` event in
+          subsequent requests. The `encrypted_content` in
+          `response.output_item.added` may be incomplete. This is especially
+          important when `store` is `false` or when using Zero Data Retention.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -79910,6 +80006,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
             for reasoning items returned by `POST /v1/responses` and WebSocket
             `response.create` requests.
 
+            When streaming, use the completed reasoning item and its
+            `encrypted_content` from the `response.output_item.done` event in
+            subsequent requests. The `encrypted_content` in
+            `response.output_item.added` may be incomplete. This is especially
+            important when `store` is `false` or when using Zero Data Retention.
+
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
             The status of the item. One of `in_progress`, `completed`, or
@@ -81544,6 +81646,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
           The encrypted content of the reasoning item. This is populated by default
           for reasoning items returned by `POST /v1/responses` and WebSocket
           `response.create` requests.
+
+          When streaming, use the completed reasoning item and its
+          `encrypted_content` from the `response.output_item.done` event in
+          subsequent requests. The `encrypted_content` in
+          `response.output_item.added` may be incomplete. This is especially
+          important when `store` is `false` or when using Zero Data Retention.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -89432,6 +89540,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
             for reasoning items returned by `POST /v1/responses` and WebSocket
             `response.create` requests.
 
+            When streaming, use the completed reasoning item and its
+            `encrypted_content` from the `response.output_item.done` event in
+            subsequent requests. The `encrypted_content` in
+            `response.output_item.added` may be incomplete. This is especially
+            important when `store` is `false` or when using Zero Data Retention.
+
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
             The status of the item. One of `in_progress`, `completed`, or
@@ -91066,6 +91180,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
           The encrypted content of the reasoning item. This is populated by default
           for reasoning items returned by `POST /v1/responses` and WebSocket
           `response.create` requests.
+
+          When streaming, use the completed reasoning item and its
+          `encrypted_content` from the `response.output_item.done` event in
+          subsequent requests. The `encrypted_content` in
+          `response.output_item.added` may be incomplete. This is especially
+          important when `store` is `false` or when using Zero Data Retention.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -98598,6 +98718,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
             for reasoning items returned by `POST /v1/responses` and WebSocket
             `response.create` requests.
 
+            When streaming, use the completed reasoning item and its
+            `encrypted_content` from the `response.output_item.done` event in
+            subsequent requests. The `encrypted_content` in
+            `response.output_item.added` may be incomplete. This is especially
+            important when `store` is `false` or when using Zero Data Retention.
+
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
             The status of the item. One of `in_progress`, `completed`, or
@@ -100232,6 +100358,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
           The encrypted content of the reasoning item. This is populated by default
           for reasoning items returned by `POST /v1/responses` and WebSocket
           `response.create` requests.
+
+          When streaming, use the completed reasoning item and its
+          `encrypted_content` from the `response.output_item.done` event in
+          subsequent requests. The `encrypted_content` in
+          `response.output_item.added` may be incomplete. This is especially
+          important when `store` is `false` or when using Zero Data Retention.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -106351,6 +106483,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
       for reasoning items returned by `POST /v1/responses` and WebSocket
       `response.create` requests.
 
+      When streaming, use the completed reasoning item and its
+      `encrypted_content` from the `response.output_item.done` event in
+      subsequent requests. The `encrypted_content` in
+      `response.output_item.added` may be incomplete. This is especially
+      important when `store` is `false` or when using Zero Data Retention.
+
     - `status: optional "in_progress" or "completed" or "incomplete"`
 
       The status of the item. One of `in_progress`, `completed`, or
@@ -109283,7 +109421,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
   - `item: ResponseOutputItem`
 
-    The output item that was added.
+    The output item that was added. For reasoning items, `encrypted_content`
+    may be incomplete while the item is in progress. Use the reasoning item
+    from the corresponding `response.output_item.done` event when passing it
+    as input to a subsequent request.
 
     - `ResponseOutputMessage object { id, content, role, 3 more }`
 
@@ -110287,6 +110428,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
+
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -114239,6 +114386,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
 
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
+
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
         The status of the item. One of `in_progress`, `completed`, or
@@ -117522,9 +117675,105 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
   Emitted when an annotation is added to output text content.
 
-  - `annotation: unknown`
+  - `annotation: object { file_id, filename, index, type }  or object { end_index, start_index, title, 2 more }  or object { container_id, end_index, file_id, 3 more }  or object { file_id, index, type }  or null`
 
-    The annotation object being added. (See annotation schema for details.)
+    An annotation that applies to a span of output text.
+
+    - `FileCitation object { file_id, filename, index, type }`
+
+      A citation to a file.
+
+      - `file_id: string`
+
+        The ID of the file.
+
+      - `filename: string`
+
+        The filename of the file cited.
+
+      - `index: number`
+
+        The index of the file in the list of files.
+
+      - `type: "file_citation"`
+
+        The type of the file citation. Always `file_citation`.
+
+        - `"file_citation"`
+
+    - `URLCitation object { end_index, start_index, title, 2 more }`
+
+      A citation for a web resource used to generate a model response.
+
+      - `end_index: number`
+
+        The index of the last character of the URL citation in the message.
+
+      - `start_index: number`
+
+        The index of the first character of the URL citation in the message.
+
+      - `title: string`
+
+        The title of the web resource.
+
+      - `type: "url_citation"`
+
+        The type of the URL citation. Always `url_citation`.
+
+        - `"url_citation"`
+
+      - `url: string`
+
+        The URL of the web resource.
+
+    - `ContainerFileCitation object { container_id, end_index, file_id, 3 more }`
+
+      A citation for a container file used to generate a model response.
+
+      - `container_id: string`
+
+        The ID of the container file.
+
+      - `end_index: number`
+
+        The index of the last character of the container file citation in the message.
+
+      - `file_id: string`
+
+        The ID of the file.
+
+      - `filename: string`
+
+        The filename of the container file cited.
+
+      - `start_index: number`
+
+        The index of the first character of the container file citation in the message.
+
+      - `type: "container_file_citation"`
+
+        The type of the container file citation. Always `container_file_citation`.
+
+        - `"container_file_citation"`
+
+    - `FilePath object { file_id, index, type }`
+
+      A path to a file.
+
+      - `file_id: string`
+
+        The ID of the file.
+
+      - `index: number`
+
+        The index of the file in the list of files.
+
+      - `type: "file_path"`
+
+        The type of the file path. Always `file_path`.
+
+        - `"file_path"`
 
   - `annotation_index: number`
 
@@ -120950,6 +121199,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
             for reasoning items returned by `POST /v1/responses` and WebSocket
             `response.create` requests.
 
+            When streaming, use the completed reasoning item and its
+            `encrypted_content` from the `response.output_item.done` event in
+            subsequent requests. The `encrypted_content` in
+            `response.output_item.added` may be incomplete. This is especially
+            important when `store` is `false` or when using Zero Data Retention.
+
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
             The status of the item. One of `in_progress`, `completed`, or
@@ -122584,6 +122839,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
           The encrypted content of the reasoning item. This is populated by default
           for reasoning items returned by `POST /v1/responses` and WebSocket
           `response.create` requests.
+
+          When streaming, use the completed reasoning item and its
+          `encrypted_content` from the `response.output_item.done` event in
+          subsequent requests. The `encrypted_content` in
+          `response.output_item.added` may be incomplete. This is especially
+          important when `store` is `false` or when using Zero Data Retention.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -130573,6 +130834,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
               for reasoning items returned by `POST /v1/responses` and WebSocket
               `response.create` requests.
 
+              When streaming, use the completed reasoning item and its
+              `encrypted_content` from the `response.output_item.done` event in
+              subsequent requests. The `encrypted_content` in
+              `response.output_item.added` may be incomplete. This is especially
+              important when `store` is `false` or when using Zero Data Retention.
+
             - `status: optional "in_progress" or "completed" or "incomplete"`
 
               The status of the item. One of `in_progress`, `completed`, or
@@ -132207,6 +132474,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
             The encrypted content of the reasoning item. This is populated by default
             for reasoning items returned by `POST /v1/responses` and WebSocket
             `response.create` requests.
+
+            When streaming, use the completed reasoning item and its
+            `encrypted_content` from the `response.output_item.done` event in
+            subsequent requests. The `encrypted_content` in
+            `response.output_item.added` may be incomplete. This is especially
+            important when `store` is `false` or when using Zero Data Retention.
 
           - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -136771,7 +137044,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
     - `item: ResponseOutputItem`
 
-      The output item that was added.
+      The output item that was added. For reasoning items, `encrypted_content`
+      may be incomplete while the item is in progress. Use the reasoning item
+      from the corresponding `response.output_item.done` event when passing it
+      as input to a subsequent request.
 
       - `ResponseOutputMessage object { id, content, role, 3 more }`
 
@@ -137637,9 +137913,105 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
     Emitted when an annotation is added to output text content.
 
-    - `annotation: unknown`
+    - `annotation: object { file_id, filename, index, type }  or object { end_index, start_index, title, 2 more }  or object { container_id, end_index, file_id, 3 more }  or object { file_id, index, type }  or null`
 
-      The annotation object being added. (See annotation schema for details.)
+      An annotation that applies to a span of output text.
+
+      - `FileCitation object { file_id, filename, index, type }`
+
+        A citation to a file.
+
+        - `file_id: string`
+
+          The ID of the file.
+
+        - `filename: string`
+
+          The filename of the file cited.
+
+        - `index: number`
+
+          The index of the file in the list of files.
+
+        - `type: "file_citation"`
+
+          The type of the file citation. Always `file_citation`.
+
+          - `"file_citation"`
+
+      - `URLCitation object { end_index, start_index, title, 2 more }`
+
+        A citation for a web resource used to generate a model response.
+
+        - `end_index: number`
+
+          The index of the last character of the URL citation in the message.
+
+        - `start_index: number`
+
+          The index of the first character of the URL citation in the message.
+
+        - `title: string`
+
+          The title of the web resource.
+
+        - `type: "url_citation"`
+
+          The type of the URL citation. Always `url_citation`.
+
+          - `"url_citation"`
+
+        - `url: string`
+
+          The URL of the web resource.
+
+      - `ContainerFileCitation object { container_id, end_index, file_id, 3 more }`
+
+        A citation for a container file used to generate a model response.
+
+        - `container_id: string`
+
+          The ID of the container file.
+
+        - `end_index: number`
+
+          The index of the last character of the container file citation in the message.
+
+        - `file_id: string`
+
+          The ID of the file.
+
+        - `filename: string`
+
+          The filename of the container file cited.
+
+        - `start_index: number`
+
+          The index of the first character of the container file citation in the message.
+
+        - `type: "container_file_citation"`
+
+          The type of the container file citation. Always `container_file_citation`.
+
+          - `"container_file_citation"`
+
+      - `FilePath object { file_id, index, type }`
+
+        A path to a file.
+
+        - `file_id: string`
+
+          The ID of the file.
+
+        - `index: number`
+
+          The index of the file in the list of files.
+
+        - `type: "file_path"`
+
+          The type of the file path. Always `file_path`.
+
+          - `"file_path"`
 
     - `annotation_index: number`
 
@@ -141315,6 +141687,12 @@ curl https://api.openai.com/v1/responses/resp_123 \
           The encrypted content of the reasoning item. This is populated by default
           for reasoning items returned by `POST /v1/responses` and WebSocket
           `response.create` requests.
+
+          When streaming, use the completed reasoning item and its
+          `encrypted_content` from the `response.output_item.done` event in
+          subsequent requests. The `encrypted_content` in
+          `response.output_item.added` may be incomplete. This is especially
+          important when `store` is `false` or when using Zero Data Retention.
 
         - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -147729,6 +148107,12 @@ Returns a list of input items for a given response.
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
 
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
+
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
         The status of the item. One of `in_progress`, `completed`, or
@@ -151816,6 +152200,12 @@ curl https://api.openai.com/v1/responses/resp_abc123/input_items \
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
+
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
@@ -155982,6 +156372,12 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
         The encrypted content of the reasoning item. This is populated by default
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
+
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
 
       - `status: optional "in_progress" or "completed" or "incomplete"`
 

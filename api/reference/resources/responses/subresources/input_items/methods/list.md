@@ -3112,6 +3112,12 @@ Returns a list of input items for a given response.
         for reasoning items returned by `POST /v1/responses` and WebSocket
         `response.create` requests.
 
+        When streaming, use the completed reasoning item and its
+        `encrypted_content` from the `response.output_item.done` event in
+        subsequent requests. The `encrypted_content` in
+        `response.output_item.added` may be incomplete. This is especially
+        important when `store` is `false` or when using Zero Data Retention.
+
       - `status: optional "in_progress" or "completed" or "incomplete"`
 
         The status of the item. One of `in_progress`, `completed`, or

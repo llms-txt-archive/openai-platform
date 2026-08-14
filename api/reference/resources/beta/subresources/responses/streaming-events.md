@@ -12453,7 +12453,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -22193,7 +22193,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -76791,7 +76791,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -86531,7 +86531,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -141129,7 +141129,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -150869,7 +150869,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -205484,7 +205484,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -215224,7 +215224,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -269820,7 +269820,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -279560,7 +279560,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -321761,7 +321761,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "oasRef": "#/components/schemas/BetaResponseOutputItemAddedEvent/properties/item",
     "deprecated": false,
     "key": "item",
-    "docstring": "The output item that was added.\n",
+    "docstring": "The output item that was added. For reasoning items, `encrypted_content`\nmay be incomplete while the item is in progress. Use the reasoning item\nfrom the corresponding `response.output_item.done` event when passing it\nas input to a subsequent request.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseOutputItem",
@@ -325991,7 +325991,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -353480,7 +353480,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -385933,14 +385933,97 @@ Schema name: `BetaResponseOutputTextAnnotationAddedEvent`
     "oasRef": "#/components/schemas/BetaResponseOutputTextAnnotationAddedEvent/properties/annotation",
     "deprecated": false,
     "key": "annotation",
-    "docstring": "The annotation object being added. (See annotation schema for details.)",
+    "docstring": "An annotation that applies to a span of output text.",
     "type": {
-      "kind": "HttpTypeUnknown"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaResponseOutputTextAnnotationAddedEvent/properties/annotation",
+      "types": [
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "file_id"
+            },
+            {
+              "ident": "filename"
+            },
+            {
+              "ident": "index"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "end_index"
+            },
+            {
+              "ident": "start_index"
+            },
+            {
+              "ident": "title"
+            },
+            {
+              "ident": "type"
+            },
+            {
+              "ident": "url"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "container_id"
+            },
+            {
+              "ident": "end_index"
+            },
+            {
+              "ident": "file_id"
+            },
+            {
+              "ident": "filename"
+            },
+            {
+              "ident": "start_index"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "file_id"
+            },
+            {
+              "ident": "index"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": false,
-    "nullable": false,
-    "schemaType": "unknown",
-    "children": []
+    "nullable": true,
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation_index": {
     "kind": "HttpDeclProperty",
@@ -386058,6 +386141,134 @@ Schema name: `BetaResponseOutputTextAnnotationAddedEvent`
       "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) agent > (property) agent_name"
     ]
   },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaAnnotation/oneOf/0",
+    "docstring": "A citation to a file.",
+    "ident": "FileCitation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0 > (property) filename",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0 > (property) index",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaAnnotation/oneOf/1",
+    "docstring": "A citation for a web resource used to generate a model response.",
+    "ident": "URLCitation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "title"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "url"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) title",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) type",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) url"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaAnnotation/oneOf/2",
+    "docstring": "A citation for a container file used to generate a model response.",
+    "ident": "ContainerFileCitation",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "container_id"
+        },
+        {
+          "ident": "end_index"
+        },
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "filename"
+        },
+        {
+          "ident": "start_index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) container_id",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) end_index",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) filename",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) start_index",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaAnnotation/oneOf/3",
+    "docstring": "A path to a file.\n",
+    "ident": "FilePath",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "file_id"
+        },
+        {
+          "ident": "index"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 3 > (property) file_id",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 3 > (property) index",
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 3 > (property) type"
+    ]
+  },
   "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -386078,6 +386289,332 @@ Schema name: `BetaResponseOutputTextAnnotationAddedEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0 > (property) file_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFileCitationBody/properties/file_id",
+    "deprecated": false,
+    "key": "file_id",
+    "docstring": "The ID of the file.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0 > (property) filename": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFileCitationBody/properties/filename",
+    "deprecated": false,
+    "key": "filename",
+    "docstring": "The filename of the file cited.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0 > (property) index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFileCitationBody/properties/index",
+    "deprecated": false,
+    "key": "index",
+    "docstring": "The index of the file in the list of files.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFileCitationBody/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The type of the file citation. Always `file_citation`.",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaFileCitationBody/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "file_citation"
+        }
+      ]
+    },
+    "default": "file_citation",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) end_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaUrlCitationBody/properties/end_index",
+    "deprecated": false,
+    "key": "end_index",
+    "docstring": "The index of the last character of the URL citation in the message.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) start_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaUrlCitationBody/properties/start_index",
+    "deprecated": false,
+    "key": "start_index",
+    "docstring": "The index of the first character of the URL citation in the message.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) title": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaUrlCitationBody/properties/title",
+    "deprecated": false,
+    "key": "title",
+    "docstring": "The title of the web resource.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaUrlCitationBody/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The type of the URL citation. Always `url_citation`.",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaUrlCitationBody/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "url_citation"
+        }
+      ]
+    },
+    "default": "url_citation",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) url": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaUrlCitationBody/properties/url",
+    "deprecated": false,
+    "key": "url",
+    "docstring": "The URL of the web resource.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "constraints": {
+      "format": "uri"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) container_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaContainerFileCitationBody/properties/container_id",
+    "deprecated": false,
+    "key": "container_id",
+    "docstring": "The ID of the container file.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) end_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaContainerFileCitationBody/properties/end_index",
+    "deprecated": false,
+    "key": "end_index",
+    "docstring": "The index of the last character of the container file citation in the message.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) file_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaContainerFileCitationBody/properties/file_id",
+    "deprecated": false,
+    "key": "file_id",
+    "docstring": "The ID of the file.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) filename": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaContainerFileCitationBody/properties/filename",
+    "deprecated": false,
+    "key": "filename",
+    "docstring": "The filename of the container file cited.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) start_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaContainerFileCitationBody/properties/start_index",
+    "deprecated": false,
+    "key": "start_index",
+    "docstring": "The index of the first character of the container file citation in the message.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaContainerFileCitationBody/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The type of the container file citation. Always `container_file_citation`.",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaContainerFileCitationBody/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "container_file_citation"
+        }
+      ]
+    },
+    "default": "container_file_citation",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 3 > (property) file_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFilePath/properties/file_id",
+    "deprecated": false,
+    "key": "file_id",
+    "docstring": "The ID of the file.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 3 > (property) index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFilePath/properties/index",
+    "deprecated": false,
+    "key": "index",
+    "docstring": "The index of the file in the list of files.\n",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaFilePath/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The type of the file path. Always `file_path`.\n",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaFilePath/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "file_path"
+        }
+      ]
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 3 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 0 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "file_citation"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "url_citation"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "container_file_citation"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_text_annotation_added_event > (schema) > (property) annotation > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "file_path"
+    }
   }
 }
 ```
@@ -386092,10 +386629,10 @@ Schema name: `BetaResponseOutputTextAnnotationAddedEvent`
   "content_index": 0,
   "annotation_index": 0,
   "annotation": {
-    "type": "text_annotation",
-    "text": "This is a test annotation",
-    "start": 0,
-    "end": 10
+    "type": "file_citation",
+    "file_id": "file-abc",
+    "index": 0,
+    "filename": "example.txt"
   },
   "sequence_number": 1
 }
@@ -398545,7 +399082,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -408285,7 +408822,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaReasoningItem/properties/encrypted_content",
     "deprecated": false,
     "key": "encrypted_content",
-    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n",
+    "docstring": "The encrypted content of the reasoning item. This is populated by default\nfor reasoning items returned by `POST /v1/responses` and WebSocket\n`response.create` requests.\n\nWhen streaming, use the completed reasoning item and its\n`encrypted_content` from the `response.output_item.done` event in\nsubsequent requests. The `encrypted_content` in\n`response.output_item.added` may be incomplete. This is especially\nimportant when `store` is `false` or when using Zero Data Retention.\n",
     "type": {
       "kind": "HttpTypeString"
     },
