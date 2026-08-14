@@ -3848,9 +3848,41 @@ Create a conversation.
       Unique identifier for the MCP tool call approval request.
       Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-    - `error: optional string or null`
+    - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
 
       The error from the tool call, if any.
+
+      - `string`
+
+        The error from the tool call, if any.
+
+      - `McpProtocolError object { code, message, type }`
+
+        - `code: number`
+
+        - `message: string`
+
+        - `type: "mcp_protocol_error"`
+
+          - `"mcp_protocol_error"`
+
+      - `McpToolExecutionError object { content, type }`
+
+        - `content: unknown`
+
+        - `type: "mcp_tool_execution_error"`
+
+          - `"mcp_tool_execution_error"`
+
+      - `HTTPError object { code, message, type }`
+
+        - `code: number`
+
+        - `message: string`
+
+        - `type: "http_error"`
+
+          - `"http_error"`
 
     - `output: optional string or null`
 
@@ -8743,9 +8775,41 @@ Create items in a conversation with the given ID.
       Unique identifier for the MCP tool call approval request.
       Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-    - `error: optional string or null`
+    - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
 
       The error from the tool call, if any.
+
+      - `string`
+
+        The error from the tool call, if any.
+
+      - `McpProtocolError object { code, message, type }`
+
+        - `code: number`
+
+        - `message: string`
+
+        - `type: "mcp_protocol_error"`
+
+          - `"mcp_protocol_error"`
+
+      - `McpToolExecutionError object { content, type }`
+
+        - `content: unknown`
+
+        - `type: "mcp_tool_execution_error"`
+
+          - `"mcp_tool_execution_error"`
+
+      - `HTTPError object { code, message, type }`
+
+        - `code: number`
+
+        - `message: string`
+
+        - `type: "http_error"`
+
+          - `"http_error"`
 
     - `output: optional string or null`
 
@@ -12811,9 +12875,41 @@ Create items in a conversation with the given ID.
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or null`
+      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
 
         The error from the tool call, if any.
+
+        - `string`
+
+          The error from the tool call, if any.
+
+        - `McpProtocolError object { code, message, type }`
+
+          - `code: number`
+
+          - `message: string`
+
+          - `type: "mcp_protocol_error"`
+
+            - `"mcp_protocol_error"`
+
+        - `McpToolExecutionError object { content, type }`
+
+          - `content: unknown`
+
+          - `type: "mcp_tool_execution_error"`
+
+            - `"mcp_tool_execution_error"`
+
+        - `HTTPError object { code, message, type }`
+
+          - `code: number`
+
+          - `message: string`
+
+          - `type: "http_error"`
+
+            - `"http_error"`
 
       - `output: optional string or null`
 
@@ -17056,9 +17152,41 @@ List all items for a conversation with the given ID.
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or null`
+      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
 
         The error from the tool call, if any.
+
+        - `string`
+
+          The error from the tool call, if any.
+
+        - `McpProtocolError object { code, message, type }`
+
+          - `code: number`
+
+          - `message: string`
+
+          - `type: "mcp_protocol_error"`
+
+            - `"mcp_protocol_error"`
+
+        - `McpToolExecutionError object { content, type }`
+
+          - `content: unknown`
+
+          - `type: "mcp_tool_execution_error"`
+
+            - `"mcp_tool_execution_error"`
+
+        - `HTTPError object { code, message, type }`
+
+          - `code: number`
+
+          - `message: string`
+
+          - `type: "http_error"`
+
+            - `"http_error"`
 
       - `output: optional string or null`
 
@@ -21162,9 +21290,41 @@ Get a single item from a conversation with the given IDs.
       Unique identifier for the MCP tool call approval request.
       Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-    - `error: optional string or null`
+    - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
 
       The error from the tool call, if any.
+
+      - `string`
+
+        The error from the tool call, if any.
+
+      - `McpProtocolError object { code, message, type }`
+
+        - `code: number`
+
+        - `message: string`
+
+        - `type: "mcp_protocol_error"`
+
+          - `"mcp_protocol_error"`
+
+      - `McpToolExecutionError object { content, type }`
+
+        - `content: unknown`
+
+        - `type: "mcp_tool_execution_error"`
+
+          - `"mcp_tool_execution_error"`
+
+      - `HTTPError object { code, message, type }`
+
+        - `code: number`
+
+        - `message: string`
+
+        - `type: "http_error"`
+
+          - `"http_error"`
 
     - `output: optional string or null`
 
@@ -25201,9 +25361,41 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
       Unique identifier for the MCP tool call approval request.
       Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-    - `error: optional string or null`
+    - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
 
       The error from the tool call, if any.
+
+      - `string`
+
+        The error from the tool call, if any.
+
+      - `McpProtocolError object { code, message, type }`
+
+        - `code: number`
+
+        - `message: string`
+
+        - `type: "mcp_protocol_error"`
+
+          - `"mcp_protocol_error"`
+
+      - `McpToolExecutionError object { content, type }`
+
+        - `content: unknown`
+
+        - `type: "mcp_tool_execution_error"`
+
+          - `"mcp_tool_execution_error"`
+
+      - `HTTPError object { code, message, type }`
+
+        - `code: number`
+
+        - `message: string`
+
+        - `type: "http_error"`
+
+          - `"http_error"`
 
     - `output: optional string or null`
 
@@ -29193,9 +29385,41 @@ curl https://api.openai.com/v1/conversations/conv_123/items/msg_abc \
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or null`
+      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
 
         The error from the tool call, if any.
+
+        - `string`
+
+          The error from the tool call, if any.
+
+        - `McpProtocolError object { code, message, type }`
+
+          - `code: number`
+
+          - `message: string`
+
+          - `type: "mcp_protocol_error"`
+
+            - `"mcp_protocol_error"`
+
+        - `McpToolExecutionError object { content, type }`
+
+          - `content: unknown`
+
+          - `type: "mcp_tool_execution_error"`
+
+            - `"mcp_tool_execution_error"`
+
+        - `HTTPError object { code, message, type }`
+
+          - `code: number`
+
+          - `message: string`
+
+          - `type: "http_error"`
+
+            - `"http_error"`
 
       - `output: optional string or null`
 

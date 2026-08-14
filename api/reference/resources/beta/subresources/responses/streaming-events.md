@@ -15439,12 +15439,63 @@ Schema name: `BetaResponseCreatedEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -24069,12 +24120,63 @@ Schema name: `BetaResponseCreatedEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -29096,6 +29198,87 @@ Schema name: `BetaResponseCreatedEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -35285,6 +35468,87 @@ Schema name: `BetaResponseCreatedEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -41778,6 +42042,143 @@ Schema name: `BetaResponseCreatedEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type": {
@@ -48851,6 +49252,143 @@ Schema name: `BetaResponseCreatedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0"
+    ]
+  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -52232,6 +52770,27 @@ Schema name: `BetaResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -55998,6 +56557,27 @@ Schema name: `BetaResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -79197,12 +79777,63 @@ Schema name: `BetaResponseInProgressEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -87827,12 +88458,63 @@ Schema name: `BetaResponseInProgressEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -92854,6 +93536,87 @@ Schema name: `BetaResponseInProgressEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -99043,6 +99806,87 @@ Schema name: `BetaResponseInProgressEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -105536,6 +106380,143 @@ Schema name: `BetaResponseInProgressEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type": {
@@ -112609,6 +113590,143 @@ Schema name: `BetaResponseInProgressEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0"
+    ]
+  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -115990,6 +117108,27 @@ Schema name: `BetaResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -119756,6 +120895,27 @@ Schema name: `BetaResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -142955,12 +144115,63 @@ Schema name: `BetaResponseCompletedEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -151585,12 +152796,63 @@ Schema name: `BetaResponseCompletedEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -156612,6 +157874,87 @@ Schema name: `BetaResponseCompletedEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -162801,6 +164144,87 @@ Schema name: `BetaResponseCompletedEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -169294,6 +170718,143 @@ Schema name: `BetaResponseCompletedEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type": {
@@ -176367,6 +177928,143 @@ Schema name: `BetaResponseCompletedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0"
+    ]
+  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -179748,6 +181446,27 @@ Schema name: `BetaResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -183514,6 +185233,27 @@ Schema name: `BetaResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -206730,12 +208470,63 @@ Schema name: `BetaResponseFailedEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -215360,12 +217151,63 @@ Schema name: `BetaResponseFailedEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -220387,6 +222229,87 @@ Schema name: `BetaResponseFailedEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -226576,6 +228499,87 @@ Schema name: `BetaResponseFailedEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -233069,6 +235073,143 @@ Schema name: `BetaResponseFailedEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type": {
@@ -240142,6 +242283,143 @@ Schema name: `BetaResponseFailedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0"
+    ]
+  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -243523,6 +245801,27 @@ Schema name: `BetaResponseFailedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -247289,6 +249588,27 @@ Schema name: `BetaResponseFailedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -270486,12 +272806,63 @@ Schema name: `BetaResponseIncompleteEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -279116,12 +281487,63 @@ Schema name: `BetaResponseIncompleteEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -284143,6 +286565,87 @@ Schema name: `BetaResponseIncompleteEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -290332,6 +292835,87 @@ Schema name: `BetaResponseIncompleteEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -296825,6 +299409,143 @@ Schema name: `BetaResponseIncompleteEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type": {
@@ -303898,6 +306619,143 @@ Schema name: `BetaResponseIncompleteEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0"
+    ]
+  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -307279,6 +310137,27 @@ Schema name: `BetaResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -311045,6 +313924,27 @@ Schema name: `BetaResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -326077,12 +328977,63 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -331138,6 +334089,87 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -337963,6 +340995,143 @@ Schema name: `BetaResponseOutputItemAddedEvent`
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
+    ]
+  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaDirectToolCallCaller/properties/type",
@@ -341564,6 +344733,27 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -353276,12 +356466,63 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -358337,6 +361578,87 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -365162,6 +368484,143 @@ Schema name: `BetaResponseOutputItemDoneEvent`
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
+    ]
+  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/BetaDirectToolCallCaller/properties/type",
@@ -368763,6 +372222,27 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -398051,12 +401531,63 @@ Schema name: `BetaResponseQueuedEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -406681,12 +410212,63 @@ Schema name: `BetaResponseQueuedEvent`
     "key": "error",
     "docstring": "The error from the tool call, if any.\n",
     "type": {
-      "kind": "HttpTypeString"
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error",
+      "types": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
     },
     "optional": true,
     "nullable": true,
-    "schemaType": "string",
-    "children": []
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) output": {
     "kind": "HttpDeclProperty",
@@ -411708,6 +415290,87 @@ Schema name: `BetaResponseQueuedEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -417897,6 +421560,87 @@ Schema name: `BetaResponseQueuedEvent`
     "nullable": false,
     "schemaType": "string",
     "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCall/properties/error/anyOf/0",
+    "docstring": "The error from the tool call, if any.\n",
+    "ident": "UnionMember0",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/0",
+    "ident": "McpProtocolError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/1",
+    "ident": "McpToolExecutionError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "content"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaMCPToolCallError/oneOf/2",
+    "ident": "HTTPError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type"
+    ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -424390,6 +428134,143 @@ Schema name: `BetaResponseQueuedEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type": {
@@ -431463,6 +435344,143 @@ Schema name: `BetaResponseQueuedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 24 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPProtocolError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_protocol_error"
+        }
+      ]
+    },
+    "default": "mcp_protocol_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) content": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/content",
+    "deprecated": false,
+    "key": "content",
+    "type": {
+      "kind": "HttpTypeUnknown"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "unknown",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaMCPToolExecutionError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "mcp_tool_execution_error"
+        }
+      ]
+    },
+    "default": "mcp_tool_execution_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaHTTPError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "http_error"
+        }
+      ]
+    },
+    "default": "http_error",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0"
+    ]
+  },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -434844,6 +438862,27 @@ Schema name: `BetaResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -438610,6 +442649,27 @@ Schema name: `BetaResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_protocol_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 2 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "mcp_tool_execution_error"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 28 > (property) error > (variant) 3 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "http_error"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 29 > (property) caller > (variant) 0 > (property) type > (member) 0": {

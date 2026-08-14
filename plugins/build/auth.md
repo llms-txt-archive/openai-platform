@@ -179,15 +179,33 @@ Use [Client ID Metadata Documents (CIMD)](https://modelcontextprotocol.io/specif
 
 If you support CIMD, set `client_id_metadata_document_supported: true` in your authorization server metadata. This lets ChatGPT use one stable client identity for connectors that choose CIMD, which your authorization server can use for redirect URI allowlists, rate limits, and other policies.
 
-ChatGPT's production CIMD document advertises both supported client authentication methods using the [OpenID Connect RP Metadata Choices](https://openid.net/specs/openid-connect-rp-metadata-choices-1_0-final.html) client metadata field:
+ChatGPT is adopting the CIMD transition proposed in
+[MCP SEP-3149](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/3149).
+Its production CIMD document publishes
+`token_endpoint_auth_methods_supported` as an array of methods that ChatGPT
+can use, with no preference order. During the transition, it also publishes
+the legacy singular `token_endpoint_auth_method` as a preference:
 
 ```json
 {
-  "token_endpoint_auth_methods_supported": ["none", "private_key_jwt"]
+  "token_endpoint_auth_methods_supported": ["none", "private_key_jwt"],
+  "token_endpoint_auth_method": "private_key_jwt"
 }
 ```
 
-The same field name has different perspectives in the two documents: in authorization server metadata, it lists the methods your token endpoint accepts; in ChatGPT's CIMD document, it lists the methods ChatGPT can use. The `client_id` URL is stable and does not use query parameters to select a method-specific document. At runtime, ChatGPT compares both lists and prefers the stronger `private_key_jwt` method when your authorization server supports it; otherwise, it uses `none`.
+The plural field has different perspectives in the two documents:
+authorization server metadata lists the methods your token endpoint accepts,
+while ChatGPT's CIMD document lists the methods ChatGPT can use. ChatGPT
+selects a method from the intersection of those sets. When the singular legacy
+preference is in the intersection, ChatGPT uses it for compatibility with
+authorization servers that still treat the singular field as binding.
+Otherwise, ChatGPT can use another method in the intersection.
+
+Authorization servers that read the plural CIMD field should accept any method
+in the intersection unless local security policy disallows that method for the
+client. They must reject methods outside the intersection. The `client_id` URL
+stays stable and does not use query parameters to select a method-specific
+document.
 
 The supported methods are:
 
