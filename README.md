@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260814T201152Z` | 2026-08-14 20:11 UTC | [Ruby SDK coverage expanded across OpenAI platform docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260814T201152Z) |
 | `archive-20260814T193523Z` | 2026-08-14 19:35 UTC | [Model docs now include shutdown dates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260814T193523Z) |
 | `archive-20260814T152831Z` | 2026-08-14 15:29 UTC | [Responses WebSocket Error Docs and AgentCore Payments Cookbook](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260814T152831Z) |
 | `archive-20260814T060407Z` | 2026-08-14 06:04 UTC | [Ultrafast Mode Changelog Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260814T060407Z) |
 | `archive-20260814T035045Z` | 2026-08-14 03:51 UTC | [Responses event docs clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260814T035045Z) |
 | `archive-20260814T004246Z` | 2026-08-14 00:44 UTC | [Structured MCP Errors and Usage Breakdowns](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260814T004246Z) |
-| `archive-20260813T222317Z` | 2026-08-13 22:24 UTC | [JavaScript-First SDK Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260813T222317Z) |

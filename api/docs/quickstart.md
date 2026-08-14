@@ -923,11 +923,12 @@ Console.WriteLine(response.GetOutputText());
 
 ```ruby
 require "openai"
+require "pathname"
 
 openai = OpenAI::Client.new
 
 file = openai.files.create(
-  file: File.open("draconomicon.pdf", "rb"),
+  file: Pathname("draconomicon.pdf"),
   purpose: "user_data"
 )
 
@@ -1524,7 +1525,7 @@ response = openai.responses.create(
   tools: tools
 )
 
-puts(response.output.first.to_json)
+puts(response.output.fetch(0).to_json)
 ```
 
 ```bash
