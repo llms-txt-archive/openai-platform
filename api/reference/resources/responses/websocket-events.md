@@ -34625,6 +34625,255 @@ Schema name: `ResponsesClientEventResponseCreate`
 }
 ```
 
+## Server events (WebSocket only)
+
+Events emitted only over a Responses API WebSocket connection.
+
+### error
+
+Emitted when an error occurs while processing a Responses WebSocket request.
+
+#### Schema
+
+Schema name: `(resource) responses > (model) responses_server_event > (schema) > (variant) 52`
+
+```json
+{
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/52",
+    "docstring": "Emitted when an error occurs while processing a Responses WebSocket request.",
+    "ident": "ResponseWsError",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "error"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "sequence_number"
+        },
+        {
+          "ident": "status"
+        },
+        {
+          "ident": "stream_id"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) type",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) sequence_number",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) status",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseWsError/properties/error",
+    "deprecated": false,
+    "key": "error",
+    "docstring": "Details about the error.",
+    "title": "Error payload",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "code"
+        },
+        {
+          "ident": "message"
+        },
+        {
+          "ident": "param"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "headers"
+        }
+      ]
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "object",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) code",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) message",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) param",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) type",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) headers"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseWsError/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The type of the event. Always `error`.",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ResponseWsError/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "error"
+        }
+      ]
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) sequence_number": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseWsError/properties/sequence_number",
+    "deprecated": false,
+    "key": "sequence_number",
+    "docstring": "The sequence number of an error emitted by the response stream.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) status": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseWsError/properties/status",
+    "deprecated": false,
+    "key": "status",
+    "docstring": "The HTTP status code associated with a WebSocket protocol error.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseWsError/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present when the\noriginating `response.create` event supplied a `stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ErrorPayload/properties/code",
+    "deprecated": false,
+    "key": "code",
+    "docstring": "The error code that was emitted, if any.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) message": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ErrorPayload/properties/message",
+    "deprecated": false,
+    "key": "message",
+    "docstring": "The human-readable error message that was emitted.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) param": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ErrorPayload/properties/param",
+    "deprecated": false,
+    "key": "param",
+    "docstring": "The parameter name that was associated with the error, if any.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": true,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ErrorPayload/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The error type that was emitted.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) headers": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ErrorPayload/properties/headers",
+    "deprecated": false,
+    "key": "headers",
+    "docstring": "The response headers that were emitted with the error, if any.",
+    "type": {
+      "kind": "HttpTypeReference",
+      "oasRef": "#/components/schemas/ErrorPayload/properties/headers",
+      "ident": "Record",
+      "typeParameters": [
+        {
+          "kind": "HttpTypeString"
+        },
+        {
+          "kind": "HttpTypeString"
+        }
+      ]
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "map",
+    "children": []
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "error"
+    }
+  }
+}
+```
+
+#### Example
+
+```json
+{}
+```
+
 ## Server events
 
 These events use the same payloads over WebSocket and
@@ -89069,14 +89318,14 @@ Schema name: `ResponseInProgressEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 19": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 18": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18",
     "docstring": "Emitted when the response is in progress.",
     "ident": "ResponseInWsProgress",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -89087,12 +89336,12 @@ Schema name: `ResponseInProgressEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 19 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 18 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 19 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 18 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -197944,14 +198193,14 @@ Schema name: `ResponseFailedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 20": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 19": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19",
     "docstring": "An event that is emitted when a response fails.\n",
     "ident": "ResponseWsFailed",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -197962,12 +198211,12 @@ Schema name: `ResponseFailedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 20 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 19 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 20 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 19 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -252371,14 +252620,14 @@ Schema name: `ResponseIncompleteEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 21": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 20": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20",
     "docstring": "An event that is emitted when a response finishes as incomplete.\n",
     "ident": "ResponseWsIncomplete",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -252389,12 +252638,12 @@ Schema name: `ResponseIncompleteEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 21 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 20 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 21 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 20 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -306798,14 +307047,14 @@ Schema name: `ResponseOutputItemAddedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 22": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 21": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21",
     "docstring": "Emitted when a new output item is added.",
     "ident": "ResponseOutputItemWsAdded",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -306816,12 +307065,12 @@ Schema name: `ResponseOutputItemAddedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 22 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 21 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 22 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 21 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -330247,14 +330496,14 @@ Schema name: `ResponseOutputItemDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 23": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 22": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22",
     "docstring": "Emitted when an output item is marked done.",
     "ident": "ResponseOutputItemWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -330265,12 +330514,12 @@ Schema name: `ResponseOutputItemDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 23 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 22 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 23 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 22 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -356070,14 +356319,14 @@ Schema name: `ResponseTextDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 32": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 31": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31",
     "docstring": "Emitted when there is an additional text delta.",
     "ident": "ResponseTextWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -356088,12 +356337,12 @@ Schema name: `ResponseTextDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 32 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 31 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 32 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 31 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -356394,14 +356643,14 @@ Schema name: `ResponseTextDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 33": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 32": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32",
     "docstring": "Emitted when text content is finalized.",
     "ident": "ResponseTextWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -356412,12 +356661,12 @@ Schema name: `ResponseTextDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 33 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 32 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 33 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 32 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -356718,14 +356967,14 @@ Schema name: `ResponseRefusalDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 30": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 29": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29",
     "docstring": "Emitted when there is a partial refusal text.",
     "ident": "ResponseRefusalWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -356736,12 +356985,12 @@ Schema name: `ResponseRefusalDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 30 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 29 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 30 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 29 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -356918,14 +357167,14 @@ Schema name: `ResponseRefusalDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 31": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 30": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30",
     "docstring": "Emitted when refusal text is finalized.",
     "ident": "ResponseRefusalWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -356936,12 +357185,12 @@ Schema name: `ResponseRefusalDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 31 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 30 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 31 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 30 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -357118,14 +357367,14 @@ Schema name: `ResponseFunctionCallArgumentsDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 17": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/17",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/16",
     "docstring": "Emitted when there is a partial function-call arguments delta.",
     "ident": "ResponseFunctionCallArgumentsWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/17",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/16",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -357136,12 +357385,12 @@ Schema name: `ResponseFunctionCallArgumentsDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 17 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 16 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 17 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 16 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/17/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/16/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -357299,14 +357548,14 @@ Schema name: `ResponseFunctionCallArgumentsDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 18": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 17": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/17",
     "docstring": "Emitted when function-call arguments are finalized.",
     "ident": "ResponseFunctionCallArgumentsWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/17",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -357317,12 +357566,12 @@ Schema name: `ResponseFunctionCallArgumentsDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 18 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 17 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 18 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 17 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/17/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -357498,14 +357747,14 @@ Schema name: `ResponseFileSearchCallInProgressEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 15": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/15",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/14",
     "docstring": "Emitted when a file search call is initiated.",
     "ident": "ResponseFileSearchCallInWsProgress",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/15",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/14",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -357516,12 +357765,12 @@ Schema name: `ResponseFileSearchCallInProgressEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 15 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 14 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 15 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 14 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/15/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/14/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -357660,14 +357909,14 @@ Schema name: `ResponseFileSearchCallSearchingEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 16": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 15": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/16",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/15",
     "docstring": "Emitted when a file search is currently searching.",
     "ident": "ResponseFileSearchCallWsSearching",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/16",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/15",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -357678,12 +357927,12 @@ Schema name: `ResponseFileSearchCallSearchingEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 16 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 15 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 16 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 15 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/16/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/15/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -357822,14 +358071,14 @@ Schema name: `ResponseFileSearchCallCompletedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 14": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/14",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/13",
     "docstring": "Emitted when a file search call is completed (results found).",
     "ident": "ResponseFileSearchCallWsCompleted",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/14",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/13",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -357840,12 +358089,12 @@ Schema name: `ResponseFileSearchCallCompletedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 14 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 13 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 14 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 13 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/14/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/13/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -357984,14 +358233,14 @@ Schema name: `ResponseWebSearchCallInProgressEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 35": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 34": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34",
     "docstring": "Emitted when a web search call is initiated.",
     "ident": "ResponseWebSearchCallInWsProgress",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -358002,12 +358251,12 @@ Schema name: `ResponseWebSearchCallInProgressEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 35 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 34 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 35 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 34 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -358146,14 +358395,14 @@ Schema name: `ResponseWebSearchCallSearchingEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 36": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 35": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35",
     "docstring": "Emitted when a web search call is executing.",
     "ident": "ResponseWebSearchCallWsSearching",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -358164,12 +358413,12 @@ Schema name: `ResponseWebSearchCallSearchingEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 36 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 35 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 36 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 35 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -358308,14 +358557,14 @@ Schema name: `ResponseWebSearchCallCompletedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 34": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 33": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33",
     "docstring": "Emitted when a web search call is completed.",
     "ident": "ResponseWebSearchCallWsCompleted",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -358326,12 +358575,12 @@ Schema name: `ResponseWebSearchCallCompletedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 34 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 33 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 34 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 33 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -358470,14 +358719,14 @@ Schema name: `ResponseReasoningSummaryPartAddedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 24": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 23": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23",
     "docstring": "Emitted when a new reasoning summary part is added.",
     "ident": "ResponseReasoningSummaryPartWsAdded",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -358488,12 +358737,12 @@ Schema name: `ResponseReasoningSummaryPartAddedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 24 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 23 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 24 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 23 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -358730,14 +358979,14 @@ Schema name: `ResponseReasoningSummaryPartDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 25": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 24": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24",
     "docstring": "Emitted when a reasoning summary part is completed.",
     "ident": "ResponseReasoningSummaryPartWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -358748,12 +358997,12 @@ Schema name: `ResponseReasoningSummaryPartDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 25 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 24 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 25 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 24 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -359025,14 +359274,14 @@ Schema name: `ResponseReasoningSummaryTextDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 26": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 25": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25",
     "docstring": "Emitted when a delta is added to a reasoning summary text.",
     "ident": "ResponseReasoningSummaryTextWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -359043,12 +359292,12 @@ Schema name: `ResponseReasoningSummaryTextDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 26 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 25 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 26 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 25 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -359225,14 +359474,14 @@ Schema name: `ResponseReasoningSummaryTextDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 27": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 26": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26",
     "docstring": "Emitted when a reasoning summary text is completed.",
     "ident": "ResponseReasoningSummaryTextWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -359243,12 +359492,12 @@ Schema name: `ResponseReasoningSummaryTextDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 27 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 26 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 27 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 26 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -359425,14 +359674,14 @@ Schema name: `ResponseReasoningTextDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 28": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 27": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27",
     "docstring": "Emitted when a delta is added to a reasoning text.",
     "ident": "ResponseReasoningTextWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -359443,12 +359692,12 @@ Schema name: `ResponseReasoningTextDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 28 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 27 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 28 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 27 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -359625,14 +359874,14 @@ Schema name: `ResponseReasoningTextDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 29": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 28": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28",
     "docstring": "Emitted when a reasoning text is completed.",
     "ident": "ResponseReasoningTextWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -359643,12 +359892,12 @@ Schema name: `ResponseReasoningTextDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 29 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 28 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 29 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 28 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -359825,14 +360074,14 @@ Schema name: `ResponseImageGenCallCompletedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 37": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 36": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36",
     "docstring": "Emitted when an image generation tool call has completed and the final image is available.\n",
     "ident": "ResponseImageGenCallWsCompleted",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -359843,12 +360092,12 @@ Schema name: `ResponseImageGenCallCompletedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 37 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 36 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 37 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 36 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -359987,14 +360236,14 @@ Schema name: `ResponseImageGenCallGeneratingEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 38": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 37": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37",
     "docstring": "Emitted when an image generation tool call is actively generating an image (intermediate state).\n",
     "ident": "ResponseImageGenCallWsGenerating",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360005,12 +360254,12 @@ Schema name: `ResponseImageGenCallGeneratingEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 38 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 37 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 38 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 37 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -360149,14 +360398,14 @@ Schema name: `ResponseImageGenCallInProgressEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 39": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 38": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38",
     "docstring": "Emitted when an image generation tool call is in progress.\n",
     "ident": "ResponseImageGenCallInWsProgress",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360167,12 +360416,12 @@ Schema name: `ResponseImageGenCallInProgressEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 39 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 38 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 39 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 38 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -360311,14 +360560,14 @@ Schema name: `ResponseImageGenCallPartialImageEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 40": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 39": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39",
     "docstring": "Emitted when a partial image is available during image generation streaming.\n",
     "ident": "ResponseImageGenCallPartialWsImage",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360329,12 +360578,12 @@ Schema name: `ResponseImageGenCallPartialImageEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 40 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 39 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 40 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 39 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -360511,14 +360760,14 @@ Schema name: `ResponseMCPCallArgumentsDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 41": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 40": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40",
     "docstring": "Emitted when there is a delta (partial update) to the arguments of an MCP tool call.\n",
     "ident": "ResponseMcpCallArgumentsWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360529,12 +360778,12 @@ Schema name: `ResponseMCPCallArgumentsDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 41 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 40 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 41 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 40 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -360692,14 +360941,14 @@ Schema name: `ResponseMCPCallArgumentsDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 42": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 41": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41",
     "docstring": "Emitted when the arguments for an MCP tool call are finalized.\n",
     "ident": "ResponseMcpCallArgumentsWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360710,12 +360959,12 @@ Schema name: `ResponseMCPCallArgumentsDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 42 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 41 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 42 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 41 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -360873,14 +361122,14 @@ Schema name: `ResponseMCPCallCompletedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 43": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 42": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42",
     "docstring": "Emitted when an MCP  tool call has completed successfully.\n",
     "ident": "ResponseMcpCallWsCompleted",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360891,12 +361140,12 @@ Schema name: `ResponseMCPCallCompletedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 43 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 42 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 43 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 42 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -361035,14 +361284,14 @@ Schema name: `ResponseMCPCallFailedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 44": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 43": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43",
     "docstring": "Emitted when an MCP  tool call has failed.\n",
     "ident": "ResponseMcpCallWsFailed",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -361053,12 +361302,12 @@ Schema name: `ResponseMCPCallFailedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 44 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 43 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 44 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 43 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -361197,14 +361446,14 @@ Schema name: `ResponseMCPCallInProgressEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 45": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 44": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44",
     "docstring": "Emitted when an MCP  tool call is in progress.\n",
     "ident": "ResponseMcpCallInWsProgress",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -361215,12 +361464,12 @@ Schema name: `ResponseMCPCallInProgressEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 45 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 44 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 45 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 44 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -361359,14 +361608,14 @@ Schema name: `ResponseMCPListToolsCompletedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 46": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 45": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45",
     "docstring": "Emitted when the list of available MCP tools has been successfully retrieved.\n",
     "ident": "ResponseMcpListToolsWsCompleted",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -361377,12 +361626,12 @@ Schema name: `ResponseMCPListToolsCompletedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 46 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 45 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 46 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 45 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -361521,14 +361770,14 @@ Schema name: `ResponseMCPListToolsFailedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 47": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 46": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46",
     "docstring": "Emitted when the attempt to list available MCP tools has failed.\n",
     "ident": "ResponseMcpListToolsWsFailed",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -361539,12 +361788,12 @@ Schema name: `ResponseMCPListToolsFailedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 47 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 46 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 47 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 46 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -361683,14 +361932,14 @@ Schema name: `ResponseMCPListToolsInProgressEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 48": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 47": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47",
     "docstring": "Emitted when the system is in the process of retrieving the list of available MCP tools.\n",
     "ident": "ResponseMcpListToolsInWsProgress",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -361701,12 +361950,12 @@ Schema name: `ResponseMCPListToolsInProgressEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 48 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 47 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 48 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 47 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -362693,14 +362942,14 @@ Schema name: `ResponseOutputTextAnnotationAddedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 49": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 48": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48",
     "docstring": "Emitted when an annotation is added to output text content.\n",
     "ident": "ResponseOutputTextAnnotationWsAdded",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -362711,12 +362960,12 @@ Schema name: `ResponseOutputTextAnnotationAddedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 49 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 48 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 49 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 48 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -363454,14 +363703,14 @@ Schema name: `ResponseQueuedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 50": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 49": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49",
     "docstring": "Emitted when a response is queued and waiting to be processed.\n",
     "ident": "ResponseWsQueued",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -363472,12 +363721,12 @@ Schema name: `ResponseQueuedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 50 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 49 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 50 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 49 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -417856,14 +418105,14 @@ Schema name: `ResponseCustomToolCallInputDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 51": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 50": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50",
     "docstring": "Event representing a delta (partial update) to the input of a custom tool call.\n",
     "ident": "ResponseCustomToolCallInputWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -417874,12 +418123,12 @@ Schema name: `ResponseCustomToolCallInputDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 51 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 50 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 51 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 50 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -418036,14 +418285,14 @@ Schema name: `ResponseCustomToolCallInputDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 51": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/52",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51",
     "docstring": "Event indicating that input for a custom tool call is complete.\n",
     "ident": "ResponseCustomToolCallInputWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/52",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -418054,12 +418303,12 @@ Schema name: `ResponseCustomToolCallInputDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 51 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 51 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/52/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -418203,187 +418452,6 @@ Schema name: `ResponseCustomToolCallInputDoneEvent`
   "output_index": 0,
   "item_id": "ctc_1234567890abcdef",
   "input": "final complete input text"
-}
-```
-
-### error
-
-Emitted when an error occurs.
-
-#### Schema
-
-Schema name: `ResponseErrorEvent`
-
-```json
-{
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 13": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/13",
-    "docstring": "Emitted when an error occurs.",
-    "ident": "ResponseWsError",
-    "type": {
-      "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/13",
-      "types": [
-        {
-          "kind": "HttpTypeReference",
-          "ident": "ResponseErrorEvent",
-          "$ref": "(resource) responses > (model) response_error_event > (schema)"
-        }
-      ]
-    },
-    "childrenParentSchema": "intersection",
-    "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 13 > (entry) 1 > (property) stream_id"
-    ]
-  },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 13 > (entry) 1 > (property) stream_id": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/13/allOf/1/properties/stream_id",
-    "deprecated": false,
-    "key": "stream_id",
-    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": true,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response_error_event > (schema)": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponseErrorEvent",
-    "docstring": "Emitted when an error occurs.",
-    "ident": "ResponseErrorEvent",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "param"
-        },
-        {
-          "ident": "sequence_number"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response_error_event > (schema) > (property) code",
-      "(resource) responses > (model) response_error_event > (schema) > (property) message",
-      "(resource) responses > (model) response_error_event > (schema) > (property) param",
-      "(resource) responses > (model) response_error_event > (schema) > (property) sequence_number",
-      "(resource) responses > (model) response_error_event > (schema) > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response_error_event > (schema) > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponseErrorEvent/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "docstring": "The error code.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": true,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response_error_event > (schema) > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponseErrorEvent/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "docstring": "The error message.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response_error_event > (schema) > (property) param": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponseErrorEvent/properties/param",
-    "deprecated": false,
-    "key": "param",
-    "docstring": "The error parameter.\n",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": true,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response_error_event > (schema) > (property) sequence_number": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponseErrorEvent/properties/sequence_number",
-    "deprecated": false,
-    "key": "sequence_number",
-    "docstring": "The sequence number of this event.",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response_error_event > (schema) > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponseErrorEvent/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "docstring": "The type of the event. Always `error`.\n",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/ResponseErrorEvent/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "error"
-        }
-      ]
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response_error_event > (schema) > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response_error_event > (schema) > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "error"
-    }
-  }
-}
-```
-
-#### Example
-
-```json
-{
-  "type": "error",
-  "code": "ERR_SOMETHING",
-  "message": "Something went wrong",
-  "param": null,
-  "sequence_number": 1
 }
 ```
 

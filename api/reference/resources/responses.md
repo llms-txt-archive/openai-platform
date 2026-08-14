@@ -144403,16 +144403,6 @@ curl https://api.openai.com/v1/responses/resp_123 \
       when the originating `response.create` event supplied a
       `stream_id`.
 
-  - `ResponseWsError = ResponseErrorEvent`
-
-    Emitted when an error occurs.
-
-    - `stream_id: optional string`
-
-      The WebSocket lane that emitted this event. This field is present
-      when the originating `response.create` event supplied a
-      `stream_id`.
-
   - `ResponseFileSearchCallWsCompleted = ResponseFileSearchCallCompletedEvent`
 
     Emitted when a file search call is completed (results found).
@@ -144802,6 +144792,53 @@ curl https://api.openai.com/v1/responses/resp_123 \
       The WebSocket lane that emitted this event. This field is present
       when the originating `response.create` event supplied a
       `stream_id`.
+
+  - `ResponseWsError object { error, type, sequence_number, 2 more }`
+
+    Emitted when an error occurs while processing a Responses WebSocket request.
+
+    - `error: object { code, message, param, 2 more }`
+
+      Details about the error.
+
+      - `code: string or null`
+
+        The error code that was emitted, if any.
+
+      - `message: string`
+
+        The human-readable error message that was emitted.
+
+      - `param: string or null`
+
+        The parameter name that was associated with the error, if any.
+
+      - `type: string`
+
+        The error type that was emitted.
+
+      - `headers: optional map[string]`
+
+        The response headers that were emitted with the error, if any.
+
+    - `type: "error"`
+
+      The type of the event. Always `error`.
+
+      - `"error"`
+
+    - `sequence_number: optional number`
+
+      The sequence number of an error emitted by the response stream.
+
+    - `status: optional number`
+
+      The HTTP status code associated with a WebSocket protocol error.
+
+    - `stream_id: optional string`
+
+      The WebSocket lane that emitted this event. This field is present when the
+      originating `response.create` event supplied a `stream_id`.
 
 ### Skill Reference
 
