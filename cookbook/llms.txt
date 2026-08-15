@@ -65,7 +65,6 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Generate images with high input fidelity](https://developers.openai.com/cookbook/examples/generate_images_with_high_input_fidelity.md): Cookbook to preserve image details using high input fidelity in Image API.
 - [Getting Started with OpenAI Models on Amazon Bedrock](https://developers.openai.com/cookbook/examples/partners/aws/openai_models_with_amazon_bedrock.md): Learn how to invoke an OpenAI-compatible Amazon Bedrock endpoint using the OpenAI Python SDK, along with equivalent cURL examples, and leverage Responses API capabilities available through Amazon Bedrock.
 - [Getting the Most out of GPT-5.4 for Vision and Document Understanding](https://developers.openai.com/cookbook/examples/multimodal/document_and_multimodal_understanding_tips.md): A practical guide to get the best performance on vision tasks with GPT-5.4.
-- [GPT Actions library - GitHub](https://developers.openai.com/cookbook/examples/chatgpt/gpt_actions_library/gpt_action_github.md)
 - [GPT Image Generation Models Prompting Guide](https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide.md): Cookbook to prompt gpt-image models for reliable image generation results.
 - [GPT-4.1 Prompting Guide](https://developers.openai.com/cookbook/examples/gpt4-1_prompting_guide.md)
 - [GPT-5 New Params and Tools](https://developers.openai.com/cookbook/examples/gpt-5/gpt-5_new_params_and_tools.md)
@@ -99,7 +98,6 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Prompt Personalities](https://developers.openai.com/cookbook/examples/gpt-5/prompt_personalities.md): Cookbook to shape agent personality via instruction prompts for tone and style.
 - [Realtime Eval Guide](https://developers.openai.com/cookbook/examples/realtime_eval_guide.md)
 - [Realtime Prompting Guide](https://developers.openai.com/cookbook/examples/realtime_prompting_guide.md)
-- [Reasoning over Code Quality and Security in GitHub Pull Requests](https://developers.openai.com/cookbook/examples/third_party/code_quality_and_security_scan_with_github_actions.md)
 - [Reinforcement Fine-Tuning for Conversational Reasoning with the OpenAI API](https://developers.openai.com/cookbook/examples/fine-tuned_qa/reinforcement_finetuning_healthbench.md): Cookbook for reinforcement fine-tuning conversational reasoning using HealthBench evaluations.
 - [SchemaFlow: Agentic Database Change Impact Analysis, SQL Generation, and Eval Guardrails](https://developers.openai.com/cookbook/examples/partners/schemaflow_design_guide/schemaflow_cookbook.md): Build a staged SchemaFlow pipeline with the OpenAI Agents SDK for database change parsing, impact analysis, rollout planning, SQL generation, guardrails, artifacts, optional File Search grounding, and Promptfoo evals.
 - [Self-Evolving Agents - A Cookbook for Autonomous Agent Retraining](https://developers.openai.com/cookbook/examples/partners/self_evolving_agents/autonomous_agent_retraining.md)

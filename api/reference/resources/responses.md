@@ -3948,13 +3948,9 @@ the `background` parameter set to `true` can be cancelled.
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+        - `error: optional McpToolCallError or null`
 
           The error from the tool call, if any.
-
-          - `string`
-
-            The error from the tool call, if any.
 
           - `McpProtocolError object { code, message, type }`
 
@@ -7317,41 +7313,9 @@ the `background` parameter set to `true` can be cancelled.
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
-
-        - `McpProtocolError object { code, message, type }`
-
-          - `code: number`
-
-          - `message: string`
-
-          - `type: "mcp_protocol_error"`
-
-            - `"mcp_protocol_error"`
-
-        - `McpToolExecutionError object { content, type }`
-
-          - `content: unknown`
-
-          - `type: "mcp_tool_execution_error"`
-
-            - `"mcp_tool_execution_error"`
-
-        - `HTTPError object { code, message, type }`
-
-          - `code: number`
-
-          - `message: string`
-
-          - `type: "http_error"`
-
-            - `"http_error"`
 
       - `output: optional string or null`
 
@@ -13462,13 +13426,9 @@ Learn when and how to compact long-running conversations in the [conversation st
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
 
         - `McpProtocolError object { code, message, type }`
 
@@ -17632,13 +17592,9 @@ Learn when and how to compact long-running conversations in the [conversation st
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
 
         - `McpProtocolError object { code, message, type }`
 
@@ -21902,13 +21858,9 @@ as input for the model's response.
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
 
         - `McpProtocolError object { code, message, type }`
 
@@ -27730,13 +27682,9 @@ as input for the model's response.
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+        - `error: optional McpToolCallError or null`
 
           The error from the tool call, if any.
-
-          - `string`
-
-            The error from the tool call, if any.
 
           - `McpProtocolError object { code, message, type }`
 
@@ -31099,41 +31047,9 @@ as input for the model's response.
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
-
-        - `McpProtocolError object { code, message, type }`
-
-          - `code: number`
-
-          - `message: string`
-
-          - `type: "mcp_protocol_error"`
-
-            - `"mcp_protocol_error"`
-
-        - `McpToolExecutionError object { content, type }`
-
-          - `content: unknown`
-
-          - `type: "mcp_tool_execution_error"`
-
-            - `"mcp_tool_execution_error"`
-
-        - `HTTPError object { code, message, type }`
-
-          - `code: number`
-
-          - `message: string`
-
-          - `type: "http_error"`
-
-            - `"http_error"`
 
       - `output: optional string or null`
 
@@ -37901,13 +37817,9 @@ Retrieves a model response with the given ID.
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+        - `error: optional McpToolCallError or null`
 
           The error from the tool call, if any.
-
-          - `string`
-
-            The error from the tool call, if any.
 
           - `McpProtocolError object { code, message, type }`
 
@@ -41270,41 +41182,9 @@ Retrieves a model response with the given ID.
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
-
-        - `McpProtocolError object { code, message, type }`
-
-          - `code: number`
-
-          - `message: string`
-
-          - `type: "mcp_protocol_error"`
-
-            - `"mcp_protocol_error"`
-
-        - `McpToolExecutionError object { content, type }`
-
-          - `content: unknown`
-
-          - `type: "mcp_tool_execution_error"`
-
-            - `"mcp_tool_execution_error"`
-
-        - `HTTPError object { code, message, type }`
-
-          - `code: number`
-
-          - `message: string`
-
-          - `type: "http_error"`
-
-            - `"http_error"`
 
       - `output: optional string or null`
 
@@ -47219,13 +47099,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
 
         - `McpProtocolError object { code, message, type }`
 
@@ -48278,6 +48154,38 @@ curl https://api.openai.com/v1/responses/resp_123 \
   - `path: string`
 
     The path to the directory containing the skill.
+
+### Mcp Tool Call Error
+
+- `McpToolCallError = object { code, message, type }  or object { content, type }  or object { code, message, type }`
+
+  - `McpProtocolError object { code, message, type }`
+
+    - `code: number`
+
+    - `message: string`
+
+    - `type: "mcp_protocol_error"`
+
+      - `"mcp_protocol_error"`
+
+  - `McpToolExecutionError object { content, type }`
+
+    - `content: unknown`
+
+    - `type: "mcp_tool_execution_error"`
+
+      - `"mcp_tool_execution_error"`
+
+  - `HTTPError object { code, message, type }`
+
+    - `code: number`
+
+    - `message: string`
+
+    - `type: "http_error"`
+
+      - `"http_error"`
 
 ### Response
 
@@ -52213,13 +52121,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+        - `error: optional McpToolCallError or null`
 
           The error from the tool call, if any.
-
-          - `string`
-
-            The error from the tool call, if any.
 
           - `McpProtocolError object { code, message, type }`
 
@@ -55582,41 +55486,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
-
-        - `McpProtocolError object { code, message, type }`
-
-          - `code: number`
-
-          - `message: string`
-
-          - `type: "mcp_protocol_error"`
-
-            - `"mcp_protocol_error"`
-
-        - `McpToolExecutionError object { content, type }`
-
-          - `content: unknown`
-
-          - `type: "mcp_tool_execution_error"`
-
-            - `"mcp_tool_execution_error"`
-
-        - `HTTPError object { code, message, type }`
-
-          - `code: number`
-
-          - `message: string`
-
-          - `type: "http_error"`
-
-            - `"http_error"`
 
       - `output: optional string or null`
 
@@ -61550,13 +61422,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
             Unique identifier for the MCP tool call approval request.
             Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-          - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+          - `error: optional McpToolCallError or null`
 
             The error from the tool call, if any.
-
-            - `string`
-
-              The error from the tool call, if any.
 
             - `McpProtocolError object { code, message, type }`
 
@@ -64919,41 +64787,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+        - `error: optional McpToolCallError or null`
 
           The error from the tool call, if any.
-
-          - `string`
-
-            The error from the tool call, if any.
-
-          - `McpProtocolError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "mcp_protocol_error"`
-
-              - `"mcp_protocol_error"`
-
-          - `McpToolExecutionError object { content, type }`
-
-            - `content: unknown`
-
-            - `type: "mcp_tool_execution_error"`
-
-              - `"mcp_tool_execution_error"`
-
-          - `HTTPError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "http_error"`
-
-              - `"http_error"`
 
         - `output: optional string or null`
 
@@ -71396,13 +71232,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
             Unique identifier for the MCP tool call approval request.
             Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-          - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+          - `error: optional McpToolCallError or null`
 
             The error from the tool call, if any.
-
-            - `string`
-
-              The error from the tool call, if any.
 
             - `McpProtocolError object { code, message, type }`
 
@@ -74765,41 +74597,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+        - `error: optional McpToolCallError or null`
 
           The error from the tool call, if any.
-
-          - `string`
-
-            The error from the tool call, if any.
-
-          - `McpProtocolError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "mcp_protocol_error"`
-
-              - `"mcp_protocol_error"`
-
-          - `McpToolExecutionError object { content, type }`
-
-            - `content: unknown`
-
-            - `type: "mcp_tool_execution_error"`
-
-              - `"mcp_tool_execution_error"`
-
-          - `HTTPError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "http_error"`
-
-              - `"http_error"`
 
         - `output: optional string or null`
 
@@ -80681,13 +80481,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
             Unique identifier for the MCP tool call approval request.
             Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-          - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+          - `error: optional McpToolCallError or null`
 
             The error from the tool call, if any.
-
-            - `string`
-
-              The error from the tool call, if any.
 
             - `McpProtocolError object { code, message, type }`
 
@@ -84050,41 +83846,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+        - `error: optional McpToolCallError or null`
 
           The error from the tool call, if any.
-
-          - `string`
-
-            The error from the tool call, if any.
-
-          - `McpProtocolError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "mcp_protocol_error"`
-
-              - `"mcp_protocol_error"`
-
-          - `McpToolExecutionError object { content, type }`
-
-            - `content: unknown`
-
-            - `type: "mcp_tool_execution_error"`
-
-              - `"mcp_tool_execution_error"`
-
-          - `HTTPError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "http_error"`
-
-              - `"http_error"`
 
         - `output: optional string or null`
 
@@ -86245,7 +86009,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
 ### Response Image Gen Call Partial Image Event
 
-- `ResponseImageGenCallPartialImageEvent object { item_id, output_index, partial_image_b64, 3 more }`
+- `ResponseImageGenCallPartialImageEvent object { item_id, output_index, partial_image_b64, 7 more }`
 
   Emitted when a partial image is available during image generation streaming.
 
@@ -86274,6 +86038,22 @@ curl https://api.openai.com/v1/responses/resp_123 \
     The type of the event. Always 'response.image_generation_call.partial_image'.
 
     - `"response.image_generation_call.partial_image"`
+
+  - `background: optional string`
+
+    The background setting that was used.
+
+  - `output_format: optional string`
+
+    The output format that was used.
+
+  - `quality: optional string`
+
+    The image quality that was used.
+
+  - `size: optional string`
+
+    The image size that was used.
 
 ### Response In Progress Event
 
@@ -90215,13 +89995,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
             Unique identifier for the MCP tool call approval request.
             Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-          - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+          - `error: optional McpToolCallError or null`
 
             The error from the tool call, if any.
-
-            - `string`
-
-              The error from the tool call, if any.
 
             - `McpProtocolError object { code, message, type }`
 
@@ -93584,41 +93360,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+        - `error: optional McpToolCallError or null`
 
           The error from the tool call, if any.
-
-          - `string`
-
-            The error from the tool call, if any.
-
-          - `McpProtocolError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "mcp_protocol_error"`
-
-              - `"mcp_protocol_error"`
-
-          - `McpToolExecutionError object { content, type }`
-
-            - `content: unknown`
-
-            - `type: "mcp_tool_execution_error"`
-
-              - `"mcp_tool_execution_error"`
-
-          - `HTTPError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "http_error"`
-
-              - `"http_error"`
 
         - `output: optional string or null`
 
@@ -99393,13 +99137,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
             Unique identifier for the MCP tool call approval request.
             Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-          - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+          - `error: optional McpToolCallError or null`
 
             The error from the tool call, if any.
-
-            - `string`
-
-              The error from the tool call, if any.
 
             - `McpProtocolError object { code, message, type }`
 
@@ -102762,41 +102502,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+        - `error: optional McpToolCallError or null`
 
           The error from the tool call, if any.
-
-          - `string`
-
-            The error from the tool call, if any.
-
-          - `McpProtocolError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "mcp_protocol_error"`
-
-              - `"mcp_protocol_error"`
-
-          - `McpToolExecutionError object { content, type }`
-
-            - `content: unknown`
-
-            - `type: "mcp_tool_execution_error"`
-
-              - `"mcp_tool_execution_error"`
-
-          - `HTTPError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "http_error"`
-
-              - `"http_error"`
 
         - `output: optional string or null`
 
@@ -109135,13 +108843,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
       Unique identifier for the MCP tool call approval request.
       Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-    - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+    - `error: optional McpToolCallError or null`
 
       The error from the tool call, if any.
-
-      - `string`
-
-        The error from the tool call, if any.
 
       - `McpProtocolError object { code, message, type }`
 
@@ -113081,13 +112785,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
 
         - `McpProtocolError object { code, message, type }`
 
@@ -117038,13 +116738,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
 
         - `McpProtocolError object { code, message, type }`
 
@@ -121874,13 +121570,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
             Unique identifier for the MCP tool call approval request.
             Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-          - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+          - `error: optional McpToolCallError or null`
 
             The error from the tool call, if any.
-
-            - `string`
-
-              The error from the tool call, if any.
 
             - `McpProtocolError object { code, message, type }`
 
@@ -125243,41 +124935,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+        - `error: optional McpToolCallError or null`
 
           The error from the tool call, if any.
-
-          - `string`
-
-            The error from the tool call, if any.
-
-          - `McpProtocolError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "mcp_protocol_error"`
-
-              - `"mcp_protocol_error"`
-
-          - `McpToolExecutionError object { content, type }`
-
-            - `content: unknown`
-
-            - `type: "mcp_tool_execution_error"`
-
-              - `"mcp_tool_execution_error"`
-
-          - `HTTPError object { code, message, type }`
-
-            - `code: number`
-
-            - `message: string`
-
-            - `type: "http_error"`
-
-              - `"http_error"`
 
         - `output: optional string or null`
 
@@ -127364,6 +127024,206 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
     - `"response.refusal.done"`
 
+### Response Shell Call Command Added Event
+
+- `ResponseShellCallCommandAddedEvent object { command, command_index, output_index, 2 more }`
+
+  A streaming event that indicated a shell command was added to a tool call.
+
+  - `command: string`
+
+    The shell command that was added.
+
+  - `command_index: number`
+
+    The index of the shell command that was added.
+
+  - `output_index: number`
+
+    The index of the output item that was updated.
+
+  - `sequence_number: number`
+
+    The sequence number of the event that was emitted.
+
+  - `type: "response.shell_call_command.added"`
+
+    The type of the event, always `response.shell_call_command.added`.
+
+    - `"response.shell_call_command.added"`
+
+### Response Shell Call Command Delta Event
+
+- `ResponseShellCallCommandDeltaEvent object { command_index, delta, output_index, 3 more }`
+
+  A streaming event that indicated a shell command was incrementally updated.
+
+  - `command_index: number`
+
+    The index of the shell command that was updated.
+
+  - `delta: string`
+
+    The shell command delta that was appended.
+
+  - `output_index: number`
+
+    The index of the output item that was updated.
+
+  - `sequence_number: number`
+
+    The sequence number of the event that was emitted.
+
+  - `type: "response.shell_call_command.delta"`
+
+    The type of the event, always `response.shell_call_command.delta`.
+
+    - `"response.shell_call_command.delta"`
+
+  - `obfuscation: optional string`
+
+    An obfuscation string that was added to pad the event payload.
+
+### Response Shell Call Command Done Event
+
+- `ResponseShellCallCommandDoneEvent object { command, command_index, output_index, 2 more }`
+
+  A streaming event that indicated a shell command was completed.
+
+  - `command: string`
+
+    The final shell command that was emitted.
+
+  - `command_index: number`
+
+    The index of the shell command that was completed.
+
+  - `output_index: number`
+
+    The index of the output item that was updated.
+
+  - `sequence_number: number`
+
+    The sequence number of the event that was emitted.
+
+  - `type: "response.shell_call_command.done"`
+
+    The type of the event, always `response.shell_call_command.done`.
+
+    - `"response.shell_call_command.done"`
+
+### Response Shell Call Output Content Delta Event
+
+- `ResponseShellCallOutputContentDeltaEvent object { command_index, delta, item_id, 3 more }`
+
+  A streaming event that indicated shell call output was incrementally added.
+
+  - `command_index: number`
+
+    The index of the shell command that produced output.
+
+  - `delta: object { stderr, stdout }`
+
+    The stdout/stderr delta that was emitted.
+
+    - `stderr: optional string`
+
+      The stderr delta that was emitted.
+
+    - `stdout: optional string`
+
+      The stdout delta that was emitted.
+
+  - `item_id: string`
+
+    The ID of the output item that was updated.
+
+  - `output_index: number`
+
+    The index of the output item that was updated.
+
+  - `sequence_number: number`
+
+    The sequence number of the event that was emitted.
+
+  - `type: "response.shell_call_output_content.delta"`
+
+    The type of the event, always `response.shell_call_output_content.delta`.
+
+    - `"response.shell_call_output_content.delta"`
+
+### Response Shell Call Output Content Done Event
+
+- `ResponseShellCallOutputContentDoneEvent object { command_index, item_id, output, 3 more }`
+
+  A streaming event that indicated shell call output was completed.
+
+  - `command_index: number`
+
+    The index of the shell command that produced output.
+
+  - `item_id: string`
+
+    The ID of the output item that was updated.
+
+  - `output: array of object { outcome, stderr, stdout, created_by }`
+
+    The output contents emitted for the shell command.
+
+    - `outcome: object { type }  or object { exit_code, type }`
+
+      Represents either an exit outcome (with an exit code) or a timeout outcome for a shell call output chunk.
+
+      - `Timeout object { type }`
+
+        Indicates that the shell call exceeded its configured time limit.
+
+        - `type: "timeout"`
+
+          The outcome type. Always `timeout`.
+
+          - `"timeout"`
+
+      - `Exit object { exit_code, type }`
+
+        Indicates that the shell commands finished and returned an exit code.
+
+        - `exit_code: number`
+
+          Exit code from the shell process.
+
+        - `type: "exit"`
+
+          The outcome type. Always `exit`.
+
+          - `"exit"`
+
+    - `stderr: string`
+
+      The standard error output that was captured.
+
+    - `stdout: string`
+
+      The standard output that was captured.
+
+    - `created_by: optional string`
+
+      The identifier of the actor that created the item.
+
+  - `output_index: number`
+
+    The index of the output item that was updated.
+
+  - `sequence_number: number`
+
+    The sequence number of the event that was emitted.
+
+  - `type: "response.shell_call_output_content.done"`
+
+    The type of the event, always `response.shell_call_output_content.done`.
+
+    - `"response.shell_call_output_content.done"`
+
 ### Response Status
 
 - `ResponseStatus = "completed" or "failed" or "in_progress" or 3 more`
@@ -127385,7 +127245,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
 ### Response Stream Event
 
-- `ResponseStreamEvent = ResponseAudioDeltaEvent or ResponseAudioDoneEvent or ResponseAudioTranscriptDeltaEvent or 50 more`
+- `ResponseStreamEvent = ResponseAudioDeltaEvent or ResponseAudioDoneEvent or ResponseAudioTranscriptDeltaEvent or 55 more`
 
   Event emitted while a response is streamed.
 
@@ -131509,13 +131369,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
               Unique identifier for the MCP tool call approval request.
               Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-            - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+            - `error: optional McpToolCallError or null`
 
               The error from the tool call, if any.
-
-              - `string`
-
-                The error from the tool call, if any.
 
               - `McpProtocolError object { code, message, type }`
 
@@ -134878,41 +134734,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
             Unique identifier for the MCP tool call approval request.
             Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-          - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+          - `error: optional McpToolCallError or null`
 
             The error from the tool call, if any.
-
-            - `string`
-
-              The error from the tool call, if any.
-
-            - `McpProtocolError object { code, message, type }`
-
-              - `code: number`
-
-              - `message: string`
-
-              - `type: "mcp_protocol_error"`
-
-                - `"mcp_protocol_error"`
-
-            - `McpToolExecutionError object { content, type }`
-
-              - `content: unknown`
-
-              - `type: "mcp_tool_execution_error"`
-
-                - `"mcp_tool_execution_error"`
-
-            - `HTTPError object { code, message, type }`
-
-              - `code: number`
-
-              - `message: string`
-
-              - `type: "http_error"`
-
-                - `"http_error"`
 
           - `output: optional string or null`
 
@@ -136984,6 +136808,196 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       - `"response.function_call_arguments.done"`
 
+  - `ResponseShellCallCommandAddedEvent object { command, command_index, output_index, 2 more }`
+
+    A streaming event that indicated a shell command was added to a tool call.
+
+    - `command: string`
+
+      The shell command that was added.
+
+    - `command_index: number`
+
+      The index of the shell command that was added.
+
+    - `output_index: number`
+
+      The index of the output item that was updated.
+
+    - `sequence_number: number`
+
+      The sequence number of the event that was emitted.
+
+    - `type: "response.shell_call_command.added"`
+
+      The type of the event, always `response.shell_call_command.added`.
+
+      - `"response.shell_call_command.added"`
+
+  - `ResponseShellCallCommandDeltaEvent object { command_index, delta, output_index, 3 more }`
+
+    A streaming event that indicated a shell command was incrementally updated.
+
+    - `command_index: number`
+
+      The index of the shell command that was updated.
+
+    - `delta: string`
+
+      The shell command delta that was appended.
+
+    - `output_index: number`
+
+      The index of the output item that was updated.
+
+    - `sequence_number: number`
+
+      The sequence number of the event that was emitted.
+
+    - `type: "response.shell_call_command.delta"`
+
+      The type of the event, always `response.shell_call_command.delta`.
+
+      - `"response.shell_call_command.delta"`
+
+    - `obfuscation: optional string`
+
+      An obfuscation string that was added to pad the event payload.
+
+  - `ResponseShellCallCommandDoneEvent object { command, command_index, output_index, 2 more }`
+
+    A streaming event that indicated a shell command was completed.
+
+    - `command: string`
+
+      The final shell command that was emitted.
+
+    - `command_index: number`
+
+      The index of the shell command that was completed.
+
+    - `output_index: number`
+
+      The index of the output item that was updated.
+
+    - `sequence_number: number`
+
+      The sequence number of the event that was emitted.
+
+    - `type: "response.shell_call_command.done"`
+
+      The type of the event, always `response.shell_call_command.done`.
+
+      - `"response.shell_call_command.done"`
+
+  - `ResponseShellCallOutputContentDeltaEvent object { command_index, delta, item_id, 3 more }`
+
+    A streaming event that indicated shell call output was incrementally added.
+
+    - `command_index: number`
+
+      The index of the shell command that produced output.
+
+    - `delta: object { stderr, stdout }`
+
+      The stdout/stderr delta that was emitted.
+
+      - `stderr: optional string`
+
+        The stderr delta that was emitted.
+
+      - `stdout: optional string`
+
+        The stdout delta that was emitted.
+
+    - `item_id: string`
+
+      The ID of the output item that was updated.
+
+    - `output_index: number`
+
+      The index of the output item that was updated.
+
+    - `sequence_number: number`
+
+      The sequence number of the event that was emitted.
+
+    - `type: "response.shell_call_output_content.delta"`
+
+      The type of the event, always `response.shell_call_output_content.delta`.
+
+      - `"response.shell_call_output_content.delta"`
+
+  - `ResponseShellCallOutputContentDoneEvent object { command_index, item_id, output, 3 more }`
+
+    A streaming event that indicated shell call output was completed.
+
+    - `command_index: number`
+
+      The index of the shell command that produced output.
+
+    - `item_id: string`
+
+      The ID of the output item that was updated.
+
+    - `output: array of object { outcome, stderr, stdout, created_by }`
+
+      The output contents emitted for the shell command.
+
+      - `outcome: object { type }  or object { exit_code, type }`
+
+        Represents either an exit outcome (with an exit code) or a timeout outcome for a shell call output chunk.
+
+        - `Timeout object { type }`
+
+          Indicates that the shell call exceeded its configured time limit.
+
+          - `type: "timeout"`
+
+            The outcome type. Always `timeout`.
+
+            - `"timeout"`
+
+        - `Exit object { exit_code, type }`
+
+          Indicates that the shell commands finished and returned an exit code.
+
+          - `exit_code: number`
+
+            Exit code from the shell process.
+
+          - `type: "exit"`
+
+            The outcome type. Always `exit`.
+
+            - `"exit"`
+
+      - `stderr: string`
+
+        The standard error output that was captured.
+
+      - `stdout: string`
+
+        The standard output that was captured.
+
+      - `created_by: optional string`
+
+        The identifier of the actor that created the item.
+
+    - `output_index: number`
+
+      The index of the output item that was updated.
+
+    - `sequence_number: number`
+
+      The sequence number of the event that was emitted.
+
+    - `type: "response.shell_call_output_content.done"`
+
+      The type of the event, always `response.shell_call_output_content.done`.
+
+      - `"response.shell_call_output_content.done"`
+
   - `ResponseInProgressEvent object { response, sequence_number, type }`
 
     Emitted when the response is in progress.
@@ -137695,7 +137709,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       - `"response.image_generation_call.in_progress"`
 
-  - `ResponseImageGenCallPartialImageEvent object { item_id, output_index, partial_image_b64, 3 more }`
+  - `ResponseImageGenCallPartialImageEvent object { item_id, output_index, partial_image_b64, 7 more }`
 
     Emitted when a partial image is available during image generation streaming.
 
@@ -137724,6 +137738,22 @@ curl https://api.openai.com/v1/responses/resp_123 \
       The type of the event. Always 'response.image_generation_call.partial_image'.
 
       - `"response.image_generation_call.partial_image"`
+
+    - `background: optional string`
+
+      The background setting that was used.
+
+    - `output_format: optional string`
+
+      The output format that was used.
+
+    - `quality: optional string`
+
+      The image quality that was used.
+
+    - `size: optional string`
+
+      The image size that was used.
 
   - `ResponseMcpCallArgumentsDeltaEvent object { delta, item_id, output_index, 2 more }`
 
@@ -142363,13 +142393,9 @@ curl https://api.openai.com/v1/responses/resp_123 \
           Unique identifier for the MCP tool call approval request.
           Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-        - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+        - `error: optional McpToolCallError or null`
 
           The error from the tool call, if any.
-
-          - `string`
-
-            The error from the tool call, if any.
 
           - `McpProtocolError object { code, message, type }`
 
@@ -144269,7 +144295,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
 ### Responses Server Event
 
-- `ResponsesServerEvent = ResponseAudioDeltaEvent or ResponseAudioDoneEvent or ResponseAudioTranscriptDeltaEvent or 50 more`
+- `ResponsesServerEvent = ResponseAudioDeltaEvent or ResponseAudioDoneEvent or ResponseAudioTranscriptDeltaEvent or 55 more`
 
   Server events emitted by the Responses WebSocket server.
 
@@ -144446,6 +144472,56 @@ curl https://api.openai.com/v1/responses/resp_123 \
   - `ResponseFunctionCallArgumentsWsDone = ResponseFunctionCallArgumentsDoneEvent`
 
     Emitted when function-call arguments are finalized.
+
+    - `stream_id: optional string`
+
+      The WebSocket lane that emitted this event. This field is present
+      when the originating `response.create` event supplied a
+      `stream_id`.
+
+  - `ResponseShellCallCommandWsAdded = ResponseShellCallCommandAddedEvent`
+
+    A streaming event that indicated a shell command was added to a tool call.
+
+    - `stream_id: optional string`
+
+      The WebSocket lane that emitted this event. This field is present
+      when the originating `response.create` event supplied a
+      `stream_id`.
+
+  - `ResponseShellCallCommandWsDelta = ResponseShellCallCommandDeltaEvent`
+
+    A streaming event that indicated a shell command was incrementally updated.
+
+    - `stream_id: optional string`
+
+      The WebSocket lane that emitted this event. This field is present
+      when the originating `response.create` event supplied a
+      `stream_id`.
+
+  - `ResponseShellCallCommandWsDone = ResponseShellCallCommandDoneEvent`
+
+    A streaming event that indicated a shell command was completed.
+
+    - `stream_id: optional string`
+
+      The WebSocket lane that emitted this event. This field is present
+      when the originating `response.create` event supplied a
+      `stream_id`.
+
+  - `ResponseShellCallOutputContentWsDelta = ResponseShellCallOutputContentDeltaEvent`
+
+    A streaming event that indicated shell call output was incrementally added.
+
+    - `stream_id: optional string`
+
+      The WebSocket lane that emitted this event. This field is present
+      when the originating `response.create` event supplied a
+      `stream_id`.
+
+  - `ResponseShellCallOutputContentWsDone = ResponseShellCallOutputContentDoneEvent`
+
+    A streaming event that indicated shell call output was completed.
 
     - `stream_id: optional string`
 
@@ -148895,13 +148971,9 @@ Returns a list of input items for a given response.
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
 
         - `McpProtocolError object { code, message, type }`
 
@@ -152989,13 +153061,9 @@ curl https://api.openai.com/v1/responses/resp_abc123/input_items \
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
 
         - `McpProtocolError object { code, message, type }`
 
@@ -157085,13 +157153,9 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
         Unique identifier for the MCP tool call approval request.
         Include this value in a subsequent `mcp_approval_response` input to approve or reject the corresponding tool call.
 
-      - `error: optional string or object { code, message, type }  or object { content, type }  or object { code, message, type }  or null`
+      - `error: optional McpToolCallError or null`
 
         The error from the tool call, if any.
-
-        - `string`
-
-          The error from the tool call, if any.
 
         - `McpProtocolError object { code, message, type }`
 

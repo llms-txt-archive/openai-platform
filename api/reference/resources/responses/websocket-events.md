@@ -14157,64 +14157,22 @@ Schema name: `ResponsesClientEventResponseCreate`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) output": {
@@ -20509,17 +20467,7 @@ Schema name: `ResponsesClientEventResponseCreate`
       "literal": "mcp_call"
     }
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
     "ident": "McpProtocolError",
@@ -20539,12 +20487,12 @@ Schema name: `ResponsesClientEventResponseCreate`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
     "ident": "McpToolExecutionError",
@@ -20561,11 +20509,11 @@ Schema name: `ResponsesClientEventResponseCreate`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type"
     ]
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
     "ident": "HTTPError",
@@ -20585,9 +20533,65 @@ Schema name: `ResponsesClientEventResponseCreate`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) responses > (model) mcp_tool_call_error > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MCPToolCallError",
+    "ident": "McpToolCallError",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/MCPToolCallError",
+      "types": [
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
+    },
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) status > (member) 0": {
@@ -28236,7 +28240,7 @@ Schema name: `ResponsesClientEventResponseCreate`
       "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
     "deprecated": false,
@@ -28249,7 +28253,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
     "deprecated": false,
@@ -28262,7 +28266,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
     "deprecated": false,
@@ -28283,10 +28287,10 @@ Schema name: `ResponsesClientEventResponseCreate`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
     "deprecated": false,
@@ -28299,7 +28303,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "schemaType": "unknown",
     "children": []
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
     "deprecated": false,
@@ -28320,10 +28324,10 @@ Schema name: `ResponsesClientEventResponseCreate`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/code",
     "deprecated": false,
@@ -28336,7 +28340,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/message",
     "deprecated": false,
@@ -28349,7 +28353,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/type",
     "deprecated": false,
@@ -28370,7 +28374,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 26 > (property) output > (variant) 1 > (items) > (variant) 0": {
@@ -32170,21 +32174,21 @@ Schema name: `ResponsesClientEventResponseCreate`
       "literal": "program"
     }
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_protocol_error"
     }
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_tool_execution_error"
     }
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) input > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -34635,13 +34639,13 @@ Emitted when an error occurs while processing a Responses WebSocket request.
 
 #### Schema
 
-Schema name: `(resource) responses > (model) responses_server_event > (schema) > (variant) 52`
+Schema name: `ResponseWsError`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/52",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/57",
     "docstring": "Emitted when an error occurs while processing a Responses WebSocket request.",
     "ident": "ResponseWsError",
     "type": {
@@ -34666,14 +34670,14 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error",
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) type",
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) sequence_number",
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) status",
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) type",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) sequence_number",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) status",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/ResponseWsError/properties/error",
     "deprecated": false,
@@ -34705,14 +34709,14 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
     "schemaType": "object",
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) code",
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) message",
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) param",
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) type",
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) headers"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error > (property) code",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error > (property) message",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error > (property) param",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error > (property) type",
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error > (property) headers"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) type": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/ResponseWsError/properties/type",
     "deprecated": false,
@@ -34733,10 +34737,10 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) type > (member) 0"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) sequence_number": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) sequence_number": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/ResponseWsError/properties/sequence_number",
     "deprecated": false,
@@ -34750,7 +34754,7 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) status": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) status": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/ResponseWsError/properties/status",
     "deprecated": false,
@@ -34764,7 +34768,7 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) stream_id": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/ResponseWsError/properties/stream_id",
     "deprecated": false,
@@ -34778,7 +34782,7 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) code": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/ErrorPayload/properties/code",
     "deprecated": false,
@@ -34792,7 +34796,7 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) message": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/ErrorPayload/properties/message",
     "deprecated": false,
@@ -34806,7 +34810,7 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) param": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error > (property) param": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/ErrorPayload/properties/param",
     "deprecated": false,
@@ -34820,7 +34824,7 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) type": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/ErrorPayload/properties/type",
     "deprecated": false,
@@ -34834,7 +34838,7 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) error > (property) headers": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) error > (property) headers": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/ErrorPayload/properties/headers",
     "deprecated": false,
@@ -34858,7 +34862,7 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
     "schemaType": "map",
     "children": []
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (property) type > (member) 0": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 57 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -34871,7 +34875,17 @@ Schema name: `(resource) responses > (model) responses_server_event > (schema) >
 #### Example
 
 ```json
-{}
+{
+  "type": "error",
+  "status": 400,
+  "stream_id": "agent_1",
+  "error": {
+    "type": "invalid_request_error",
+    "code": "websocket_stream_limit_reached",
+    "message": "This WebSocket connection has reached its stream limit.",
+    "param": "stream_id"
+  }
+}
 ```
 
 ## Server events
@@ -48406,64 +48420,22 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) output": {
@@ -55990,64 +55962,22 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) output": {
@@ -60117,17 +60047,7 @@ Schema name: `ResponseCreatedEvent`
       "literal": "mcp_call"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
     "ident": "McpProtocolError",
@@ -60147,12 +60067,12 @@ Schema name: `ResponseCreatedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
     "ident": "McpToolExecutionError",
@@ -60169,11 +60089,11 @@ Schema name: `ResponseCreatedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
     "ident": "HTTPError",
@@ -60193,9 +60113,65 @@ Schema name: `ResponseCreatedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) responses > (model) mcp_tool_call_error > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MCPToolCallError",
+    "ident": "McpToolCallError",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/MCPToolCallError",
+      "types": [
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
+    },
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) status > (member) 0": {
@@ -65716,87 +65692,6 @@ Schema name: `ResponseCreatedEvent`
       "kind": "HttpTypeLiteral",
       "literal": "mcp_call"
     }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
-    "ident": "McpProtocolError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
-    "ident": "McpToolExecutionError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "content"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
-    "ident": "HTTPError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type"
-    ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -71830,7 +71725,7 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
     "deprecated": false,
@@ -71843,7 +71738,7 @@ Schema name: `ResponseCreatedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
     "deprecated": false,
@@ -71856,7 +71751,7 @@ Schema name: `ResponseCreatedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
     "deprecated": false,
@@ -71877,10 +71772,10 @@ Schema name: `ResponseCreatedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
     "deprecated": false,
@@ -71893,7 +71788,7 @@ Schema name: `ResponseCreatedEvent`
     "schemaType": "unknown",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
     "deprecated": false,
@@ -71914,10 +71809,10 @@ Schema name: `ResponseCreatedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/code",
     "deprecated": false,
@@ -71930,7 +71825,7 @@ Schema name: `ResponseCreatedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/message",
     "deprecated": false,
@@ -71943,7 +71838,7 @@ Schema name: `ResponseCreatedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/type",
     "deprecated": false,
@@ -71964,7 +71859,7 @@ Schema name: `ResponseCreatedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 26 > (property) caller > (variant) 0 > (property) type": {
@@ -78781,143 +78676,6 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_protocol_error"
-        }
-      ]
-    },
-    "default": "mcp_protocol_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
-    "deprecated": false,
-    "key": "content",
-    "type": {
-      "kind": "HttpTypeUnknown"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "unknown",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_tool_execution_error"
-        }
-      ]
-    },
-    "default": "mcp_tool_execution_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/HTTPError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "http_error"
-        }
-      ]
-    },
-    "default": "http_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
-    ]
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -81953,21 +81711,21 @@ Schema name: `ResponseCreatedEvent`
       "literal": "program"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_protocol_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_tool_execution_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -85275,27 +85033,6 @@ Schema name: `ResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_protocol_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_tool_execution_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "http_error"
     }
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -89318,14 +89055,14 @@ Schema name: `ResponseInProgressEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 18": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 23": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23",
     "docstring": "Emitted when the response is in progress.",
     "ident": "ResponseInWsProgress",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -89336,12 +89073,12 @@ Schema name: `ResponseInProgressEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 18 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 23 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 18 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 23 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -102835,64 +102572,22 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) output": {
@@ -110419,64 +110114,22 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) output": {
@@ -114546,17 +114199,7 @@ Schema name: `ResponseInProgressEvent`
       "literal": "mcp_call"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
     "ident": "McpProtocolError",
@@ -114576,12 +114219,12 @@ Schema name: `ResponseInProgressEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
     "ident": "McpToolExecutionError",
@@ -114598,11 +114241,11 @@ Schema name: `ResponseInProgressEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
     "ident": "HTTPError",
@@ -114622,9 +114265,65 @@ Schema name: `ResponseInProgressEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) responses > (model) mcp_tool_call_error > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MCPToolCallError",
+    "ident": "McpToolCallError",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/MCPToolCallError",
+      "types": [
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
+    },
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) status > (member) 0": {
@@ -120145,87 +119844,6 @@ Schema name: `ResponseInProgressEvent`
       "kind": "HttpTypeLiteral",
       "literal": "mcp_call"
     }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
-    "ident": "McpProtocolError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
-    "ident": "McpToolExecutionError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "content"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
-    "ident": "HTTPError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type"
-    ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -126259,7 +125877,7 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
     "deprecated": false,
@@ -126272,7 +125890,7 @@ Schema name: `ResponseInProgressEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
     "deprecated": false,
@@ -126285,7 +125903,7 @@ Schema name: `ResponseInProgressEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
     "deprecated": false,
@@ -126306,10 +125924,10 @@ Schema name: `ResponseInProgressEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
     "deprecated": false,
@@ -126322,7 +125940,7 @@ Schema name: `ResponseInProgressEvent`
     "schemaType": "unknown",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
     "deprecated": false,
@@ -126343,10 +125961,10 @@ Schema name: `ResponseInProgressEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/code",
     "deprecated": false,
@@ -126359,7 +125977,7 @@ Schema name: `ResponseInProgressEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/message",
     "deprecated": false,
@@ -126372,7 +125990,7 @@ Schema name: `ResponseInProgressEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/type",
     "deprecated": false,
@@ -126393,7 +126011,7 @@ Schema name: `ResponseInProgressEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 26 > (property) caller > (variant) 0 > (property) type": {
@@ -133210,143 +132828,6 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_protocol_error"
-        }
-      ]
-    },
-    "default": "mcp_protocol_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
-    "deprecated": false,
-    "key": "content",
-    "type": {
-      "kind": "HttpTypeUnknown"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "unknown",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_tool_execution_error"
-        }
-      ]
-    },
-    "default": "mcp_tool_execution_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/HTTPError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "http_error"
-        }
-      ]
-    },
-    "default": "http_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
-    ]
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -136382,21 +135863,21 @@ Schema name: `ResponseInProgressEvent`
       "literal": "program"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_protocol_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_tool_execution_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -139704,27 +139185,6 @@ Schema name: `ResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_protocol_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_tool_execution_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "http_error"
     }
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -157264,64 +156724,22 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) output": {
@@ -164848,64 +164266,22 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) output": {
@@ -168975,17 +168351,7 @@ Schema name: `ResponseCompletedEvent`
       "literal": "mcp_call"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
     "ident": "McpProtocolError",
@@ -169005,12 +168371,12 @@ Schema name: `ResponseCompletedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
     "ident": "McpToolExecutionError",
@@ -169027,11 +168393,11 @@ Schema name: `ResponseCompletedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
     "ident": "HTTPError",
@@ -169051,9 +168417,65 @@ Schema name: `ResponseCompletedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) responses > (model) mcp_tool_call_error > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MCPToolCallError",
+    "ident": "McpToolCallError",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/MCPToolCallError",
+      "types": [
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
+    },
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) status > (member) 0": {
@@ -174574,87 +173996,6 @@ Schema name: `ResponseCompletedEvent`
       "kind": "HttpTypeLiteral",
       "literal": "mcp_call"
     }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
-    "ident": "McpProtocolError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
-    "ident": "McpToolExecutionError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "content"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
-    "ident": "HTTPError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type"
-    ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -180688,7 +180029,7 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
     "deprecated": false,
@@ -180701,7 +180042,7 @@ Schema name: `ResponseCompletedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
     "deprecated": false,
@@ -180714,7 +180055,7 @@ Schema name: `ResponseCompletedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
     "deprecated": false,
@@ -180735,10 +180076,10 @@ Schema name: `ResponseCompletedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
     "deprecated": false,
@@ -180751,7 +180092,7 @@ Schema name: `ResponseCompletedEvent`
     "schemaType": "unknown",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
     "deprecated": false,
@@ -180772,10 +180113,10 @@ Schema name: `ResponseCompletedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/code",
     "deprecated": false,
@@ -180788,7 +180129,7 @@ Schema name: `ResponseCompletedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/message",
     "deprecated": false,
@@ -180801,7 +180142,7 @@ Schema name: `ResponseCompletedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/type",
     "deprecated": false,
@@ -180822,7 +180163,7 @@ Schema name: `ResponseCompletedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 26 > (property) caller > (variant) 0 > (property) type": {
@@ -187639,143 +186980,6 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_protocol_error"
-        }
-      ]
-    },
-    "default": "mcp_protocol_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
-    "deprecated": false,
-    "key": "content",
-    "type": {
-      "kind": "HttpTypeUnknown"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "unknown",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_tool_execution_error"
-        }
-      ]
-    },
-    "default": "mcp_tool_execution_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/HTTPError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "http_error"
-        }
-      ]
-    },
-    "default": "http_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
-    ]
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -190811,21 +190015,21 @@ Schema name: `ResponseCompletedEvent`
       "literal": "program"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_protocol_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_tool_execution_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -194133,27 +193337,6 @@ Schema name: `ResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_protocol_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_tool_execution_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "http_error"
     }
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -198193,14 +197376,14 @@ Schema name: `ResponseFailedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 19": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 24": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24",
     "docstring": "An event that is emitted when a response fails.\n",
     "ident": "ResponseWsFailed",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -198211,12 +197394,12 @@ Schema name: `ResponseFailedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 19 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 24 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 19 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 24 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -211710,64 +210893,22 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) output": {
@@ -219294,64 +218435,22 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) output": {
@@ -223421,17 +222520,7 @@ Schema name: `ResponseFailedEvent`
       "literal": "mcp_call"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
     "ident": "McpProtocolError",
@@ -223451,12 +222540,12 @@ Schema name: `ResponseFailedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
     "ident": "McpToolExecutionError",
@@ -223473,11 +222562,11 @@ Schema name: `ResponseFailedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
     "ident": "HTTPError",
@@ -223497,9 +222586,65 @@ Schema name: `ResponseFailedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) responses > (model) mcp_tool_call_error > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MCPToolCallError",
+    "ident": "McpToolCallError",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/MCPToolCallError",
+      "types": [
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
+    },
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) status > (member) 0": {
@@ -229020,87 +228165,6 @@ Schema name: `ResponseFailedEvent`
       "kind": "HttpTypeLiteral",
       "literal": "mcp_call"
     }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
-    "ident": "McpProtocolError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
-    "ident": "McpToolExecutionError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "content"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
-    "ident": "HTTPError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type"
-    ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -235134,7 +234198,7 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
     "deprecated": false,
@@ -235147,7 +234211,7 @@ Schema name: `ResponseFailedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
     "deprecated": false,
@@ -235160,7 +234224,7 @@ Schema name: `ResponseFailedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
     "deprecated": false,
@@ -235181,10 +234245,10 @@ Schema name: `ResponseFailedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
     "deprecated": false,
@@ -235197,7 +234261,7 @@ Schema name: `ResponseFailedEvent`
     "schemaType": "unknown",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
     "deprecated": false,
@@ -235218,10 +234282,10 @@ Schema name: `ResponseFailedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/code",
     "deprecated": false,
@@ -235234,7 +234298,7 @@ Schema name: `ResponseFailedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/message",
     "deprecated": false,
@@ -235247,7 +234311,7 @@ Schema name: `ResponseFailedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/type",
     "deprecated": false,
@@ -235268,7 +234332,7 @@ Schema name: `ResponseFailedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 26 > (property) caller > (variant) 0 > (property) type": {
@@ -242085,143 +241149,6 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_protocol_error"
-        }
-      ]
-    },
-    "default": "mcp_protocol_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
-    "deprecated": false,
-    "key": "content",
-    "type": {
-      "kind": "HttpTypeUnknown"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "unknown",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_tool_execution_error"
-        }
-      ]
-    },
-    "default": "mcp_tool_execution_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/HTTPError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "http_error"
-        }
-      ]
-    },
-    "default": "http_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
-    ]
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -245257,21 +244184,21 @@ Schema name: `ResponseFailedEvent`
       "literal": "program"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_protocol_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_tool_execution_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -248579,27 +247506,6 @@ Schema name: `ResponseFailedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_protocol_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_tool_execution_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "http_error"
     }
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -252620,14 +251526,14 @@ Schema name: `ResponseIncompleteEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 20": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 25": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25",
     "docstring": "An event that is emitted when a response finishes as incomplete.\n",
     "ident": "ResponseWsIncomplete",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -252638,12 +251544,12 @@ Schema name: `ResponseIncompleteEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 20 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 25 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 20 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 25 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -266137,64 +265043,22 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) output": {
@@ -273721,64 +272585,22 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) output": {
@@ -277848,17 +276670,7 @@ Schema name: `ResponseIncompleteEvent`
       "literal": "mcp_call"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
     "ident": "McpProtocolError",
@@ -277878,12 +276690,12 @@ Schema name: `ResponseIncompleteEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
     "ident": "McpToolExecutionError",
@@ -277900,11 +276712,11 @@ Schema name: `ResponseIncompleteEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
     "ident": "HTTPError",
@@ -277924,9 +276736,65 @@ Schema name: `ResponseIncompleteEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) responses > (model) mcp_tool_call_error > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MCPToolCallError",
+    "ident": "McpToolCallError",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/MCPToolCallError",
+      "types": [
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
+    },
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) status > (member) 0": {
@@ -283447,87 +282315,6 @@ Schema name: `ResponseIncompleteEvent`
       "kind": "HttpTypeLiteral",
       "literal": "mcp_call"
     }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
-    "ident": "McpProtocolError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
-    "ident": "McpToolExecutionError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "content"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
-    "ident": "HTTPError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type"
-    ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -289561,7 +288348,7 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
     "deprecated": false,
@@ -289574,7 +288361,7 @@ Schema name: `ResponseIncompleteEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
     "deprecated": false,
@@ -289587,7 +288374,7 @@ Schema name: `ResponseIncompleteEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
     "deprecated": false,
@@ -289608,10 +288395,10 @@ Schema name: `ResponseIncompleteEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
     "deprecated": false,
@@ -289624,7 +288411,7 @@ Schema name: `ResponseIncompleteEvent`
     "schemaType": "unknown",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
     "deprecated": false,
@@ -289645,10 +288432,10 @@ Schema name: `ResponseIncompleteEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/code",
     "deprecated": false,
@@ -289661,7 +288448,7 @@ Schema name: `ResponseIncompleteEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/message",
     "deprecated": false,
@@ -289674,7 +288461,7 @@ Schema name: `ResponseIncompleteEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/type",
     "deprecated": false,
@@ -289695,7 +288482,7 @@ Schema name: `ResponseIncompleteEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 26 > (property) caller > (variant) 0 > (property) type": {
@@ -296512,143 +295299,6 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_protocol_error"
-        }
-      ]
-    },
-    "default": "mcp_protocol_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
-    "deprecated": false,
-    "key": "content",
-    "type": {
-      "kind": "HttpTypeUnknown"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "unknown",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_tool_execution_error"
-        }
-      ]
-    },
-    "default": "mcp_tool_execution_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/HTTPError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "http_error"
-        }
-      ]
-    },
-    "default": "http_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
-    ]
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -299684,21 +298334,21 @@ Schema name: `ResponseIncompleteEvent`
       "literal": "program"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_protocol_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_tool_execution_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -303006,27 +301656,6 @@ Schema name: `ResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_protocol_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_tool_execution_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "http_error"
     }
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -307047,14 +305676,14 @@ Schema name: `ResponseOutputItemAddedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 21": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 26": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26",
     "docstring": "Emitted when a new output item is added.",
     "ident": "ResponseOutputItemWsAdded",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -307065,12 +305694,12 @@ Schema name: `ResponseOutputItemAddedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 21 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 26 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 21 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 26 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -312904,64 +311533,22 @@ Schema name: `ResponseOutputItemAddedEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) output": {
@@ -317087,17 +315674,7 @@ Schema name: `ResponseOutputItemAddedEvent`
       "literal": "mcp_call"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
     "ident": "McpProtocolError",
@@ -317117,12 +315694,12 @@ Schema name: `ResponseOutputItemAddedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
     "ident": "McpToolExecutionError",
@@ -317139,11 +315716,11 @@ Schema name: `ResponseOutputItemAddedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
     "ident": "HTTPError",
@@ -317163,9 +315740,65 @@ Schema name: `ResponseOutputItemAddedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) responses > (model) mcp_tool_call_error > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MCPToolCallError",
+    "ident": "McpToolCallError",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/MCPToolCallError",
+      "types": [
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
+    },
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) status > (member) 0": {
@@ -323544,7 +322177,7 @@ Schema name: `ResponseOutputItemAddedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
     "deprecated": false,
@@ -323557,7 +322190,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
     "deprecated": false,
@@ -323570,7 +322203,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
     "deprecated": false,
@@ -323591,10 +322224,10 @@ Schema name: `ResponseOutputItemAddedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
     "deprecated": false,
@@ -323607,7 +322240,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "schemaType": "unknown",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
     "deprecated": false,
@@ -323628,10 +322261,10 @@ Schema name: `ResponseOutputItemAddedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/code",
     "deprecated": false,
@@ -323644,7 +322277,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/message",
     "deprecated": false,
@@ -323657,7 +322290,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/type",
     "deprecated": false,
@@ -323678,7 +322311,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 26 > (property) caller > (variant) 0 > (property) type": {
@@ -327067,21 +325700,21 @@ Schema name: `ResponseOutputItemAddedEvent`
       "literal": "program"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_protocol_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_tool_execution_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -330496,14 +329129,14 @@ Schema name: `ResponseOutputItemDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 22": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 27": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27",
     "docstring": "Emitted when an output item is marked done.",
     "ident": "ResponseOutputItemWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -330514,12 +329147,12 @@ Schema name: `ResponseOutputItemDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 22 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 27 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 22 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 27 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -336353,64 +334986,22 @@ Schema name: `ResponseOutputItemDoneEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) output": {
@@ -340536,17 +339127,7 @@ Schema name: `ResponseOutputItemDoneEvent`
       "literal": "mcp_call"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
     "ident": "McpProtocolError",
@@ -340566,12 +339147,12 @@ Schema name: `ResponseOutputItemDoneEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
     "ident": "McpToolExecutionError",
@@ -340588,11 +339169,11 @@ Schema name: `ResponseOutputItemDoneEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
     "ident": "HTTPError",
@@ -340612,9 +339193,65 @@ Schema name: `ResponseOutputItemDoneEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) responses > (model) mcp_tool_call_error > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MCPToolCallError",
+    "ident": "McpToolCallError",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/MCPToolCallError",
+      "types": [
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
+    },
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) status > (member) 0": {
@@ -346993,7 +345630,7 @@ Schema name: `ResponseOutputItemDoneEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
     "deprecated": false,
@@ -347006,7 +345643,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
     "deprecated": false,
@@ -347019,7 +345656,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
     "deprecated": false,
@@ -347040,10 +345677,10 @@ Schema name: `ResponseOutputItemDoneEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
     "deprecated": false,
@@ -347056,7 +345693,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "schemaType": "unknown",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
     "deprecated": false,
@@ -347077,10 +345714,10 @@ Schema name: `ResponseOutputItemDoneEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/code",
     "deprecated": false,
@@ -347093,7 +345730,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/message",
     "deprecated": false,
@@ -347106,7 +345743,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/type",
     "deprecated": false,
@@ -347127,7 +345764,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 26 > (property) caller > (variant) 0 > (property) type": {
@@ -350516,21 +349153,21 @@ Schema name: `ResponseOutputItemDoneEvent`
       "literal": "program"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_protocol_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_tool_execution_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -356319,14 +354956,14 @@ Schema name: `ResponseTextDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 31": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 36": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36",
     "docstring": "Emitted when there is an additional text delta.",
     "ident": "ResponseTextWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -356337,12 +354974,12 @@ Schema name: `ResponseTextDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 31 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 36 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 31 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 36 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -356643,14 +355280,14 @@ Schema name: `ResponseTextDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 32": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 37": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37",
     "docstring": "Emitted when text content is finalized.",
     "ident": "ResponseTextWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -356661,12 +355298,12 @@ Schema name: `ResponseTextDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 32 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 37 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 32 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 37 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -356967,14 +355604,14 @@ Schema name: `ResponseRefusalDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 29": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 34": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34",
     "docstring": "Emitted when there is a partial refusal text.",
     "ident": "ResponseRefusalWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -356985,12 +355622,12 @@ Schema name: `ResponseRefusalDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 29 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 34 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 29 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 34 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -357167,14 +355804,14 @@ Schema name: `ResponseRefusalDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 30": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 35": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35",
     "docstring": "Emitted when refusal text is finalized.",
     "ident": "ResponseRefusalWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -357185,12 +355822,12 @@ Schema name: `ResponseRefusalDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 30 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 35 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 30 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 35 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -358233,14 +356870,14 @@ Schema name: `ResponseWebSearchCallInProgressEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 34": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 39": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39",
     "docstring": "Emitted when a web search call is initiated.",
     "ident": "ResponseWebSearchCallInWsProgress",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -358251,12 +356888,12 @@ Schema name: `ResponseWebSearchCallInProgressEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 34 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 39 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 34 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 39 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/34/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -358395,14 +357032,14 @@ Schema name: `ResponseWebSearchCallSearchingEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 35": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 40": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40",
     "docstring": "Emitted when a web search call is executing.",
     "ident": "ResponseWebSearchCallWsSearching",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -358413,12 +357050,12 @@ Schema name: `ResponseWebSearchCallSearchingEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 35 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 40 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 35 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 40 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/35/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -358557,14 +357194,14 @@ Schema name: `ResponseWebSearchCallCompletedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 33": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 38": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38",
     "docstring": "Emitted when a web search call is completed.",
     "ident": "ResponseWebSearchCallWsCompleted",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -358575,12 +357212,12 @@ Schema name: `ResponseWebSearchCallCompletedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 33 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 38 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 33 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 38 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -358719,14 +357356,14 @@ Schema name: `ResponseReasoningSummaryPartAddedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 23": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 28": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28",
     "docstring": "Emitted when a new reasoning summary part is added.",
     "ident": "ResponseReasoningSummaryPartWsAdded",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -358737,12 +357374,12 @@ Schema name: `ResponseReasoningSummaryPartAddedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 23 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 28 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 23 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 28 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/23/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -358979,14 +357616,14 @@ Schema name: `ResponseReasoningSummaryPartDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 24": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 29": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29",
     "docstring": "Emitted when a reasoning summary part is completed.",
     "ident": "ResponseReasoningSummaryPartWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -358997,12 +357634,12 @@ Schema name: `ResponseReasoningSummaryPartDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 24 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 29 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 24 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 29 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/24/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/29/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -359274,14 +357911,14 @@ Schema name: `ResponseReasoningSummaryTextDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 25": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 30": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30",
     "docstring": "Emitted when a delta is added to a reasoning summary text.",
     "ident": "ResponseReasoningSummaryTextWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -359292,12 +357929,12 @@ Schema name: `ResponseReasoningSummaryTextDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 25 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 30 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 25 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 30 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/25/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/30/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -359474,14 +358111,14 @@ Schema name: `ResponseReasoningSummaryTextDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 26": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 31": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31",
     "docstring": "Emitted when a reasoning summary text is completed.",
     "ident": "ResponseReasoningSummaryTextWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -359492,12 +358129,12 @@ Schema name: `ResponseReasoningSummaryTextDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 26 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 31 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 26 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 31 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/26/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/31/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -359674,14 +358311,14 @@ Schema name: `ResponseReasoningTextDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 27": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 32": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32",
     "docstring": "Emitted when a delta is added to a reasoning text.",
     "ident": "ResponseReasoningTextWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -359692,12 +358329,12 @@ Schema name: `ResponseReasoningTextDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 27 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 32 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 27 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 32 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/27/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/32/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -359874,14 +358511,14 @@ Schema name: `ResponseReasoningTextDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 28": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 33": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33",
     "docstring": "Emitted when a reasoning text is completed.",
     "ident": "ResponseReasoningTextWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -359892,12 +358529,12 @@ Schema name: `ResponseReasoningTextDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 28 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 33 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 28 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 33 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/28/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/33/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -360074,14 +358711,14 @@ Schema name: `ResponseImageGenCallCompletedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 36": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 41": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41",
     "docstring": "Emitted when an image generation tool call has completed and the final image is available.\n",
     "ident": "ResponseImageGenCallWsCompleted",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360092,12 +358729,12 @@ Schema name: `ResponseImageGenCallCompletedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 36 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 41 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 36 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 41 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/36/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -360236,14 +358873,14 @@ Schema name: `ResponseImageGenCallGeneratingEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 37": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 42": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42",
     "docstring": "Emitted when an image generation tool call is actively generating an image (intermediate state).\n",
     "ident": "ResponseImageGenCallWsGenerating",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360254,12 +358891,12 @@ Schema name: `ResponseImageGenCallGeneratingEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 37 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 42 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 37 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 42 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/37/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -360398,14 +359035,14 @@ Schema name: `ResponseImageGenCallInProgressEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 38": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 43": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43",
     "docstring": "Emitted when an image generation tool call is in progress.\n",
     "ident": "ResponseImageGenCallInWsProgress",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360416,12 +359053,12 @@ Schema name: `ResponseImageGenCallInProgressEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 38 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 43 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 38 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 43 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/38/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -360560,14 +359197,14 @@ Schema name: `ResponseImageGenCallPartialImageEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 39": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 44": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44",
     "docstring": "Emitted when a partial image is available during image generation streaming.\n",
     "ident": "ResponseImageGenCallPartialWsImage",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360578,12 +359215,12 @@ Schema name: `ResponseImageGenCallPartialImageEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 39 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 44 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 39 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 44 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/39/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -360620,6 +359257,18 @@ Schema name: `ResponseImageGenCallPartialImageEvent`
         },
         {
           "ident": "type"
+        },
+        {
+          "ident": "background"
+        },
+        {
+          "ident": "output_format"
+        },
+        {
+          "ident": "quality"
+        },
+        {
+          "ident": "size"
         }
       ]
     },
@@ -360630,7 +359279,11 @@ Schema name: `ResponseImageGenCallPartialImageEvent`
       "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) partial_image_b64",
       "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) partial_image_index",
       "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) sequence_number",
-      "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) type"
+      "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) type",
+      "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) background",
+      "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) output_format",
+      "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) quality",
+      "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) size"
     ]
   },
   "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) item_id": {
@@ -360727,6 +359380,62 @@ Schema name: `ResponseImageGenCallPartialImageEvent`
       "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) type > (member) 0"
     ]
   },
+  "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) background": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseImageGenCallPartialImageEvent/properties/background",
+    "deprecated": false,
+    "key": "background",
+    "docstring": "The background setting that was used.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) output_format": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseImageGenCallPartialImageEvent/properties/output_format",
+    "deprecated": false,
+    "key": "output_format",
+    "docstring": "The output format that was used.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) quality": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseImageGenCallPartialImageEvent/properties/quality",
+    "deprecated": false,
+    "key": "quality",
+    "docstring": "The image quality that was used.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) size": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseImageGenCallPartialImageEvent/properties/size",
+    "deprecated": false,
+    "key": "size",
+    "docstring": "The image size that was used.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
   "(resource) responses > (model) response_image_gen_call_partial_image_event > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -360760,14 +359469,14 @@ Schema name: `ResponseMCPCallArgumentsDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 40": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 45": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45",
     "docstring": "Emitted when there is a delta (partial update) to the arguments of an MCP tool call.\n",
     "ident": "ResponseMcpCallArgumentsWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360778,12 +359487,12 @@ Schema name: `ResponseMCPCallArgumentsDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 40 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 45 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 40 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 45 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/40/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -360941,14 +359650,14 @@ Schema name: `ResponseMCPCallArgumentsDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 41": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 46": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46",
     "docstring": "Emitted when the arguments for an MCP tool call are finalized.\n",
     "ident": "ResponseMcpCallArgumentsWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -360959,12 +359668,12 @@ Schema name: `ResponseMCPCallArgumentsDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 41 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 46 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 41 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 46 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/41/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -361122,14 +359831,14 @@ Schema name: `ResponseMCPCallCompletedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 42": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 47": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47",
     "docstring": "Emitted when an MCP  tool call has completed successfully.\n",
     "ident": "ResponseMcpCallWsCompleted",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -361140,12 +359849,12 @@ Schema name: `ResponseMCPCallCompletedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 42 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 47 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 42 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 47 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/42/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -361284,14 +359993,14 @@ Schema name: `ResponseMCPCallFailedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 43": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 48": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48",
     "docstring": "Emitted when an MCP  tool call has failed.\n",
     "ident": "ResponseMcpCallWsFailed",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -361302,12 +360011,12 @@ Schema name: `ResponseMCPCallFailedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 43 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 48 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 43 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 48 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/43/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -361446,14 +360155,14 @@ Schema name: `ResponseMCPCallInProgressEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 44": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 49": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49",
     "docstring": "Emitted when an MCP  tool call is in progress.\n",
     "ident": "ResponseMcpCallInWsProgress",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -361464,12 +360173,12 @@ Schema name: `ResponseMCPCallInProgressEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 44 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 49 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 44 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 49 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/44/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -361608,14 +360317,14 @@ Schema name: `ResponseMCPListToolsCompletedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 45": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 50": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50",
     "docstring": "Emitted when the list of available MCP tools has been successfully retrieved.\n",
     "ident": "ResponseMcpListToolsWsCompleted",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -361626,12 +360335,12 @@ Schema name: `ResponseMCPListToolsCompletedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 45 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 50 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 45 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 50 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/45/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -361770,14 +360479,14 @@ Schema name: `ResponseMCPListToolsFailedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 46": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 51": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51",
     "docstring": "Emitted when the attempt to list available MCP tools has failed.\n",
     "ident": "ResponseMcpListToolsWsFailed",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -361788,12 +360497,12 @@ Schema name: `ResponseMCPListToolsFailedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 46 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 51 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 46 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 51 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/46/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -361932,14 +360641,14 @@ Schema name: `ResponseMCPListToolsInProgressEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 47": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/52",
     "docstring": "Emitted when the system is in the process of retrieving the list of available MCP tools.\n",
     "ident": "ResponseMcpListToolsInWsProgress",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/52",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -361950,12 +360659,12 @@ Schema name: `ResponseMCPListToolsInProgressEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 47 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 47 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 52 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/47/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/52/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -362942,14 +361651,14 @@ Schema name: `ResponseOutputTextAnnotationAddedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 48": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 53": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/53",
     "docstring": "Emitted when an annotation is added to output text content.\n",
     "ident": "ResponseOutputTextAnnotationWsAdded",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/53",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -362960,12 +361669,12 @@ Schema name: `ResponseOutputTextAnnotationAddedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 48 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 53 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 48 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 53 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/48/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/53/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -363703,14 +362412,14 @@ Schema name: `ResponseQueuedEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 49": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 54": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/54",
     "docstring": "Emitted when a response is queued and waiting to be processed.\n",
     "ident": "ResponseWsQueued",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/54",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -363721,12 +362430,12 @@ Schema name: `ResponseQueuedEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 49 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 54 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 49 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 54 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/49/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/54/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -377220,64 +375929,22 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) output": {
@@ -384804,64 +383471,22 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/MCPToolCall/properties/error",
     "deprecated": false,
     "key": "error",
-    "docstring": "The error from the tool call, if any.\n",
+    "docstring": "The error from the tool call, if any.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolCall/properties/error",
-      "types": [
-        {
-          "kind": "HttpTypeString"
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "content"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        },
-        {
-          "kind": "HttpTypeObject",
-          "members": [
-            {
-              "ident": "code"
-            },
-            {
-              "ident": "message"
-            },
-            {
-              "ident": "type"
-            }
-          ]
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "McpToolCallError",
+      "$ref": "(resource) responses > (model) mcp_tool_call_error > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "union",
+    "modelPath": "(resource) responses > (model) mcp_tool_call_error",
     "childrenParentSchema": "union",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) output": {
@@ -388931,17 +387556,7 @@ Schema name: `ResponseQueuedEvent`
       "literal": "mcp_call"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
     "ident": "McpProtocolError",
@@ -388961,12 +387576,12 @@ Schema name: `ResponseQueuedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
     "ident": "McpToolExecutionError",
@@ -388983,11 +387598,11 @@ Schema name: `ResponseQueuedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
     "ident": "HTTPError",
@@ -389007,9 +387622,65 @@ Schema name: `ResponseQueuedEvent`
     },
     "childrenParentSchema": "object",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type"
+    ]
+  },
+  "(resource) responses > (model) mcp_tool_call_error > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/MCPToolCallError",
+    "ident": "McpToolCallError",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/MCPToolCallError",
+      "types": [
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "content"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "code"
+            },
+            {
+              "ident": "message"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
+    },
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1",
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) status > (member) 0": {
@@ -394530,87 +393201,6 @@ Schema name: `ResponseQueuedEvent`
       "kind": "HttpTypeLiteral",
       "literal": "mcp_call"
     }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 0": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCall/properties/error/anyOf/0",
-    "docstring": "The error from the tool call, if any.\n",
-    "ident": "UnionMember0",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/0",
-    "ident": "McpProtocolError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/1",
-    "ident": "McpToolExecutionError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "content"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3": {
-    "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/MCPToolCallError/oneOf/2",
-    "ident": "HTTPError",
-    "type": {
-      "kind": "HttpTypeObject",
-      "members": [
-        {
-          "ident": "code"
-        },
-        {
-          "ident": "message"
-        },
-        {
-          "ident": "type"
-        }
-      ]
-    },
-    "childrenParentSchema": "object",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message",
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type"
-    ]
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) status > (member) 0": {
     "kind": "HttpDeclReference",
@@ -400644,7 +399234,7 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response_output_item > (schema) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
     "deprecated": false,
@@ -400657,7 +399247,7 @@ Schema name: `ResponseQueuedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
     "deprecated": false,
@@ -400670,7 +399260,7 @@ Schema name: `ResponseQueuedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
     "deprecated": false,
@@ -400691,10 +399281,10 @@ Schema name: `ResponseQueuedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) content": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) content": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
     "deprecated": false,
@@ -400707,7 +399297,7 @@ Schema name: `ResponseQueuedEvent`
     "schemaType": "unknown",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
     "deprecated": false,
@@ -400728,10 +399318,10 @@ Schema name: `ResponseQueuedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) code": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) code": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/code",
     "deprecated": false,
@@ -400744,7 +399334,7 @@ Schema name: `ResponseQueuedEvent`
     "schemaType": "integer",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) message": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) message": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/message",
     "deprecated": false,
@@ -400757,7 +399347,7 @@ Schema name: `ResponseQueuedEvent`
     "schemaType": "string",
     "children": []
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type": {
     "kind": "HttpDeclProperty",
     "oasRef": "#/components/schemas/HTTPError/properties/type",
     "deprecated": false,
@@ -400778,7 +399368,7 @@ Schema name: `ResponseQueuedEvent`
     "schemaType": "enum",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0"
+      "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0"
     ]
   },
   "(resource) responses > (model) response_output_item > (schema) > (variant) 26 > (property) caller > (variant) 0 > (property) type": {
@@ -407595,143 +406185,6 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 21 > (property) caller > (variant) 1 > (property) type > (member) 0"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPProtocolError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_protocol_error"
-        }
-      ]
-    },
-    "default": "mcp_protocol_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) content": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/content",
-    "deprecated": false,
-    "key": "content",
-    "type": {
-      "kind": "HttpTypeUnknown"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "unknown",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/MCPToolExecutionError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "mcp_tool_execution_error"
-        }
-      ]
-    },
-    "default": "mcp_tool_execution_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0"
-    ]
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) code": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/code",
-    "deprecated": false,
-    "key": "code",
-    "type": {
-      "kind": "HttpTypeNumber"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "integer",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) message": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/message",
-    "deprecated": false,
-    "key": "message",
-    "type": {
-      "kind": "HttpTypeString"
-    },
-    "optional": false,
-    "nullable": false,
-    "schemaType": "string",
-    "children": []
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type": {
-    "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/HTTPError/properties/type",
-    "deprecated": false,
-    "key": "type",
-    "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/HTTPError/properties/type",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "http_error"
-        }
-      ]
-    },
-    "default": "http_error",
-    "optional": false,
-    "nullable": false,
-    "schemaType": "enum",
-    "childrenParentSchema": "enum",
-    "children": [
-      "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0"
-    ]
-  },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) output > (variant) 1 > (items) > (variant) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -410767,21 +409220,21 @@ Schema name: `ResponseQueuedEvent`
       "literal": "program"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 1 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 0 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_protocol_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 2 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 1 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "mcp_tool_execution_error"
     }
   },
-  "(resource) responses > (model) response_output_item > (schema) > (variant) 22 > (property) error > (variant) 3 > (property) type > (member) 0": {
+  "(resource) responses > (model) mcp_tool_call_error > (schema) > (variant) 2 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -414089,27 +412542,6 @@ Schema name: `ResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "program"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 1 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_protocol_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 2 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "mcp_tool_execution_error"
-    }
-  },
-  "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 25 > (property) error > (variant) 3 > (property) type > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "http_error"
     }
   },
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 26 > (property) caller > (variant) 0 > (property) type > (member) 0": {
@@ -418105,14 +416537,14 @@ Schema name: `ResponseCustomToolCallInputDeltaEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 50": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 55": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/55",
     "docstring": "Event representing a delta (partial update) to the input of a custom tool call.\n",
     "ident": "ResponseCustomToolCallInputWsDelta",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/55",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -418123,12 +416555,12 @@ Schema name: `ResponseCustomToolCallInputDeltaEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 50 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 55 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 50 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 55 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/50/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/55/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -418285,14 +416717,14 @@ Schema name: `ResponseCustomToolCallInputDoneEvent`
 
 ```json
 {
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 51": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 56": {
     "kind": "HttpDeclTypeAlias",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/56",
     "docstring": "Event indicating that input for a custom tool call is complete.\n",
     "ident": "ResponseCustomToolCallInputWsDone",
     "type": {
       "kind": "HttpTypeIntersection",
-      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/56",
       "types": [
         {
           "kind": "HttpTypeReference",
@@ -418303,12 +416735,12 @@ Schema name: `ResponseCustomToolCallInputDoneEvent`
     },
     "childrenParentSchema": "intersection",
     "children": [
-      "(resource) responses > (model) responses_server_event > (schema) > (variant) 51 > (entry) 1 > (property) stream_id"
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 56 > (entry) 1 > (property) stream_id"
     ]
   },
-  "(resource) responses > (model) responses_server_event > (schema) > (variant) 51 > (entry) 1 > (property) stream_id": {
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 56 > (entry) 1 > (property) stream_id": {
     "kind": "HttpDeclProperty",
-    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/51/allOf/1/properties/stream_id",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/56/allOf/1/properties/stream_id",
     "deprecated": false,
     "key": "stream_id",
     "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
@@ -418991,4 +417423,1204 @@ Schema name: `ResponseAudioTranscriptDoneEvent`
   "response_id": "resp_123",
   "sequence_number": 1
 }
+```
+
+### response.shell_call_command.added
+
+A streaming event that indicated a shell command was added to a tool call.
+
+#### Schema
+
+Schema name: `ResponseShellCallCommandAddedStreamingEvent`
+
+```json
+{
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 18": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18",
+    "docstring": "A streaming event that indicated a shell command was added to a tool call.",
+    "ident": "ResponseShellCallCommandWsAdded",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseShellCallCommandAddedEvent",
+          "$ref": "(resource) responses > (model) response_shell_call_command_added_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 18 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 18 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/18/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_added_event > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandAddedStreamingEvent",
+    "docstring": "A streaming event that indicated a shell command was added to a tool call.",
+    "ident": "ResponseShellCallCommandAddedEvent",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "command"
+        },
+        {
+          "ident": "command_index"
+        },
+        {
+          "ident": "output_index"
+        },
+        {
+          "ident": "sequence_number"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) command",
+      "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) command_index",
+      "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) output_index",
+      "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) sequence_number",
+      "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) type"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) command": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandAddedStreamingEvent/properties/command",
+    "deprecated": false,
+    "key": "command",
+    "docstring": "The shell command that was added.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) command_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandAddedStreamingEvent/properties/command_index",
+    "deprecated": false,
+    "key": "command_index",
+    "docstring": "The index of the shell command that was added.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) output_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandAddedStreamingEvent/properties/output_index",
+    "deprecated": false,
+    "key": "output_index",
+    "docstring": "The index of the output item that was updated.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) sequence_number": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandAddedStreamingEvent/properties/sequence_number",
+    "deprecated": false,
+    "key": "sequence_number",
+    "docstring": "The sequence number of the event that was emitted.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandAddedStreamingEvent/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The type of the event, always `response.shell_call_command.added`.",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ResponseShellCallCommandAddedStreamingEvent/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "response.shell_call_command.added"
+        }
+      ]
+    },
+    "default": "response.shell_call_command.added",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_command_added_event > (schema) > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "response.shell_call_command.added"
+    }
+  }
+}
+```
+
+#### Example
+
+```json
+{}
+```
+
+### response.shell_call_command.delta
+
+A streaming event that indicated a shell command was incrementally updated.
+
+#### Schema
+
+Schema name: `ResponseShellCallCommandDeltaStreamingEvent`
+
+```json
+{
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 19": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19",
+    "docstring": "A streaming event that indicated a shell command was incrementally updated.",
+    "ident": "ResponseShellCallCommandWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseShellCallCommandDeltaEvent",
+          "$ref": "(resource) responses > (model) response_shell_call_command_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 19 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 19 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/19/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_delta_event > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDeltaStreamingEvent",
+    "docstring": "A streaming event that indicated a shell command was incrementally updated.",
+    "ident": "ResponseShellCallCommandDeltaEvent",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "command_index"
+        },
+        {
+          "ident": "delta"
+        },
+        {
+          "ident": "output_index"
+        },
+        {
+          "ident": "sequence_number"
+        },
+        {
+          "ident": "type"
+        },
+        {
+          "ident": "obfuscation"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) command_index",
+      "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) delta",
+      "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) output_index",
+      "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) sequence_number",
+      "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) type",
+      "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) obfuscation"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) command_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDeltaStreamingEvent/properties/command_index",
+    "deprecated": false,
+    "key": "command_index",
+    "docstring": "The index of the shell command that was updated.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) delta": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDeltaStreamingEvent/properties/delta",
+    "deprecated": false,
+    "key": "delta",
+    "docstring": "The shell command delta that was appended.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) output_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDeltaStreamingEvent/properties/output_index",
+    "deprecated": false,
+    "key": "output_index",
+    "docstring": "The index of the output item that was updated.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) sequence_number": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDeltaStreamingEvent/properties/sequence_number",
+    "deprecated": false,
+    "key": "sequence_number",
+    "docstring": "The sequence number of the event that was emitted.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDeltaStreamingEvent/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The type of the event, always `response.shell_call_command.delta`.",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ResponseShellCallCommandDeltaStreamingEvent/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "response.shell_call_command.delta"
+        }
+      ]
+    },
+    "default": "response.shell_call_command.delta",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) obfuscation": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDeltaStreamingEvent/properties/obfuscation",
+    "deprecated": false,
+    "key": "obfuscation",
+    "docstring": "An obfuscation string that was added to pad the event payload.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_delta_event > (schema) > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "response.shell_call_command.delta"
+    }
+  }
+}
+```
+
+#### Example
+
+```json
+{}
+```
+
+### response.shell_call_command.done
+
+A streaming event that indicated a shell command was completed.
+
+#### Schema
+
+Schema name: `ResponseShellCallCommandDoneStreamingEvent`
+
+```json
+{
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 20": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20",
+    "docstring": "A streaming event that indicated a shell command was completed.",
+    "ident": "ResponseShellCallCommandWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseShellCallCommandDoneEvent",
+          "$ref": "(resource) responses > (model) response_shell_call_command_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 20 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 20 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/20/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_done_event > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDoneStreamingEvent",
+    "docstring": "A streaming event that indicated a shell command was completed.",
+    "ident": "ResponseShellCallCommandDoneEvent",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "command"
+        },
+        {
+          "ident": "command_index"
+        },
+        {
+          "ident": "output_index"
+        },
+        {
+          "ident": "sequence_number"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) command",
+      "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) command_index",
+      "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) output_index",
+      "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) sequence_number",
+      "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) type"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) command": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDoneStreamingEvent/properties/command",
+    "deprecated": false,
+    "key": "command",
+    "docstring": "The final shell command that was emitted.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) command_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDoneStreamingEvent/properties/command_index",
+    "deprecated": false,
+    "key": "command_index",
+    "docstring": "The index of the shell command that was completed.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) output_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDoneStreamingEvent/properties/output_index",
+    "deprecated": false,
+    "key": "output_index",
+    "docstring": "The index of the output item that was updated.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) sequence_number": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDoneStreamingEvent/properties/sequence_number",
+    "deprecated": false,
+    "key": "sequence_number",
+    "docstring": "The sequence number of the event that was emitted.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallCommandDoneStreamingEvent/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The type of the event, always `response.shell_call_command.done`.",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ResponseShellCallCommandDoneStreamingEvent/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "response.shell_call_command.done"
+        }
+      ]
+    },
+    "default": "response.shell_call_command.done",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_command_done_event > (schema) > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "response.shell_call_command.done"
+    }
+  }
+}
+```
+
+#### Example
+
+```json
+{}
+```
+
+### response.shell_call_output_content.delta
+
+A streaming event that indicated shell call output was incrementally added.
+
+#### Schema
+
+Schema name: `ResponseShellCallOutputContentDeltaStreamingEvent`
+
+```json
+{
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 21": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21",
+    "docstring": "A streaming event that indicated shell call output was incrementally added.",
+    "ident": "ResponseShellCallOutputContentWsDelta",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseShellCallOutputContentDeltaEvent",
+          "$ref": "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 21 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 21 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/21/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDeltaStreamingEvent",
+    "docstring": "A streaming event that indicated shell call output was incrementally added.",
+    "ident": "ResponseShellCallOutputContentDeltaEvent",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "command_index"
+        },
+        {
+          "ident": "delta"
+        },
+        {
+          "ident": "item_id"
+        },
+        {
+          "ident": "output_index"
+        },
+        {
+          "ident": "sequence_number"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) command_index",
+      "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) delta",
+      "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) item_id",
+      "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) output_index",
+      "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) sequence_number",
+      "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) type"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) command_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDeltaStreamingEvent/properties/command_index",
+    "deprecated": false,
+    "key": "command_index",
+    "docstring": "The index of the shell command that produced output.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) delta": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDeltaStreamingEvent/properties/delta",
+    "deprecated": false,
+    "key": "delta",
+    "docstring": "The stdout/stderr delta that was emitted.",
+    "title": "Shell call output delta",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "stderr"
+        },
+        {
+          "ident": "stdout"
+        }
+      ]
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "object",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) delta > (property) stderr",
+      "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) delta > (property) stdout"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) item_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDeltaStreamingEvent/properties/item_id",
+    "deprecated": false,
+    "key": "item_id",
+    "docstring": "The ID of the output item that was updated.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) output_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDeltaStreamingEvent/properties/output_index",
+    "deprecated": false,
+    "key": "output_index",
+    "docstring": "The index of the output item that was updated.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) sequence_number": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDeltaStreamingEvent/properties/sequence_number",
+    "deprecated": false,
+    "key": "sequence_number",
+    "docstring": "The sequence number of the event that was emitted.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDeltaStreamingEvent/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The type of the event, always `response.shell_call_output_content.delta`.",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ResponseShellCallOutputContentDeltaStreamingEvent/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "response.shell_call_output_content.delta"
+        }
+      ]
+    },
+    "default": "response.shell_call_output_content.delta",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) delta > (property) stderr": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ShellCallOutputDelta/properties/stderr",
+    "deprecated": false,
+    "key": "stderr",
+    "docstring": "The stderr delta that was emitted.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) delta > (property) stdout": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ShellCallOutputDelta/properties/stdout",
+    "deprecated": false,
+    "key": "stdout",
+    "docstring": "The stdout delta that was emitted.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_delta_event > (schema) > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "response.shell_call_output_content.delta"
+    }
+  }
+}
+```
+
+#### Example
+
+```json
+{}
+```
+
+### response.shell_call_output_content.done
+
+A streaming event that indicated shell call output was completed.
+
+#### Schema
+
+Schema name: `ResponseShellCallOutputContentDoneStreamingEvent`
+
+```json
+{
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 22": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22",
+    "docstring": "A streaming event that indicated shell call output was completed.",
+    "ident": "ResponseShellCallOutputContentWsDone",
+    "type": {
+      "kind": "HttpTypeIntersection",
+      "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22",
+      "types": [
+        {
+          "kind": "HttpTypeReference",
+          "ident": "ResponseShellCallOutputContentDoneEvent",
+          "$ref": "(resource) responses > (model) response_shell_call_output_content_done_event > (schema)"
+        }
+      ]
+    },
+    "childrenParentSchema": "intersection",
+    "children": [
+      "(resource) responses > (model) responses_server_event > (schema) > (variant) 22 > (entry) 1 > (property) stream_id"
+    ]
+  },
+  "(resource) responses > (model) responses_server_event > (schema) > (variant) 22 > (entry) 1 > (property) stream_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponsesServerEvent/anyOf/22/allOf/1/properties/stream_id",
+    "deprecated": false,
+    "key": "stream_id",
+    "docstring": "The WebSocket lane that emitted this event. This field is present\nwhen the originating `response.create` event supplied a\n`stream_id`.\n",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDoneStreamingEvent",
+    "docstring": "A streaming event that indicated shell call output was completed.",
+    "ident": "ResponseShellCallOutputContentDoneEvent",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "command_index"
+        },
+        {
+          "ident": "item_id"
+        },
+        {
+          "ident": "output"
+        },
+        {
+          "ident": "output_index"
+        },
+        {
+          "ident": "sequence_number"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) command_index",
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) item_id",
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output",
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output_index",
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) sequence_number",
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) type"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) command_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDoneStreamingEvent/properties/command_index",
+    "deprecated": false,
+    "key": "command_index",
+    "docstring": "The index of the shell command that produced output.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) item_id": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDoneStreamingEvent/properties/item_id",
+    "deprecated": false,
+    "key": "item_id",
+    "docstring": "The ID of the output item that was updated.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDoneStreamingEvent/properties/output",
+    "deprecated": false,
+    "key": "output",
+    "docstring": "The output contents emitted for the shell command.",
+    "type": {
+      "kind": "HttpTypeArray",
+      "oasRef": "#/components/schemas/ResponseShellCallOutputContentDoneStreamingEvent/properties/output",
+      "elementType": {
+        "kind": "HttpTypeObject",
+        "members": [
+          {
+            "ident": "outcome"
+          },
+          {
+            "ident": "stderr"
+          },
+          {
+            "ident": "stdout"
+          },
+          {
+            "ident": "created_by"
+          }
+        ]
+      }
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "array",
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome",
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) stderr",
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) stdout",
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) created_by"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output_index": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDoneStreamingEvent/properties/output_index",
+    "deprecated": false,
+    "key": "output_index",
+    "docstring": "The index of the output item that was updated.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) sequence_number": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDoneStreamingEvent/properties/sequence_number",
+    "deprecated": false,
+    "key": "sequence_number",
+    "docstring": "The sequence number of the event that was emitted.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/ResponseShellCallOutputContentDoneStreamingEvent/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The type of the event, always `response.shell_call_output_content.done`.",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ResponseShellCallOutputContentDoneStreamingEvent/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "response.shell_call_output_content.done"
+        }
+      ]
+    },
+    "default": "response.shell_call_output_content.done",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) type > (member) 0"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionShellCallOutputContent/properties/outcome",
+    "deprecated": false,
+    "key": "outcome",
+    "docstring": "Represents either an exit outcome (with an exit code) or a timeout outcome for a shell call output chunk.",
+    "title": "Shell call outcome",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/FunctionShellCallOutputContent/properties/outcome",
+      "types": [
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "type"
+            }
+          ]
+        },
+        {
+          "kind": "HttpTypeObject",
+          "members": [
+            {
+              "ident": "exit_code"
+            },
+            {
+              "ident": "type"
+            }
+          ]
+        }
+      ]
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "union",
+    "childrenParentSchema": "union",
+    "children": [
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 0",
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 1"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) stderr": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionShellCallOutputContent/properties/stderr",
+    "deprecated": false,
+    "key": "stderr",
+    "docstring": "The standard error output that was captured.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) stdout": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionShellCallOutputContent/properties/stdout",
+    "deprecated": false,
+    "key": "stdout",
+    "docstring": "The standard output that was captured.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) created_by": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionShellCallOutputContent/properties/created_by",
+    "deprecated": false,
+    "key": "created_by",
+    "docstring": "The identifier of the actor that created the item.",
+    "type": {
+      "kind": "HttpTypeString"
+    },
+    "optional": true,
+    "nullable": false,
+    "schemaType": "string",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "response.shell_call_output_content.done"
+    }
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 0": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/FunctionShellCallOutputContent/properties/outcome/oneOf/0",
+    "docstring": "Indicates that the shell call exceeded its configured time limit.",
+    "ident": "Timeout",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 0 > (property) type"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 1": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/FunctionShellCallOutputContent/properties/outcome/oneOf/1",
+    "docstring": "Indicates that the shell commands finished and returned an exit code.",
+    "ident": "Exit",
+    "type": {
+      "kind": "HttpTypeObject",
+      "members": [
+        {
+          "ident": "exit_code"
+        },
+        {
+          "ident": "type"
+        }
+      ]
+    },
+    "childrenParentSchema": "object",
+    "children": [
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 1 > (property) exit_code",
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 1 > (property) type"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 0 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionShellCallOutputTimeoutOutcome/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The outcome type. Always `timeout`.",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/FunctionShellCallOutputTimeoutOutcome/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "timeout"
+        }
+      ]
+    },
+    "default": "timeout",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 0 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 1 > (property) exit_code": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionShellCallOutputExitOutcome/properties/exit_code",
+    "deprecated": false,
+    "key": "exit_code",
+    "docstring": "Exit code from the shell process.",
+    "type": {
+      "kind": "HttpTypeNumber"
+    },
+    "optional": false,
+    "nullable": false,
+    "schemaType": "integer",
+    "children": []
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 1 > (property) type": {
+    "kind": "HttpDeclProperty",
+    "oasRef": "#/components/schemas/FunctionShellCallOutputExitOutcome/properties/type",
+    "deprecated": false,
+    "key": "type",
+    "docstring": "The outcome type. Always `exit`.",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/FunctionShellCallOutputExitOutcome/properties/type",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "exit"
+        }
+      ]
+    },
+    "default": "exit",
+    "optional": false,
+    "nullable": false,
+    "schemaType": "enum",
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 1 > (property) type > (member) 0"
+    ]
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 0 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "timeout"
+    }
+  },
+  "(resource) responses > (model) response_shell_call_output_content_done_event > (schema) > (property) output > (items) > (property) outcome > (variant) 1 > (property) type > (member) 0": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "exit"
+    }
+  }
+}
+```
+
+#### Example
+
+```json
+{}
 ```
