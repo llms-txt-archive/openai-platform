@@ -2396,52 +2396,25 @@ Schema name: `BetaResponseCreatedEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaServiceTier",
+      "$ref": "(resource) beta.responses > (model) beta_service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6"
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) status": {
@@ -7837,54 +7810,104 @@ Schema name: `BetaResponseCreatedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) summary > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) beta.responses > (model) beta_service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "BetaServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -31431,36 +31454,21 @@ Schema name: `BetaResponseCreatedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type": {
@@ -36128,36 +36136,21 @@ Schema name: `BetaResponseCreatedEvent`
     "key": "detail",
     "docstring": "The detail level of the screenshot image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaComputerScreenshotContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) file_id": {
@@ -43468,33 +43461,67 @@ Schema name: `BetaResponseCreatedEvent`
       "(resource) beta.responses > (model) beta_response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) beta.responses > (model) beta_image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaDetailEnum",
+    "ident": "BetaImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaDetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -44020,36 +44047,21 @@ Schema name: `BetaResponseCreatedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) file_id": {
@@ -49367,34 +49379,6 @@ Schema name: `BetaResponseCreatedEvent`
       "literal": "reasoning_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
-    }
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -53365,34 +53349,6 @@ Schema name: `BetaResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
@@ -66457,52 +66413,25 @@ Schema name: `BetaResponseInProgressEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaServiceTier",
+      "$ref": "(resource) beta.responses > (model) beta_service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6"
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) status": {
@@ -71898,54 +71827,104 @@ Schema name: `BetaResponseInProgressEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) summary > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) beta.responses > (model) beta_service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "BetaServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -95492,36 +95471,21 @@ Schema name: `BetaResponseInProgressEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type": {
@@ -100189,36 +100153,21 @@ Schema name: `BetaResponseInProgressEvent`
     "key": "detail",
     "docstring": "The detail level of the screenshot image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaComputerScreenshotContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) file_id": {
@@ -107529,33 +107478,67 @@ Schema name: `BetaResponseInProgressEvent`
       "(resource) beta.responses > (model) beta_response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) beta.responses > (model) beta_image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaDetailEnum",
+    "ident": "BetaImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaDetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -108081,36 +108064,21 @@ Schema name: `BetaResponseInProgressEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) file_id": {
@@ -113428,34 +113396,6 @@ Schema name: `BetaResponseInProgressEvent`
       "literal": "reasoning_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
-    }
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -117426,34 +117366,6 @@ Schema name: `BetaResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
@@ -130518,52 +130430,25 @@ Schema name: `BetaResponseCompletedEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaServiceTier",
+      "$ref": "(resource) beta.responses > (model) beta_service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6"
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) status": {
@@ -135959,54 +135844,104 @@ Schema name: `BetaResponseCompletedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) summary > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) beta.responses > (model) beta_service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "BetaServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -159553,36 +159488,21 @@ Schema name: `BetaResponseCompletedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type": {
@@ -164250,36 +164170,21 @@ Schema name: `BetaResponseCompletedEvent`
     "key": "detail",
     "docstring": "The detail level of the screenshot image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaComputerScreenshotContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) file_id": {
@@ -171590,33 +171495,67 @@ Schema name: `BetaResponseCompletedEvent`
       "(resource) beta.responses > (model) beta_response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) beta.responses > (model) beta_image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaDetailEnum",
+    "ident": "BetaImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaDetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -172142,36 +172081,21 @@ Schema name: `BetaResponseCompletedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) file_id": {
@@ -177489,34 +177413,6 @@ Schema name: `BetaResponseCompletedEvent`
       "literal": "reasoning_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
-    }
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -181487,34 +181383,6 @@ Schema name: `BetaResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
@@ -194596,52 +194464,25 @@ Schema name: `BetaResponseFailedEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaServiceTier",
+      "$ref": "(resource) beta.responses > (model) beta_service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6"
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) status": {
@@ -200037,54 +199878,104 @@ Schema name: `BetaResponseFailedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) summary > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) beta.responses > (model) beta_service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "BetaServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -223631,36 +223522,21 @@ Schema name: `BetaResponseFailedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type": {
@@ -228328,36 +228204,21 @@ Schema name: `BetaResponseFailedEvent`
     "key": "detail",
     "docstring": "The detail level of the screenshot image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaComputerScreenshotContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) file_id": {
@@ -235668,33 +235529,67 @@ Schema name: `BetaResponseFailedEvent`
       "(resource) beta.responses > (model) beta_response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) beta.responses > (model) beta_image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaDetailEnum",
+    "ident": "BetaImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaDetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -236220,36 +236115,21 @@ Schema name: `BetaResponseFailedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) file_id": {
@@ -241567,34 +241447,6 @@ Schema name: `BetaResponseFailedEvent`
       "literal": "reasoning_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
-    }
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -245565,34 +245417,6 @@ Schema name: `BetaResponseFailedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
@@ -258655,52 +258479,25 @@ Schema name: `BetaResponseIncompleteEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaServiceTier",
+      "$ref": "(resource) beta.responses > (model) beta_service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6"
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) status": {
@@ -264096,54 +263893,104 @@ Schema name: `BetaResponseIncompleteEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) summary > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) beta.responses > (model) beta_service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "BetaServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -287690,36 +287537,21 @@ Schema name: `BetaResponseIncompleteEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type": {
@@ -292387,36 +292219,21 @@ Schema name: `BetaResponseIncompleteEvent`
     "key": "detail",
     "docstring": "The detail level of the screenshot image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaComputerScreenshotContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) file_id": {
@@ -299727,33 +299544,67 @@ Schema name: `BetaResponseIncompleteEvent`
       "(resource) beta.responses > (model) beta_response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) beta.responses > (model) beta_image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaDetailEnum",
+    "ident": "BetaImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaDetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -300279,36 +300130,21 @@ Schema name: `BetaResponseIncompleteEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) file_id": {
@@ -305626,34 +305462,6 @@ Schema name: `BetaResponseIncompleteEvent`
       "literal": "reasoning_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
-    }
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -309624,34 +309432,6 @@ Schema name: `BetaResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
@@ -333375,36 +333155,21 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type": {
@@ -333817,36 +333582,21 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "key": "detail",
     "docstring": "The detail level of the screenshot image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaComputerScreenshotContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) file_id": {
@@ -339982,33 +339732,67 @@ Schema name: `BetaResponseOutputItemAddedEvent`
       "(resource) beta.responses > (model) beta_response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) beta.responses > (model) beta_image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaDetailEnum",
+    "ident": "BetaImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaDetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -340128,34 +339912,6 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "reasoning_text"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) type > (member) 0": {
@@ -360868,36 +360624,21 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type": {
@@ -361310,36 +361051,21 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "key": "detail",
     "docstring": "The detail level of the screenshot image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaComputerScreenshotContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) file_id": {
@@ -367475,33 +367201,67 @@ Schema name: `BetaResponseOutputItemDoneEvent`
       "(resource) beta.responses > (model) beta_response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) beta.responses > (model) beta_image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaDetailEnum",
+    "ident": "BetaImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaDetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -367621,34 +367381,6 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "reasoning_text"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) type > (member) 0": {
@@ -387720,52 +387452,25 @@ Schema name: `BetaResponseQueuedEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaServiceTier",
+      "$ref": "(resource) beta.responses > (model) beta_service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6"
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) status": {
@@ -393161,54 +392866,104 @@ Schema name: `BetaResponseQueuedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) reasoning > (property) summary > (member) 2"
     ]
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) beta.responses > (model) beta_response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) beta.responses > (model) beta_service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "BetaServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 3",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 4",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 5",
+      "(resource) beta.responses > (model) beta_service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -416755,36 +416510,21 @@ Schema name: `BetaResponseQueuedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type": {
@@ -421452,36 +421192,21 @@ Schema name: `BetaResponseQueuedEvent`
     "key": "detail",
     "docstring": "The detail level of the screenshot image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaComputerScreenshotContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) file_id": {
@@ -428792,33 +428517,67 @@ Schema name: `BetaResponseQueuedEvent`
       "(resource) beta.responses > (model) beta_response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) beta.responses > (model) beta_image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/BetaDetailEnum",
+    "ident": "BetaImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/BetaDetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) beta.responses > (model) beta_response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -429344,36 +429103,21 @@ Schema name: `BetaResponseQueuedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "BetaImageDetail",
+      "$ref": "(resource) beta.responses > (model) beta_image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) beta.responses > (model) beta_image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 0",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 1",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 2",
+      "(resource) beta.responses > (model) beta_image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) file_id": {
@@ -434691,34 +434435,6 @@ Schema name: `BetaResponseQueuedEvent`
       "literal": "reasoning_text"
     }
   },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
-    }
-  },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 4 > (property) content > (items) > (variant) 7 > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
@@ -438689,34 +438405,6 @@ Schema name: `BetaResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {

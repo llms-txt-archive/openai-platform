@@ -1268,52 +1268,25 @@ Schema name: `ResponsesClientEventResponseCreate`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/CreateResponse/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ServiceTier",
+      "$ref": "(resource) responses > (model) service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 0",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 1",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 2",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 5",
-      "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 6"
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) responses > (model) responses_client_event > (schema) > (property) store": {
@@ -4320,54 +4293,104 @@ Schema name: `ResponsesClientEventResponseCreate`
       "(resource) $shared > (model) reasoning > (schema) > (property) summary"
     ]
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 0": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 1": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 2": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 3": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 4": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 5": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) responses > (model) responses_client_event > (schema) > (property) service_tier > (member) 6": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) responses > (model) service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "ServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) responses > (model) responses_client_event > (schema) > (property) stream_options > (property) include_obfuscation": {
     "kind": "HttpDeclProperty",
@@ -15120,36 +15143,21 @@ Schema name: `ResponsesClientEventResponseCreate`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type": {
@@ -21117,33 +21125,67 @@ Schema name: `ResponsesClientEventResponseCreate`
       "(resource) responses > (model) response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) responses > (model) image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/DetailEnum",
+    "ident": "ImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/DetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -23347,36 +23389,21 @@ Schema name: `ResponsesClientEventResponseCreate`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) file_id": {
@@ -29643,34 +29670,6 @@ Schema name: `ResponsesClientEventResponseCreate`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
@@ -36694,52 +36693,25 @@ Schema name: `ResponseCreatedEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ServiceTier",
+      "$ref": "(resource) responses > (model) service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -42064,54 +42036,104 @@ Schema name: `ResponseCreatedEvent`
       "(resource) $shared > (model) reasoning > (schema) > (property) summary"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) responses > (model) service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "ServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -62359,36 +62381,21 @@ Schema name: `ResponseCreatedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type": {
@@ -73238,33 +73245,67 @@ Schema name: `ResponseCreatedEvent`
       "(resource) responses > (model) response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) responses > (model) image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/DetailEnum",
+    "ident": "ImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/DetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -73790,36 +73831,21 @@ Schema name: `ResponseCreatedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) file_id": {
@@ -82504,34 +82530,6 @@ Schema name: `ResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
@@ -90846,52 +90844,25 @@ Schema name: `ResponseInProgressEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ServiceTier",
+      "$ref": "(resource) responses > (model) service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -96216,54 +96187,104 @@ Schema name: `ResponseInProgressEvent`
       "(resource) $shared > (model) reasoning > (schema) > (property) summary"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) responses > (model) service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "ServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -116511,36 +116532,21 @@ Schema name: `ResponseInProgressEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type": {
@@ -127390,33 +127396,67 @@ Schema name: `ResponseInProgressEvent`
       "(resource) responses > (model) response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) responses > (model) image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/DetailEnum",
+    "ident": "ImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/DetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -127942,36 +127982,21 @@ Schema name: `ResponseInProgressEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) file_id": {
@@ -136656,34 +136681,6 @@ Schema name: `ResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
@@ -144998,52 +144995,25 @@ Schema name: `ResponseCompletedEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ServiceTier",
+      "$ref": "(resource) responses > (model) service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -150368,54 +150338,104 @@ Schema name: `ResponseCompletedEvent`
       "(resource) $shared > (model) reasoning > (schema) > (property) summary"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) responses > (model) service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "ServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -170663,36 +170683,21 @@ Schema name: `ResponseCompletedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type": {
@@ -181542,33 +181547,67 @@ Schema name: `ResponseCompletedEvent`
       "(resource) responses > (model) response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) responses > (model) image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/DetailEnum",
+    "ident": "ImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/DetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -182094,36 +182133,21 @@ Schema name: `ResponseCompletedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) file_id": {
@@ -190808,34 +190832,6 @@ Schema name: `ResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
@@ -199167,52 +199163,25 @@ Schema name: `ResponseFailedEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ServiceTier",
+      "$ref": "(resource) responses > (model) service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -204537,54 +204506,104 @@ Schema name: `ResponseFailedEvent`
       "(resource) $shared > (model) reasoning > (schema) > (property) summary"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) responses > (model) service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "ServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -224832,36 +224851,21 @@ Schema name: `ResponseFailedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type": {
@@ -235711,33 +235715,67 @@ Schema name: `ResponseFailedEvent`
       "(resource) responses > (model) response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) responses > (model) image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/DetailEnum",
+    "ident": "ImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/DetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -236263,36 +236301,21 @@ Schema name: `ResponseFailedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) file_id": {
@@ -244977,34 +245000,6 @@ Schema name: `ResponseFailedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
@@ -253317,52 +253312,25 @@ Schema name: `ResponseIncompleteEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ServiceTier",
+      "$ref": "(resource) responses > (model) service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -258687,54 +258655,104 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) $shared > (model) reasoning > (schema) > (property) summary"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) responses > (model) service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "ServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -278982,36 +279000,21 @@ Schema name: `ResponseIncompleteEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type": {
@@ -289861,33 +289864,67 @@ Schema name: `ResponseIncompleteEvent`
       "(resource) responses > (model) response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) responses > (model) image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/DetailEnum",
+    "ident": "ImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/DetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -290413,36 +290450,21 @@ Schema name: `ResponseIncompleteEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) file_id": {
@@ -299127,34 +299149,6 @@ Schema name: `ResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
@@ -316493,36 +316487,21 @@ Schema name: `ResponseOutputItemAddedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type": {
@@ -322756,33 +322735,67 @@ Schema name: `ResponseOutputItemAddedEvent`
       "(resource) responses > (model) response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) responses > (model) image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/DetailEnum",
+    "ident": "ImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/DetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -339946,36 +339959,21 @@ Schema name: `ResponseOutputItemDoneEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type": {
@@ -346209,33 +346207,67 @@ Schema name: `ResponseOutputItemDoneEvent`
       "(resource) responses > (model) response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) responses > (model) image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/DetailEnum",
+    "ident": "ImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/DetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -364203,52 +364235,25 @@ Schema name: `ResponseQueuedEvent`
     "key": "service_tier",
     "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "default"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "flex"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "scale"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "priority"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "fast"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "ultrafast"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ServiceTier",
+      "$ref": "(resource) responses > (model) service_tier > (schema)"
     },
     "default": "auto",
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) service_tier",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5",
-      "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6"
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
     ]
   },
   "(resource) responses > (model) response > (schema) > (property) status": {
@@ -369573,54 +369578,104 @@ Schema name: `ResponseQueuedEvent`
       "(resource) $shared > (model) reasoning > (schema) > (property) summary"
     ]
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 0": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 1": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "default"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 2": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "flex"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 3": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "scale"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 4": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 4": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "priority"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 5": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 5": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "fast"
     }
   },
-  "(resource) responses > (model) response > (schema) > (property) service_tier > (member) 6": {
+  "(resource) responses > (model) service_tier > (schema) > (member) 6": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "ultrafast"
     }
+  },
+  "(resource) responses > (model) service_tier > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/ServiceTierResponses",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "ident": "ServiceTier",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/ServiceTierResponses",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "default"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "flex"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "scale"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "priority"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "fast"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "ultrafast"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) service_tier > (schema) > (member) 0",
+      "(resource) responses > (model) service_tier > (schema) > (member) 1",
+      "(resource) responses > (model) service_tier > (schema) > (member) 2",
+      "(resource) responses > (model) service_tier > (schema) > (member) 3",
+      "(resource) responses > (model) service_tier > (schema) > (member) 4",
+      "(resource) responses > (model) service_tier > (schema) > (member) 5",
+      "(resource) responses > (model) service_tier > (schema) > (member) 6"
+    ]
   },
   "(resource) responses > (model) response_status > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
@@ -389868,36 +389923,21 @@ Schema name: `ResponseQueuedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContent/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": false,
     "nullable": false,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type": {
@@ -400747,33 +400787,67 @@ Schema name: `ResponseQueuedEvent`
       "(resource) responses > (model) response_input_text > (schema) > (property) prompt_cache_breakpoint > (property) mode > (member) 0"
     ]
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 0": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 0": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "low"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 1": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 1": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "high"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 2": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "auto"
     }
   },
-  "(resource) responses > (model) response_input_image > (schema) > (property) detail > (member) 3": {
+  "(resource) responses > (model) image_detail > (schema) > (member) 3": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "original"
     }
+  },
+  "(resource) responses > (model) image_detail > (schema)": {
+    "kind": "HttpDeclTypeAlias",
+    "oasRef": "#/components/schemas/DetailEnum",
+    "ident": "ImageDetail",
+    "type": {
+      "kind": "HttpTypeUnion",
+      "oasRef": "#/components/schemas/DetailEnum",
+      "types": [
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "low"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "high"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "auto"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "original"
+        }
+      ]
+    },
+    "childrenParentSchema": "enum",
+    "children": [
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
+    ]
   },
   "(resource) responses > (model) response_input_image > (schema) > (property) type > (member) 0": {
     "kind": "HttpDeclReference",
@@ -401299,36 +401373,21 @@ Schema name: `ResponseQueuedEvent`
     "key": "detail",
     "docstring": "The detail level of the image to be sent to the model. One of `high`, `low`, `auto`, or `original`. Defaults to `auto`.",
     "type": {
-      "kind": "HttpTypeUnion",
-      "oasRef": "#/components/schemas/InputImageContentParamAutoParam/properties/detail",
-      "types": [
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "low"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "high"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "auto"
-        },
-        {
-          "kind": "HttpTypeLiteral",
-          "literal": "original"
-        }
-      ]
+      "kind": "HttpTypeReference",
+      "ident": "ImageDetail",
+      "$ref": "(resource) responses > (model) image_detail > (schema)"
     },
     "optional": true,
     "nullable": true,
+    "modelImplicit": false,
     "schemaType": "enum",
+    "modelPath": "(resource) responses > (model) image_detail",
     "childrenParentSchema": "enum",
     "children": [
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2",
-      "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3"
+      "(resource) responses > (model) image_detail > (schema) > (member) 0",
+      "(resource) responses > (model) image_detail > (schema) > (member) 1",
+      "(resource) responses > (model) image_detail > (schema) > (member) 2",
+      "(resource) responses > (model) image_detail > (schema) > (member) 3"
     ]
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) file_id": {
@@ -410013,34 +410072,6 @@ Schema name: `ResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "input_image"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 0": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "low"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 1": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "high"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 2": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "auto"
-    }
-  },
-  "(resource) responses > (model) response_input_image_content > (schema) > (property) detail > (member) 3": {
-    "kind": "HttpDeclReference",
-    "type": {
-      "kind": "HttpTypeLiteral",
-      "literal": "original"
     }
   },
   "(resource) responses > (model) response_input_image_content > (schema) > (property) prompt_cache_breakpoint > (property) mode": {
