@@ -2,8 +2,6 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-**Authors:** Deepak Jain and Sid Rampally
-
 AI agents often need information from external services to complete a task. A procurement agent might check a supplier against a sanctions database, retrieve a current risk report, or use a paid search API. When those services charge for each request, the application needs clear rules for which purchases the agent can request and who approves the spending.
 
 Agentic commerce describes workflows in which an agent can request a paid resource while application code retains authority over payment. Amazon Bedrock AgentCore Payments provides infrastructure for bounded payment sessions, and the OpenAI Agents SDK lets a model request an application-defined tool. The application checks the merchant, purpose, amount, and approval before a payment can occur.
@@ -581,8 +579,8 @@ The model chooses when a paid tool might help complete the user's task. Applicat
 
 - [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/)
 - [Use OpenAI models through Amazon Bedrock](https://developers.openai.com/api/docs/guides/amazon-bedrock)
+- [AWS announcement: Agents that transact](https://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/)
 - [How AgentCore Payments works](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments-how-it-works.html)
 - [AgentCore Payments prerequisites](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments-prerequisites.html)
 - [Create bounded payment sessions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments-create-session.html)
 - [Separate payment IAM roles](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments-iam-roles.html)
-- [AWS companion sample and source attribution](https://github.com/awslabs/agentcore-samples/pull/1869).
