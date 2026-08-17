@@ -8,6 +8,7 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Combined cookbook entries](https://developers.openai.com/cookbook/llms-full.txt): Single-file Markdown export of cookbook entries.
 
 ## Articles
+- [Build a per-run spending controller with the Responses API](https://developers.openai.com/cookbook/articles/per_run_spending_controller_responses_api.md): Enforce an application-owned model-token budget for each Responses API run using token counts, maximum-cost estimates, usage tracking, and safe error handling.
 - [Build your own content fact checker with gpt-oss-120B, Cerebras, and Parallel](https://developers.openai.com/cookbook/articles/gpt-oss/build-your-own-fact-checker-cerebras.md): Cookbook to build a content fact checker with gpt-oss-120B on Cerebras using Parallel.
 - [Building workspace agents in ChatGPT to complete repeatable, end-to-end work](https://developers.openai.com/cookbook/articles/chatgpt-agents-sales-meeting-prep.md): Build, test, schedule, and share a ChatGPT workspace agent that prepares sales meeting briefs with calendar, SharePoint, and web search context.
 - [Fine-tune gpt-oss for better Korean language performance](https://developers.openai.com/cookbook/articles/gpt-oss/fine-tune-korean.md)
