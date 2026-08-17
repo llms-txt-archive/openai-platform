@@ -52,7 +52,6 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Context Summarization with Realtime API](https://developers.openai.com/cookbook/examples/context_summarization_with_realtime_api.md)
 - [Controlled Agentic Commerce with AgentCore Payments](https://developers.openai.com/cookbook/examples/partners/aws/controlled_agentic_commerce_with_agentcore_payments/controlled_agentic_commerce.md): Build a controlled agentic-commerce workflow with the OpenAI Agents SDK, x402, application-owned payment authority, deterministic validation, and an optional gated Amazon Bedrock AgentCore Payments testnet path.
 - [Deep Research API with the Agents SDK](https://developers.openai.com/cookbook/examples/deep_research_api/introduction_to_deep_research_api_agents.md)
-- [Doing RAG on PDFs using File Search in the Responses API](https://developers.openai.com/cookbook/examples/file_search_responses.md): Cookbook to search PDFs with the Responses API file search tool.
 - [Embedding Wikipedia articles for search](https://developers.openai.com/cookbook/examples/embedding_wikipedia_articles_for_search.md)
 - [Enabling Long-Term Agent Memory with Oracle AI Agent Memory](https://developers.openai.com/cookbook/examples/vector_databases/oracle_db/deep_research_openai_agents.md): Build a deep-research agent with the OpenAI Agents SDK, Oracle-backed session persistence, durable memory, and Tavily web search.
 - [Eval Driven System Design - From Prototype to Production](https://developers.openai.com/cookbook/examples/partners/eval_driven_system_design/receipt_inspection.md): Cookbook for eval-driven design of a receipt parsing automation workflow.
@@ -60,8 +59,6 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Evaluating Grounded Spatial Reasoning with GPT-5.5](https://developers.openai.com/cookbook/examples/multimodal/grounded_spatial_reasoning_layouts.md): Build a spec-first floorplan layout workflow with vision, structured outputs, and deterministic spatial evals.
 - [Exploring Model Graders for Reinforcement Fine-Tuning](https://developers.openai.com/cookbook/examples/reinforcement_fine_tuning.md): Cookbook to use model graders for reinforcement fine-tuning in expert tasks.
 - [Fine-Tuning Techniques - Choosing Between SFT, DPO, and RFT (With a Guide to DPO)](https://developers.openai.com/cookbook/examples/fine_tuning_direct_preference_optimization_guide.md)
-- [Frontend coding with GPT-5](https://developers.openai.com/cookbook/examples/gpt-5/gpt-5_frontend.md)
-- [Generate images with GPT Image](https://developers.openai.com/cookbook/examples/generate_images_with_gpt_image.md): Cookbook to generate and edit images with GPT Image capabilities.
 - [Generate images with high input fidelity](https://developers.openai.com/cookbook/examples/generate_images_with_high_input_fidelity.md): Cookbook to preserve image details using high input fidelity in Image API.
 - [Getting Started with OpenAI Models on Amazon Bedrock](https://developers.openai.com/cookbook/examples/partners/aws/openai_models_with_amazon_bedrock.md): Learn how to invoke an OpenAI-compatible Amazon Bedrock endpoint using the OpenAI Python SDK, along with equivalent cURL examples, and leverage Responses API capabilities available through Amazon Bedrock.
 - [Getting the Most out of GPT-5.4 for Vision and Document Understanding](https://developers.openai.com/cookbook/examples/multimodal/document_and_multimodal_understanding_tips.md): A practical guide to get the best performance on vision tasks with GPT-5.4.
@@ -110,4 +107,3 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Using Goals in Codex](https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex.md): Use Goals in Codex to keep long-running work moving toward a persistent, evidence-checked outcome across turns.
 - [Using logprobs](https://developers.openai.com/cookbook/examples/using_logprobs.md)
 - [Vision Fine-tuning on GPT-4o for Visual Question Answering](https://developers.openai.com/cookbook/examples/multimodal/vision_fine_tuning_on_gpt4o_for_visual_question_answering.md)
-- [Web Search and States with Responses API](https://developers.openai.com/cookbook/examples/responses_api/responses_example.md)
