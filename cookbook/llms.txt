@@ -66,7 +66,6 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [GPT-4.1 Prompting Guide](https://developers.openai.com/cookbook/examples/gpt4-1_prompting_guide.md)
 - [GPT-5 New Params and Tools](https://developers.openai.com/cookbook/examples/gpt-5/gpt-5_new_params_and_tools.md)
 - [GPT-5 Prompt Migration and Improvement Using the New Optimizer](https://developers.openai.com/cookbook/examples/gpt-5/prompt-optimization-cookbook.md)
-- [GPT-5 prompting guide](https://developers.openai.com/cookbook/examples/gpt-5/gpt-5_prompting_guide.md)
 - [GPT-5.1 Prompting Guide](https://developers.openai.com/cookbook/examples/gpt-5/gpt-5-1_prompting_guide.md)
 - [GPT-5.2 Prompting Guide](https://developers.openai.com/cookbook/examples/gpt-5/gpt-5-2_prompting_guide.md): Cookbook to prompt GPT-5.2 for accurate, concise enterprise workflows.
 - [Gpt-image-1.5 Prompting Guide](https://developers.openai.com/cookbook/examples/multimodal/image-gen-1.5-prompting_guide.md): Cookbook to prompt gpt-image-1.5 for reliable image generation results.

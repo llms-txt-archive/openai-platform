@@ -57,7 +57,7 @@ Here is what the spec expects, in plain language.
   - `resource`: the canonical HTTPS identifier for your MCP server. ChatGPT sends this exact value as the `resource` query parameter during OAuth.
   - `authorization_servers`: one or more issuer base URLs that point to your identity provider. ChatGPT will try each to find OAuth metadata.
   - `scopes_supported`: optional list that helps ChatGPT explain the permissions it is going to ask the user for.
-  - Optional extras from [RFC 9728](https://datatracker.ietf.org/doc/html/rfc9728) such as `resource_documentation`, `token_endpoint_auth_methods_supported`, or `introspection_endpoint` make it easier for clients and admins to understand your setup.
+  - Optional extras from [RFC 9728](https://datatracker.ietf.org/doc/html/rfc9728) such as `resource_documentation`, `resource_policy_uri`, or `resource_tos_uri` make it easier for clients and admins to understand your setup.
 
 When you block a request because it is unauthenticated, return a challenge like:
 
@@ -81,6 +81,7 @@ That single header lets ChatGPT discover the metadata URL even if it has not see
 ```json
 {
   "issuer": "https://auth.yourcompany.com",
+  "authorization_response_iss_parameter_supported": true,
   "authorization_endpoint": "https://auth.yourcompany.com/oauth2/v1/authorize",
   "token_endpoint": "https://auth.yourcompany.com/oauth2/v1/token",
   "client_id_metadata_document_supported": true,
@@ -92,11 +93,19 @@ That single header lets ChatGPT discover the metadata URL even if it has not see
 ```
 
 - Fields that must be correct:
+  - `issuer`: the canonical authorization server identifier. Use this exact
+    value in the protected resource metadata `authorization_servers` list.
+  - `authorization_response_iss_parameter_supported`: set this to `true`
+    only when your authorization server returns an `iss` parameter in every
+    authorization response, including error responses.
   - `authorization_endpoint`, `token_endpoint`: the URLs ChatGPT needs to run the OAuth authorization-code + PKCE flow end to end.
   - `client_id_metadata_document_supported`: set to `true` when you want ChatGPT to use CIMD for client registration. ChatGPT prioritizes CIMD when it is available, but the plugin builder can choose DCR when both CIMD and DCR are available.
   - `token_endpoint_auth_methods_supported`: include the token endpoint authentication methods your authorization server accepts. This applies to CIMD, DCR, and predefined OAuth clients. For CIMD, ChatGPT supports `none` for public-client token exchange and `private_key_jwt` for signed client assertion token exchange. Other OAuth clients commonly use `none`, `client_secret_post`, or `client_secret_basic`.
   - `registration_endpoint`: include this when you support dynamic client registration (DCR), which lets ChatGPT create and reuse a dedicated `client_id` for the connector instance.
-  - `code_challenge_methods_supported`: include `S256` if your authorization server advertises PKCE support.
+  - `code_challenge_methods_supported`: must include `S256`. MCP servers are
+    unsupported when their authorization server metadata omits this field or
+    does not advertise `S256`, as required by the
+    [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#authorization-code-protection).
   - Optional fields follow [RFC 8414](https://datatracker.ietf.org/doc/html/rfc8414) / [OpenID Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html); include whatever helps your administrators configure policies.
 
 #### OIDC scopes
@@ -132,11 +141,43 @@ When ChatGPT reauthorizes an existing link, including to request additional OAut
 
 This optimization is optional. Reauthorization still works when an ID token is unavailable or your authorization server does not use the hint.
 
+#### Protect callbacks with issuer identification
+
+OpenAI hosts use [RFC 9207 issuer
+identification](https://www.rfc-editor.org/rfc/rfc9207#section-2.4) to protect
+OAuth callbacks against authorization server mix-up attacks. To let ChatGPT
+and Codex use a stable redirect URI when creating an eligible OAuth client:
+
+- Set `authorization_response_iss_parameter_supported: true` in your
+  [authorization server
+  metadata](https://www.rfc-editor.org/rfc/rfc9207#section-3).
+- Use the same exact issuer identifier in the metadata `issuer` field and
+  the protected resource metadata `authorization_servers` list.
+- Return `iss` in every successful and error authorization response. Its value
+  must exactly match the metadata `issuer`; clients use exact string
+  comparison and do not normalize trailing slashes, paths, ports, or casing.
+
+ChatGPT and Codex record the selected metadata `issuer` before redirecting
+the user and check the returned `iss` before exchanging the authorization
+code. If the server advertises issuer identification but omits `iss` or
+returns a mismatch, ChatGPT and Codex reject the response. These requirements
+follow the [MCP authorization response validation
+rules](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization#authorization-response-validation).
+
 #### Redirect URL
 
-ChatGPT completes the OAuth flow by redirecting to `https://chatgpt.com/connector/oauth/{callback_id}` and the URL will be shown in the app management page. Add that production redirect URI to your authorization server's allowlist so the authorization code can be returned successfully.
+Copy the exact production redirect URI shown in the app management page into
+your authorization server's allowlist.
 
-- For apps that are already published, the previous legacy redirect URI `https://chatgpt.com/connector_platform_oauth_redirect` continues to work.
+- If your authorization server does not meet the issuer identification
+  requirements above, ChatGPT uses the callback-ID-specific redirect URI
+  `https://chatgpt.com/connector/oauth/{callback_id}`.
+- If your authorization server meets those requirements, ChatGPT uses the
+  stable redirect URI
+  `https://chatgpt.com/connector_platform_oauth_redirect`.
+
+Apps published before ChatGPT introduced callback-ID-specific redirects also
+continue to use the stable redirect URI.
 
 #### Echo the `resource` parameter throughout the OAuth flow
 
@@ -147,7 +188,7 @@ ChatGPT completes the OAuth flow by redirecting to `https://chatgpt.com/connecto
 #### Support the authorization-code flow
 
 - ChatGPT, acting as the MCP client, performs the authorization-code flow with PKCE using the `S256` code challenge so intercepted authorization codes cannot be replayed by an attacker.
-- If your authorization server publishes `code_challenge_methods_supported`, include `S256` so clients can confirm PKCE support from metadata.
+- Your authorization server must publish `code_challenge_methods_supported` with `S256` so clients can confirm PKCE support from metadata.
 
 ### OAuth flow
 
@@ -157,7 +198,7 @@ Provided that you have implemented the MCP authorization spec delineated above, 
 
 ![](https://developers.openai.com/images/apps-sdk/protected_resource_metadata.png)
 
-2. ChatGPT identifies itself as the OAuth client. When the connector uses CIMD, ChatGPT skips dynamic client registration and sends a CIMD document URL as the `client_id`, such as `https://chatgpt.com/oauth/.../client.json` (the exact URL is specific to the MCP server because the redirect URI is MCP-specific). When the connector uses DCR, ChatGPT calls your authorization server's `registration_endpoint` once for the connector instance, receives a generated `client_id`, and reuses that client for the instance.
+2. ChatGPT identifies itself as the OAuth client. When the connector uses CIMD, ChatGPT skips dynamic client registration and sends a CIMD document URL as the `client_id`. For authorization servers that meet the issuer identification requirements above, ChatGPT uses the stable `https://chatgpt.com/oauth/client.json`; for other servers, it uses the callback-ID-specific `https://chatgpt.com/oauth/{callback_id}/client.json`. The app management page shows the exact client metadata document and redirect URI for the connector's callback mode. When the connector uses DCR, ChatGPT calls your authorization server's `registration_endpoint` once for the connector instance, receives a generated `client_id`, and reuses that client for the instance.
 
 When using CIMD, there is no client registration step. The following screen shows the DCR path:
 
