@@ -303,7 +303,7 @@ fulfiller.
 | :-------------------- | :-------- | :--------------- | :------------------------------- | :---------------------------- | :----------------------------------------- | :----------- | :--------------- |
 | seller_name           | String    | —                | Seller name                      | `Example Store`               | Required / Display                         | —            | Max 70 chars     |
 | marketplace_seller    | String    | —                | Marketplace seller of record     | `Marketplace Name`            | Optional                                   | —            | Max 70 chars     |
-| seller_url            | URL       | RFC 1738         | Seller page                      | `https://example.com/store`   | Required                                   | —            | HTTPS preferred  |
+| seller_url            | URL       | RFC 1738         | Seller page                      | `https://example.com/store`   | Optional                                   | —            | HTTPS preferred  |
 | seller_privacy_policy | URL       | RFC 1738         | Seller-specific policies         | `https://example.com/privacy` | Required if `is_eligible_checkout` is true | —            | HTTPS preferred  |
 | seller_tos            | URL       | RFC 1738         | Seller-specific terms of service | `https://example.com/terms`   | Required if `is_eligible_checkout` is true | —            | HTTPS preferred  |
 
@@ -320,7 +320,7 @@ feed schema.
 | accepts_returns         | Boolean   | `true`, `false`  | Accepts returns         | `true`                        | Optional    | —            | Lower-case string |
 | return_deadline_in_days | Integer   | Days             | Days allowed for return | `30`                          | Optional    | —            | Positive integer  |
 | accepts_exchanges       | Boolean   | `true`, `false`  | Accepts exchanges       | `false`                       | Optional    | —            | Lower-case string |
-| return_policy           | URL       | RFC 1738         | Return policy URL       | `https://example.com/returns` | Required    | —            | HTTPS preferred   |
+| return_policy           | URL       | RFC 1738         | Return policy URL       | `https://example.com/returns` | Optional    | —            | HTTPS preferred   |
 
 ### Performance Signals
 
@@ -375,6 +375,6 @@ ChatGPT to present accurate offers and stock status by location.
 | Attribute        | Data Type         | Supported Values             | Description                                     | Example                                     | Requirement | Dependencies | Validation Rules                     |
 | :--------------- | :---------------- | :--------------------------- | :---------------------------------------------- | :------------------------------------------ | :---------- | :----------- | :----------------------------------- |
 | target_countries | List              | `US`                         | Target countries of the item (first entry used) | `US`                                        | Required    | —            | Use ISO 3166-1 alpha-2 codes         |
-| store_country    | String            | `US`                         | Store country of the item                       | `US`                                        | Required    | —            | Use ISO 3166-1 alpha-2 codes         |
+| store_country    | String            | `US`                         | Store country of the item                       | `US`                                        | Optional    | —            | Use ISO 3166-1 alpha-2 codes         |
 | geo_price        | Number + currency | Region-specific price        | Price by region                                 | `79.99 USD (California)`                    | Optional    | —            | Must include ISO 4217 currency       |
 | geo_availability | String            | Region-specific availability | Availability per region                         | `in_stock (Texas), out_of_stock (New York)` | Optional    | —            | Regions must be valid ISO 3166 codes |
