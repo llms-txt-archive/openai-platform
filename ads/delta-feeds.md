@@ -2,9 +2,9 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-The Delta Feeds API updates availability and titles for existing variants in a
-linked product feed. Send only the products that changed instead of uploading
-your entire catalog again.
+The Delta Feeds API updates availability, titles, and prices for existing
+variants in a linked product feed. Send only the products that changed instead
+of uploading your entire catalog again.
 
 Access to the Delta Feeds API is enabled per ad account. If a request returns
   `403` with `product_feed_api_disabled` or `product_feed_delta_api_disabled`,
@@ -27,6 +27,7 @@ full catalogs, or add products that aren't already in the feed. See
 ## Update product variants
 
 Send a `PATCH` request with each changed product and its affected variants.
+You can update a variant's price, availability, or both.
 
 `PATCH /feeds/{feed_id}/products`
 
@@ -49,6 +50,10 @@ curl -X PATCH \
           {
             "id": "running-shoe-001-white-9",
             "title": "Running shoe - white, size 9",
+            "price": {
+              "amount": 8999,
+              "currency": "USD"
+            },
             "availability": {
               "status": "in_stock"
             }
@@ -81,6 +86,9 @@ the `accepted` value before treating the request as successful.
 | `products[].variants`                | object[] | Yes      | One or more existing variants of the parent product.                                                  |
 | `products[].variants[].id`           | string   | Yes      | The existing variant or item identifier from the catalog.                                             |
 | `products[].variants[].title`        | string   | No       | Updated title for this variant.                                                                       |
+| `products[].variants[].price`        | object   | No       | Updated price for this variant.                                                                       |
+| `price.amount`                       | integer  | Yes      | Nonnegative price in minor units (`8999` means `$89.99` in `USD`).                                    |
+| `price.currency`                     | string   | Yes      | Supported three-letter currency code, such as `USD`.                                                  |
 | `products[].variants[].availability` | object   | No       | Updated availability for this variant.                                                                |
 | `availability.available`             | boolean  | No       | `true` maps to `in_stock`; `false` maps to `out_of_stock`.                                            |
 | `availability.status`                | string   | No       | Explicit availability, such as `in_stock` or `out_of_stock`. Overrides `available` when both are set. |
