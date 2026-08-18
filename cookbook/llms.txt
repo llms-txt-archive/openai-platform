@@ -77,6 +77,7 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Image Understanding with RAG](https://developers.openai.com/cookbook/examples/multimodal/image_understanding_with_rag.md)
 - [Introduction to deep research in the OpenAI API](https://developers.openai.com/cookbook/examples/deep_research_api/introduction_to_deep_research_api.md)
 - [Introduction to Structured Outputs](https://developers.openai.com/cookbook/examples/structured_outputs_intro.md)
+- [Iterating Development Workflows with Codex](https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex.md): Build and improve Codex development workflows using repository harnesses, phased implementation plans, approval gates, reusable skills, and evidence-backed retrospectives.
 - [Macro Evals for Agentic Systems](https://developers.openai.com/cookbook/examples/partners/macro_evals_for_agentic_systems/macro_evals_for_agentic_systems.md): A cookbook showing how to evaluate multi-agent systems by clustering trace-level eval signals into recurring behavior patterns and drilling into high-impact patterns.
 - [MCP-Powered Agentic Voice Framework](https://developers.openai.com/cookbook/examples/partners/mcp_powered_voice_agents/mcp_powered_agents_cookbook.md)
 - [Migrate a Legacy Codebase with Sandbox Agents](https://developers.openai.com/cookbook/examples/agents_sdk/sandboxed-code-migration/sandboxed_code_migration_agent.md): Build a sandboxed code-migration agent that splits a modernization campaign into isolated tasks and returns validated patch bundles.
