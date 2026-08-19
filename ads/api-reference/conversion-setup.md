@@ -60,6 +60,50 @@ events. Automatic advanced matching is available only for web pixels. See
 [Automatic advanced matching](https://developers.openai.com/ads/measurement-pixel#automatic-advanced-matching)
 for details about how the Pixel collects and hashes customer information.
 
+## Check recent Pixel events
+
+Use the conversion event stream while testing a [JavaScript Pixel](https://developers.openai.com/ads/measurement-pixel)
+integration. It returns up to 50 conversion events received from the Pixel SDK
+during the previous 15 minutes.
+
+> **Note:** The conversion event stream is available only to enabled accounts.
+> If this endpoint returns `404` with `Not found`, contact your OpenAI partner
+> representative.
+
+`GET /conversions/events`
+
+| Parameter | Type   | Required | Notes                                |
+| --------- | ------ | -------- | ------------------------------------ |
+| `pid`     | string | Yes      | Pixel ID returned by pixel creation. |
+
+```bash
+curl -X GET "https://api.ads.openai.com/v1/conversions/events?pid=<PIXEL-ID>" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY"
+```
+
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "action_source": "web",
+      "api_channel": "pixel_sdk",
+      "custom_event_name": null,
+      "data_source_id": "cds_123",
+      "event_data_json": "{\"type\":\"customer_action\"}",
+      "event_timestamp_ms": 1787082318902,
+      "event_type": "registration_completed",
+      "received_at_ms": 1787082320225
+    }
+  ]
+}
+```
+
+Use this endpoint to confirm that recent browser events reached OpenAI, not for
+attribution or reporting. Use conversion insights for attributed conversion
+totals. If more than 50 events arrive during the window, the response includes
+only the 50 most recent events.
+
 ## Create a Conversions API key
 
 Create a key that can send server-side events for the current ad account.

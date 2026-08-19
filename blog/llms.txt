@@ -10,6 +10,7 @@ Each post has a Markdown twin at `/blog/<slug>.md`.
 ## Posts
 - [15 lessons learned building ChatGPT Apps](https://developers.openai.com/blog/15-lessons-building-chatgpt-apps.md): And how we incorporated them into a Codex Skill to help you build ChatGPT Apps 10x faster.
 - [Building frontend UIs with Codex and Figma](https://developers.openai.com/blog/building-frontend-uis-with-codex-and-figma.md): Use Codex and Figma to bring real, running interfaces into Figma, refine them, and bring changes back to Codex.
+- [Codex as a platform: build on the open agent harness](https://developers.openai.com/blog/codex-as-a-platform.md): Build Codex into the products and workflows your users already know.
 - [Custom Code Review rules for Codex](https://developers.openai.com/blog/custom-code-review-rules-for-codex.md): Provide more detailed rules for Codex to spot issues and better adhere your conventions during code review.
 - [Designing delightful frontends with GPT-5.4](https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4.md): Practical techniques for steering GPT-5.4 toward polished, production-ready frontend designs.
 - [Developer notes on the Realtime API](https://developers.openai.com/blog/realtime-api.md): Details worth noticing in recent realtime speech-to-speech updates

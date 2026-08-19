@@ -150,7 +150,7 @@ The examples below uses our most capable image model `gpt-image-2`
 ## 4. Use Cases — Generate (text → image)
 
 ## 4.1 Infographics
-Use infographics to explain structured information for a specific audience: students, executives, customers, or the general public. Examples include explainers, posters, labeled diagrams, timelines, and “visual wiki” assets. For dense layouts or heavy in-image text, it's recommedned to set output generation quality to "high".
+Use infographics to explain structured information for a specific audience: students, executives, customers, or the general public. Examples include explainers, posters, labeled diagrams, timelines, and “visual wiki” assets. For dense layouts or heavy in-image text, it's recommended to set output generation quality to "high".
 
 ```python
 prompt = """
