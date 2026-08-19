@@ -19480,7 +19480,7 @@ Schema name: `ResponseCreatedEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,
@@ -73596,7 +73596,7 @@ Schema name: `ResponseInProgressEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,
@@ -127712,7 +127712,7 @@ Schema name: `ResponseCompletedEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,
@@ -181845,7 +181845,7 @@ Schema name: `ResponseFailedEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,
@@ -235959,7 +235959,7 @@ Schema name: `ResponseIncompleteEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,
@@ -345447,7 +345447,7 @@ Schema name: `ResponseQueuedEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,

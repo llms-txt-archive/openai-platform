@@ -22227,7 +22227,7 @@ Schema name: `BetaResponseCreatedEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,
@@ -86244,7 +86244,7 @@ Schema name: `BetaResponseInProgressEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,
@@ -150261,7 +150261,7 @@ Schema name: `BetaResponseCompletedEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,
@@ -214295,7 +214295,7 @@ Schema name: `BetaResponseFailedEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,
@@ -278310,7 +278310,7 @@ Schema name: `BetaResponseIncompleteEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,
@@ -407283,7 +407283,7 @@ Schema name: `BetaResponseQueuedEvent`
       "kind": "HttpTypeString"
     },
     "constraints": {
-      "maxLength": 10485760
+      "maxLength": 20971520
     },
     "optional": false,
     "nullable": false,
