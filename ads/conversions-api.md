@@ -172,6 +172,28 @@ request root.
 Every field in the `user` object is optional. Include only the fields you have
 for the user.
 
+### Normalize identifiers before hashing
+
+Normalize each identifier as follows:
+
+- Email address: trim leading and trailing whitespace and convert the value to
+  lowercase.
+- Phone number: convert the value to international digits-only form. Keep the
+  country calling code, but remove the leading `+` or `00`
+  international-access prefix and all whitespace, parentheses, periods, and
+  hyphens. Hash the resulting 8–15 digits. For example,
+  `+1 (415) 555-2671` becomes `14155552671`.
+- External ID: trim leading and trailing whitespace. Preserve case and all
+  other characters.
+- First and last name: convert the value to lowercase and remove all whitespace
+  and ASCII punctuation. Apart from lowercasing, preserve non-ASCII characters;
+  don't strip accents or transliterate. For example, `José` becomes `josé`.
+
+Encode each normalized value as UTF-8, compute its SHA-256 digest, and send the
+digest as a lowercase, 64-character hexadecimal string. Don't send raw email
+addresses, phone numbers, external IDs, first names, or last names. Send
+geographic values as raw strings.
+
 ### User object example
 
 Place this object inside an event at `events[].user`:
@@ -223,9 +245,6 @@ rejecting the event or request.
 | `obref`                  | `string`       | Opaque browser reference from the Pixel's `__obref` cookie. Pass it without hashing.                                           |
 | `ip_address`             | `string`       | Valid IPv4 or IPv6 address.                                                                                                    |
 | `user_agent`             | `string`       | Non-empty user agent string from the client that generated the event.                                                          |
-
-Normalize identifier values before hashing. Send identifier hashes as lowercase,
-64-character hexadecimal strings. Send geographic values as raw strings.
 
 `android_advertising_id` supports Android GAID only; IDFA is not supported. You
 can send a GAID with any `action_source`. The API ignores all-zero advertising
