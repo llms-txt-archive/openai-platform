@@ -1837,8 +1837,11 @@ the `background` parameter set to `true` can be cancelled.
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -2854,8 +2857,11 @@ the `background` parameter set to `true` can be cancelled.
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -5518,8 +5524,11 @@ the `background` parameter set to `true` can be cancelled.
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -6381,8 +6390,11 @@ the `background` parameter set to `true` can be cancelled.
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -8243,8 +8255,11 @@ the `background` parameter set to `true` can be cancelled.
 
       - `background: optional "transparent" or "opaque" or "auto"`
 
-        Background type for the generated image. One of `transparent`,
-        `opaque`, or `auto`. Default: `auto`.
+        Set the background of the generated image. One of `transparent`,
+        `opaque`, or `auto`. Transparent backgrounds are available for
+        supported GPT Image models. For `gpt-image-2` and
+        `gpt-image-2-2026-04-21`, this support is in preview. When using
+        `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
         - `"transparent"`
 
@@ -11357,8 +11372,11 @@ Learn when and how to compact long-running conversations in the [conversation st
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -12374,8 +12392,11 @@ Learn when and how to compact long-running conversations in the [conversation st
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -14919,8 +14940,11 @@ Learn when and how to compact long-running conversations in the [conversation st
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -15932,8 +15956,11 @@ Learn when and how to compact long-running conversations in the [conversation st
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -19813,8 +19840,11 @@ as input for the model's response.
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -20830,8 +20860,11 @@ as input for the model's response.
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -23430,8 +23463,11 @@ as input for the model's response.
 
     - `background: optional "transparent" or "opaque" or "auto"`
 
-      Background type for the generated image. One of `transparent`,
-      `opaque`, or `auto`. Default: `auto`.
+      Set the background of the generated image. One of `transparent`,
+      `opaque`, or `auto`. Transparent backgrounds are available for
+      supported GPT Image models. For `gpt-image-2` and
+      `gpt-image-2-2026-04-21`, this support is in preview. When using
+      `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
       - `"transparent"`
 
@@ -25659,8 +25695,11 @@ as input for the model's response.
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -26676,8 +26715,11 @@ as input for the model's response.
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -29340,8 +29382,11 @@ as input for the model's response.
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -30203,8 +30248,11 @@ as input for the model's response.
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -32065,8 +32113,11 @@ as input for the model's response.
 
       - `background: optional "transparent" or "opaque" or "auto"`
 
-        Background type for the generated image. One of `transparent`,
-        `opaque`, or `auto`. Default: `auto`.
+        Set the background of the generated image. One of `transparent`,
+        `opaque`, or `auto`. Transparent backgrounds are available for
+        supported GPT Image models. For `gpt-image-2` and
+        `gpt-image-2-2026-04-21`, this support is in preview. When using
+        `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
         - `"transparent"`
 
@@ -35836,8 +35887,11 @@ Retrieves a model response with the given ID.
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -36853,8 +36907,11 @@ Retrieves a model response with the given ID.
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -39517,8 +39574,11 @@ Retrieves a model response with the given ID.
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -40380,8 +40440,11 @@ Retrieves a model response with the given ID.
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -42242,8 +42305,11 @@ Retrieves a model response with the given ID.
 
       - `background: optional "transparent" or "opaque" or "auto"`
 
-        Background type for the generated image. One of `transparent`,
-        `opaque`, or `auto`. Default: `auto`.
+        Set the background of the generated image. One of `transparent`,
+        `opaque`, or `auto`. Transparent backgrounds are available for
+        supported GPT Image models. For `gpt-image-2` and
+        `gpt-image-2-2026-04-21`, this support is in preview. When using
+        `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
         - `"transparent"`
 
@@ -44544,8 +44610,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -45557,8 +45626,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -50206,8 +50278,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -51223,8 +51298,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -53887,8 +53965,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -54750,8 +54831,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -56612,8 +56696,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       - `background: optional "transparent" or "opaque" or "auto"`
 
-        Background type for the generated image. One of `transparent`,
-        `opaque`, or `auto`. Default: `auto`.
+        Set the background of the generated image. One of `transparent`,
+        `opaque`, or `auto`. Transparent backgrounds are available for
+        supported GPT Image models. For `gpt-image-2` and
+        `gpt-image-2-2026-04-21`, this support is in preview. When using
+        `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
         - `"transparent"`
 
@@ -59549,8 +59636,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -60566,8 +60656,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -63230,8 +63323,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -64093,8 +64189,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -65955,8 +66054,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `background: optional "transparent" or "opaque" or "auto"`
 
-          Background type for the generated image. One of `transparent`,
-          `opaque`, or `auto`. Default: `auto`.
+          Set the background of the generated image. One of `transparent`,
+          `opaque`, or `auto`. Transparent backgrounds are available for
+          supported GPT Image models. For `gpt-image-2` and
+          `gpt-image-2-2026-04-21`, this support is in preview. When using
+          `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
           - `"transparent"`
 
@@ -69401,8 +69503,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -70418,8 +70523,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -73082,8 +73190,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -73945,8 +74056,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -75807,8 +75921,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `background: optional "transparent" or "opaque" or "auto"`
 
-          Background type for the generated image. One of `transparent`,
-          `opaque`, or `auto`. Default: `auto`.
+          Set the background of the generated image. One of `transparent`,
+          `opaque`, or `auto`. Transparent backgrounds are available for
+          supported GPT Image models. For `gpt-image-2` and
+          `gpt-image-2-2026-04-21`, this support is in preview. When using
+          `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
           - `"transparent"`
 
@@ -78692,8 +78809,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -79709,8 +79829,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -82373,8 +82496,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -83236,8 +83362,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -85098,8 +85227,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `background: optional "transparent" or "opaque" or "auto"`
 
-          Background type for the generated image. One of `transparent`,
-          `opaque`, or `auto`. Default: `auto`.
+          Set the background of the generated image. One of `transparent`,
+          `opaque`, or `auto`. Transparent backgrounds are available for
+          supported GPT Image models. For `gpt-image-2` and
+          `gpt-image-2-2026-04-21`, this support is in preview. When using
+          `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
           - `"transparent"`
 
@@ -88248,8 +88380,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -89265,8 +89400,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -91929,8 +92067,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -92792,8 +92933,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -94654,8 +94798,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `background: optional "transparent" or "opaque" or "auto"`
 
-          Background type for the generated image. One of `transparent`,
-          `opaque`, or `auto`. Default: `auto`.
+          Set the background of the generated image. One of `transparent`,
+          `opaque`, or `auto`. Transparent backgrounds are available for
+          supported GPT Image models. For `gpt-image-2` and
+          `gpt-image-2-2026-04-21`, this support is in preview. When using
+          `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
           - `"transparent"`
 
@@ -97432,8 +97579,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -98449,8 +98599,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -101113,8 +101266,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -101976,8 +102132,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -103838,8 +103997,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `background: optional "transparent" or "opaque" or "auto"`
 
-          Background type for the generated image. One of `transparent`,
-          `opaque`, or `auto`. Default: `auto`.
+          Set the background of the generated image. One of `transparent`,
+          `opaque`, or `auto`. Transparent backgrounds are available for
+          supported GPT Image models. For `gpt-image-2` and
+          `gpt-image-2-2026-04-21`, this support is in preview. When using
+          `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
           - `"transparent"`
 
@@ -107334,8 +107496,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `background: optional "transparent" or "opaque" or "auto"`
 
-          Background type for the generated image. One of `transparent`,
-          `opaque`, or `auto`. Default: `auto`.
+          Set the background of the generated image. One of `transparent`,
+          `opaque`, or `auto`. Transparent backgrounds are available for
+          supported GPT Image models. For `gpt-image-2` and
+          `gpt-image-2-2026-04-21`, this support is in preview. When using
+          `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
           - `"transparent"`
 
@@ -108347,8 +108512,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `background: optional "transparent" or "opaque" or "auto"`
 
-          Background type for the generated image. One of `transparent`,
-          `opaque`, or `auto`. Default: `auto`.
+          Set the background of the generated image. One of `transparent`,
+          `opaque`, or `auto`. Transparent backgrounds are available for
+          supported GPT Image models. For `gpt-image-2` and
+          `gpt-image-2-2026-04-21`, this support is in preview. When using
+          `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
           - `"transparent"`
 
@@ -111296,8 +111464,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -112309,8 +112480,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -115269,8 +115443,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -116282,8 +116459,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -119967,8 +120147,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -120984,8 +121167,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -123648,8 +123834,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -124511,8 +124700,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -126373,8 +126565,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `background: optional "transparent" or "opaque" or "auto"`
 
-          Background type for the generated image. One of `transparent`,
-          `opaque`, or `auto`. Default: `auto`.
+          Set the background of the generated image. One of `transparent`,
+          `opaque`, or `auto`. Transparent backgrounds are available for
+          supported GPT Image models. For `gpt-image-2` and
+          `gpt-image-2-2026-04-21`, this support is in preview. When using
+          `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
           - `"transparent"`
 
@@ -129808,8 +130003,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `background: optional "transparent" or "opaque" or "auto"`
 
-                  Background type for the generated image. One of `transparent`,
-                  `opaque`, or `auto`. Default: `auto`.
+                  Set the background of the generated image. One of `transparent`,
+                  `opaque`, or `auto`. Transparent backgrounds are available for
+                  supported GPT Image models. For `gpt-image-2` and
+                  `gpt-image-2-2026-04-21`, this support is in preview. When using
+                  `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                   - `"transparent"`
 
@@ -130825,8 +131023,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
                 - `background: optional "transparent" or "opaque" or "auto"`
 
-                  Background type for the generated image. One of `transparent`,
-                  `opaque`, or `auto`. Default: `auto`.
+                  Set the background of the generated image. One of `transparent`,
+                  `opaque`, or `auto`. Transparent backgrounds are available for
+                  supported GPT Image models. For `gpt-image-2` and
+                  `gpt-image-2-2026-04-21`, this support is in preview. When using
+                  `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                   - `"transparent"`
 
@@ -133489,8 +133690,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -134352,8 +134556,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
               - `background: optional "transparent" or "opaque" or "auto"`
 
-                Background type for the generated image. One of `transparent`,
-                `opaque`, or `auto`. Default: `auto`.
+                Set the background of the generated image. One of `transparent`,
+                `opaque`, or `auto`. Transparent backgrounds are available for
+                supported GPT Image models. For `gpt-image-2` and
+                `gpt-image-2-2026-04-21`, this support is in preview. When using
+                `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
                 - `"transparent"`
 
@@ -136214,8 +136421,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -140874,8 +141084,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -141891,8 +142104,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
             - `background: optional "transparent" or "opaque" or "auto"`
 
-              Background type for the generated image. One of `transparent`,
-              `opaque`, or `auto`. Default: `auto`.
+              Set the background of the generated image. One of `transparent`,
+              `opaque`, or `auto`. Transparent backgrounds are available for
+              supported GPT Image models. For `gpt-image-2` and
+              `gpt-image-2-2026-04-21`, this support is in preview. When using
+              `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
               - `"transparent"`
 
@@ -144501,8 +144717,11 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       - `background: optional "transparent" or "opaque" or "auto"`
 
-        Background type for the generated image. One of `transparent`,
-        `opaque`, or `auto`. Default: `auto`.
+        Set the background of the generated image. One of `transparent`,
+        `opaque`, or `auto`. Transparent backgrounds are available for
+        supported GPT Image models. For `gpt-image-2` and
+        `gpt-image-2-2026-04-21`, this support is in preview. When using
+        `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
         - `"transparent"`
 
@@ -147443,8 +147662,11 @@ Returns a list of input items for a given response.
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -148456,8 +148678,11 @@ Returns a list of input items for a given response.
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -151553,8 +151778,11 @@ curl https://api.openai.com/v1/responses/resp_abc123/input_items \
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -152566,8 +152794,11 @@ curl https://api.openai.com/v1/responses/resp_abc123/input_items \
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -155725,8 +155956,11 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -156742,8 +156976,11 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
 
           - `background: optional "transparent" or "opaque" or "auto"`
 
-            Background type for the generated image. One of `transparent`,
-            `opaque`, or `auto`. Default: `auto`.
+            Set the background of the generated image. One of `transparent`,
+            `opaque`, or `auto`. Transparent backgrounds are available for
+            supported GPT Image models. For `gpt-image-2` and
+            `gpt-image-2-2026-04-21`, this support is in preview. When using
+            `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
             - `"transparent"`
 
@@ -158931,8 +159168,11 @@ Returns an object with `object` set to `response.input_tokens` and an `input_tok
 
     - `background: optional "transparent" or "opaque" or "auto"`
 
-      Background type for the generated image. One of `transparent`,
-      `opaque`, or `auto`. Default: `auto`.
+      Set the background of the generated image. One of `transparent`,
+      `opaque`, or `auto`. Transparent backgrounds are available for
+      supported GPT Image models. For `gpt-image-2` and
+      `gpt-image-2-2026-04-21`, this support is in preview. When using
+      `transparent`, set the output format to `png` or `webp`. Default: `auto`.
 
       - `"transparent"`
 

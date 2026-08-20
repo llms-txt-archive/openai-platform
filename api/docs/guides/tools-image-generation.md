@@ -169,12 +169,12 @@ You can configure the following output options as parameters for the [image gene
 - Quality: Rendering quality, for example, low, medium, or high
 - Format: File output format
 - Compression: Compression level (0-100%) for JPEG and WebP formats
-- Background: Transparent or opaque
+- Background: Transparent, opaque, or automatic
 - Action: Whether the request should automatically choose, generate, or edit an image
 
 `size`, `quality`, and `background` support the `auto` option, where the model will automatically select the best option based on the prompt.
 
-`gpt-image-2` supports flexible `size` values that meet its [resolution constraints](https://developers.openai.com/api/docs/guides/image-generation#size-and-quality-options). It doesn't currently support transparent backgrounds, so requests with `background: "transparent"` fail.
+`gpt-image-2` supports flexible `size` values that meet its [resolution constraints](https://developers.openai.com/api/docs/guides/image-generation#size-and-quality-options). Transparent backgrounds are available in preview; set `background: "transparent"` to request one. Use `png` (the default) or `webp`; `jpeg` isn't supported with transparent backgrounds.
 
 For more details on available options, refer to the [image generation guide](https://developers.openai.com/api/docs/guides/image-generation#customize-image-output).
 

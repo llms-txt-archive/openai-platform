@@ -2829,12 +2829,13 @@ You can configure the following output options:
 - **Quality**: Rendering quality (for example, `low`, `medium`, `high`)
 - **Format**: File output format
 - **Compression**: Compression level (0-100%) for JPEG and WebP formats
-- **Background**: Opaque or automatic
+- **Background**: Transparent, opaque, or automatic
 
 `size`, `quality`, and `background` support the `auto` option, where the model will automatically select the best option based on the prompt.
 
-`gpt-image-2` doesn't currently support transparent backgrounds. Requests with
-  `background: "transparent"` aren't supported for this model.
+Transparent backgrounds are available in preview for `gpt-image-2`. Set
+  `background: "transparent"` to request one. Use `png` (the default) or `webp`;
+  `jpeg` isn't supported with transparent backgrounds.
 
 ### Size and quality options
 

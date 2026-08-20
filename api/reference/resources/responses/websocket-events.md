@@ -9347,7 +9347,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -24753,7 +24753,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -26768,7 +26768,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -50607,7 +50607,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -68290,7 +68290,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -70305,7 +70305,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -75307,7 +75307,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -77322,7 +77322,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -104918,7 +104918,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -122601,7 +122601,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -124616,7 +124616,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -129618,7 +129618,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -131633,7 +131633,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -159229,7 +159229,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -176912,7 +176912,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -178927,7 +178927,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -183929,7 +183929,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -185944,7 +185944,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -213557,7 +213557,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -231240,7 +231240,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -233255,7 +233255,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -238257,7 +238257,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -240272,7 +240272,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -267866,7 +267866,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -285549,7 +285549,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -287564,7 +287564,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -292566,7 +292566,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -294581,7 +294581,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -319496,7 +319496,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -321511,7 +321511,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -343032,7 +343032,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -345047,7 +345047,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -379077,7 +379077,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -396760,7 +396760,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -398775,7 +398775,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -403777,7 +403777,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",
@@ -405792,7 +405792,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Background type for the generated image. One of `transparent`,\n`opaque`, or `auto`. Default: `auto`.\n",
+    "docstring": "Set the background of the generated image. One of `transparent`,\n`opaque`, or `auto`. Transparent backgrounds are available for\nsupported GPT Image models. For `gpt-image-2` and\n`gpt-image-2-2026-04-21`, this support is in preview. When using\n`transparent`, set the output format to `png` or `webp`. Default: `auto`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/background",

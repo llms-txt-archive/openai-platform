@@ -11,6 +11,7 @@ Key Capabilities include:
 - **High-fidelity photorealism** with natural lighting, accurate materials, and rich color rendering
 - **Flexible quality–latency tradeoffs**, allowing faster generation at lower settings while still exceeding the visual quality of prior-generation image models
 - **Robust facial and identity preservation** for edits, character consistency, and multi-step workflows
+- **Transparent-background PNG and WebP assets (preview)** with `gpt-image-2` for reusable logos, product cutouts, stickers, and presentation graphics
 - **Reliable text rendering** with crisp lettering, consistent layout, and strong contrast inside images
 - **Complex structured visuals**, including infographics, diagrams, and multi-panel compositions
 - **Precise style control and style transfer** with minimal prompting, supporting everything from branded design systems to fine-art styles
@@ -27,6 +28,7 @@ This section is a reference for the image models covered in this guide, focused 
 - supported `outputQuality` values
 - supported `input_fidelity` values
 - supported `size` / resolution behavior
+- `background` and `output_format` requirements for transparent assets
 - recommended use cases by workflow
 
 ## Model summary
@@ -38,6 +40,17 @@ As of April 21, 2026, OpenAI has the following image models available.
 | `gpt-image-1.5` | `low`, `medium`, `high` | `low`, `high` | `1024x1024`, `1024x1536`, `1536x1024`, `auto` | Keep for existing validated workflows during migration. For new work, prefer `gpt-image-2`, especially when quality, editing reliability, or flexible sizing matter. |
 | `gpt-image-1` | `low`, `medium`, `high` | `low`, `high` | `1024x1024`, `1024x1536`, `1536x1024`, `auto` | Legacy compatibility only. If you are starting a new workflow or refreshing prompts, move to `gpt-image-2`; keep `gpt-image-1` only when you need short-term stability while validating the upgrade. |
 | `gpt-image-1-mini` | `low`, `medium`, `high` | `low`, `high` | `1024x1024`, `1024x1536`, `1536x1024`, `auto` | Use when cost and throughput are the main constraint: large batch variant generation, rapid ideation, previews, lightweight personalization, and draft assets that do not require the strongest generation or editing performance. |
+
+### Transparent backgrounds with `gpt-image-2` (preview)
+
+Transparent backgrounds are available in preview for `gpt-image-2`. To generate or edit an image with a transparent background:
+
+- Set `background="transparent"`.
+- Set `output_format="png"` (the default) or `output_format="webp"`. Both support transparency; `jpeg` does not.
+- Omit `output_compression` for PNG output. WebP supports optional compression.
+- Explicitly request an isolated subject on a fully transparent background, with no scenery, solid backdrop, checkerboard, or unwanted shadows.
+- For edits, explicitly preserve the transparent background in each prompt so later steps do not introduce a new background.
+- Keep the returned image as a PNG or WebP file and preserve its alpha channel throughout downstream processing.
 
 ### `gpt-image-2` size options
 
@@ -95,6 +108,8 @@ The following prompting fundamentals are applicable to GPT image generation mode
 
 * **Constraints (what to change vs preserve):** State exclusions and invariants explicitly (e.g., “no watermark,” “no extra text,” “no logos/trademarks,” “preserve identity/geometry/layout/brand elements”). For edits, use “change only X” + “keep everything else the same,” and repeat the preserve list on each iteration to reduce drift. If the edit should be surgical, also say not to alter saturation, contrast, layout, arrows, labels, camera angle, or surrounding objects.
 
+* **Transparent backgrounds:** For `gpt-image-2`, transparency is available in preview. Pair `background="transparent"` with `output_format="png"` (the default) or `output_format="webp"`; `jpeg` does not support transparency. Describe the subject as isolated on a fully transparent background and explicitly exclude scenery, solid backdrops, checkerboards, and unwanted shadows. For edits, repeat “preserve the transparent background” so the workflow does not introduce or preserve an opaque scene. Omit `output_compression` for PNG; WebP supports optional compression.
+
 * **Text in images:** Put literal text in **quotes** or **ALL CAPS** and specify typography details (font style, size, color, placement) as constraints. For tricky words (brand names, uncommon spellings), spell them out letter-by-letter to improve character accuracy. Use `medium` or `high` quality for small text, dense information panels, and multi-font layouts.
 
 * **Multi-image inputs:** Reference each input by **index and description** (“Image 1: product photo… Image 2: style reference…”) and describe how they interact (“apply Image 2’s style to Image 1”). When compositing, be explicit about which elements move where (“put the bird from Image 1 on the elephant in Image 2”).
@@ -108,7 +123,7 @@ Run this once. It:
 - creates `output_images/` in the images folder. 
 - adds a small helper to save base64 images
 
-Put any reference images used for edits into `input_images/` (or update the paths in the examples).
+Put any reference images used for edits into `input_images/` (or update the paths in the examples). When saving transparent outputs, use a `.png` or `.webp` extension matching the selected output format and preserve the returned image bytes; converting an RGBA image to RGB discards its transparent background.
 
 ```python
 import os
@@ -253,7 +268,7 @@ Output Image:
 
 ## 4.5 Logo Generation
 
-Strong logo generation comes from clear brand constraints and simplicity. Describe the brand’s personality and use case, then ask for a clean, original mark with strong shape, balanced negative space, and scalability across sizes.
+Strong logo generation comes from clear brand constraints and simplicity. Describe the brand’s personality and use case, then ask for a clean, original mark with strong shape, balanced negative space, and scalability across sizes. Use a transparent-background PNG or WebP file when the logo needs to be reused across different website, campaign, or presentation backgrounds.
 
 You can specify parameter "n" to denote the number of variations you would like to generate. 
 
@@ -262,7 +277,7 @@ prompt = """
 Create an original, non-infringing logo for a company called Field & Flour, a local bakery. 
 The logo should feel warm, simple, and timeless. Use clean, vector-like shapes, a strong silhouette, and balanced negative space. 
 Favor simplicity over detail so it reads clearly at small and large sizes. Flat design, minimal strokes, no gradients unless essential. 
-Plain background. Deliver a single centered logo with generous padding. No watermark.
+Fully transparent background. Deliver a single centered logo with generous padding, clean alpha edges, and no solid backdrop, scenery, checkerboard, or watermark.
 """
 
 result = client.images.generate(
@@ -270,7 +285,9 @@ result = client.images.generate(
     prompt=prompt,
     size="1024x1536",
     quality="medium",
-    n=4     # Generate 4 versions of the logo
+    background="transparent",
+    output_format="png",
+    n=4,    # Generate 4 versions of the logo
 )
 
 # Save all 4 images to separate files
@@ -549,18 +566,18 @@ Output Image:
 
 ![](https://developers.openai.com/cookbook/assets/images/realistic_valley_gpt-image-2.png)
 
-## 5.4 Product Mockups (clean background + label integrity)
+## 5.4 Product Mockups (transparent background + label integrity)
 
 
-Product extraction and mockup prep is commonly used for catalogs, marketplaces, and design systems. Success depends on edge quality (clean silhouette, no fringing/halos) and label integrity (text stays sharp and unchanged). For `gpt-image-2`, keep the output background opaque and use a downstream background-removal step if you need a final transparent asset. If you want realism without re-styling, ask for only light polishing and optionally a subtle contact shadow on a plain background.
+Product extraction and mockup prep is commonly used for catalogs, marketplaces, and design systems. Success depends on edge quality (clean silhouette, no fringing/halos) and label integrity (text stays sharp and unchanged). Transparent backgrounds are available in preview for `gpt-image-2`; request `background="transparent"` with `output_format="png"` (the default) or `output_format="webp"` to create a reusable product cutout directly. `jpeg` does not support transparent backgrounds. Ask for an isolated subject, preserve the existing product geometry and label, and omit solid backdrops, checkerboards, and unnecessary shadows. Omit `output_compression` for PNG output; WebP supports optional compression.
 
 ```python
 prompt = """
-Extract the product from the input image and place it on a plain white opaque background.
+Extract the product from the input image and isolate it on a fully transparent background.
 Output: centered product, crisp silhouette, no halos/fringing.
 Preserve product geometry and label legibility exactly.
-Add only light polishing and a subtle realistic contact shadow.
-Do not restyle the product; only remove background and lightly polish.
+Add only light polishing. Do not add a solid backdrop, checkerboard, scenery, or shadow.
+Do not restyle the product; remove the background and preserve clean alpha transparency.
 """
 
 result = client.images.edit(
@@ -571,7 +588,8 @@ result = client.images.edit(
     prompt=prompt,
     size="1024x1536",
     quality="medium",
-    background="opaque",
+    background="transparent",
+    output_format="png",
 )
 
 save_image(result, "extract_product_gpt-image-2.png")
