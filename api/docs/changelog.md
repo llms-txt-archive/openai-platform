@@ -8,6 +8,12 @@ Upcoming deprecations are listed on the [deprecations page](/api/docs/deprecatio
 
 ## August, 2026
 
+### Aug 20
+
+Feature
+
+Released the [Prompt Caching dashboard](https://platform.openai.com/settings/organization/usage?usage_section=prompt-caching) on the OpenAI API platform. Track your cache hit rate over time, cache reads per write, and the breakdown of cache-read, cache-write, and uncached tokens to understand your caching efficiency and identify opportunities to improve. Filter metrics by model and service tier.
+
 ### Aug 13
 
 Announcement
