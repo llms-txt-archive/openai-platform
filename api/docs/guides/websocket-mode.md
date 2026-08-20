@@ -2,9 +2,7 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-The Responses API supports a WebSocket mode for long-running, tool-call-heavy workflows. Beyond lowering latency, `stream_id` lets one persistent connection to `/v1/responses` run parallel conversations and fork an existing conversation onto a new stream. Continue each turn by sending only new input items plus `previous_response_id`.
-
-This pattern is WebSocket multiplexing: multiple logical response lanes over one persistent connection.
+The Responses API supports a WebSocket mode for long-running, tool-call-heavy workflows. Beyond lowering latency, `stream_id` enables WebSocket multiplexing: one persistent connection to `/v1/responses` can run parallel conversations and fork an existing conversation onto a new stream. Continue each turn by sending only new input items plus `previous_response_id`.
 
 WebSocket mode is compatible with both Zero Data Retention (ZDR) and `store=false`.
 
@@ -322,6 +320,21 @@ When the server can associate an error with a named lane, the error event includ
     "code": "previous_response_not_found",
     "message": "Previous response with id 'resp_abc' not found.",
     "param": "previous_response_id"
+  }
+}
+```
+
+`invalid_stream_id`
+
+```json
+{
+  "type": "error",
+  "status": 400,
+  "error": {
+    "type": "invalid_request_error",
+    "code": "invalid_stream_id",
+    "message": "The 'stream_id' field must be a non-empty string with at most 256 characters and may only contain letters, numbers, underscores, hyphens, and periods.",
+    "param": "stream_id"
   }
 }
 ```
