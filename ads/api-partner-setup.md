@@ -57,10 +57,12 @@ Check the account name, URL, time zone, and currency before you create campaign
 resources. Contact your OpenAI partner representative if the account details or
 API access are incorrect.
 
-## 2. Add a brand favicon
+<a id="2-add-a-brand-favicon"></a>
+
+## 2. Add a brand icon
 
 An account cannot serve ads until its brand review is approved. If
-`review.reason` is `missing_favicon`, upload and assign a favicon before you
+`review.reason` is `missing_favicon`, upload and assign a brand icon before you
 create active campaign resources.
 
 First, upload an image with `purpose` set to `account_favicon`. The image must be
@@ -104,20 +106,9 @@ curl -X POST "https://api.ads.openai.com/v1/conversions/pixels" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Acme website",
-    "client_type": "web",
-    "automatic_advanced_matching_enabled": true
+    "client_type": "web"
   }'
 ```
-
-Pass `automatic_advanced_matching_enabled` explicitly when you create a Web
-pixel. Set it to `true` to enable [automatic advanced
-matching](https://developers.openai.com/ads/measurement-pixel#automatic-advanced-matching) or `false` to
-disable it. Beginning August 17, 2026, the field defaults to `true` when
-omitted. Before August 17, it defaults to `false`.
-
-Also on August 17, OpenAI will enable automatic advanced matching for all
-existing Web pixels created through the Ads API, unless it was explicitly
-disabled or the ad account opted out.
 
 Save both returned identifiers. Use `id` when you create an event setting and
 use `pixel_id` when you send conversion events.
@@ -127,10 +118,12 @@ use `pixel_id` when you send conversion events.
   "id": "clidsrc_123",
   "client_type": "web",
   "name": "Acme website",
-  "pixel_id": "134534...",
-  "automatic_advanced_matching_enabled": true
+  "pixel_id": "134534..."
 }
 ```
+
+Web pixels created through the Ads API automatically use [automatic advanced
+matching](https://developers.openai.com/ads/measurement-pixel#automatic-advanced-matching).
 
 Next, create a server-side Conversions API key:
 

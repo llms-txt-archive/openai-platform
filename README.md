@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260820T180057Z` | 2026-08-20 18:00 UTC | [Ads API pixel setup docs simplified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T180057Z) |
 | `archive-20260820T141910Z` | 2026-08-20 14:19 UTC | [WebSocket Mode Guide Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T141910Z) |
 | `archive-20260820T032815Z` | 2026-08-20 03:29 UTC | [Ads docs clarify hashing and matching fields](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T032815Z) |
 | `archive-20260820T020616Z` | 2026-08-20 02:07 UTC | [GPT Image 2 Reference Expansion](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T020616Z) |
 | `archive-20260819T210018Z` | 2026-08-19 21:00 UTC | [Conversions API matching field update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260819T210018Z) |
 | `archive-20260819T175751Z` | 2026-08-19 17:58 UTC | [WebSocket multiplexing and Pixel event testing](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260819T175751Z) |
-| `archive-20260819T150559Z` | 2026-08-19 15:06 UTC | [Streaming Obfuscation and Larger Response Event Limits](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260819T150559Z) |

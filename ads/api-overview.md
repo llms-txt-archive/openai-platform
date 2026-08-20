@@ -35,10 +35,10 @@ The Ads API works in the context of one ad account. API partners should use
 | Product Feeds             | Use a merchant catalog to create product-feed campaigns.                        |
 | Conversions               | Create pixels, server-side keys, and conversion event settings when enabled.    |
 
-Every resource belongs to the ad account associated with the API key.
-Programmatic brand updates and conversion management require account
-enablement. Contact your OpenAI partner representative if these operations are
-not available for the account.
+Every resource belongs to the ad account associated with the API key. OpenAI
+must enable programmatic brand updates and conversion management for the
+account. Contact your OpenAI partner representative if these operations are not
+available for the account.
 
 Use the [Quickstart](https://developers.openai.com/ads/api-quickstart) for a minimal end-to-end workflow, or go
 directly to the [API Reference](https://developers.openai.com/ads/api-reference/authentication). API partners
@@ -70,11 +70,6 @@ ad account. See [Bulk API limits](https://developers.openai.com/ads/bulk-api#lim
 [{"Download the OpenAPI spec"}](https://developers.openai.com/ads/openapi.json)
 
 ## Changelog
-
-### August 17th, 2026
-
-- New Web pixels created through the Ads API have automatic advanced matching enabled when `automatic_advanced_matching_enabled` is omitted. Pass `false` explicitly to disable it.
-- Automatic advanced matching will be enabled for all existing Web pixels created through the Ads API, unless it was explicitly disabled or the ad account opted out.
 
 ### July 16th, 2026
 
