@@ -15683,7 +15683,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -26363,7 +26363,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -33366,7 +33366,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -35381,7 +35381,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -40383,7 +40383,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -42398,7 +42398,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -45100,7 +45100,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -46237,7 +46237,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -48430,7 +48430,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -49567,7 +49567,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -69959,7 +69959,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -80639,7 +80639,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -87642,7 +87642,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -89657,7 +89657,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -94659,7 +94659,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -96674,7 +96674,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -99376,7 +99376,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -100513,7 +100513,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -102706,7 +102706,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -103843,7 +103843,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -124235,7 +124235,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -134915,7 +134915,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -141918,7 +141918,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -143933,7 +143933,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -148935,7 +148935,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -150950,7 +150950,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -153652,7 +153652,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -154789,7 +154789,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -156982,7 +156982,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -158119,7 +158119,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -178528,7 +178528,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -189208,7 +189208,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -196211,7 +196211,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -198226,7 +198226,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -203228,7 +203228,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -205243,7 +205243,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -207945,7 +207945,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -209082,7 +209082,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -211275,7 +211275,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -212412,7 +212412,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -232802,7 +232802,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -243482,7 +243482,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -250485,7 +250485,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -252500,7 +252500,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -257502,7 +257502,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -259517,7 +259517,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -262219,7 +262219,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -263356,7 +263356,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -265549,7 +265549,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -266686,7 +266686,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -284397,7 +284397,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -286412,7 +286412,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -289495,7 +289495,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -290790,7 +290790,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -307898,7 +307898,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -309913,7 +309913,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -312996,7 +312996,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -314291,7 +314291,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -342578,7 +342578,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -353258,7 +353258,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -360261,7 +360261,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -362276,7 +362276,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -367278,7 +367278,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -369293,7 +369293,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ImageGenTool/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ImageGenTool/properties/model",
@@ -371995,7 +371995,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -373132,7 +373132,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -375325,7 +375325,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",
@@ -376462,7 +376462,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 8 > (property) model > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ImageGenTool/properties/model/anyOf/1",
-    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or\n`gpt-image-2-2026-04-21`. Default: `gpt-image-1`.\n",
+    "docstring": "The image generation model to use. One of `gpt-image-1`,\n`gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,\n`gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:\n`gpt-image-1`.\n",
     "ident": "UnionMember1",
     "type": {
       "kind": "HttpTypeUnion",

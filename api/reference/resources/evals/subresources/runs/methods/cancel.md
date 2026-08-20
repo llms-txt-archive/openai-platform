@@ -1542,16 +1542,18 @@ Cancel an ongoing evaluation run.
           - `model: optional string or "gpt-image-1" or "gpt-image-1-mini" or "gpt-image-1.5" or 2 more`
 
             The image generation model to use. One of `gpt-image-1`,
-            `gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or
-            `gpt-image-2-2026-04-21`. Default: `gpt-image-1`.
+            `gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,
+            `gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:
+            `gpt-image-1`.
 
             - `string`
 
             - `"gpt-image-1" or "gpt-image-1-mini" or "gpt-image-1.5" or 2 more`
 
               The image generation model to use. One of `gpt-image-1`,
-              `gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`, or
-              `gpt-image-2-2026-04-21`. Default: `gpt-image-1`.
+              `gpt-image-1-mini`, `gpt-image-1.5`, `gpt-image-2`,
+              `gpt-image-2-2026-04-21`, or `chatgpt-image-latest`. Default:
+              `gpt-image-1`.
 
               - `"gpt-image-1"`
 
