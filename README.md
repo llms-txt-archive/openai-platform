@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260820T235809Z` | 2026-08-20 23:58 UTC | [Codex Workload Identity Docs Expansion](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T235809Z) |
+| `archive-20260821T042216Z` | 2026-08-21 04:22 UTC | [GPT-5.4 Tool-Calling Clarification](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260821T042216Z) |
+| `archive-20260820T235809Z` | 2026-08-20 23:59 UTC | [Codex Workload Identity Docs Expansion](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T235809Z) |
 | `archive-20260820T215959Z` | 2026-08-20 22:00 UTC | [Prompt Caching and Realtime Docs Fixes](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T215959Z) |
 | `archive-20260820T210155Z` | 2026-08-20 21:03 UTC | [Transparent Background Image Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T210155Z) |
 | `archive-20260820T200026Z` | 2026-08-20 20:01 UTC | [Prompt Caching Dashboard and Realtime Audio Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T200026Z) |
 | `archive-20260820T191800Z` | 2026-08-20 19:19 UTC | [Java SDK Coverage and WebSocket Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T191800Z) |
-| `archive-20260820T180057Z` | 2026-08-20 18:01 UTC | [Ads API pixel setup docs simplified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T180057Z) |
