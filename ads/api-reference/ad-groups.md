@@ -51,23 +51,29 @@ Create an ad group for a campaign.
 
 `POST /ad_groups`
 
-| Field                               | Type     | Required              | Notes                                                                               |
-| ----------------------------------- | -------- | --------------------- | ----------------------------------------------------------------------------------- |
-| `campaign_id`                       | string   | Yes                   | Parent campaign ID.                                                                 |
-| `name`                              | string   | Yes                   | `3` to `1000` chars and must include a non-space character.                         |
-| `description`                       | string   | No                    | Ad group description.                                                               |
-| `context_hints`                     | string[] | No                    | Free-form audience or placement hints.                                              |
-| `status`                            | string   | Yes                   | `active` or `paused`.                                                               |
-| `bidding_config.billing_event_type` | string   | Yes                   | `impression` for impression campaigns; `click` for click and conversion campaigns.  |
-| `bidding_config.max_bid_micros`     | integer  | Yes                   | Minimum `1`; the maximum depends on campaign bidding type and account currency.     |
-| `product_set`                       | object   | No                    | Inherits the campaign's feed when omitted. Include only to specify product filters. |
-| `product_set.product_feed_id`       | string   | Yes, in `product_set` | Must match the campaign's product feed.                                             |
-| `product_set.filters`               | object[] | No                    | Product filters. Don't repeat the same field within one product set.                |
-| `product_set.filters[].field`       | string   | Yes, in each filter   | Feed attribute to filter.                                                           |
-| `product_set.filters[].operator`    | string   | Yes, in each filter   | `in`, `gt`, `gte`, `lt`, or `lte`.                                                  |
-| `product_set.filters[].values`      | string[] | Yes, in each filter   | Match values. Send numeric comparison values as strings, such as `"4.5"`.           |
+| Field                                                                    | Type     | Required              | Notes                                                                               |
+| ------------------------------------------------------------------------ | -------- | --------------------- | ----------------------------------------------------------------------------------- |
+| `campaign_id`                                                            | string   | Yes                   | Parent campaign ID.                                                                 |
+| `name`                                                                   | string   | Yes                   | `3` to `1000` chars and must include a non-space character.                         |
+| `description`                                                            | string   | No                    | Ad group description.                                                               |
+| `context_hints`                                                          | string[] | No                    | Free-form audience or placement hints.                                              |
+| `status`                                                                 | string   | Yes                   | `active` or `paused`.                                                               |
+| `bidding_config.billing_event_type`                                      | string   | Yes                   | `impression` for impression campaigns; `click` for click and conversion campaigns.  |
+| `bidding_config.max_bid_micros`                                          | integer  | Yes                   | Minimum `1`; the maximum depends on campaign bidding type and account currency.     |
+| `bidding_config.custom_audience_bid_multipliers`                         | object[] | No                    | Bid adjustments for ready custom audiences.                                         |
+| `bidding_config.custom_audience_bid_multipliers[].custom_audience_id`    | string   | Yes, in each item     | Ready custom audience ID.                                                           |
+| `bidding_config.custom_audience_bid_multipliers[].bid_multiplier_micros` | integer  | Yes, in each item     | `100000` to `10000000`, representing 0.1× to 10×.                                   |
+| `product_set`                                                            | object   | No                    | Inherits the campaign's feed when omitted. Include only to specify product filters. |
+| `product_set.product_feed_id`                                            | string   | Yes, in `product_set` | Must match the campaign's product feed.                                             |
+| `product_set.filters`                                                    | object[] | No                    | Product filters. Don't repeat the same field within one product set.                |
+| `product_set.filters[].field`                                            | string   | Yes, in each filter   | Feed attribute to filter.                                                           |
+| `product_set.filters[].operator`                                         | string   | Yes, in each filter   | `in`, `gt`, `gte`, `lt`, or `lte`.                                                  |
+| `product_set.filters[].values`                                           | string[] | Yes, in each filter   | Match values. Send numeric comparison values as strings, such as `"4.5"`.           |
 
 ### Field notes
+
+To adjust bids for matched customers without changing campaign eligibility,
+see [Custom Audiences](https://developers.openai.com/ads/custom-audiences#adjust-bids-for-an-audience).
 
 Product-set filters support `title`, `body`, `item_id`, `offer_id`, `price`,
 `target_url`, `image_url`, `product_category`, `brand`, `seller_name`,
@@ -76,7 +82,10 @@ Product-set filters support `title`, `body`, `item_id`, `offer_id`, `price`,
 
 Context hints provide extra information on when you think your ads might be useful, and help guide when they appear. Provide a list of descriptions or keywords for when the product or service might be useful to show.
 
-Micros are millionths of the main currency unit (e.g., Dollars). The max_bid field is per event, so a $60CPM ($0.06 per impression) is passed as 60,000 to the API. Note that currency fields respect your ad account's default currency.
+Micros are millionths of the main currency unit, for example, dollars. The
+`max_bid_micros` field is per event, so a $60 CPM ($0.06 per impression) is
+passed as `60000` to the API. Currency fields respect your ad account's default
+currency.
 
 For a conversion-optimized campaign (oCPC), set
 `bidding_config.billing_event_type` to `click`. `max_bid_micros` is the CPA

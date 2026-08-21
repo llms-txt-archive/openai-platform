@@ -38,6 +38,9 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 ## Conversions Api
 - [Conversions API](https://developers.openai.com/ads/conversions-api.md): Server-to-server conversion events.
 
+## Custom Audiences
+- [Custom Audiences](https://developers.openai.com/ads/custom-audiences.md): Create customer audiences and use them for campaign targeting and bid adjustments.
+
 ## Delta Feeds
 - [Delta Feeds API](https://developers.openai.com/ads/delta-feeds.md): Update product availability and prices without uploading your entire catalog.
 

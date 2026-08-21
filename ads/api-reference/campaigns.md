@@ -62,18 +62,23 @@ Note that time and currency fields will respect your account-set timezone and cu
 
 `POST /campaigns`
 
-| Field                                | Type     | Required | Notes                                                                              |
-| ------------------------------------ | -------- | -------- | ---------------------------------------------------------------------------------- |
-| `name`                               | string   | Yes      | `3` to `1000` chars and must include a non-space character.                        |
-| `description`                        | string   | No       | Campaign description.                                                              |
-| `start_time`                         | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                               |
-| `end_time`                           | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                               |
-| `status`                             | string   | Yes      | `active` or `paused`.                                                              |
-| `budget.lifetime_spend_limit_micros` | integer  | Yes      | Minimum `1000000`.                                                                 |
-| `mode`                               | string   | No       | Set to `product_feed` to create a [product-feed campaign](https://developers.openai.com/ads/product-feeds).     |
-| `bidding_type`                       | string   | No       | `impressions`, `clicks`, or `conversions`. Defaults to `impressions`.              |
-| `conversion_event_setting_ids`       | string[] | No       | For `conversions`, exactly one active standard event setting ID from this account. |
-| `targeting.locations.include`        | object[] | No       | Included location IDs.                                                             |
+| Field                                     | Type     | Required | Notes                                                                              |
+| ----------------------------------------- | -------- | -------- | ---------------------------------------------------------------------------------- |
+| `name`                                    | string   | Yes      | `3` to `1000` chars and must include a non-space character.                        |
+| `description`                             | string   | No       | Campaign description.                                                              |
+| `start_time`                              | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                               |
+| `end_time`                                | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                               |
+| `status`                                  | string   | Yes      | `active` or `paused`.                                                              |
+| `budget.lifetime_spend_limit_micros`      | integer  | Yes      | Minimum `1000000`.                                                                 |
+| `mode`                                    | string   | No       | Set to `product_feed` to create a [product-feed campaign](https://developers.openai.com/ads/product-feeds).     |
+| `bidding_type`                            | string   | No       | `impressions`, `clicks`, or `conversions`. Defaults to `impressions`.              |
+| `conversion_event_setting_ids`            | string[] | No       | For `conversions`, exactly one active standard event setting ID from this account. |
+| `targeting.locations.include`             | object[] | No       | Included location IDs.                                                             |
+| `targeting.custom_audiences.ids`          | string[] | No       | Ready custom audience IDs to include.                                              |
+| `targeting.excluded_custom_audiences.ids` | string[] | No       | Ready custom audience IDs to exclude.                                              |
+
+See [Custom Audiences](https://developers.openai.com/ads/custom-audiences#include-or-exclude-audiences-in-a-campaign)
+for audience matching, exclusions, and minimum-size requirements.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns" \

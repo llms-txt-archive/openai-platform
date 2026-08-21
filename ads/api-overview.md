@@ -31,6 +31,7 @@ The Ads API works in the context of one ad account. API partners should use
 | Ads                       | Create, list, retrieve, update, and change ad state.                            |
 | Insights                  | Retrieve performance data across ad account, campaign, ad group, and ad scopes. |
 | Files                     | Upload creative assets for use in ads.                                          |
+| Audiences                 | Create, list, retrieve, and archive custom audiences for targeting and bidding. |
 | [Bulk API](https://developers.openai.com/ads/bulk-api) | Create or update campaigns, ad groups, and ads in an asynchronous job.          |
 | Product Feeds             | Use a merchant catalog to create product-feed campaigns.                        |
 | Conversions               | Create pixels, server-side keys, and conversion event settings when enabled.    |
@@ -44,6 +45,8 @@ Use the [Quickstart](https://developers.openai.com/ads/api-quickstart) for a min
 directly to the [API Reference](https://developers.openai.com/ads/api-reference/authentication). API partners
 can start with [API Partner Setup](https://developers.openai.com/ads/api-partner-setup). To advertise
 from a merchant catalog, see [Product Feeds](https://developers.openai.com/ads/product-feeds).
+To target customer or prospect lists, see
+[Custom Audiences](https://developers.openai.com/ads/custom-audiences).
 
 ## Object statuses
 
