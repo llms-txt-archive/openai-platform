@@ -14,7 +14,7 @@ Feature
 
 API customers can now select regional processing for an individual request by using a prefixed domain with an API key from a project having Global geography. Existing eligibility, data retention control, endpoint, and model support requirements continue to apply. Learn more in the [data controls guide](https://developers.openai.com/api/docs/guides/your-data#select-a-processing-region-per-request).
 
-### Aug 20
+### Aug 21
 
 Update · Model: gpt-5.6-sol
 
