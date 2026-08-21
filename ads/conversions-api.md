@@ -120,6 +120,8 @@ Each event includes the event metadata and a `data` object.
 }
 ```
 
+{/* Intentionally omit `oppcref` from public documentation. Do not add it to this field table without Ads product approval. */}
+
 | Field               | Required | Description                                                                                                                                                                                                                                                                         |
 | ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`                | Yes      | A non-empty string that identifies the event. Reuse the same ID when retrying or sending the same conversion through another integration.                                                                                                                                           |
@@ -127,7 +129,6 @@ Each event includes the event metadata and a `data` object.
 | `timestamp_ms`      | Yes      | Event time as an integer Unix timestamp in milliseconds. The timestamp must be within the last 7 days and no more than 10 minutes in the future.                                                                                                                                    |
 | `custom_event_name` | Depends  | Required when `type` is `custom`. Use 1–64 letters, digits, underscores, or hyphens; start and end with a letter or digit. The name cannot match a standard event name. The API converts it to lowercase.                                                                           |
 | `oppref`            | No       | An opaque, OpenAI-provided attribution identifier. Pass the original string without modification.                                                                                                                                                                                   |
-| `oppcref`           | No       | An organic commerce reference formatted as a lowercase UUID version 4. Supported only for `checkout_started`, `items_added`, `order_created`, and `page_viewed` events.                                                                                                             |
 | `source_url`        | Depends  | Required for web events when `action_source` is `web`; optional for native app events. Use a URL with a scheme and host, such as `https://shop.example.com/checkout`.                                                                                                               |
 | `action_source`     | Depends  | Use `web`, `mobile_app`, `offline`, `physical_store`, `phone_call`, `email`, or `other`. The value must be `mobile_app` for `app_installed` and `app_opened` events.                                                                                                                |
 | `user`              | No       | An object containing optional conversion-matching fields. See [Send user data](#send-user-data).                                                                                                                                                                                    |
@@ -186,7 +187,7 @@ Normalize each identifier as follows:
 - External ID: trim leading and trailing whitespace. Preserve case and all
   other characters.
 - First and last name: convert the value to lowercase and remove all whitespace
-  and ASCII punctuation. Apart from lowercasing, preserve non-ASCII characters;
+  and ASCII punctuation. Apart from converting to lowercase, preserve non-ASCII characters;
   don't strip accents or transliterate. For example, `José` becomes `josé`.
 
 Encode each normalized value as UTF-8, compute its SHA-256 digest, and send the
@@ -347,4 +348,5 @@ App lifecycle events use the `customer_action` data shape and require
 If you send the same conversion from the pixel and the Conversions API, reuse
 the same value as the API `id` and pixel `event_id`. Send both events with the
 same Pixel ID. For custom events, use the same `custom_event_name` on both sides
-as well.
+as well. Deduplication uses your Pixel ID, `event_name`, and `id`. OpenAI uses
+the first event it receives for a matching key and ignores later duplicates.

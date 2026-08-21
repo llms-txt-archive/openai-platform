@@ -122,7 +122,7 @@ Normalize each identifier as follows:
 - External ID: trim leading and trailing whitespace. Preserve case and all
   other characters.
 - First and last name: convert the value to lowercase and remove all whitespace
-  and ASCII punctuation. Apart from lowercasing, preserve non-ASCII characters;
+  and ASCII punctuation. Apart from converting to lowercase, preserve non-ASCII characters;
   don't strip accents or transliterate. For example, `José` becomes `josé`.
 
 Encode each normalized value as UTF-8, compute its SHA-256 digest, and send the
@@ -409,7 +409,8 @@ When you need deduplication across browser and server events, generate the
 custom events, keep the same `custom_event_name` on both sides as well.
 Duplicate-event matching uses your Pixel ID, the event name, and `event_id`. For
 custom events, `custom_event_name` replaces the standard event name in that
-match.
+match. OpenAI uses the first event it receives for a matching key and ignores
+later duplicates.
 
 ## What the SDK handles automatically
 

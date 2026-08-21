@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260821T195533Z` | 2026-08-21 19:55 UTC | [Regional processing and GPT-5.6 Sol pricing refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260821T195533Z) |
 | `archive-20260821T191304Z` | 2026-08-21 19:13 UTC | [Model Index Naming Cleanup](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260821T191304Z) |
 | `archive-20260821T160307Z` | 2026-08-21 16:03 UTC | [Regional Processing and Retention Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260821T160307Z) |
 | `archive-20260821T042216Z` | 2026-08-21 04:22 UTC | [GPT-5.4 Tool-Calling Clarification](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260821T042216Z) |
 | `archive-20260820T235809Z` | 2026-08-20 23:59 UTC | [Codex Workload Identity Docs Expansion](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T235809Z) |
 | `archive-20260820T215959Z` | 2026-08-20 22:00 UTC | [Prompt Caching and Realtime Docs Fixes](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T215959Z) |
-| `archive-20260820T210155Z` | 2026-08-20 21:03 UTC | [Transparent Background Image Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260820T210155Z) |
