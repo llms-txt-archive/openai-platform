@@ -7,6 +7,10 @@ your ads. Upload email addresses or phone numbers, wait for the audience to
 finish processing, then include or exclude matched customers in a campaign or
 adjust bids for an ad group.
 
+Custom audiences are not supported for campaigns targeting the European
+  Economic Area (EEA) or Switzerland, where personalized ads are not yet
+  available.
+
 Before you begin, create an Ads API key in the **Settings** tab of
 [Ads Manager](https://ads.openai.com). Store the key as
 `OPENAI_ADS_API_KEY` and send it as a bearer token. Each key can access only

@@ -2,7 +2,7 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-A great image should work on any background. Transparent image assets make it easy to reuse the same visuals across campaigns, websites, presentations, and product catalogs without white boxes or manual background removal.
+A great image should work on any background. Transparent image assets (in preview) make it easy to reuse the same visuals across campaigns, websites, presentations, and product catalogs without white boxes or manual background removal.
 
 This cookbook covers four customer use cases:
 
@@ -419,8 +419,6 @@ Each asset is an independent transparent PNG, ready to move, resize, or reuse on
 The sample webpage combines the three assets on a colored template and lets visitors switch the background while keeping the same PNGs in place.
 
 ![Simple design-template website showing a transparent app icon, strawberry sticker, and botanical decoration reused on a colored canvas](https://developers.openai.com/cookbook/assets/examples/multimodal/images/transparent-image-assets/design-template-studio.png)
-
-[Open the self-contained HTML demo](https://developers.openai.com/cookbook/examples/multimodal/transparent-design-template-demo.html).
 
 ## Use case 4: Print-on-demand merchandise
 
