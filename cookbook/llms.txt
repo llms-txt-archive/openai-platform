@@ -88,7 +88,6 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Moving from OpenAI Evals to Promptfoo](https://developers.openai.com/cookbook/examples/evaluation/moving-from-openai-evals-to-promptfoo.md): Migrate supported OpenAI Evals evaluations to runnable Promptfoo configurations and preserve historical results.
 - [Multi-Agent Portfolio Collaboration with OpenAI Agents SDK](https://developers.openai.com/cookbook/examples/agents_sdk/multi-agent-portfolio-collaboration/multi_agent_portfolio_collaboration.md): Cookbook for multi-agent portfolio analysis workflows using the OpenAI Agents SDK.
 - [Multi-Tool Orchestration with RAG approach using OpenAI's Responses API](https://developers.openai.com/cookbook/examples/responses_api/responses_api_tool_orchestration.md): Cookbook to route queries across tools with RAG using the Responses API.
-- [OpenAI Compliance Logs Platform quickstart](https://developers.openai.com/cookbook/examples/chatgpt/compliance_api/logs_platform.md)
 - [Optimize Prompts](https://developers.openai.com/cookbook/examples/optimize_prompts.md)
 - [Parallel Agents with the OpenAI Agents SDK](https://developers.openai.com/cookbook/examples/agents_sdk/parallel_agents.md)
 - [Practical Guide for Model Selection for Real‑World Use Cases](https://developers.openai.com/cookbook/examples/partners/model_selection_guide/model_selection_guide.md)

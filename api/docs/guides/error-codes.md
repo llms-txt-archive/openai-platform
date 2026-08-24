@@ -8,6 +8,7 @@ This guide includes an overview on error codes you might see from both the [API]
 
 | Code                                                             | Overview                                                                                                                                                                                                                                                                                          |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 400 - Invalid `service_tier` argument                            | **Cause:** The requested or resolved service tier is not allowed for the project. <br /> **Solution:** Set `service_tier` to a tier allowed for the project, or update the allowed service tiers in [project settings](https://platform.openai.com/settings/).                                    |
 | 401 - Invalid Authentication                                     | **Cause:** Invalid Authentication <br /> **Solution:** Ensure the correct [API key](https://platform.openai.com/settings/organization/api-keys) and requesting organization are being used.                                                                                                       |
 | 401 - Incorrect API key provided                                 | **Cause:** The requesting API key is not correct. <br /> **Solution:** Ensure the API key used is correct, clear your browser cache, or [generate a new one](https://platform.openai.com/settings/organization/api-keys).                                                                         |
 | 401 - You must be a member of an organization to use the API     | **Cause:** Your account is not part of an organization. <br /> **Solution:** Contact us to get added to a new organization or ask your organization manager to [invite you to an organization](https://platform.openai.com/settings/organization/people).                                         |
@@ -32,6 +33,18 @@ If you are using [the Responses API WebSocket mode](https://developers.openai.co
 
 - `previous_response_not_found`: The `previous_response_id` cannot be resolved from available state. Retry with full input context and `previous_response_id` set to `null`.
 - `websocket_connection_limit_reached`: The connection hit the 60-minute limit. Open a new WebSocket connection and continue.
+
+400 - Invalid service_tier argument
+
+The API returns the message "Invalid service_tier argument: The requested service tier is not allowed for this project." as an `invalid_request_error` with `error.param` set to `service_tier` when a request selects or resolves to a service tier that is not allowed for the project.
+
+Project restrictions apply to the `default`, `flex`, and `priority` service tiers. The `fast` service tier is evaluated as `priority`. Requests that omit `service_tier` or set it to `auto` can also return this error if they resolve to a disallowed tier. Scale Tier remains outside this project policy.
+
+To resolve this error:
+
+- Check the allowed service tiers in [project settings](https://platform.openai.com/settings/).
+- Set `service_tier` to a tier allowed for the project.
+- If the request uses `auto` or omits `service_tier`, update the project settings so the resolved tier is allowed.
 
 401 - Invalid Authentication
 
