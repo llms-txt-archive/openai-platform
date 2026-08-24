@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260824T215928Z` | 2026-08-24 21:59 UTC | [Prompt Caching Rewrite and Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260824T215928Z) |
 | `archive-20260824T210413Z` | 2026-08-24 21:04 UTC | [Service tier guidance, vision multiplier refresh, and cookbook removal](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260824T210413Z) |
 | `archive-20260824T102111Z` | 2026-08-24 10:21 UTC | [Safety Best Practices Adds CSAM Guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260824T102111Z) |
 | `archive-20260822T041646Z` | 2026-08-22 04:17 UTC | [Custom audience limits and transparent asset preview update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260822T041646Z) |
 | `archive-20260821T215757Z` | 2026-08-21 21:58 UTC | [Daybreak post added, changelog date corrected](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260821T215757Z) |
 | `archive-20260821T205845Z` | 2026-08-21 20:59 UTC | [Ads Custom Audiences Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260821T205845Z) |
-| `archive-20260821T195533Z` | 2026-08-21 19:56 UTC | [Regional processing and GPT-5.6 Sol pricing refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260821T195533Z) |

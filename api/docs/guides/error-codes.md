@@ -34,7 +34,10 @@ If you are using [the Responses API WebSocket mode](https://developers.openai.co
 - `previous_response_not_found`: The `previous_response_id` cannot be resolved from available state. Retry with full input context and `previous_response_id` set to `null`.
 - `websocket_connection_limit_reached`: The connection hit the 60-minute limit. Open a new WebSocket connection and continue.
 
-400 - Invalid service_tier argument
+
+
+### 400 - Invalid service_tier argument
+
 
 The API returns the message "Invalid service_tier argument: The requested service tier is not allowed for this project." as an `invalid_request_error` with `error.param` set to `service_tier` when a request selects or resolves to a service tier that is not allowed for the project.
 
@@ -46,7 +49,14 @@ To resolve this error:
 - Set `service_tier` to a tier allowed for the project.
 - If the request uses `auto` or omits `service_tier`, update the project settings so the resolved tier is allowed.
 
-401 - Invalid Authentication
+
+
+
+
+
+
+### 401 - Invalid Authentication
+
 
 This error message indicates that your authentication credentials are invalid. This could happen for several reasons, such as:
 
@@ -59,7 +69,14 @@ To resolve this error, please follow these steps:
 - Check that you are using the correct API key and organization ID in your request header. You can find your API key and organization ID in [your account settings](https://platform.openai.com/settings/organization/api-keys) or your can find specific project related keys under [General settings](https://platform.openai.com/settings/organization/general) by selecting the desired project.
 - If you are unsure whether your API key is valid, you can [generate a new one](https://platform.openai.com/settings/organization/api-keys). Make sure to replace your old API key with the new one in your requests and follow our [best practices guide](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety).
 
-401 - Incorrect API key provided
+
+
+
+
+
+
+### 401 - Incorrect API key provided
+
 
 This error message indicates that the API key you are using in your request is not correct. This could happen for several reasons, such as:
 
@@ -74,7 +91,14 @@ To resolve this error, please follow these steps:
 - Check that you are using the correct API key in your request header.
 - If you are unsure whether your API key is correct, you can [generate a new one](https://platform.openai.com/settings/organization/api-keys). Make sure to replace your old API key in your codebase and follow our [best practices guide](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety).
 
-401 - You must be a member of an organization to use the API
+
+
+
+
+
+
+### 401 - You must be a member of an organization to use the API
+
 
 This error message indicates that your account is not part of an organization. This could happen for several reasons, such as:
 
@@ -89,13 +113,27 @@ To resolve this error, please follow these steps:
 - Existing organization owners can invite you to join their organization via the [Team page](https://platform.openai.com/settings/organization/people) or can create a new project from the [Settings page](https://platform.openai.com/settings/organization/general).
 - If you have left or been removed from a previous project, you can ask your organization or project owner to add you to it, or create a new one.
 
-429 - Credit balance exhausted
+
+
+
+
+
+
+### 429 - Credit balance exhausted
+
 
 The `credit_balance_exhausted` error indicates that your organization's prepaid credit balance is depleted.
 
 To restore API access, [add credits in your billing settings](https://platform.openai.com/settings/organization/billing).
 
-429 - Rate limit reached for requests
+
+
+
+
+
+
+### 429 - Rate limit reached for requests
+
 
 This error message indicates that you have hit your assigned rate limit for the API. This means that you have submitted too many tokens or requests in a short period of time and have exceeded the number of requests allowed. This could happen for several reasons, such as:
 
@@ -112,25 +150,53 @@ To resolve this error, please follow these steps:
 - If you are using a free or low-tier plan, consider upgrading to a pay-as-you-go plan that offers a higher rate limit. You can compare the restrictions of each plan in our [rate limit guide](https://developers.openai.com/api/docs/guides/rate-limits).
 - Reach out to your organization owner to increase the rate limits on your project
 
-429 - Organization spend limit reached
+
+
+
+
+
+
+### 429 - Organization spend limit reached
+
 
 The `organization_spend_limit_exceeded` error indicates that your organization reached its enforced monthly [spend limit](https://developers.openai.com/api/docs/guides/spend-limits). The limit applies to API traffic across all projects in the organization.
 
 To restore API access, increase or remove the limit in your [organization limit settings](https://platform.openai.com/settings/organization/limits). Otherwise, access resumes after the monthly limit resets.
 
-429 - Project spend limit reached
+
+
+
+
+
+
+### 429 - Project spend limit reached
+
 
 The `project_spend_limit_exceeded` error indicates that your project reached its enforced monthly [spend limit](https://developers.openai.com/api/docs/guides/spend-limits). Other projects can continue unless their own limit or the organization limit is also reached.
 
 To restore API access, increase or remove the limit in your [project settings](https://platform.openai.com/settings/). Otherwise, access resumes after the monthly limit resets.
 
-429 - Organization usage limit reached
+
+
+
+
+
+
+### 429 - Organization usage limit reached
+
 
 The `organization_usage_limit_exceeded` error indicates that your organization reached its OpenAI-assigned monthly [usage limit](https://developers.openai.com/api/docs/guides/rate-limits#usage-tiers). This limit is separate from organization and project spend limits that you configure.
 
 To restore API access, request a higher [approved usage limit](https://platform.openai.com/settings/organization/limits) or [contact support](https://help.openai.com/).
 
-503 - The engine is currently overloaded, please try again later
+
+
+
+
+
+
+### 503 - The engine is currently overloaded, please try again later
+
 
 This error message indicates that our servers are experiencing high traffic and are unable to process your request at the moment. This could happen for several reasons, such as:
 
@@ -144,7 +210,14 @@ To resolve this error, please follow these steps:
 - Check our [status page](https://status.openai.com/) for any updates or announcements regarding our services and servers.
 - If you are still getting this error after a reasonable amount of time, please contact us for further assistance. We apologize for any inconvenience and appreciate your patience and understanding.
 
-503 - Slow Down
+
+
+
+
+
+
+### 503 - Slow Down
+
 
 This error can occur with Pay-As-You-Go models, which are shared across all OpenAI users. It indicates that your traffic has significantly increased, overloading the model and triggering temporary throttling to maintain service stability.
 
@@ -153,6 +226,10 @@ To resolve this error, please follow these steps:
 - Reduce your request rate to its original level, keep it stable for at least 15 minutes, and then gradually ramp it up.
 - Maintain a consistent traffic pattern to minimize the likelihood of throttling. You should rarely encounter this error if your request volume remains steady.
 - Consider upgrading to the [Scale Tier](https://openai.com/api-scale-tier/) for guaranteed capacity and performance, ensuring more reliable access during peak demand periods.
+
+
+
+
 
 ## Python library error types
 
@@ -169,7 +246,10 @@ To resolve this error, please follow these steps:
 | RateLimitError           | **Cause:** You have hit your assigned rate limit. <br /> **Solution:** Pace your requests and follow `Retry-After` when it's present. Each official SDK already honors this header for eligible retries. Read more in our [Rate limit guide](https://developers.openai.com/api/docs/guides/rate-limits).                                                                                                                                                              |
 | UnprocessableEntityError | **Cause:** Unable to process the request despite the format being correct. <br /> **Solution:** Please try the request again.                                                                                                                                                                                                                                                                                                            |
 
-APIConnectionError
+
+
+### APIConnectionError
+
 
 An `APIConnectionError` indicates that your request could not reach our servers or establish a secure connection. This could be due to a network issue, a proxy configuration, an SSL certificate, or a firewall rule.
 
@@ -182,7 +262,14 @@ If you encounter an `APIConnectionError`, please try the following steps:
 - If appropriate, check that your container has the correct permissions to send and receive traffic.
 - If the issue persists, check out our persistent errors next steps section.
 
-APITimeoutError
+
+
+
+
+
+
+### APITimeoutError
+
 
 A `APITimeoutError` error indicates that your request took too long to complete and our server closed the connection. This could be due to a network issue, a heavy load on our services, or a complex request that requires more processing time.
 
@@ -192,7 +279,14 @@ If you encounter a `APITimeoutError` error, please try the following steps:
 - Check your network settings and make sure you have a stable and fast internet connection. You may need to switch to a different network, use a wired connection, or reduce the number of devices or applications using your bandwidth.
 - If the issue persists, check out our persistent errors next steps section.
 
-AuthenticationError
+
+
+
+
+
+
+### AuthenticationError
+
 
 An `AuthenticationError` indicates that your API key or token was invalid, expired, or revoked. This could be due to a typo, a formatting error, or a security breach.
 
@@ -201,7 +295,15 @@ If you encounter an `AuthenticationError`, please try the following steps:
 - Check your API key or token and make sure it is correct and active. You may need to generate a new key from the API Key dashboard, ensure there are no extra spaces or characters, or use a different key or token if you have multiple ones.
 - Ensure that you have followed the correct formatting.
 
-BadRequestError
+
+
+
+
+
+
+### BadRequestError
+
+
 
 An `BadRequestError` (formerly `InvalidRequestError`) indicates that your request was malformed or missing some required parameters, such as a token or an input. This could be due to a typo, a formatting error, or a logic error in your code.
 
@@ -213,7 +315,14 @@ If you encounter an `BadRequestError`, please try the following steps:
 - Test your request using a tool like Postman or curl and make sure it works as expected. You may need to debug your code and fix any errors or inconsistencies in your request logic.
 - If the issue persists, check out our persistent errors next steps section.
 
-InternalServerError
+
+
+
+
+
+
+### InternalServerError
+
 
 An `InternalServerError` indicates that something went wrong on our side when processing your request. This could be due to a temporary error, a bug, or a system outage.
 
@@ -227,7 +336,14 @@ If you encounter an `InternalServerError`, please try the following steps:
 
 Our support team will investigate the issue and get back to you as soon as possible. Note that our support queue times may be long due to high demand. You can also [post in our Community Forum](https://community.openai.com) but be sure to omit any sensitive information.
 
-RateLimitError
+
+
+
+
+
+
+### RateLimitError
+
 
 A `RateLimitError` indicates that you have hit your assigned rate limit. This means that you have sent too many tokens or requests in a given period of time, and our services have temporarily blocked you from sending more.
 
@@ -238,6 +354,10 @@ If you encounter a `RateLimitError`, please try the following steps:
 - Send fewer tokens or requests or slow down. You may need to reduce the frequency or volume of your requests, batch your tokens, or use exponential backoff when `Retry-After` isn't present. You can read our [Rate limit guide](https://developers.openai.com/api/docs/guides/rate-limits) for more details.
 - When `Retry-After` is present, wait at least as long as it specifies before retrying. The official Python library already honors this header for eligible retries.
 - You can also check your API usage statistics from your account dashboard.
+
+
+
+
 
 ### Persistent errors
 
