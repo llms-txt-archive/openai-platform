@@ -14,13 +14,11 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Fine-tune gpt-oss for better Korean language performance](https://developers.openai.com/cookbook/articles/gpt-oss/fine-tune-korean.md)
 - [Fine-tuning with gpt-oss and Hugging Face Transformers](https://developers.openai.com/cookbook/articles/gpt-oss/fine-tune-transfomers.md)
 - [How to handle the raw chain of thought in gpt-oss](https://developers.openai.com/cookbook/articles/gpt-oss/handle-raw-cot.md)
-- [How to run gpt-oss locally with LM Studio](https://developers.openai.com/cookbook/articles/gpt-oss/run-locally-lmstudio.md)
 - [How to run gpt-oss locally with Ollama](https://developers.openai.com/cookbook/articles/gpt-oss/run-locally-ollama.md)
 - [How to run gpt-oss with Transformers](https://developers.openai.com/cookbook/articles/gpt-oss/run-transformers.md)
 - [How to run gpt-oss with vLLM](https://developers.openai.com/cookbook/articles/gpt-oss/run-vllm.md)
 - [OpenAI Harmony Response Format](https://developers.openai.com/cookbook/articles/openai-harmony.md)
 - [User guide for gpt-oss-safeguard](https://developers.openai.com/cookbook/articles/gpt-oss-safeguard-guide.md)
-- [Using PLANS.md for multi-hour problem solving](https://developers.openai.com/cookbook/articles/codex_exec_plans.md)
 - [Verifying gpt-oss implementations](https://developers.openai.com/cookbook/articles/gpt-oss/verifying-implementations.md)
 - [What makes documentation good](https://developers.openai.com/cookbook/articles/what_makes_documentation_good.md)
 
