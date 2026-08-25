@@ -47,6 +47,11 @@ curl -X POST "https://api.ads.openai.com/v1/uploads" \
 
 Use the file ID, original filename, MIME type, and exact file size to
 [create a custom audience](https://developers.openai.com/ads/custom-audiences#create-the-custom-audience).
+You can also use an uploaded file to
+[add, remove, or replace audience members](https://developers.openai.com/ads/custom-audiences#add-or-remove-using-a-file).
+CSV files can combine email, phone, GAID, and hashed identifier columns when the
+audience request sets `identifier_resolution` to `auto`. See
+[audience file requirements](https://developers.openai.com/ads/custom-audiences#prepare-an-audience-file).
 
 ## Upload an account `favicon`
 

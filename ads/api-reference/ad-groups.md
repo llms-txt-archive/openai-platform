@@ -60,8 +60,8 @@ Create an ad group for a campaign.
 | `status`                                                                 | string   | Yes                   | `active` or `paused`.                                                               |
 | `bidding_config.billing_event_type`                                      | string   | Yes                   | `impression` for impression campaigns; `click` for click and conversion campaigns.  |
 | `bidding_config.max_bid_micros`                                          | integer  | Yes                   | Minimum `1`; the maximum depends on campaign bidding type and account currency.     |
-| `bidding_config.custom_audience_bid_multipliers`                         | object[] | No                    | Bid adjustments for ready custom audiences.                                         |
-| `bidding_config.custom_audience_bid_multipliers[].custom_audience_id`    | string   | Yes, in each item     | Ready custom audience ID.                                                           |
+| `bidding_config.custom_audience_bid_multipliers`                         | object[] | No                    | Bid adjustments for ready audiences eligible for bid multipliers.                   |
+| `bidding_config.custom_audience_bid_multipliers[].custom_audience_id`    | string   | Yes, in each item     | An audience returned by `GET /custom_audiences?intended_use=bid_multiplier`.        |
 | `bidding_config.custom_audience_bid_multipliers[].bid_multiplier_micros` | integer  | Yes, in each item     | `100000` to `10000000`, representing 0.1× to 10×.                                   |
 | `product_set`                                                            | object   | No                    | Inherits the campaign's feed when omitted. Include only to specify product filters. |
 | `product_set.product_feed_id`                                            | string   | Yes, in `product_set` | Must match the campaign's product feed.                                             |
@@ -74,6 +74,11 @@ Create an ad group for a campaign.
 
 To adjust bids for matched customers without changing campaign eligibility,
 see [Custom Audiences](https://developers.openai.com/ads/custom-audiences#adjust-bids-for-an-audience).
+
+Small audiences can be eligible for campaign exclusion without meeting the
+minimum size for bid adjustments. Don't infer bid eligibility from `ready`
+status or a matched-count range. The server validates eligibility when you
+save the ad group.
 
 Product-set filters support `title`, `body`, `item_id`, `offer_id`, `price`,
 `target_url`, `image_url`, `product_category`, `brand`, `seller_name`,

@@ -23,18 +23,18 @@ The Ads API works in the context of one ad account. API partners should use
 
 ## Endpoints
 
-| Resource                  | Use for                                                                         |
-| ------------------------- | ------------------------------------------------------------------------------- |
-| Ad Account                | Update and retrieve metadata for the current ad account.                        |
-| Campaigns                 | Create, list, retrieve, update, and change campaign state.                      |
-| Ad Groups                 | Create, list, retrieve, update, and change ad group state.                      |
-| Ads                       | Create, list, retrieve, update, and change ad state.                            |
-| Insights                  | Retrieve performance data across ad account, campaign, ad group, and ad scopes. |
-| Files                     | Upload creative assets for use in ads.                                          |
-| Audiences                 | Create, list, retrieve, and archive custom audiences for targeting and bidding. |
-| [Bulk API](https://developers.openai.com/ads/bulk-api) | Create or update campaigns, ad groups, and ads in an asynchronous job.          |
-| Product Feeds             | Use a merchant catalog to create product-feed campaigns.                        |
-| Conversions               | Create pixels, server-side keys, and conversion event settings when enabled.    |
+| Resource                  | Use for                                                                                    |
+| ------------------------- | ------------------------------------------------------------------------------------------ |
+| Ad Account                | Update and retrieve metadata for the current ad account.                                   |
+| Campaigns                 | Create, list, retrieve, update, and change campaign state.                                 |
+| Ad Groups                 | Create, list, retrieve, update, and change ad group state.                                 |
+| Ads                       | Create, list, retrieve, update, and change ad state.                                       |
+| Insights                  | Retrieve performance data across ad account, campaign, ad group, and ad scopes.            |
+| Files                     | Upload creative assets for use in ads.                                                     |
+| Audiences                 | Create, add to, remove from, replace, merge, list, retrieve, and archive custom audiences. |
+| [Bulk API](https://developers.openai.com/ads/bulk-api) | Create or update campaigns, ad groups, and ads in an asynchronous job.                     |
+| Product Feeds             | Use a merchant catalog to create product-feed campaigns.                                   |
+| Conversions               | Create pixels, server-side keys, and conversion event settings when enabled.               |
 
 Every resource belongs to the ad account associated with the API key. OpenAI
 must enable programmatic brand updates and conversion management for the
@@ -73,6 +73,10 @@ ad account. See [Bulk API limits](https://developers.openai.com/ads/bulk-api#lim
 [{"Download the OpenAPI spec"}](https://developers.openai.com/ads/openapi.json)
 
 ## Changelog
+
+### August 25th, 2026
+
+- Added custom audience Add, Remove, Replace, and Merge operations, automatic identifier matching, and support for small and empty exclusion-only audiences. See [Custom Audiences](https://developers.openai.com/ads/custom-audiences).
 
 ### July 16th, 2026
 

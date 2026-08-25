@@ -74,11 +74,17 @@ Note that time and currency fields will respect your account-set timezone and cu
 | `bidding_type`                            | string   | No       | `impressions`, `clicks`, or `conversions`. Defaults to `impressions`.              |
 | `conversion_event_setting_ids`            | string[] | No       | For `conversions`, exactly one active standard event setting ID from this account. |
 | `targeting.locations.include`             | object[] | No       | Included location IDs.                                                             |
-| `targeting.custom_audiences.ids`          | string[] | No       | Ready custom audience IDs to include.                                              |
-| `targeting.excluded_custom_audiences.ids` | string[] | No       | Ready custom audience IDs to exclude.                                              |
+| `targeting.custom_audiences.ids`          | string[] | No       | Ready audience IDs eligible for inclusion.                                         |
+| `targeting.excluded_custom_audiences.ids` | string[] | No       | Ready audience IDs eligible for exclusion, including small audiences.              |
 
 See [Custom Audiences](https://developers.openai.com/ads/custom-audiences#include-or-exclude-audiences-in-a-campaign)
 for audience matching, exclusions, and minimum-size requirements.
+
+Check audiences with `GET /custom_audiences?intended_use=inclusion` or
+`intended_use=exclusion` before using them. A ready small or empty audience can
+be excluded, but it isn't automatically eligible for inclusion. If you include
+and exclude audiences, the remaining population must still meet the minimum.
+For an exclusion-only campaign, omit `targeting.custom_audiences`.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns" \
@@ -191,6 +197,11 @@ budget object. `description`, `start_time`, `end_time`, and `targeting` can be
 set to `null` to clear them. `status` accepts `active`, `paused`, or
 `archived`. You cannot update `bidding_type`. For a conversion-optimized
 campaign, you also cannot update `conversion_event_setting_ids`.
+
+Audience eligibility is validated again when you save targeting. A concurrent
+membership update can return `409 custom_audience_mutation_conflict` without
+applying the campaign edit. Wait for the audience operation to finish, retrieve
+the current settings, and retry the intended edit if it is still appropriate.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns/cmpn_101" \
