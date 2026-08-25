@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260825T200015Z` | 2026-08-25 20:00 UTC | [Codex Automation Blog Post Added](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260825T200015Z) |
+| `archive-20260825T210122Z` | 2026-08-25 21:01 UTC | [Showcase Index Adds 10 New Demos](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260825T210122Z) |
+| `archive-20260825T200015Z` | 2026-08-25 20:01 UTC | [Codex Automation Blog Post Added](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260825T200015Z) |
 | `archive-20260825T191640Z` | 2026-08-25 19:17 UTC | [Audience workflows and Realtime call setup](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260825T191640Z) |
 | `archive-20260825T060306Z` | 2026-08-25 06:03 UTC | [Reasoning guide clarifies model-family reuse](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260825T060306Z) |
 | `archive-20260825T051653Z` | 2026-08-25 05:17 UTC | [C# Examples Expanded Across Core Guides](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260825T051653Z) |
 | `archive-20260825T020740Z` | 2026-08-25 02:08 UTC | [Mutual TLS Guide and X.509 Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260825T020740Z) |
-| `archive-20260824T235614Z` | 2026-08-24 23:57 UTC | [Cookbook Guide Removals](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260824T235614Z) |
