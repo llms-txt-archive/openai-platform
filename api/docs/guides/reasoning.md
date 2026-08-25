@@ -470,6 +470,10 @@ The response's `reasoning.context` field contains the effective mode, either `cu
 
 `all_turns` has an effect only when the request has access to earlier response items. Use `previous_response_id`, attach the response to a conversation, or manually replay the complete response history. On the first request, `current_turn` and `all_turns` behave the same because no earlier reasoning exists.
 
+Persisted reasoning can be reused only within the same model family. For example, `gpt-5.6-sol`, `gpt-5.6-terra`, and `gpt-5.6-luna` can reuse each other's reasoning, but reasoning does not carry between the GPT-5.6 and GPT-5.5 families.
+
+When you switch model families, the API omits incompatible reasoning from the model's context, even when `reasoning.context` is `all_turns`.
+
 ### Continue reasoning with stored responses
 
 Use `previous_response_id` for the shortest stateful integration:
