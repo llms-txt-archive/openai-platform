@@ -867,14 +867,14 @@ options.Tools.Add(
     )
 );
 
-// STEP 1: Create a response that requests tool-call approval.
+// Step 1: Create a response that requests tool-call approval.
 options.InputItems.Add(ResponseItem.CreateUserMessageItem("Roll 2d4+1"));
 ResponseResult response1 = await client.CreateResponseAsync(options);
 
 McpToolCallApprovalRequestItem approvalRequest =
     response1.OutputItems.OfType<McpToolCallApprovalRequestItem>().Single();
 
-// STEP 2: Approve the tool call and get the final response.
+// Step 2: Approve the tool call and get the final response.
 options.PreviousResponseId = response1.Id;
 options.InputItems.Clear();
 options.InputItems.Add(
