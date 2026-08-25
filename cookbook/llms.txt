@@ -16,11 +16,9 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [How to handle the raw chain of thought in gpt-oss](https://developers.openai.com/cookbook/articles/gpt-oss/handle-raw-cot.md)
 - [How to run gpt-oss locally with Ollama](https://developers.openai.com/cookbook/articles/gpt-oss/run-locally-ollama.md)
 - [How to run gpt-oss with Transformers](https://developers.openai.com/cookbook/articles/gpt-oss/run-transformers.md)
-- [How to run gpt-oss with vLLM](https://developers.openai.com/cookbook/articles/gpt-oss/run-vllm.md)
 - [OpenAI Harmony Response Format](https://developers.openai.com/cookbook/articles/openai-harmony.md)
 - [User guide for gpt-oss-safeguard](https://developers.openai.com/cookbook/articles/gpt-oss-safeguard-guide.md)
 - [Verifying gpt-oss implementations](https://developers.openai.com/cookbook/articles/gpt-oss/verifying-implementations.md)
-- [What makes documentation good](https://developers.openai.com/cookbook/articles/what_makes_documentation_good.md)
 
 ## Examples
 - [Agents SDK Deployment Manager](https://developers.openai.com/cookbook/examples/agents_sdk/deployment_manager/readme.md): Run, inspect, and trace local Agents SDK demo apps from a browser-based deployment manager.
@@ -51,7 +49,6 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Context Summarization with Realtime API](https://developers.openai.com/cookbook/examples/context_summarization_with_realtime_api.md)
 - [Controlled Agentic Commerce with AgentCore Payments](https://developers.openai.com/cookbook/examples/partners/aws/controlled_agentic_commerce_with_agentcore_payments/controlled_agentic_commerce.md): Build a controlled agentic-commerce workflow with the OpenAI Agents SDK, x402, application-owned payment authority, deterministic validation, and an optional gated Amazon Bedrock AgentCore Payments testnet path.
 - [Deep Research API with the Agents SDK](https://developers.openai.com/cookbook/examples/deep_research_api/introduction_to_deep_research_api_agents.md)
-- [Embedding Wikipedia articles for search](https://developers.openai.com/cookbook/examples/embedding_wikipedia_articles_for_search.md)
 - [Enabling Long-Term Agent Memory with Oracle AI Agent Memory](https://developers.openai.com/cookbook/examples/vector_databases/oracle_db/deep_research_openai_agents.md): Build a deep-research agent with the OpenAI Agents SDK, Oracle-backed session persistence, durable memory, and Tavily web search.
 - [Eval Driven System Design - From Prototype to Production](https://developers.openai.com/cookbook/examples/partners/eval_driven_system_design/receipt_inspection.md): Cookbook for eval-driven design of a receipt parsing automation workflow.
 - [Evaluating Agents with Langfuse](https://developers.openai.com/cookbook/examples/agents_sdk/evaluate_agents.md)
@@ -75,7 +72,6 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Image Evals for Image Generation and Editing Use Cases](https://developers.openai.com/cookbook/examples/multimodal/image_evals.md): Cookbook to build image evals for image generation and editing use cases.
 - [Image Understanding with RAG](https://developers.openai.com/cookbook/examples/multimodal/image_understanding_with_rag.md)
 - [Introduction to deep research in the OpenAI API](https://developers.openai.com/cookbook/examples/deep_research_api/introduction_to_deep_research_api.md)
-- [Introduction to Structured Outputs](https://developers.openai.com/cookbook/examples/structured_outputs_intro.md)
 - [Iterating Development Workflows with Codex](https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex.md): Build and improve Codex development workflows using repository harnesses, phased implementation plans, approval gates, reusable skills, and evidence-backed retrospectives.
 - [Macro Evals for Agentic Systems](https://developers.openai.com/cookbook/examples/partners/macro_evals_for_agentic_systems/macro_evals_for_agentic_systems.md): A cookbook showing how to evaluate multi-agent systems by clustering trace-level eval signals into recurring behavior patterns and drilling into high-impact patterns.
 - [MCP-Powered Agentic Voice Framework](https://developers.openai.com/cookbook/examples/partners/mcp_powered_voice_agents/mcp_powered_agents_cookbook.md)
@@ -104,5 +100,3 @@ Each entry has a Markdown twin at `/cookbook/<path>.md`.
 - [Trigger a Workspace Agent from the API](https://developers.openai.com/cookbook/examples/chatgpt/workspace_agents/workspace-agents-api-trigger.md): Configure a Workspace Agent, add an API channel, and send a live trigger that writes to the agent's configured destination.
 - [Use Codex CLI to automatically fix CI failures](https://developers.openai.com/cookbook/examples/codex/autofix-github-actions.md)
 - [Using Goals in Codex](https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex.md): Use Goals in Codex to keep long-running work moving toward a persistent, evidence-checked outcome across turns.
-- [Using logprobs](https://developers.openai.com/cookbook/examples/using_logprobs.md)
-- [Vision Fine-tuning on GPT-4o for Visual Question Answering](https://developers.openai.com/cookbook/examples/multimodal/vision_fine_tuning_on_gpt4o_for_visual_question_answering.md)
