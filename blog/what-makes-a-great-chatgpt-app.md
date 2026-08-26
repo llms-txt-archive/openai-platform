@@ -108,9 +108,12 @@ Here you can see an example of an experience enhanced by an app:
 This answer is helpful, however, the user may want to use an app with additional capabilities to directly browse real properties without changing context or leaving the conversation.
 
 <img
-  src="/images/blog/find-homes-expanded.png"
+  src="/images/blog/find-homes-expanded.webp"
   alt="find-homes"
   class="w-full max-w-4xl mx-auto rounded-lg"
+  width="1600"
+  height="1901"
+  loading="lazy"
 />
 
 <u>Answer with the Zillow app</u>
@@ -118,17 +121,23 @@ This answer is helpful, however, the user may want to use an app with additional
 With the Zillow app, the user has the additional ability to search live property listings, filter by criteria, and view rich property details — all without leaving the chat.
 
 <img
-  src="/images/blog/find-homes-zillow.png"
+  src="/images/blog/find-homes-zillow.webp"
   alt="find-homes-zillow"
   class="w-full max-w-4xl mx-auto rounded-lg"
+  width="1600"
+  height="1888"
+  loading="lazy"
 />
 
 Fullscreen mode for enriched discovery
 
 <img
-  src="/images/blog/find-homes-fs.png"
+  src="/images/blog/find-homes-fs.webp"
   alt="find-homes-fs"
   class="w-full max-w-4xl mx-auto rounded-lg"
+  width="1600"
+  height="1065"
+  loading="lazy"
 />
 
 The value here is you still get rich context from the model, and also an enriched app experience that can dynamically interact with your intent. Want to ask it for homes in a specific region? With the Zillow app, the model invokes the tool on the Zillow MCP server and re-renders the UI layer.
@@ -176,9 +185,12 @@ Another way to think about this: if someone on your team asked, “What are the 
 For example, the Canva app in ChatGPT can generate an entire presentation draft and the user can enter full screen mode that matches user expectations for navigating a slide deck, but deeper slide-by-slide editing still happens in the full Canva editor.
 
 <img
-  src="/images/blog/canva-app-fs.png"
+  src="/images/blog/canva-app-fs.webp"
   alt="canva-app-fs"
   class="w-full max-w-4xl mx-auto rounded-lg"
+  width="1600"
+  height="1049"
+  loading="lazy"
 />
 
 ## Design for conversation and discovery
@@ -202,9 +214,12 @@ Let’s take a look at how that is handled in the **Canva** app:
 Building a full scale presentation requires context. The Canva app asks for follow up questions to get the user to synthesize what they’re looking to build.
 
 <img
-  src="/images/blog/canva-app-discovery.png"
+  src="/images/blog/canva-app-discovery.webp"
   alt="canva-app-discovery"
   class="w-full max-w-4xl mx-auto rounded-lg"
+  width="1600"
+  height="2008"
+  loading="lazy"
 />
 
 ### b) Specific intent
@@ -226,9 +241,12 @@ When the user’s intent becomes clear and asks to generate a presentation, the 
 As seen below, the tool shares a few options and also probes deeper if the user wants additional refinements:
 
 <img
-  src="/images/blog/canva-app.png"
+  src="/images/blog/canva-app.webp"
   alt="canva-app"
   class="w-full max-w-4xl mx-auto rounded-lg"
+  width="1600"
+  height="2024"
+  loading="lazy"
 />
 
 ### c) No brand awareness
