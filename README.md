@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260826T110547Z` | 2026-08-26 11:05 UTC | [ChatGPT App Blog Image Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260826T110547Z) |
+| `archive-20260826T182237Z` | 2026-08-26 18:22 UTC | [Responses event docs gain shell call examples](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260826T182237Z) |
+| `archive-20260826T110547Z` | 2026-08-26 11:06 UTC | [ChatGPT App Blog Image Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260826T110547Z) |
 | `archive-20260826T101724Z` | 2026-08-26 10:18 UTC | [Cookbook example removals](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260826T101724Z) |
 | `archive-20260826T021317Z` | 2026-08-26 02:14 UTC | [Compaction Trigger IDs Across Response and Conversation Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260826T021317Z) |
 | `archive-20260825T215839Z` | 2026-08-25 21:59 UTC | [OpenAI Build Week Winners Added to the Blog Archive](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260825T215839Z) |
 | `archive-20260825T210122Z` | 2026-08-25 21:02 UTC | [Showcase Index Adds 10 New Demos](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260825T210122Z) |
-| `archive-20260825T200015Z` | 2026-08-25 20:01 UTC | [Codex Automation Blog Post Added](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260825T200015Z) |

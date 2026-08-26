@@ -419002,7 +419002,13 @@ Schema name: `ResponseShellCallCommandAddedStreamingEvent`
 #### Example
 
 ```json
-{}
+{
+  "type": "response.shell_call_command.added",
+  "sequence_number": 0,
+  "output_index": 0,
+  "command_index": 0,
+  "command": "command"
+}
 ```
 
 ### response.shell_call_command.delta
@@ -419196,7 +419202,14 @@ Schema name: `ResponseShellCallCommandDeltaStreamingEvent`
 #### Example
 
 ```json
-{}
+{
+  "type": "response.shell_call_command.delta",
+  "sequence_number": 0,
+  "output_index": 0,
+  "command_index": 0,
+  "delta": "delta",
+  "obfuscation": "obfuscation"
+}
 ```
 
 ### response.shell_call_command.done
@@ -419372,7 +419385,13 @@ Schema name: `ResponseShellCallCommandDoneStreamingEvent`
 #### Example
 
 ```json
-{}
+{
+  "type": "response.shell_call_command.done",
+  "sequence_number": 0,
+  "output_index": 0,
+  "command_index": 0,
+  "command": "command"
+}
 ```
 
 ### response.shell_call_output_content.delta
@@ -419607,7 +419626,17 @@ Schema name: `ResponseShellCallOutputContentDeltaStreamingEvent`
 #### Example
 
 ```json
-{}
+{
+  "type": "response.shell_call_output_content.delta",
+  "sequence_number": 0,
+  "item_id": "item_id",
+  "output_index": 0,
+  "command_index": 0,
+  "delta": {
+    "stdout": "stdout",
+    "stderr": "stderr"
+  }
+}
 ```
 
 ### response.shell_call_output_content.done
@@ -420026,5 +420055,21 @@ Schema name: `ResponseShellCallOutputContentDoneStreamingEvent`
 #### Example
 
 ```json
-{}
+{
+  "type": "response.shell_call_output_content.done",
+  "sequence_number": 0,
+  "item_id": "item_id",
+  "output_index": 0,
+  "command_index": 0,
+  "output": [
+    {
+      "stdout": "stdout",
+      "stderr": "stderr",
+      "outcome": {
+        "type": "timeout"
+      },
+      "created_by": "created_by"
+    }
+  ]
+}
 ```
