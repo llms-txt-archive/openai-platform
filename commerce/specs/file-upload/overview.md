@@ -35,18 +35,35 @@ eligibility requirement before you upload.
 - Outdated or non-spec field names
 - Malformed field values
 
-### Handle removals explicitly
+### Understand product retention and removal
 
-- To remove a product, either set `is_eligible_search=false` or remove the record from your next full snapshot.
+A product is not deleted immediately when missing from a processed snapshot.
+OpenAI retains its most recently processed record for up to 14 days.
+This protects products from disappearing because a shard is temporarily missing
+or delayed.
+
+- To make a product ineligible for search the next time OpenAI processes a snapshot, set
+  `is_eligible_search=false`.
+- To remove a product by omission, leave it out of every shard in later full
+  snapshots. The retained record expires within 14 days.
 
 ### Operate as a snapshot pipeline
 
 - Publish full snapshots on a predictable cadence (at least daily).
 
-### Use push-based delivery and stable filenames
+### Update multi-file feeds
 
-- Push feeds through supported channels.
-- Reuse the same file path/name each publish and overwrite in place.
+The SFTP root directory represents your entire catalog. You do not need to send
+a completion marker. After uploads stop changing for a short time, OpenAI
+processes every file in the root directory.
+
+- Reuse the same shard filenames and overwrite them in place.
+- Upload all shards without long pauses. If processing starts before every shard
+  arrives, OpenAI processes the complete root directory again after the remaining
+  shards arrive and uploads stop changing.
+- OpenAI matches products by `item_id`, not by filename, so moving a product between
+  shards does not reset it. When possible, use a deterministic rule based on
+  `item_id` for predictable shard assignment.
 - If multiple brand feeds share one location, use clear brand-prefixed names.
 
 ### Validate in phases

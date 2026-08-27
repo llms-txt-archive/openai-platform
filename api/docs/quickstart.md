@@ -1460,6 +1460,32 @@ client.responses().create(params).output().stream()
     .forEach(text -> System.out.println(text.text()));
 ```
 
+```csharp
+using OpenAI.Responses;
+#pragma warning disable OPENAI001
+
+string key = Environment.GetEnvironmentVariable("OPENAI_API_KEY")!;
+ResponsesClient client = new(key);
+
+CodeInterpreterToolContainer container = new(
+    CodeInterpreterToolContainerConfiguration.CreateAutomaticContainerConfiguration([])
+);
+CreateResponseOptions options = new()
+{
+    Model = "gpt-5.6",
+    Instructions = "You are a personal math tutor. Write and run code to answer math questions.",
+};
+options.Tools.Add(ResponseTool.CreateCodeInterpreterTool(container));
+options.InputItems.Add(
+    ResponseItem.CreateUserMessageItem(
+        "I need to solve the equation 3x + 11 = 14. Can you help me?"
+    )
+);
+
+ResponseResult response = await client.CreateResponseAsync(options);
+Console.WriteLine(response.GetOutputText());
+```
+
 ```ruby
 require "openai"
 
