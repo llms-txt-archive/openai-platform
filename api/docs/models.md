@@ -27,8 +27,8 @@ See [how OpenAI uses your data](/api/docs/guides/your-data.md) and review [depre
 - [codex-mini-latest](/api/docs/models/codex-mini-latest.md): Fast reasoning model optimized for the Codex CLI
 - [computer-use-preview](/api/docs/models/computer-use-preview.md): Specialized model for computer use tool
 - [davinci-002](/api/docs/models/davinci-002.md): Replacement for the GPT-3 curie and davinci base models
-- [Daybreak Blue](/api/docs/models/daybreak-blue-latest.md): An alias for flagship general-purpose models with safeguards for defensive cybersecurity work.
-- [Daybreak Red](/api/docs/models/daybreak-red-latest.md): An alias for advanced cybersecurity models for authorized vulnerability research and security testing.
+- [Daybreak Blue](/api/docs/models/gpt-daybreak-blue-latest.md): An alias for flagship general-purpose models with safeguards for defensive cybersecurity work.
+- [Daybreak Red](/api/docs/models/gpt-daybreak-red-latest.md): An alias for advanced cybersecurity models for authorized vulnerability research and security testing.
 - [GPT-3.5 Turbo](/api/docs/models/gpt-3.5-turbo.md): Legacy GPT model for cheaper chat and non-chat tasks
 - [GPT-4](/api/docs/models/gpt-4.md): An older high-intelligence GPT model
 - [GPT-4 Turbo](/api/docs/models/gpt-4-turbo.md): An older high-intelligence GPT model

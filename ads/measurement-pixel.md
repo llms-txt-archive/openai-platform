@@ -114,16 +114,25 @@ Normalize each identifier as follows:
 
 - Email address: trim leading and trailing whitespace and convert the value to
   lowercase.
-- Phone number: convert the value to international digits-only form. Keep the
-  country calling code, but remove the leading `+` or `00`
-  international-access prefix and all whitespace, parentheses, periods, and
-  hyphens. Hash the resulting 8–15 digits. For example,
+- Phone number: keep the country calling code. Remove all whitespace,
+  parentheses, periods, and hyphens, then remove a leading `+` and any
+  leading zeroes. Hash the resulting 8–15 digits. For example,
   `+1 (415) 555-2671` becomes `14155552671`.
 - External ID: trim leading and trailing whitespace. Preserve case and all
   other characters.
 - First and last name: convert the value to lowercase and remove all whitespace
   and ASCII punctuation. Apart from converting to lowercase, preserve non-ASCII characters;
-  don't strip accents or transliterate. For example, `José` becomes `josé`.
+  don't strip accents or transliterate. For example, `O'Connor` becomes
+  `oconnor`, and `José` becomes `josé`.
+
+The normalized value is the exact string to encode and hash:
+
+| Identifier   | Input               | Normalized value |
+| ------------ | ------------------- | ---------------- |
+| Phone number | `+1 (415) 555-2671` | `14155552671`    |
+| First name   | `Mary Jane`         | `maryjane`       |
+| Last name    | `O'Connor`          | `oconnor`        |
+| First name   | `José`              | `josé`           |
 
 Encode each normalized value as UTF-8, compute its SHA-256 digest, and send the
 digest as a lowercase, 64-character hexadecimal string. Don't send raw email
@@ -154,17 +163,17 @@ If these values are available when the installation snippet runs, you can
 instead include the same `user` object in the initial `oaiq("init", ...)` call
 with your Pixel ID.
 
-| Field                 | Description                                                                                        |
-| --------------------- | -------------------------------------------------------------------------------------------------- |
-| `email_sha256`        | SHA-256 hash of the email address after trimming whitespace and converting it to lowercase.        |
-| `phone_number_sha256` | SHA-256 hash of the normalized phone number.                                                       |
-| `external_id_sha256`  | SHA-256 hash of a stable, pseudonymous customer identifier from your system.                       |
-| `first_name_sha256`   | SHA-256 hash of the normalized first name.                                                         |
-| `last_name_sha256`    | SHA-256 hash of the normalized last name.                                                          |
-| `country`             | Two-letter ISO 3166-1 country code, such as `US`.                                                  |
-| `city`                | City name, with a maximum of 128 characters. OpenAI trims whitespace and converts it to lowercase. |
-| `region`              | State, province, or region, with a maximum of 128 characters.                                      |
-| `postal_code`         | Postal or ZIP code. Use letters, numbers, spaces, or hyphens, with a maximum of 32 characters.     |
+| Field                 | Description                                                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `email_sha256`        | SHA-256 hash of the email address after trimming whitespace and converting it to lowercase.                                   |
+| `phone_number_sha256` | SHA-256 hash of 8–15 digits after removing a leading `+`, leading zeroes, whitespace, parentheses, periods, and hyphens.      |
+| `external_id_sha256`  | SHA-256 hash of a stable, pseudonymous customer identifier from your system.                                                  |
+| `first_name_sha256`   | SHA-256 hash of the lowercase first name after removing whitespace and ASCII punctuation; non-ASCII characters are preserved. |
+| `last_name_sha256`    | SHA-256 hash of the lowercase last name after removing whitespace and ASCII punctuation; non-ASCII characters are preserved.  |
+| `country`             | Two-letter ISO 3166-1 country code, such as `US`.                                                                             |
+| `city`                | City name, with a maximum of 128 characters. OpenAI trims whitespace and converts it to lowercase.                            |
+| `region`              | State, province, or region, with a maximum of 128 characters.                                                                 |
+| `postal_code`         | Postal or ZIP code. Use letters, numbers, spaces, or hyphens, with a maximum of 32 characters.                                |
 
 If user data becomes available after the first `init` call, such as after login,
 call `init` again with the complete `user` object. When a page initializes only

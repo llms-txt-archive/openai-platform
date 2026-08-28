@@ -179,16 +179,25 @@ Normalize each identifier as follows:
 
 - Email address: trim leading and trailing whitespace and convert the value to
   lowercase.
-- Phone number: convert the value to international digits-only form. Keep the
-  country calling code, but remove the leading `+` or `00`
-  international-access prefix and all whitespace, parentheses, periods, and
-  hyphens. Hash the resulting 8–15 digits. For example,
+- Phone number: keep the country calling code. Remove all whitespace,
+  parentheses, periods, and hyphens, then remove a leading `+` and any
+  leading zeroes. Hash the resulting 8–15 digits. For example,
   `+1 (415) 555-2671` becomes `14155552671`.
 - External ID: trim leading and trailing whitespace. Preserve case and all
   other characters.
 - First and last name: convert the value to lowercase and remove all whitespace
   and ASCII punctuation. Apart from converting to lowercase, preserve non-ASCII characters;
-  don't strip accents or transliterate. For example, `José` becomes `josé`.
+  don't strip accents or transliterate. For example, `O'Connor` becomes
+  `oconnor`, and `José` becomes `josé`.
+
+The normalized value is the exact string to encode and hash:
+
+| Identifier   | Input               | Normalized value |
+| ------------ | ------------------- | ---------------- |
+| Phone number | `+1 (415) 555-2671` | `14155552671`    |
+| First name   | `Mary Jane`         | `maryjane`       |
+| Last name    | `O'Connor`          | `oconnor`        |
+| First name   | `José`              | `josé`           |
 
 Encode each normalized value as UTF-8, compute its SHA-256 digest, and send the
 digest as a lowercase, 64-character hexadecimal string. Don't send raw email
@@ -233,11 +242,11 @@ rejecting the event or request.
 
 | Field                    | Type           | Description                                                                                                                    |
 | ------------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `phone_numbers_sha256`   | `list[string]` | SHA-256 hashes of normalized phone numbers.                                                                                    |
+| `phone_numbers_sha256`   | `list[string]` | SHA-256 hashes of 8–15 digits after removing a leading `+`, leading zeroes, whitespace, parentheses, periods, and hyphens.     |
 | `emails_sha256`          | `list[string]` | SHA-256 hashes of normalized email addresses.                                                                                  |
 | `external_ids_sha256`    | `list[string]` | SHA-256 hashes of stable, pseudonymous customer identifiers from your system.                                                  |
-| `first_names_sha256`     | `list[string]` | SHA-256 hashes of normalized first names.                                                                                      |
-| `last_names_sha256`      | `list[string]` | SHA-256 hashes of normalized last names.                                                                                       |
+| `first_names_sha256`     | `list[string]` | SHA-256 hashes of lowercase first names after removing whitespace and ASCII punctuation; non-ASCII characters are preserved.   |
+| `last_names_sha256`      | `list[string]` | SHA-256 hashes of lowercase last names after removing whitespace and ASCII punctuation; non-ASCII characters are preserved.    |
 | `regions`                | `list[string]` | Raw region values. The API trims whitespace, converts values to lowercase, and limits each normalized value to 128 characters. |
 | `postal_codes`           | `list[string]` | Raw postal or ZIP codes. Use letters, numbers, spaces, or hyphens; each normalized value can contain up to 32 characters.      |
 | `cities`                 | `list[string]` | Raw city names. The API trims whitespace, converts values to lowercase, and limits each normalized value to 128 characters.    |
