@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260828T190023Z` | 2026-08-28 19:00 UTC | [Prompt Cache Breakpoints and Rosalind Workbench](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260828T190023Z) |
+| `archive-20260829T092249Z` | 2026-08-29 09:22 UTC | [Safety Alert Webhooks and Responses Schema Cleanup](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260829T092249Z) |
+| `archive-20260828T190023Z` | 2026-08-28 19:01 UTC | [Prompt Cache Breakpoints and Rosalind Workbench](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260828T190023Z) |
 | `archive-20260828T062042Z` | 2026-08-28 06:21 UTC | [GPT-5.6 positioning refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260828T062042Z) |
 | `archive-20260827T223527Z` | 2026-08-27 22:36 UTC | [Assistants Sunset and Usage Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260827T223527Z) |
 | `archive-20260827T120103Z` | 2026-08-27 12:02 UTC | [Broader C# examples and clearer commerce uploads](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260827T120103Z) |
 | `archive-20260827T010333Z` | 2026-08-27 01:04 UTC | [Cookbook removals and Java SDK snippet refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260827T010333Z) |
-| `archive-20260826T211322Z` | 2026-08-26 21:14 UTC | [Standalone image cost calculator docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260826T211322Z) |

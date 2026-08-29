@@ -149,6 +149,8 @@ Plugins may not:
 - Link directly to a checkout or other transactional page.
 - Link to a page that explicitly initiates the process to upgrade, subscribe, or complete a purchase.
 
+Plugins should provide a high quality experience in ChatGPT. If the same feature in your plugin is also available through your external website or application, you must not provide a worse version through your plugin. Plugins must not apply ChatGPT-specific fees, surcharges, or other pricing that penalizes users for accessing a service through ChatGPT. Temporary discounts and promotional offers on other platforms are permitted.
+
 In addition, plugins may not be used to sell, promote, facilitate, or meaningfully enable the following goods or services:
 
 #### **Prohibited goods**
