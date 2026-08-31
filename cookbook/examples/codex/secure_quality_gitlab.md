@@ -2,6 +2,8 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
+> **Update note — review the current guidance before using these examples.** The `--full-auto` flag used below is deprecated. Do not treat a failed Codex run or invalid output as an empty findings result. For general Codex automation, see [Non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode). For dedicated Codex Security scanning and remediation, use the maintained [GitLab CI/CD guide](https://learn.chatgpt.com/docs/security/cli/ci/gitlab). That workflow differs from this article's code-quality analysis and interpretation of existing SAST results; the examples below have not been migrated to it.
+
 ## Introduction
 
 When deploying production code, most teams rely on CI/CD pipelines to validate changes before merging. Reviewers typically look at unit test results, vulnerability scans, and code quality reports. Traditionally, these are produced by rule-based engines that catch known issues but often miss contextual or higher-order problems—while leaving developers with noisy results that are hard to prioritize or act on.
