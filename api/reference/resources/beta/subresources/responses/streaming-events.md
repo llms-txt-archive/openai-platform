@@ -2904,6 +2904,10 @@ Schema name: `BetaResponseCreatedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "max_messages"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "content_filter"
         }
       ]
@@ -2914,7 +2918,8 @@ Schema name: `BetaResponseCreatedEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 0": {
@@ -8390,6 +8395,13 @@ Schema name: `BetaResponseCreatedEvent`
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "max_messages"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -67130,6 +67142,10 @@ Schema name: `BetaResponseInProgressEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "max_messages"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "content_filter"
         }
       ]
@@ -67140,7 +67156,8 @@ Schema name: `BetaResponseInProgressEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 0": {
@@ -72616,6 +72633,13 @@ Schema name: `BetaResponseInProgressEvent`
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "max_messages"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -131356,6 +131380,10 @@ Schema name: `BetaResponseCompletedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "max_messages"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "content_filter"
         }
       ]
@@ -131366,7 +131394,8 @@ Schema name: `BetaResponseCompletedEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 0": {
@@ -136842,6 +136871,13 @@ Schema name: `BetaResponseCompletedEvent`
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "max_messages"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -195599,6 +195635,10 @@ Schema name: `BetaResponseFailedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "max_messages"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "content_filter"
         }
       ]
@@ -195609,7 +195649,8 @@ Schema name: `BetaResponseFailedEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 0": {
@@ -201085,6 +201126,13 @@ Schema name: `BetaResponseFailedEvent`
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "max_messages"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -259823,6 +259871,10 @@ Schema name: `BetaResponseIncompleteEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "max_messages"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "content_filter"
         }
       ]
@@ -259833,7 +259885,8 @@ Schema name: `BetaResponseIncompleteEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 0": {
@@ -265309,6 +265362,13 @@ Schema name: `BetaResponseIncompleteEvent`
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "max_messages"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",
@@ -389133,6 +389193,10 @@ Schema name: `BetaResponseQueuedEvent`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "max_messages"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "content_filter"
         }
       ]
@@ -389143,7 +389207,8 @@ Schema name: `BetaResponseQueuedEvent`
     "childrenParentSchema": "enum",
     "children": [
       "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 0",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 0": {
@@ -394619,6 +394684,13 @@ Schema name: `BetaResponseQueuedEvent`
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 1": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "max_messages"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) incomplete_details > (property) reason > (member) 2": {
     "kind": "HttpDeclReference",
     "type": {
       "kind": "HttpTypeLiteral",

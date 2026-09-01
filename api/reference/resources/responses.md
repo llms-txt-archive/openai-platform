@@ -82,11 +82,13 @@ the `background` parameter set to `true` can be cancelled.
 
     Details about why the response is incomplete.
 
-    - `reason: optional "max_output_tokens" or "content_filter"`
+    - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
       The reason why the response is incomplete.
 
       - `"max_output_tokens"`
+
+      - `"max_messages"`
 
       - `"content_filter"`
 
@@ -23958,11 +23960,13 @@ as input for the model's response.
 
     Details about why the response is incomplete.
 
-    - `reason: optional "max_output_tokens" or "content_filter"`
+    - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
       The reason why the response is incomplete.
 
       - `"max_output_tokens"`
+
+      - `"max_messages"`
 
       - `"content_filter"`
 
@@ -34157,11 +34161,13 @@ Retrieves a model response with the given ID.
 
     Details about why the response is incomplete.
 
-    - `reason: optional "max_output_tokens" or "content_filter"`
+    - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
       The reason why the response is incomplete.
 
       - `"max_output_tokens"`
+
+      - `"max_messages"`
 
       - `"content_filter"`
 
@@ -48559,11 +48565,13 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
     Details about why the response is incomplete.
 
-    - `reason: optional "max_output_tokens" or "content_filter"`
+    - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
       The reason why the response is incomplete.
 
       - `"max_output_tokens"`
+
+      - `"max_messages"`
 
       - `"content_filter"`
 
@@ -57923,11 +57931,13 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       Details about why the response is incomplete.
 
-      - `reason: optional "max_output_tokens" or "content_filter"`
+      - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
         The reason why the response is incomplete.
 
         - `"max_output_tokens"`
+
+        - `"max_messages"`
 
         - `"content_filter"`
 
@@ -67796,11 +67806,13 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       Details about why the response is incomplete.
 
-      - `reason: optional "max_output_tokens" or "content_filter"`
+      - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
         The reason why the response is incomplete.
 
         - `"max_output_tokens"`
+
+        - `"max_messages"`
 
         - `"content_filter"`
 
@@ -77108,11 +77120,13 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       Details about why the response is incomplete.
 
-      - `reason: optional "max_output_tokens" or "content_filter"`
+      - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
         The reason why the response is incomplete.
 
         - `"max_output_tokens"`
+
+        - `"max_messages"`
 
         - `"content_filter"`
 
@@ -86685,11 +86699,13 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       Details about why the response is incomplete.
 
-      - `reason: optional "max_output_tokens" or "content_filter"`
+      - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
         The reason why the response is incomplete.
 
         - `"max_output_tokens"`
+
+        - `"max_messages"`
 
         - `"content_filter"`
 
@@ -95890,11 +95906,13 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       Details about why the response is incomplete.
 
-      - `reason: optional "max_output_tokens" or "content_filter"`
+      - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
         The reason why the response is incomplete.
 
         - `"max_output_tokens"`
+
+        - `"max_messages"`
 
         - `"content_filter"`
 
@@ -118464,11 +118482,13 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       Details about why the response is incomplete.
 
-      - `reason: optional "max_output_tokens" or "content_filter"`
+      - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
         The reason why the response is incomplete.
 
         - `"max_output_tokens"`
+
+        - `"max_messages"`
 
         - `"content_filter"`
 
@@ -128326,11 +128346,13 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         Details about why the response is incomplete.
 
-        - `reason: optional "max_output_tokens" or "content_filter"`
+        - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
           The reason why the response is incomplete.
 
           - `"max_output_tokens"`
+
+          - `"max_messages"`
 
           - `"content_filter"`
 

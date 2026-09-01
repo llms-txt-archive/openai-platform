@@ -477,48 +477,116 @@ The `specialist` column shows which specialist the manager called, and `final` s
 
 The crAPI SQL candidate needs more evidence too. We can see the serializer check, but not its validation rules.
 
+The source links open the pinned files at the reported lines. Full reasons and proof gaps follow the tables. On small screens, scroll the tables horizontally.
+
 
 ```python
-rows = [
-    row
-    for target, bundle in target_reviews.items()
-    for row in result_rows(target, bundle)
-]
-show_table("Observed routing and findings", rows, (
-    "target / scanners", "signal", "source", "specialist",
-    "validator", "final", "reason or gap",
-))
+for target, bundle in target_reviews.items():
+    repository = bundle.snapshot.source_url.rstrip("/").rsplit("/", 1)[-1] if bundle.snapshot else target
+    scanners = ", ".join(bundle.selected_scanners) or "none"
+    show_table(f"{repository} / {scanners}", result_rows(bundle), (
+        "finding", "source", "specialist", "validator", "final",
+    ), scrollable=True)
 show_review_details(target_reviews)
 ```
 
-**Observed routing and findings**
+**VulnerableApp / semgrep**
 
-| target / scanners | signal | source | specialist | validator | final | reason or gap |
-| --- | --- | --- | --- | --- | --- | --- |
-| vulnerableapp / semgrep | P1 / sql\_injection | src/main/java/org/sasanlabs/service/vulnerability/sqlInjection/BlindSQLInjectionVulnerability\.java:58 | injection | confirmed | confirmed | The ID value is read directly from the request\-parameter map and concatenated into an unquoted SQL expression passed to applicationJdbcTemplate\.query\. No validation, esc… |
-| vulnerableapp / semgrep | P1 / sql\_injection | src/main/java/org/sasanlabs/service/vulnerability/sqlInjection/BlindSQLInjectionVulnerability\.java:82 | injection | confirmed | confirmed | The ID value is read from the request\-parameter map and concatenated inside a quoted SQL literal passed to applicationJdbcTemplate\.query\. With no escaping, validation, o… |
-| vulnerableapp / semgrep | P1 / sql\_injection | src/main/java/org/sasanlabs/service/vulnerability/sqlInjection/BlindSQLInjectionVulnerability\.java:132 | injection | not\_actionable | not\_actionable | The dominating id\.matches\("\\\\d\+"\) check rejects the request unless the entire ID consists of one or more digits\. Thus, although the accepted value is concatenated into a… |
-| crapi / semgrep, bandit | P2 / jwt\_verification\_disabled | services/workshop/utils/jwt\.py:61 | authentication | needs\_review | needs\_review | The Bearer token is decoded without signature verification and its \`sub\` selects the user, but only after the same token is submitted to \`IDENTITY\_VERIFY\` and that servi… |
-| crapi / semgrep, bandit | P2 / request\_timeout | services/workshop/crapi/merchant/views\.py:87 | configuration | confirmed | confirmed | Validated request data supplies the \`mechanic\_api\` destination and can enable repeated calls\. Although repeats are capped, \`requests\.get\` has no timeout, so any individu… |
-| crapi / semgrep, bandit | P2 / tls\_verification\_disabled | services/workshop/crapi/shop/views\.py:141 | configuration | confirmed | confirmed | The payment request to the configured gateway explicitly sets \`verify=False\`, disabling TLS certificate verification\. The fixed destination, Basic authentication, and fi… |
-| crapi / semgrep, bandit | P2 / request\_timeout | services/workshop/utils/jwt\.py:53 | configuration | not\_actionable | not\_actionable | A Bearer token triggers one timeout\-free request to the fixed \`IDENTITY\_VERIFY\` destination, but the supplied source shows no request\-controlled loop or repeated outboun… |
-| crapi / semgrep, bandit | P2 / tls\_verification\_disabled | services/workshop/crapi/merchant/views\.py:87 | configuration | confirmed | confirmed | After serializer validation, the request\-controlled \`mechanic\_api\` is passed to \`requests\.get\` with \`verify=False\`\. Validation and the repeat limit do not change the sin… |
-| crapi / semgrep, bandit | P2 / tls\_verification\_disabled | services/workshop/utils/jwt\.py:53 | configuration | confirmed | confirmed | The Bearer token is posted to the configured identity endpoint using \`verify=False\`, explicitly disabling TLS certificate verification\. The Bearer\-prefix and HTTP\-200 ch… |
-| crapi / semgrep, bandit | P1 / sql\_injection | services/workshop/crapi/shop/views\.py:388 | injection | needs\_review | needs\_review | The raw \`coupon\_code\` is concatenated inside a quoted SQL predicate and passed to \`cursor\.execute\` without parameter binding\. However, \`CouponSerializer\.is\_valid\(\)\` domi… |
+<div role="region" aria-label="VulnerableApp / semgrep review results" tabindex="0" style="overflow-x: auto;">
 
-**Findings that need more evidence**
+| finding | source | specialist | validator | final |
+| --- | --- | --- | --- | --- |
+| P1 / SQL injection | [BlindSQLInjectionVulne…\.java:58](https://github.com/SasanLabs/VulnerableApp/blob/668ab14704b63d286bc73f5ec302885a5f192c2e/src/main/java/org/sasanlabs/service/vulnerability/sqlInjection/BlindSQLInjectionVulnerability.java#L58) | injection | confirmed | confirmed |
+| P1 / SQL injection | [BlindSQLInjectionVulne…\.java:82](https://github.com/SasanLabs/VulnerableApp/blob/668ab14704b63d286bc73f5ec302885a5f192c2e/src/main/java/org/sasanlabs/service/vulnerability/sqlInjection/BlindSQLInjectionVulnerability.java#L82) | injection | confirmed | confirmed |
+| P1 / SQL injection | [BlindSQLInjectionVulne…\.java:132](https://github.com/SasanLabs/VulnerableApp/blob/668ab14704b63d286bc73f5ec302885a5f192c2e/src/main/java/org/sasanlabs/service/vulnerability/sqlInjection/BlindSQLInjectionVulnerability.java#L132) | injection | not\_actionable | not\_actionable |
 
-**crapi — services/workshop/utils/jwt\.py:61**
+</div>
 
-Candidate: cand\-1742b9ae3963a27c
+**crAPI / semgrep, bandit**
+
+<div role="region" aria-label="crAPI / semgrep, bandit review results" tabindex="0" style="overflow-x: auto;">
+
+| finding | source | specialist | validator | final |
+| --- | --- | --- | --- | --- |
+| P2 / JWT verification disabled | [utils/jwt\.py:61](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/utils/jwt.py#L61) | authentication | needs\_review | needs\_review |
+| P2 / request timeout | [merchant/views\.py:87](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/crapi/merchant/views.py#L87) | configuration | confirmed | confirmed |
+| P2 / TLS verification disabled | [shop/views\.py:141](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/crapi/shop/views.py#L141) | configuration | confirmed | confirmed |
+| P2 / request timeout | [utils/jwt\.py:53](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/utils/jwt.py#L53) | configuration | not\_actionable | not\_actionable |
+| P2 / TLS verification disabled | [merchant/views\.py:87](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/crapi/merchant/views.py#L87) | configuration | confirmed | confirmed |
+| P2 / TLS verification disabled | [utils/jwt\.py:53](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/utils/jwt.py#L53) | configuration | confirmed | confirmed |
+| P1 / SQL injection | [shop/views\.py:388](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/crapi/shop/views.py#L388) | injection | needs\_review | needs\_review |
+
+</div>
+
+**Decision notes**
+
+**VulnerableApp / P1 / SQL injection — [BlindSQLInjectionVulne…\.java:58](https://github.com/SasanLabs/VulnerableApp/blob/668ab14704b63d286bc73f5ec302885a5f192c2e/src/main/java/org/sasanlabs/service/vulnerability/sqlInjection/BlindSQLInjectionVulnerability.java#L58)**
+
+Candidate: cand\-3a08cb808092a9aa · confirmed
+
+The ID value is read directly from the request\-parameter map and concatenated into an unquoted SQL expression passed to applicationJdbcTemplate\.query\. No validation, escaping, or parameter binding constrains the input reaching SQL syntax\.
+
+
+**VulnerableApp / P1 / SQL injection — [BlindSQLInjectionVulne…\.java:82](https://github.com/SasanLabs/VulnerableApp/blob/668ab14704b63d286bc73f5ec302885a5f192c2e/src/main/java/org/sasanlabs/service/vulnerability/sqlInjection/BlindSQLInjectionVulnerability.java#L82)**
+
+Candidate: cand\-b0200b4d7f6369aa · confirmed
+
+The ID value is read from the request\-parameter map and concatenated inside a quoted SQL literal passed to applicationJdbcTemplate\.query\. With no escaping, validation, or parameter binding, input can terminate the literal and alter SQL syntax\.
+
+
+**VulnerableApp / P1 / SQL injection — [BlindSQLInjectionVulne…\.java:132](https://github.com/SasanLabs/VulnerableApp/blob/668ab14704b63d286bc73f5ec302885a5f192c2e/src/main/java/org/sasanlabs/service/vulnerability/sqlInjection/BlindSQLInjectionVulnerability.java#L132)**
+
+Candidate: cand\-e1a8f6aa6a73b42a · not\_actionable
+
+The dominating id\.matches\("\\\\d\+"\) check rejects the request unless the entire ID consists of one or more digits\. Thus, although the accepted value is concatenated into an unquoted numeric position, SQL syntax\-changing characters cannot reach the query\.
+
+
+**crAPI / P2 / JWT verification disabled — [utils/jwt\.py:61](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/utils/jwt.py#L61)**
+
+Candidate: cand\-1742b9ae3963a27c · needs\_review
 
 The Bearer token is decoded without signature verification and its \`sub\` selects the user, but only after the same token is submitted to \`IDENTITY\_VERIFY\` and that service returns HTTP 200\. No verifier implementation or demonstrated bypass establishes whether this upstream control cryptographically validates the token; \`verify=False\` disables TLS certificate checks but does not itself prove acceptance of an unsigned token\.
 
 - Proof gap: The implementation or contract of \`IDENTITY\_VERIFY\` is missing: it is unknown whether it cryptographically verifies the submitted token and returns 200 only when that same token is valid\.
 
-**crapi — services/workshop/crapi/shop/views\.py:388**
+**crAPI / P2 / request timeout — [merchant/views\.py:87](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/crapi/merchant/views.py#L87)**
 
-Candidate: cand\-9c16875f717198fb
+Candidate: cand\-3638cc76cae2d1d0 · confirmed
+
+Validated request data supplies the \`mechanic\_api\` destination and can enable repeated calls\. Although repeats are capped, \`requests\.get\` has no timeout, so any individual attempt can wait without that bound and repetition amplifies the source\-level availability risk\.
+
+
+**crAPI / P2 / TLS verification disabled — [shop/views\.py:141](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/crapi/shop/views.py#L141)**
+
+Candidate: cand\-4313414a28b1fa7e · confirmed
+
+The payment request to the configured gateway explicitly sets \`verify=False\`, disabling TLS certificate verification\. The fixed destination, Basic authentication, and five\-second timeout do not restore peer\-certificate validation\.
+
+
+**crAPI / P2 / request timeout — [utils/jwt\.py:53](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/utils/jwt.py#L53)**
+
+Candidate: cand\-4d3e7a03920b3819 · not\_actionable
+
+A Bearer token triggers one timeout\-free request to the fixed \`IDENTITY\_VERIFY\` destination, but the supplied source shows no request\-controlled loop or repeated outbound call\. On this narrow evidence, the missing timeout is hardening rather than a demonstrated availability issue\.
+
+
+**crAPI / P2 / TLS verification disabled — [merchant/views\.py:87](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/crapi/merchant/views.py#L87)**
+
+Candidate: cand\-85661410cf96c620 · confirmed
+
+After serializer validation, the request\-controlled \`mechanic\_api\` is passed to \`requests\.get\` with \`verify=False\`\. Validation and the repeat limit do not change the sink's explicitly disabled TLS certificate verification for HTTPS targets\.
+
+
+**crAPI / P2 / TLS verification disabled — [utils/jwt\.py:53](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/utils/jwt.py#L53)**
+
+Candidate: cand\-896f29e345909523 · confirmed
+
+The Bearer token is posted to the configured identity endpoint using \`verify=False\`, explicitly disabling TLS certificate verification\. The Bearer\-prefix and HTTP\-200 checks do not authenticate the TLS peer\.
+
+
+**crAPI / P1 / SQL injection — [shop/views\.py:388](https://github.com/OWASP/crAPI/blob/700f03d12a392d9e408260b4beae72ed02a4a1a4/services/workshop/crapi/shop/views.py#L388)**
+
+Candidate: cand\-9c16875f717198fb · needs\_review
 
 The raw \`coupon\_code\` is concatenated inside a quoted SQL predicate and passed to \`cursor\.execute\` without parameter binding\. However, \`CouponSerializer\.is\_valid\(\)\` dominates the sink, and its missing rules could reject every value capable of altering SQL syntax\.
 

@@ -124,11 +124,13 @@ Retrieves a model response with the given ID.
 
     Details about why the response is incomplete.
 
-    - `reason: optional "max_output_tokens" or "content_filter"`
+    - `reason: optional "max_output_tokens" or "max_messages" or "content_filter"`
 
       The reason why the response is incomplete.
 
       - `"max_output_tokens"`
+
+      - `"max_messages"`
 
       - `"content_filter"`
 
