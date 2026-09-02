@@ -2,379 +2,478 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-If your feed uses a Google-compatible product data format, OpenAI will use that
-formatting; see the [Google product data
-specification](https://support.google.com/merchants/answer/7052112?hl=en#basic_product_data)
-for field definitions.
+Use this reference for supported file uploads. Start with discovery data, then
+add the fields required for your Ads or checkout integration.
 
 
 
 <h2 id="feed-reference">Feed Reference</h2>
 
-      This reference defines the shared flat-file schema that OpenAI ingests and
-      indexes. For a non-Ads product feed, follow the Required and Optional
-      labels on this page. Ads product feeds follow the [Ads product feeds
-      guide](https://developers.openai.com/ads/product-feeds#use-the-correct-feed-schema) and use the same
-      base schema plus its additional eligibility requirement.
-
-      Each table below groups fields by schema object and indicates whether a
-      field is Required or Optional for a non-Ads feed, along with validation
-      rules to help your engineering team build and maintain a compliant upload
-      file.
-
-      Supplying all required fields ensures your products can be displayed
-      correctly. For Ads processing, also set `is_ads_eligible` to `true` on
-      each product that Ads should process.
+      Start with the required product fields and a minimal example. Optional
+      fields describe variants, product attributes, shipping, and returns.
+      Ads product feeds follow the [Ads product feeds
+      guide](https://developers.openai.com/ads/product-feeds#use-the-correct-feed-schema). Checkout requires
+      a separately enabled integration.
 
 
 
 
-### Google-compatible product data feeds
+### Start with discovery
 
-If OpenAI confirms that your registered feed supports this format, you can
-upload a compatible delimited product data feed without renaming its columns to
-OpenAI field names. Otherwise, continue to use the OpenAI specification. OpenAI
-maps the supported input fields into the stable product schema.
+Submit one row per purchasable item or variant. Include the nine required
+fields in [Basic product data](#basic-product-data), then add the optional data
+that describes your products. Ads and checkout have separate requirements.
 
-This compatibility path covers the core profile described in this section. It
-does not support every program, market, attribute, or feed representation. For
-field definitions, see the [product data specification](https://support.google.com/merchants/answer/7052112?hl=en#basic_product_data).
+- [Basic product data](#basic-product-data) and [minimal example](#minimal-example)
+- [Identity and variants](#variants)
+- [Product attributes](#item-information), [images](#media), and [prices](#price--promotions)
+- [Shipping](#fulfillment), [returns](#returns), and [reviews](#reviews-and-qa)
+- [Markets](#geo-tagging), [Ads](#ads), and [checkout](#checkout)
+- [Google-compatible feeds](#google-compatible-product-data-feeds)
 
-#### Meet the core requirements
+#### Value conventions
 
-- Upload a UTF-8, tab-delimited `.txt` or `.tsv` file, or a comma-delimited
-  `.csv` file. Gzip-compressed `.txt.gz`, `.txt.gzip`, `.tsv.gz`, and `.csv.gz`
-  files are also supported.
-- Include one header row with canonical lowercase, underscore-separated field
-  names. For example, use `image_link`. `.txt` uploads also accept common
-  space-separated display labels such as `image link`. `g:`-prefixed XML names
-  are not supported.
-- Include one product or variant per row.
-- Include `id`, `title`, `description`, `link`, `image_link`, `availability`,
-  `price`, and `brand` on every row.
-- Use plain `title` and `description` values. Structured title and description
-  alternatives are not mapped.
-- Use valid HTTP or HTTPS URLs for `link` and `image_link`.
-- Write `price` as an amount followed by a three-letter currency code. If OpenAI
-  confirms market-specific processing for your registered feed, use a currency
-  configured for that feed. Most products require a positive amount. A zero
-  price passes validation only for supported mobile-device categories with a
-  valid `subscription_cost`. If present, `sale_price` must be positive, use the
-  same currency, and be less than `price`.
-- Provide a valid `gtin` or `mpn` when you omit `identifier_exists` or set it to
-  `yes`. Set `identifier_exists` to `no` only when the product genuinely has no
-  identifier.
-- Include `availability_date` when `availability` is `preorder` or `backorder`.
+These tables describe what to submit. Required fields must contain a value;
+conditional requirements apply only to the stated use case. Format guidance is
+not a guarantee that every invalid value will be rejected at upload.
 
-Register a merchant display name that contains at least one non-whitespace
-character and is not a placeholder such as `unknown`, `null`, or `n/a`. OpenAI
-trims and uses that registered name as the seller identity on every row. An
-uploaded `seller_name` cannot override it.
+For optional fields, omit an unknown value. Unless a row says otherwise, an
+omitted field, JSON `null`, or an empty delimited cell supplies no value. Do not
+use placeholder strings such as `null`, `unknown`, or `n/a`; `unknown` is valid
+only where explicitly listed. An empty value does not mean zero or `false`.
+For boolean fields, use JSON `true` or `false`, or the lowercase strings `true` and
+`false` in delimited files. These values are not valid for other field types.
 
-If OpenAI confirms market-specific processing for the registered feed, OpenAI
-applies its configured currencies and target countries. In that case, OpenAI
-rejects products whose price currency is not configured for the feed.
+Use UTF-8 text and absolute HTTP or HTTPS URLs; prefer HTTPS. Product and image
+URLs must be publicly accessible. Keep identifiers as strings to preserve
+leading zeros. In CSV, quote a cell containing commas, quotes, or newlines, and
+double each embedded quote. JSON objects in CSV or TSV cells must be serialized
+as JSON. Use the [file upload guide](https://developers.openai.com/commerce/specs/file-upload/overview) for delivery.
 
-JSON, spreadsheet, XML, RSS, and Atom sources are not part of this compatibility
-path. Export a supported delimited product data feed before uploading it.
+### Basic product data
 
-#### How OpenAI selects the parser
+These fields are required for a useful discovery feed. Use a real brand and
+seller name, not placeholders. Keep titles concise and descriptions in plain
+text; aim for at most 150 and 5,000 characters, respectively.
 
-OpenAI automatically selects one parser for each upload:
+| Attribute      | Data type      | Requirement | Description                                                                                                                                                                           | Example                                                         |
+| :------------- | :------------- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------- |
+| `item_id`      | String         | Required    | Stable ID, unique per item or variant within your feed. Never reuse it for a different item. See [identity rules](#variants).                                                         | `TRAIL-BLK-10`                                                  |
+| `title`        | String         | Required    | Product name, including the selected variant when relevant.                                                                                                                           | `Trail running shoes — black, size 10`                          |
+| `description`  | String         | Required    | Factual product description for this item.                                                                                                                                            | `Waterproof trail shoes with a rubber outsole and mesh lining.` |
+| `url`          | String (URL)   | Required    | Product detail page for the item, with the variant selected when possible. Keep it stable.                                                                                            | `https://example.com/products/trail?color=black&size=10`        |
+| `brand`        | String         | Required    | Product brand as shown on the product page.                                                                                                                                           | `Northline`                                                     |
+| `seller_name`  | String         | Required    | Name of the seller supplying this offer. For marketplace offers, see [merchant information](#merchant-info).                                                                          | `Northline Outdoor`                                             |
+| `image_url`    | String (URL)   | Required    | Main product image, showing this variant. Use a direct image URL, such as a JPEG or PNG.                                                                                              | `https://example.com/images/trail-black.jpg`                    |
+| `availability` | String         | Required    | `in_stock`, `out_of_stock`, `pre_order`, `backorder`, or `unknown`. Omitted, empty, or unrecognized values reject the row. Use `unknown` explicitly when stock status is unavailable. | `in_stock`                                                      |
+| `price`        | String (money) | Required    | Regular item price in major currency units. See [prices](#price--promotions).                                                                                                         | `79.99 USD`                                                     |
 
-1. OpenAI samples records from every eligible file and checks the OpenAI product
-   schema first. Empty files do not contribute a sample.
-2. If the OpenAI parser does not accept at least one sampled record from every
-   file that yielded records, OpenAI checks the Google-compatible profile.
-3. OpenAI selects the Google-compatible profile only if it accepts at least one
-   sampled record from each file that yielded records.
-4. OpenAI uses the selected parser for every eligible file and row. It does not
-   switch parsers from row to row.
+#### Minimal example
 
-A feed that matches the OpenAI schema keeps OpenAI field semantics. Selecting a
-parser does not guarantee that every row is valid: each row is still validated
-during processing. If neither sampled profile matches, OpenAI keeps the OpenAI
-parser and reports its validation errors.
+This JSONL record describes one item. Search defaults to enabled and checkout
+to disabled. Ads defaults to disabled unless your feed has an Ads default configured.
+Replace the example URLs with your public product and image URLs.
 
-#### Field mapping
+{/* prettier-ignore */}
+```jsonl
+{"item_id":"MUG-350-BLUE","title":"Blue ceramic mug, 350 mL","description":"Dishwasher-safe glazed ceramic mug with a handle.","url":"https://example.com/products/mug-blue","brand":"Northline","seller_name":"Northline Home","image_url":"https://example.com/images/mug-blue.jpg","price":"18.00 USD","availability":"in_stock"}
+```
 
+Use an explicit availability value. `unknown` does not assert that the item is
+in stock.
 
+### OpenAI flags
 
-
-| Input field                                        | OpenAI field                                   | Handling                                                                                                                                                   |
-| :------------------------------------------------- | :--------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                               | `item_id`                                      | Copied as the stable product or variant ID.                                                                                                                |
-| `title`                                            | `title`                                        | Copied as plain text, up to 150 characters.                                                                                                                |
-| `description`                                      | `description`                                  | Copied as plain text, up to 5,000 characters.                                                                                                              |
-| `brand`                                            | `brand`                                        | Copied as the product brand.                                                                                                                               |
-| `seller_name`                                      | `seller_name`                                  | OpenAI replaces the uploaded value with the registered merchant name.                                                                                      |
-| `link`                                             | `url`, `seller_url`                            | Copied to `url`. OpenAI derives `seller_url` from the link's scheme and authority.                                                                         |
-| `image_link`                                       | `image_url`                                    | Copied as the main public image URL.                                                                                                                       |
-| `additional_image_link`                            | `additional_image_urls`                        | Copies valid comma-separated image URLs. OpenAI omits malformed optional URLs, but a URL that contains a username or password rejects the row.             |
-| `availability`                                     | `availability`                                 | Copies `in_stock`, `out_of_stock`, and `backorder`; maps `preorder` to `pre_order`.                                                                        |
-| `availability_date`                                | `availability_date`                            | Copied when provided and required for `preorder` or `backorder`. A date without a time is normalized to the start of that day in UTC.                      |
-| `price`                                            | `price`                                        | Copied with its three-letter currency. Must be positive except for the supported mobile-subscription case described below.                                 |
-| `sale_price`                                       | `sale_price`                                   | Copied when positive, in the same currency as `price`, and less than `price`.                                                                              |
-| `sale_price_effective_date`                        | `sale_price_start_date`, `sale_price_end_date` | Requires `sale_price` and a start before the end. Splits the input range into two fields. Date-only values use the start and end of the day in UTC.        |
-| `gtin`                                             | `gtin`                                         | Removes spaces and dashes and keeps the first valid GTIN.                                                                                                  |
-| `mpn`                                              | `mpn`                                          | Copied when provided.                                                                                                                                      |
-| `identifier_exists`                                | Not stored                                     | Determines whether OpenAI requires a valid `gtin` or a nonempty `mpn`.                                                                                     |
-| `condition`                                        | `condition`                                    | Copied when provided, with supported values normalized.                                                                                                    |
-| `product_type`, `google_product_category`          | `product_category`                             | Uses the first nonempty comma-separated `product_type`; otherwise uses `google_product_category`.                                                          |
-| `item_group_id`                                    | `group_id`, `listing_has_variations`           | Groups variants and marks the listing as having variations. Without this field, OpenAI uses `id` as `group_id` and treats the product as a single listing. |
-| `item_group_title`                                 | `item_group_title`                             | Copied when provided.                                                                                                                                      |
-| `color`, `size`, `material`, `age_group`, `gender` | Same field names and `variant_dict`            | Normalizes the matching OpenAI field. For grouped variants, adds the trimmed input value to `variant_dict`.                                                |
-| `pattern`, `size_type`                             | `variant_dict`                                 | Adds the value to `variant_dict` for grouped variants.                                                                                                     |
-| `size_system`                                      | `size_system`                                  | Copied when provided.                                                                                                                                      |
-| `video_link`                                       | `video_url`                                    | Copied when it is a valid HTTP or HTTPS URL.                                                                                                               |
-| `virtual_model_link`                               | `model_3d_url`                                 | Copied when it is a valid HTTP or HTTPS URL.                                                                                                               |
-| `expiration_date`                                  | `expiration_date`                              | Copied when it includes a time zone: `YYYY-MM-DDThh:mmZ`, optionally with seconds, or the equivalent with a numeric UTC offset.                            |
-
-
-
-
-For accepted products, OpenAI enables search and disables checkout. For an Ads
-feed, Ads eligibility comes from the registered feed configuration. Uploaded
-eligibility fields do not override these settings.
-
-For Ads feeds, OpenAI retains selected Google-compatible fields for product
-filtering in Ads campaigns. This dynamically configured set currently includes
-`custom_label_0` through `custom_label_4` and a few other key columns. The
-available fields may change over time.
-
-#### Zero-price validation
-
-For the zero-price exception, `google_product_category` must identify a
-supported mobile-device category and `subscription_cost` must use
-`month|year:positive integer:positive amount CURRENCY`. Its currency must match
-`price`.
-
-Uploaded `url`, `seller_url`, eligibility, checkout, return-policy, and Ads
-control fields do not control the normalized product. An uploaded `url` or
-`seller_url` that contains a username or password rejects the row. OpenAI
-redacts the credential from the validation details.
-
-Upload History reports missing required columns and values in supported fields
-that fail validation. OpenAI can reject one malformed product while other valid
-rows in the upload continue processing.
-
-
-### OpenAI Flags
-
-Use these flags to control whether a product is discoverable or purchasable
-inside ChatGPT. These fields do not affect how the product is displayed on your
-own site. They simply enable or disable the ChatGPT integrations.
-
-The `Requirement` column and `Required fields only` filter describe non-Ads
-feeds unless a row says otherwise. For Ads product feeds, see the [Ads product
-feeds guide](https://developers.openai.com/ads/product-feeds#use-the-correct-feed-schema).
-
-| Attribute            | Data Type | Supported Values | Description                                                                                                                          | Example | Requirement                                             | Dependencies                       | Validation Rules  |
-| :------------------- | :-------- | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :------ | :------------------------------------------------------ | :--------------------------------- | :---------------- |
-| is_eligible_search   | Boolean   | `true`, `false`  | Controls whether the product can be surfaced in ChatGPT search results.                                                              | `true`  | Required                                                | —                                  | Lower-case string |
-| is_eligible_checkout | Boolean   | `true`, `false`  | Allows direct purchase inside ChatGPT. `is_eligible_search` must be `true` for `is_eligible_checkout` to be enabled for the product. | `true`  | Required                                                | Requires `is_eligible_search=true` | Lower-case string |
-| is_ads_eligible      | Boolean   | `true`, `false`  | Controls whether the product can be processed for ChatGPT ads. Use `is_eligible_ads` only as a legacy alias.                         | `true`  | Required for Ads processing; optional for non-Ads feeds | —                                  | Lower-case string |
-
-### Basic Product Data
-
-Provide the core identifiers and descriptive text needed to uniquely reference
-each product. These fields establish the canonical record that ChatGPT Search
-uses to display and link to your product.
-
-| Attribute   | Data Type             | Supported Values | Description                              | Example                                        | Requirement | Dependencies | Validation Rules                            |
-| :---------- | :-------------------- | :--------------- | :--------------------------------------- | :--------------------------------------------- | :---------- | :----------- | :------------------------------------------ |
-| item_id     | String (alphanumeric) | —                | Merchant product ID (unique per variant) | `SKU12345`                                     | Required    | —            | Max 100 chars; must remain stable over time |
-| gtin        | String (numeric)      | GTIN, UPC, ISBN  | Universal product identifier             | `123456789543`                                 | Optional    | —            | 8-14 digits; no dashes or spaces            |
-| mpn         | String (alphanumeric) | —                | Manufacturer part number                 | `GPT5`                                         | Optional    | —            | Max 70 chars                                |
-| title       | String (UTF-8 text)   | —                | Product title                            | `Men's Trail Running Shoes Black`              | Required    | —            | Max 150 chars; avoid all-caps               |
-| description | String (UTF-8 text)   | —                | Full product description                 | `Waterproof trail shoe with cushioned sole...` | Required    | —            | Max 5,000 chars; plain text only            |
-| url         | URL                   | RFC 1738         | Product detail page URL                  | `https://example.com/product/SKU12345`         | Required    | —            | Must resolve with HTTP 200; HTTPS preferred |
-
-### Item Information
-
-Capture the physical characteristics and classification details of the product.
-This data helps ensure accurate categorization, filtering, and search
-relevance.
-
-| Attribute        | Data Type | Supported Values                                | Description          | Example                                                    | Requirement | Dependencies                                                | Validation Rules                               |
-| :--------------- | :-------- | :---------------------------------------------- | :------------------- | :--------------------------------------------------------- | :---------- | :---------------------------------------------------------- | :--------------------------------------------- |
-| brand            | String    | —                                               | Product brand        | `OpenAI`                                                   | Required    | —                                                           | Max 70 chars                                   |
-| condition        | String    | —                                               | Condition of product | `new`                                                      | Optional    | —                                                           | Lower-case string                              |
-| product_category | String    | Category taxonomy                               | Category path        | `Apparel & Accessories > Shoes`                            | Optional    | —                                                           | Use `>` separator                              |
-| material         | String    | —                                               | Primary material(s)  | `Leather`                                                  | Optional    | —                                                           | Max 100 chars                                  |
-| dimensions       | String    | `LxWxH unit`                                    | Overall dimensions   | `12x8x5 in`                                                | Optional    | —                                                           | Units required if provided                     |
-| length           | String    | —                                               | Individual dimension | `10`                                                       | Optional    | Provide all three if using individual fields                | Use `dimensions_unit`                          |
-| width            | String    | —                                               | Individual dimension | `10`                                                       | Optional    | Provide all three if using individual fields                | Use `dimensions_unit`                          |
-| height           | String    | —                                               | Individual dimension | `10`                                                       | Optional    | Provide all three if using individual fields                | Use `dimensions_unit`                          |
-| dimensions_unit  | String    | —                                               | Dimensions unit      | `in`                                                       | Optional    | Required if any of `length`, `width`, `height` are provided | Unit abbreviation (for example, `in`, `cm`)    |
-| weight           | String    | —                                               | Product weight       | `1.5`                                                      | Optional    | —                                                           | Use `item_weight_unit`                         |
-| item_weight_unit | String    | —                                               | Product weight unit  | `lb`                                                       | Optional    | Required if `weight` is provided                            | Unit abbreviation (for example, `lb`, `kg`)    |
-| age_group        | Enum      | `newborn`, `infant`, `toddler`, `kids`, `adult` | Target demographic   | `adult`                                                    | Optional    | —                                                           | Lower-case string                              |
-| ads_metadata     | Object    | —                                               | Ad metadata values   | `{ "bidding_tier": "high", "product_line": "essentials" }` | Optional    | —                                                           | JSON object with string keys and string values |
-
-### Media
-
-Supply visual and rich media assets that represent the product. High-quality
-images and optional videos or 3D models improve user trust and engagement.
-
-| Attribute             | Data Type | Supported Values | Description            | Example                              | Requirement | Dependencies | Validation Rules            |
-| :-------------------- | :-------- | :--------------- | :--------------------- | :----------------------------------- | :---------- | :----------- | :-------------------------- |
-| image_url             | URL       | RFC 1738         | Main product image URL | `https://example.com/image1.jpg`     | Required    | —            | JPEG/PNG; HTTPS preferred   |
-| additional_image_urls | String    | —                | Extra images           | `https://example.com/image2.jpg,...` | Optional    | —            | Comma-separated list        |
-| video_url             | URL       | RFC 1738         | Product video          | `https://youtu.be/12345`             | Optional    | —            | Must be publicly accessible |
-| model_3d_url          | URL       | RFC 1738         | 3D model               | `https://example.com/model.glb`      | Optional    | —            | GLB/GLTF preferred          |
-
-### Price & Promotions
-
-Define standard and promotional pricing information. These attributes power
-price display, discount messaging, and offer comparisons.
-
-| Attribute                           | Data Type         | Supported Values | Description                 | Example                    | Requirement | Dependencies | Validation Rules                      |
-| :---------------------------------- | :---------------- | :--------------- | :-------------------------- | :------------------------- | :---------- | :----------- | :------------------------------------ |
-| price                               | Number + currency | ISO 4217         | Regular price               | `79.99 USD`                | Required    | —            | Must include currency code            |
-| sale_price                          | Number + currency | ISO 4217         | Discounted price            | `59.99 USD`                | Optional    | —            | Must be less than or equal to `price` |
-| sale_price_start_date               | Date              | ISO 8601         | Sale start date             | `2025-07-01`               | Optional    | —            | Must be valid ISO 8601 date           |
-| sale_price_end_date                 | Date              | ISO 8601         | Sale end date               | `2025-07-15`               | Optional    | —            | Must be valid ISO 8601 date           |
-| unit_pricing_measure / base_measure | Number + unit     | —                | Unit price and base measure | `16 oz / 1 oz`             | Optional    | —            | Both fields required together         |
-| pricing_trend                       | String            | —                | Lowest price in N months    | `Lowest price in 6 months` | Optional    | —            | Max 80 chars                          |
-
-### Availability & Inventory
-
-Describe current stock levels and key timing signals for product availability.
-Accurate inventory data ensures users only see items they can actually
-purchase.
-
-| Attribute         | Data Type         | Supported Values                                                | Description                    | Example      | Requirement                          | Dependencies             | Validation Rules        |
-| :---------------- | :---------------- | :-------------------------------------------------------------- | :----------------------------- | :----------- | :----------------------------------- | :----------------------- | :---------------------- |
-| availability      | Enum              | `in_stock`, `out_of_stock`, `pre_order`, `backorder`, `unknown` | Product availability           | `in_stock`   | Required                             | —                        | Lower-case string       |
-| availability_date | Date              | ISO 8601                                                        | Availability date if pre-order | `2025-12-01` | Required if `availability=pre_order` | —                        | Must be future date     |
-| expiration_date   | Date              | ISO 8601                                                        | Remove product after date      | `2025-12-01` | Optional                             | —                        | Must be future date     |
-| pickup_method     | Enum              | `in_store`, `reserve`, `not_supported`                          | Pickup options                 | `in_store`   | Optional                             | —                        | Lower-case string       |
-| pickup_sla        | Number + duration | —                                                               | Pickup SLA                     | `1 day`      | Optional                             | Requires `pickup_method` | Positive integer + unit |
+| Attribute            | Data type | Requirement | Description                                                                                                                                        | Example |
+| :------------------- | :-------- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------- | :------ |
+| `is_eligible_search` | boolean   | Optional    | `true` enables search eligibility; `false` disables it and checkout eligibility. Omitted or empty: `true`. Eligibility does not guarantee display. | `true`  |
 
 ### Variants
 
-Specify how related SKUs vary by size, color, or other options. Variant data
-supports better matching, cleaner product grouping, and more precise product
-recommendations.
+Use `item_id` for the specific item, `group_id` for its parent listing, and
+`offer_id` for a seller's offer. Keep all three stable when price, stock, title,
+or images change. **Never include price in an offer ID.**
 
-| Attribute                | Data Type           | Supported Values | Description                            | Example                                                               | Requirement                          | Dependencies | Validation Rules                        |
-| :----------------------- | :------------------ | :--------------- | :------------------------------------- | :-------------------------------------------------------------------- | :----------------------------------- | :----------- | :-------------------------------------- |
-| group_id                 | String              | —                | Shared group identifier                | `SHOE123`                                                             | Recommended, if listing has variants | —            | Stable across related variants          |
-| listing_has_variations   | Boolean             | `true`, `false`  | Indicates whether listing has variants | `true`                                                                | Recommended                          | —            | Lower-case string                       |
-| variant_dict             | Object              | —                | Variant attributes map                 | A map of option names to values, such as color to Blue and size to 10 | Recommended, if listing has variants | —            | JSON object with string values          |
-| item_group_title         | String (UTF-8 text) | —                | Group product title                    | `Men's Trail Running Shoes`                                           | Optional                             | —            | Max 150 chars; avoid all-caps           |
-| color                    | String              | —                | Variant color                          | `Blue`                                                                | Optional                             | —            | Max 40 chars                            |
-| size                     | String              | —                | Variant size                           | `10`                                                                  | Recommended (apparel)                | —            | Max 20 chars                            |
-| size_system              | Country code        | ISO 3166         | Size system                            | `US`                                                                  | Recommended (apparel)                | —            | 2-letter country code                   |
-| gender                   | String              | —                | Gender target                          | `male`                                                                | Optional                             | —            | Lower-case string                       |
-| offer_id                 | String              | —                | Offer ID (SKU+seller+price)            | `SKU12345-Blue-79.99`                                                 | Optional                             | —            | Unique within feed                      |
-| Custom_variant1_category | String              | —                | Custom variant dimension 1             | `Size_Type`                                                           | Optional (deprecated)                | —            | Deprecated; use `variant_dict` instead. |
-| Custom_variant1_option   | String              | —                | Custom variant 1 option                | `Petite / Tall / Maternity`                                           | Optional (deprecated)                | —            | Deprecated; use `variant_dict` instead. |
-| Custom_variant2_category | String              | —                | Custom variant dimension 2             | `Wood_Type`                                                           | Optional (deprecated)                | —            | Deprecated; use `variant_dict` instead. |
-| Custom_variant2_option   | String              | —                | Custom variant 2 option                | `Oak / Mahogany / Walnut`                                             | Optional (deprecated)                | —            | Deprecated; use `variant_dict` instead. |
-| Custom_variant3_category | String              | —                | Custom variant dimension 3             | `Cap_Type`                                                            | Optional (deprecated)                | —            | Deprecated; use `variant_dict` instead. |
-| Custom_variant3_option   | String              | —                | Custom variant 3 option                | `Snapback / Fitted`                                                   | Optional (deprecated)                | —            | Deprecated; use `variant_dict` instead. |
+For variants, send a separate row for each selection, with a distinct `item_id`,
+the same `group_id`, `listing_has_variations=true`, and a `variant_dict` of the
+selected options. The group ID must differ from each item ID. Use the same
+option names across a group, and unique option combinations. Group only
+variants of the same product as presented on your site. Each row carries its
+own price, availability, URL, and images.
+
+| Attribute                | Data type               | Requirement                         | Description                                                                                                                                                                                                 | Example                         |
+| :----------------------- | :---------------------- | :---------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ |
+| `group_id`               | String                  | Conditionally required for variants | Stable parent-listing ID shared by all variants. Omitted or empty: uses `item_id`, which does not establish a variant group.                                                                                | `TRAIL`                         |
+| `listing_has_variations` | boolean                 | Conditionally required for variants | Set `true` on every variant row. Omitted, empty, or `false`: no variant options are used.                                                                                                                   | `true`                          |
+| `variant_dict`           | Object of string values | Conditionally required for variants | Map option names to the selected values. Requires `listing_has_variations=true` and `group_id` different from `item_id`; otherwise ignored. Use nonempty keys and values. An empty object means no options. | `{"color":"Black","size":"10"}` |
+| `offer_id`               | String                  | Optional                            | Stable offer ID, unique within the feed. Use it to distinguish offers that share a product URL. Omitted or empty: no explicit offer ID; do not rely on this to distinguish multiple sellers at one URL.     | `northline-TRAIL-BLK-10`        |
+| `gtin`                   | String                  | Optional                            | One assigned GTIN: exactly 8, 12, 13, or 14 digits, including a valid check digit. Preserve leading zeros; no spaces or dashes. Omit if unassigned.                                                         | `09506000134352`                |
+| `mpn`                    | String                  | Optional                            | Manufacturer-assigned part number, preserving its punctuation and casing. Submit with `brand`; do not invent a value to replace a missing GTIN.                                                             | `NL-TRAIL-10-BLK`               |
+
+A GTIN identifies the specific trade item, not the variant group. UPC-A is a
+12-digit GTIN; an ISBN-13 can be submitted as a 13-digit GTIN. Do not submit an
+ISBN-10. To check the final digit, start at the rightmost digit before it,
+multiply alternate digits by 3 and 1, sum them, and choose the check digit that
+makes the total divisible by 10. Validate identifiers before uploading.
+
+#### Variant-group example
+
+Both records belong to `TRAIL`. Each record selects one size and has a stable
+offer ID. The JSON is expanded for readability; in your JSONL file, write each
+complete record on one line.
+
+Size 10 (`in_stock`):
+
+```json
+{
+  "item_id": "TRAIL-BLK-10",
+  "group_id": "TRAIL",
+  "listing_has_variations": true,
+  "variant_dict": {
+    "color": "Black",
+    "size": "10"
+  },
+  "offer_id": "northline-TRAIL-BLK-10",
+  "title": "Trail running shoes — black, size 10",
+  "description": "Waterproof trail shoes with a rubber outsole.",
+  "url": "https://example.com/products/trail?color=black&size=10",
+  "brand": "Northline",
+  "seller_name": "Northline Outdoor",
+  "image_url": "https://example.com/images/trail-black.jpg",
+  "price": "79.99 USD",
+  "availability": "in_stock"
+}
+```
+
+Size 11 (`out_of_stock`):
+
+```json
+{
+  "item_id": "TRAIL-BLK-11",
+  "group_id": "TRAIL",
+  "listing_has_variations": true,
+  "variant_dict": {
+    "color": "Black",
+    "size": "11"
+  },
+  "offer_id": "northline-TRAIL-BLK-11",
+  "title": "Trail running shoes — black, size 11",
+  "description": "Waterproof trail shoes with a rubber outsole.",
+  "url": "https://example.com/products/trail?color=black&size=11",
+  "brand": "Northline",
+  "seller_name": "Northline Outdoor",
+  "image_url": "https://example.com/images/trail-black.jpg",
+  "price": "79.99 USD",
+  "availability": "out_of_stock"
+}
+```
+
+### Item information
+
+Keep top-level attributes consistent with the same options in `variant_dict`.
+Neither representation reconciles conflicting values for you.
+
+| Attribute          | Data type        | Requirement                                     | Description                                                                                                                                                                                                                  | Example                                                  |
+| :----------------- | :--------------- | :---------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
+| `condition`        | String           | Optional                                        | Use `new`, `refurbished`, or `used`. Omitted or empty may be treated as `new`; always specify used or refurbished condition.                                                                                                 | `new`                                                    |
+| `product_category` | String           | Optional                                        | Your category path, from broad to specific, separated by `>`.                                                                                                                                                                | `Apparel & Accessories > Shoes`                          |
+| `material`         | String           | Optional                                        | Principal materials in the item.                                                                                                                                                                                             | `Leather and rubber`                                     |
+| `color`            | String           | Optional                                        | Selected color, consistent with the product image.                                                                                                                                                                           | `Black`                                                  |
+| `size`             | String           | Optional                                        | Selected size label; use `variant_dict` when size distinguishes variants. A sizing system requires the setup described in [additional supported data](#additional-supported-data).                                           | `10`                                                     |
+| `gender`           | String           | Optional                                        | `male`, `female`, or `unisex`. Omitted, empty, or unrecognized: no gender supplied.                                                                                                                                          | `unisex`                                                 |
+| `age_group`        | String           | Optional                                        | `newborn`, `infant`, `toddler`, `kids`, or `adult`. Omitted, empty, or unrecognized: no age group supplied. This is a product attribute, not a purchase-age restriction.                                                     | `adult`                                                  |
+| `dimensions`       | Object           | Optional                                        | Positive decimal strings for at least two of `length`, `width`, and `height`, plus `unit`: `in`, `cm`, `ft`, `m`, or `mm`. No other keys. Overrides the separate dimension fields. Empty object is invalid; omit if unknown. | `{"length":"30","width":"20","height":"12","unit":"cm"}` |
+| `length`           | String (decimal) | Optional                                        | Positive product length; requires `dimensions_unit`. Use with `width` or `height`. Ignored when structured `dimensions` is supplied.                                                                                         | `30`                                                     |
+| `width`            | String (decimal) | Optional                                        | Positive product width; requires `dimensions_unit`. Use with `length` or `height`. Ignored when structured `dimensions` is supplied.                                                                                         | `20`                                                     |
+| `height`           | String (decimal) | Optional                                        | Positive product height; requires `dimensions_unit`. Use with `length` or `width`. Ignored when structured `dimensions` is supplied.                                                                                         | `12`                                                     |
+| `dimensions_unit`  | String           | Conditionally required with separate dimensions | `in`, `cm`, `ft`, `m`, or `mm`; one unit for all supplied axes. Omitted: no unit conversion or inference.                                                                                                                    | `cm`                                                     |
+| `weight`           | String (decimal) | Optional                                        | Positive net product weight, without packaging. Requires `item_weight_unit`.                                                                                                                                                 | `0.75`                                                   |
+| `item_weight_unit` | String           | Conditionally required with `weight`            | Use `g`, `kg`, `oz`, or `lb`. Omitted: no unit conversion or inference.                                                                                                                                                      | `kg`                                                     |
+
+Use `dimensions` for new feeds. Supply the product's dimensions, not its
+shipping package dimensions. Convert measurements before uploading; units are
+not inferred from the market or sizing system. The separate dimension fields
+remain supported for existing feeds.
+
+### Media
+
+| Attribute               | Data type                                       | Requirement | Description                                                                                                                                          | Example                                                                                     |
+| :---------------------- | :---------------------------------------------- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
+| `additional_image_urls` | Array of URL strings, or comma-separated string | Optional    | Additional views of this item. Omitted, empty, or `[]`: no additional images. Invalid URLs are omitted. Percent-encode commas inside a URL as `%2C`. | `["https://example.com/images/trail-side.jpg","https://example.com/images/trail-sole.jpg"]` |
+
+In a CSV cell, encode the same list as
+`"https://example.com/images/trail-side.jpg,https://example.com/images/trail-sole.jpg"`.
+Use an array in JSONL. Do not use spaces or semicolons as list separators.
+
+### Price & promotions
+
+Write money as `amount CURRENCY`, for example `79.99 USD`: a decimal amount in
+major units, a space, and an uppercase three-letter ISO 4217 currency code.
+`79.99 USD` means 79 dollars and 99 cents, not 7,999 dollars. Use a decimal point,
+no thousands separators or exponent notation, and no more fractional digits
+than the currency permits. For USD, use two decimal places. Do not round a
+price into a different payable amount.
+
+Use a positive regular price for discovery and the currency agreed for your
+feed. See the separate [Google-compatible rules](#google-compatible-product-data-feeds)
+for its zero-price exception. Submit the current price; update the feed when a
+sale starts or ends.
+
+| Attribute    | Data type      | Requirement | Description                                                                                                                                                                                       | Example     |
+| :----------- | :------------- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------- |
+| `sale_price` | String (money) | Optional    | Current sale price: greater than zero, strictly less than `price`, and in the same currency. Omitted or empty: use `price`. A nonpositive, equal, higher, or different-currency sale is not used. | `59.99 USD` |
+
+### Availability & inventory
+
+Submit current stock status with each row. Use `pre_order` for an item offered
+before release and `backorder` for an item temporarily awaiting stock. These
+values do not schedule a future stock change. Update `availability` when the
+item becomes available or sells out.
+
+### Merchant info
+
+| Attribute    | Data type    | Requirement | Description                                                                                                                                       | Example                                |
+| :----------- | :----------- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------- |
+| `seller_url` | String (URL) | Optional    | Seller's storefront or profile page. For a marketplace offer, use the specific seller's page. Omitted, empty, or invalid: no seller URL supplied. | `https://example.com/stores/northline` |
+
+For a third-party seller, `seller_name` identifies that seller and
+`marketplace_seller` identifies the marketplace where checkout occurs. The
+latter requires [feed setup](#additional-supported-data). The OpenAI format
+requires `seller_name` on each row. Google-compatible feeds use the registered
+merchant name instead. Do not assume registration supplies other row fields.
 
 ### Fulfillment
 
-Outline shipping methods, costs, and estimated delivery times. Providing
-detailed shipping information helps users understand fulfillment options
-upfront.
+Shipping support depends on your feed setup. Confirm which of these two
+representations your integration accepts before supplying it. A shipping
+amount describes a charge; it does not quote a checkout total or guarantee a
+delivery date.
 
-| Attribute  | Data Type | Supported Values                                                                                         | Description                         | Example                             | Requirement | Dependencies | Validation Rules                                                             |
-| :--------- | :-------- | :------------------------------------------------------------------------------------------------------- | :---------------------------------- | :---------------------------------- | :---------- | :----------- | :--------------------------------------------------------------------------- |
-| shipping   | String    | country:region:service_class:price:min_handling_days:max_handling_days:min_transit_days:max_transit_days | Shipping information                | `US:CA:Overnight:16.00 USD:1:2:1:3` | Optional    | —            | Omitting fields is allowed (`US::Overnight:16.00 USD`); use colon separators |
-| is_digital | Boolean   | `true`, `false`                                                                                          | Indicates if the product is digital | `false`                             | Optional    | —            | Lower-case string                                                            |
+| Attribute        | Data type      | Requirement                            | Description                                                                                                                                                                                                                        | Example                 |
+| :--------------- | :------------- | :------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------- |
+| `shipping_price` | String (money) | Optional                               | OpenAI-format shipping charge, in the same currency as `price`. Use a nonnegative amount; zero means no charge. Omitted or empty means unknown, not free shipping. Confirm display support for your integration.                   | `5.00 USD`              |
+| `shipping`       | String         | Optional; requires feed-specific setup | For integrations configured for shipping tuples: exactly `country:region:service_class:price`. Use a supported country, an optional region, a service name, and a nonnegative money amount. Omitted or empty: no shipping details. | `US::Standard:5.00 USD` |
 
-### Merchant Info
-
-Identify the seller and link to any relevant merchant policies or storefront
-pages. This ensures proper attribution and enables users to review seller
-credentials.
-
-Note about 3P sellers and marketplaces: If your feed contains products that
-are shipped with 3rd party sellers, please also include a
-`marketplace_seller` in your feed. The `marketplace_seller` would be the point
-of checkout in this scenario, and the `seller_name` would be the shipment
-fulfiller.
-
-| Attribute             | Data Type | Supported Values | Description                      | Example                       | Requirement                                | Dependencies | Validation Rules |
-| :-------------------- | :-------- | :--------------- | :------------------------------- | :---------------------------- | :----------------------------------------- | :----------- | :--------------- |
-| seller_name           | String    | —                | Seller name                      | `Example Store`               | Required / Display                         | —            | Max 70 chars     |
-| marketplace_seller    | String    | —                | Marketplace seller of record     | `Marketplace Name`            | Optional                                   | —            | Max 70 chars     |
-| seller_url            | URL       | RFC 1738         | Seller page                      | `https://example.com/store`   | Optional                                   | —            | HTTPS preferred  |
-| seller_privacy_policy | URL       | RFC 1738         | Seller-specific policies         | `https://example.com/privacy` | Required if `is_eligible_checkout` is true | —            | HTTPS preferred  |
-| seller_tos            | URL       | RFC 1738         | Seller-specific terms of service | `https://example.com/terms`   | Required if `is_eligible_checkout` is true | —            | HTTPS preferred  |
+The tuple form has four positions; keep the empty region position when it does
+not apply. It is not a list of regional overrides. Handling-day and transit-day
+suffixes are not part of this supported tuple. Do not send both representations
+for the same charge. Adding a `shipping` column to a standard OpenAI-format feed
+does not enable tuple support.
 
 ### Returns
 
-Provide return policies and time windows to set clear expectations for buyers.
-Transparent return data builds trust and reduces post-purchase confusion.
+Describe whether this item can be returned separately from the policy URL and
+return window. A return window is a duration, not a deadline date.
 
-Use `return_deadline_in_days` as the canonical field for return windows in the
-feed schema.
+| Attribute                 | Data type    | Requirement | Description                                                                                                                                                                                                                               | Example                       |
+| :------------------------ | :----------- | :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
+| `accepts_returns`         | boolean      | Optional    | `true`: returns accepted. `false`: no returns, provided `return_policy` is omitted. Omitted or empty: `true` with a nonempty `return_policy`, otherwise `false`.                                                                          | `true`                        |
+| `return_deadline_in_days` | Integer      | Optional    | Positive whole number of days allowed for returns under your policy. Supply only when returns are accepted; it does not enable returns by itself. Omitted or empty: no window supplied. Use the policy to explain when the window starts. | `30`                          |
+| `return_policy`           | String (URL) | Optional    | Public policy for this item's returns. Omitted, empty, or invalid URL: no policy link supplied. See the acceptance rule before including it.                                                                                              | `https://example.com/returns` |
 
-| Attribute               | Data Type | Supported Values | Description             | Example                       | Requirement | Dependencies | Validation Rules  |
-| :---------------------- | :-------- | :--------------- | :---------------------- | :---------------------------- | :---------- | :----------- | :---------------- |
-| accepts_returns         | Boolean   | `true`, `false`  | Accepts returns         | `true`                        | Optional    | —            | Lower-case string |
-| return_deadline_in_days | Integer   | Days             | Days allowed for return | `30`                          | Optional    | —            | Positive integer  |
-| accepts_exchanges       | Boolean   | `true`, `false`  | Accepts exchanges       | `false`                       | Optional    | —            | Lower-case string |
-| return_policy           | URL       | RFC 1738         | Return policy URL       | `https://example.com/returns` | Optional    | —            | HTTPS preferred   |
-
-### Performance Signals
-
-Share popularity and return-rate metrics where available. These signals can be
-used to enhance ranking and highlight high-performing products.
-
-| Attribute        | Data Type | Supported Values | Description          | Example | Requirement | Dependencies | Validation Rules              |
-| :--------------- | :-------- | :--------------- | :------------------- | :------ | :---------- | :----------- | :---------------------------- |
-| popularity_score | Number    | —                | Popularity indicator | `4.7`   | Optional    | —            | 0-5 scale or merchant-defined |
-| return_rate      | Number    | Percentage       | Return rate          | `2%`    | Optional    | —            | 0-100%                        |
-
-### Compliance
-
-Include regulatory warnings, disclaimers, or age restrictions. Compliance
-fields help meet legal obligations and protect consumers.
-
-| Attribute             | Data Type    | Supported Values | Description          | Example                                           | Requirement              | Dependencies | Validation Rules              |
-| :-------------------- | :----------- | :--------------- | :------------------- | :------------------------------------------------ | :----------------------- | :----------- | :---------------------------- |
-| warning / warning_url | String / URL | —                | Product disclaimers  | `Contains lithium battery, or CA Prop 65 warning` | Recommended for Checkout | —            | If URL, must resolve HTTP 200 |
-| age_restriction       | Number       | —                | Minimum purchase age | `21`                                              | Recommended              | —            | Positive integer              |
+For OpenAI-format feeds, a nonempty `return_policy` currently implies returns
+are accepted even when `accepts_returns=false`. To describe a final-sale item,
+send `accepts_returns=false` and omit both the policy URL and return window.
+Do not use a no-returns policy URL to signal refusal of returns.
 
 ### Reviews and Q&A
 
-Supply aggregated review statistics and frequently asked questions.
-User-generated insights strengthen credibility and help shoppers make informed
-decisions.
+Use review aggregates for the product or variant represented by the row. The
+count and rating must describe the same review population. If your product page
+shares reviews across variants, use that same group aggregate on each variant;
+do not sum it again across rows. Omit a rating when there are no reviews.
 
-| Attribute          | Data Type | Supported Values | Description                      | Example                                                                                                                       | Requirement | Dependencies | Validation Rules                                                                             |
-| :----------------- | :-------- | :--------------- | :------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- | :---------- | :----------- | :------------------------------------------------------------------------------------------- |
-| review_count       | Integer   | —                | Number of product reviews        | `254`                                                                                                                         | Optional    | —            | Non-negative                                                                                 |
-| star_rating        | String    | —                | Average review score             | `4.50`                                                                                                                        | Optional    | —            | 0-5 scale                                                                                    |
-| store_review_count | Integer   | —                | Number of brand or store reviews | `2000`                                                                                                                        | Optional    | —            | Non-negative                                                                                 |
-| store_star_rating  | String    | —                | Average store rating             | `4.50`                                                                                                                        | Optional    | —            | 0-5 scale                                                                                    |
-| q_and_a            | List      | —                | FAQ content                      | A list of question and answer pairs, for example one question asking whether the item is waterproof and one answer saying Yes | Recommended | —            | List of objects containing string `q` and string `a` fields                                  |
-| reviews            | List      | —                | Review entries                   | A list of review objects including title, content, minRating, maxRating, and rating values                                    | Recommended | —            | List of objects containing `title`, `content`, `minRating`, `maxRating`, and `rating` fields |
+| Attribute      | Data type        | Requirement | Description                                                                                                                                                                                       | Example |
+| :------------- | :--------------- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------ |
+| `review_count` | Integer          | Optional    | Nonnegative whole number of product reviews. Zero means no reviews; omitted or empty means unknown. Exclude seller and store reviews.                                                             | `254`   |
+| `star_rating`  | String (decimal) | Optional    | Average product rating on a 0–5 scale, to two decimal places. Pair it with the matching positive `review_count`. Omitted or empty: no rating supplied. A zero rating may be omitted from display. | `4.50`  |
 
-### Related Products
+Raw review entries and question-and-answer lists are not part of this discovery
+contract. Store aggregates have a separate scope and require the setup in the
+next section.
 
-List products that are commonly bought together or act as substitutes. This
-enables basket-building recommendations and cross-sell opportunities.
+#### Additional supported data
 
-| Attribute          | Data Type | Supported Values                                                                                  | Description            | Example       | Requirement | Dependencies | Validation Rules             |
-| :----------------- | :-------- | :------------------------------------------------------------------------------------------------ | :--------------------- | :------------ | :---------- | :----------- | :--------------------------- |
-| related_product_id | String    | —                                                                                                 | Associated product IDs | `SKU67890`    | Recommended | —            | Comma-separated list allowed |
-| relationship_type  | Enum      | `part_of_set`, `required_part`, `often_bought_with`, `substitute`, `different_brand`, `accessory` | Relationship type      | `part_of_set` | Recommended | —            | Lower-case string            |
+These optional fields require an integration configured to carry them. Confirm
+support during onboarding before relying on them; adding these columns alone
+to a standard OpenAI-format upload does not enable them. Google-compatible
+feeds already support `size_system`.
 
-### Geo Tagging
+| Attribute            | Data type        | Requirement                                                               | Description                                                                                                                                                                                                                          | Example               |
+| :------------------- | :--------------- | :------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------- |
+| `marketplace_seller` | String           | Conditionally required for third-party marketplace offers; requires setup | Marketplace where checkout occurs. Keep distinct from the supplying `seller_name`. Omitted or empty: no marketplace identity supplied.                                                                                               | `Example Marketplace` |
+| `size_system`        | String           | Optional; requires setup                                                  | Sizing convention for `size`: use `US`, `UK`, `EU`, `DE`, `FR`, `JP`, `CN`, `IT`, `BR`, `MEX`, or `AU`. These are sizing labels, not destination-country codes. Omitted or empty: no system supplied; no size conversion is implied. | `US`                  |
+| `store_review_count` | Integer          | Optional; requires setup                                                  | Nonnegative store or seller review count. Use the same store and review population as `store_star_rating`; do not combine with product reviews. Zero: no reviews; omitted or empty: unknown.                                         | `2000`                |
+| `store_star_rating`  | String (decimal) | Optional; requires setup                                                  | Average for that store's reviews on a 0–5 scale, to two decimal places. Pair with a positive `store_review_count`. Omitted or empty: no rating supplied. Zero can be treated as unrated.                                             | `4.70`                |
+| `accepts_exchanges`  | boolean          | Optional; requires setup                                                  | `true`: exchanges accepted for this item; `false`: not accepted. Omitted or empty: unspecified. Supply consistently with your returns policy; exchange messaging may depend on accepted returns and a return window.                 | `false`               |
+| `is_digital`         | boolean          | Optional; requires setup                                                  | `true`: digital item with no physical shipment; `false`: physical item. Omitted or empty: unspecified, so do not rely on omission for digital checkout.                                                                              | `false`               |
 
-Indicate any region-specific pricing or availability overrides. Geo data allows
-ChatGPT to present accurate offers and stock status by location.
+### Geo tagging
 
-| Attribute        | Data Type         | Supported Values             | Description                                     | Example                                     | Requirement | Dependencies | Validation Rules                     |
-| :--------------- | :---------------- | :--------------------------- | :---------------------------------------------- | :------------------------------------------ | :---------- | :----------- | :----------------------------------- |
-| target_countries | List              | `US`                         | Target countries of the item (first entry used) | `US`                                        | Required    | —            | Use ISO 3166-1 alpha-2 codes         |
-| store_country    | String            | `US`                         | Store country of the item                       | `US`                                        | Optional    | —            | Use ISO 3166-1 alpha-2 codes         |
-| geo_price        | Number + currency | Region-specific price        | Price by region                                 | `79.99 USD (California)`                    | Optional    | —            | Must include ISO 4217 currency       |
-| geo_availability | String            | Region-specific availability | Availability per region                         | `in_stock (Texas), out_of_stock (New York)` | Optional    | —            | Regions must be valid ISO 3166 codes |
+The standard OpenAI-format upload currently targets the US. Row-level market
+columns do not change that default. Use additional markets only after OpenAI
+confirms the integration and its allowed countries and currencies. A currency,
+product URL, or sizing system does not select a destination market.
+
+| Attribute          | Data type        | Requirement                     | Description                                                                                                                                                                                                                                             | Example  |
+| :----------------- | :--------------- | :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------- |
+| `target_countries` | Array of strings | Optional; requires market setup | Destination countries. Use uppercase ISO 3166-1 alpha-2 codes configured for your feed; the shared format currently represents `US`, `CA`, and `MX`. Standard uploads use `["US"]` regardless of this column. Omitted or empty does not mean worldwide. | `["US"]` |
+| `store_country`    | String           | Optional; requires market setup | Country of the seller's store. Standard uploads use `US` regardless of this column. It is not a regional price or stock override. Omitted or empty does not select another market.                                                                      | `US`     |
+
+For Google-compatible feeds with market processing enabled, registered target
+countries take precedence over uploaded country columns, and prices must use a
+configured currency. Otherwise, the target remains US. Confirm multi-country
+support for your integration; do not rely on list order to choose a market.
+
+
+
+
+### Ads
+
+Ads feeds use the product data in this reference plus the [Ads product feeds
+guide](https://developers.openai.com/ads/product-feeds#use-the-correct-feed-schema). These fields are not
+required for discovery.
+
+| Attribute         | Data type               | Requirement                               | Description                                                                                                                                                                                          | Example                       |
+| :---------------- | :---------------------- | :---------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
+| `is_ads_eligible` | boolean                 | Conditionally required for Ads processing | Set `true` for products Ads should process. `false` explicitly opts out in the OpenAI format. Omitted or empty: disabled unless a feed-level Ads default applies. Independent of search eligibility. | `true`                        |
+| `ads_metadata`    | Object of string values | Optional for Ads                          | Product-filter metadata using keys configured for your Ads integration. Omitted, empty, or `{}`: no metadata. Do not invent targeting keys; confirm them during Ads setup.                           | `{"custom_label_0":"summer"}` |
+
+Google-compatible Ads feeds use registered eligibility settings and supported
+Google columns; uploaded OpenAI eligibility controls do not override them.
+
+### Checkout
+
+Checkout requires a separately enabled integration. Setting an eligibility flag
+does not complete checkout onboarding. Continue to provide accurate discovery
+data and configure digital-item support when applicable.
+
+| Attribute               | Data type    | Requirement                                 | Description                                                                                                                                                                              | Example                       |
+| :---------------------- | :----------- | :------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
+| `is_eligible_checkout`  | boolean      | Conditionally required to opt into checkout | `true` opts in only when search eligibility is also `true` and checkout is enabled for the integration. Omitted, empty, or `false`: disabled. Search set to `false` overrides this flag. | `true`                        |
+| `seller_privacy_policy` | String (URL) | Conditionally required for checkout         | Public privacy policy for the seller. Omitted, empty, or invalid: no policy URL supplied; it does not establish checkout readiness.                                                      | `https://example.com/privacy` |
+| `seller_tos`            | String (URL) | Conditionally required for checkout         | Public terms of service for the seller. Omitted, empty, or invalid: no terms URL supplied; it does not establish checkout readiness.                                                     | `https://example.com/terms`   |
+
+### Compatibility notes
+
+Existing `Custom_variant1_category` / `Custom_variant1_option` pairs, and the
+corresponding `2` and `3` pairs, remain accepted along with lowercase aliases.
+Migrate each pair to one entry in `variant_dict`, with the category as the key
+and the selected option as the value. An explicit `variant_dict` takes
+precedence. Do not mix representations; an explicit empty map does not fall
+back to the legacy pairs.
+
+Existing aliases remain accepted: `id` or `sku` for `item_id`, `item_group_id`
+for `group_id`, `enable_search` for `is_eligible_search`, `enable_checkout` for
+`is_eligible_checkout`, `is_eligible_ads` for `is_ads_eligible`, and
+`return_window` for `return_deadline_in_days`. Send only one name per value:
+`item_id` wins over `id` and `sku`; `group_id` wins over `item_group_id`; the
+`enable_` flags win over their `is_eligible_` names; `is_ads_eligible` wins over
+its alias; and `return_window` wins over `return_deadline_in_days`.
+
+Sale-window dates, expiration dates, and availability dates do not schedule
+price or availability changes in this contract. Update current prices and
+availability in your feed when they change. Do not rely on uploaded dates to
+remove a product or display a pre-order date. Warning and age-restriction fields
+do not establish purchase restrictions.
+
+### Google-compatible product data feeds
+
+Use this format only after OpenAI confirms it for your registered feed. Upload
+a UTF-8, tab-delimited `.txt` or `.tsv` file, or a comma-delimited `.csv` file.
+Gzip-compressed `.txt.gz`, `.txt.gzip`, `.tsv.gz`, and `.csv.gz` files are supported.
+Use one header row and one product or variant per row. JSON, spreadsheets, XML,
+RSS, and Atom are not supported by this compatibility path.
+
+Use lowercase, underscore-separated column names. `.txt` files also accept
+common display labels such as `image link`. Do not use `g:`-prefixed XML names.
+For additional context, see Google's [product data specification](https://support.google.com/merchants/answer/7052112?hl=en#basic_product_data);
+only the profile described here is supported by OpenAI.
+
+#### Required columns and format selection
+
+Include nonempty `id`, `title`, `description`, `link`, `image_link`,
+`availability`, `price`, and `brand` on every row. Their types and meanings match
+`item_id`, `title`, `description`, `url`, `image_url`, `availability`, `price`,
+and `brand` in this reference, with these differences:
+
+- `title` is limited to 150 characters and `description` to 5,000. Use plain text.
+- `link` and `image_link` must be HTTP or HTTPS URLs without a username or password.
+- `availability` must be `in_stock`, `out_of_stock`, `preorder`, or `backorder`.
+  Use `preorder`, not the OpenAI spelling `pre_order`; `unknown` is not accepted.
+- `price` requires a decimal amount and three-letter currency code. It must be
+  positive except for the mobile-subscription case described below. Amounts are
+  normalized to two decimal places; submit prices at that precision to avoid rounding.
+- The conditional identifier and availability-date requirements in the next
+  table also apply.
+
+Register a merchant display name that is nonempty and not a placeholder such
+as `unknown`, `null`, or `n/a`. OpenAI uses that registered name as the seller
+identity on every row. An uploaded `seller_name` cannot override it. The seller
+URL is derived from the product link's scheme and host.
+
+OpenAI checks the OpenAI format first, then this compatibility profile, using
+samples from each nonempty file. A match requires an accepted sample from every
+file that supplies records. One format applies to the entire upload, not to
+individual rows. A file accepted as OpenAI format retains OpenAI field semantics;
+filename extensions alone do not select Google-compatible behavior. Confirm the
+selected format during setup, especially before relying on eligibility controls.
+
+#### Optional and conditional columns
+
+The value conventions in the main reference apply: omit unknown optional data,
+keep identifiers as strings, and use CSV quoting for commas and embedded quotes.
+An empty optional cell means no value unless the table specifies a default.
+Only `identifier_exists` accepts a boolean in this table; `false` is not an empty
+value for any other field.
+
+| Input field                                        | Type and requirement                               | Format, mapping, and dependencies                                                                                                                                                                                                                                                                                                 | Example                                                                               |
+| :------------------------------------------------- | :------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------ |
+| `gtin`                                             | String; conditionally required                     | Supply a valid GTIN or `mpn` unless `identifier_exists=no`. Exactly 8, 12, 13, or 14 digits with a valid check digit; spaces and dashes are removed. GTIN values starting with `02`, `04`, `2`, `05`, `98`, or `99` are not retained; a valid `mpn` can satisfy the identifier requirement instead. Submit one GTIN for the item. | `09506000134352`                                                                      |
+| `mpn`                                              | String; conditionally required                     | Manufacturer part number, used with `brand`. Required if no valid GTIN and `identifier_exists` is omitted or true.                                                                                                                                                                                                                | `NL-TRAIL-10-BLK`                                                                     |
+| `identifier_exists`                                | boolean or string; optional                        | `yes` / `true` or `no` / `false`. Omitted or empty: true. Use false only when no product identifier exists.                                                                                                                                                                                                                       | `yes`                                                                                 |
+| `availability_date`                                | String (date or timestamp); conditionally required | Required for `preorder` and `backorder`. Use `YYYY-MM-DD` or an ISO 8601 timestamp with a time zone, optionally with seconds. Dates use midnight UTC. No preorder-date display or automatic stock change is implied.                                                                                                              | `2026-10-15T09:00:00Z`                                                                |
+| `sale_price`                                       | String (money); optional                           | Positive current sale price, in the same currency as and strictly below `price`. Invalid relationships reject the row. Omitted: regular price.                                                                                                                                                                                    | `59.99 USD`                                                                           |
+| `sale_price_effective_date`                        | String (date range); optional                      | `start/end`, with ISO 8601 dates or timestamps with time zones. Requires `sale_price` and start before end. Date-only boundaries use the start and end of each UTC day. Accepted as date metadata; does not schedule sale activation.                                                                                             | `2026-10-01T00:00:00Z/2026-10-07T23:59:59Z`                                           |
+| `expiration_date`                                  | String (timestamp); optional                       | ISO 8601 timestamp with a time zone: `YYYY-MM-DDThh:mmZ`, optionally with seconds, or a numeric UTC offset. Accepted as metadata; does not automatically remove a product.                                                                                                                                                        | `2026-12-31T23:59:59Z`                                                                |
+| `additional_image_link`                            | String; optional                                   | Comma-separated URLs mapped to additional images. Invalid optional URLs are omitted; credentials in a URL reject the row. Omitted: no additional images.                                                                                                                                                                          | `https://example.com/images/trail-side.jpg,https://example.com/images/trail-sole.jpg` |
+| `item_group_id`                                    | String; conditionally required for variants        | Shared parent ID, different from each `id`. Enables grouping and constructs `variant_dict` from the selected attributes. Omitted: `id` is the group ID and no variant options are used.                                                                                                                                           | `TRAIL`                                                                               |
+| `color`, `size`, `material`, `age_group`, `gender` | Strings; optional                                  | Same values and meanings as the main reference. For grouped variants, these also populate `variant_dict`; keep values consistent across the row.                                                                                                                                                                                  | `Black`, `10`, `Leather`, `adult`, `unisex`                                           |
+| `pattern`                                          | String; optional                                   | Selected pattern; added to `variant_dict` only for grouped variants. Omitted: no pattern option.                                                                                                                                                                                                                                  | `Striped`                                                                             |
+| `size_type`                                        | String; optional                                   | Selected fit label, such as `regular`, `petite`, `maternity`, `big`, `tall`, or `plus`; added to `variant_dict` only for grouped variants. Omitted: no fit option.                                                                                                                                                                | `petite`                                                                              |
+| `size_system`                                      | String; optional                                   | Use the sizing-system values in the main reference with `size`. Omitted: no system supplied; a target country does not fill it in.                                                                                                                                                                                                | `US`                                                                                  |
+| `condition`                                        | String; optional                                   | `new`, `refurbished`, or `used`. Always declare used and refurbished items. Omitted may be treated as new.                                                                                                                                                                                                                        | `refurbished`                                                                         |
+| `product_type`                                     | String; optional                                   | Category path. The first nonempty comma-separated value takes precedence over `google_product_category`.                                                                                                                                                                                                                          | `Apparel & Accessories > Shoes`                                                       |
+| `google_product_category`                          | String; optional                                   | Google taxonomy ID or path, used when `product_type` is empty. Also required for the zero-price exception.                                                                                                                                                                                                                        | `Apparel & Accessories > Shoes`                                                       |
+| `subscription_cost`                                | String; conditionally required for zero price      | `month:periods:amount CURRENCY` or `year:periods:amount CURRENCY`; the `periods` value is a positive integer and `amount` is positive, in the same currency as `price`. Used only to validate the zero-price exception, not to display installment terms.                                                                         | `month:12:30.00 USD`                                                                  |
+
+For a zero-price item, `google_product_category` must identify a supported mobile
+device using category ID `267` (mobile phones) or `4745` (tablets). Category
+paths do not qualify for this exception. Supply a valid `subscription_cost`. Other zero-price products are
+rejected.
+
+#### Eligibility and markets
+
+Accepted Google-compatible products have search enabled and checkout disabled.
+Uploaded `is_eligible_search=false` or `enable_search=false` does not opt a
+product out on this path. Upload only products intended for discovery. To use
+per-item search controls, use a feed confirmed to follow the OpenAI format.
+
+For Ads feeds, eligibility comes from registered feed settings; uploaded OpenAI
+eligibility fields do not override them. Supported Ads filter columns include
+`custom_label_0` through `custom_label_4`: optional strings, such as `summer`,
+with an empty value meaning no label. Confirm the configured filter columns
+with your Ads integration.
+
+If OpenAI confirms market-specific processing, registered target countries
+replace uploaded country values and a price currency outside the configured
+currencies is rejected. Otherwise, the target remains US. Uploaded seller,
+checkout, return-policy, and Ads control columns do not add those capabilities.
+
+Legacy `item_group_title`, `video_link`, and `virtual_model_link` metadata may
+be accepted from existing feeds; they are not used for product discovery. New
+feeds can omit them. Keep current price and availability up to date even when
+you send date metadata.
+
+Upload History reports missing required columns and invalid supported values.
+A malformed row can be rejected while valid rows continue processing.

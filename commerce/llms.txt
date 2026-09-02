@@ -22,5 +22,5 @@ Use this as a compact map of the commerce specs and guides. Each page has a Mark
 - [Overview](https://developers.openai.com/commerce/specs/api/overview.md): Create, retrieve, and upsert product feed data using an API.
 - [Overview](https://developers.openai.com/commerce/specs/file-upload/overview.md): Provide a structured product feed as file upload to an SFTP server.
 - [Products](https://developers.openai.com/commerce/specs/api/products.md): Retrieve and upsert products for a feed.
-- [Products](https://developers.openai.com/commerce/specs/file-upload/products.md): Provide a structured product feed so ChatGPT accurately indexes and displays your products with up-to-date price and availability.
+- [Products](https://developers.openai.com/commerce/specs/file-upload/products.md): Submit product data for discovery in ChatGPT, with separate requirements for Ads and checkout.
 - [Promotions](https://developers.openai.com/commerce/specs/api/promotions.md): Retrieve and upsert promotions for a feed.
