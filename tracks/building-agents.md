@@ -50,20 +50,20 @@ Non‑reasoning models are faster and usually cheaper, which makes them great fo
 
 #### How to choose
 
-Always start experimenting with a flagship, multi-purpose model, such as `gpt-5.6`.
+Always start experimenting with a flagship, multi-purpose model, such as `gpt-6-astra`.
 If your use case is simple and requires fast responses, try `gpt-5.6-terra` or `gpt-5.6-luna` for lower latency and cost.
-For more complex work, use `gpt-5.6` with higher `reasoning_effort`.
+For more complex work, use `gpt-6-astra` with higher `reasoning_effort`.
 
 As you try different options, be mindful of prompting strategies: you don't prompt a reasoning model the same way you prompt a GPT model.
 So don't just swap out the model name when you're experimenting, try different prompts and see what works best—you can learn more in the evaluation section below.
 
-If your application presents a conversational interface, we recommend using `gpt-5.6-terra` to chat back and forth with the user, then delegating to `gpt-5.6` for more demanding tasks.
+If your application presents a conversational interface, we recommend using `gpt-5.6-terra` to chat back and forth with the user, then delegating to `gpt-6-astra` for more demanding tasks.
 
 You can refer to our models page for more information on the different models available on the OpenAI platform, including information on performance, latency, capabilities, and pricing.
 
 Reasoning models and general-purpose models respond best to different kinds of
   prompts. Check out our prompting guide below for how to get the best out of
-  `gpt-5.6`.
+  `gpt-6-astra`.
 
 ### Building the core logic
 

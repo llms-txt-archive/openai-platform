@@ -33,7 +33,7 @@ ws.send(
         {
             "type": "response.create",
             "stream_id": "main",
-            "model": "gpt-5.6",
+            "model": "gpt-6-astra",
             "store": False,
             "input": [
                 {
@@ -53,6 +53,8 @@ Clients can optionally warm up request state by sending `response.create` with `
 
 ## Continue with incremental inputs
 
+To add user instructions while a response is still running, use [Mid-turn steering](https://developers.openai.com/api/docs/guides/steering). Steering preserves completed work and includes the new instructions in a continuation. Use the following `response.create` pattern for ordinary between-turn continuation and tool results.
+
 To continue a run, send another `response.create` with:
 
 - `previous_response_id` set to the prior response ID.
@@ -64,7 +66,7 @@ ws.send(
         {
             "type": "response.create",
             "stream_id": "main",
-            "model": "gpt-5.6",
+            "model": "gpt-6-astra",
             "store": False,
             "previous_response_id": "resp_123",
             "input": [
@@ -116,7 +118,7 @@ Start a new chain by omitting `previous_response_id` or setting it to `null`. Pa
 ```python
 # Compact your current window (HTTP call)
 compacted = client.responses.compact(
-    model="gpt-5.6",
+    model="gpt-6-astra",
     input=long_input_items_array,
 )
 
@@ -126,7 +128,7 @@ ws.send(
         {
             "type": "response.create",
             "stream_id": "main",
-            "model": "gpt-5.6",
+            "model": "gpt-6-astra",
             "store": False,
             "input": [
                 *compacted.output,
@@ -223,7 +225,7 @@ def send_create(stream_id, text, previous_response_id=None):
     payload = {
         "type": "response.create",
         "stream_id": stream_id,
-        "model": "gpt-5.6",
+        "model": "gpt-6-astra",
         "store": False,
         "input": [
             {

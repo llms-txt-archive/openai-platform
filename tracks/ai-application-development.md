@@ -81,7 +81,7 @@ The first thing you need to master when building AI applications is "prompt engi
 With the models' increasing performance, there is no need to learn a complex syntax or information structure.
 
 But there are a few things to keep in mind, as not all models follow instructions in the same way.
-GPT-5.6, our latest model, follows instructions very precisely, so the same prompt can result in different behaviors if you're using `gpt-5.6` vs `gpt-4o`, for example.
+GPT-6 Astra, our latest model, follows instructions very precisely, so the same prompt can result in different behaviors if you're using `gpt-6-astra` vs `gpt-4o`, for example.
 
 The results may vary as well depending on which type of prompt you use: system, developer or user prompt, or a combination of all of them.
 
