@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260903T164050Z` | 2026-09-03 16:40 UTC | [Responses Fast Mode Docs Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260903T164050Z) |
+| `archive-20260903T192745Z` | 2026-09-03 19:27 UTC | [Responses docs add prompt cache diagnostics](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260903T192745Z) |
+| `archive-20260903T164050Z` | 2026-09-03 16:41 UTC | [Responses Fast Mode Docs Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260903T164050Z) |
 | `archive-20260902T233304Z` | 2026-09-02 23:34 UTC | [Ruby example coverage expanded in core guides](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260902T233304Z) |
 | `archive-20260902T211703Z` | 2026-09-02 21:17 UTC | [Commerce Product Feed Docs Reorganized](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260902T211703Z) |
 | `archive-20260902T180554Z` | 2026-09-02 18:06 UTC | [Clarified API overload and ramp-rate docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260902T180554Z) |
 | `archive-20260902T050358Z` | 2026-09-02 05:04 UTC | [X.509 SDK guidance and sample corrections](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260902T050358Z) |
-| `archive-20260902T003132Z` | 2026-09-02 00:32 UTC | [Usage docs drop compute_units fields](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260902T003132Z) |
