@@ -27,8 +27,12 @@ Add `async: true` to the tool definition. The corresponding call items in `respo
 Run a weather lookup in the background
 
 ```javascript
-const model = process.env.OPENAI_MODEL ?? "gpt-6-astra";
+import OpenAI from "openai";
 
+const client = new OpenAI();
+const model = "gpt-6-astra";
+
+/** @type {OpenAI.Responses.FunctionTool[]} */
 const tools = [
   {
     type: "function",
@@ -44,31 +48,6 @@ const tools = [
     },
   },
 ];
-const apiKey = process.env.OPENAI_API_KEY;
-if (!apiKey) {
-  throw new Error("Set OPENAI_API_KEY before running this example.");
-}
-const baseURL = (
-  process.env.OPENAI_BASE_URL ?? "https://api.openai.com/v1"
-).replace(/\/$/, "");
-
-async function postResponse(body) {
-  const response = await fetch(`${baseURL}/responses`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-  if (!response.ok) {
-    throw new Error(
-      `Responses API ${response.status}: ${await response.text()}`
-    );
-  }
-  return response.json();
-}
-
 async function getWeather(city) {
   const snapshots = {
     Paris: {
@@ -87,7 +66,7 @@ const instructions =
   "Start the weather lookup and answer the independent packing question " +
   "without waiting. Use the demo weather result when it arrives; never invent it.";
 
-let response = await postResponse({
+let response = await client.responses.create({
   model,
   tools,
   instructions,
@@ -96,10 +75,8 @@ let response = await postResponse({
     "list three essentials for any city trip.",
 });
 
-const call = response.output.find(
-  (item) => item.type === "function_call" && item.name === "get_weather"
-);
-if (!call) {
+const call = response.output.find((item) => item.type === "function_call");
+if (!call || call.name !== "get_weather") {
   throw new Error("The response did not include a weather call.");
 }
 const { city } = JSON.parse(call.arguments);
@@ -115,7 +92,7 @@ console.log(response.output);
 // Independent work or conversation turns can happen here.
 // Update latestResponseId after each continuation.
 const result = await job;
-response = await postResponse({
+response = await client.responses.create({
   model,
   tools,
   instructions,
@@ -134,24 +111,10 @@ console.log(response.output);
 
 ```python
 import json
-import os
 from concurrent.futures import ThreadPoolExecutor
-from urllib.request import Request, urlopen
 
-
-def post_response(body):
-    base_url = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
-    request = Request(
-        f"{base_url.rstrip('/')}/responses",
-        data=json.dumps(body).encode(),
-        headers={
-            "Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}",
-            "Content-Type": "application/json",
-        },
-        method="POST",
-    )
-    with urlopen(request, timeout=120) as response:
-        return json.load(response)
+from openai import OpenAI
+from openai.types.responses import FunctionToolParam
 
 
 def get_weather(city):
@@ -171,8 +134,9 @@ worker = ThreadPoolExecutor()
 
 
 def main():
-    model = os.environ.get("OPENAI_MODEL", "gpt-6-astra")
-    tools = [
+    client = OpenAI()
+    model = "gpt-6-astra"
+    tools: list[FunctionToolParam] = [
         {
             "type": "function",
             "name": "get_weather",
@@ -193,49 +157,45 @@ def main():
         "question without waiting. Use the actual tool result when it "
         "arrives; never invent it. Identify the weather as demo data."
     )
-    response = post_response(
-        {
-            "model": model,
-            "tools": tools,
-            "instructions": instructions,
-            "input": (
-                "Check the demo weather in Paris. Meanwhile, "
-                "list three essentials for any city trip."
-            ),
-        }
+    response = client.responses.create(
+        model=model,
+        tools=tools,
+        instructions=instructions,
+        input=(
+            "Check the demo weather in Paris. Meanwhile, "
+            "list three essentials for any city trip."
+        ),
     )
 
-    call = next(item for item in response["output"] if item["type"] == "function_call")
-    arguments = json.loads(call["arguments"])
-    if call["name"] != "get_weather" or arguments != {"city": "Paris"}:
+    call = next(item for item in response.output if item.type == "function_call")
+    arguments = json.loads(call.arguments)
+    if call.name != "get_weather" or arguments != {"city": "Paris"}:
         raise ValueError("Expected a weather lookup for Paris")
 
-    latest_response_id = response["id"]
-    if call.get("async", False):
+    latest_response_id = response.id
+    if call.async_:
         job = worker.submit(get_weather, **arguments)
-        print(response["output"])
+        print(response.output_text)
         # Independent work or conversation turns can happen here.
         # Update latest_response_id after each continuation.
         result = job.result()
     else:
         result = get_weather(**arguments)
 
-    response = post_response(
-        {
-            "model": model,
-            "tools": tools,
-            "instructions": instructions,
-            "previous_response_id": latest_response_id,
-            "input": [
-                {
-                    "type": "function_call_output",
-                    "call_id": call["call_id"],
-                    "output": json.dumps(result),
-                },
-            ],
-        }
+    response = client.responses.create(
+        model=model,
+        tools=tools,
+        instructions=instructions,
+        previous_response_id=latest_response_id,
+        input=[
+            {
+                "type": "function_call_output",
+                "call_id": call.call_id,
+                "output": json.dumps(result),
+            },
+        ],
     )
-    print(response["output"])
+    print(response.output_text)
 
 
 if __name__ == "__main__":
@@ -243,6 +203,273 @@ if __name__ == "__main__":
         main()
     finally:
         worker.shutdown(wait=True)
+```
+
+```go
+package main
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+
+	"github.com/openai/openai-go/v3"
+	"github.com/openai/openai-go/v3/responses"
+)
+
+type weatherArguments struct {
+	City string `json:"city"`
+}
+
+type weatherSnapshot struct {
+	City         string `json:"city"`
+	TemperatureC int    `json:"temperature_c"`
+	Condition    string `json:"condition"`
+	Source       string `json:"source"`
+}
+
+func getWeather(city string) weatherSnapshot {
+	// Demo data. Replace this function with your weather service.
+	if city != "Paris" {
+		panic("No demo weather snapshot for " + city)
+	}
+	return weatherSnapshot{
+		City: city, TemperatureC: 22, Condition: "Clear", Source: "demo weather snapshot",
+	}
+}
+
+func main() {
+	client := openai.NewClient()
+	ctx := context.Background()
+	tool := responses.ToolParamOfFunction("get_weather", map[string]any{
+		"type":                 "object",
+		"properties":           map[string]any{"city": map[string]string{"type": "string"}},
+		"required":             []string{"city"},
+		"additionalProperties": false,
+	}, true)
+	tool.OfFunction.Description = openai.String("Read the demo weather snapshot for a city.")
+	tool.OfFunction.Async = openai.Bool(true)
+	tools := []responses.ToolUnionParam{tool}
+	instructions := "Start the weather lookup and answer the independent packing question " +
+		"without waiting. Use the actual tool result when it arrives; never invent it. " +
+		"Identify the weather as demo data."
+	response, err := client.Responses.New(ctx, responses.ResponseNewParams{
+		Model:        "gpt-6-astra",
+		Tools:        tools,
+		Instructions: openai.String(instructions),
+		Input:        responses.ResponseNewParamsInputUnion{OfString: openai.String("Check the demo weather in Paris. Meanwhile, list three essentials for any city trip.")},
+	})
+	if err != nil {
+		panic(err)
+	}
+	var call responses.ResponseFunctionToolCall
+	for _, item := range response.Output {
+		if item.Type == "function_call" && item.AsFunctionCall().Name == "get_weather" {
+			call = item.AsFunctionCall()
+			break
+		}
+	}
+	if call.CallID == "" {
+		panic("The response did not include a weather call.")
+	}
+	var arguments weatherArguments
+	if err := json.Unmarshal([]byte(call.Arguments), &arguments); err != nil {
+		panic(err)
+	}
+	latestResponseID := response.ID
+	var result weatherSnapshot
+	if call.Async {
+		job := make(chan weatherSnapshot, 1)
+		go func() { job <- getWeather(arguments.City) }()
+		fmt.Println(response.OutputText())
+		// Independent work or conversation turns can happen here.
+		// Update latestResponseID after each continuation.
+		result = <-job
+	} else {
+		result = getWeather(arguments.City)
+	}
+	output, err := json.Marshal(result)
+	if err != nil {
+		panic(err)
+	}
+	functionOutput := responses.ResponseInputItemParamOfFunctionCallOutput(string(output))
+	functionOutput.OfFunctionCallOutput.CallID = openai.String(call.CallID)
+	response, err = client.Responses.New(ctx, responses.ResponseNewParams{
+		Model:              "gpt-6-astra",
+		Tools:              tools,
+		Instructions:       openai.String(instructions),
+		PreviousResponseID: openai.String(latestResponseID),
+		Input:              responses.ResponseNewParamsInputUnion{OfInputItemList: responses.ResponseInputParam{functionOutput}},
+	})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(response.OutputText())
+}
+```
+
+```java
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.openai.core.JsonValue;
+import com.openai.models.responses.FunctionTool;
+import com.openai.models.responses.Response;
+import com.openai.models.responses.ResponseCreateParams;
+import com.openai.models.responses.ResponseFunctionToolCall;
+import com.openai.models.responses.ResponseInputItem;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+
+record WeatherArguments(String city) {}
+
+record WeatherSnapshot(
+    String city,
+    @JsonProperty("temperature_c") int temperatureC,
+    String condition,
+    String source) {}
+
+static WeatherSnapshot getWeather(String city) {
+  // Demo data. Replace this function with your weather service.
+  if (!city.equals("Paris")) {
+    throw new IllegalArgumentException("No demo weather snapshot for " + city);
+  }
+  return new WeatherSnapshot(city, 22, "Clear", "demo weather snapshot");
+}
+
+FunctionTool tool =
+    FunctionTool.builder()
+        .name("get_weather")
+        .description("Read the demo weather snapshot for a city.")
+        .async(true)
+        .strict(true)
+        .parameters(
+            FunctionTool.Parameters.builder()
+                .putAdditionalProperty("type", JsonValue.from("object"))
+                .putAdditionalProperty(
+                    "properties", JsonValue.from(Map.of("city", Map.of("type", "string"))))
+                .putAdditionalProperty("required", JsonValue.from(List.of("city")))
+                .putAdditionalProperty("additionalProperties", JsonValue.from(false))
+                .build())
+        .build();
+String instructions =
+    "Start the weather lookup and answer the independent packing question without waiting. Use the actual tool result when it arrives; never invent it. Identify the weather as demo data.";
+Response response =
+    client
+        .responses()
+        .create(
+            ResponseCreateParams.builder()
+                .model("gpt-6-astra")
+                .addTool(tool)
+                .instructions(instructions)
+                .input(
+                    "Check the demo weather in Paris. Meanwhile, list three essentials for any city trip.")
+                .build());
+ResponseFunctionToolCall call =
+    response.output().stream()
+        .flatMap(item -> item.functionCall().stream())
+        .filter(item -> item.name().equals("get_weather"))
+        .findFirst()
+        .orElseThrow(
+            () -> new IllegalStateException("The response did not include a weather call."));
+WeatherArguments arguments = call.arguments(WeatherArguments.class);
+String latestResponseId = response.id();
+WeatherSnapshot result;
+if (call.async().orElse(false)) {
+  CompletableFuture<WeatherSnapshot> job =
+      CompletableFuture.supplyAsync(() -> getWeather(arguments.city()));
+  System.out.println(response.output());
+  // Independent work or conversation turns can happen here.
+  // Update latestResponseId after each continuation.
+  result = job.join();
+} else {
+  result = getWeather(arguments.city());
+}
+response =
+    client
+        .responses()
+        .create(
+            ResponseCreateParams.builder()
+                .model("gpt-6-astra")
+                .addTool(tool)
+                .instructions(instructions)
+                .previousResponseId(latestResponseId)
+                .inputOfResponse(
+                    List.of(
+                        ResponseInputItem.ofFunctionCallOutput(
+                            ResponseInputItem.FunctionCallOutput.builder()
+                                .callId(call.callId())
+                                .output(new ObjectMapper().writeValueAsString(result))
+                                .build())))
+                .build());
+response.output().stream()
+    .flatMap(item -> item.message().stream())
+    .flatMap(message -> message.content().stream())
+    .flatMap(content -> content.outputText().stream())
+    .forEach(text -> System.out.println(text.text()));
+```
+
+```ruby
+require "json"
+require "openai"
+
+def get_weather(city)
+  # Demo data. Replace this function with your weather service.
+  raise "No demo weather snapshot for #{city}" unless city == "Paris"
+
+  {city: city, temperature_c: 22, condition: "Clear", source: "demo weather snapshot"}
+end
+
+client = OpenAI::Client.new
+tools = [OpenAI::Models::Responses::FunctionTool.new(
+  name: "get_weather",
+  description: "Read the demo weather snapshot for a city.",
+  async: true,
+  strict: true,
+  parameters: {
+    type: "object",
+    properties: {city: {type: "string"}},
+    required: ["city"],
+    additionalProperties: false
+  }
+)]
+instructions = "Start the weather lookup and answer the independent packing question " \
+  "without waiting. Use the actual tool result when it arrives; never invent it. " \
+  "Identify the weather as demo data."
+response = client.responses.create(
+  model: "gpt-6-astra",
+  tools: tools,
+  instructions: instructions,
+  input: "Check the demo weather in Paris. Meanwhile, list three essentials for any city trip."
+)
+call = response.output.find do |item|
+  item.is_a?(OpenAI::Models::Responses::ResponseFunctionToolCall) && item.name == "get_weather"
+end
+unless call.is_a?(OpenAI::Models::Responses::ResponseFunctionToolCall)
+  raise "The response did not include a weather call."
+end
+city = JSON.parse(call.arguments).fetch("city")
+latest_response_id = response.id
+result = if call.async
+  job = Thread.new { get_weather(city) }
+  puts(response.output_text)
+  # Independent work or conversation turns can happen here.
+  # Update latest_response_id after each continuation.
+  job.value
+else
+  get_weather(city)
+end
+response = client.responses.create(
+  model: "gpt-6-astra",
+  tools: tools,
+  instructions: instructions,
+  previous_response_id: latest_response_id,
+  input: [OpenAI::Models::Responses::ResponseInputItem::FunctionCallOutput.new(
+    call_id: call.call_id,
+    output: JSON.generate(result)
+  )]
+)
+puts(response.output_text)
 ```
 
 

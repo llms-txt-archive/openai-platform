@@ -53,12 +53,13 @@ Update a project plan while it runs
 
 ```javascript
 // Set OPENAI_API_KEY before running this example.
-// Install the WebSocket client: npm install ws
+// Install the SDK and WebSocket transport: npm install openai ws
 
-import WebSocket from "ws";
+import OpenAI from "openai";
+import { ResponsesWS } from "openai/resources/responses/ws";
 
-const ws = new WebSocket("wss://api.openai.com/v1/responses", {
-  headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}` },
+const client = new OpenAI();
+const ws = new ResponsesWS(client, {
   handshakeTimeout: 10_000,
 });
 let initialResponseId = "";
@@ -69,7 +70,7 @@ try {
   const output = await new Promise((resolve, reject) => {
     timeout = setTimeout(() => {
       reject(new Error("Timed out waiting for the steered response."));
-      ws.terminate();
+      ws.close();
     }, 120_000);
     ws.once("error", reject);
     ws.once("close", () => {
@@ -77,31 +78,18 @@ try {
         new Error("Connection closed before the steered response finished.")
       );
     });
-    ws.once("open", () => {
-      ws.send(
-        JSON.stringify({
-          type: "response.create",
-          model: "gpt-6-astra",
-          reasoning: { effort: "medium" },
-          input: "Draft a project plan for building a task-tracking app.",
-        })
-      );
-    });
-    ws.on("message", (data) => {
+    ws.on("event", (event) => {
       try {
-        const event = JSON.parse(data.toString());
         if (event.type === "response.created") {
           if (!initialResponseId) {
             initialResponseId = event.response.id;
             // Simulate a user adding instructions while the response runs.
-            ws.send(
-              JSON.stringify({
-                type: "response.steer",
-                previous_response_id: initialResponseId,
-                input:
-                  "Keep the scope small enough for one developer to finish in two weeks.",
-              })
-            );
+            ws.send({
+              type: "response.steer",
+              previous_response_id: initialResponseId,
+              input:
+                "Keep the scope small enough for one developer to finish in two weeks.",
+            });
           } else {
             successorResponseId = event.response.id;
           }
@@ -135,6 +123,12 @@ try {
         reject(error);
       }
     });
+    ws.send({
+      type: "response.create",
+      model: "gpt-6-astra",
+      reasoning: { effort: "medium" },
+      input: "Draft a project plan for building a task-tracking app.",
+    });
   });
   console.log(output);
 } finally {
@@ -144,217 +138,54 @@ try {
 ```
 
 ```python
-# Set OPENAI_API_KEY before running this example.
-# Install the WebSocket client: pip install websocket-client
+import asyncio
 
-import json
-import os
-import time
+from openai import AsyncOpenAI
 
-from websocket import create_connection
 
-ws = create_connection(
-    "wss://api.openai.com/v1/responses",
-    header=[f"Authorization: Bearer {os.environ['OPENAI_API_KEY']}"],
-    timeout=10,
-)
-initial_response_id = None
-successor_response_id = None
-deadline = time.monotonic() + 120
+async def main():
+    client = AsyncOpenAI()
+    initial_response_id = None
+    successor_response_id = None
 
-try:
-    ws.send(
-        json.dumps(
-            {
-                "type": "response.create",
-                "model": "gpt-6-astra",
-                "reasoning": {"effort": "medium"},
-                "input": "Draft a project plan for building a task-tracking app.",
-            }
+    async with client.responses.connect() as connection, asyncio.timeout(120):
+        await connection.response.create(
+            model="gpt-6-astra",
+            reasoning={"effort": "medium"},
+            input="Draft a project plan for building a task-tracking app.",
         )
-    )
-    while True:
-        remaining = deadline - time.monotonic()
-        if remaining <= 0:
-            raise TimeoutError("Timed out waiting for the steered response.")
-        ws.settimeout(remaining)
-        message = ws.recv()
-        if not message:
-            raise RuntimeError(
-                "Connection closed before the steered response finished."
-            )
-        event = json.loads(message)
-        if event["type"] == "response.created":
-            if initial_response_id is None:
-                initial_response_id = event["response"]["id"]
-                # Simulate a user adding instructions while the response runs.
-                ws.send(
-                    json.dumps(
-                        {
-                            "type": "response.steer",
-                            "previous_response_id": initial_response_id,
-                            "input": "Keep the scope small enough for one developer to finish in two weeks.",
-                        }
+        async for event in connection:
+            if event.type == "response.created":
+                if initial_response_id is None:
+                    initial_response_id = event.response.id
+                    # Simulate a user adding instructions while the response runs.
+                    await connection.response.steer(
+                        previous_response_id=initial_response_id,
+                        input="Keep the scope small enough for one developer to finish in two weeks.",
                     )
-                )
-            else:
-                successor_response_id = event["response"]["id"]
-        elif event["type"] in {"response.steer.failed", "response.failed", "error"}:
-            raise RuntimeError(json.dumps(event))
-        elif event["type"] == "response.incomplete":
-            response = event["response"]
-            if (
-                response["id"] != initial_response_id
-                or response.get("incomplete_details", {}).get("reason") != "steered"
+                else:
+                    successor_response_id = event.response.id
+            elif event.type in {"response.steer.failed", "response.failed", "error"}:
+                raise RuntimeError(event.to_json())
+            elif event.type == "response.incomplete":
+                response = event.response
+                if (
+                    response.id != initial_response_id
+                    or response.incomplete_details is None
+                    or response.incomplete_details.reason != "steered"
+                ):
+                    raise RuntimeError(event.to_json())
+            elif (
+                event.type == "response.completed"
+                and event.response.id == successor_response_id
             ):
-                raise RuntimeError(json.dumps(event))
-        elif (
-            event["type"] == "response.completed"
-            and event["response"]["id"] == successor_response_id
-        ):
-            print(
-                "".join(
-                    part["text"]
-                    for item in event["response"]["output"]
-                    if item["type"] == "message"
-                    for part in item["content"]
-                    if part["type"] == "output_text"
-                )
-            )
-            break
-        # Acceptance only queues the input. Keep reading past the first response.
-finally:
-    ws.close()
-```
+                print(event.response.output_text)
+                return
+            # Acceptance only queues the input. Keep reading past the first response.
+        raise RuntimeError("Connection closed before the steered response finished.")
 
-```java
-// Set OPENAI_API_KEY before running this example.
-// Add Jackson (com.fasterxml.jackson.core:jackson-databind) to your project.
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.WebSocket;
-import java.time.Duration;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CompletionStage;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
-ObjectMapper json = new ObjectMapper();
-var events = new LinkedBlockingQueue<Object>();
-WebSocket.Listener listener =
-    new WebSocket.Listener() {
-      private final StringBuilder fragments = new StringBuilder();
-
-      @Override
-      public void onOpen(WebSocket socket) {
-        socket.request(1);
-      }
-
-      @Override
-      public CompletionStage<?> onText(WebSocket socket, CharSequence data, boolean last) {
-        fragments.append(data);
-        if (last) {
-          events.offer(fragments.toString());
-          fragments.setLength(0);
-        }
-        socket.request(1);
-        return CompletableFuture.completedFuture(null);
-      }
-
-      @Override
-      public void onError(WebSocket socket, Throwable error) {
-        events.offer(error);
-      }
-
-      @Override
-      public CompletionStage<?> onClose(WebSocket socket, int code, String reason) {
-        events.offer(
-            new IOException("Connection closed before the steered response finished."));
-        return CompletableFuture.completedFuture(null);
-      }
-    };
-String baseUrl = System.getenv().getOrDefault("OPENAI_BASE_URL", "https://api.openai.com/v1/");
-if (!baseUrl.endsWith("/")) baseUrl += "/";
-URI endpoint = URI.create(baseUrl.replaceFirst("^http", "ws")).resolve("responses");
-WebSocket ws =
-    HttpClient.newHttpClient()
-        .newWebSocketBuilder()
-        .header("Authorization", "Bearer " + System.getenv("OPENAI_API_KEY"))
-        .connectTimeout(Duration.ofSeconds(10))
-        .buildAsync(endpoint, listener)
-        .get(10, TimeUnit.SECONDS);
-String initialResponseId = null;
-String successorResponseId = null;
-long deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(120);
-
-try {
-  ws.sendText(
-          json.writeValueAsString(
-              Map.of(
-                  "type", "response.create",
-                  "model", "gpt-6-astra",
-                  "reasoning", Map.of("effort", "medium"),
-                  "input", "Draft a project plan for building a task-tracking app.")),
-          true)
-      .get(10, TimeUnit.SECONDS);
-  while (true) {
-    Object message =
-        events.poll(Math.max(0, deadline - System.nanoTime()), TimeUnit.NANOSECONDS);
-    if (message == null)
-      throw new TimeoutException("Timed out waiting for the steered response.");
-    if (message instanceof Throwable error) throw new IOException("WebSocket failed", error);
-    JsonNode event = json.readTree((String) message);
-    String type = event.path("type").asText();
-    JsonNode response = event.path("response");
-    if (type.equals("response.created")) {
-      if (initialResponseId == null) {
-        initialResponseId = response.path("id").asText();
-        // Simulate a user adding instructions while the response runs.
-        ws.sendText(
-                json.writeValueAsString(
-                    Map.of(
-                        "type", "response.steer",
-                        "previous_response_id", initialResponseId,
-                        "input",
-                            "Keep the scope small enough for one developer to finish in two weeks.")),
-                true)
-            .get(10, TimeUnit.SECONDS);
-      } else {
-        successorResponseId = response.path("id").asText();
-      }
-    } else if (type.equals("response.steer.failed")
-        || type.equals("response.failed")
-        || type.equals("error")) {
-      throw new IOException(event.toString());
-    } else if (type.equals("response.incomplete")) {
-      if (!response.path("id").asText().equals(initialResponseId)
-          || !response.path("incomplete_details").path("reason").asText().equals("steered")) {
-        throw new IOException(event.toString());
-      }
-    } else if (type.equals("response.completed")
-        && response.path("id").asText().equals(successorResponseId)) {
-      StringBuilder output = new StringBuilder();
-      for (JsonNode item : response.path("output")) {
-        if (!item.path("type").asText().equals("message")) continue;
-        for (JsonNode part : item.path("content")) {
-          if (part.path("type").asText().equals("output_text"))
-            output.append(part.path("text").asText());
-        }
-      }
-      System.out.println(output);
-      break;
-    }
-    // Acceptance only queues the input. Keep reading past the first response.
-  }
-} finally {
-  ws.abort();
-}
+asyncio.run(main())
 ```
 
 ```csharp

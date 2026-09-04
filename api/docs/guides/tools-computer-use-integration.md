@@ -1894,7 +1894,22 @@ Connect the API client to your execution service
 
 ```javascript
 import readline from "node:readline/promises";
+import { z } from "zod";
 
+const executionOutput = z
+  .array(
+    z.discriminatedUnion("type", [
+      z.object({ type: z.literal("input_text"), text: z.string() }),
+      z.object({
+        type: z.literal("input_image"),
+        image_url: z.string(),
+        detail: z.literal("original"),
+      }),
+    ])
+  )
+  .nonempty();
+
+/** @returns {Promise<import("openai/resources/responses/responses").ResponseFunctionCallOutputItemList>} */
 async function executeInSandbox(code, sessionId, endpoint) {
   console.log(code);
   const terminal = readline.createInterface({
@@ -1929,33 +1944,27 @@ async function executeInSandbox(code, sessionId, endpoint) {
   if (!response.ok) {
     throw new Error(`Execution service returned HTTP ${response.status}.`);
   }
-  const { output } = await response.json();
-  if (
-    !Array.isArray(output) ||
-    output.length === 0 ||
-    !output.every(
-      (item) =>
-        item &&
-        ((item.type === "input_text" && typeof item.text === "string") ||
-          (item.type === "input_image" &&
-            typeof item.image_url === "string" &&
-            item.detail === "original"))
-    )
-  ) {
+  const result = executionOutput.safeParse((await response.json()).output);
+  if (!result.success) {
     throw new Error(
       "Expected input_text or an input_image with original detail."
     );
   }
-  return output;
+  return result.data;
 }
 ```
 
 ```python
 import os
+from json import dumps, loads
 from urllib import request
 
+from openai.types.responses import ResponseFunctionCallOutputItemListParam
 
-def execute_in_sandbox(code, session_id, endpoint):
+
+def execute_in_sandbox(
+    code: str, session_id: str, endpoint: str
+) -> ResponseFunctionCallOutputItemListParam:
     """Send approved code to your separately isolated execution service."""
     print(code)
     if input("Run this code in the isolated runtime? Type yes: ").strip() != "yes":
@@ -1965,31 +1974,40 @@ def execute_in_sandbox(code, session_id, endpoint):
     token = os.environ.get("OPENAI_EXAMPLE_CODE_EXECUTION_TOKEN")
     if token:
         headers["Authorization"] = f"Bearer {token}"
-    body = json.dumps(
+    body = dumps(
         {"session_id": session_id, "language": "python", "code": code}
     ).encode()
     sandbox_request = request.Request(
         endpoint, data=body, headers=headers, method="POST"
     )
     with request.urlopen(sandbox_request, timeout=30) as response:
-        payload = json.loads(response.read())
+        payload = loads(response.read())
 
     output = payload.get("output") if isinstance(payload, dict) else None
     if not isinstance(output, list) or not output:
         raise ValueError("The execution service returned no observations.")
+    observations: ResponseFunctionCallOutputItemListParam = []
     for item in output:
         if not isinstance(item, dict):
             raise ValueError("Invalid execution-service output item.")
         if item.get("type") == "input_text" and isinstance(item.get("text"), str):
+            observations.append({"type": "input_text", "text": item["text"]})
             continue
         if (
             item.get("type") == "input_image"
             and isinstance(item.get("image_url"), str)
             and item.get("detail") == "original"
         ):
+            observations.append(
+                {
+                    "type": "input_image",
+                    "image_url": item["image_url"],
+                    "detail": "original",
+                }
+            )
             continue
         raise ValueError("Expected input_text or an input_image with original detail.")
-    return output
+    return observations
 ```
 
 

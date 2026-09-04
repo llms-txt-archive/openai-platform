@@ -1696,96 +1696,86 @@ mode, with a connection-local cache for the most recent response.
 Note: WebSocket mode works with ZDR because your data is not stored to disk,
 only stored in memory.
 
-The default Python sample uses `websocket-client` (`pip install
-websocket-client`). The JavaScript sample uses `ws` (`npm install ws`).
+The Python sample uses `pip install "openai[realtime]>=3.8.0"`.
+The JavaScript sample uses `npm install openai@^7.10.0 ws`.
 
 Start a Responses API WebSocket session
 
 ```javascript
 import OpenAI from "openai";
-import WebSocket from "ws";
+import { ResponsesWS } from "openai/resources/responses/ws";
 
 const openai = new OpenAI();
 
-const ws = new WebSocket("wss://api.openai.com/v1/responses", {
-  headers: {
-    Authorization: "Bearer " + openai.apiKey,
-  },
+const ws = new ResponsesWS(openai);
+
+ws.on("event", (event) => {
+  console.log(event.type);
+  if (
+    event.type === "response.completed" ||
+    event.type === "response.failed" ||
+    event.type === "response.incomplete"
+  ) {
+    ws.close();
+  }
+});
+ws.on("error", (error) => {
+  console.error(error);
+  ws.close();
 });
 
-ws.on("open", () => {
-  ws.send(
-    JSON.stringify({
-      type: "response.create",
-      model: "gpt-6-astra",
-      store: false,
-      input: [
+ws.send({
+  type: "response.create",
+  model: "gpt-6-astra",
+  store: false,
+  input: [
+    {
+      type: "message",
+      role: "user",
+      content: [
         {
-          type: "message",
-          role: "user",
-          content: [
-            {
-              type: "input_text",
-              text:
-                "Find the flaky test in this run, call the tools you need, " +
-                "and keep going until you can explain the root cause.",
-            },
-          ],
+          type: "input_text",
+          text:
+            "Find the flaky test in this run, call the tools you need, " +
+            "and keep going until you can explain the root cause.",
         },
       ],
-      tools: [testLogTool, codeSearchTool],
-    })
-  );
-});
-
-ws.on("message", (data) => {
-  const firstEvent = JSON.parse(data.toString());
-  console.log(firstEvent.type);
+    },
+  ],
+  tools: [testLogTool, codeSearchTool],
 });
 ```
 
 ```python
 from openai import OpenAI
-from websocket import create_connection
-import json
 
 client = OpenAI()
 
-ws = create_connection(
-    "wss://api.openai.com/v1/responses",
-    header=[f"Authorization: Bearer {client.api_key}"],
-)
-
-# Same request body you would send to client.responses.create(...).
-ws.send(
-    json.dumps(
-        {
-            "type": "response.create",
-            "model": "gpt-6-astra",
-            "store": False,
-            "input": [
-                {
-                    "type": "message",
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "input_text",
-                            "text": (
-                                "Find the flaky test in this run, call the tools "
-                                "you need, and keep going until you can explain "
-                                "the root cause."
-                            ),
-                        }
-                    ],
-                }
-            ],
-            "tools": [test_log_tool, code_search_tool],
-        }
+with client.responses.connect() as connection:
+    # Use the same typed parameters as client.responses.create(...).
+    connection.response.create(
+        model="gpt-6-astra",
+        store=False,
+        input=[
+            {
+                "type": "message",
+                "role": "user",
+                "content": [
+                    {
+                        "type": "input_text",
+                        "text": (
+                            "Find the flaky test in this run, call the tools "
+                            "you need, and keep going until you can explain "
+                            "the root cause."
+                        ),
+                    }
+                ],
+            }
+        ],
+        tools=[test_log_tool, code_search_tool],
     )
-)
-
-first_event = json.loads(ws.recv())
-print(first_event["type"])
+    first_event = connection.recv()
+    print(first_event.type)
 ```
 
 

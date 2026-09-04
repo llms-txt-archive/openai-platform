@@ -58,11 +58,15 @@ import json
 import uuid
 
 from openai import OpenAI
+from openai.types.responses import (
+    FunctionToolParam,
+    ResponseInputParam,
+)
 
 def run_computer_use(endpoint, prompt, model="gpt-6-astra"):
     client = OpenAI()
     session_id = str(uuid.uuid4())
-    tools = [
+    tools: list[FunctionToolParam] = [
         {
             "type": "function",
             "name": "exec_py",
@@ -83,7 +87,7 @@ def run_computer_use(endpoint, prompt, model="gpt-6-astra"):
             "strict": True,
         }
     ]
-    next_input = [{"role": "user", "content": prompt}]
+    next_input: ResponseInputParam = [{"role": "user", "content": prompt}]
     previous_response_id = None
 
     for turn in range(20):
@@ -98,7 +102,7 @@ def run_computer_use(endpoint, prompt, model="gpt-6-astra"):
 
         calls = [item for item in response.output if item.type == "function_call"]
         if not calls and any(
-            item.type == "message" and getattr(item, "phase", None) != "commentary"
+            item.type == "message" and item.phase != "commentary"
             for item in response.output
         ):
             print(response.output_text)

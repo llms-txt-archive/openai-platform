@@ -61,6 +61,72 @@ curl "https://api.openai.com/v1/safety/alerts/${SAFETY_ALERT_ID}" \
   -H "Authorization: Bearer ${OPENAI_API_KEY}"
 ```
 
+Retrieve a project safety alert
+
+```javascript
+import OpenAI from "openai";
+
+const client = new OpenAI();
+const alertId = process.env.SAFETY_ALERT_ID;
+if (!alertId) throw new Error("Set SAFETY_ALERT_ID.");
+
+const alert = await client.safety.alerts.retrieve(alertId);
+console.log(alert.error_type, alert.reason, alert.response_id);
+```
+
+```python
+import os
+
+from openai import OpenAI
+
+client = OpenAI()
+alert = client.safety.alerts.retrieve(os.environ["SAFETY_ALERT_ID"])
+print(alert.error_type, alert.reason)
+```
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	"github.com/openai/openai-go/v3"
+)
+
+func main() {
+	client := openai.NewClient()
+	alert, err := client.Safety.Alerts.Get(context.Background(), os.Getenv("SAFETY_ALERT_ID"))
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(alert.ErrorType)
+	fmt.Println(alert.Reason)
+	fmt.Println(alert.RequestPaused)
+}
+```
+
+```java
+import com.openai.models.safety.alerts.SafetyAlert;
+
+SafetyAlert alert = client.safety().alerts().retrieve(System.getenv("SAFETY_ALERT_ID"));
+System.out.println(alert.errorType());
+alert.reason().ifPresent(System.out::println);
+System.out.println(alert.requestPaused());
+```
+
+```ruby
+require "openai"
+
+client = OpenAI::Client.new
+alert = client.safety.alerts.retrieve(ENV.fetch("SAFETY_ALERT_ID"))
+puts(alert.error_type)
+puts(alert.reason)
+puts(alert.request_paused)
+```
+
+
 Use the returned `request_id` and `response_id` to find the affected work in your application records. Treat the alert category as a concern to investigate. When `request_paused` is `true`, registering a safety block succeeded; this does not confirm that execution stopped or that earlier actions were reversed. Check your application's task state and tool records.
 
 The alert's `reason` can be `null`, including for Zero Data Retention (ZDR) requests. A non-null `reason` is a category description, not a transcript or full investigation report. Keep the records you need under your organization's data policies. See [Your data](https://developers.openai.com/api/docs/guides/your-data) for API data controls.

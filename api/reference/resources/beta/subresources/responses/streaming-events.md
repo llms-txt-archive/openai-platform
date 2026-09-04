@@ -12376,6 +12376,10 @@ Schema name: `BetaResponseCreatedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -12387,7 +12391,8 @@ Schema name: `BetaResponseCreatedEvent`
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type": {
@@ -20813,6 +20818,10 @@ Schema name: `BetaResponseCreatedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -20824,7 +20833,8 @@ Schema name: `BetaResponseCreatedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type": {
@@ -27000,6 +27010,13 @@ Schema name: `BetaResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type > (member) 0": {
@@ -33499,6 +33516,13 @@ Schema name: `BetaResponseCreatedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type > (member) 0": {
@@ -78061,6 +78085,10 @@ Schema name: `BetaResponseInProgressEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -78072,7 +78100,8 @@ Schema name: `BetaResponseInProgressEvent`
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type": {
@@ -86498,6 +86527,10 @@ Schema name: `BetaResponseInProgressEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -86509,7 +86542,8 @@ Schema name: `BetaResponseInProgressEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type": {
@@ -92685,6 +92719,13 @@ Schema name: `BetaResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type > (member) 0": {
@@ -99184,6 +99225,13 @@ Schema name: `BetaResponseInProgressEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type > (member) 0": {
@@ -143746,6 +143794,10 @@ Schema name: `BetaResponseCompletedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -143757,7 +143809,8 @@ Schema name: `BetaResponseCompletedEvent`
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type": {
@@ -152183,6 +152236,10 @@ Schema name: `BetaResponseCompletedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -152194,7 +152251,8 @@ Schema name: `BetaResponseCompletedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type": {
@@ -158370,6 +158428,13 @@ Schema name: `BetaResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type > (member) 0": {
@@ -164869,6 +164934,13 @@ Schema name: `BetaResponseCompletedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type > (member) 0": {
@@ -209448,6 +209520,10 @@ Schema name: `BetaResponseFailedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -209459,7 +209535,8 @@ Schema name: `BetaResponseFailedEvent`
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type": {
@@ -217885,6 +217962,10 @@ Schema name: `BetaResponseFailedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -217896,7 +217977,8 @@ Schema name: `BetaResponseFailedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type": {
@@ -224072,6 +224154,13 @@ Schema name: `BetaResponseFailedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type > (member) 0": {
@@ -230571,6 +230660,13 @@ Schema name: `BetaResponseFailedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type > (member) 0": {
@@ -275135,6 +275231,10 @@ Schema name: `BetaResponseIncompleteEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -275146,7 +275246,8 @@ Schema name: `BetaResponseIncompleteEvent`
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type": {
@@ -283572,6 +283673,10 @@ Schema name: `BetaResponseIncompleteEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -283583,7 +283688,8 @@ Schema name: `BetaResponseIncompleteEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type": {
@@ -289759,6 +289865,13 @@ Schema name: `BetaResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type > (member) 0": {
@@ -296258,6 +296371,13 @@ Schema name: `BetaResponseIncompleteEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type > (member) 0": {
@@ -332186,6 +332306,10 @@ Schema name: `BetaResponseOutputItemAddedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -332197,7 +332321,8 @@ Schema name: `BetaResponseOutputItemAddedEvent`
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type": {
@@ -337775,6 +337900,13 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type > (member) 0": {
@@ -359927,6 +360059,10 @@ Schema name: `BetaResponseOutputItemDoneEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -359938,7 +360074,8 @@ Schema name: `BetaResponseOutputItemDoneEvent`
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type": {
@@ -365516,6 +365653,13 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type > (member) 0": {
@@ -406320,6 +406464,10 @@ Schema name: `BetaResponseQueuedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -406331,7 +406479,8 @@ Schema name: `BetaResponseQueuedEvent`
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type": {
@@ -414757,6 +414906,10 @@ Schema name: `BetaResponseQueuedEvent`
         {
           "kind": "HttpTypeLiteral",
           "literal": "failed"
+        },
+        {
+          "kind": "HttpTypeLiteral",
+          "literal": "incomplete"
         }
       ]
     },
@@ -414768,7 +414921,8 @@ Schema name: `BetaResponseQueuedEvent`
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 0",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 1",
       "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 2",
-      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3"
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 3",
+      "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4"
     ]
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type": {
@@ -420944,6 +421098,13 @@ Schema name: `BetaResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7 > (property) type > (member) 0": {
@@ -427443,6 +427604,13 @@ Schema name: `BetaResponseQueuedEvent`
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "failed"
+    }
+  },
+  "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) status > (member) 4": {
+    "kind": "HttpDeclReference",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "incomplete"
     }
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6 > (property) type > (member) 0": {

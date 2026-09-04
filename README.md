@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260904T002357Z` | 2026-09-04 00:23 UTC | [Responses prompt-cache diagnostics and returns clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T002357Z) |
+| `archive-20260904T050518Z` | 2026-09-04 05:05 UTC | [WebSocket Guides and Item Status Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T050518Z) |
+| `archive-20260904T002357Z` | 2026-09-04 00:25 UTC | [Responses prompt-cache diagnostics and returns clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T002357Z) |
 | `archive-20260903T215313Z` | 2026-09-03 21:55 UTC | [GPT-6 Astra rollout and agent workflow docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260903T215313Z) |
 | `archive-20260903T192745Z` | 2026-09-03 19:28 UTC | [Responses docs add prompt cache diagnostics](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260903T192745Z) |
 | `archive-20260903T164050Z` | 2026-09-03 16:41 UTC | [Responses Fast Mode Docs Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260903T164050Z) |
 | `archive-20260902T233304Z` | 2026-09-02 23:34 UTC | [Ruby example coverage expanded in core guides](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260902T233304Z) |
-| `archive-20260902T211703Z` | 2026-09-02 21:17 UTC | [Commerce Product Feed Docs Reorganized](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260902T211703Z) |
