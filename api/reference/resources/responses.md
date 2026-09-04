@@ -16,7 +16,7 @@ the `background` parameter set to `true` can be cancelled.
 
 ### Returns
 
-- `Response object { id, created_at, error, 32 more }`
+- `Response object { id, created_at, error, 33 more }`
 
   - `id: string`
 
@@ -8996,11 +8996,69 @@ the `background` parameter set to `true` can be cancelled.
 
       Optional version of the prompt template.
 
+  - `prompt_cache_diagnostics: optional object { cache_missed_tokens, reason, type, comparison_reusable_tokens }  or object { type }  or object { type }  or object { type }`
+
+    Prompt cache diagnostics requested for this response.
+
+    - `CacheMiss object { cache_missed_tokens, reason, type, comparison_reusable_tokens }`
+
+      - `cache_missed_tokens: number`
+
+        The estimated number of input tokens affected after the first detected divergence.
+
+      - `reason: "model_changed" or "prompt_cache_key_changed" or "tools_changed" or 6 more`
+
+        The reason prompt cache reuse did not occur.
+
+        - `"model_changed"`
+
+        - `"prompt_cache_key_changed"`
+
+        - `"tools_changed"`
+
+        - `"text_format_changed"`
+
+        - `"reasoning_effort_changed"`
+
+        - `"verbosity_changed"`
+
+        - `"context_compacted"`
+
+        - `"input_changed"`
+
+        - `"service_tier_changed"`
+
+      - `type: "cache_miss"`
+
+        - `"cache_miss"`
+
+      - `comparison_reusable_tokens: optional number`
+
+        The raw token count of the reusable prefix in the compared response.
+
+    - `CacheHit object { type }`
+
+      - `type: "cache_hit"`
+
+        - `"cache_hit"`
+
+    - `ComparisonResponseNotFound object { type }`
+
+      - `type: "comparison_response_not_found"`
+
+        - `"comparison_response_not_found"`
+
+    - `Unavailable object { type }`
+
+      - `type: "unavailable"`
+
+        - `"unavailable"`
+
   - `prompt_cache_key: optional string or null`
 
     Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-  - `prompt_cache_options: optional object { mode, ttl }`
+  - `prompt_cache_options: optional object { mode, ttl, comparison_response_id }`
 
     The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
 
@@ -9017,6 +9075,10 @@ the `background` parameter set to `true` can be cancelled.
       The minimum lifetime applied to each cache breakpoint.
 
       - `"30m"`
+
+    - `comparison_response_id: optional string or null`
+
+      The response ID supplied as the prompt cache diagnostics comparison.
 
   - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
@@ -9470,10 +9532,17 @@ curl https://api.openai.com/v1/responses/$RESPONSE_ID/cancel \
     },
     "version": "version"
   },
+  "prompt_cache_diagnostics": {
+    "cache_missed_tokens": 0,
+    "reason": "model_changed",
+    "type": "cache_miss",
+    "comparison_reusable_tokens": 0
+  },
   "prompt_cache_key": "prompt-cache-key-1234",
   "prompt_cache_options": {
     "mode": "implicit",
-    "ttl": "30m"
+    "ttl": "30m",
+    "comparison_response_id": "comparison_response_id"
   },
   "prompt_cache_retention": "in_memory",
   "reasoning": {
@@ -14030,7 +14099,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
 - `service_tier: optional "auto" or "default" or "fast" or 2 more or null`
 
-  Specifies the processing type used for serving the request.   - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.   - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.   - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.   - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.   - When not set, the default behavior is 'auto'.
+  Specifies the processing type used for serving the request.   - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.   - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.   - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.   - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. For models with a dedicated Fast tier, either value resolves to `service_tier=fast`; for other models, either value resolves to `service_tier=priority`.   - When not set, the default behavior is 'auto'.
   When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.
 
   - `"auto"`
@@ -22895,9 +22964,13 @@ as input for the model's response.
 
   Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-- `prompt_cache_options: optional object { mode, ttl }`
+- `prompt_cache_options: optional object { comparison_response_id, mode, ttl }`
 
   Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`, which is currently the only supported value. See the [prompt caching guide](/docs/guides/prompt-caching) for current details.
+
+  - `comparison_response_id: optional string or null`
+
+    The ID of a response to compare when diagnosing prompt cache reuse. Supplying this field requests prompt cache diagnostics when the feature is enabled.
 
   - `mode: optional "implicit" or "explicit"`
 
@@ -24234,7 +24307,7 @@ as input for the model's response.
 
 ### Returns
 
-- `Response object { id, created_at, error, 32 more }`
+- `Response object { id, created_at, error, 33 more }`
 
   - `id: string`
 
@@ -33214,11 +33287,69 @@ as input for the model's response.
 
       Optional version of the prompt template.
 
+  - `prompt_cache_diagnostics: optional object { cache_missed_tokens, reason, type, comparison_reusable_tokens }  or object { type }  or object { type }  or object { type }`
+
+    Prompt cache diagnostics requested for this response.
+
+    - `CacheMiss object { cache_missed_tokens, reason, type, comparison_reusable_tokens }`
+
+      - `cache_missed_tokens: number`
+
+        The estimated number of input tokens affected after the first detected divergence.
+
+      - `reason: "model_changed" or "prompt_cache_key_changed" or "tools_changed" or 6 more`
+
+        The reason prompt cache reuse did not occur.
+
+        - `"model_changed"`
+
+        - `"prompt_cache_key_changed"`
+
+        - `"tools_changed"`
+
+        - `"text_format_changed"`
+
+        - `"reasoning_effort_changed"`
+
+        - `"verbosity_changed"`
+
+        - `"context_compacted"`
+
+        - `"input_changed"`
+
+        - `"service_tier_changed"`
+
+      - `type: "cache_miss"`
+
+        - `"cache_miss"`
+
+      - `comparison_reusable_tokens: optional number`
+
+        The raw token count of the reusable prefix in the compared response.
+
+    - `CacheHit object { type }`
+
+      - `type: "cache_hit"`
+
+        - `"cache_hit"`
+
+    - `ComparisonResponseNotFound object { type }`
+
+      - `type: "comparison_response_not_found"`
+
+        - `"comparison_response_not_found"`
+
+    - `Unavailable object { type }`
+
+      - `type: "unavailable"`
+
+        - `"unavailable"`
+
   - `prompt_cache_key: optional string or null`
 
     Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-  - `prompt_cache_options: optional object { mode, ttl }`
+  - `prompt_cache_options: optional object { mode, ttl, comparison_response_id }`
 
     The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
 
@@ -33235,6 +33366,10 @@ as input for the model's response.
       The minimum lifetime applied to each cache breakpoint.
 
       - `"30m"`
+
+    - `comparison_response_id: optional string or null`
+
+      The response ID supplied as the prompt cache diagnostics comparison.
 
   - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
@@ -33696,10 +33831,17 @@ curl https://api.openai.com/v1/responses \
     },
     "version": "version"
   },
+  "prompt_cache_diagnostics": {
+    "cache_missed_tokens": 0,
+    "reason": "model_changed",
+    "type": "cache_miss",
+    "comparison_reusable_tokens": 0
+  },
   "prompt_cache_key": "prompt-cache-key-1234",
   "prompt_cache_options": {
     "mode": "implicit",
-    "ttl": "30m"
+    "ttl": "30m",
+    "comparison_response_id": "comparison_response_id"
   },
   "prompt_cache_retention": "in_memory",
   "reasoning": {
@@ -34590,7 +34732,7 @@ Retrieves a model response with the given ID.
 
 ### Returns
 
-- `Response object { id, created_at, error, 32 more }`
+- `Response object { id, created_at, error, 33 more }`
 
   - `id: string`
 
@@ -43570,11 +43712,69 @@ Retrieves a model response with the given ID.
 
       Optional version of the prompt template.
 
+  - `prompt_cache_diagnostics: optional object { cache_missed_tokens, reason, type, comparison_reusable_tokens }  or object { type }  or object { type }  or object { type }`
+
+    Prompt cache diagnostics requested for this response.
+
+    - `CacheMiss object { cache_missed_tokens, reason, type, comparison_reusable_tokens }`
+
+      - `cache_missed_tokens: number`
+
+        The estimated number of input tokens affected after the first detected divergence.
+
+      - `reason: "model_changed" or "prompt_cache_key_changed" or "tools_changed" or 6 more`
+
+        The reason prompt cache reuse did not occur.
+
+        - `"model_changed"`
+
+        - `"prompt_cache_key_changed"`
+
+        - `"tools_changed"`
+
+        - `"text_format_changed"`
+
+        - `"reasoning_effort_changed"`
+
+        - `"verbosity_changed"`
+
+        - `"context_compacted"`
+
+        - `"input_changed"`
+
+        - `"service_tier_changed"`
+
+      - `type: "cache_miss"`
+
+        - `"cache_miss"`
+
+      - `comparison_reusable_tokens: optional number`
+
+        The raw token count of the reusable prefix in the compared response.
+
+    - `CacheHit object { type }`
+
+      - `type: "cache_hit"`
+
+        - `"cache_hit"`
+
+    - `ComparisonResponseNotFound object { type }`
+
+      - `type: "comparison_response_not_found"`
+
+        - `"comparison_response_not_found"`
+
+    - `Unavailable object { type }`
+
+      - `type: "unavailable"`
+
+        - `"unavailable"`
+
   - `prompt_cache_key: optional string or null`
 
     Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-  - `prompt_cache_options: optional object { mode, ttl }`
+  - `prompt_cache_options: optional object { mode, ttl, comparison_response_id }`
 
     The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
 
@@ -43591,6 +43791,10 @@ Retrieves a model response with the given ID.
       The minimum lifetime applied to each cache breakpoint.
 
       - `"30m"`
+
+    - `comparison_response_id: optional string or null`
+
+      The response ID supplied as the prompt cache diagnostics comparison.
 
   - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
@@ -44043,10 +44247,17 @@ curl https://api.openai.com/v1/responses/$RESPONSE_ID \
     },
     "version": "version"
   },
+  "prompt_cache_diagnostics": {
+    "cache_missed_tokens": 0,
+    "reason": "model_changed",
+    "type": "cache_miss",
+    "comparison_reusable_tokens": 0
+  },
   "prompt_cache_key": "prompt-cache-key-1234",
   "prompt_cache_options": {
     "mode": "implicit",
-    "ttl": "30m"
+    "ttl": "30m",
+    "comparison_response_id": "comparison_response_id"
   },
   "prompt_cache_retention": "in_memory",
   "reasoning": {
@@ -49181,7 +49392,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
 ### Response
 
-- `Response object { id, created_at, error, 32 more }`
+- `Response object { id, created_at, error, 33 more }`
 
   - `id: string`
 
@@ -58161,11 +58372,69 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       Optional version of the prompt template.
 
+  - `prompt_cache_diagnostics: optional object { cache_missed_tokens, reason, type, comparison_reusable_tokens }  or object { type }  or object { type }  or object { type }`
+
+    Prompt cache diagnostics requested for this response.
+
+    - `CacheMiss object { cache_missed_tokens, reason, type, comparison_reusable_tokens }`
+
+      - `cache_missed_tokens: number`
+
+        The estimated number of input tokens affected after the first detected divergence.
+
+      - `reason: "model_changed" or "prompt_cache_key_changed" or "tools_changed" or 6 more`
+
+        The reason prompt cache reuse did not occur.
+
+        - `"model_changed"`
+
+        - `"prompt_cache_key_changed"`
+
+        - `"tools_changed"`
+
+        - `"text_format_changed"`
+
+        - `"reasoning_effort_changed"`
+
+        - `"verbosity_changed"`
+
+        - `"context_compacted"`
+
+        - `"input_changed"`
+
+        - `"service_tier_changed"`
+
+      - `type: "cache_miss"`
+
+        - `"cache_miss"`
+
+      - `comparison_reusable_tokens: optional number`
+
+        The raw token count of the reusable prefix in the compared response.
+
+    - `CacheHit object { type }`
+
+      - `type: "cache_hit"`
+
+        - `"cache_hit"`
+
+    - `ComparisonResponseNotFound object { type }`
+
+      - `type: "comparison_response_not_found"`
+
+        - `"comparison_response_not_found"`
+
+    - `Unavailable object { type }`
+
+      - `type: "unavailable"`
+
+        - `"unavailable"`
+
   - `prompt_cache_key: optional string or null`
 
     Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-  - `prompt_cache_options: optional object { mode, ttl }`
+  - `prompt_cache_options: optional object { mode, ttl, comparison_response_id }`
 
     The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
 
@@ -58182,6 +58451,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
       The minimum lifetime applied to each cache breakpoint.
 
       - `"30m"`
+
+    - `comparison_response_id: optional string or null`
+
+      The response ID supplied as the prompt cache diagnostics comparison.
 
   - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
@@ -67675,11 +67948,69 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         Optional version of the prompt template.
 
+    - `prompt_cache_diagnostics: optional object { cache_missed_tokens, reason, type, comparison_reusable_tokens }  or object { type }  or object { type }  or object { type }`
+
+      Prompt cache diagnostics requested for this response.
+
+      - `CacheMiss object { cache_missed_tokens, reason, type, comparison_reusable_tokens }`
+
+        - `cache_missed_tokens: number`
+
+          The estimated number of input tokens affected after the first detected divergence.
+
+        - `reason: "model_changed" or "prompt_cache_key_changed" or "tools_changed" or 6 more`
+
+          The reason prompt cache reuse did not occur.
+
+          - `"model_changed"`
+
+          - `"prompt_cache_key_changed"`
+
+          - `"tools_changed"`
+
+          - `"text_format_changed"`
+
+          - `"reasoning_effort_changed"`
+
+          - `"verbosity_changed"`
+
+          - `"context_compacted"`
+
+          - `"input_changed"`
+
+          - `"service_tier_changed"`
+
+        - `type: "cache_miss"`
+
+          - `"cache_miss"`
+
+        - `comparison_reusable_tokens: optional number`
+
+          The raw token count of the reusable prefix in the compared response.
+
+      - `CacheHit object { type }`
+
+        - `type: "cache_hit"`
+
+          - `"cache_hit"`
+
+      - `ComparisonResponseNotFound object { type }`
+
+        - `type: "comparison_response_not_found"`
+
+          - `"comparison_response_not_found"`
+
+      - `Unavailable object { type }`
+
+        - `type: "unavailable"`
+
+          - `"unavailable"`
+
     - `prompt_cache_key: optional string or null`
 
       Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-    - `prompt_cache_options: optional object { mode, ttl }`
+    - `prompt_cache_options: optional object { mode, ttl, comparison_response_id }`
 
       The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
 
@@ -67696,6 +68027,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
         The minimum lifetime applied to each cache breakpoint.
 
         - `"30m"`
+
+      - `comparison_response_id: optional string or null`
+
+        The response ID supplied as the prompt cache diagnostics comparison.
 
     - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
@@ -77698,11 +78033,69 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         Optional version of the prompt template.
 
+    - `prompt_cache_diagnostics: optional object { cache_missed_tokens, reason, type, comparison_reusable_tokens }  or object { type }  or object { type }  or object { type }`
+
+      Prompt cache diagnostics requested for this response.
+
+      - `CacheMiss object { cache_missed_tokens, reason, type, comparison_reusable_tokens }`
+
+        - `cache_missed_tokens: number`
+
+          The estimated number of input tokens affected after the first detected divergence.
+
+        - `reason: "model_changed" or "prompt_cache_key_changed" or "tools_changed" or 6 more`
+
+          The reason prompt cache reuse did not occur.
+
+          - `"model_changed"`
+
+          - `"prompt_cache_key_changed"`
+
+          - `"tools_changed"`
+
+          - `"text_format_changed"`
+
+          - `"reasoning_effort_changed"`
+
+          - `"verbosity_changed"`
+
+          - `"context_compacted"`
+
+          - `"input_changed"`
+
+          - `"service_tier_changed"`
+
+        - `type: "cache_miss"`
+
+          - `"cache_miss"`
+
+        - `comparison_reusable_tokens: optional number`
+
+          The raw token count of the reusable prefix in the compared response.
+
+      - `CacheHit object { type }`
+
+        - `type: "cache_hit"`
+
+          - `"cache_hit"`
+
+      - `ComparisonResponseNotFound object { type }`
+
+        - `type: "comparison_response_not_found"`
+
+          - `"comparison_response_not_found"`
+
+      - `Unavailable object { type }`
+
+        - `type: "unavailable"`
+
+          - `"unavailable"`
+
     - `prompt_cache_key: optional string or null`
 
       Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-    - `prompt_cache_options: optional object { mode, ttl }`
+    - `prompt_cache_options: optional object { mode, ttl, comparison_response_id }`
 
       The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
 
@@ -77719,6 +78112,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
         The minimum lifetime applied to each cache breakpoint.
 
         - `"30m"`
+
+      - `comparison_response_id: optional string or null`
+
+        The response ID supplied as the prompt cache diagnostics comparison.
 
     - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
@@ -87194,11 +87591,69 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         Optional version of the prompt template.
 
+    - `prompt_cache_diagnostics: optional object { cache_missed_tokens, reason, type, comparison_reusable_tokens }  or object { type }  or object { type }  or object { type }`
+
+      Prompt cache diagnostics requested for this response.
+
+      - `CacheMiss object { cache_missed_tokens, reason, type, comparison_reusable_tokens }`
+
+        - `cache_missed_tokens: number`
+
+          The estimated number of input tokens affected after the first detected divergence.
+
+        - `reason: "model_changed" or "prompt_cache_key_changed" or "tools_changed" or 6 more`
+
+          The reason prompt cache reuse did not occur.
+
+          - `"model_changed"`
+
+          - `"prompt_cache_key_changed"`
+
+          - `"tools_changed"`
+
+          - `"text_format_changed"`
+
+          - `"reasoning_effort_changed"`
+
+          - `"verbosity_changed"`
+
+          - `"context_compacted"`
+
+          - `"input_changed"`
+
+          - `"service_tier_changed"`
+
+        - `type: "cache_miss"`
+
+          - `"cache_miss"`
+
+        - `comparison_reusable_tokens: optional number`
+
+          The raw token count of the reusable prefix in the compared response.
+
+      - `CacheHit object { type }`
+
+        - `type: "cache_hit"`
+
+          - `"cache_hit"`
+
+      - `ComparisonResponseNotFound object { type }`
+
+        - `type: "comparison_response_not_found"`
+
+          - `"comparison_response_not_found"`
+
+      - `Unavailable object { type }`
+
+        - `type: "unavailable"`
+
+          - `"unavailable"`
+
     - `prompt_cache_key: optional string or null`
 
       Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-    - `prompt_cache_options: optional object { mode, ttl }`
+    - `prompt_cache_options: optional object { mode, ttl, comparison_response_id }`
 
       The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
 
@@ -87215,6 +87670,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
         The minimum lifetime applied to each cache breakpoint.
 
         - `"30m"`
+
+      - `comparison_response_id: optional string or null`
+
+        The response ID supplied as the prompt cache diagnostics comparison.
 
     - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
@@ -96921,11 +97380,69 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         Optional version of the prompt template.
 
+    - `prompt_cache_diagnostics: optional object { cache_missed_tokens, reason, type, comparison_reusable_tokens }  or object { type }  or object { type }  or object { type }`
+
+      Prompt cache diagnostics requested for this response.
+
+      - `CacheMiss object { cache_missed_tokens, reason, type, comparison_reusable_tokens }`
+
+        - `cache_missed_tokens: number`
+
+          The estimated number of input tokens affected after the first detected divergence.
+
+        - `reason: "model_changed" or "prompt_cache_key_changed" or "tools_changed" or 6 more`
+
+          The reason prompt cache reuse did not occur.
+
+          - `"model_changed"`
+
+          - `"prompt_cache_key_changed"`
+
+          - `"tools_changed"`
+
+          - `"text_format_changed"`
+
+          - `"reasoning_effort_changed"`
+
+          - `"verbosity_changed"`
+
+          - `"context_compacted"`
+
+          - `"input_changed"`
+
+          - `"service_tier_changed"`
+
+        - `type: "cache_miss"`
+
+          - `"cache_miss"`
+
+        - `comparison_reusable_tokens: optional number`
+
+          The raw token count of the reusable prefix in the compared response.
+
+      - `CacheHit object { type }`
+
+        - `type: "cache_hit"`
+
+          - `"cache_hit"`
+
+      - `ComparisonResponseNotFound object { type }`
+
+        - `type: "comparison_response_not_found"`
+
+          - `"comparison_response_not_found"`
+
+      - `Unavailable object { type }`
+
+        - `type: "unavailable"`
+
+          - `"unavailable"`
+
     - `prompt_cache_key: optional string or null`
 
       Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-    - `prompt_cache_options: optional object { mode, ttl }`
+    - `prompt_cache_options: optional object { mode, ttl, comparison_response_id }`
 
       The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
 
@@ -96942,6 +97459,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
         The minimum lifetime applied to each cache breakpoint.
 
         - `"30m"`
+
+      - `comparison_response_id: optional string or null`
+
+        The response ID supplied as the prompt cache diagnostics comparison.
 
     - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
@@ -106280,11 +106801,69 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         Optional version of the prompt template.
 
+    - `prompt_cache_diagnostics: optional object { cache_missed_tokens, reason, type, comparison_reusable_tokens }  or object { type }  or object { type }  or object { type }`
+
+      Prompt cache diagnostics requested for this response.
+
+      - `CacheMiss object { cache_missed_tokens, reason, type, comparison_reusable_tokens }`
+
+        - `cache_missed_tokens: number`
+
+          The estimated number of input tokens affected after the first detected divergence.
+
+        - `reason: "model_changed" or "prompt_cache_key_changed" or "tools_changed" or 6 more`
+
+          The reason prompt cache reuse did not occur.
+
+          - `"model_changed"`
+
+          - `"prompt_cache_key_changed"`
+
+          - `"tools_changed"`
+
+          - `"text_format_changed"`
+
+          - `"reasoning_effort_changed"`
+
+          - `"verbosity_changed"`
+
+          - `"context_compacted"`
+
+          - `"input_changed"`
+
+          - `"service_tier_changed"`
+
+        - `type: "cache_miss"`
+
+          - `"cache_miss"`
+
+        - `comparison_reusable_tokens: optional number`
+
+          The raw token count of the reusable prefix in the compared response.
+
+      - `CacheHit object { type }`
+
+        - `type: "cache_hit"`
+
+          - `"cache_hit"`
+
+      - `ComparisonResponseNotFound object { type }`
+
+        - `type: "comparison_response_not_found"`
+
+          - `"comparison_response_not_found"`
+
+      - `Unavailable object { type }`
+
+        - `type: "unavailable"`
+
+          - `"unavailable"`
+
     - `prompt_cache_key: optional string or null`
 
       Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-    - `prompt_cache_options: optional object { mode, ttl }`
+    - `prompt_cache_options: optional object { mode, ttl, comparison_response_id }`
 
       The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
 
@@ -106301,6 +106880,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
         The minimum lifetime applied to each cache breakpoint.
 
         - `"30m"`
+
+      - `comparison_response_id: optional string or null`
+
+        The response ID supplied as the prompt cache diagnostics comparison.
 
     - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
@@ -129112,11 +129695,69 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         Optional version of the prompt template.
 
+    - `prompt_cache_diagnostics: optional object { cache_missed_tokens, reason, type, comparison_reusable_tokens }  or object { type }  or object { type }  or object { type }`
+
+      Prompt cache diagnostics requested for this response.
+
+      - `CacheMiss object { cache_missed_tokens, reason, type, comparison_reusable_tokens }`
+
+        - `cache_missed_tokens: number`
+
+          The estimated number of input tokens affected after the first detected divergence.
+
+        - `reason: "model_changed" or "prompt_cache_key_changed" or "tools_changed" or 6 more`
+
+          The reason prompt cache reuse did not occur.
+
+          - `"model_changed"`
+
+          - `"prompt_cache_key_changed"`
+
+          - `"tools_changed"`
+
+          - `"text_format_changed"`
+
+          - `"reasoning_effort_changed"`
+
+          - `"verbosity_changed"`
+
+          - `"context_compacted"`
+
+          - `"input_changed"`
+
+          - `"service_tier_changed"`
+
+        - `type: "cache_miss"`
+
+          - `"cache_miss"`
+
+        - `comparison_reusable_tokens: optional number`
+
+          The raw token count of the reusable prefix in the compared response.
+
+      - `CacheHit object { type }`
+
+        - `type: "cache_hit"`
+
+          - `"cache_hit"`
+
+      - `ComparisonResponseNotFound object { type }`
+
+        - `type: "comparison_response_not_found"`
+
+          - `"comparison_response_not_found"`
+
+      - `Unavailable object { type }`
+
+        - `type: "unavailable"`
+
+          - `"unavailable"`
+
     - `prompt_cache_key: optional string or null`
 
       Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-    - `prompt_cache_options: optional object { mode, ttl }`
+    - `prompt_cache_options: optional object { mode, ttl, comparison_response_id }`
 
       The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
 
@@ -129133,6 +129774,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
         The minimum lifetime applied to each cache breakpoint.
 
         - `"30m"`
+
+      - `comparison_response_id: optional string or null`
+
+        The response ID supplied as the prompt cache diagnostics comparison.
 
     - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
@@ -140361,11 +141006,69 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           Optional version of the prompt template.
 
+      - `prompt_cache_diagnostics: optional object { cache_missed_tokens, reason, type, comparison_reusable_tokens }  or object { type }  or object { type }  or object { type }`
+
+        Prompt cache diagnostics requested for this response.
+
+        - `CacheMiss object { cache_missed_tokens, reason, type, comparison_reusable_tokens }`
+
+          - `cache_missed_tokens: number`
+
+            The estimated number of input tokens affected after the first detected divergence.
+
+          - `reason: "model_changed" or "prompt_cache_key_changed" or "tools_changed" or 6 more`
+
+            The reason prompt cache reuse did not occur.
+
+            - `"model_changed"`
+
+            - `"prompt_cache_key_changed"`
+
+            - `"tools_changed"`
+
+            - `"text_format_changed"`
+
+            - `"reasoning_effort_changed"`
+
+            - `"verbosity_changed"`
+
+            - `"context_compacted"`
+
+            - `"input_changed"`
+
+            - `"service_tier_changed"`
+
+          - `type: "cache_miss"`
+
+            - `"cache_miss"`
+
+          - `comparison_reusable_tokens: optional number`
+
+            The raw token count of the reusable prefix in the compared response.
+
+        - `CacheHit object { type }`
+
+          - `type: "cache_hit"`
+
+            - `"cache_hit"`
+
+        - `ComparisonResponseNotFound object { type }`
+
+          - `type: "comparison_response_not_found"`
+
+            - `"comparison_response_not_found"`
+
+        - `Unavailable object { type }`
+
+          - `type: "unavailable"`
+
+            - `"unavailable"`
+
       - `prompt_cache_key: optional string or null`
 
         Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-      - `prompt_cache_options: optional object { mode, ttl }`
+      - `prompt_cache_options: optional object { mode, ttl, comparison_response_id }`
 
         The prompt-caching options that were applied to the response. Supported for `gpt-5.6` and later models.
 
@@ -140382,6 +141085,10 @@ curl https://api.openai.com/v1/responses/resp_123 \
           The minimum lifetime applied to each cache breakpoint.
 
           - `"30m"`
+
+        - `comparison_response_id: optional string or null`
+
+          The response ID supplied as the prompt cache diagnostics comparison.
 
       - `prompt_cache_retention: optional "in_memory" or "24h" or null`
 
@@ -147231,9 +147938,13 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).
 
-    - `prompt_cache_options: optional object { mode, ttl }`
+    - `prompt_cache_options: optional object { comparison_response_id, mode, ttl }`
 
       Options for prompt caching. Supported for `gpt-5.6` and later models. By default, OpenAI automatically chooses one implicit cache breakpoint. You can add explicit breakpoints to content blocks with `prompt_cache_breakpoint`. Each request can write up to four breakpoints. For cache matching, OpenAI considers up to the latest 80 breakpoints in the conversation, without a content-block lookback limit. Set `mode` to `explicit` to disable the implicit breakpoint. The `ttl` defaults to `30m`, which is currently the only supported value. See the [prompt caching guide](/docs/guides/prompt-caching) for current details.
+
+      - `comparison_response_id: optional string or null`
+
+        The ID of a response to compare when diagnosing prompt cache reuse. Supplying this field requests prompt cache diagnostics when the feature is enabled.
 
       - `mode: optional "implicit" or "explicit"`
 

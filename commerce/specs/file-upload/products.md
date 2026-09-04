@@ -262,19 +262,17 @@ does not enable tuple support.
 
 ### Returns
 
-Describe whether this item can be returned separately from the policy URL and
-return window. A return window is a duration, not a deadline date.
+Describe return acceptance separately from the policy URL and return window. A
+return window is a duration, not a deadline date.
 
-| Attribute                 | Data type    | Requirement | Description                                                                                                                                                                                                                               | Example                       |
-| :------------------------ | :----------- | :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
-| `accepts_returns`         | boolean      | Optional    | `true`: returns accepted. `false`: no returns, provided `return_policy` is omitted. Omitted or empty: `true` with a nonempty `return_policy`, otherwise `false`.                                                                          | `true`                        |
-| `return_deadline_in_days` | Integer      | Optional    | Positive whole number of days allowed for returns under your policy. Supply only when returns are accepted; it does not enable returns by itself. Omitted or empty: no window supplied. Use the policy to explain when the window starts. | `30`                          |
-| `return_policy`           | String (URL) | Optional    | Public policy for this item's returns. Omitted, empty, or invalid URL: no policy link supplied. See the acceptance rule before including it.                                                                                              | `https://example.com/returns` |
+| Attribute                 | Data type    | Requirement | Description                                                                                                                                                                                                                                    | Example                       |
+| :------------------------ | :----------- | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
+| `accepts_returns`         | boolean      | Optional    | `true`: accepts returns. `false`: rejects returns. Omitted or empty: unspecified. A policy URL does not set or override this field.                                                                                                            | `true`                        |
+| `return_deadline_in_days` | Integer      | Optional    | Positive whole number of days allowed for returns under your policy. Supply only with `accepts_returns=true`; it does not enable returns by itself. Omitted or empty: no window supplied. Use the policy to explain when the window starts.    | `30`                          |
+| `return_policy`           | String (URL) | Optional    | Public policy for this item's returns or final-sale terms. A valid URL does not set or override `accepts_returns`. If you omit the field, leave it empty, or supply a value other than an HTTP or HTTPS URL, the parser omits the policy link. | `https://example.com/returns` |
 
-For OpenAI-format feeds, a nonempty `return_policy` currently implies returns
-are accepted even when `accepts_returns=false`. To describe a final-sale item,
-send `accepts_returns=false` and omit both the policy URL and return window.
-Do not use a no-returns policy URL to signal refusal of returns.
+For a final-sale item, send `accepts_returns=false` and omit the return window.
+You can include a valid `return_policy` URL that explains the restriction.
 
 ### Reviews and Q&A
 
