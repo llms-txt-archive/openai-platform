@@ -1322,7 +1322,7 @@ Schema name: `ResponsesClientEventResponseCreate`
     "oasRef": "#/components/schemas/CreateResponse/allOf/2/properties/store",
     "deprecated": false,
     "key": "store",
-    "docstring": "Whether to store the generated model response for later retrieval via\nAPI.\n",
+    "docstring": "Whether to store the generated model response for later retrieval via\nAPI.\nDefaults to true when omitted.\nIf set to true, response data will be stored for at least 30 days, subject to the [data retention exceptions](/api/docs/guides/your-data#v1responses).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
