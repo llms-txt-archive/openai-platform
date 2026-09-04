@@ -9,8 +9,10 @@ Each post has a Markdown twin at `/blog/<slug>.md`.
 
 ## Posts
 - [15 lessons learned building ChatGPT Apps](https://developers.openai.com/blog/15-lessons-building-chatgpt-apps.md): And how we incorporated them into a Codex Skill to help you build ChatGPT Apps 10x faster.
+- [Architectural visualization with Astra](https://developers.openai.com/blog/architectural-visualization-with-astra.md): How I used Astra to design a house, refine its everyday details, and explore it through Blender camera tours and an Unreal Engine 5 walkthrough.
 - [Automating repetitive work at OpenAI with Codex](https://developers.openai.com/blog/automating-repetitive-work-at-openai-with-codex.md): How Runme and WebMCP turn recurring engineering tasks into reviewable, reusable workflows.
 - [Building frontend UIs with Codex and Figma](https://developers.openai.com/blog/building-frontend-uis-with-codex-and-figma.md): Use Codex and Figma to bring real, running interfaces into Figma, refine them, and bring changes back to Codex.
+- [Building games with Astra](https://developers.openai.com/blog/how-to-build-games-with-astra.md): How I built a procedural space exploration game in Codex, from concept art to planets you can land on.
 - [Codex as a platform: build on the open agent harness](https://developers.openai.com/blog/codex-as-a-platform.md): Build Codex into the products and workflows your users already know.
 - [Custom Code Review rules for Codex](https://developers.openai.com/blog/custom-code-review-rules-for-codex.md): Provide more detailed rules for Codex to spot issues and better adhere your conventions during code review.
 - [Designing delightful frontends with GPT-5.4](https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4.md): Practical techniques for steering GPT-5.4 toward polished, production-ready frontend designs.

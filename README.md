@@ -7,7 +7,7 @@ Every change to the upstream docs produces a git commit and a GitHub release, so
 | | |
 |---|---|
 | **Source** | [https://developers.openai.com/llms.txt](https://developers.openai.com/llms.txt) |
-| **Documents** | 542 Markdown files |
+| **Documents** | 544 Markdown files |
 | **Schedule** | Hourly at :42 UTC |
 
 ## How it works
@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260904T174730Z` | 2026-09-04 17:47 UTC | [Responses storage defaults and transcription streaming events](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T174730Z) |
+| `archive-20260904T210223Z` | 2026-09-04 21:02 UTC | [Amazon Bedrock, Responses Events, and Astra Content Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T210223Z) |
+| `archive-20260904T174730Z` | 2026-09-04 17:48 UTC | [Responses storage defaults and transcription streaming events](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T174730Z) |
 | `archive-20260904T143234Z` | 2026-09-04 14:33 UTC | [Workload identity token examples and Java SDK refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T143234Z) |
 | `archive-20260904T050518Z` | 2026-09-04 05:06 UTC | [WebSocket Guides and Item Status Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T050518Z) |
 | `archive-20260904T002357Z` | 2026-09-04 00:25 UTC | [Responses prompt-cache diagnostics and returns clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T002357Z) |
 | `archive-20260903T215313Z` | 2026-09-03 21:55 UTC | [GPT-6 Astra rollout and agent workflow docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260903T215313Z) |
-| `archive-20260903T192745Z` | 2026-09-03 19:28 UTC | [Responses docs add prompt cache diagnostics](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260903T192745Z) |
