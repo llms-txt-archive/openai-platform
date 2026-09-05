@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260905T012344Z` | 2026-09-05 01:23 UTC | [Ruby Examples and Tool-Calling Coverage](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260905T012344Z) |
+| `archive-20260905T165637Z` | 2026-09-05 16:56 UTC | [Rate-limit and overload handling docs update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260905T165637Z) |
+| `archive-20260905T012344Z` | 2026-09-05 01:24 UTC | [Ruby Examples and Tool-Calling Coverage](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260905T012344Z) |
 | `archive-20260904T231917Z` | 2026-09-04 23:19 UTC | [Local Shell Guide Expansion](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T231917Z) |
 | `archive-20260904T210223Z` | 2026-09-04 21:03 UTC | [Amazon Bedrock, Responses Events, and Astra Content Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T210223Z) |
 | `archive-20260904T174730Z` | 2026-09-04 17:48 UTC | [Responses storage defaults and transcription streaming events](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T174730Z) |
 | `archive-20260904T143234Z` | 2026-09-04 14:33 UTC | [Workload identity token examples and Java SDK refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T143234Z) |
-| `archive-20260904T050518Z` | 2026-09-04 05:06 UTC | [WebSocket Guides and Item Status Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T050518Z) |
