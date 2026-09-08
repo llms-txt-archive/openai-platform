@@ -13,16 +13,21 @@ If the portal returns an error code, use the
 [submission error reference](https://developers.openai.com/plugins/deploy/submission-errors) to find the
 matching requirement.
 
-A plugin can contain skills, an MCP server, or both. You can submit:
+A plugin can contain skills, MCP servers, or both. You can submit:
 
 - A skills-only plugin that packages reusable workflows.
-- An MCP-only plugin. Custom UI is optional.
-- A plugin that combines an MCP server with uploaded or MCP-imported skills.
+- A remote MCP-only plugin. Custom UI is optional.
+- A plugin that combines a remote MCP server with uploaded or MCP-imported
+  skills.
 
-The submission form collects listing information, MCP server details, skills,
-starter prompts, test cases, country availability, and policy
-attestations. Which fields you complete depends on whether the plugin includes
-skills, an MCP server, or both.
+Submit MCP servers through **With MCP** using a stable, public HTTPS endpoint.
+If your MCP server runs locally, deploy it to a public HTTPS URL. If you can't,
+reach out to your OpenAI contact for local MCP support.
+
+The portal collects listing information, MCP server or package details, skills,
+starter prompts, test cases, country availability, and policy attestations.
+Which fields you complete depends on whether the plugin includes skills, a
+remote MCP server, or both.
 
 For local development, packaging, and marketplace setup, see
 [Build plugins](https://developers.openai.com/plugins/build/plugins).
@@ -32,7 +37,9 @@ For server-backed capabilities, see
 
 ## Before you submit
 
-### Submit the MCP server, not an existing integration reference
+<a id="submit-the-mcp-server-not-an-existing-integration-reference"></a>
+
+### Submit the remote MCP server, not an existing integration reference
 
 You cannot submit a plugin that references an existing, already-published
 integration. If your plugin includes an MCP server that already exists in
@@ -102,27 +109,27 @@ submitting, then reload the plugin submission portal.
 
 Before opening the form, collect:
 
-| Material           | What to prepare                                                                                                                                                                   |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Listing details    | Plugin name, short description, long description, logo, category, website, support URL, privacy policy URL, and terms URL.                                                        |
-| Developer identity | Verified individual or business identity in the OpenAI Platform.                                                                                                                  |
-| MCP server         | For plugins with MCP: public MCP server URL, domain verification access, authentication details, demo credentials if needed, content security policy, and accurate tool metadata. |
-| Tool annotations   | For plugins with MCP: `readOnlyHint`, `openWorldHint`, and `destructiveHint` values for every MCP tool.                                                                           |
-| Skills             | For skills plugins: a final skill bundle or an MCP server that exposes static skills for **Scan Tools** to import.                                                                |
-| Prompts            | Starter prompts that show useful, realistic workflows.                                                                                                                            |
-| Test cases         | Five positive test cases and three negative test cases with clear expected behavior.                                                                                              |
-| Availability       | Countries or regions where the plugin should be available.                                                                                                                        |
-| Release notes      | A short summary of what you are submitting and what changed since any prior version.                                                                                              |
+| Material           | What to prepare                                                                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Listing details    | Plugin name, short description, long description, logo, category, website, support URL, privacy policy URL, and terms URL.                                  |
+| Developer identity | Verified individual or business identity in the OpenAI Platform.                                                                                            |
+| Remote MCP server  | Public MCP server URL, domain verification access, authentication details, demo credentials if needed, content security policy, and accurate tool metadata. |
+| Tool annotations   | For plugins with remote MCP: `readOnlyHint`, `openWorldHint`, and `destructiveHint` values for every MCP tool.                                              |
+| Skills             | For skills plugins: a final skill bundle or a remote MCP server that exposes static skills for **Scan Tools** to import.                                    |
+| Prompts            | Starter prompts that show useful, realistic workflows.                                                                                                      |
+| Test cases         | Five positive test cases and three negative test cases with clear expected behavior.                                                                        |
+| Availability       | Countries or regions where the plugin should be available.                                                                                                  |
+| Release notes      | A short summary of what you are submitting and what changed since any prior version.                                                                        |
 
 ## Create a plugin submission
 
 1. Open the [plugin submission portal](https://platform.openai.com/plugins).
 2. Select **Create plugin**.
 3. Choose the submission type:
-   - **Skills only** for a plugin that only packages skills.
-   - **With MCP** for an MCP-only plugin.
-   - **With MCP** for a plugin that combines an MCP server with uploaded or
-     MCP-imported skills.
+   - **Skills only** for a skills-only plugin.
+   - **With MCP** for a remote MCP-only plugin.
+   - **With MCP** for a plugin that combines a remote MCP server with uploaded
+     or MCP-imported skills.
 
 The portal saves the submission as a draft while you complete the form.
 
@@ -158,7 +165,7 @@ and undisclosed user-related fields from tool responses.
 
 ### MCP
 
-For submissions with MCP:
+For submissions with a remote MCP server:
 
 1. Choose the MCP server URL type:
    - Choose **Universal** when one fixed MCP server URL works for all users and
@@ -272,11 +279,11 @@ what the tool returns.
 
 Set tool annotations to match each tool's real behavior:
 
-| Annotation        | Use it when                                                                                                                                                                                                                                                                                                                                            |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `readOnlyHint`    | Set to `true` only when the tool fetches, looks up, lists, retrieves, previews, or computes information and doesn't change anything. Set to `false` if the tool can create, update, delete, send, enqueue, run jobs, start workflows, write logs, or otherwise change state.                                                                           |
-| `openWorldHint`   | For write tools, set to `true` if the tool can change publicly visible internet state, such as posting online, sending external messages, publishing content, pushing code, or submitting forms to third parties. Set to `false` only if the tool operates entirely within closed or private systems and can't change publicly visible internet state. |
-| `destructiveHint` | For write tools, set to `true` if the tool can delete, overwrite, revoke access, send messages or transactions that can't be undone, or cause another irreversible side effect. Otherwise, set it to `false`.                                                                                                                                          |
+| Annotation        | Use it when                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `readOnlyHint`    | Set to `true` only when the tool fetches, looks up, lists, retrieves, previews, or computes information and doesn't change anything. Set to `false` if the tool can create, update, delete, send, enqueue, run jobs, start workflows, write logs, or otherwise change state.                                                                                |
+| `openWorldHint`   | Set to `true` when the tool accesses the public internet or open-ended external entities, including read-only tools such as web search and write tools that post, send messages, publish content, push code, or submit forms. Set to `false` when the tool is limited to a bounded private account or workspace, even if that service is externally hosted. |
+| `destructiveHint` | For write tools, set to `true` if the tool can delete, overwrite, revoke access, send messages or transactions that can't be undone, or cause another irreversible side effect. Otherwise, set it to `false`.                                                                                                                                               |
 
 For implementation details, see
 [tool annotations and elicitation](https://developers.openai.com/plugins/build/mcp-server#tool-annotations-and-elicitation).
@@ -288,8 +295,8 @@ For review expectations, see the
 Add skills to the draft in either of these ways:
 
 - Upload the final skill bundle for skills-only or skills-plus-MCP submissions.
-- For submissions with MCP, import static skills from the MCP server. When you
-  select **Scan Tools**, OpenAI imports them into the draft.
+- For a remote MCP submission, import static skills from the MCP server. When
+  you select **Scan Tools**, OpenAI imports them into the draft.
 
 Use the same file tree and instructions you tested locally. To import skills
 from MCP, follow the
@@ -447,10 +454,11 @@ appear in the Plugins Directory.
 
 ### How published MCP metadata versions work
 
-Plugins with MCP publish reviewed metadata and skill snapshots. To change a
-snapshot, scan the MCP server, submit a new version for review, and publish the
-approved version. For metadata-specific maintenance rules, see
-[MCP server review requirements](https://developers.openai.com/plugins/deploy/app-review#how-published-mcp-metadata-versions-work).
+Remote MCP plugins publish reviewed server metadata and imported skill
+snapshots. To change a remote snapshot, scan the MCP server, submit a new
+version for review, and publish the approved version. For metadata-specific
+maintenance rules, see
+[Remote MCP server review requirements](https://developers.openai.com/plugins/deploy/app-review#how-published-mcp-metadata-versions-work).
 
 ## Final checklist
 
@@ -458,19 +466,22 @@ Before submitting, confirm:
 
 - The submitter has **Apps Management** write access.
 - The publisher has a verified developer or business identity.
-- The MCP server uses a public, production URL.
 - Plugins with UI define a content security policy for the exact domains the
   component fetches from.
-- Reviewer credentials work without MFA, email confirmation, SMS confirmation,
-  or private-network access.
 - Tool names, descriptions, schemas, and annotations match actual behavior.
 - Every tool has accurate `readOnlyHint`, `openWorldHint`, and
   `destructiveHint` values.
 - Tool responses don't include unnecessary personal data, auth secrets, debug
   payloads, internal identifiers, or undisclosed user-related fields.
 - You tested the skills locally with the final file tree.
-- MCP-imported skills match the latest **Scan Tools** snapshot.
 - Starter prompts show realistic user workflows.
 - The submission includes five positive and three negative test cases.
+
+For a remote MCP submission, also confirm:
+
+- The MCP server uses a public, production URL.
+- Reviewer credentials work without MFA, email confirmation, SMS confirmation,
+  or private-network access.
+- MCP-imported skills match the latest **Scan Tools** snapshot.
 - Privacy policy, terms, support, and website URLs are public and match the
   publisher identity.

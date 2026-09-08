@@ -95,7 +95,10 @@ caution.
 - You should label a tool with the `readOnlyHint` annotation if it only retrieves
   or lists data and does not change anything outside the conversation.
 - Write or destructive tools (for example, creating, updating, deleting, posting, sending) must be explicitly marked using the `readOnlyHint` and `destructiveHint`.
-- Tools that interact with external systems, accounts, public platforms, or create publicly-visible content must be explicitly labeled using the `openWorldHint` annotation.
+- Set `openWorldHint` to `true` for tools that access the public internet or
+  open-ended external entities, including read-only web search. A tool limited
+  to a bounded private account or workspace can set it to `false`, even when
+  that service is externally hosted.
 - Incorrect or missing action labels are a common cause of rejection. Double-check that the `readOnlyHint`, `openWorldHint`, and `destructiveHint` annotations are correctly set, and provide a detailed justification for each when submitting the plugin.
 
 #### Minimal and purpose-driven inputs

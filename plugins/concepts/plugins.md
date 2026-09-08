@@ -10,11 +10,16 @@ ChatGPT and Codex. A plugin can contain:
 - **An MCP server** that exposes tools and connects to external systems.
 - **Both skills and an MCP server** when the model needs workflow guidance and
   server-backed capabilities.
+- **Lifecycle hooks** that run commands at configured points in the Codex
+  runtime, including ChatGPT Work and Codex.
 
 ChatGPT and Codex share one universal plugin directory. When you publish a
 public plugin, people can discover the same listing from supported surfaces in
 either product. Individual capabilities can still be surface-specific; for
-example, a plugin can include hooks that run only in Codex.
+example, hook scripts must be available in the execution environment.
+Installing a plugin on the web doesn't deploy those scripts. See
+[bundled hooks](https://developers.openai.com/plugins/build/plugins#bundled-mcp-servers-and-lifecycle-hooks)
+for setup and trust requirements.
 
 An MCP server can return structured data and model-readable text without
 custom UI. When a task benefits from visual interaction, the server can also

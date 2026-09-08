@@ -1,29 +1,32 @@
-# MCP server review requirements
+# Remote MCP server review requirements
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-Prepare an MCP server and its optional UI for public review as part of a
+Prepare a remote MCP server and its optional UI for public review as part of a
 plugin.
 
-Submit and publish the complete plugin, including its skills, MCP server, and
-  optional UI, through the plugin submission portal. See
+This page covers remote MCP submissions. Submit and publish the complete
+  plugin, including its skills, MCP server, and optional UI, through the plugin
+  submission portal. See
   [Submit plugins](https://developers.openai.com/plugins/deploy/submission) for the
-  source-of-truth submission flow and 
+  source-of-truth submission flow. See
   [Build an MCP server](https://developers.openai.com/plugins/build/mcp-server) for how
   server-backed capabilities fit into plugins.
 
-## Prepare MCP capabilities for plugin submission
+<a id="prepare-mcp-capabilities-for-plugin-submission"></a>
 
-Use this page for requirements that apply when a plugin includes an MCP server:
-organization verification, management permissions, server requirements,
+## Prepare remote MCP capabilities for plugin submission
+
+Use this page for requirements that apply when a plugin includes a remote MCP
+server: organization verification, management permissions, server requirements,
 review snapshots, and version maintenance.
 
-When the plugin works in
+When the remote MCP server works in
 [developer mode](https://developers.openai.com/plugins/deploy/connect-chatgpt#test-an-mcp-server-optional),
 submit it
 for review in the
 [plugin submission portal](https://platform.openai.com/plugins). This page
-covers the MCP server and optional UI requirements for that submission.
+covers the remote MCP server and optional UI requirements for that submission.
 
 Only submit the plugin if you intend for it to be publicly available in the
 countries you define during submission. For private or workspace-only use, use
@@ -44,7 +47,7 @@ approval, and publishing, see
 
 ### Organization verification
 
-Before submitting a plugin with MCP, complete identity verification
+Before submitting any plugin, complete identity verification
 in the [OpenAI Platform Dashboard](https://platform.openai.com/settings/organization/general)
 for the name you plan to publish under in the directory.
 
@@ -56,13 +59,15 @@ business name will result in rejection.
 
 ### Plugin submission permissions
 
-To create plugin drafts with MCP and submit them for review, you need
+To create plugin drafts and submit them for review, you need
 the `api.apps.write` permission. To view drafts and review status in the
 Dashboard, you need the `api.apps.read` permission. Organization owners
 automatically have both permissions, and can grant them to non-owners through
 roles in the [OpenAI Platform Dashboard](https://platform.openai.com/settings/organization/roles).
 
-### MCP server requirements
+<a id="mcp-server-requirements"></a>
+
+### Remote MCP server requirements
 
 - Your MCP server is hosted on a publicly accessible domain
 - You are not using a local or testing endpoint
@@ -174,7 +179,7 @@ Review timelines may vary as we continue to build and scale our processes. Pleas
 - **Tool hint annotations do not appear to match the tool's behavior:**
   - **readOnlyHint:** Set to `true` if it strictly fetches/looks up/lists/retrieves data and does not modify anything. Set to `false` if the tool can create/update/delete anything, trigger actions (send emails/messages, run jobs, enqueue tasks, write logs, start workflows), or otherwise change state.
   - **Destructive hint:** Set the destructive annotation to `true` if the tool can cause irreversible outcomes (deleting, overwriting, sending messages or transactions you can't undo, revoking access, or destructive admin actions), even in only select modes, through default parameters, or through indirect side effects. Ensure the justification explains what is irreversible and under what conditions, including safeguards such as confirmation steps, dry-run options, or scoping constraints. Otherwise, set it to `false`.
-  - **openWorldHint:** Set to `true` if it can write to or change publicly visible internet state (for example, posting to social media, blogs, or forums; sending emails, SMS, or messages to external recipients; creating public tickets or issues; publishing pages; pushing code or content to public endpoints; submitting forms to third parties; or otherwise affecting systems outside a private or first-party context). Set to `false` only if it operates entirely within closed or private systems (including internal writes) and cannot change the state of the publicly visible internet.
+  - **openWorldHint:** Set to `true` if the tool accesses the public internet or open-ended external entities. This includes read-only tools such as web search and write tools that post to public platforms, send messages to external recipients, publish content, push code, or submit forms. Set to `false` if the tool is limited to a bounded private account or workspace, even when that service is externally hosted.
 
 ## Publication and distribution
 

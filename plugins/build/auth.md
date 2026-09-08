@@ -101,7 +101,7 @@ That single header lets ChatGPT discover the metadata URL even if it has not see
   - `authorization_endpoint`, `token_endpoint`: the URLs ChatGPT needs to run the OAuth authorization-code + PKCE flow end to end.
   - `client_id_metadata_document_supported`: set to `true` when you want ChatGPT to use CIMD for client registration. ChatGPT prioritizes CIMD when it is available, but the plugin builder can choose DCR when both CIMD and DCR are available.
   - `token_endpoint_auth_methods_supported`: include the token endpoint authentication methods your authorization server accepts. This applies to CIMD, DCR, and predefined OAuth clients. For CIMD, ChatGPT supports `none` for public-client token exchange and `private_key_jwt` for signed client assertion token exchange. Other OAuth clients commonly use `none`, `client_secret_post`, or `client_secret_basic`.
-  - `registration_endpoint`: include this when you support dynamic client registration (DCR), which lets ChatGPT create and reuse a dedicated `client_id` for the connector instance.
+  - `registration_endpoint`: include this when you support dynamic client registration (DCR), which lets ChatGPT create and reuse a dedicated `client_id` for the MCP server connection.
   - `code_challenge_methods_supported`: must include `S256`. MCP servers are
     unsupported when their authorization server metadata omits this field or
     does not advertise `S256`, as required by the
@@ -166,7 +166,7 @@ rules](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorizat
 
 #### Redirect URL
 
-Copy the exact production redirect URI shown in the app management page into
+Copy the exact production redirect URI shown in the MCP server's management page into
 your authorization server's allowlist.
 
 - If your authorization server does not meet the issuer identification
@@ -176,7 +176,7 @@ your authorization server's allowlist.
   stable redirect URI
   `https://chatgpt.com/connector_platform_oauth_redirect`.
 
-Apps published before ChatGPT introduced callback-ID-specific redirects also
+MCP servers published before ChatGPT introduced callback-ID-specific redirects also
 continue to use the stable redirect URI.
 
 #### Echo the `resource` parameter throughout the OAuth flow
@@ -198,7 +198,7 @@ Provided that you have implemented the MCP authorization spec delineated above, 
 
 ![](https://developers.openai.com/images/apps-sdk/protected_resource_metadata.png)
 
-2. ChatGPT identifies itself as the OAuth client. When the connector uses CIMD, ChatGPT skips dynamic client registration and sends a CIMD document URL as the `client_id`. For authorization servers that meet the issuer identification requirements above, ChatGPT uses the stable `https://chatgpt.com/oauth/client.json`; for other servers, it uses the callback-ID-specific `https://chatgpt.com/oauth/{callback_id}/client.json`. The app management page shows the exact client metadata document and redirect URI for the connector's callback mode. When the connector uses DCR, ChatGPT calls your authorization server's `registration_endpoint` once for the connector instance, receives a generated `client_id`, and reuses that client for the instance.
+2. ChatGPT identifies itself as the OAuth client. When the MCP server uses CIMD, ChatGPT skips dynamic client registration and sends a CIMD document URL as the `client_id`. For authorization servers that meet the issuer identification requirements above, ChatGPT uses the stable `https://chatgpt.com/oauth/client.json`; for other servers, it uses the callback-ID-specific `https://chatgpt.com/oauth/{callback_id}/client.json`. The MCP server's management page shows the exact client metadata document and redirect URI for the connection's callback mode. When the MCP server uses DCR, ChatGPT calls your authorization server's `registration_endpoint` once for the MCP server connection, receives a generated `client_id`, and reuses that client for the connection.
 
 When using CIMD, there is no client registration step. The following screen shows the DCR path:
 
@@ -218,7 +218,7 @@ When using CIMD, there is no client registration step. The following screen show
 
 Use [Client ID Metadata Documents (CIMD)](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents) as the preferred client registration method when your authorization server supports it and the plugin builder chooses it. With CIMD, ChatGPT uses an HTTPS metadata document URL as its `client_id`. Your authorization server fetches that document, validates the published client metadata and redirect resource identifiers, and treats the URL as ChatGPT's stable client identity.
 
-If you support CIMD, set `client_id_metadata_document_supported: true` in your authorization server metadata. This lets ChatGPT use one stable client identity for connectors that choose CIMD, which your authorization server can use for redirect URI allowlists, rate limits, and other policies.
+If you support CIMD, set `client_id_metadata_document_supported: true` in your authorization server metadata. This lets ChatGPT use one stable client identity for MCP servers that choose CIMD, which your authorization server can use for redirect URI allowlists, rate limits, and other policies.
 
 ChatGPT is adopting the CIMD transition proposed in
 [MCP SEP-3149](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/3149).
@@ -255,7 +255,7 @@ The supported methods are:
 
 DCR is still supported. If you include `registration_endpoint`, ChatGPT can register dynamically when the plugin builder chooses DCR or CIMD is not available. ChatGPT runs DCR once per MCP server connection, then keeps and reuses the registered OAuth client for that connection. DCR can still create many registered clients across many separate connections, so CIMD is usually easier to administer at scale.
 
-Keep the registered OAuth client and any client secret valid while the connector is in use. If your authorization server expires, deletes, or replaces either credential, users and reviewers may receive an `invalid_client` error when they connect. Access and refresh tokens can still expire or rotate normally.
+Keep the registered OAuth client and any client secret valid while the MCP server connection is in use. If your authorization server expires, deletes, or replaces either credential, users and reviewers may receive an `invalid_client` error when they connect. Access and refresh tokens can still expire or rotate normally.
 
 ### Client identification
 
@@ -310,7 +310,7 @@ In practice you should:
 - Fetch the signing keys published by your authorization server (usually via JWKS) and verify the token’s signature and `iss`.
 - Deny tokens that have expired or have not yet become valid (`exp`/`nbf`).
 - Confirm the token was minted for your server (`aud` or the `resource` claim) and contains the scopes you marked as required.
-- Run any app-specific policy checks, then either attach the resolved identity to the request context or return a `401` with a `WWW-Authenticate` challenge.
+- Run any server-specific policy checks, then either attach the resolved identity to the request context or return a `401` with a `WWW-Authenticate` challenge.
 
 If verification fails, respond with `401 Unauthorized` and a `WWW-Authenticate` header that points back to your protected-resource metadata. This tells the client to run the OAuth flow again.
 
@@ -324,7 +324,7 @@ Both Python and TypeScript MCP software development kits include helpers so you 
 ## Testing and rollout
 
 - **Local testing:** Start with a development tenant that issues short-lived tokens so you can iterate quickly.
-- **Dogfood:** Once authentication works, gate access to trusted testers before rolling out broadly. You can require linking for specific tools or the entire connector.
+- **Dogfood:** Once authentication works, gate access to trusted testers before rolling out broadly. You can require linking for specific tools or the entire MCP server.
 - **Rotation:** Plan for token revocation, refresh, and scope changes. Your server should treat missing or stale tokens as unauthenticated and return a helpful error message.
 - **OAuth debugging:** Use the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) Auth settings to walk through each OAuth step and pinpoint where the flow breaks before you ship.
 

@@ -6,7 +6,7 @@ Plugins submitted to the public directory are held to a higher standard than
 plugins installed in a workspace. Directory submissions must pass the shared
 package checks and the additional checks for listing fields, review materials,
 MCP tools, skills, assets, and images. This reference also covers shared
-package checks, such as app references, that can appear outside the submission
+package checks, such as MCP server references, that can appear outside the submission
 portal.
 
 Use the error code returned during submission to find the matching requirement.
@@ -24,19 +24,19 @@ A package can pass upload validation and still fail final directory submission.
 Final submission uses stricter listing limits and checks MCP configuration,
 skill scans, test cases, and policy attestations.
 
-| Field             | Final submission rule                                                                                                                                                       |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Package name      | Required; at most 64 characters. Start with an ASCII letter or digit and use only ASCII letters, digits, `_`, and `-`.                                                      |
-| Version           | Required; use a semantic version of at most 64 characters.                                                                                                                  |
-| Display name      | Required; one line; at most 30 characters.                                                                                                                                  |
-| Short description | Required; one line; at most 30 characters.                                                                                                                                  |
-| Long description  | Required; at most 4,000 characters. Line breaks are allowed.                                                                                                                |
-| Developer name    | Required; one line; at most 80 characters.                                                                                                                                  |
-| Category          | Required; choose a supported category listed in the [Listing and interface errors](#listing-and-interface-errors) section.                                                  |
-| Capabilities      | At most 20. Each capability must be non-empty, one line, and at most 120 characters.                                                                                        |
-| Starter prompts   | At most 3. Each prompt must be non-empty, unique after Unicode and whitespace normalization, one line, at most 128 characters, and contain no app `@mention`.               |
-| URLs              | Required for MCP-backed submissions; optional for skills-only submissions. Website, support, privacy policy, and terms URLs must use HTTPS and be at most 1,024 characters. |
-| Brand colors      | Optional six-digit hex colors. The light color must have at least 2:1 contrast against white, and the dark color must have at least 2:1 contrast against `#212121`.         |
+| Field             | Final submission rule                                                                                                                                                                    |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Package name      | Required; at most 64 characters. Start with an ASCII letter or digit and use only ASCII letters, digits, `_`, and `-`.                                                                   |
+| Version           | Required; use a semantic version of at most 64 characters.                                                                                                                               |
+| Display name      | Required; one line; at most 30 characters.                                                                                                                                               |
+| Short description | Required; one line; at most 30 characters.                                                                                                                                               |
+| Long description  | Required; at most 4,000 characters. Line breaks are allowed.                                                                                                                             |
+| Developer name    | Required; one line; at most 80 characters.                                                                                                                                               |
+| Category          | Required; choose a supported category listed in the [Listing and interface errors](#listing-and-interface-errors) section.                                                               |
+| Capabilities      | At most 20. Each capability must be non-empty, one line, and at most 120 characters.                                                                                                     |
+| Starter prompts   | At most 3. Each prompt must be non-empty, unique after Unicode and whitespace normalization, one line, at most 128 characters, and contain no MCP server `@mention`.                     |
+| URLs              | Required for remote MCP submissions; optional for ZIP uploads, for skills-only plugins. Website, support, privacy policy, and terms URLs must use HTTPS and be at most 1,024 characters. |
+| Brand colors      | Optional six-digit hex colors. The light color must have at least 2:1 contrast against white, and the dark color must have at least 2:1 contrast against `#212121`.                      |
 
 Every plugin submission also requires:
 
@@ -45,7 +45,7 @@ Every plugin submission also requires:
 - A verified developer or business identity and all required policy
   attestations.
 
-For an MCP-backed plugin, final submission also requires:
+For a remote MCP plugin, final submission also requires:
 
 - Website, support, privacy policy, and terms URLs that meet the rules above.
 - A demo-recording URL that shows the main use cases and tools across supported
@@ -81,12 +81,12 @@ means long description.
 | `submission_developer_name_too_long`              | Developer name must be 80 characters or fewer.                                                          |
 | `submission_developer_name_character_unsupported` | Developer name must use supported text and fit on one line.                                             |
 | `plugin_capability_invalid`                       | Each capability must be non-empty, use supported text, fit on one line, and be 120 characters or fewer. |
-| `plugin_default_prompt_mention`                   | Starter prompts must not contain app `@mentions`.                                                       |
+| `plugin_default_prompt_mention`                   | Starter prompts must not contain MCP server `@mentions`.                                                |
 | `plugin_default_prompt_duplicate`                 | Starter prompts must be unique after Unicode and whitespace normalization.                              |
 
 ### MCP and review errors
 
-These errors apply to MCP-backed submissions.
+These errors apply to remote MCP submissions.
 
 | Name                                | Requirement                                                                                                                                                                       |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -99,17 +99,17 @@ These errors apply to MCP-backed submissions.
 
 ## Archive errors
 
-### Skills-only ZIP upload errors and warnings
+### ZIP upload errors and warnings
 
-**Skills only** uploads accept a plugin manifest and bundled skills. A changed
-package name blocks an update; the other findings require confirmation.
+The portal's **Skills only** path accepts skill ZIP packages. Errors block the
+upload; warnings require confirmation.
 
 | Name                                | Requirement                                                                                                                                               |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `plugin_name_mismatch`              | The package name in an update must match the existing plugin name.                                                                                        |
 | `plugin_version_unchanged`          | A new release must use a different manifest `version`; reusing the published version requires confirmation.                                               |
-| `mcp_configuration_excluded`        | Skills-only ZIP uploads must not include `mcpServers` or `.mcp.json`; MCP-backed plugins must use **With MCP**.                                           |
-| `app_configuration_excluded`        | Skills-only ZIP uploads must not include `apps` or `.app.json`; plugins with app content must use **With MCP**.                                           |
+| `mcp_configuration_excluded`        | Skills-only uploads exclude `mcpServers`, `mcp.json`, and `.mcp.json`. Submit a remote MCP server through **With MCP**.                                   |
+| `app_configuration_excluded`        | Skills-only ZIP uploads must not include `apps` or `.app.json`; plugins with MCP servers must use **With MCP**.                                           |
 | `screenshot_configuration_excluded` | Skills-only ZIP uploads must not include `interface.screenshots`; screenshots require **With MCP** and custom UI.                                         |
 | `claude_format_normalized`          | `.claude-plugin/plugin.json` is converted to `.codex-plugin/plugin.json`, with missing interface defaults and normalized text fields added by the portal. |
 | `manifest_normalized`               | The portal saves the normalized manifest as `.codex-plugin/plugin.json`; changed fields require confirmation.                                             |
@@ -141,57 +141,57 @@ package name blocks an update; the other findings require confirmation.
 
 ## Plugin root errors
 
-| Name                           | Requirement                                                                                                           |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| `plugin_root_missing`          | The selected path must exist and be a directory containing a plugin.                                                  |
-| `archive_plugin_files_missing` | A skills-only ZIP must contain a supported plugin manifest and at least one valid skill at `skills/<skill>/SKILL.md`. |
-| `plugin_root_ambiguous`        | ZIP must contain exactly one plugin root, either at the archive root or in one top-level directory.                   |
-| `plugin_root_has_siblings`     | A ZIP with a top-level plugin directory must not contain sibling files.                                               |
+| Name                           | Requirement                                                                                         |
+| ------------------------------ | --------------------------------------------------------------------------------------------------- |
+| `plugin_root_missing`          | The selected path must exist and be a directory containing a plugin.                                |
+| `archive_plugin_files_missing` | A skills-only ZIP must contain a supported plugin manifest and at least one valid skill.            |
+| `plugin_root_ambiguous`        | ZIP must contain exactly one plugin root, either at the archive root or in one top-level directory. |
+| `plugin_root_has_siblings`     | A ZIP with a top-level plugin directory must not contain sibling files.                             |
 
 ## Plugin manifest errors
 
-| Name                                        | Requirement                                                                                                                                                  |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `plugin_manifest_missing`                   | ZIP must contain `.codex-plugin/plugin.json`, `.agent-plugin/plugin.json`, or `.claude-plugin/plugin.json` at the root or in its single top-level directory. |
-| `plugin_manifest_not_file`                  | Plugin manifest must be a regular JSON file.                                                                                                                 |
-| `plugin_manifest_unreadable`                | Plugin manifest must be readable UTF-8 text.                                                                                                                 |
-| `plugin_manifest_json_malformed`            | Plugin manifest must contain valid JSON; malformed syntax is reported with a line number.                                                                    |
-| `plugin_manifest_root_not_object`           | Plugin manifest must contain a JSON object at the top level.                                                                                                 |
-| `codex_manifest_parent_not_directory`       | `.codex-plugin` must be a directory.                                                                                                                         |
-| `codex_manifest_path_not_file`              | `.codex-plugin/plugin.json` must be a regular JSON file.                                                                                                     |
-| `plugin_id_wrong_type`                      | `id` must be a string when provided.                                                                                                                         |
-| `plugin_id_empty`                           | `id` must be non-empty when provided.                                                                                                                        |
-| `plugin_name_missing`                       | `name` is required.                                                                                                                                          |
-| `plugin_name_wrong_type`                    | `name` must be a string.                                                                                                                                     |
-| `plugin_name_empty`                         | `name` must be non-empty.                                                                                                                                    |
-| `plugin_name_too_long`                      | `name` must be 64 characters or fewer.                                                                                                                       |
-| `plugin_name_format`                        | `name` must start with an ASCII letter or digit and contain only ASCII letters, digits, `_`, or `-`.                                                         |
-| `plugin_version_missing`                    | `version` is required.                                                                                                                                       |
-| `plugin_version_wrong_type`                 | `version` must be a string.                                                                                                                                  |
-| `plugin_version_empty`                      | `version` must be a non-empty semantic-version string, such as `1.0.0`.                                                                                      |
-| `plugin_version_not_semver`                 | `version` must use semantic versioning, such as `1.0.0`.                                                                                                     |
-| `plugin_version_too_long`                   | `version` must be 64 characters or fewer.                                                                                                                    |
-| `plugin_description_missing`                | `description` is required.                                                                                                                                   |
-| `plugin_description_wrong_type`             | `description` must be a string.                                                                                                                              |
-| `plugin_description_empty`                  | `description` must be non-empty.                                                                                                                             |
-| `plugin_description_too_long`               | `description` must be 1,024 characters or fewer.                                                                                                             |
-| `plugin_description_character_unsupported`  | `description` must use supported text. Line breaks are allowed.                                                                                              |
-| `plugin_developer_missing`                  | `author.name` is required. `interface.developerName` is also required and is reported separately.                                                            |
-| `plugin_author_wrong_type`                  | `author` must be an object.                                                                                                                                  |
-| `plugin_author_name_wrong_type`             | `author.name` must be a string.                                                                                                                              |
-| `plugin_author_name_empty`                  | `author.name` must be non-empty.                                                                                                                             |
-| `plugin_author_name_too_long`               | `author.name` must be 120 characters or fewer.                                                                                                               |
-| `plugin_author_name_character_unsupported`  | `author.name` must use supported text.                                                                                                                       |
-| `plugin_author_email_wrong_type`            | `author.email` must be a string when provided.                                                                                                               |
-| `plugin_author_email_empty`                 | `author.email` must be non-empty when provided.                                                                                                              |
-| `plugin_author_email_too_long`              | `author.email` must be 320 characters or fewer.                                                                                                              |
-| `plugin_author_email_character_unsupported` | `author.email` must use supported text.                                                                                                                      |
-| `plugin_author_url_wrong_type`              | `author.url` must be a string when provided.                                                                                                                 |
-| `plugin_author_url_empty`                   | `author.url` must be non-empty when provided.                                                                                                                |
-| `plugin_author_url_not_https`               | `author.url` must be an HTTPS URL.                                                                                                                           |
-| `plugin_author_url_has_credentials`         | `author.url` must not contain credentials.                                                                                                                   |
-| `plugin_author_url_too_long`                | `author.url` must be 2,048 characters or fewer.                                                                                                              |
-| `plugin_author_url_character_unsupported`   | `author.url` must use supported text.                                                                                                                        |
+| Name                                        | Requirement                                                                                                                                                                                                            |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `plugin_manifest_missing`                   | ZIP must contain root `plugin.json` with a supported Agent Plugins schema, `.codex-plugin/plugin.json`, `.agent-plugin/plugin.json`, or `.claude-plugin/plugin.json` at the root or in its single top-level directory. |
+| `plugin_manifest_not_file`                  | Plugin manifest must be a regular JSON file.                                                                                                                                                                           |
+| `plugin_manifest_unreadable`                | Plugin manifest must be readable UTF-8 text.                                                                                                                                                                           |
+| `plugin_manifest_json_malformed`            | Plugin manifest must contain valid JSON; malformed syntax is reported with a line number.                                                                                                                              |
+| `plugin_manifest_root_not_object`           | Plugin manifest must contain a JSON object at the top level.                                                                                                                                                           |
+| `codex_manifest_parent_not_directory`       | `.codex-plugin` must be a directory.                                                                                                                                                                                   |
+| `codex_manifest_path_not_file`              | `.codex-plugin/plugin.json` must be a regular JSON file.                                                                                                                                                               |
+| `plugin_id_wrong_type`                      | `id` must be a string when provided.                                                                                                                                                                                   |
+| `plugin_id_empty`                           | `id` must be non-empty when provided.                                                                                                                                                                                  |
+| `plugin_name_missing`                       | `name` is required.                                                                                                                                                                                                    |
+| `plugin_name_wrong_type`                    | `name` must be a string.                                                                                                                                                                                               |
+| `plugin_name_empty`                         | `name` must be non-empty.                                                                                                                                                                                              |
+| `plugin_name_too_long`                      | `name` must be 64 characters or fewer.                                                                                                                                                                                 |
+| `plugin_name_format`                        | `name` must start with an ASCII letter or digit and contain only ASCII letters, digits, `_`, or `-`.                                                                                                                   |
+| `plugin_version_missing`                    | `version` is required.                                                                                                                                                                                                 |
+| `plugin_version_wrong_type`                 | `version` must be a string.                                                                                                                                                                                            |
+| `plugin_version_empty`                      | `version` must be a non-empty semantic-version string, such as `1.0.0`.                                                                                                                                                |
+| `plugin_version_not_semver`                 | `version` must use semantic versioning, such as `1.0.0`.                                                                                                                                                               |
+| `plugin_version_too_long`                   | `version` must be 64 characters or fewer.                                                                                                                                                                              |
+| `plugin_description_missing`                | `description` is required.                                                                                                                                                                                             |
+| `plugin_description_wrong_type`             | `description` must be a string.                                                                                                                                                                                        |
+| `plugin_description_empty`                  | `description` must be non-empty.                                                                                                                                                                                       |
+| `plugin_description_too_long`               | `description` must be 1,024 characters or fewer.                                                                                                                                                                       |
+| `plugin_description_character_unsupported`  | `description` must use supported text. Line breaks are allowed.                                                                                                                                                        |
+| `plugin_developer_missing`                  | `author.name` is required. `interface.developerName` is also required and is reported separately.                                                                                                                      |
+| `plugin_author_wrong_type`                  | `author` must be an object.                                                                                                                                                                                            |
+| `plugin_author_name_wrong_type`             | `author.name` must be a string.                                                                                                                                                                                        |
+| `plugin_author_name_empty`                  | `author.name` must be non-empty.                                                                                                                                                                                       |
+| `plugin_author_name_too_long`               | `author.name` must be 120 characters or fewer.                                                                                                                                                                         |
+| `plugin_author_name_character_unsupported`  | `author.name` must use supported text.                                                                                                                                                                                 |
+| `plugin_author_email_wrong_type`            | `author.email` must be a string when provided.                                                                                                                                                                         |
+| `plugin_author_email_empty`                 | `author.email` must be non-empty when provided.                                                                                                                                                                        |
+| `plugin_author_email_too_long`              | `author.email` must be 320 characters or fewer.                                                                                                                                                                        |
+| `plugin_author_email_character_unsupported` | `author.email` must use supported text.                                                                                                                                                                                |
+| `plugin_author_url_wrong_type`              | `author.url` must be a string when provided.                                                                                                                                                                           |
+| `plugin_author_url_empty`                   | `author.url` must be non-empty when provided.                                                                                                                                                                          |
+| `plugin_author_url_not_https`               | `author.url` must be an HTTPS URL.                                                                                                                                                                                     |
+| `plugin_author_url_has_credentials`         | `author.url` must not contain credentials.                                                                                                                                                                             |
+| `plugin_author_url_too_long`                | `author.url` must be 2,048 characters or fewer.                                                                                                                                                                        |
+| `plugin_author_url_character_unsupported`   | `author.url` must use supported text.                                                                                                                                                                                  |
 
 ## Listing and interface errors
 
@@ -213,9 +213,10 @@ users. It lives in `.codex-plugin/plugin.json` and uses fields such as
 ```
 
 The four listing URLs (website, privacy policy, terms, and support) are
-optional for skills-only plugins and required for MCP-backed plugins. Their
-length limit is 2,048 characters for package validation and 1,024 characters
-for final directory submission.
+optional for ZIP uploads, for skills-only
+plugins. They are required for remote MCP submissions. Their length limit is
+2,048 characters for package validation and 1,024 characters for final
+directory submission.
 
 | Name                                             | Requirement                                                                                                                                                                                                                                     |
 | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -284,19 +285,42 @@ for final directory submission.
 
 ## Plugin content errors
 
-| Name                               | Requirement                                                                                                                                  |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `plugin_skills_path_wrong_type`    | `skills` must be a string path for the root `skills/` directory.                                                                             |
-| `plugin_skills_path_empty`         | `skills` must be a non-empty path to the root `skills/` directory when provided.                                                             |
-| `plugin_skills_path_unsupported`   | `skills` must resolve to the root `skills/` directory.                                                                                       |
-| `plugin_skills_directory_missing`  | A declared root `skills/` directory must exist.                                                                                              |
-| `plugin_skills_path_not_directory` | Root `skills/` must be a directory when declared.                                                                                            |
-| `plugin_apps_path_wrong_type`      | `apps` must be a string path for the root `.app.json`.                                                                                       |
-| `plugin_apps_path_empty`           | `apps` must be a non-empty path to the root `.app.json` when provided.                                                                       |
-| `plugin_apps_path_unsupported`     | `apps` must resolve to the root `.app.json`.                                                                                                 |
-| `plugin_apps_file_missing`         | A declared root `.app.json` file must exist.                                                                                                 |
-| `plugin_apps_path_not_file`        | Root `.app.json` must be a regular file when declared.                                                                                       |
-| `plugin_runtime_surface_missing`   | A skills-only ZIP must contain at least one valid skill at `skills/<skill>/SKILL.md`; app and MCP references don't satisfy this requirement. |
+| Name                               | Requirement                                                                                                                      |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `plugin_skills_path_wrong_type`    | `skills` must be a string path for the root `skills/` directory.                                                                 |
+| `plugin_skills_path_empty`         | `skills` must be a non-empty path to the root `skills/` directory when provided.                                                 |
+| `plugin_skills_path_unsupported`   | `skills` must resolve to the root `skills/` directory.                                                                           |
+| `plugin_skills_directory_missing`  | A declared root `skills/` directory must exist.                                                                                  |
+| `plugin_skills_path_not_directory` | Root `skills/` must be a directory when declared.                                                                                |
+| `plugin_apps_path_wrong_type`      | `apps` must be a string path for the root `.app.json`.                                                                           |
+| `plugin_apps_path_empty`           | `apps` must be a non-empty path to the root `.app.json` when provided.                                                           |
+| `plugin_apps_path_unsupported`     | `apps` must resolve to the root `.app.json`.                                                                                     |
+| `plugin_apps_file_missing`         | A declared root `.app.json` file must exist.                                                                                     |
+| `plugin_apps_path_not_file`        | Root `.app.json` must be a regular file when declared.                                                                           |
+| `plugin_mcp_path_wrong_type`       | `mcpServers` must be a string path for the root `.mcp.json`.                                                                     |
+| `plugin_mcp_path_empty`            | `mcpServers` must be a nonempty path. Set it to `./.mcp.json` or remove the field.                                               |
+| `plugin_mcp_path_unsupported`      | `mcpServers` must resolve to the root `.mcp.json`.                                                                               |
+| `plugin_mcp_file_missing`          | `mcpServers` declares the root `.mcp.json`, but that file doesn't exist.                                                         |
+| `plugin_mcp_path_not_file`         | Root `.mcp.json` must be a regular file.                                                                                         |
+| `plugin_runtime_surface_missing`   | A skills-only ZIP must contain at least one valid skill. Local and workspace packages can also reference an eligible MCP server. |
+
+## MCP manifest errors
+
+These errors apply to the compatibility `.mcp.json` file. For portable packages,
+ingestion derives this file and `.codex-plugin/plugin.json` from root
+`plugin.json` and `mcp.json`. The component-path errors above can also refer to
+these generated files. Fix the source portable configuration; don't rename
+`mcp.json` to `.mcp.json` just because a compatibility diagnostic names it.
+
+| Name                          | Requirement                                                                                   |
+| ----------------------------- | --------------------------------------------------------------------------------------------- |
+| `mcp_manifest_unreadable`     | `.mcp.json` must be readable UTF-8 text.                                                      |
+| `mcp_manifest_json_malformed` | `.mcp.json` must contain valid JSON; malformed syntax is reported with a line number.         |
+| `mcp_manifest_wrong_type`     | `.mcp.json` must contain a JSON object at the top level.                                      |
+| `mcp_servers_missing`         | `.mcp.json` must contain the top-level `mcpServers` field.                                    |
+| `mcp_servers_wrong_type`      | `mcpServers` must be an object.                                                               |
+| `mcp_server_name_empty`       | Every MCP server name must contain at least one non-whitespace character.                     |
+| `mcp_server_wrong_type`       | Each `mcpServers.<server-name>` value must be an object containing that server's declaration. |
 
 ## Skill errors
 
@@ -410,30 +434,33 @@ starter-prompt screenshots use the separate portal limits listed above.
 | `svg_dimensions_not_square`               | SVG dimensions must be square.                                             |
 | `svg_dimensions_too_small`                | SVG dimensions must be at least 48×48 pixels.                              |
 
-## App reference errors
+<a id="app-reference-errors"></a>
 
-The shared package checks validate `.app.json` when a plugin references apps.
-The submission portal doesn't publish references to existing ChatGPT apps: a
-**Skills only** upload removes `.app.json`, and an MCP-backed submission must
-use **With MCP** and submit the MCP server directly.
+## MCP server reference errors
 
-For local or workspace packages, the top-level `apps` object maps each app
-alias to an app entry.
+The shared package checks validate `.app.json` when a plugin references
+registered MCP servers. The submission portal doesn't publish references to
+existing integrations. A **Skills only** upload removes `.app.json`. Use
+**With MCP** to submit the MCP server directly.
 
-| Name                            | Requirement                                                                                                                                                                                                               |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app_manifest_unreadable`       | `.app.json` must be readable UTF-8 text.                                                                                                                                                                                  |
-| `app_manifest_json_malformed`   | `.app.json` contains malformed JSON near the reported line.                                                                                                                                                               |
-| `app_manifest_wrong_type`       | `.app.json` must contain a JSON object at the top level.                                                                                                                                                                  |
-| `app_entries_missing`           | `apps` is required.                                                                                                                                                                                                       |
-| `app_entries_wrong_type`        | `apps` must be an object.                                                                                                                                                                                                 |
-| `app_entry_wrong_type`          | Each app entry must be an object.                                                                                                                                                                                         |
-| `app_id_missing`                | Each app entry's `id` is required.                                                                                                                                                                                        |
-| `app_id_wrong_type`             | Each app entry's `id` must be a string.                                                                                                                                                                                   |
-| `app_id_format`                 | Each app entry's `id` must begin with `asdk_app_`, `connector_`, or `templated_apps_`, followed by a letter or digit and then only letters, digits, `_`, or `-`.                                                          |
-| `app_entry_optional_wrong_type` | Each app entry's `optional` value must be `true` or `false` when provided.                                                                                                                                                |
-| `app_entry_required_wrong_type` | Each app entry's `required` value must be `true` or `false` when provided.                                                                                                                                                |
-| `app_not_eligible`              | For a local or workspace package, each referenced app must be a released public Codex app, available connector, or released app template. Directory submissions must use **With MCP** and submit the MCP server directly. |
+For local or workspace packages, the top-level `apps` object maps each MCP
+server alias to a registered server entry. These configuration names and error
+codes retain their literal `app` spelling.
+
+| Name                            | Requirement                                                                                                                                                         |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app_manifest_unreadable`       | `.app.json` must be readable UTF-8 text.                                                                                                                            |
+| `app_manifest_json_malformed`   | `.app.json` contains malformed JSON near the reported line.                                                                                                         |
+| `app_manifest_wrong_type`       | `.app.json` must contain a JSON object at the top level.                                                                                                            |
+| `app_entries_missing`           | `apps` is required.                                                                                                                                                 |
+| `app_entries_wrong_type`        | `apps` must be an object.                                                                                                                                           |
+| `app_entry_wrong_type`          | Each server entry must be an object.                                                                                                                                |
+| `app_id_missing`                | Each server entry's `id` is required.                                                                                                                               |
+| `app_id_wrong_type`             | Each server entry's `id` must be a string.                                                                                                                          |
+| `app_id_format`                 | Each server entry's `id` must begin with `asdk_app_`, `connector_`, or `templated_apps_`, followed by a letter or digit and then only letters, digits, `_`, or `-`. |
+| `app_entry_optional_wrong_type` | Each server entry's `optional` value must be `true` or `false` when provided.                                                                                       |
+| `app_entry_required_wrong_type` | Each server entry's `required` value must be `true` or `false` when provided.                                                                                       |
+| `app_not_eligible`              | A local or workspace package must reference an eligible, available MCP server. Directory submissions must use **With MCP** and submit the MCP server directly.      |
 
 ## Package warnings
 
@@ -443,7 +470,7 @@ contains the expected files and settings.
 
 | Name                              | Requirement                                                                                                                                  |
 | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `duplicate_app_reference`         | Each app ID in `.app.json` must be referenced once; duplicate references are treated as one app.                                             |
+| `duplicate_app_reference`         | Each server ID in `.app.json` must be referenced once; duplicate references are treated as one server.                                       |
 | `undeclared_app_manifest_ignored` | A root `.app.json` is imported only when the plugin-manifest `apps` field is set to `./.app.json`.                                           |
 | `undeclared_mcp_manifest_ignored` | A root `.mcp.json` is imported only when the plugin-manifest `mcpServers` field is set to `./.mcp.json`.                                     |
 | `skill_file_ignored`              | Files directly under `skills/` aren't imported as skills; each skill must be in a directory containing `SKILL.md`.                           |

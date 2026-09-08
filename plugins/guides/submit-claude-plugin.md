@@ -2,21 +2,18 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-If you already publish a Claude Code plugin or connector, choose the OpenAI
-submission path that matches what you ship.
+If you already publish a Claude Code plugin or connector, choose the submission
+path based on whether it includes skills, an MCP server, or both.
 
-| What you have                                            | OpenAI submission path                                                                                                                     |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| A skills-only Claude Code plugin                         | Follow [Submit a skills-only plugin](#submit-a-skills-only-plugin).                                                                        |
-| A remote MCP connector                                   | Follow [Submit a plugin with an MCP server](#submit-a-plugin-with-an-mcp-server). Skills are optional.                                     |
-| A Claude Code plugin with skills and a remote MCP server | Follow [Submit a plugin with an MCP server](#submit-a-plugin-with-an-mcp-server) and include the skills in the same submission.            |
-| A plugin with only local `stdio` MCP servers             | We recommend exposing your MCP server as a public HTTP endpoint. If that isn't possible, wait until OpenAI supports local MCP servers.     |
-| A Claude Desktop extension (`.mcpb`)                     | The portal doesn't accept `.mcpb` files. Expose its MCP server as a public HTTP endpoint, or wait until OpenAI supports local MCP servers. |
+| What you have               | What to submit                                                                                                     |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Skills and no MCP server    | Upload a [skills-only plugin](#submit-a-skills-only-plugin).                                                       |
+| A public HTTPS MCP endpoint | Create a [remote MCP submission](#submit-a-plugin-with-a-remote-mcp-server). Include any skills in the same draft. |
+| A local MCP server          | Deploy it to a public HTTPS URL. If you can't, reach out to your OpenAI contact for local MCP support.             |
 
 Claude uses separate submission processes for Claude Code plugins and MCP
-connectors. OpenAI uses one plugin submission with either skills alone or
-skills and an optional remote MCP server. Claude marketplace listings and
-approvals don't transfer.
+connectors. OpenAI uses one plugin package that can contain skills, MCP servers,
+or both. Claude marketplace listings and approvals don't transfer.
 
 ## Submit a skills-only plugin
 
@@ -30,13 +27,13 @@ Choose this path when the plugin doesn't need an MCP server.
 | Manifest-declared custom skill directories                                                                  | Keep the directories and their manifest declarations in the archive.                                                                                                                                                                                                                                                                                                       |
 | Skills that explicitly refer to Claude                                                                      | Replace Claude-specific references in the skill instructions with provider-neutral language, such as “the model.” Keep a product name only when the instruction genuinely applies to that product.                                                                                                                                                                         |
 | `commands`, `commands/`, `agents`, or `agents/`                                                             | Convert reusable behavior to skills. Turn each Markdown command into a skill, move reusable agent procedures into skills, and merge useful persona instructions into the relevant skill.                                                                                                                                                                                   |
-| `hooks` or `hooks/hooks.json`                                                                               | Adapt supported command hooks for Codex and test them against the [Codex hook runtime](https://developers.openai.com/codex/hooks). Don't require hooks for the core ChatGPT workflow. ChatGPT doesn't run plugin hooks yet, and Codex doesn't run prompt or agent hook handlers.                                                                                                                        |
-| `userConfig` or `${user_config.*}`                                                                          | OpenAI doesn't run Claude installation prompts or expand `user_config` variables. Follow [Replace Claude `userConfig`](#replace-claude-userconfig). If the plugin needs credentials or persistent user settings, use the **With MCP** path.                                                                                                                                |
+| `hooks` or `hooks/hooks.json`                                                                               | Adapt command hooks for the [Codex hook runtime](https://developers.openai.com/codex/hooks), including ChatGPT Work and Codex. Hook scripts must be available in the execution environment and trusted before they run. Don't depend on hooks in ordinary Chat; Codex doesn't run prompt or agent hook handlers.                                                                                        |
+| `userConfig` or `${user_config.*}`                                                                          | OpenAI doesn't run Claude installation prompts or expand `user_config` variables. Follow [Replace Claude `userConfig`](#replace-claude-userconfig). If the plugin needs credentials or persistent user settings, use an MCP server.                                                                                                                                        |
 | Skills that create or update Claude live artifacts                                                          | OpenAI doesn't currently support Claude live artifacts. Remove instructions that require creating, reopening, refreshing, or updating an artifact. Return the underlying content as regular conversation output instead; for example, render artifact tables as standard tables. Artifact-specific HTML, persistence, refresh behavior, and interactions aren't preserved. |
 | `bin/`, `settings`, `settings.json`, `CLAUDE.md`, or `.claude/settings*.json`                               | Keep required helpers and instructions in the plugin. Call bundled executables with package-relative paths, and remove Claude-only settings.                                                                                                                                                                                                                               |
 | `outputStyles`, `lspServers`, `experimental.themes`, `experimental.monitors`, `channels`, or `dependencies` | Move essential behavior into skills, then remove the Claude declaration. Contact your OpenAI partner if the core workflow requires inbound channel messages.                                                                                                                                                                                                               |
 | `.claude-plugin/plugin.json`                                                                                | Keep the manifest for a direct Claude archive upload. The portal converts it to `.codex-plugin/plugin.json`.                                                                                                                                                                                                                                                               |
-| `.claude-plugin/marketplace.json`, `.mcp.json`, `mcpServers`, `.app.json`, or `apps`                        | Don't rely on these files or declarations. A skills-only upload excludes MCP and app configuration, and you can't submit an existing app integration by reference.                                                                                                                                                                                                         |
+| `.claude-plugin/marketplace.json`, `.mcp.json`, `mcpServers`, `.app.json`, or `apps`                        | Don't rely on these files or declarations. A skills-only upload excludes MCP server configuration, and you can't submit an existing MCP server integration by reference.                                                                                                                                                                                                   |
 
 ### Prepare and upload the archive
 
@@ -58,29 +55,35 @@ If the archive doesn't qualify for direct upload, use
 OpenAI manifest and package layout. See [Build skills](https://developers.openai.com/plugins/build/skills)
 for skill requirements.
 
-## Submit a plugin with an MCP server
+<a id="submit-a-plugin-with-an-mcp-server"></a>
 
-Choose this path for a plugin that needs both skills and an MCP server.
+## Submit a plugin with a remote MCP server
+
+Choose this path when the server has a stable, public HTTPS URL that OpenAI can
+reach. The server can have been local in the Claude plugin; what matters for
+this submission is that you have deployed it as a remote service.
 
 ### Review what OpenAI supports
 
 | What your Claude integration has                                                                            | What to do                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A remote MCP server                                                                                         | Reuse the server implementation. Submit a stable, public HTTPS endpoint that uses streamable HTTP.                                                                                                                                                                                                                                                                         |
-| A local `stdio` server, `.mcpb`, `.mcp.json`, or `claude_desktop_config.json`                               | We recommend exposing your MCP server as a public HTTP endpoint. If that isn't possible, wait until OpenAI supports local MCP servers. The portal doesn't accept `.mcpb` files.                                                                                                                                                                                            |
+| A remote MCP server                                                                                         | Reuse the server implementation. Submit a stable, public HTTPS endpoint that uses Streamable HTTP.                                                                                                                                                                                                                                                                         |
+| A local MCP server or Claude Desktop extension (`.mcpb`)                                                    | Deploy the MCP server to a public HTTPS URL. If you can't, reach out to your OpenAI contact for local MCP support. The portal doesn't accept `.mcpb` files.                                                                                                                                                                                                                |
 | Skills or manifest-declared custom skill directories                                                        | Include the skills in the same **With MCP** submission. Keep each `SKILL.md` with its scripts, references, and assets.                                                                                                                                                                                                                                                     |
 | Skills that explicitly refer to Claude                                                                      | Replace Claude-specific references in the skill instructions with provider-neutral language, such as “the model.” Keep a product name only when the instruction genuinely applies to that product.                                                                                                                                                                         |
 | `commands`, `commands/`, `agents`, or `agents/`                                                             | Convert reusable behavior to skills. Turn each Markdown command into a skill, move reusable agent procedures into skills, and merge useful persona instructions into the relevant skill.                                                                                                                                                                                   |
-| `hooks` or `hooks/hooks.json`                                                                               | Adapt supported command hooks for Codex and test them against the [Codex hook runtime](https://developers.openai.com/codex/hooks). Don't require hooks for the core ChatGPT workflow. ChatGPT doesn't run plugin hooks yet, and Codex doesn't run prompt or agent hook handlers.                                                                                                                        |
+| `hooks` or `hooks/hooks.json`                                                                               | Adapt command hooks for the [Codex hook runtime](https://developers.openai.com/codex/hooks), including ChatGPT Work and Codex. Hook scripts must be available in the execution environment and trusted before they run. Don't depend on hooks in ordinary Chat; Codex doesn't run prompt or agent hook handlers.                                                                                        |
 | `userConfig` or `${user_config.*}`                                                                          | OpenAI doesn't run Claude installation prompts or expand `user_config` variables. Follow [Replace Claude `userConfig`](#replace-claude-userconfig) to move each value to an explicit input, OAuth, hosted storage, or Codex-local configuration.                                                                                                                           |
 | Skills that create or update Claude live artifacts                                                          | OpenAI doesn't currently support Claude live artifacts. Remove instructions that require creating, reopening, refreshing, or updating an artifact. Return the underlying content as regular conversation output instead; for example, render artifact tables as standard tables. Artifact-specific HTML, persistence, refresh behavior, and interactions aren't preserved. |
-| `.app.json`, `apps`, or an existing app integration                                                         | Submit the MCP server endpoint directly. You can't submit an existing app integration by reference.                                                                                                                                                                                                                                                                        |
+| `.app.json`, `apps`, or an existing MCP server integration                                                  | Submit the MCP server endpoint directly. You can't submit an existing MCP server integration by reference.                                                                                                                                                                                                                                                                 |
 | `outputStyles`, `lspServers`, `experimental.themes`, `experimental.monitors`, `channels`, or `dependencies` | Move essential behavior into skills or MCP tools, then remove the Claude declaration. Contact your OpenAI partner if the core workflow requires inbound channel messages.                                                                                                                                                                                                  |
 
 ### Prepare and submit the MCP server
 
-1. Deploy the MCP server at its production HTTPS endpoint. Use OAuth 2.1 when
-   the server accesses private user data or takes actions for a user.
+1. Deploy the MCP server at its production HTTPS endpoint using Streamable
+   HTTP. Use OAuth 2.1 when the server accesses private user data or takes
+   actions for a user. Follow [Authenticate users](https://developers.openai.com/plugins/build/auth) for the
+   supported product requirements and MCP authorization specification.
 2. Add accurate tool schemas and safety annotations. Test that every tool
    connects, authenticates, returns the expected result shape, and requires the
    intended confirmation for write or destructive actions.
@@ -93,8 +96,20 @@ Choose this path for a plugin that needs both skills and an MCP server.
    sign-in, complete the listing and review fields, fix every scan result, and
    submit the draft.
 
-Review the [MCP server review requirements](https://developers.openai.com/plugins/deploy/app-review) before
-submitting.
+Plan for these two setup steps before you submit:
+
+- **Domain verification:** You must be able to serve the portal's exact token
+  from `/.well-known/openai-apps-challenge` on the MCP host or an allowed parent
+  host. Complete the challenge when the portal prompts you. See
+  [Configure the MCP submission](https://developers.openai.com/plugins/deploy/submission#mcp).
+- **OAuth and workspace domain restrictions:** If the plugin uses OAuth, expose
+  a UserInfo Endpoint that returns the user's `email` claim and
+  `email_verified: true`. Advertise and enable the `openid` and `email` scopes.
+  See
+  [Support workspace domain restrictions](https://developers.openai.com/plugins/build/auth#support-workspace-domain-restrictions).
+
+Review the [remote MCP server review requirements](https://developers.openai.com/plugins/deploy/app-review)
+before submitting.
 
 ## Replace Claude `userConfig`
 
@@ -111,9 +126,10 @@ based on how the plugin uses it.
 | A fixed value that is the same for all users | Put a non-secret default in the skill instructions or hosted service configuration.                                                                                                           |
 
 If a skills-only plugin needs a credential or a setting that must persist
-between conversations, add a remote MCP server and submit it through **With
-MCP**. If the value only affects the current task, keep the plugin skills-only
-and collect it as an explicit skill input.
+between conversations, add an MCP server. Use OAuth and hosted storage for the
+remote server.
+If the value only affects the current task, keep the plugin skills-only and
+collect it as an explicit skill input.
 
 ## Complete the submission requirements
 
@@ -124,7 +140,7 @@ business identity verification. Every plugin must complete OpenAI review.
 Contact your OpenAI partner before submitting if the plugin's core value
 requires local execution, arbitrary access to files on the user's computer,
 hardware or application access, offline operation, or inbound channel
-messages. These cases may need a different design or product-specific review.
+messages. These cases may need product-specific review.
 
 For the complete portal workflow, see
 [Submit plugins](https://developers.openai.com/plugins/deploy/submission). If the portal reports a package

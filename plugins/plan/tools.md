@@ -79,8 +79,10 @@ for the canonical definitions, defaults, and interactions between these hints:
 - `readOnlyHint` is `true` only when the tool cannot change state.
 - `destructiveHint` is `true` when the tool can cause irreversible or difficult
   to reverse outcomes.
-- `openWorldHint` is `true` when the tool can affect public or external
-  systems.
+- `openWorldHint` is `true` when the tool accesses the public internet or
+  open-ended external entities, including through read-only actions such as
+  web search. A bounded private account or workspace isn't open-world solely
+  because it is externally hosted.
 
 Annotations do not replace server-side authorization, input validation, or
 confirmation for consequential actions.

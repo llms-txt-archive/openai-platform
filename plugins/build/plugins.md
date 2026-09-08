@@ -8,15 +8,17 @@ people will install. Packaging gives the plugin a stable identity and tells
 ChatGPT and Codex which skills, MCP server connections, and other resources
 belong together.
 
-Every plugin has a `.codex-plugin/plugin.json` manifest. Depending on the
-plugin's architecture, its folder can also include:
+For a portable Agent Plugins package, add `plugin.json` at the plugin root and
+declare the Agent Plugins schema. Depending on the plugin's architecture, its
+folder can also include:
 
 - A `skills/` directory containing the workflows you built.
-- An `.app.json` file that references a registered MCP server connection. The
-  filename is a compatibility identifier; the underlying primitive is the MCP
-  server.
-- An `.mcp.json` file for an MCP server distributed with the plugin.
+- An `mcp.json` file for MCP servers distributed with the plugin.
 - Optional assets and lifecycle hooks.
+
+Put OpenAI-specific presentation, registered MCP server mappings, and hook settings
+under `extensions.com.openai` in root `plugin.json`. Existing
+`.codex-plugin/plugin.json` files remain supported as a compatibility fallback.
 
 UI and authentication remain part of the MCP server integration you built in
 the preceding steps; the plugin manifest connects that integration to the rest
@@ -26,8 +28,8 @@ Public plugins are published once to the universal plugin directory shared by
 ChatGPT and Codex. Local and repo marketplaces are separate authoring, testing,
 and team-distribution sources, and their availability can vary by surface.
 
-Use `@plugin-creator` for the fastest path, or create the manifest and folder
-structure manually. Both approaches produce the same plugin structure.
+Use `@plugin-creator` for the fastest OpenAI-specific path, or create the
+portable manifest and folder structure manually.
 
 For complete public examples, inspect
 [Figma](https://github.com/openai/plugins/tree/main/plugins/figma),
@@ -44,10 +46,42 @@ For the fastest setup, use the built-in `@plugin-creator` skill.
 
 
 
-It scaffolds the required `.codex-plugin/plugin.json` manifest and can also
-generate a local marketplace entry for testing. If you already have a plugin
-folder, you can still use `@plugin-creator` to wire it into a local
-marketplace.
+It scaffolds a supported `.codex-plugin/plugin.json` compatibility manifest
+and can also generate a local marketplace entry for testing. If you already
+have a plugin folder, you can still use `@plugin-creator` to wire it into a
+local marketplace.
+
+### Plugin creator output
+
+The current scaffold uses the Codex compatibility layout, not the portable
+Agent Plugins layout. When you request all optional components, it can create:
+
+```text
+my-plugin/
+├── .codex-plugin/
+│   └── plugin.json
+├── .mcp.json
+├── .app.json
+├── skills/
+├── hooks/
+├── scripts/
+└── assets/
+```
+
+Only `.codex-plugin/plugin.json` is always created. The other files and
+directories are optional. `.mcp.json` starts with an empty `mcpServers` object,
+and `.app.json` starts with an empty `apps` object. The manifest references
+these files when requested. It also declares `skills: "./skills/"`; add your
+skill folders there before testing a skills-based plugin.
+
+Requesting hooks creates an empty `hooks/` directory, not a hook configuration
+or executable script. Add `hooks/hooks.json` and its scripts using the
+[bundled hooks guidance](#bundled-mcp-servers-and-lifecycle-hooks).
+
+The scaffold remains supported. To author a portable package, follow
+[Create a plugin manually](#create-a-plugin-manually) and use root `plugin.json`
+and `mcp.json` with their Agent Plugins schemas. Don't just rename `.mcp.json`:
+the portable MCP format also declares a transport `type` for each server.
 
 
 
@@ -100,16 +134,16 @@ Include a personal marketplace entry so I can test it locally.`}`
 
 
 
-The plugin-creator skill will create the plugin folder, create the required
-`.codex-plugin/plugin.json`, and add MCP server wiring for the plugin. If you ask
-it to create a personal marketplace entry, the plugin appears under your local
-source in the Plugins Directory for testing.
+The plugin-creator skill will create the plugin folder, create a supported
+`.codex-plugin/plugin.json` compatibility manifest, and add MCP server wiring
+for the plugin. If you ask it to create a personal marketplace entry, the
+plugin appears under your local source in the Plugins Directory for testing.
 
 After the plugin-creator skill creates the plugin:
 
 1. Review `.app.json` and confirm the registered MCP server mapping points at
    the correct `plugin_asdk_app...` ID.
-2. Review `.codex-plugin/plugin.json` and make sure its compatibility `apps`
+2. Review `.codex-plugin/plugin.json` and make sure its `apps`
    field points to `./.app.json`.
 3. Add any bundled skills under `skills/` if the plugin should include
    repeatable workflows alongside the MCP server.
@@ -183,25 +217,26 @@ configured marketplace snapshots.
 
 Start with a minimal plugin that packages one skill.
 
-1. Create a plugin folder with a manifest at `.codex-plugin/plugin.json`.
+1. Create a plugin folder with a portable manifest at `plugin.json`.
 
 ```bash
-mkdir -p my-first-plugin/.codex-plugin
+mkdir -p my-first-plugin
 ```
 
-`my-first-plugin/.codex-plugin/plugin.json`
+`my-first-plugin/plugin.json`
 
 ```json
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "my-first-plugin",
   "version": "1.0.0",
-  "description": "Reusable greeting workflow",
-  "skills": "./skills/"
+  "description": "Reusable greeting workflow"
 }
 ```
 
 Use a stable plugin `name` in kebab-case. Plugin hosts use it as the plugin
-identifier and component namespace.
+identifier and component namespace. Portable packages discover skills from
+the root `skills/` directory, so the manifest doesn't need a `skills` field.
 
 2. Add a skill under `skills/<skill-name>/SKILL.md`.
 
@@ -482,27 +517,26 @@ plugin's on or off state in `~/.codex/config.toml`.
 
 ### Plugin structure
 
-Every plugin has a manifest at `.codex-plugin/plugin.json`. It can also include
-a `skills/` directory, a `hooks/` directory for lifecycle hooks, an `.app.json`
-file that maps registered MCP server connections, an `.mcp.json` file that
-configures bundled MCP servers, and assets used to present the plugin across
-supported surfaces.
+A portable plugin has a `plugin.json` manifest at its root. It can also include
+a `skills/` directory, an `mcp.json` file for bundled MCP servers, and assets.
+Put OpenAI-specific settings in the root manifest's `extensions.com.openai`
+object. A separate `.codex-plugin/plugin.json` is optional and serves as a
+compatibility fallback when that object is absent.
 
-Only `plugin.json` belongs in `.codex-plugin/`. Keep `skills/`, `hooks/`,
-`assets/`, `.mcp.json`, and `.app.json` at the plugin root.
+Keep `plugin.json`, `mcp.json`, `skills/`, and `assets/` at the plugin root.
+When you add a Codex overlay, keep only its `plugin.json` inside
+`.codex-plugin/`; referenced hooks, `.app.json`, and other resources stay at
+the plugin root.
 
-Published plugins typically use a richer manifest than the minimal example that
-appears in quick-start scaffolds. The manifest has three jobs:
+The portable manifest identifies the plugin. Fixed package paths identify its
+portable components: `skills/` contains skills, and `mcp.json` configures MCP
+servers.
 
-- Identify the plugin.
-- Point to bundled components such as skills, MCP servers, or hooks.
-- Provide install-surface metadata such as descriptions, icons, and legal
-  links.
-
-Here's a complete manifest example:
+Here's a complete portable manifest example:
 
 ```json
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "my-plugin",
   "version": "0.1.0",
   "description": "Bundle reusable skills and MCP servers.",
@@ -514,48 +548,84 @@ Here's a complete manifest example:
   "homepage": "https://example.com/plugins/my-plugin",
   "repository": "https://github.com/example/my-plugin",
   "license": "MIT",
-  "keywords": ["research", "crm"],
-  "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
-  "apps": "./.app.json",
-  "hooks": "./hooks/hooks.json",
-  "interface": {
-    "displayName": "My Plugin",
-    "shortDescription": "Reusable skills and MCP servers",
-    "longDescription": "Distribute skills and MCP servers together.",
-    "developerName": "Your team",
-    "category": "Productivity",
-    "capabilities": ["Read", "Write"],
-    "websiteURL": "https://example.com",
-    "privacyPolicyURL": "https://example.com/privacy",
-    "termsOfServiceURL": "https://example.com/terms",
-    "defaultPrompt": [
-      "Use My Plugin to summarize new CRM notes.",
-      "Use My Plugin to triage new customer follow-ups."
-    ],
-    "brandColor": "#10A37F",
-    "composerIcon": "./assets/icon.png",
-    "logo": "./assets/logo.png",
-    "screenshots": ["./assets/screenshot-1.png"]
+  "keywords": ["research", "crm"]
+}
+```
+
+The root `plugin.json` is the portable entry point. OpenAI also accepts legacy
+and Claude-compatible manifests, but new packages should use this format.
+
+<a id="add-an-openai-and-codex-overlay"></a>
+
+### Add OpenAI-specific metadata
+
+Add `extensions.com.openai` to root `plugin.json` for presentation, existing
+registered MCP server mappings, and lifecycle hooks. Keep portable identity and
+metadata, such as `name`, `version`, and `description`, at the root.
+
+For example:
+
+```json
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "my-plugin",
+  "version": "0.1.0",
+  "description": "Reusable skills and MCP servers",
+  "extensions": {
+    "com.openai": {
+      "apps": "./.app.json",
+      "hooks": "./hooks/hooks.json",
+      "interface": {
+        "displayName": "My Plugin",
+        "shortDescription": "Reusable skills and MCP servers",
+        "longDescription": "Distribute skills and MCP servers together.",
+        "developerName": "Your team",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://example.com",
+        "privacyPolicyURL": "https://example.com/privacy",
+        "termsOfServiceURL": "https://example.com/terms",
+        "defaultPrompt": [
+          "Use My Plugin to summarize new CRM notes.",
+          "Use My Plugin to triage new customer follow-ups."
+        ],
+        "brandColor": "#10A37F",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png",
+        "screenshots": ["./assets/screenshot-1.png"]
+      }
+    }
   }
 }
 ```
 
-`.codex-plugin/plugin.json` is the required entry point. The other manifest
-fields are optional, but published plugins commonly use them.
+When `extensions.com.openai` is an object, it replaces the entire
+`.codex-plugin/plugin.json` overlay as the source of OpenAI-specific settings;
+the two aren't merged. If the inline object is absent, the compatibility
+overlay supplies those settings. Root identity and portable components remain
+canonical in either case.
 
 ### Manifest fields
 
-Use the top-level fields to define package metadata and point to bundled
-components:
+Use the root manifest fields to define portable package metadata:
 
-- `name`, `version`, and `description` identify the plugin.
+- `$schema` declares the supported Agent Plugins version.
+- `name` identifies the plugin. `version` and `description` provide optional
+  release and discovery metadata.
 - `author`, `homepage`, `repository`, `license`, and `keywords` provide
   publisher and discovery metadata.
-- `skills`, `mcpServers`, and `hooks` point to bundled components relative to
-  the plugin root. The compatibility `apps` field points to registered MCP
-  server mappings.
-- `interface` controls how install surfaces present the plugin.
+
+Use `extensions.com.openai` for OpenAI-specific fields:
+
+- `apps` points to registered MCP server mappings in `.app.json`.
+- `hooks` points to lifecycle hook configuration.
+- `interface` controls how OpenAI install surfaces present the plugin.
+
+Portable packages always discover skills in `skills/` and MCP servers in
+`mcp.json`. A `skills` or `mcpServers` declaration in the inline extension or
+compatibility overlay can't replace, disable, or add to those components.
+Those declarations apply only to legacy packages without a recognized portable
+root manifest.
 
 Use the `interface` object for install-surface metadata:
 
@@ -570,45 +640,37 @@ Use the `interface` object for install-surface metadata:
 
 ### Path rules
 
-- Keep manifest paths relative to the plugin root and start them with `./`.
+- Keep portable `plugin.json`, `mcp.json`, and `skills/` at the plugin root.
+- Keep paths in `extensions.com.openai` or a compatibility manifest relative to
+  the plugin root and start them with `./`.
 - Store visual assets such as `composerIcon`, `logo`, and `screenshots` under
   `./assets/` when possible.
-- Use `skills` for bundled skill folders, `mcpServers` for `.mcp.json`, and
-  `hooks` for lifecycle hooks. Use the compatibility `apps` field only for
-  registered MCP server mappings in `.app.json`.
+- Use the OpenAI extension's `apps` field only for registered MCP server mappings in
+  `.app.json`.
 - Enabled plugins can include lifecycle hooks alongside skills and MCP servers.
-- If your plugin stores hooks at `./hooks/hooks.json`, you don't need a
-  `hooks` entry in `.codex-plugin/plugin.json`; Codex checks that default file
-  automatically.
 
 ### Bundled MCP servers and lifecycle hooks
 
-`mcpServers` can point to an `.mcp.json` file that contains either a direct
-server map or a wrapped `mcp_servers` object.
+Configure portable MCP servers in root `mcp.json`. Include the Agent Plugins
+MCP schema and a named entry under `mcpServers`.
 
-Direct server map:
-
-```json
-{
-  "docs": {
-    "command": "docs-mcp",
-    "args": ["--stdio"]
-  }
-}
-```
-
-Wrapped server map:
+Remote HTTP server:
 
 ```json
 {
-  "mcp_servers": {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
     "docs": {
-      "command": "docs-mcp",
-      "args": ["--stdio"]
+      "type": "streamable-http",
+      "url": "https://example.com/mcp"
     }
   }
 }
 ```
+
+For public submission, submit the remote HTTPS endpoint through **With MCP**.
+If your MCP server runs locally, deploy it to a public HTTPS URL. If you can't,
+reach out to your OpenAI contact for local MCP support.
 
 After installation, users can enable or disable a bundled MCP server and tune
 tool approval policy from their Codex config without editing the plugin. Use
@@ -624,14 +686,18 @@ enabled_tools = ["search"]
 approval_mode = "approve"
 ```
 
-When your plugin is enabled, Codex can load lifecycle hooks from your plugin
-alongside user, project, and managed hooks.
+When your plugin is enabled, the Codex runtime can load lifecycle hooks from
+your plugin alongside user, project, and managed hooks. This includes
+ChatGPT Work and Codex. Hook scripts must exist in the execution environment;
+installing a plugin on the web doesn't deploy them. Enterprise admins can
+deploy required scripts through mobile device management (MDM).
 
 Installing or enabling a plugin doesn't automatically trust its hooks.
 Plugin-bundled hooks are non-managed hooks, so Codex skips them until the user
 reviews and trusts the current hook definition.
 
-The default plugin hook file is `hooks/hooks.json`:
+Codex discovers `hooks/hooks.json` by default when the selected OpenAI extension
+or compatibility manifest doesn't define `hooks`:
 
 ```json
 {
@@ -651,21 +717,27 @@ The default plugin hook file is `hooks/hooks.json`:
 }
 ```
 
-If you define `hooks` in `.codex-plugin/plugin.json`, Codex uses that manifest
-entry instead of the default `hooks/hooks.json`. The manifest field can be a
-single path, an array of paths, an inline hooks object, or an array of inline
-hooks objects.
+To override that default, define `hooks` inside `extensions.com.openai` in root
+`plugin.json`. The field can be a single path, an array of paths, an inline
+hooks object, or an array of inline hooks objects. An explicit value replaces
+default-file discovery; it doesn't add to `hooks/hooks.json`.
 
 ```json
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "repo-policy",
-  "hooks": ["./hooks/session.json", "./hooks/tools.json"]
+  "extensions": {
+    "com.openai": {
+      "hooks": ["./hooks/session.json", "./hooks/tools.json"]
+    }
+  }
 }
 ```
 
-Hook paths follow the same manifest path rules as `skills`, `apps`, and
-`mcpServers`: start with `./`, resolve relative to the plugin root, and stay
-inside the plugin root.
+Legacy packages can declare `hooks` directly in `.codex-plugin/plugin.json`.
+
+Hook paths start with `./`, resolve relative to the plugin root, and stay inside
+the plugin root.
 
 Plugin hook commands receive the Codex-specific environment variables
 `PLUGIN_ROOT` and `PLUGIN_DATA`. `PLUGIN_ROOT` points to the installed plugin

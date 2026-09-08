@@ -2,12 +2,12 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-When you [create a Response](https://developers.openai.com/docs/api-reference/responses/create) with
+When you [create a Response](https://developers.openai.com/api/reference/resources/responses/methods/create) with
 `stream` set to `true`, the server will emit server-sent events to the
 client as the Response is generated. This section contains the events that
 are emitted by the server.
 
-[Learn more about streaming responses](https://developers.openai.com/docs/guides/streaming-responses?api-mode=responses).
+[Learn more about streaming responses](https://developers.openai.com/api/docs/guides/streaming-responses).
 
 ## response.created
 
@@ -939,7 +939,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsesModel",
@@ -1152,7 +1152,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
@@ -1524,7 +1524,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -1579,7 +1579,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -1648,7 +1648,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -1662,7 +1662,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsePrompt",
@@ -1749,7 +1749,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -1797,7 +1797,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
@@ -1826,7 +1826,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeReference",
@@ -1852,7 +1852,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -1872,7 +1872,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ServiceTier",
@@ -1926,7 +1926,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseTextConfig",
@@ -2021,7 +2021,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -4268,7 +4268,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -4302,7 +4302,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -4401,7 +4401,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/4",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -4431,7 +4431,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/5",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -4514,7 +4514,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/7",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -4729,7 +4729,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -6167,7 +6167,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "ToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -6291,7 +6291,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -6341,7 +6341,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -6375,7 +6375,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -6393,7 +6393,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -6423,7 +6423,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -6457,7 +6457,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -6668,7 +6668,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -6770,7 +6770,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -7032,7 +7032,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "ResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -7255,7 +7255,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/Reasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ReasoningEffort",
@@ -7387,7 +7387,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) $shared > (model) reasoning > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -7470,7 +7470,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "ServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -7609,7 +7609,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseFormatTextConfig",
@@ -7665,7 +7665,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "ResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -8144,7 +8144,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -8178,7 +8178,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -8258,7 +8258,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -8288,7 +8288,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -8513,7 +8513,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/12",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -8551,7 +8551,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -14787,7 +14787,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
@@ -15729,7 +15729,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -17332,7 +17332,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "ResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -17687,7 +17687,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) $shared > (model) reasoning_effort > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ReasoningEffort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "ident": "ReasoningEffort",
     "type": {
       "kind": "HttpTypeUnion",
@@ -17853,7 +17853,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "ResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -17923,7 +17923,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/ResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -24160,7 +24160,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -24210,7 +24210,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -24244,7 +24244,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -24262,7 +24262,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -24292,7 +24292,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -24326,7 +24326,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -24537,7 +24537,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -24639,7 +24639,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -24754,7 +24754,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -24804,7 +24804,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -24838,7 +24838,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -24856,7 +24856,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -24886,7 +24886,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -24920,7 +24920,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -25131,7 +25131,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -25233,7 +25233,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -27789,7 +27789,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -28936,7 +28936,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -28949,7 +28949,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "ResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -29691,7 +29691,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "ResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -29875,7 +29875,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -29925,7 +29925,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -29959,7 +29959,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -29977,7 +29977,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -30007,7 +30007,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -30041,7 +30041,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -30252,7 +30252,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -30354,7 +30354,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -30455,7 +30455,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -30505,7 +30505,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -30539,7 +30539,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -30557,7 +30557,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -30587,7 +30587,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -30621,7 +30621,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -30832,7 +30832,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -30934,7 +30934,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -34085,7 +34085,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -36159,7 +36159,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -41276,7 +41276,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -43350,7 +43350,7 @@ Schema name: `ResponseCreatedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -46879,7 +46879,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -48058,7 +48058,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -50293,7 +50293,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -51472,7 +51472,7 @@ Schema name: `ResponseCreatedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -57065,7 +57065,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsesModel",
@@ -57278,7 +57278,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
@@ -57650,7 +57650,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -57705,7 +57705,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -57774,7 +57774,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -57788,7 +57788,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsePrompt",
@@ -57875,7 +57875,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -57923,7 +57923,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
@@ -57952,7 +57952,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeReference",
@@ -57978,7 +57978,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -57998,7 +57998,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ServiceTier",
@@ -58052,7 +58052,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseTextConfig",
@@ -58147,7 +58147,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -60394,7 +60394,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -60428,7 +60428,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -60527,7 +60527,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/4",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -60557,7 +60557,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/5",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -60640,7 +60640,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/7",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -60855,7 +60855,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -62293,7 +62293,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "ToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -62417,7 +62417,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -62467,7 +62467,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -62501,7 +62501,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -62519,7 +62519,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -62549,7 +62549,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -62583,7 +62583,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -62794,7 +62794,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -62896,7 +62896,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -63158,7 +63158,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "ResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -63381,7 +63381,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/Reasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ReasoningEffort",
@@ -63513,7 +63513,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) $shared > (model) reasoning > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -63596,7 +63596,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "ServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -63735,7 +63735,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseFormatTextConfig",
@@ -63791,7 +63791,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "ResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -64270,7 +64270,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -64304,7 +64304,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -64384,7 +64384,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -64414,7 +64414,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -64639,7 +64639,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/12",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -64677,7 +64677,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -70913,7 +70913,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
@@ -71855,7 +71855,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -73458,7 +73458,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "ResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -73813,7 +73813,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) $shared > (model) reasoning_effort > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ReasoningEffort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "ident": "ReasoningEffort",
     "type": {
       "kind": "HttpTypeUnion",
@@ -73979,7 +73979,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "ResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -74049,7 +74049,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/ResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -80286,7 +80286,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -80336,7 +80336,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -80370,7 +80370,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -80388,7 +80388,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -80418,7 +80418,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -80452,7 +80452,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -80663,7 +80663,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -80765,7 +80765,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -80880,7 +80880,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -80930,7 +80930,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -80964,7 +80964,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -80982,7 +80982,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -81012,7 +81012,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -81046,7 +81046,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -81257,7 +81257,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -81359,7 +81359,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -83915,7 +83915,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -85062,7 +85062,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -85075,7 +85075,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "ResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -85817,7 +85817,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "ResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -86001,7 +86001,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -86051,7 +86051,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -86085,7 +86085,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -86103,7 +86103,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -86133,7 +86133,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -86167,7 +86167,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -86378,7 +86378,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -86480,7 +86480,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -86581,7 +86581,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -86631,7 +86631,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -86665,7 +86665,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -86683,7 +86683,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -86713,7 +86713,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -86747,7 +86747,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -86958,7 +86958,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -87060,7 +87060,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -90211,7 +90211,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -92285,7 +92285,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -97402,7 +97402,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -99476,7 +99476,7 @@ Schema name: `ResponseInProgressEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -103005,7 +103005,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -104184,7 +104184,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -106419,7 +106419,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -107598,7 +107598,7 @@ Schema name: `ResponseInProgressEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -113191,7 +113191,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsesModel",
@@ -113404,7 +113404,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
@@ -113776,7 +113776,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -113831,7 +113831,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -113900,7 +113900,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -113914,7 +113914,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsePrompt",
@@ -114001,7 +114001,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -114049,7 +114049,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
@@ -114078,7 +114078,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeReference",
@@ -114104,7 +114104,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -114124,7 +114124,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ServiceTier",
@@ -114178,7 +114178,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseTextConfig",
@@ -114273,7 +114273,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -116520,7 +116520,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -116554,7 +116554,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -116653,7 +116653,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/4",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -116683,7 +116683,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/5",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -116766,7 +116766,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/7",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -116981,7 +116981,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -118419,7 +118419,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "ToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -118543,7 +118543,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -118593,7 +118593,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -118627,7 +118627,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -118645,7 +118645,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -118675,7 +118675,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -118709,7 +118709,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -118920,7 +118920,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -119022,7 +119022,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -119284,7 +119284,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "ResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -119507,7 +119507,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/Reasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ReasoningEffort",
@@ -119639,7 +119639,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) $shared > (model) reasoning > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -119722,7 +119722,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "ServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -119861,7 +119861,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseFormatTextConfig",
@@ -119917,7 +119917,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "ResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -120396,7 +120396,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -120430,7 +120430,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -120510,7 +120510,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -120540,7 +120540,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -120765,7 +120765,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/12",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -120803,7 +120803,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -127039,7 +127039,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
@@ -127981,7 +127981,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -129584,7 +129584,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "ResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -129939,7 +129939,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) $shared > (model) reasoning_effort > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ReasoningEffort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "ident": "ReasoningEffort",
     "type": {
       "kind": "HttpTypeUnion",
@@ -130105,7 +130105,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "ResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -130175,7 +130175,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/ResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -136412,7 +136412,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -136462,7 +136462,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -136496,7 +136496,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -136514,7 +136514,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -136544,7 +136544,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -136578,7 +136578,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -136789,7 +136789,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -136891,7 +136891,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -137006,7 +137006,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -137056,7 +137056,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -137090,7 +137090,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -137108,7 +137108,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -137138,7 +137138,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -137172,7 +137172,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -137383,7 +137383,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -137485,7 +137485,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -140041,7 +140041,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -141188,7 +141188,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -141201,7 +141201,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "ResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -141943,7 +141943,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "ResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -142127,7 +142127,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -142177,7 +142177,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -142211,7 +142211,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -142229,7 +142229,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -142259,7 +142259,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -142293,7 +142293,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -142504,7 +142504,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -142606,7 +142606,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -142707,7 +142707,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -142757,7 +142757,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -142791,7 +142791,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -142809,7 +142809,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -142839,7 +142839,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -142873,7 +142873,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -143084,7 +143084,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -143186,7 +143186,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -146337,7 +146337,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -148411,7 +148411,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -153528,7 +153528,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -155602,7 +155602,7 @@ Schema name: `ResponseCompletedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -159131,7 +159131,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -160310,7 +160310,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -162545,7 +162545,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -163724,7 +163724,7 @@ Schema name: `ResponseCompletedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -169334,7 +169334,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsesModel",
@@ -169547,7 +169547,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
@@ -169919,7 +169919,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -169974,7 +169974,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -170043,7 +170043,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -170057,7 +170057,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsePrompt",
@@ -170144,7 +170144,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -170192,7 +170192,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
@@ -170221,7 +170221,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeReference",
@@ -170247,7 +170247,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -170267,7 +170267,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ServiceTier",
@@ -170321,7 +170321,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseTextConfig",
@@ -170416,7 +170416,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -172663,7 +172663,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -172697,7 +172697,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -172796,7 +172796,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/4",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -172826,7 +172826,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/5",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -172909,7 +172909,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/7",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -173124,7 +173124,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -174562,7 +174562,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "ToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -174686,7 +174686,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -174736,7 +174736,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -174770,7 +174770,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -174788,7 +174788,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -174818,7 +174818,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -174852,7 +174852,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -175063,7 +175063,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -175165,7 +175165,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -175427,7 +175427,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "ResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -175650,7 +175650,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/Reasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ReasoningEffort",
@@ -175782,7 +175782,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) $shared > (model) reasoning > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -175865,7 +175865,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "ServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -176004,7 +176004,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseFormatTextConfig",
@@ -176060,7 +176060,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "ResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -176539,7 +176539,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -176573,7 +176573,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -176653,7 +176653,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -176683,7 +176683,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -176908,7 +176908,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/12",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -176946,7 +176946,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -183182,7 +183182,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
@@ -184124,7 +184124,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -185727,7 +185727,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "ResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -186082,7 +186082,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) $shared > (model) reasoning_effort > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ReasoningEffort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "ident": "ReasoningEffort",
     "type": {
       "kind": "HttpTypeUnion",
@@ -186248,7 +186248,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "ResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -186318,7 +186318,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/ResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -192555,7 +192555,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -192605,7 +192605,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -192639,7 +192639,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -192657,7 +192657,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -192687,7 +192687,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -192721,7 +192721,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -192932,7 +192932,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -193034,7 +193034,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -193149,7 +193149,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -193199,7 +193199,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -193233,7 +193233,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -193251,7 +193251,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -193281,7 +193281,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -193315,7 +193315,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -193526,7 +193526,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -193628,7 +193628,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -196184,7 +196184,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -197331,7 +197331,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -197344,7 +197344,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "ResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -198086,7 +198086,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "ResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -198270,7 +198270,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -198320,7 +198320,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -198354,7 +198354,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -198372,7 +198372,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -198402,7 +198402,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -198436,7 +198436,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -198647,7 +198647,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -198749,7 +198749,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -198850,7 +198850,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -198900,7 +198900,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -198934,7 +198934,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -198952,7 +198952,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -198982,7 +198982,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -199016,7 +199016,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -199227,7 +199227,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -199329,7 +199329,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -202480,7 +202480,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -204554,7 +204554,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -209671,7 +209671,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -211745,7 +211745,7 @@ Schema name: `ResponseFailedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -215274,7 +215274,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -216453,7 +216453,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -218688,7 +218688,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -219867,7 +219867,7 @@ Schema name: `ResponseFailedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -225462,7 +225462,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsesModel",
@@ -225675,7 +225675,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
@@ -226047,7 +226047,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -226102,7 +226102,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -226171,7 +226171,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -226185,7 +226185,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsePrompt",
@@ -226272,7 +226272,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -226320,7 +226320,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
@@ -226349,7 +226349,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeReference",
@@ -226375,7 +226375,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -226395,7 +226395,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ServiceTier",
@@ -226449,7 +226449,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseTextConfig",
@@ -226544,7 +226544,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -228791,7 +228791,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -228825,7 +228825,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -228924,7 +228924,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/4",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -228954,7 +228954,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/5",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -229037,7 +229037,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/7",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -229252,7 +229252,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -230690,7 +230690,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "ToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -230814,7 +230814,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -230864,7 +230864,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -230898,7 +230898,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -230916,7 +230916,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -230946,7 +230946,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -230980,7 +230980,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -231191,7 +231191,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -231293,7 +231293,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -231555,7 +231555,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "ResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -231778,7 +231778,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/Reasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ReasoningEffort",
@@ -231910,7 +231910,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) $shared > (model) reasoning > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -231993,7 +231993,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "ServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -232132,7 +232132,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseFormatTextConfig",
@@ -232188,7 +232188,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "ResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -232667,7 +232667,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -232701,7 +232701,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -232781,7 +232781,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -232811,7 +232811,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -233036,7 +233036,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/12",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -233074,7 +233074,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -239310,7 +239310,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
@@ -240252,7 +240252,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -241855,7 +241855,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "ResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -242210,7 +242210,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) $shared > (model) reasoning_effort > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ReasoningEffort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "ident": "ReasoningEffort",
     "type": {
       "kind": "HttpTypeUnion",
@@ -242376,7 +242376,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "ResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -242446,7 +242446,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/ResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -248683,7 +248683,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -248733,7 +248733,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -248767,7 +248767,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -248785,7 +248785,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -248815,7 +248815,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -248849,7 +248849,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -249060,7 +249060,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -249162,7 +249162,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -249277,7 +249277,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -249327,7 +249327,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -249361,7 +249361,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -249379,7 +249379,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -249409,7 +249409,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -249443,7 +249443,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -249654,7 +249654,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -249756,7 +249756,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -252312,7 +252312,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -253459,7 +253459,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -253472,7 +253472,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "ResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -254214,7 +254214,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "ResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -254398,7 +254398,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -254448,7 +254448,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -254482,7 +254482,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -254500,7 +254500,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -254530,7 +254530,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -254564,7 +254564,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -254775,7 +254775,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -254877,7 +254877,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -254978,7 +254978,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -255028,7 +255028,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -255062,7 +255062,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -255080,7 +255080,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -255110,7 +255110,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -255144,7 +255144,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -255355,7 +255355,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -255457,7 +255457,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -258608,7 +258608,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -260682,7 +260682,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -265799,7 +265799,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -267873,7 +267873,7 @@ Schema name: `ResponseIncompleteEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -271402,7 +271402,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -272581,7 +272581,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -274816,7 +274816,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -275995,7 +275995,7 @@ Schema name: `ResponseIncompleteEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -280816,7 +280816,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -280850,7 +280850,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -280949,7 +280949,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/4",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -280979,7 +280979,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/5",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -281062,7 +281062,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/7",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -281277,7 +281277,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -287623,7 +287623,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "ResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -288765,7 +288765,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -288815,7 +288815,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -288849,7 +288849,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -288867,7 +288867,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -288897,7 +288897,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -288931,7 +288931,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -289142,7 +289142,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -289244,7 +289244,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -289359,7 +289359,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -289409,7 +289409,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -289443,7 +289443,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -289461,7 +289461,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -289491,7 +289491,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -289525,7 +289525,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -289736,7 +289736,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -289838,7 +289838,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -293286,7 +293286,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -295360,7 +295360,7 @@ Schema name: `ResponseOutputItemAddedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -299428,7 +299428,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -300607,7 +300607,7 @@ Schema name: `ResponseOutputItemAddedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -304713,7 +304713,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -304747,7 +304747,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -304846,7 +304846,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/4",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -304876,7 +304876,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/5",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -304959,7 +304959,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/7",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -305174,7 +305174,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -311520,7 +311520,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "ResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -312662,7 +312662,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -312712,7 +312712,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -312746,7 +312746,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -312764,7 +312764,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -312794,7 +312794,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -312828,7 +312828,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -313039,7 +313039,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -313141,7 +313141,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -313256,7 +313256,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -313306,7 +313306,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -313340,7 +313340,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -313358,7 +313358,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -313388,7 +313388,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -313422,7 +313422,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -313633,7 +313633,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -313735,7 +313735,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -317183,7 +317183,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -319257,7 +319257,7 @@ Schema name: `ResponseOutputItemDoneEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -323325,7 +323325,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -324504,7 +324504,7 @@ Schema name: `ResponseOutputItemDoneEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -337861,7 +337861,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsesModel",
@@ -338074,7 +338074,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/ResponseProperties/properties/tools",
@@ -338446,7 +338446,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -338501,7 +338501,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -338570,7 +338570,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -338584,7 +338584,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponsePrompt",
@@ -338671,7 +338671,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -338719,7 +338719,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ModelResponseProperties/properties/prompt_cache_retention",
@@ -338748,7 +338748,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeReference",
@@ -338774,7 +338774,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -338794,7 +338794,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/Response/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ServiceTier",
@@ -338848,7 +338848,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseTextConfig",
@@ -338943,7 +338943,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -341190,7 +341190,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -341224,7 +341224,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -341323,7 +341323,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/4",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -341353,7 +341353,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/5",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -341436,7 +341436,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/7",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -341651,7 +341651,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/OutputItem/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -343089,7 +343089,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "ToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -343213,7 +343213,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -343263,7 +343263,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -343297,7 +343297,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -343315,7 +343315,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -343345,7 +343345,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -343379,7 +343379,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -343590,7 +343590,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -343692,7 +343692,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -343954,7 +343954,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "ResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -344177,7 +344177,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/Reasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ReasoningEffort",
@@ -344309,7 +344309,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) $shared > (model) reasoning > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -344392,7 +344392,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "ServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -344531,7 +344531,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "ResponseFormatTextConfig",
@@ -344587,7 +344587,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "ResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -345066,7 +345066,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -345100,7 +345100,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -345180,7 +345180,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -345210,7 +345210,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -345435,7 +345435,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/12",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -345473,7 +345473,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Item/oneOf/13",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -351709,7 +351709,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/ToolChoiceTypes/properties/type",
@@ -352651,7 +352651,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -354254,7 +354254,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "ResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -354609,7 +354609,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) $shared > (model) reasoning_effort > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/ReasoningEffort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "ident": "ReasoningEffort",
     "type": {
       "kind": "HttpTypeUnion",
@@ -354775,7 +354775,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "ResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -354845,7 +354845,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/ResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -361082,7 +361082,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -361132,7 +361132,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -361166,7 +361166,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -361184,7 +361184,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -361214,7 +361214,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -361248,7 +361248,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -361459,7 +361459,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -361561,7 +361561,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -361676,7 +361676,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -361726,7 +361726,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -361760,7 +361760,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -361778,7 +361778,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -361808,7 +361808,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -361842,7 +361842,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -362053,7 +362053,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -362155,7 +362155,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -364711,7 +364711,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -365858,7 +365858,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -365871,7 +365871,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/TextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "ResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -366613,7 +366613,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/InputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "ResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -366797,7 +366797,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -366847,7 +366847,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -366881,7 +366881,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -366899,7 +366899,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -366929,7 +366929,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -366963,7 +366963,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -367174,7 +367174,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -367276,7 +367276,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -367377,7 +367377,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -367427,7 +367427,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -367461,7 +367461,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -367479,7 +367479,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -367509,7 +367509,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -367543,7 +367543,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -367754,7 +367754,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -367856,7 +367856,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/Tool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -371007,7 +371007,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -373081,7 +373081,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -378198,7 +378198,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -380272,7 +380272,7 @@ Schema name: `ResponseQueuedEvent`
     "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/MCPTool/properties/connector_id",
@@ -383801,7 +383801,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -384980,7 +384980,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response_output_item > (schema) > (variant) 12 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -387215,7 +387215,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 10 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -388394,7 +388394,7 @@ Schema name: `ResponseQueuedEvent`
   "(resource) responses > (model) response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 11 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/NamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",

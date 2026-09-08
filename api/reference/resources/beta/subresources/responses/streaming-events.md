@@ -2,12 +2,12 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-When you [create a Response](https://developers.openai.com/docs/api-reference/responses/create) with
+When you [create a Response](https://developers.openai.com/api/reference/resources/responses/methods/create) with
 `stream` set to `true`, the server will emit server-sent events to the
 client as the Response is generated. This section contains the events that
 are emitted by the server.
 
-[Learn more about streaming responses](https://developers.openai.com/docs/guides/streaming-responses?api-mode=responses).
+[Learn more about streaming responses](https://developers.openai.com/api/docs/guides/streaming-responses).
 
 ## response.created
 
@@ -1133,7 +1133,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
@@ -1767,7 +1767,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
@@ -2139,7 +2139,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -2194,7 +2194,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -2263,7 +2263,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -2277,7 +2277,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponsePrompt",
@@ -2364,7 +2364,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -2412,7 +2412,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
@@ -2441,7 +2441,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -2480,7 +2480,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -2500,7 +2500,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaServiceTier",
@@ -2554,7 +2554,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseTextConfig",
@@ -2649,7 +2649,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -4038,7 +4038,7 @@ Schema name: `BetaResponseCreatedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -4601,7 +4601,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -4639,7 +4639,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -4857,7 +4857,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/7",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -4891,7 +4891,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 8": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/8",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -4982,7 +4982,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/10",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -5221,7 +5221,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -6872,7 +6872,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "BetaToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -6996,7 +6996,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -7046,7 +7046,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -7080,7 +7080,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -7098,7 +7098,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -7128,7 +7128,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -7162,7 +7162,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -7373,7 +7373,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -7475,7 +7475,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -7737,7 +7737,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaPrompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "BetaResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -7960,7 +7960,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
@@ -8168,7 +8168,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "BetaServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -8307,7 +8307,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseFormatTextConfig",
@@ -8363,7 +8363,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "BetaResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -8847,7 +8847,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -8885,7 +8885,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -8973,7 +8973,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -9007,7 +9007,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -9368,7 +9368,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/15",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -9410,7 +9410,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 17": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -16843,7 +16843,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
@@ -17800,7 +17800,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -19424,7 +19424,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "BetaResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -19907,7 +19907,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "BetaResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -19983,7 +19983,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -28011,7 +28011,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -28061,7 +28061,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -28095,7 +28095,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -28113,7 +28113,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -28143,7 +28143,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -28177,7 +28177,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -28388,7 +28388,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -28490,7 +28490,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -28619,7 +28619,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -28669,7 +28669,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -28703,7 +28703,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -28721,7 +28721,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -28751,7 +28751,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -28785,7 +28785,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -28996,7 +28996,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -29098,7 +29098,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -31812,7 +31812,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -32941,7 +32941,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -32954,7 +32954,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "BetaResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -33762,7 +33762,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "BetaResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -34301,7 +34301,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -34351,7 +34351,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -34385,7 +34385,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -34403,7 +34403,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -34433,7 +34433,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -34467,7 +34467,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -34678,7 +34678,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -34780,7 +34780,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -34895,7 +34895,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -34945,7 +34945,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -34979,7 +34979,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -34997,7 +34997,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -35027,7 +35027,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -35061,7 +35061,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -35272,7 +35272,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -35374,7 +35374,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -39205,7 +39205,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -41315,7 +41315,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -46646,7 +46646,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -48756,7 +48756,7 @@ Schema name: `BetaResponseCreatedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -52617,7 +52617,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -53861,7 +53861,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -56494,7 +56494,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -57738,7 +57738,7 @@ Schema name: `BetaResponseCreatedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -67282,7 +67282,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
@@ -67916,7 +67916,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
@@ -68288,7 +68288,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -68343,7 +68343,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -68412,7 +68412,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -68426,7 +68426,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponsePrompt",
@@ -68513,7 +68513,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -68561,7 +68561,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
@@ -68590,7 +68590,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -68629,7 +68629,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -68649,7 +68649,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaServiceTier",
@@ -68703,7 +68703,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseTextConfig",
@@ -68798,7 +68798,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -70187,7 +70187,7 @@ Schema name: `BetaResponseInProgressEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -70750,7 +70750,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -70788,7 +70788,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -71006,7 +71006,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/7",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -71040,7 +71040,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 8": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/8",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -71131,7 +71131,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/10",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -71370,7 +71370,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -73021,7 +73021,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "BetaToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -73145,7 +73145,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -73195,7 +73195,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -73229,7 +73229,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -73247,7 +73247,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -73277,7 +73277,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -73311,7 +73311,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -73522,7 +73522,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -73624,7 +73624,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -73886,7 +73886,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaPrompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "BetaResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -74109,7 +74109,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
@@ -74317,7 +74317,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "BetaServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -74456,7 +74456,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseFormatTextConfig",
@@ -74512,7 +74512,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "BetaResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -74996,7 +74996,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -75034,7 +75034,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -75122,7 +75122,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -75156,7 +75156,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -75517,7 +75517,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/15",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -75559,7 +75559,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 17": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -82992,7 +82992,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
@@ -83949,7 +83949,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -85573,7 +85573,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "BetaResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -86056,7 +86056,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "BetaResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -86132,7 +86132,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -94160,7 +94160,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -94210,7 +94210,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -94244,7 +94244,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -94262,7 +94262,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -94292,7 +94292,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -94326,7 +94326,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -94537,7 +94537,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -94639,7 +94639,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -94768,7 +94768,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -94818,7 +94818,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -94852,7 +94852,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -94870,7 +94870,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -94900,7 +94900,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -94934,7 +94934,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -95145,7 +95145,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -95247,7 +95247,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -97961,7 +97961,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -99090,7 +99090,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -99103,7 +99103,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "BetaResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -99911,7 +99911,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "BetaResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -100450,7 +100450,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -100500,7 +100500,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -100534,7 +100534,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -100552,7 +100552,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -100582,7 +100582,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -100616,7 +100616,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -100827,7 +100827,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -100929,7 +100929,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -101044,7 +101044,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -101094,7 +101094,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -101128,7 +101128,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -101146,7 +101146,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -101176,7 +101176,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -101210,7 +101210,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -101421,7 +101421,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -101523,7 +101523,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -105354,7 +105354,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -107464,7 +107464,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -112795,7 +112795,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -114905,7 +114905,7 @@ Schema name: `BetaResponseInProgressEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -118766,7 +118766,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -120010,7 +120010,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -122643,7 +122643,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -123887,7 +123887,7 @@ Schema name: `BetaResponseInProgressEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -133431,7 +133431,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
@@ -134065,7 +134065,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
@@ -134437,7 +134437,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -134492,7 +134492,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -134561,7 +134561,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -134575,7 +134575,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponsePrompt",
@@ -134662,7 +134662,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -134710,7 +134710,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
@@ -134739,7 +134739,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -134778,7 +134778,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -134798,7 +134798,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaServiceTier",
@@ -134852,7 +134852,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseTextConfig",
@@ -134947,7 +134947,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -136336,7 +136336,7 @@ Schema name: `BetaResponseCompletedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -136899,7 +136899,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -136937,7 +136937,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -137155,7 +137155,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/7",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -137189,7 +137189,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 8": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/8",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -137280,7 +137280,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/10",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -137519,7 +137519,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -139170,7 +139170,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "BetaToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -139294,7 +139294,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -139344,7 +139344,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -139378,7 +139378,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -139396,7 +139396,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -139426,7 +139426,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -139460,7 +139460,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -139671,7 +139671,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -139773,7 +139773,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -140035,7 +140035,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaPrompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "BetaResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -140258,7 +140258,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
@@ -140466,7 +140466,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "BetaServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -140605,7 +140605,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseFormatTextConfig",
@@ -140661,7 +140661,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "BetaResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -141145,7 +141145,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -141183,7 +141183,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -141271,7 +141271,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -141305,7 +141305,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -141666,7 +141666,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/15",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -141708,7 +141708,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 17": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -149141,7 +149141,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
@@ -150098,7 +150098,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -151722,7 +151722,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "BetaResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -152205,7 +152205,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "BetaResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -152281,7 +152281,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -160309,7 +160309,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -160359,7 +160359,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -160393,7 +160393,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -160411,7 +160411,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -160441,7 +160441,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -160475,7 +160475,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -160686,7 +160686,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -160788,7 +160788,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -160917,7 +160917,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -160967,7 +160967,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -161001,7 +161001,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -161019,7 +161019,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -161049,7 +161049,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -161083,7 +161083,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -161294,7 +161294,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -161396,7 +161396,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -164110,7 +164110,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -165239,7 +165239,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -165252,7 +165252,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "BetaResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -166060,7 +166060,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "BetaResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -166599,7 +166599,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -166649,7 +166649,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -166683,7 +166683,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -166701,7 +166701,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -166731,7 +166731,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -166765,7 +166765,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -166976,7 +166976,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -167078,7 +167078,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -167193,7 +167193,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -167243,7 +167243,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -167277,7 +167277,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -167295,7 +167295,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -167325,7 +167325,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -167359,7 +167359,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -167570,7 +167570,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -167672,7 +167672,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -171503,7 +171503,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -173613,7 +173613,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -178944,7 +178944,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -181054,7 +181054,7 @@ Schema name: `BetaResponseCompletedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -184915,7 +184915,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -186159,7 +186159,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -188792,7 +188792,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -190036,7 +190036,7 @@ Schema name: `BetaResponseCompletedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -199597,7 +199597,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
@@ -200231,7 +200231,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
@@ -200603,7 +200603,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -200658,7 +200658,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -200727,7 +200727,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -200741,7 +200741,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponsePrompt",
@@ -200828,7 +200828,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -200876,7 +200876,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
@@ -200905,7 +200905,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -200944,7 +200944,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -200964,7 +200964,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaServiceTier",
@@ -201018,7 +201018,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseTextConfig",
@@ -201113,7 +201113,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -202502,7 +202502,7 @@ Schema name: `BetaResponseFailedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -203065,7 +203065,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -203103,7 +203103,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -203321,7 +203321,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/7",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -203355,7 +203355,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 8": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/8",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -203446,7 +203446,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/10",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -203685,7 +203685,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -205336,7 +205336,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "BetaToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -205460,7 +205460,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -205510,7 +205510,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -205544,7 +205544,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -205562,7 +205562,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -205592,7 +205592,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -205626,7 +205626,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -205837,7 +205837,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -205939,7 +205939,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -206201,7 +206201,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaPrompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "BetaResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -206424,7 +206424,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
@@ -206632,7 +206632,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "BetaServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -206771,7 +206771,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseFormatTextConfig",
@@ -206827,7 +206827,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "BetaResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -207311,7 +207311,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -207349,7 +207349,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -207437,7 +207437,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -207471,7 +207471,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -207832,7 +207832,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/15",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -207874,7 +207874,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 17": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -215307,7 +215307,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
@@ -216264,7 +216264,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -217888,7 +217888,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "BetaResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -218371,7 +218371,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "BetaResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -218447,7 +218447,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -226475,7 +226475,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -226525,7 +226525,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -226559,7 +226559,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -226577,7 +226577,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -226607,7 +226607,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -226641,7 +226641,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -226852,7 +226852,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -226954,7 +226954,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -227083,7 +227083,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -227133,7 +227133,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -227167,7 +227167,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -227185,7 +227185,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -227215,7 +227215,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -227249,7 +227249,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -227460,7 +227460,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -227562,7 +227562,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -230276,7 +230276,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -231405,7 +231405,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -231418,7 +231418,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "BetaResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -232226,7 +232226,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "BetaResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -232765,7 +232765,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -232815,7 +232815,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -232849,7 +232849,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -232867,7 +232867,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -232897,7 +232897,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -232931,7 +232931,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -233142,7 +233142,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -233244,7 +233244,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -233359,7 +233359,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -233409,7 +233409,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -233443,7 +233443,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -233461,7 +233461,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -233491,7 +233491,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -233525,7 +233525,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -233736,7 +233736,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -233838,7 +233838,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -237669,7 +237669,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -239779,7 +239779,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -245110,7 +245110,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -247220,7 +247220,7 @@ Schema name: `BetaResponseFailedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -251081,7 +251081,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -252325,7 +252325,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -254958,7 +254958,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -256202,7 +256202,7 @@ Schema name: `BetaResponseFailedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -265748,7 +265748,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
@@ -266382,7 +266382,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
@@ -266754,7 +266754,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -266809,7 +266809,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -266878,7 +266878,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -266892,7 +266892,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponsePrompt",
@@ -266979,7 +266979,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -267027,7 +267027,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
@@ -267056,7 +267056,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -267095,7 +267095,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -267115,7 +267115,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaServiceTier",
@@ -267169,7 +267169,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseTextConfig",
@@ -267264,7 +267264,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -268653,7 +268653,7 @@ Schema name: `BetaResponseIncompleteEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -269216,7 +269216,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -269254,7 +269254,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -269472,7 +269472,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/7",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -269506,7 +269506,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 8": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/8",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -269597,7 +269597,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/10",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -269836,7 +269836,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -271487,7 +271487,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "BetaToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -271611,7 +271611,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -271661,7 +271661,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -271695,7 +271695,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -271713,7 +271713,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -271743,7 +271743,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -271777,7 +271777,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -271988,7 +271988,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -272090,7 +272090,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -272352,7 +272352,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaPrompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "BetaResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -272575,7 +272575,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
@@ -272783,7 +272783,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "BetaServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -272922,7 +272922,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseFormatTextConfig",
@@ -272978,7 +272978,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "BetaResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -273462,7 +273462,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -273500,7 +273500,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -273588,7 +273588,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -273622,7 +273622,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -273983,7 +273983,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/15",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -274025,7 +274025,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 17": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -281458,7 +281458,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
@@ -282415,7 +282415,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -284039,7 +284039,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "BetaResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -284522,7 +284522,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "BetaResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -284598,7 +284598,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -292626,7 +292626,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -292676,7 +292676,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -292710,7 +292710,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -292728,7 +292728,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -292758,7 +292758,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -292792,7 +292792,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -293003,7 +293003,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -293105,7 +293105,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -293234,7 +293234,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -293284,7 +293284,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -293318,7 +293318,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -293336,7 +293336,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -293366,7 +293366,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -293400,7 +293400,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -293611,7 +293611,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -293713,7 +293713,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -296427,7 +296427,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -297556,7 +297556,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -297569,7 +297569,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "BetaResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -298377,7 +298377,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "BetaResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -298916,7 +298916,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -298966,7 +298966,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -299000,7 +299000,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -299018,7 +299018,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -299048,7 +299048,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -299082,7 +299082,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -299293,7 +299293,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -299395,7 +299395,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -299510,7 +299510,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -299560,7 +299560,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -299594,7 +299594,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -299612,7 +299612,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -299642,7 +299642,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -299676,7 +299676,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -299887,7 +299887,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -299989,7 +299989,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -303820,7 +303820,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -305930,7 +305930,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -311261,7 +311261,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -313371,7 +313371,7 @@ Schema name: `BetaResponseIncompleteEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -317232,7 +317232,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -318476,7 +318476,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -321109,7 +321109,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -322353,7 +322353,7 @@ Schema name: `BetaResponseIncompleteEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -330961,7 +330961,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -330999,7 +330999,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -331217,7 +331217,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/7",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -331251,7 +331251,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 8": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/8",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -331342,7 +331342,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/10",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -331581,7 +331581,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -339321,7 +339321,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "BetaResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -341075,7 +341075,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -341125,7 +341125,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -341159,7 +341159,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -341177,7 +341177,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -341207,7 +341207,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -341241,7 +341241,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -341452,7 +341452,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -341554,7 +341554,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -341683,7 +341683,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -341733,7 +341733,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -341767,7 +341767,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -341785,7 +341785,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -341815,7 +341815,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -341849,7 +341849,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -342060,7 +342060,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -342162,7 +342162,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -346140,7 +346140,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -348250,7 +348250,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -352463,7 +352463,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -353707,7 +353707,7 @@ Schema name: `BetaResponseOutputItemAddedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -358890,7 +358890,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -358928,7 +358928,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -359146,7 +359146,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/7",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -359180,7 +359180,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 8": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/8",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -359271,7 +359271,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/10",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -359510,7 +359510,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -367250,7 +367250,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "BetaResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -369004,7 +369004,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -369054,7 +369054,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -369088,7 +369088,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -369106,7 +369106,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -369136,7 +369136,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -369170,7 +369170,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -369381,7 +369381,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -369483,7 +369483,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -369612,7 +369612,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -369662,7 +369662,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -369696,7 +369696,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -369714,7 +369714,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -369744,7 +369744,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -369778,7 +369778,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -369989,7 +369989,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -370091,7 +370091,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -374069,7 +374069,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -376179,7 +376179,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -380392,7 +380392,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -381636,7 +381636,7 @@ Schema name: `BetaResponseOutputItemDoneEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -397754,7 +397754,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
     "deprecated": false,
     "key": "model",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/model",
@@ -398388,7 +398388,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
     "deprecated": false,
     "key": "tools",
-    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/docs/guides/tools-web-search)\n  or [file search](/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
+    "docstring": "An array of tools the model may call while generating a response. You\ncan specify which tool to use by setting the `tool_choice` parameter.\n\nWe support the following categories of tools:\n- **Built-in tools**: Tools that are provided by OpenAI that extend the\n  model's capabilities, like [web search](/api/docs/guides/tools-web-search)\n  or [file search](/api/docs/guides/tools-file-search). Learn more about\n  [built-in tools](/api/docs/guides/tools).\n- **MCP Tools**: Integrations with third-party systems via custom MCP servers\n  or predefined connectors such as Google Drive and SharePoint. Learn more about\n  [MCP Tools](/api/docs/guides/tools-connectors-mcp).\n- **Function calls (custom tools)**: Functions that are defined by you,\n  enabling the model to call your own code with strongly typed arguments\n  and outputs. Learn more about\n  [function calling](/api/docs/guides/function-calling). You can also use\n  custom tools to call your own code.\n",
     "type": {
       "kind": "HttpTypeArray",
       "oasRef": "#/components/schemas/BetaResponseProperties/properties/tools",
@@ -398760,7 +398760,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/background",
     "deprecated": false,
     "key": "background",
-    "docstring": "Whether to run the model response in the background.\n[Learn more](/docs/guides/background).\n",
+    "docstring": "Whether to run the model response in the background.\n[Learn more](/api/docs/guides/background).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -398815,7 +398815,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/max_output_tokens",
     "deprecated": false,
     "key": "max_output_tokens",
-    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/docs/guides/reasoning).\n",
+    "docstring": "An upper bound for the number of tokens that can be generated for a response, including visible output tokens and [reasoning tokens](/api/docs/guides/reasoning).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -398884,7 +398884,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/previous_response_id",
     "deprecated": false,
     "key": "previous_response_id",
-    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
+    "docstring": "The unique ID of the previous response to the model. Use this to\ncreate multi-turn conversations. Learn more about\n[conversation state](/api/docs/guides/conversation-state). Cannot be used in conjunction with `conversation`.\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -398898,7 +398898,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/prompt",
     "deprecated": false,
     "key": "prompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponsePrompt",
@@ -398985,7 +398985,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_key",
     "deprecated": false,
     "key": "prompt_cache_key",
-    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/docs/guides/prompt-caching).\n",
+    "docstring": "Used by OpenAI to cache responses for similar requests to optimize your cache hit rates. Replaces the `user` field. [Learn more](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -399033,7 +399033,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
     "deprecated": true,
     "key": "prompt_cache_retention",
-    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
+    "docstring": "Deprecated. Use `prompt_cache_options.ttl` instead.\n\nThe retention policy for the prompt cache. Set to `24h` to enable extended prompt caching, which keeps cached prefixes active for longer, up to a maximum of 24 hours. [Learn more](/api/docs/guides/prompt-caching#prompt-cache-retention).\nThis field expresses a maximum retention policy, while\n`prompt_cache_options.ttl` expresses a minimum cache lifetime. The two\nfields are independent and do not interact.\nFor `gpt-5.5`, `gpt-5.5-pro`, and future models, only `24h` is supported.\n\nFor older models that support both `in_memory` and `24h`, the default depends on your organization's data retention policy:\n  - Organizations without ZDR enabled default to `24h`.\n  - Organizations with ZDR enabled default to `in_memory` when `prompt_cache_retention` is not specified.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/prompt_cache_retention",
@@ -399062,7 +399062,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/reasoning",
     "deprecated": false,
     "key": "reasoning",
-    "docstring": "Configuration options for\n[reasoning models](https://platform.openai.com/docs/guides/reasoning).\n",
+    "docstring": "Configuration options for\n[reasoning models](/api/docs/guides/reasoning).\n",
     "title": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -399101,7 +399101,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/safety_identifier",
     "deprecated": false,
     "key": "safety_identifier",
-    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "A stable identifier used to help detect users of your application that may be violating OpenAI's usage policies.\nThe IDs should be a string that uniquely identifies each user, with a maximum length of 64 characters. We recommend hashing their username or email address, in order to avoid sending us any identifying information. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -399121,7 +399121,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaResponse/allOf/2/properties/service_tier",
     "deprecated": false,
     "key": "service_tier",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaServiceTier",
@@ -399175,7 +399175,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
     "deprecated": false,
     "key": "text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseTextConfig",
@@ -399270,7 +399270,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaModelResponseProperties/properties/user",
     "deprecated": true,
     "key": "user",
-    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/docs/guides/safety-best-practices#safety-identifiers).\n",
+    "docstring": "This field is being replaced by `safety_identifier` and `prompt_cache_key`. Use `prompt_cache_key` instead to maintain caching optimizations.\nA stable identifier for your end-users.\nUsed to boost cache hit rates by better bucketing similar requests and  to help OpenAI detect and prevent abuse. [Learn more](/api/docs/guides/safety-best-practices#implement-safety-identifiers).\n",
     "type": {
       "kind": "HttpTypeString"
     },
@@ -400659,7 +400659,7 @@ Schema name: `BetaResponseQueuedEvent`
   },
   "(resource) beta.responses > (model) beta_response > (schema) > (property) model > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
-    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/docs/models)\nto browse and compare available models.\n",
+    "docstring": "Model ID used to generate the response, like `gpt-6-astra`. OpenAI\noffers a wide range of models with different capabilities, performance\ncharacteristics, and price points. Refer to the [model guide](/api/docs/models)\nto browse and compare available models.\n",
     "ident": "UnionMember0",
     "type": {
       "kind": "HttpTypeUnion",
@@ -401222,7 +401222,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/1",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -401260,7 +401260,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/2",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -401478,7 +401478,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/7",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -401512,7 +401512,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 8": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/8",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -401603,7 +401603,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 10": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/10",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -401842,7 +401842,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaOutputItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -403493,7 +403493,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_tool_choice_types > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaToolChoiceTypes",
-    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/docs/guides/tools).\n",
+    "docstring": "Indicates that the model should use a built-in tool to generate a response.\n[Learn more about built-in tools](/api/docs/guides/tools).\n",
     "ident": "BetaToolChoiceTypes",
     "type": {
       "kind": "HttpTypeObject",
@@ -403617,7 +403617,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -403667,7 +403667,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -403701,7 +403701,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -403719,7 +403719,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -403749,7 +403749,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -403783,7 +403783,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -403994,7 +403994,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -404096,7 +404096,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -404358,7 +404358,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_prompt > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaPrompt",
-    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/docs/guides/text?api-mode=responses#reusable-prompts).\n",
+    "docstring": "Reference to a prompt template and its variables.\n[Learn more](/api/docs/guides/text?api-mode=responses#version-prompts-in-code).\n",
     "ident": "BetaResponsePrompt",
     "type": {
       "kind": "HttpTypeObject",
@@ -404581,7 +404581,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
     "deprecated": false,
     "key": "effort",
-    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](https://platform.openai.com/docs/guides/reasoning)\nfor model-specific support.\n",
+    "docstring": "Constrains effort on reasoning for reasoning models. Currently supported\nvalues are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.\nReducing reasoning effort can result in faster responses and fewer tokens\nused on reasoning in a response. Not all reasoning models support every\nvalue. See the\n[reasoning guide](/api/docs/guides/reasoning)\nfor model-specific support.\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaReasoning/properties/effort",
@@ -404789,7 +404789,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_service_tier > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaServiceTierResponses",
-    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
+    "docstring": "Specifies the processing type used for serving the request.\n  - If set to 'auto', then the request will be processed with the service tier configured in the Project settings. Unless otherwise configured, the Project will use 'default'.\n  - If set to 'default', then the request will be processed with the standard pricing and performance for the selected model.\n  - If set to '[flex](/api/docs/guides/flex-processing)', then the request will be processed with the Flex Processing service tier.\n  - To opt-in to [Fast mode](/api/docs/guides/fast-mode) at the request level, include the `service_tier=fast` or `service_tier=priority` parameter for Responses or Chat Completions. The response will show `service_tier=priority` regardless of if you specify `service_tier=fast` or `priority` in your request.\n  - If set to 'ultrafast', then the request will be processed with the access-controlled Ultrafast Processing service tier. This tier is currently available for `gpt-5.6-sol`; a response served through it will show `service_tier=ultrafast`.\n  - When not set, the default behavior is 'auto'.\n\n  When the `service_tier` parameter is set, the response body will include the `service_tier` value based on the processing mode actually used to serve the request. This response value may be different from the value set in the parameter.\n",
     "ident": "BetaServiceTier",
     "type": {
       "kind": "HttpTypeUnion",
@@ -404928,7 +404928,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaResponseTextParam/properties/format",
     "deprecated": false,
     "key": "format",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "type": {
       "kind": "HttpTypeReference",
       "ident": "BetaResponseFormatTextConfig",
@@ -404984,7 +404984,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaResponseProperties/properties/text",
-    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/docs/guides/text)\n- [Structured Outputs](/docs/guides/structured-outputs)\n",
+    "docstring": "Configuration options for a text response from the model. Can be plain\ntext or structured JSON data. Learn more:\n- [Text inputs and outputs](/api/docs/guides/text)\n- [Structured Outputs](/api/docs/guides/structured-outputs)\n",
     "ident": "BetaResponseTextConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -405468,7 +405468,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/2",
-    "docstring": "The results of a file search tool call. See the\n[file search guide](/docs/guides/tools-file-search) for more information.\n",
+    "docstring": "The results of a file search tool call. See the\n[file search guide](/api/docs/guides/tools-file-search) for more information.\n",
     "ident": "FileSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -405506,7 +405506,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/3",
-    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/docs/guides/tools-computer-use) for more information.\n",
+    "docstring": "A tool call to a computer use tool. See the\n[computer use guide](/api/docs/guides/tools-computer-use) for more information.\n",
     "ident": "ComputerCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -405594,7 +405594,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 6": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/5",
-    "docstring": "The results of a web search tool call. See the\n[web search guide](/docs/guides/tools-web-search) for more information.\n",
+    "docstring": "The results of a web search tool call. See the\n[web search guide](/api/docs/guides/tools-web-search) for more information.\n",
     "ident": "WebSearchCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -405628,7 +405628,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 7": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/6",
-    "docstring": "A tool call to run a function. See the \n[function calling guide](/docs/guides/function-calling) for more information.\n",
+    "docstring": "A tool call to run a function. See the\n[function calling guide](/api/docs/guides/function-calling) for more information.\n",
     "ident": "FunctionCall",
     "type": {
       "kind": "HttpTypeObject",
@@ -405989,7 +405989,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 16": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/15",
-    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/docs/guides/conversation-state).\n",
+    "docstring": "A description of the chain of thought used by a reasoning model while generating\na response. Be sure to include these items in your `input` to the Responses API\nfor subsequent turns of a conversation if you are manually\n[managing context](/api/docs/guides/conversation-state).\n",
     "ident": "Reasoning",
     "type": {
       "kind": "HttpTypeObject",
@@ -406031,7 +406031,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 17": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaItem/oneOf/16",
-    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/docs/api-reference/responses/compact).",
+    "docstring": "A compaction item generated by the [`v1/responses/compact` API](/api/reference/resources/responses/methods/compact).",
     "ident": "Compaction",
     "type": {
       "kind": "HttpTypeObject",
@@ -413464,7 +413464,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
     "deprecated": false,
     "key": "type",
-    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
+    "docstring": "The type of hosted tool the model should to use. Learn more about\n[built-in tools](/api/docs/guides/tools).\n\nAllowed values are:\n- `file_search`\n- `web_search_preview`\n- `computer`\n- `computer_use_preview`\n- `computer_use`\n- `code_interpreter`\n- `image_generation`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaToolChoiceTypes/properties/type",
@@ -414421,7 +414421,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -416045,7 +416045,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_input_image > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContent",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision).",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision).",
     "ident": "BetaResponseInputImage",
     "type": {
       "kind": "HttpTypeObject",
@@ -416528,7 +416528,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_format_text_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatConfiguration",
-    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs, \nwhich ensures the model will match your supplied JSON schema. Learn more in the \n[Structured Outputs guide](/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
+    "docstring": "An object specifying the format that the model must output.\n\nConfiguring `{ \"type\": \"json_schema\" }` enables Structured Outputs,\nwhich ensures the model will match your supplied JSON schema. Learn more in the\n[Structured Outputs guide](/api/docs/guides/structured-outputs).\n\nThe default format is `{ \"type\": \"text\" }` with no additional options.\n\n**Not recommended for gpt-4o and newer models:**\n\nSetting to `{ \"type\": \"json_object\" }` enables the older JSON mode, which\nensures the message the model generates is valid JSON. Using `json_schema`\nis preferred for models that support it.\n",
     "ident": "BetaResponseFormatTextConfig",
     "type": {
       "kind": "HttpTypeUnion",
@@ -416604,7 +416604,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaResponseUsage/properties/input_tokens_details/properties/cached_tokens",
     "deprecated": false,
     "key": "cached_tokens",
-    "docstring": "The number of tokens that were retrieved from the cache. \n[More on prompt caching](/docs/guides/prompt-caching).\n",
+    "docstring": "The number of tokens that were retrieved from the cache.\n[More on prompt caching](/api/docs/guides/prompt-caching).\n",
     "type": {
       "kind": "HttpTypeNumber"
     },
@@ -424632,7 +424632,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -424682,7 +424682,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -424716,7 +424716,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -424734,7 +424734,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -424764,7 +424764,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -424798,7 +424798,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -425009,7 +425009,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -425111,7 +425111,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -425240,7 +425240,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -425290,7 +425290,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -425324,7 +425324,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -425342,7 +425342,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -425372,7 +425372,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -425406,7 +425406,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -425617,7 +425617,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -425719,7 +425719,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -428433,7 +428433,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -429562,7 +429562,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema/properties/strict",
     "deprecated": false,
     "key": "strict",
-    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/docs/guides/structured-outputs).\n",
+    "docstring": "Whether to enable strict schema adherence when generating the output.\nIf set to true, the model will always follow the exact schema defined\nin the `schema` field. Only a subset of JSON Schema is supported when\n`strict` is `true`. To learn more, read the [Structured Outputs\nguide](/api/docs/guides/structured-outputs).\n",
     "type": {
       "kind": "HttpTypeBoolean"
     },
@@ -429575,7 +429575,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_format_text_json_schema_config > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTextResponseFormatJsonSchema",
-    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/docs/guides/structured-outputs).\n",
+    "docstring": "JSON Schema response format. Used to generate structured JSON responses.\nLearn more about [Structured Outputs](/api/docs/guides/structured-outputs).\n",
     "ident": "BetaResponseFormatTextJSONSchemaConfig",
     "type": {
       "kind": "HttpTypeObject",
@@ -430383,7 +430383,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_input_image_content > (schema)": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaInputImageContentParamAutoParam",
-    "docstring": "An image input to the model. Learn about [image inputs](/docs/guides/vision)",
+    "docstring": "An image input to the model. Learn about [image inputs](/api/docs/guides/images-vision)",
     "ident": "BetaResponseInputImageContent",
     "type": {
       "kind": "HttpTypeObject",
@@ -430922,7 +430922,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -430972,7 +430972,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -431006,7 +431006,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -431024,7 +431024,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -431054,7 +431054,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -431088,7 +431088,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -431299,7 +431299,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -431401,7 +431401,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -431516,7 +431516,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 0": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/0",
-    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).",
+    "docstring": "Defines a function in your own code the model can choose to call. Learn more about [function calling](/api/docs/guides/function-calling).",
     "ident": "Function",
     "type": {
       "kind": "HttpTypeObject",
@@ -431566,7 +431566,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/1",
-    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](https://platform.openai.com/docs/guides/tools-file-search).",
+    "docstring": "A tool that searches for relevant content from uploaded files. Learn more about the [file search tool](/api/docs/guides/tools-file-search).",
     "ident": "FileSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -431600,7 +431600,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 2": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/2",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "Computer",
     "type": {
       "kind": "HttpTypeObject",
@@ -431618,7 +431618,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 3": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/3",
-    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).",
+    "docstring": "A tool that controls a virtual computer. Learn more about the [computer tool](/api/docs/guides/tools-computer-use).",
     "ident": "ComputerUsePreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -431648,7 +431648,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 4": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/4",
-    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/docs/guides/tools-web-search).\n",
+    "docstring": "Search the Internet for sources related to the prompt. Learn more about the\n[web search tool](/api/docs/guides/tools-web-search).\n",
     "ident": "WebSearch",
     "type": {
       "kind": "HttpTypeObject",
@@ -431682,7 +431682,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 5": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/5",
-    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/docs/guides/tools-remote-mcp).\n",
+    "docstring": "Give the model access to additional tools via remote Model Context Protocol\n(MCP) servers. [Learn more about MCP](/api/docs/guides/tools-connectors-mcp).\n",
     "ident": "Mcp",
     "type": {
       "kind": "HttpTypeObject",
@@ -431893,7 +431893,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 11": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/11",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -431995,7 +431995,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 14": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaTool/oneOf/14",
-    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](https://platform.openai.com/docs/guides/tools-web-search).",
+    "docstring": "This tool searches the web for relevant results to use in a response. Learn more about the [web search tool](/api/docs/guides/tools-web-search).",
     "ident": "WebSearchPreview",
     "type": {
       "kind": "HttpTypeObject",
@@ -435826,7 +435826,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -437936,7 +437936,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -443267,7 +443267,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -445377,7 +445377,7 @@ Schema name: `BetaResponseQueuedEvent`
     "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
     "deprecated": false,
     "key": "connector_id",
-    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/docs/guides/tools-remote-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
+    "docstring": "Identifier for service connectors, like those available in ChatGPT. One of\n`server_url`, `connector_id`, or `tunnel_id` must be provided. Learn more\nabout service connectors [here](/api/docs/guides/tools-connectors-mcp#connectors).\n\nCurrently supported `connector_id` values are:\n\n- Dropbox: `connector_dropbox`\n- Gmail: `connector_gmail`\n- Google Calendar: `connector_googlecalendar`\n- Google Drive: `connector_googledrive`\n- Microsoft Teams: `connector_microsoftteams`\n- Outlook Calendar: `connector_outlookcalendar`\n- Outlook Email: `connector_outlookemail`\n- SharePoint: `connector_sharepoint`\n",
     "type": {
       "kind": "HttpTypeUnion",
       "oasRef": "#/components/schemas/BetaMCPTool/properties/connector_id",
@@ -449238,7 +449238,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -450482,7 +450482,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response_output_item > (schema) > (variant) 15 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -453115,7 +453115,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 13 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",
@@ -454359,7 +454359,7 @@ Schema name: `BetaResponseQueuedEvent`
   "(resource) beta.responses > (model) beta_response > (schema) > (property) instructions > (variant) 1 > (items) > (variant) 14 > (property) tools > (items) > (variant) 12 > (property) tools > (items) > (variant) 1": {
     "kind": "HttpDeclTypeAlias",
     "oasRef": "#/components/schemas/BetaNamespaceToolParam/properties/tools/items/oneOf/1",
-    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/docs/guides/function-calling#custom-tools)",
+    "docstring": "A custom tool that processes input using a specified format. Learn more about   [custom tools](/api/docs/guides/function-calling#custom-tools)",
     "ident": "Custom",
     "type": {
       "kind": "HttpTypeObject",

@@ -281,7 +281,10 @@ Set annotations according to actual behavior:
 - `readOnlyHint`: `true` only when the tool cannot change state.
 - `destructiveHint`: `true` when a tool can cause irreversible or difficult to
   reverse outcomes.
-- `openWorldHint`: `true` when a tool can affect public or external systems.
+- `openWorldHint`: `true` when a tool accesses the public internet or open-ended
+  external entities, including through read-only actions such as web search.
+  A tool limited to a bounded private account or workspace can set this to
+  `false`, even when that service is externally hosted.
 
 Annotations help ChatGPT and Codex choose appropriate confirmation and safety
 behavior. They do not replace authorization, validation, or confirmation in
