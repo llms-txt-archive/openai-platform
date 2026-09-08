@@ -92,7 +92,7 @@ ad account. See [Bulk API limits](https://developers.openai.com/ads/bulk-api#lim
 
 ### June 3rd, 2026
 
-- Added location targeting support, including `/geo_lookup/search` and campaign `targeting.locations.include` for country, region, and DMA location IDs.
+- Added location targeting support, including `/geo_lookup/search` and campaign `targeting.locations.include` for country, region, and Market location IDs.
 - Added conversion setup and reporting endpoints for API keys, pixels, event settings, and conversion insights.
 
 ### v1

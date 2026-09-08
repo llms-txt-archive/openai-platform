@@ -3,7 +3,7 @@
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
 Use campaign targeting to control where your ads can deliver. OpenAI Ads supports
-country, region, and DMA targeting. Look up the locations you want, copy their
+country, region, and Market targeting. Look up the locations you want, copy their
 location IDs, then pass those IDs when you create or update a campaign.
 
 If you do not provide location targeting, the campaign can target all available
@@ -11,7 +11,7 @@ locations.
 
 ## Available locations
 
-Use the geo lookup API when you want to search for current targetable locations.
+Use `/geo_lookup/search` to find locations currently available for targeting.
 The response returns the location `id`, display `name`, `canonical_name`,
 `country_code`, `type`, and `region_code`.
 
@@ -38,6 +38,8 @@ curl -G "https://api.ads.openai.com/v1/geo_lookup/search" \
   ]
 }
 ```
+
+The API returns `dma` as the `type` value for Market locations.
 
 You can also download the current location catalog as a CSV:
 
@@ -75,11 +77,11 @@ curl -X POST "https://api.ads.openai.com/v1/campaigns" \
 
 In this example:
 
-| Location ID | Meaning                                           | Type     |
+| Location ID | Meaning                                           | Category |
 | ----------- | ------------------------------------------------- | -------- |
-| `2000043`   | California, United States                         | `region` |
-| `3000194`   | San Francisco - Oakland - San Jose, United States | `dma`    |
-| `3000001`   | New York, United States                           | `dma`    |
+| `2000043`   | California, United States                         | Region   |
+| `3000194`   | San Francisco - Oakland - San Jose, United States | Market   |
+| `3000001`   | New York, United States                           | Market   |
 
 Use `status: "paused"` while you are validating campaign setup. Switch the
 campaign to `active` when the campaign, ad groups, and ads are ready to serve.

@@ -52,7 +52,7 @@ curl -X GET "https://api.ads.openai.com/v1/campaigns?limit=20&order=desc" \
 
 Create a campaign for the current ad account. The Ads belonging to a campaign will only show between the defined start and end time, and only in the locations specified in campaign targeting.
 
-For region and DMA targeting, see [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting).
+For region and Market targeting, see [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting).
 
 ### Defaults
 

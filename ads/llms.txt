@@ -30,7 +30,7 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 - [Bulk API](https://developers.openai.com/ads/bulk-api.md): Create and update campaigns, ad groups, and ads in bulk.
 
 ## Campaign Targeting
-- [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting.md): Target campaigns by country, region, or DMA.
+- [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting.md): Target campaigns by country, region, or Market.
 
 ## Conversion Optimized Campaigns
 - [Conversion-Optimized Campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns.md): Optimize campaigns toward a selected conversion event while paying per click.
