@@ -38,10 +38,22 @@ For complete public examples, inspect
 
 For the fastest setup, use the built-in `@plugin-creator` skill.
 
+
+
+![Plugin creator skill in ChatGPT](<https://developers.openai.com/images/codex/plugins/plugin-creator.png>)
+
+
+
 It scaffolds the required `.codex-plugin/plugin.json` manifest and can also
 generate a local marketplace entry for testing. If you already have a plugin
 folder, you can still use `@plugin-creator` to wire it into a local
 marketplace.
+
+
+
+![how to invoke the plugin-creator skill](<https://developers.openai.com/images/codex/plugins/plugin-creator-invoke.png>)
+
+
 
 ### Create and test a plugin locally with an MCP server
 
@@ -128,6 +140,12 @@ curated list.
 You don't need a separate marketplace per plugin. One marketplace can expose a
 single plugin while you are testing, then grow into a larger curated catalog as
 you add more plugins.
+
+
+
+![custom local marketplace in the Plugins Directory](<https://developers.openai.com/images/codex/plugins/codex-local-plugin-light.png>)
+
+
 
 ### Add a marketplace from the CLI
 

@@ -7,7 +7,7 @@ Every change to the upstream docs produces a git commit and a GitHub release, so
 | | |
 |---|---|
 | **Source** | [https://developers.openai.com/llms.txt](https://developers.openai.com/llms.txt) |
-| **Documents** | 544 Markdown files |
+| **Documents** | 545 Markdown files |
 | **Schedule** | Hourly at :42 UTC |
 
 ## How it works
@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260908T185757Z` | 2026-09-08 18:57 UTC | [GPT Image 2.5 Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260908T185757Z) |
 | `archive-20260908T051601Z` | 2026-09-08 05:16 UTC | [Ads docs rename DMA targeting to Market](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260908T051601Z) |
 | `archive-20260906T062956Z` | 2026-09-06 06:30 UTC | [Webhook session ID clarification](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260906T062956Z) |
 | `archive-20260905T165637Z` | 2026-09-05 16:57 UTC | [Rate-limit and overload handling docs update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260905T165637Z) |
 | `archive-20260905T012344Z` | 2026-09-05 01:24 UTC | [Ruby Examples and Tool-Calling Coverage](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260905T012344Z) |
 | `archive-20260904T231917Z` | 2026-09-04 23:19 UTC | [Local Shell Guide Expansion](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T231917Z) |
-| `archive-20260904T210223Z` | 2026-09-04 21:03 UTC | [Amazon Bedrock, Responses Events, and Astra Content Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260904T210223Z) |
