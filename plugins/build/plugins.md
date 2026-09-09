@@ -213,6 +213,12 @@ codex plugin marketplace remove marketplace-name
 and the root path it resolves from, including local default marketplaces and
 configured marketplace snapshots.
 
+Administrators can also define local or Git marketplaces in system
+`config.toml` or cloud-managed configuration. These sources use the same
+marketplace catalog format. See [Configure plugin marketplaces and
+defaults](https://developers.openai.com/codex/enterprise/managed-configuration#configure-plugin-marketplaces-and-defaults)
+for managed setup guidance and links to the configuration reference.
+
 ### Create a plugin manually
 
 Start with a minimal plugin that packages one skill.
@@ -272,7 +278,7 @@ able to access the plugin or curated list.
 Add a marketplace file at `$REPO_ROOT/.agents/plugins/marketplace.json`
     and store your plugins under `$REPO_ROOT/plugins/`.
 
-    **Repo marketplace example**
+    **Example repo marketplace**
 
     Step 1: Copy the plugin folder into `$REPO_ROOT/plugins/my-plugin`.
 
@@ -339,6 +345,34 @@ to the marketplace root, not relative to the `.agents/plugins/` folder. See
 After you change the plugin, update the plugin directory that your marketplace
 entry points to and restart the ChatGPT desktop app so the local install picks
 up the new files.
+
+### Enable or disable a plugin for a repo
+
+The repo marketplace at `.agents/plugins/marketplace.json` makes plugins
+discoverable. Use the repo's `.codex/config.toml` to control whether a
+local-marketplace plugin is enabled for that project:
+
+```toml
+[plugins."my-plugin@local-repo"]
+enabled = true
+```
+
+The quoted key uses `plugin-name@marketplace-name`: `my-plugin` is the plugin
+entry's name, and `local-repo` is the marketplace's top-level `name`. Set
+`enabled = false` to disable the plugin for the project without uninstalling it.
+During marketplace refresh, Codex can install or refresh files for configured
+plugins, even when `enabled = false`. Connected services still require
+authentication.
+
+Codex loads project `.codex/config.toml` only for trusted projects. Project
+settings override user, cloud-managed, and system defaults, subject to enforced
+requirements. See [Configuration precedence](https://developers.openai.com/codex/config-file/config-basic#configuration-precedence).
+
+These settings apply to local-marketplace plugins in supported local clients,
+including Codex CLI and Codex in the ChatGPT desktop app. They don't change
+workspace installation policies for plugins imported through **Admin** >
+**Plugins**. Those plugins use their workspace-managed enabled state, even when
+their source is a GitHub repository. See [Plugin management](https://developers.openai.com/codex/enterprise/plugin-management).
 
 <a id="share-a-local-plugin-with-your-workspace"></a>
 
@@ -510,8 +544,11 @@ plugins into
 plugins, `$VERSION` is `local`, and ChatGPT loads the installed copy from that
 cache path rather than directly from the marketplace entry.
 
-You can enable or disable each plugin individually. ChatGPT stores each
-plugin's on or off state in `~/.codex/config.toml`.
+You can enable or disable each local-marketplace plugin individually. The
+plugin browser saves user-level choices in `~/.codex/config.toml`; repo,
+cloud-managed, and system configuration can also supply plugin settings. See
+[Enable or disable a plugin for a repo](#enable-or-disable-a-plugin-for-a-repo)
+and [Configure plugin marketplaces and defaults](https://developers.openai.com/codex/enterprise/managed-configuration#configure-plugin-marketplaces-and-defaults).
 
 ## Package and distribute plugins
 

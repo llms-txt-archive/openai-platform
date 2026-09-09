@@ -1698,6 +1698,7 @@ only stored in memory.
 
 The Python sample uses `pip install "openai[realtime]>=3.8.0"`.
 The JavaScript sample uses `npm install openai@^7.10.0 ws`.
+The Ruby sample uses `gem install async-websocket`.
 
 Start a Responses API WebSocket session
 
@@ -1776,6 +1777,52 @@ with client.responses.connect() as connection:
     )
     first_event = connection.recv()
     print(first_event.type)
+```
+
+```ruby
+require "async"
+require "async/http/endpoint"
+require "async/websocket/client"
+require "json"
+
+def wait_for_response(connection)
+  while (message = connection.read)
+    event = JSON.parse(message.to_str)
+    case event.fetch("type")
+    when "response.completed" then return event.fetch("response")
+    when "response.failed", "response.incomplete", "error"
+      raise "Response failed: #{JSON.generate(event)}"
+    end
+  end
+  raise "Connection closed before the response finished"
+end
+
+test_log_tool = {
+  type: "function", name: "search_test_logs", description: "Search test logs.",
+  parameters: {type: "object", properties: {query: {type: "string"}}, required: ["query"], additionalProperties: false},
+  strict: true
+}
+code_search_tool = {
+  type: "function", name: "search_code", description: "Search source code.",
+  parameters: {type: "object", properties: {query: {type: "string"}}, required: ["query"], additionalProperties: false},
+  strict: true
+}
+
+endpoint = Async::HTTP::Endpoint.parse("wss://api.openai.com/v1/responses", timeout: 10, alpn_protocols: ["http/1.1"])
+headers = {"Authorization" => "Bearer #{ENV.fetch("OPENAI_API_KEY")}"}
+Sync do |task|
+  task.with_timeout(120) do
+    Async::WebSocket::Client.connect(endpoint, headers: headers) do |connection|
+      connection.write(JSON.generate(
+        type: "response.create", stream_id: "main", model: "gpt-6-astra", store: false,
+        input: [{role: "user", content: "Find the flaky test in this run, call the tools you need, and keep going until you can explain the root cause."}],
+        tools: [test_log_tool, code_search_tool]
+      ))
+      connection.flush
+      puts(JSON.pretty_generate(wait_for_response(connection).fetch("output")))
+    end
+  end
+end
 ```
 
 

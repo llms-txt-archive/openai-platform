@@ -508,9 +508,10 @@ Plan for AWS-owned operational checks such as:
 
 ## Pricing
 
-AWS bills Amazon Bedrock usage. Bedrock-specific pricing can differ from direct
-OpenAI API pricing, including regional processing premiums or other AWS-specific
-commercial terms.
+Amazon Bedrock usage is billed through AWS. Bedrock pricing in commercial regions
+matches OpenAI direct pricing for equivalent services. Note that using a
+region-specific service in Bedrock will be priced at the same rate as Regional
+processing in the OpenAI API. Amazon commercial terms apply to Bedrock usage.
 
 See [API pricing](https://developers.openai.com/api/docs/pricing) for direct OpenAI API pricing. For Bedrock
 pricing, use the AWS pricing materials published for the Bedrock deployment you
