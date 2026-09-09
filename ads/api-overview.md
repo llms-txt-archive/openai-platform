@@ -74,6 +74,10 @@ ad account. See [Bulk API limits](https://developers.openai.com/ads/bulk-api#lim
 
 ## Changelog
 
+### September 9th, 2026
+
+- Added [daily account spending limits](https://developers.openai.com/ads/api-reference/ad-account#set-a-daily-limit) for ad accounts on postpaid invoice billing. Set a shared allowance across campaigns that renews at midnight in the account timezone, with an optional end date. Existing date range limits remain available.
+
 ### August 25th, 2026
 
 - Added custom audience Add, Remove, Replace, and Merge operations, automatic identifier matching, and support for small and empty exclusion-only audiences. See [Custom Audiences](https://developers.openai.com/ads/custom-audiences).

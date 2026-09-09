@@ -17,7 +17,7 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 - [Quickstart](https://developers.openai.com/ads/api-quickstart.md): Launch your first Ads API workflow
 
 ## Api Reference
-- [Ad Account](https://developers.openai.com/ads/api-reference/ad-account.md): Update and retrieve account metadata.
+- [Ad Account](https://developers.openai.com/ads/api-reference/ad-account.md): Manage account metadata and account-wide spending limits.
 - [Ad Groups](https://developers.openai.com/ads/api-reference/ad-groups.md): Create, list, retrieve, update, and change ad group state.
 - [Ads](https://developers.openai.com/ads/api-reference/ads.md): Create, list, retrieve, update, preview, and change ad state.
 - [Authentication](https://developers.openai.com/ads/api-reference/authentication.md): Setting up bearer token authentication.

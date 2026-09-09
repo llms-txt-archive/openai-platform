@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260909T051557Z` | 2026-09-09 05:15 UTC | [Responses API tunnel docs and Java example refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260909T051557Z) |
+| `archive-20260909T185052Z` | 2026-09-09 18:50 UTC | [Ads spending limits and prompt cache diagnostics refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260909T185052Z) |
+| `archive-20260909T051557Z` | 2026-09-09 05:16 UTC | [Responses API tunnel docs and Java example refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260909T051557Z) |
 | `archive-20260909T003718Z` | 2026-09-09 00:38 UTC | [Responses Image Call Metadata Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260909T003718Z) |
 | `archive-20260908T220122Z` | 2026-09-08 22:03 UTC | [Prompt Caching and Plugin Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260908T220122Z) |
 | `archive-20260908T185757Z` | 2026-09-08 18:59 UTC | [GPT Image 2.5 Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260908T185757Z) |
 | `archive-20260908T051601Z` | 2026-09-08 05:16 UTC | [Ads docs rename DMA targeting to Market](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260908T051601Z) |
-| `archive-20260906T062956Z` | 2026-09-06 06:30 UTC | [Webhook session ID clarification](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260906T062956Z) |
