@@ -15,6 +15,10 @@ Claude uses separate submission processes for Claude Code plugins and MCP
 connectors. OpenAI uses one plugin package that can contain skills, MCP servers,
 or both. Claude marketplace listings and approvals don't transfer.
 
+If your plugin includes skills, review their instructions using the
+[instruction-following guidance](https://developers.openai.com/plugins/build/skills#review-instruction-following)
+before submitting them through either path.
+
 ## Submit a skills-only plugin
 
 Choose this path when the plugin doesn't need an MCP server.

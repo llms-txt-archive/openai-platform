@@ -2,86 +2,34 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-Use campaign targeting to control where your ads can deliver. OpenAI Ads supports
-country, region, and Market targeting. Look up the locations you want, copy their
-location IDs, then pass those IDs when you create or update a campaign.
+Use campaign targeting to choose who can see your ads and where they can appear.
+You can combine location, platform, and custom audience targeting in a campaign.
+Choose a guide for the targeting criteria you want to configure.
 
-If you do not provide location targeting, the campaign can target all available
-locations.
+## Location targeting
 
-## Available locations
 
-Use `/geo_lookup/search` to find locations currently available for targeting.
-The response returns the location `id`, display `name`, `canonical_name`,
-`country_code`, `type`, and `region_code`.
 
-```bash
-curl -G "https://api.ads.openai.com/v1/geo_lookup/search" \
-  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" \
-  --data-urlencode "q=San Francisco" \
-  --data-urlencode "limit=5"
-```
 
-```json
-{
-  "count": 1,
-  "query": "San Francisco",
-  "results": [
-    {
-      "id": "3000194",
-      "type": "dma",
-      "canonical_name": "San Francisco - Oakland - San Jose, United States",
-      "country_code": "US",
-      "name": "San Francisco - Oakland - San Jose",
-      "region_code": "807"
-    }
-  ]
-}
-```
+Choose the countries, regions, or Markets where your campaign can deliver. See
+[Location Targeting](https://developers.openai.com/ads/location-targeting) to find location IDs and use them
+in a campaign.
 
-The API returns `dma` as the `type` value for Market locations.
+## Platform targeting
 
-You can also download the current location catalog as a CSV:
+Choose the ChatGPT apps and web browsers where your campaign can deliver. See
+[Platform Targeting](https://developers.openai.com/ads/platform-targeting) for supported platform values,
+examples, and how to update or clear a platform selection.
 
-[{"Download OpenAI Ads locations"}](https://developers.openai.com/ads/openai-geotargets.csv)
+## Custom audiences
+
+Include customer or prospect lists in campaign targeting, or exclude audiences
+you don't want to reach. See
+[Custom Audiences](https://developers.openai.com/ads/custom-audiences#include-or-exclude-audiences-in-a-campaign)
+for audience inclusion, exclusion, and eligibility requirements.
 
 ## Campaign creation
 
-Create a campaign with `targeting.locations.include`. Each item only needs the
-location `id`; the API expands the saved campaign with the matching location
-details.
-
-```bash
-curl -X POST "https://api.ads.openai.com/v1/campaigns" \
-  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" \
-  -H "Content-Type: application/json" \
-  -H "Idempotency-Key: campaign-targeting-example-1" \
-  -d '{
-    "name": "West Coast launch",
-    "status": "paused",
-    "budget": {
-      "lifetime_spend_limit_micros": 25000000
-    },
-    "bidding_type": "clicks",
-    "targeting": {
-      "locations": {
-        "include": [
-          { "id": "2000043" },
-          { "id": "3000194" },
-          { "id": "3000001" }
-        ]
-      }
-    }
-  }'
-```
-
-In this example:
-
-| Location ID | Meaning                                           | Category |
-| ----------- | ------------------------------------------------- | -------- |
-| `2000043`   | California, United States                         | Region   |
-| `3000194`   | San Francisco - Oakland - San Jose, United States | Market   |
-| `3000001`   | New York, United States                           | Market   |
-
-Use `status: "paused"` while you are validating campaign setup. Switch the
-campaign to `active` when the campaign, ad groups, and ads are ready to serve.
+Pass your criteria in the `targeting` object when you create or update a campaign.
+Each guide explains its fields, defaults, and examples. For the campaign request
+and response fields, see [Campaigns](https://developers.openai.com/ads/api-reference/campaigns).

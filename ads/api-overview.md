@@ -74,6 +74,10 @@ ad account. See [Bulk API limits](https://developers.openai.com/ads/bulk-api#lim
 
 ## Changelog
 
+### September 10th, 2026
+
+- Added granular web platform targeting with `desktop_web`, `ios_web`, and `android_web` in `targeting.platforms.included`. Target desktop, iOS, and Android browsers separately, or use `web` to include all web platforms. See [Platform Targeting](https://developers.openai.com/ads/platform-targeting). Platform breakdowns in [Insights](https://developers.openai.com/ads/api-reference/insights#platform-breakdown) also separate web platforms while preserving historical Web totals.
+
 ### September 9th, 2026
 
 - Added [daily account spending limits](https://developers.openai.com/ads/api-reference/ad-account#set-a-daily-limit) for ad accounts on postpaid invoice billing. Set a shared allowance across campaigns that renews at midnight in the account timezone, with an optional end date. Existing date range limits remain available.

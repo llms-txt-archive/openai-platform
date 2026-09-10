@@ -49,6 +49,9 @@ skills into one installable experience.
 For example, a meeting follow-up plugin might include separate skills for
 drafting a recap, identifying action items, and preparing a customer email.
 
+When writing skill instructions, follow the
+[instruction-following guidance](https://developers.openai.com/plugins/build/skills#review-instruction-following).
+
 ## MCP servers
 
 Build an MCP server when your plugin must connect to a service, expose a

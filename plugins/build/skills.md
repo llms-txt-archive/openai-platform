@@ -70,6 +70,12 @@ Prefer one focused skill over a large collection of loosely related
 instructions. Split workflows when they have different triggers, inputs, or
 success criteria.
 
+### Review instruction following
+
+When writing or importing skills for GPT-6 Astra, review the [instruction-following guidance](https://developers.openai.com/api/docs/guides/latest-model#gpt-6-astra-instruction-following).
+Audit skills and supporting files for unclear or conflicting instructions, and
+make the priority of explicit user instructions over skill guidelines clear.
+
 ## Add supporting resources
 
 Keep `SKILL.md` concise and place detailed material next to it:

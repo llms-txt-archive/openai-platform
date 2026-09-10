@@ -8,6 +8,9 @@ people will install. Packaging gives the plugin a stable identity and tells
 ChatGPT and Codex which skills, MCP server connections, and other resources
 belong together.
 
+Before bundling skills, review the
+[instruction-following guidance](https://developers.openai.com/plugins/build/skills#review-instruction-following).
+
 For a portable Agent Plugins package, add `plugin.json` at the plugin root and
 declare the Agent Plugins schema. Depending on the plugin's architecture, its
 folder can also include:

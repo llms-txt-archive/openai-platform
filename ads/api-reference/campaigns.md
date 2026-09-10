@@ -52,30 +52,33 @@ curl -X GET "https://api.ads.openai.com/v1/campaigns?limit=20&order=desc" \
 
 Create a campaign for the current ad account. The Ads belonging to a campaign will only show between the defined start and end time, and only in the locations specified in campaign targeting.
 
-For region and Market targeting, see [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting).
+For location, platform, and custom audience targeting, see [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting).
 
 ### Defaults
 
 If you omit `start_time`, the campaign will begin delivering immediately. If you omit location targeting, the campaign can target all available locations.
 
+Omitting `targeting.platforms` or setting it to `null` adds no platform restriction.
+
 Note that time and currency fields will respect your account-set timezone and currency defaults.
 
 `POST /campaigns`
 
-| Field                                     | Type     | Required | Notes                                                                              |
-| ----------------------------------------- | -------- | -------- | ---------------------------------------------------------------------------------- |
-| `name`                                    | string   | Yes      | `3` to `1000` chars and must include a non-space character.                        |
-| `description`                             | string   | No       | Campaign description.                                                              |
-| `start_time`                              | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                               |
-| `end_time`                                | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                               |
-| `status`                                  | string   | Yes      | `active` or `paused`.                                                              |
-| `budget.lifetime_spend_limit_micros`      | integer  | Yes      | Minimum `1000000`.                                                                 |
-| `mode`                                    | string   | No       | Set to `product_feed` to create a [product-feed campaign](https://developers.openai.com/ads/product-feeds).     |
-| `bidding_type`                            | string   | No       | `impressions`, `clicks`, or `conversions`. Defaults to `impressions`.              |
-| `conversion_event_setting_ids`            | string[] | No       | For `conversions`, exactly one active standard event setting ID from this account. |
-| `targeting.locations.include`             | object[] | No       | Included location IDs.                                                             |
-| `targeting.custom_audiences.ids`          | string[] | No       | Ready audience IDs eligible for inclusion.                                         |
-| `targeting.excluded_custom_audiences.ids` | string[] | No       | Ready audience IDs eligible for exclusion, including small audiences.              |
+| Field                                     | Type     | Required | Notes                                                                                     |
+| ----------------------------------------- | -------- | -------- | ----------------------------------------------------------------------------------------- |
+| `name`                                    | string   | Yes      | `3` to `1000` chars and must include a non-space character.                               |
+| `description`                             | string   | No       | Campaign description.                                                                     |
+| `start_time`                              | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                                      |
+| `end_time`                                | integer  | No       | Unix timestamp between `946684800` and `4102444800`.                                      |
+| `status`                                  | string   | Yes      | `active` or `paused`.                                                                     |
+| `budget.lifetime_spend_limit_micros`      | integer  | Yes      | Minimum `1000000`.                                                                        |
+| `mode`                                    | string   | No       | Set to `product_feed` to create a [product-feed campaign](https://developers.openai.com/ads/product-feeds).            |
+| `bidding_type`                            | string   | No       | `impressions`, `clicks`, or `conversions`. Defaults to `impressions`.                     |
+| `conversion_event_setting_ids`            | string[] | No       | For `conversions`, exactly one active standard event setting ID from this account.        |
+| `targeting.locations.include`             | object[] | No       | Included location IDs.                                                                    |
+| `targeting.platforms.included`            | string[] | No       | ChatGPT platforms. See [Platform Targeting](https://developers.openai.com/ads/platform-targeting) for accepted values. |
+| `targeting.custom_audiences.ids`          | string[] | No       | Ready audience IDs eligible for inclusion.                                                |
+| `targeting.excluded_custom_audiences.ids` | string[] | No       | Ready audience IDs eligible for exclusion, including small audiences.                     |
 
 See [Custom Audiences](https://developers.openai.com/ads/custom-audiences#include-or-exclude-audiences-in-a-campaign)
 for audience matching, exclusions, and minimum-size requirements.
@@ -197,6 +200,13 @@ budget object. `description`, `start_time`, `end_time`, and `targeting` can be
 set to `null` to clear them. `status` accepts `active`, `paused`, or
 `archived`. You cannot update `bidding_type`. For a conversion-optimized
 campaign, you also cannot update `conversion_event_setting_ids`.
+
+Omitting `targeting.platforms` preserves the existing platform selection.
+Provide `targeting.platforms.included` to replace it, or set
+`targeting.platforms` to `null` to clear only the platform restriction. Empty
+platform objects and empty `included` arrays return HTTP `400`. See
+[Update or clear platform targeting](https://developers.openai.com/ads/platform-targeting#update-or-clear-platform-targeting)
+for an example.
 
 Audience eligibility is validated again when you save targeting. A concurrent
 membership update can return `409 custom_audience_mutation_conflict` without

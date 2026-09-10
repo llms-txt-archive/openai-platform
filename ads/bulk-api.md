@@ -140,7 +140,7 @@ requires account access. Campaign and ad-group names allow `3` to `1,000`
 characters. Ad titles allow `3` to `50`, bodies allow up to `100`, and URLs
 allow up to `2,048` characters. Campaigns support up to `2,500` location IDs,
 and ad groups support up to `2,000` context hints. See
-[Campaign Targeting](https://developers.openai.com/ads/campaign-targeting) for location IDs.
+[Location Targeting](https://developers.openai.com/ads/location-targeting) for location IDs.
 
 When updating an ad creative, include `title`, `body`, `target_url`, and
 `file_id`. For example, pause an existing ad:

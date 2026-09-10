@@ -30,7 +30,7 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 - [Bulk API](https://developers.openai.com/ads/bulk-api.md): Create and update campaigns, ad groups, and ads in bulk.
 
 ## Campaign Targeting
-- [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting.md): Target campaigns by country, region, or Market.
+- [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting.md): Choose location, platform, and custom audience targeting for your campaigns.
 
 ## Conversion Optimized Campaigns
 - [Conversion-Optimized Campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns.md): Optimize campaigns toward a selected conversion event while paying per click.
@@ -47,11 +47,17 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 ## Image Tag
 - [Image Tag](https://developers.openai.com/ads/image-tag.md): Send conversion events from HTML without JavaScript.
 
+## Location Targeting
+- [Location Targeting](https://developers.openai.com/ads/location-targeting.md): Target campaigns by country, region, or Market.
+
 ## Measurement Pixel
 - [Measurement Pixel](https://developers.openai.com/ads/measurement-pixel.md): Send conversion events from web pages.
 
 ## Multiple Pixels
 - [Multiple Pixel IDs](https://developers.openai.com/ads/multiple-pixels.md): Send events to multiple pixels or target one specific pixel.
+
+## Platform Targeting
+- [Platform Targeting](https://developers.openai.com/ads/platform-targeting.md): Choose the ChatGPT apps and web browsers where your campaign can deliver.
 
 ## Product Feeds
 - [Product Feeds](https://developers.openai.com/ads/product-feeds.md): Use a merchant catalog to create and measure product-feed ads.
