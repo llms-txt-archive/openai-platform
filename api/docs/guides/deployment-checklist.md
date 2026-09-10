@@ -14,7 +14,7 @@
 | [Use Multi-agent for parallel work](#use-multi-agent-for-parallel-work)         | Quality, cost, latency              |
 | [Leverage built-in tools](#leverage-built-in-tools)                             | Quality                             |
 | [Leverage compaction](#leverage-compaction)                                     | Cost                                |
-| [Use `prompt_cache_key`](#use-promptcachekey)                                   | Latency, cost                       |
+| [Optimize prompt caching](#optimize-prompt-caching)                             | Latency, cost                       |
 | [Use `reasoning.encrypted_content`](#use-reasoningencryptedcontent)             | Quality, latency                    |
 | [Set image detail intentionally](#set-image-detail-intentionally)               | Quality, cost, latency              |
 | [Send a safety identifier](#send-a-safety-identifier)                           | Safety, reliability                 |
@@ -1034,36 +1034,39 @@ puts(response.output_text)
 ```
 
 
-## Use `prompt_cache_key`
+<a id="use-promptcachekey"></a>
+
+<a id="separate-prompts-with-promptcachekey"></a>
+
+## Optimize prompt caching
 
 [Prompt caching](https://developers.openai.com/api/docs/guides/prompt-caching) automatically reduces latency
-and cost when requests reuse the same long prefix. For high-volume workflows,
-set
-[`prompt_cache_key`](https://developers.openai.com/api/reference/resources/responses/methods/create#responses-create-prompt_cache_key)
-consistently for requests that share the same stable prefix. The service
-combines the key with the prompt prefix hash to help route similar requests to
-the same cache without changing the model input. Keep the key stable for
-genuinely shared prefixes, choose a granularity that avoids sending too much
-traffic to one key, and keep total traffic across the prefixes for each key to
-about 15 requests per minute. Partition higher-volume traffic across more keys
-with a stable mapping.
+and cost when requests reuse the same long prefix. Put stable instructions,
+examples, and reference material first, followed by dynamic user-specific
+content. Keep tool definitions and ordering stable, and append new conversation
+turns without rewriting earlier context.
 
 GPT-5.6 introduced explicit prompt caching. Implicit caching remains the
 default, but GPT-5.6 models and later model families also support explicit
-cache breakpoints and request-wide cache policy. On those models, set
-`prompt_cache_key` to use the more reliable matching for both implicit caching
-and explicit breakpoints. If a changing suffix comes after a stable prefix, add
-an explicit `prompt_cache_breakpoint` at the reusable boundary. Set
+cache breakpoints and request-wide cache policy. If a changing suffix comes
+after a stable prefix, add an explicit `prompt_cache_breakpoint` at the reusable boundary. Set
 `prompt_cache_options.mode` to `explicit` only when the request should use only
 the breakpoints you provide and no implicit breakpoint. Earlier models continue
 to use automatic prompt caching only.
 
 On GPT-5.6 models and later model families, cache writes cost 1.25× the
 uncached input token rate. Log `cached_tokens` and `cache_write_tokens`, then
-compare write volume with later cache reads to measure net cost and tune key
-granularity and breakpoint placement.
+compare write volume with later cache reads to measure net cost and tune
+breakpoint placement.
 
-Route related requests to the same prompt cache
+Use an optional `prompt_cache_key` to maintain separate cache accounting for
+customers, users, or workspaces. This can make cached token usage and billing
+easier to explain for each group. Assign a distinct key to each customer and
+keep it stable across that customer's related requests. Separate keys also help
+prevent cache-hit probing across customers. See [Separate cache accounting with
+keys](https://developers.openai.com/api/docs/guides/prompt-caching#separate-prompts-with-cache-keys).
+
+Maintain separate cache accounting for a customer
 
 ```javascript
 import OpenAI from "openai";

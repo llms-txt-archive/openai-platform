@@ -79,7 +79,8 @@ for an allowance that renews each day. Campaign budgets still apply; account
 limits do not allocate spend between campaigns or pace delivery.
 
 > **Note:** Account spending limits are available only for ad accounts on
-> postpaid invoice billing. All requests in this section, including reads,
+> postpaid invoice billing. Existing daily limits can still be viewed and removed
+> if the account's billing changes. All requests in this section, including reads,
 > require permission to manage billing for the account.
 
 Both types use the account currency and timezone:
