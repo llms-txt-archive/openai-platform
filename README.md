@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260910T051613Z` | 2026-09-10 05:16 UTC | [Live transport webhook and image generation schema updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T051613Z) |
+| `archive-20260910T143825Z` | 2026-09-10 14:38 UTC | [Expanded Image Generation Call References](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T143825Z) |
+| `archive-20260910T051613Z` | 2026-09-10 05:17 UTC | [Live transport webhook and image generation schema updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T051613Z) |
 | `archive-20260910T003525Z` | 2026-09-10 00:36 UTC | [Bedrock endpoint guidance and prompt caching key refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T003525Z) |
 | `archive-20260909T215658Z` | 2026-09-09 21:57 UTC | [Ruby Coverage Expansion Across API Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260909T215658Z) |
 | `archive-20260909T185052Z` | 2026-09-09 18:51 UTC | [Ads spending limits and prompt cache diagnostics refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260909T185052Z) |
 | `archive-20260909T051557Z` | 2026-09-09 05:16 UTC | [Responses API tunnel docs and Java example refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260909T051557Z) |
-| `archive-20260909T003718Z` | 2026-09-09 00:38 UTC | [Responses Image Call Metadata Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260909T003718Z) |
