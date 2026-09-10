@@ -830,6 +830,7 @@ Continue from compacted response state
 
 ```javascript
 import OpenAI from "openai";
+import { toResponseInputItems } from "openai/lib/responses/ResponseInputItems";
 
 const openai = new OpenAI();
 
@@ -846,7 +847,8 @@ const nextResponse = await openai.responses.create({
   model: "gpt-6-astra",
   store: false,
   input: [
-    ...compacted.output, // Use compact output as-is.
+    // Preserve replayable compacted items.
+    ...toResponseInputItems(compacted.output),
     {
       type: "message",
       role: "user",
@@ -1234,6 +1236,7 @@ Pass encrypted reasoning between stateless turns
 
 ```javascript
 import OpenAI from "openai";
+import { toResponseInputItems } from "openai/lib/responses/ResponseInputItems";
 
 const openai = new OpenAI();
 
@@ -1252,7 +1255,7 @@ const first = await openai.responses.create({
   input: history,
 });
 
-history.push(...first.output);
+history.push(...toResponseInputItems(first.output));
 history.push({
   role: "user",
   content: "Now write the customer-facing explanation in plain English.",

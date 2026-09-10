@@ -4,6 +4,8 @@
 
 When generating model responses or building agents, you can extend capabilities using built‑in tools, function calling, Programmatic Tool Calling, tool search, and remote MCP servers. These enable the model to search the web, retrieve from your files, load deferred tool definitions at runtime, call your own functions, compose tool calls in JavaScript, or access third‑party services. Only `gpt-5.4` and later models support `tool_search`.
 
+Choose the integration for your runtime: configure tools on [Responses API requests](#usage-in-the-api), on [Agents API agents](#agents-api), or in [Agents SDK definitions](#usage-in-the-agents-sdk). Tool availability, configuration, and call handling depend on the integration. The examples below use the Responses API.
+
 
 
 Web search
@@ -1073,6 +1075,12 @@ Based on the provided [prompt](https://developers.openai.com/api/docs/guides/tex
 Some advanced workflows can also load more tool definitions during the interaction. For example, [tool search](https://developers.openai.com/api/docs/guides/tools-tool-search) can defer function definitions until the model decides they're needed.
 
 You can explicitly control or guide this behavior by setting the `tool_choice` parameter [in the API request](https://developers.openai.com/api/reference/resources/responses/methods/create).
+
+## Agents API
+
+The [Agents API](https://developers.openai.com/api/docs/guides/agents-api/overview) runs the agent loop for you. Configure tools in `agent.tools`, handle function calls in your application, and connect a sandbox when the tools need an execution environment.
+
+See [Functions](https://developers.openai.com/api/docs/guides/agents-api/tools/functions) to call application code, [MCP connections](https://developers.openai.com/api/docs/guides/agents-api/tools/mcp) to connect tool servers, and [sandbox configuration](https://developers.openai.com/api/docs/guides/agents-api/configuration#environment-settings) for tools that need an execution environment. [Programmatic Tool Calling](https://developers.openai.com/api/docs/guides/tools-programmatic-tool-calling#agents-api) is enabled by default. [Skills](https://developers.openai.com/api/docs/guides/tools-skills#agents-api) are discovered through the sandbox's capability directories.
 
 ## Usage in the Agents SDK
 

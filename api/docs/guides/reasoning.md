@@ -710,6 +710,7 @@ Preserve reasoning without storing responses
 
 ```javascript
 import OpenAI from "openai";
+import { toResponseInputItems } from "openai/lib/responses/ResponseInputItems";
 
 const client = new OpenAI();
 
@@ -728,8 +729,8 @@ const first = await client.responses.create({
   reasoning: { context: "current_turn" },
 });
 
-// Keep every output item, including encrypted reasoning and assistant phase.
-history.push(...first.output);
+// Keep replayable output, including encrypted reasoning and assistant phase.
+history.push(...toResponseInputItems(first.output));
 history.push({
   role: "user",
   content: "Now patch the bug and explain the change.",

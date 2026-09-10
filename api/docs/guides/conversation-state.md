@@ -175,6 +175,7 @@ In the following example, we ask the model to tell a joke, followed by a request
 
 ```javascript
 import OpenAI from "openai";
+import { toResponseInputItems } from "openai/lib/responses/ResponseInputItems";
 
 const openai = new OpenAI();
 
@@ -194,8 +195,8 @@ const response = await openai.responses.create({
 
 console.log(response.output_text);
 
-// Add all response output items, including reasoning items, to the history
-history.push(...response.output);
+// Add replayable output items, including reasoning items, to the history
+history.push(...toResponseInputItems(response.output));
 
 history.push({
   role: "user",

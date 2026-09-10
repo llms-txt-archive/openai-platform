@@ -842,6 +842,8 @@ Responses
     Multi-turn conversation
 
 ```javascript
+import { toResponseInputItems } from "openai/lib/responses/ResponseInputItems";
+
 /** @type {OpenAI.Responses.ResponseInput} */
 let context = [{ role: "user", content: "What is the capital of France?" }];
 
@@ -851,7 +853,7 @@ const res1 = await client.responses.create({
 });
 
 // Append the first response’s output to context
-context = context.concat(res1.output);
+context = context.concat(toResponseInputItems(res1.output));
 
 // Add the next user message
 context.push({ role: "user", content: "And its population?" });
