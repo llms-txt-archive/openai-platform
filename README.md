@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260910T211207Z` | 2026-09-10 21:12 UTC | [Agents API Beta Docs and Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T211207Z) |
+| `archive-20260910T232343Z` | 2026-09-10 23:23 UTC | [API key expiration guidance and Java SDK ref refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T232343Z) |
+| `archive-20260910T211207Z` | 2026-09-10 21:14 UTC | [Agents API Beta Docs and Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T211207Z) |
 | `archive-20260910T175221Z` | 2026-09-10 17:53 UTC | [GPT-Live and Platform Targeting Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T175221Z) |
 | `archive-20260910T143825Z` | 2026-09-10 14:39 UTC | [Expanded Image Generation Call References](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T143825Z) |
 | `archive-20260910T051613Z` | 2026-09-10 05:17 UTC | [Live transport webhook and image generation schema updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T051613Z) |
 | `archive-20260910T003525Z` | 2026-09-10 00:36 UTC | [Bedrock endpoint guidance and prompt caching key refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T003525Z) |
-| `archive-20260909T215658Z` | 2026-09-09 21:57 UTC | [Ruby Coverage Expansion Across API Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260909T215658Z) |
