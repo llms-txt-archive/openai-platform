@@ -269,6 +269,7 @@ System.out.println(output);
 ```
 
 ```ruby
+require "csv"
 require "fileutils"
 require "json"
 require "openai"
@@ -281,13 +282,13 @@ response = client.embeddings.create(
   input: reviews.map { |review| review.tr("\n", " ") }
 )
 
-csv_field = ->(value) { %("#{value.gsub('"', '""')}") }
-rows = response.data.map.with_index do |embedding, index|
-  [csv_field.call(reviews.fetch(index)), csv_field.call(JSON.generate(embedding.embedding))].join(",")
-end
-
 FileUtils.mkdir_p("output")
-File.write("output/embedded_1k_reviews.csv", (["combined,ada_embedding"] + rows).join("\n") + "\n")
+CSV.open("output/embedded_1k_reviews.csv", "w") do |csv|
+  csv << ["combined", "ada_embedding"]
+  response.data.each do |embedding|
+    csv << [reviews.fetch(embedding.index), JSON.generate(embedding.embedding)]
+  end
+end
 ```
 
 

@@ -2,7 +2,7 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-A great image should work on any background. Transparent image assets (in preview) make it easy to reuse the same visuals across campaigns, websites, presentations, and product catalogs without white boxes or manual background removal.
+A great image should work on any background. Transparent image assets make it easy to reuse the same visuals across campaigns, websites, presentations, and product catalogs without white boxes or manual background removal.
 
 This cookbook covers four customer use cases:
 
@@ -15,9 +15,11 @@ This cookbook covers four customer use cases:
 
 Install the Python packages with `pip install openai pillow`, and set `OPENAI_API_KEY` in your environment. You will also need access to a transparency-capable image model and Codex to build the website.
 
-This example uses `gpt-image-2` and requests PNG output with `background="transparent"`.
+This example uses `gpt-image-2.5-flare` and requests PNG output with `background="transparent"`. To compare a model optimized for demanding quality requirements, set `IMAGE_MODEL` to `"gpt-image-2.5-sunburst"`. Both models support transparent backgrounds. Keep the prompts, sizes, and `quality="high"` unchanged for the first comparison, then inspect transparency, fine edges, and text before tuning quality or latency.
 
-For more background, see the [GPT Image Generation Models Prompting Guide](https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide), the [OpenAI models page](https://developers.openai.com/api/docs/models), and the [image generation guide](https://developers.openai.com/api/docs/guides/image-generation).
+The images and screenshots below are retained from the original GPT Image 2 version of this cookbook. They illustrate the workflows, not measured GPT Image 2.5 results. Save a copy of those assets before rerunning the generation cells, which write to the same filenames.
+
+For more background, see the [image prompting guide](https://developers.openai.com/api/docs/guides/image-prompting), the [OpenAI models page](https://developers.openai.com/api/docs/models), and the [image generation guide](https://developers.openai.com/api/docs/guides/image-generation).
 
 ```python
 import base64
@@ -30,7 +32,7 @@ from PIL import Image
 if not os.getenv("OPENAI_API_KEY"):
     raise RuntimeError("Set OPENAI_API_KEY before running this notebook.")
 
-IMAGE_MODEL = "gpt-image-2"
+IMAGE_MODEL = "gpt-image-2.5-flare"
 
 client = OpenAI()
 asset_dir = Path("images/transparent-image-assets")

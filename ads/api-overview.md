@@ -2,57 +2,188 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-The Advertiser API lets you manage ad campaigns, ad groups, ads, files, and
-reporting from one API. It supports CRUD-like functions with standard JSON content types.
+Use the Advertiser API to create and manage campaigns, ad groups, ads, product feeds, conversion tracking, and reporting in your own application or for automating workflows.
 
-## Authentication
 
-Issue an API key in the Settings tab of [Ads Manager](https://ads.openai.com).
-Each key is scoped to one ad account.
 
-Pass the key as a bearer token on every request:
+
+## Getting Started
+
+You will need an [ad account](https://ads.openai.com/) and an Advertiser API key. You can create your Advertiser API key within the [Settings page](https://ads.openai.com/settings) in Ads Manager. Store API keys securely on your server.
+
+Examples throughout this guide will use a placeholder for the Advertiser API key and sample IDs such as `cmpn_123`, `adgrp_123`, and `ad_123` in requests. Replace these placeholders with real values returned by your requests.
+
+API partners can follow [API Partner Setup](https://developers.openai.com/ads/api-partner-setup). For another end-to-end example, see the [Quickstart](https://developers.openai.com/ads/api-quickstart).
+
+### Request conventions
+
+Use the following base URL for API requests. Provide your API key in the Authorization header when making requests.
+
+| Convention     | What to use                  |
+| -------------- | ---------------------------- |
+| Base URL       | `https://api.ads.openai.com` |
+| Authentication | `Authorization: Bearer …`    |
+
+On supported create endpoints, you may send an `Idempotency-Key`. Reuse that key and the same request when retrying the same creation; use a new key for a new resource. This prevents a network retry from creating a duplicate.
+
+### Verify your API key
+
+Retrieve your ad account to verify the key:
 
 ```bash
-Authorization: Bearer $OPENAI_ADS_API_KEY
+curl -G "https://api.ads.openai.com/v1/ad_account" \
+  -H "Authorization: Bearer ${OPENAI_ADS_API_KEY}"
 ```
 
-The Ads API works in the context of one ad account. API partners should use
-  the key associated with the client account they are configuring. See [API
-  Partner Setup](https://developers.openai.com/ads/api-partner-setup). To request partner access, [contact
-  us](https://openai.com/advertisers/).
+Confirm that the response contains information about your account. Inspect the currency, timezone, account status, and reviews before creating a campaign. An account marked `active` may still have an outstanding review.
 
-## Endpoints
+### Next steps
 
-| Resource                  | Use for                                                                                    |
-| ------------------------- | ------------------------------------------------------------------------------------------ |
-| Ad Account                | Update and retrieve metadata for the current ad account.                                   |
-| Campaigns                 | Create, list, retrieve, update, and change campaign state.                                 |
-| Ad Groups                 | Create, list, retrieve, update, and change ad group state.                                 |
-| Ads                       | Create, list, retrieve, update, and change ad state.                                       |
-| Insights                  | Retrieve performance data across ad account, campaign, ad group, and ad scopes.            |
-| Files                     | Upload creative assets for use in ads.                                                     |
-| Audiences                 | Create, add to, remove from, replace, merge, list, retrieve, and archive custom audiences. |
-| [Bulk API](https://developers.openai.com/ads/bulk-api) | Create or update campaigns, ad groups, and ads in an asynchronous job.                     |
-| Product Feeds             | Use a merchant catalog to create product-feed campaigns.                                   |
-| Conversions               | Create pixels, server-side keys, and conversion event settings when enabled.               |
+Read through the [Campaign Structure](#campaign-structure) section and then follow the steps in [Your First Campaign](#your-first-campaign).
 
-Every resource belongs to the ad account associated with the API key. OpenAI
-must enable programmatic brand updates and conversion management for the
-account. Contact your OpenAI partner representative if these operations are not
-available for the account.
 
-Use the [Quickstart](https://developers.openai.com/ads/api-quickstart) for a minimal end-to-end workflow, or go
-directly to the [API Reference](https://developers.openai.com/ads/api-reference/authentication). API partners
-can start with [API Partner Setup](https://developers.openai.com/ads/api-partner-setup). To advertise
-from a merchant catalog, see [Product Feeds](https://developers.openai.com/ads/product-feeds).
-To target customer or prospect lists, see
-[Custom Audiences](https://developers.openai.com/ads/custom-audiences).
 
-## Object statuses
 
-For an ad to show to users, the ad and its parent ad group and campaign all
-have to be enabled. The ad also has to be reviewed. Reviews typically take only
-a few minutes. Monitor the status with the `review_status` field.
+
+
+## Campaign Structure
+
+An ad account contains campaigns. Each campaign contains ad groups, and each ad group contains ads. Configure each setting at the level that owns it. Use separate campaigns when you need separate budgets, objectives, or targeting. Use ad groups for different bid configurations, context hints, or product selections. Keep related creative variations together where those settings are shared.
+
+```text
+Ad account
+└── Campaign
+    └── Ad group
+        └── Ad
+```
+
+| Level      | What you configure                                                                                                  | Example                       |
+| ---------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| Ad account | Advertiser branding, currency, timezone, account access, spend limits                                               | Acme's US advertising account |
+| Campaign   | Objective, budget, schedule, geographic and platform targeting, audience inclusion and exclusion, conversion events | US spring sales               |
+| Ad group   | Bid strategy, context hints, audience bid multipliers, product set                                                  | Trail running products        |
+| Ad         | Creative, image or product template, destination URL                                                                | A running-shoe ad             |
+
+## Your First Campaign
+
+Let's create a paused campaign, an ad group, and an ad. This example creates a clicks campaign with a fixed bid. The budget and bid are illustrative USD amounts. Use values appropriate to your account's currency and your advertising plan.
+
+### 1. Create the campaign
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/campaigns" \
+  -H "Authorization: Bearer ${OPENAI_ADS_API_KEY}" \
+  -H "Idempotency-Key: first-campaign-001" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Spring launch",
+    "status": "paused",
+    "bidding_type": "clicks",
+    "budget": {
+      "daily_spend_limit_micros": 50000000
+    },
+    "targeting": {
+      "locations": {
+        "countries": [
+          "US"
+        ]
+      }
+    }
+  }'
+```
+
+Save the returned `id`. Use it in place of `cmpn_123` below. The example daily budget is $50 for a USD account.
+
+### 2. Create the ad group
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/ad_groups" \
+  -H "Authorization: Bearer ${OPENAI_ADS_API_KEY}" \
+  -H "Idempotency-Key: first-ad-group-001" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "campaign_id": "cmpn_123",
+    "name": "Trail running",
+    "status": "paused",
+    "context_hints": [
+      "Trail running shoes for rocky terrain"
+    ],
+    "bidding_config": {
+      "billing_event_type": "click",
+      "strategy": "fixed_bid",
+      "max_bid_micros": 2000000
+    }
+  }'
+```
+
+Save the returned ad-group ID. The example maximum bid is $2 per click for a USD account.
+
+### 3. Upload a creative image
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/upload" \
+  -H "Authorization: Bearer ${OPENAI_ADS_API_KEY}" \
+  -F "file=@/path/to/product-image.png"
+```
+
+Use an image at least 640 × 640 pixels. Save the returned `file_id`. You'll use this image in the ad.
+
+### 4. Create the ad
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/ads" \
+  -H "Authorization: Bearer ${OPENAI_ADS_API_KEY}" \
+  -H "Idempotency-Key: first-ad-001" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ad_group_id": "adgrp_123",
+    "name": "Trail shoe launch",
+    "status": "paused",
+    "creative": {
+      "type": "chat_card",
+      "title": "Find your next trail shoe",
+      "body": "Explore shoes made for your next outdoor run.",
+      "target_url": "https://example.com/trail-shoes",
+      "file_id": "file_123"
+    }
+  }'
+```
+
+Replace the `target_url` with your real, accessible landing page. Save the returned ad ID. Creating an ad submits its creative for review.
+
+### 5. Preview and inspect
+
+Check the creative, destination, review status, account reviews, targeting, and budget. A preview shows appearance; it does not confirm serving eligibility.
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/ads/ad_123/preview" \
+  -H "Authorization: Bearer ${OPENAI_ADS_API_KEY}"
+```
+
+```bash
+curl -G "https://api.ads.openai.com/v1/ads/ad_123" \
+  -H "Authorization: Bearer ${OPENAI_ADS_API_KEY}" \
+  --data-urlencode 'include[]=serving_issues'
+```
+
+### 6. Activate when ready
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/ads/ad_123/activate" \
+  -H "Authorization: Bearer ${OPENAI_ADS_API_KEY}"
+```
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/ad_groups/adgrp_123/activate" \
+  -H "Authorization: Bearer ${OPENAI_ADS_API_KEY}"
+```
+
+```bash
+curl -X POST "https://api.ads.openai.com/v1/campaigns/cmpn_123/activate" \
+  -H "Authorization: Bearer ${OPENAI_ADS_API_KEY}"
+```
+
+Activation enables delivery when the remaining requirements are satisfied. Use Insights to monitor results and Serving Issues if delivery does not begin.
 
 ## Rate limits
 

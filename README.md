@@ -7,7 +7,7 @@ Every change to the upstream docs produces a git commit and a GitHub release, so
 | | |
 |---|---|
 | **Source** | [https://developers.openai.com/llms.txt](https://developers.openai.com/llms.txt) |
-| **Documents** | 594 Markdown files |
+| **Documents** | 599 Markdown files |
 | **Schedule** | Hourly at :42 UTC |
 
 ## How it works
@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260911T200119Z` | 2026-09-11 20:01 UTC | [GPT-Rosalind docs and event reference refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T200119Z) |
+| `archive-20260911T224726Z` | 2026-09-11 22:47 UTC | [Ads docs broadened, caching guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T224726Z) |
+| `archive-20260911T200119Z` | 2026-09-11 20:03 UTC | [GPT-Rosalind docs and event reference refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T200119Z) |
 | `archive-20260911T164531Z` | 2026-09-11 16:47 UTC | [Cleaner agents examples and sandbox references](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T164531Z) |
 | `archive-20260911T063745Z` | 2026-09-11 06:39 UTC | [Custom Audience Recovery and Token Expiry Updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T063745Z) |
 | `archive-20260911T012805Z` | 2026-09-11 01:28 UTC | [Agent Streaming Errors and Prompt Caching Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T012805Z) |
 | `archive-20260910T232343Z` | 2026-09-10 23:24 UTC | [API key expiration guidance and Java SDK ref refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T232343Z) |
-| `archive-20260910T211207Z` | 2026-09-10 21:14 UTC | [Agents API Beta Docs and Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T211207Z) |

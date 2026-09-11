@@ -7,8 +7,11 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 ## Documentation sets
 - [Combined Ads docs](https://developers.openai.com/ads/llms-full.txt): Single-file Markdown export of the Ads docs.
 
+## Account Management
+- [Account Management](https://developers.openai.com/ads/account-management.md): Manage advertiser branding, account status, and spending limits.
+
 ## Api Overview
-- [Overview](https://developers.openai.com/ads/api-overview.md): Advertiser API endpoints and usage
+- [Overview](https://developers.openai.com/ads/api-overview.md): Create and manage campaigns with the Advertiser API.
 
 ## Api Partner Setup
 - [API Partner Setup](https://developers.openai.com/ads/api-partner-setup.md): Configure client accounts, conversions, and campaigns with the Ads API.
@@ -26,14 +29,23 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 - [Files](https://developers.openai.com/ads/api-reference/files.md): Upload remote images or binary files and reuse the returned file ID in ad creatives.
 - [Insights](https://developers.openai.com/ads/api-reference/insights.md): Retrieve aggregated insights data across ad accounts, campaigns, ad groups, and ads.
 
+## Bidding And Budgets
+- [Bidding & Budgets](https://developers.openai.com/ads/bidding-and-budgets.md): Choose campaign objectives, bid strategies, and spending limits.
+
 ## Bulk Api
 - [Bulk API](https://developers.openai.com/ads/bulk-api.md): Create and update campaigns, ad groups, and ads in bulk.
 
+## Campaign Management
+- [Campaign Management](https://developers.openai.com/ads/campaign-management.md): Create, update, preview, and manage campaigns, ad groups, and ads.
+
 ## Campaign Targeting
-- [Campaign Targeting](https://developers.openai.com/ads/campaign-targeting.md): Choose location, platform, and custom audience targeting for your campaigns.
+- [Targeting](https://developers.openai.com/ads/campaign-targeting.md): Configure geographic, platform, and audience targeting and context hints.
 
 ## Conversion Optimized Campaigns
 - [Conversion-Optimized Campaigns](https://developers.openai.com/ads/conversion-optimized-campaigns.md): Optimize campaigns toward a selected conversion event while paying per click.
+
+## Conversion Tracking
+- [Conversion Tracking](https://developers.openai.com/ads/conversion-tracking.md): Set up event sources, send conversions, and connect them to campaigns.
 
 ## Conversions Api
 - [Conversions API](https://developers.openai.com/ads/conversions-api.md): Server-to-server conversion events.
@@ -60,7 +72,13 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 - [Platform Targeting](https://developers.openai.com/ads/platform-targeting.md): Choose the ChatGPT apps and web browsers where your campaign can deliver.
 
 ## Product Feeds
-- [Product Feeds](https://developers.openai.com/ads/product-feeds.md): Use a merchant catalog to create and measure product-feed ads.
+- [Product Feeds](https://developers.openai.com/ads/product-feeds.md): Set up, update, and advertise a product catalog.
+
+## Reporting
+- [Reporting](https://developers.openai.com/ads/reporting.md): Retrieve delivery, cost, product, and attributed conversion metrics.
 
 ## Supported Events
 - [Supported Events](https://developers.openai.com/ads/supported-events.md): Supported conversion events & data shapes.
+
+## Troubleshooting
+- [Troubleshooting](https://developers.openai.com/ads/troubleshooting.md): Diagnose serving issues, reviews, low delivery, and API errors.
