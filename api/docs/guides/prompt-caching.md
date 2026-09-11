@@ -14,6 +14,8 @@ Prompt caching is enabled by default for supported OpenAI models. Use the [Promp
 
 Agents API model calls use the same prompt-caching behavior as the Responses API. Reusing context within a session can preserve a shared prompt prefix, but maintaining a session doesn't guarantee a cache hit. See [Observability and usage](https://developers.openai.com/api/docs/guides/agents-api/observability) for session usage fields and subagent accounting.
 
+Prompt caching pricing varies by model. See [API pricing](https://developers.openai.com/api/docs/pricing) for current cached-input and cache-write rates. Cache-write pricing is not an additive fee: input tokens use the uncached-input, cached-input, or cache-write rate.
+
 ## What is the prompt cache?
 
 When the model processes input tokens, it must calculate intermediate states, known as key-value (KV) states. These states let the model refer back to earlier tokens while processing new input and generating output tokens.
