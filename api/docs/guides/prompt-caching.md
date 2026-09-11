@@ -32,6 +32,10 @@ OpenAI caches the model's full rendered context including OpenAI-provided instru
 
 Cache reuse requires the entire rendered prefix to match. If content or a relevant setting changes before a breakpoint, the prefix after that change cannot match the existing cache entry.
 
+<a id="cache-affecting-settings"></a>
+
+
+
 <a id="which-settings-affect-the-cached-prefix"></a>
 
 
@@ -243,6 +247,12 @@ Using separate keys can make cached token usage and billing easier to explain fo
 
 For models before GPT-5.6, the minimum cacheable input length varies with request settings, including tools, images, output schemas, reasoning effort, and verbosity.
 
+
+
+Ask ChatGPT to find the cache minimum for my request
+
+
+
 <a id="best-practices"></a>
 
 ## How to optimize prompt caching
@@ -334,6 +344,8 @@ Item to append to the input array
 
 
 
+
+<a id="tools"></a>
 
 
 

@@ -5222,6 +5222,10 @@ Schema name: `SessionEventAgentSessionTurnCreated`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "credit_balance_exhausted"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "rate_limit_exceeded"
         },
         {
@@ -5294,7 +5298,8 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12",
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13",
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14",
-      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15"
+      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15",
+      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 16"
     ]
   },
   "(resource) beta.agents > (model) session_turn_error > (schema) > (property) message": {
@@ -5546,13 +5551,21 @@ Schema name: `SessionEventAgentSessionTurnCreated`
   },
   "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 3": {
     "kind": "HttpDeclReference",
+    "docstring": "The organization has no API credits remaining.",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "credit_balance_exhausted"
+    }
+  },
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 4": {
+    "kind": "HttpDeclReference",
     "docstring": "The request exceeds the available rate limit.",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "rate_limit_exceeded"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 4": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "docstring": "The model service is temporarily overloaded.",
     "type": {
@@ -5560,7 +5573,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "literal": "server_overloaded"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 5": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "docstring": "The request was rejected by a safety policy.",
     "type": {
@@ -5568,7 +5581,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "literal": "cyber_policy"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 6": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "docstring": "The request could not connect to the model service.",
     "type": {
@@ -5576,7 +5589,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "literal": "connection_failed"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 7": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "docstring": "The model service encountered an unexpected error.",
     "type": {
@@ -5584,7 +5597,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "literal": "server_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 8": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "docstring": "The API credentials are invalid or lack the required access.",
     "type": {
@@ -5592,7 +5605,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "literal": "authentication_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 9": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "docstring": "The request contains invalid input or configuration.",
     "type": {
@@ -5600,7 +5613,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "literal": "invalid_request"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 10": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "docstring": "The requested model or resource is unavailable.",
     "type": {
@@ -5608,7 +5621,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "literal": "resource_not_found"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 11": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "docstring": "The request could not complete in its execution environment.",
     "type": {
@@ -5616,7 +5629,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "literal": "sandbox_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "docstring": "The executor must be upgraded before it can run this turn.",
     "type": {
@@ -5624,7 +5637,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "literal": "executor_version_incompatible"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "docstring": "The session cannot accept additional input while a request is running.",
     "type": {
@@ -5632,7 +5645,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "literal": "active_turn_not_steerable"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "docstring": "The request timed out before the model service responded.",
     "type": {
@@ -5640,7 +5653,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
       "literal": "request_timeout"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "docstring": "An unexpected internal error prevented the session request from completing.",
     "type": {
@@ -6202,6 +6215,10 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "credit_balance_exhausted"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "rate_limit_exceeded"
         },
         {
@@ -6274,7 +6291,8 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12",
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13",
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14",
-      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15"
+      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15",
+      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 16"
     ]
   },
   "(resource) beta.agents > (model) session_turn_error > (schema) > (property) message": {
@@ -6526,13 +6544,21 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
   },
   "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 3": {
     "kind": "HttpDeclReference",
+    "docstring": "The organization has no API credits remaining.",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "credit_balance_exhausted"
+    }
+  },
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 4": {
+    "kind": "HttpDeclReference",
     "docstring": "The request exceeds the available rate limit.",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "rate_limit_exceeded"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 4": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "docstring": "The model service is temporarily overloaded.",
     "type": {
@@ -6540,7 +6566,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "literal": "server_overloaded"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 5": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "docstring": "The request was rejected by a safety policy.",
     "type": {
@@ -6548,7 +6574,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "literal": "cyber_policy"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 6": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "docstring": "The request could not connect to the model service.",
     "type": {
@@ -6556,7 +6582,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "literal": "connection_failed"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 7": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "docstring": "The model service encountered an unexpected error.",
     "type": {
@@ -6564,7 +6590,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "literal": "server_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 8": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "docstring": "The API credentials are invalid or lack the required access.",
     "type": {
@@ -6572,7 +6598,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "literal": "authentication_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 9": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "docstring": "The request contains invalid input or configuration.",
     "type": {
@@ -6580,7 +6606,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "literal": "invalid_request"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 10": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "docstring": "The requested model or resource is unavailable.",
     "type": {
@@ -6588,7 +6614,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "literal": "resource_not_found"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 11": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "docstring": "The request could not complete in its execution environment.",
     "type": {
@@ -6596,7 +6622,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "literal": "sandbox_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "docstring": "The executor must be upgraded before it can run this turn.",
     "type": {
@@ -6604,7 +6630,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "literal": "executor_version_incompatible"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "docstring": "The session cannot accept additional input while a request is running.",
     "type": {
@@ -6612,7 +6638,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "literal": "active_turn_not_steerable"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "docstring": "The request timed out before the model service responded.",
     "type": {
@@ -6620,7 +6646,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
       "literal": "request_timeout"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "docstring": "An unexpected internal error prevented the session request from completing.",
     "type": {
@@ -7340,6 +7366,10 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "credit_balance_exhausted"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "rate_limit_exceeded"
         },
         {
@@ -7412,7 +7442,8 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12",
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13",
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14",
-      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15"
+      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15",
+      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 16"
     ]
   },
   "(resource) beta.agents > (model) session_turn_error > (schema) > (property) message": {
@@ -7569,13 +7600,21 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
   },
   "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 3": {
     "kind": "HttpDeclReference",
+    "docstring": "The organization has no API credits remaining.",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "credit_balance_exhausted"
+    }
+  },
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 4": {
+    "kind": "HttpDeclReference",
     "docstring": "The request exceeds the available rate limit.",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "rate_limit_exceeded"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 4": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "docstring": "The model service is temporarily overloaded.",
     "type": {
@@ -7583,7 +7622,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "literal": "server_overloaded"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 5": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "docstring": "The request was rejected by a safety policy.",
     "type": {
@@ -7591,7 +7630,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "literal": "cyber_policy"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 6": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "docstring": "The request could not connect to the model service.",
     "type": {
@@ -7599,7 +7638,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "literal": "connection_failed"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 7": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "docstring": "The model service encountered an unexpected error.",
     "type": {
@@ -7607,7 +7646,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "literal": "server_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 8": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "docstring": "The API credentials are invalid or lack the required access.",
     "type": {
@@ -7615,7 +7654,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "literal": "authentication_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 9": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "docstring": "The request contains invalid input or configuration.",
     "type": {
@@ -7623,7 +7662,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "literal": "invalid_request"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 10": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "docstring": "The requested model or resource is unavailable.",
     "type": {
@@ -7631,7 +7670,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "literal": "resource_not_found"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 11": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "docstring": "The request could not complete in its execution environment.",
     "type": {
@@ -7639,7 +7678,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "literal": "sandbox_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "docstring": "The executor must be upgraded before it can run this turn.",
     "type": {
@@ -7647,7 +7686,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "literal": "executor_version_incompatible"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "docstring": "The session cannot accept additional input while a request is running.",
     "type": {
@@ -7655,7 +7694,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "literal": "active_turn_not_steerable"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "docstring": "The request timed out before the model service responded.",
     "type": {
@@ -7663,7 +7702,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
       "literal": "request_timeout"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "docstring": "An unexpected internal error prevented the session request from completing.",
     "type": {
@@ -8360,6 +8399,10 @@ Schema name: `SessionEventAgentSessionTurnFailed`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "credit_balance_exhausted"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "rate_limit_exceeded"
         },
         {
@@ -8432,7 +8475,8 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12",
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13",
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14",
-      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15"
+      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15",
+      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 16"
     ]
   },
   "(resource) beta.agents > (model) session_turn_error > (schema) > (property) message": {
@@ -8589,13 +8633,21 @@ Schema name: `SessionEventAgentSessionTurnFailed`
   },
   "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 3": {
     "kind": "HttpDeclReference",
+    "docstring": "The organization has no API credits remaining.",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "credit_balance_exhausted"
+    }
+  },
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 4": {
+    "kind": "HttpDeclReference",
     "docstring": "The request exceeds the available rate limit.",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "rate_limit_exceeded"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 4": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "docstring": "The model service is temporarily overloaded.",
     "type": {
@@ -8603,7 +8655,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "literal": "server_overloaded"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 5": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "docstring": "The request was rejected by a safety policy.",
     "type": {
@@ -8611,7 +8663,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "literal": "cyber_policy"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 6": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "docstring": "The request could not connect to the model service.",
     "type": {
@@ -8619,7 +8671,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "literal": "connection_failed"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 7": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "docstring": "The model service encountered an unexpected error.",
     "type": {
@@ -8627,7 +8679,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "literal": "server_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 8": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "docstring": "The API credentials are invalid or lack the required access.",
     "type": {
@@ -8635,7 +8687,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "literal": "authentication_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 9": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "docstring": "The request contains invalid input or configuration.",
     "type": {
@@ -8643,7 +8695,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "literal": "invalid_request"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 10": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "docstring": "The requested model or resource is unavailable.",
     "type": {
@@ -8651,7 +8703,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "literal": "resource_not_found"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 11": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "docstring": "The request could not complete in its execution environment.",
     "type": {
@@ -8659,7 +8711,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "literal": "sandbox_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "docstring": "The executor must be upgraded before it can run this turn.",
     "type": {
@@ -8667,7 +8719,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "literal": "executor_version_incompatible"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "docstring": "The session cannot accept additional input while a request is running.",
     "type": {
@@ -8675,7 +8727,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "literal": "active_turn_not_steerable"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "docstring": "The request timed out before the model service responded.",
     "type": {
@@ -8683,7 +8735,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
       "literal": "request_timeout"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "docstring": "An unexpected internal error prevented the session request from completing.",
     "type": {
@@ -9380,6 +9432,10 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
         },
         {
           "kind": "HttpTypeLiteral",
+          "literal": "credit_balance_exhausted"
+        },
+        {
+          "kind": "HttpTypeLiteral",
           "literal": "rate_limit_exceeded"
         },
         {
@@ -9452,7 +9508,8 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12",
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13",
       "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14",
-      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15"
+      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15",
+      "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 16"
     ]
   },
   "(resource) beta.agents > (model) session_turn_error > (schema) > (property) message": {
@@ -9609,13 +9666,21 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
   },
   "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 3": {
     "kind": "HttpDeclReference",
+    "docstring": "The organization has no API credits remaining.",
+    "type": {
+      "kind": "HttpTypeLiteral",
+      "literal": "credit_balance_exhausted"
+    }
+  },
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 4": {
+    "kind": "HttpDeclReference",
     "docstring": "The request exceeds the available rate limit.",
     "type": {
       "kind": "HttpTypeLiteral",
       "literal": "rate_limit_exceeded"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 4": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 5": {
     "kind": "HttpDeclReference",
     "docstring": "The model service is temporarily overloaded.",
     "type": {
@@ -9623,7 +9688,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "literal": "server_overloaded"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 5": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 6": {
     "kind": "HttpDeclReference",
     "docstring": "The request was rejected by a safety policy.",
     "type": {
@@ -9631,7 +9696,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "literal": "cyber_policy"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 6": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 7": {
     "kind": "HttpDeclReference",
     "docstring": "The request could not connect to the model service.",
     "type": {
@@ -9639,7 +9704,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "literal": "connection_failed"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 7": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 8": {
     "kind": "HttpDeclReference",
     "docstring": "The model service encountered an unexpected error.",
     "type": {
@@ -9647,7 +9712,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "literal": "server_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 8": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 9": {
     "kind": "HttpDeclReference",
     "docstring": "The API credentials are invalid or lack the required access.",
     "type": {
@@ -9655,7 +9720,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "literal": "authentication_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 9": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 10": {
     "kind": "HttpDeclReference",
     "docstring": "The request contains invalid input or configuration.",
     "type": {
@@ -9663,7 +9728,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "literal": "invalid_request"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 10": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 11": {
     "kind": "HttpDeclReference",
     "docstring": "The requested model or resource is unavailable.",
     "type": {
@@ -9671,7 +9736,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "literal": "resource_not_found"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 11": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12": {
     "kind": "HttpDeclReference",
     "docstring": "The request could not complete in its execution environment.",
     "type": {
@@ -9679,7 +9744,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "literal": "sandbox_error"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 12": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13": {
     "kind": "HttpDeclReference",
     "docstring": "The executor must be upgraded before it can run this turn.",
     "type": {
@@ -9687,7 +9752,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "literal": "executor_version_incompatible"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 13": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14": {
     "kind": "HttpDeclReference",
     "docstring": "The session cannot accept additional input while a request is running.",
     "type": {
@@ -9695,7 +9760,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "literal": "active_turn_not_steerable"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 14": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15": {
     "kind": "HttpDeclReference",
     "docstring": "The request timed out before the model service responded.",
     "type": {
@@ -9703,7 +9768,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
       "literal": "request_timeout"
     }
   },
-  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 15": {
+  "(resource) beta.agents > (model) session_turn_error > (schema) > (property) code > (member) 16": {
     "kind": "HttpDeclReference",
     "docstring": "An unexpected internal error prevented the session request from completing.",
     "type": {
