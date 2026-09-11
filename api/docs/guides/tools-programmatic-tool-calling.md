@@ -649,11 +649,17 @@ require "openai"
 client = OpenAI::Client.new
 
 def get_inventory(sku:)
-  {sku: sku, available_units: 42}
+  {
+    sku: sku,
+    available_units: 42
+  }
 end
 
 def get_demand(sku:)
-  {sku: sku, requested_units: 31}
+  {
+    sku: sku,
+    requested_units: 31
+  }
 end
 
 implementations = {
@@ -667,15 +673,15 @@ tools = [
     description: "Return an object with sku (string) and available_units (number).",
     parameters: {
       type: :object,
-      properties: {sku: {type: :string}},
+      properties: { sku: { type: :string } },
       required: ["sku"],
       additionalProperties: false
     },
     output_schema: {
       type: :object,
       properties: {
-        sku: {type: :string},
-        available_units: {type: :number}
+        sku: { type: :string },
+        available_units: { type: :number }
       },
       required: %w[sku available_units],
       additionalProperties: false
@@ -689,15 +695,15 @@ tools = [
     description: "Return an object with sku (string) and requested_units (number).",
     parameters: {
       type: :object,
-      properties: {sku: {type: :string}},
+      properties: { sku: { type: :string } },
       required: ["sku"],
       additionalProperties: false
     },
     output_schema: {
       type: :object,
       properties: {
-        sku: {type: :string},
-        requested_units: {type: :number}
+        sku: { type: :string },
+        requested_units: { type: :number }
       },
       required: %w[sku requested_units],
       additionalProperties: false
@@ -705,9 +711,14 @@ tools = [
     allowed_callers: [:programmatic],
     strict: true
   },
-  {type: :programmatic_tool_calling}
+  { type: :programmatic_tool_calling }
 ]
-input = [{role: :user, content: "Compare inventory with demand for sku_123."}]
+input = [
+  {
+    role: :user,
+    content: "Compare inventory with demand for sku_123."
+  }
+]
 
 loop do
   response = client.responses.create(
@@ -735,7 +746,7 @@ loop do
     end
     text = response.output_text
     if text.empty? &&
-        refusal.is_a?(OpenAI::Models::Responses::ResponseOutputRefusal)
+       refusal.is_a?(OpenAI::Models::Responses::ResponseOutputRefusal)
       text = refusal.refusal
     end
     puts(text)

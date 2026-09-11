@@ -161,11 +161,18 @@ client
 ```ruby
 require "json"
 
-result = {type: "agent.session.input.tool_result", turn_id: action.turn_id, call_id: action.call_id}
+result = {
+  type: "agent.session.input.tool_result",
+  turn_id: action.turn_id,
+  call_id: action.call_id
+}
 arguments = action.arguments
 
 customer_id = arguments[:customer_id] || arguments["customer_id"]
-customer = (customer_id == "123") ? {name: "Example Customer", plan: "pro"} : nil
+customer = (customer_id == "123") ? {
+  name: "Example Customer",
+  plan: "pro"
+} : nil
 result[:success] = true
 result[:output] = JSON.generate(found: !customer.nil?, customer: customer)
 

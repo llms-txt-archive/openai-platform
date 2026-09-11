@@ -132,6 +132,7 @@ uri = URI(ENV.fetch("WORKER_URL").sub(%r{/+\z}, "") + "/health")
 request = Net::HTTP::Get.new(uri)
 response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == "https") { |http| http.request(request) }
 raise "Request failed: #{response.code}" unless response.is_a?(Net::HTTPSuccess)
+
 puts response.body
 ```
 
@@ -258,6 +259,7 @@ request = Net::HTTP::Delete.new(uri)
 request["Authorization"] = "Bearer #{ENV.fetch("EXECUTOR_CLIENT_SECRET")}"
 response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == "https") { |http| http.request(request) }
 raise "Request failed: #{response.code}" unless response.is_a?(Net::HTTPSuccess)
+
 puts response.body
 ```
 

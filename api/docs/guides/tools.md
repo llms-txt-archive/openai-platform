@@ -111,7 +111,7 @@ openai = OpenAI::Client.new
 
 response = openai.responses.create(
   model: "gpt-6-astra",
-  tools: [{type: "web_search"}],
+  tools: [{ type: "web_search" }],
   input: "What was a positive news story from today?"
 )
 
@@ -498,7 +498,7 @@ require "openai"
 client = OpenAI::Client.new
 parameters = {
   type: :object,
-  properties: {customer_id: {type: :string}},
+  properties: { customer_id: { type: :string } },
   required: ["customer_id"],
   additionalProperties: false
 }
@@ -527,7 +527,7 @@ response = client.responses.create(
         }
       ]
     },
-    {type: :tool_search}
+    { type: :tool_search }
   ]
 )
 
@@ -783,7 +783,10 @@ tools = [
 response = openai.responses.create(
   model: "gpt-6-astra",
   input: [
-    {role: "user", content: "What is the weather like in Paris today?"}
+    {
+      role: "user",
+      content: "What is the weather like in Paris today?"
+    }
   ],
   tools: tools
 )

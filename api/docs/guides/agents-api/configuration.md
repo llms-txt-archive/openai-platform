@@ -134,7 +134,7 @@ result = client.beta.agents.sessions.create(
     model: "gpt-6-astra",
     instructions: "Answer the user clearly and concisely."
   },
-  environment: {type: "none"},
+  environment: { type: "none" },
   input: [
     {
       role: "user",
@@ -269,11 +269,11 @@ client = OpenAI::Client.new
 agent = client.beta.agents.create(
   model: "gpt-6-astra",
   instructions: "Answer technical questions accurately.",
-  reasoning: {summary: "auto"}
+  reasoning: { summary: "auto" }
 )
 result = client.beta.agents.sessions.create(
   agent_id: agent.id,
-  environment: {type: "none"},
+  environment: { type: "none" },
   input: "Explain how an agent connects to an MCP server."
 )
 puts result
@@ -409,8 +409,8 @@ require "openai"
 client = OpenAI::Client.new
 result = client.beta.agents.sessions.create(
   agent_id: ENV.fetch("OPENAI_AGENT_ID"),
-  agent: {instructions: "Answer this question in one concise paragraph."},
-  environment: {type: "none"},
+  agent: { instructions: "Answer this question in one concise paragraph." },
+  environment: { type: "none" },
   input: [
     {
       role: "user",

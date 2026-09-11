@@ -135,12 +135,18 @@ require "json"
 
 client = OpenAI::Client.new
 
-events = client.beta.agents.sessions.create_streaming(agent: {model: "gpt-6-astra",
-                                                              instructions: "Delegate each release to a separate subagent. Ask each to extract customer-visible changes and required migration steps using only its release notes. Wait for both results, then combine them into one release summary with release labels. Do not invent missing details.",
-                                                              multi_agent: {enabled: true,
-                                                                            max_concurrent_subagents: 2}},
-  environment: {type: "none"},
-  input: "Release A: Search now supports filtering by date. Existing queries continue to work. Release B: The export endpoint now returns a download URL instead of file bytes. Update clients to fetch that URL.")
+events = client.beta.agents.sessions.create_streaming(
+  agent: {
+    model: "gpt-6-astra",
+    instructions: "Delegate each release to a separate subagent. Ask each to extract customer-visible changes and required migration steps using only its release notes. Wait for both results, then combine them into one release summary with release labels. Do not invent missing details.",
+    multi_agent: {
+      enabled: true,
+      max_concurrent_subagents: 2
+    }
+  },
+  environment: { type: "none" },
+  input: "Release A: Search now supports filtering by date. Existing queries continue to work. Release B: The export endpoint now returns a download URL instead of file bytes. Update clients to fetch that URL."
+)
 begin
   events.each { |event| puts JSON.generate(event.to_h) }
 ensure

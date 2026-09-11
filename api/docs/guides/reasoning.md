@@ -159,7 +159,7 @@ PROMPT
 
 response = client.responses.create(
   model: "gpt-6-astra",
-  reasoning: {effort: :low},
+  reasoning: { effort: :low },
   input: prompt
 )
 
@@ -486,7 +486,7 @@ PROMPT
 response = client.responses.create(
   model: "gpt-6-astra",
   max_output_tokens: 300,
-  reasoning: {effort: :medium},
+  reasoning: { effort: :medium },
   input: prompt
 )
 
@@ -666,14 +666,14 @@ client = OpenAI::Client.new
 first = client.responses.create(
   model: "gpt-5.6",
   input: "Inspect this repository and identify the likely bug.",
-  reasoning: {context: :current_turn}
+  reasoning: { context: :current_turn }
 )
 
 second = client.responses.create(
   model: "gpt-5.6",
   previous_response_id: first.id,
   input: "Now patch the bug and explain the change.",
-  reasoning: {context: :all_turns}
+  reasoning: { context: :all_turns }
 )
 
 puts(second.output_text)
@@ -908,23 +908,29 @@ require "openai"
 
 client = OpenAI::Client.new
 history = [
-  {role: :user, content: "Inspect this repository and identify the likely bug."}
+  {
+    role: :user,
+    content: "Inspect this repository and identify the likely bug."
+  }
 ]
 
 first = client.responses.create(
   model: "gpt-5.6",
   store: false,
   input: history,
-  reasoning: {context: :current_turn}
+  reasoning: { context: :current_turn }
 )
 history.concat(first.output)
-history << {role: :user, content: "Now patch the bug and explain the change."}
+history << {
+  role: :user,
+  content: "Now patch the bug and explain the change."
+}
 
 second = client.responses.create(
   model: "gpt-5.6",
   store: false,
   input: history,
-  reasoning: {context: :all_turns}
+  reasoning: { context: :all_turns }
 )
 
 puts(second.output_text)
@@ -1293,7 +1299,10 @@ client = OpenAI::Client.new
 response = client.responses.create(
   model: "gpt-6-astra",
   input: "What is the capital of France?",
-  reasoning: {effort: :low, summary: :auto}
+  reasoning: {
+    effort: :low,
+    summary: :auto
+  }
 )
 
 puts(response.output)

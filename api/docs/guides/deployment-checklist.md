@@ -192,7 +192,10 @@ PROMPT
 
 response = client.responses.create(
   model: "gpt-6-astra",
-  reasoning: {effort: :xhigh, mode: :pro},
+  reasoning: {
+    effort: :xhigh,
+    mode: :pro
+  },
   input: prompt
 )
 
@@ -329,7 +332,7 @@ INCIDENT
 
 response = client.responses.create(
   model: "gpt-6-astra",
-  text: {verbosity: :low},
+  text: { verbosity: :low },
   input: incident
 )
 
@@ -683,7 +686,7 @@ def namespace_tool(name, description, function_name, function_description, argum
         strict: true,
         parameters: {
           type: "object",
-          properties: {argument => {type: "string"}},
+          properties: { argument => { type: "string" } },
           required: [argument],
           additionalProperties: false
         }
@@ -711,7 +714,7 @@ crm = namespace_tool(
 response = client.responses.create(
   model: "gpt-6-astra",
   input: "Find the right billing tool and explain why invoice INV-1043 still shows overdue after a payment yesterday.",
-  tools: [billing, crm, {type: :tool_search}]
+  tools: [billing, crm, { type: :tool_search }]
 )
 
 puts(response.output)
@@ -1445,7 +1448,10 @@ history = [
 first = client.responses.create(
   model: "gpt-6-astra",
   store: false,
-  reasoning: {effort: :medium, context: :current_turn},
+  reasoning: {
+    effort: :medium,
+    context: :current_turn
+  },
   include: ["reasoning.encrypted_content"],
   input: history
 )
@@ -1458,7 +1464,10 @@ history << {
 second = client.responses.create(
   model: "gpt-6-astra",
   store: false,
-  reasoning: {effort: :medium, context: :all_turns},
+  reasoning: {
+    effort: :medium,
+    context: :all_turns
+  },
   input: history
 )
 
@@ -1653,7 +1662,10 @@ job = client.responses.create(
   tools: [
     {
       type: :code_interpreter,
-      container: {type: :auto, file_ids: ["file_abc123"]}
+      container: {
+        type: :auto,
+        file_ids: ["file_abc123"]
+      }
     }
   ]
 )
@@ -1804,26 +1816,47 @@ def wait_for_response(connection)
 end
 
 test_log_tool = {
-  type: "function", name: "search_test_logs", description: "Search test logs.",
-  parameters: {type: "object", properties: {query: {type: "string"}}, required: ["query"], additionalProperties: false},
+  type: "function",
+  name: "search_test_logs",
+  description: "Search test logs.",
+  parameters: {
+    type: "object",
+    properties: { query: { type: "string" } },
+    required: ["query"],
+    additionalProperties: false
+  },
   strict: true
 }
 code_search_tool = {
-  type: "function", name: "search_code", description: "Search source code.",
-  parameters: {type: "object", properties: {query: {type: "string"}}, required: ["query"], additionalProperties: false},
+  type: "function",
+  name: "search_code",
+  description: "Search source code.",
+  parameters: {
+    type: "object",
+    properties: { query: { type: "string" } },
+    required: ["query"],
+    additionalProperties: false
+  },
   strict: true
 }
 
 endpoint = Async::HTTP::Endpoint.parse("wss://api.openai.com/v1/responses", timeout: 10, alpn_protocols: ["http/1.1"])
-headers = {"Authorization" => "Bearer #{ENV.fetch("OPENAI_API_KEY")}"}
+headers = { "Authorization" => "Bearer #{ENV.fetch("OPENAI_API_KEY")}" }
 Sync do |task|
   task.with_timeout(120) do
     Async::WebSocket::Client.connect(endpoint, headers: headers) do |connection|
-      connection.write(JSON.generate(
-        type: "response.create", stream_id: "main", model: "gpt-6-astra", store: false,
-        input: [{role: "user", content: "Find the flaky test in this run, call the tools you need, and keep going until you can explain the root cause."}],
-        tools: [test_log_tool, code_search_tool]
-      ))
+      connection.write(
+        JSON.generate(
+          type: "response.create", stream_id: "main", model: "gpt-6-astra", store: false,
+          input: [
+            {
+              role: "user",
+              content: "Find the flaky test in this run, call the tools you need, and keep going until you can explain the root cause."
+            }
+          ],
+          tools: [test_log_tool, code_search_tool]
+        )
+      )
       connection.flush
       puts(JSON.pretty_generate(wait_for_response(connection).fetch("output")))
     end

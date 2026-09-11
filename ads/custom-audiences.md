@@ -80,9 +80,9 @@ leading `+` and country code. Hash the UTF-8 value without a trailing newline
 and send the 64-character hexadecimal digest, not Base64. Don't remove email
 dots or plus tags.
 
-GAIDs must be raw, nonzero, hyphenated UUIDs, such as
+GAID values must be raw, nonzero, hyphenated UUID values, such as
 `38400000-8cf0-11bd-b23e-10b96e40000d`. The API trims surrounding whitespace,
-converts them to lowercase, and hashes them internally. Don't prehash GAIDs.
+converts them to lowercase, and hashes them internally. Don't hash GAID values before submitting them.
 
 ### Combine identifier types in one CSV
 
@@ -395,8 +395,8 @@ Use these endpoints for each membership change:
 | Replace all identifiers   | `POST /custom_audiences/{custom_audience_id}/replace` | `file_id`, `expected_revision` |
 | Merge into a new audience | `POST /custom_audiences/merge`                        | `name`, `custom_audience_ids`  |
 
-Every membership operation requires an `Idempotency-Key` header. Reuse the key
-only to retry the same operation; retries return or resume the first accepted
+Each new Add, Remove, Replace, or Merge request requires an `Idempotency-Key`
+header. Reuse the key only to retry the same operation; retries return or resume the first accepted
 input. Don't change the file, identifiers, or revision under an existing key:
 a repeated key can return the original operation without checking the new
 body. Save the original request, key, audience ID, and operation ID securely.
@@ -425,22 +425,115 @@ curl \
 
 Handle these responses without starting duplicate work:
 
-| Response                                            | What to do                                                                                                                                      |
-| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `processing`                                        | Continue polling with increasing delays.                                                                                                        |
-| `succeeded`                                         | Retrieve the audience and its current revision before another change.                                                                           |
-| `failed`                                            | Stop polling and reconcile the result before submitting another operation. Contact support with the operation ID if needed.                     |
-| `409 custom_audience_operation_recovery_required`   | The Add/Remove was interrupted and may be partially applied. Resend the original POST with the same body and key, then poll the same operation. |
-| `503 custom_audience_operation_unavailable`         | Status is temporarily unavailable. Retry the status request with increasing delays; don't assume failure.                                       |
-| `409 custom_audience_mutation_conflict`             | Wait for competing work, retrieve the current state, and reconsider the intended change.                                                        |
-| `409 custom_audience_replacement_revision_conflict` | Refresh the audience revision before submitting a new replacement.                                                                              |
-| `429`                                               | Back off and retry, retaining the original key for an accepted mutation.                                                                        |
+| Response                                            | What to do                                                                                                                                     |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `processing`                                        | Continue polling with increasing delays.                                                                                                       |
+| `succeeded`                                         | Retrieve the audience and its current revision before another change.                                                                          |
+| `failed`                                            | Stop polling and reconcile the result before submitting another operation. Contact support with the operation ID if needed.                    |
+| `409 custom_audience_operation_recovery_required`   | The Add/Remove was interrupted and may be partially applied. [Resume by operation ID](#resume-an-add-or-remove), then poll the same operation. |
+| `503 custom_audience_operation_unavailable`         | Status is temporarily unavailable. Retry the status request with increasing delays; don't assume failure.                                      |
+| `409 custom_audience_mutation_conflict`             | Wait for competing work, retrieve the current state, and reconsider the intended change.                                                       |
+| `409 custom_audience_replacement_revision_conflict` | Refresh the audience revision before submitting a new replacement.                                                                             |
+| `429`                                               | Back off and retry, retaining the original key for an accepted mutation.                                                                       |
 
 For a lost submission response, retry the original endpoint, body, and key.
 An interrupted Add/Remove may have changed some membership already. Don't
 use a new key, replay the entire job as new work, or submit an inverse update
 to guess at recovery. If recovery can't continue, contact support with the
 operation ID and request ID, without sending raw identifiers.
+
+### List operations for an audience
+
+Use `GET /custom_audiences/{custom_audience_id}/operations` to find operation
+IDs when you no longer have the original submission response. The list includes
+retained Add, Remove, Replace, and Merge operations for that audience in your
+authenticated ad account. It doesn't include the initial Create request. For
+Merge, use the new audience ID, not a source audience ID.
+
+```bash
+curl --get \
+  "https://api.ads.openai.com/v1/custom_audiences/caud_123/operations" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY" \
+  --data-urlencode "limit=20"
+```
+
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "operation_id": "caudop_123",
+      "custom_audience_id": "caud_123",
+      "operation": "add",
+      "status": "processing"
+    }
+  ],
+  "has_more": false,
+  "next_cursor": null
+}
+```
+
+Set `limit` from 1 to 100. When `has_more` is `true`, pass `next_cursor`
+unchanged as the `cursor` query parameter on the next request, using the same
+ad account and audience. Continue until `has_more` is `false`, even if a page
+has an empty `data` array. Each item has the same four fields as the status
+response; the list doesn't return the original input or idempotency key.
+
+### Resume an Add or Remove
+
+Use `POST /custom_audiences/{custom_audience_id}/operations/{operation_id}/resume`
+to recover an accepted Add or Remove using its original inputs and saved
+progress. You don't need the original idempotency key or a request body.
+Confirm the operation ID from your saved response or the operation list
+before resuming it.
+
+```bash
+curl -X POST \
+  "https://api.ads.openai.com/v1/custom_audiences/caud_123/operations/caudop_123/resume" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY"
+```
+
+The response is the same operation object shown above. Poll that operation
+until it reaches a terminal status. Resume preserves the operation ID and
+accepted input; it doesn't create a new operation or replace the uploaded
+file or identifiers. An operation that has already succeeded or failed keeps
+its terminal status. Resuming it can finish pending cleanup, but doesn't
+apply its membership changes again.
+
+Resume by ID supports Add and Remove only. Replace and Merge retries still
+use the original submission endpoint, body, and idempotency key.
+
+### Cancel an Add or Remove
+
+Use `POST /custom_audiences/{custom_audience_id}/operations/{operation_id}/cancel`
+to stop an accepted Add or Remove before it starts applying membership
+changes. Send no request body or `Idempotency-Key` header.
+
+```bash
+curl -X POST \
+  "https://api.ads.openai.com/v1/custom_audiences/caud_123/operations/caudop_123/cancel" \
+  -H "Authorization: Bearer $OPENAI_ADS_API_KEY"
+```
+
+A successful cancellation returns the operation with `status: "failed"`;
+there is no separate `canceled` status. Cleanup can continue asynchronously.
+Canceling again is safe, and resuming a canceled operation can finish cleanup
+without applying its membership changes.
+
+Cancellation returns `409 custom_audience_mutation_conflict` if an active
+operation has started applying changes or the operation already succeeded.
+A failed operation keeps its existing `failed` status; cancellation doesn't
+undo any changes it made before failing. A `processing` status alone doesn't
+guarantee that cancellation is still possible. Cancellation doesn't support
+Replace or Merge.
+
+If cancellation returns `503 custom_audience_operation_unavailable`, it may
+have stopped the operation but failed to schedule cleanup. Retry cancellation
+for the same operation ID; don't start a new submission to retry cancellation.
+
+All operation requests require access to the audience's ad account. For OAuth,
+listing and polling require `ads.admin.all.read`; resuming and canceling
+require both `ads.admin.all.read` and `ads.admin.all.write`.
 
 ## Check eligibility for the intended use
 

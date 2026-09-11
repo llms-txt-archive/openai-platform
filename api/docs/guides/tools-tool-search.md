@@ -302,7 +302,7 @@ require "openai"
 client = OpenAI::Client.new
 parameters = {
   type: :object,
-  properties: {customer_id: {type: :string}},
+  properties: { customer_id: { type: :string } },
   required: ["customer_id"],
   additionalProperties: false
 }
@@ -331,7 +331,7 @@ response = client.responses.create(
         }
       ]
     },
-    {type: :tool_search}
+    { type: :tool_search }
   ]
 )
 
@@ -722,17 +722,19 @@ search = client.responses.create(
   model: "gpt-6-astra",
   input: "Find the shipping ETA tool, then use it for order_42.",
   parallel_tool_calls: false,
-  tools: [{
-    type: :tool_search,
-    execution: :client,
-    description: "Find the project tools needed to continue the task.",
-    parameters: {
-      type: :object,
-      properties: {goal: {type: :string}},
-      required: ["goal"],
-      additionalProperties: false
+  tools: [
+    {
+      type: :tool_search,
+      execution: :client,
+      description: "Find the project tools needed to continue the task.",
+      parameters: {
+        type: :object,
+        properties: { goal: { type: :string } },
+        required: ["goal"],
+        additionalProperties: false
+      }
     }
-  }]
+  ]
 )
 call = search.output.find do |item|
   item.is_a?(OpenAI::Models::Responses::ResponseToolSearchCall)
@@ -744,25 +746,29 @@ end
 response = client.responses.create(
   model: "gpt-6-astra",
   previous_response_id: search.id,
-  input: [{
-    type: :tool_search_output,
-    call_id: call.call_id,
-    execution: :client,
-    status: :completed,
-    tools: [{
-      type: :function,
-      name: "get_shipping_eta",
-      description: "Look up shipping details for an order.",
-      defer_loading: true,
-      strict: true,
-      parameters: {
-        type: :object,
-        properties: {order_id: {type: :string}},
-        required: ["order_id"],
-        additionalProperties: false
-      }
-    }]
-  }]
+  input: [
+    {
+      type: :tool_search_output,
+      call_id: call.call_id,
+      execution: :client,
+      status: :completed,
+      tools: [
+        {
+          type: :function,
+          name: "get_shipping_eta",
+          description: "Look up shipping details for an order.",
+          defer_loading: true,
+          strict: true,
+          parameters: {
+            type: :object,
+            properties: { order_id: { type: :string } },
+            required: ["order_id"],
+            additionalProperties: false
+          }
+        }
+      ]
+    }
+  ]
 )
 
 function_calls = response.output.grep(
@@ -1089,14 +1095,14 @@ result = client.beta.agents.sessions.create(
   agent: {
     model: "gpt-6-astra",
     tools: [
-      {type: "tool_search"},
+      { type: "tool_search" },
       {
         type: "function",
         name: "lookup_account",
         description: "Find an account by its account number.",
         parameters: {
           type: "object",
-          properties: {account_id: {type: "string"}},
+          properties: { account_id: { type: "string" } },
           required: ["account_id"],
           additionalProperties: false
         },
@@ -1104,7 +1110,7 @@ result = client.beta.agents.sessions.create(
       }
     ]
   },
-  environment: {type: "none"},
+  environment: { type: "none" },
   input: [
     {
       role: "user",

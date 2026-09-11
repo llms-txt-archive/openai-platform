@@ -192,7 +192,7 @@ client = OpenAI::Client.new
 response = client.responses.create(
   model: "gpt-6-astra",
   input: "Generate an image of a gray tabby cat hugging an otter with an orange scarf.",
-  tools: [{type: :image_generation}]
+  tools: [{ type: :image_generation }]
 )
 
 image_call = response.output.find do |item|
@@ -412,7 +412,10 @@ response = client.responses.create(
     {
       role: :user,
       content: [
-        {type: :input_text, text: "What's in this image?"},
+        {
+          type: :input_text,
+          text: "What's in this image?"
+        },
         {
           type: :input_image,
           detail: :auto,
@@ -690,7 +693,10 @@ response = client.responses.create(
     {
       role: :user,
       content: [
-        {type: :input_text, text: "What's in this image?"},
+        {
+          type: :input_text,
+          text: "What's in this image?"
+        },
         {
           type: :input_image,
           detail: :auto,
@@ -946,8 +952,15 @@ response = client.responses.create(
     {
       role: :user,
       content: [
-        {type: :input_text, text: "What's in this image?"},
-        {type: :input_image, detail: :auto, file_id: uploaded.id}
+        {
+          type: :input_text,
+          text: "What's in this image?"
+        },
+        {
+          type: :input_image,
+          detail: :auto,
+          file_id: uploaded.id
+        }
       ]
     }
   ]

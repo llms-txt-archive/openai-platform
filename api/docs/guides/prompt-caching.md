@@ -554,10 +554,9 @@ def calculate_input_cost(
   cache_write_tokens = details.cache_write_tokens
   ordinary_input_tokens = input_tokens - cached_tokens - cache_write_tokens
 
-  weighted_input_tokens =
-    ordinary_input_tokens +
-    (cached_tokens * cache_input_multiplier) +
-    (cache_write_tokens * cache_write_multiplier)
+  weighted_input_tokens = ordinary_input_tokens +
+                          (cached_tokens * cache_input_multiplier) +
+                          (cache_write_tokens * cache_write_multiplier)
   (weighted_input_tokens * input_price_per_million) / 1_000_000
 end
 ```

@@ -149,7 +149,7 @@ require "openai"
 
 client = OpenAI::Client.new
 result = client.beta.agents.sessions.create(
-  agent: {model: "gpt-6-astra"},
+  agent: { model: "gpt-6-astra" },
   environment: {
     type: "self_hosted",
     workspace_directory: "/workspace",

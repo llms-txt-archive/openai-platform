@@ -69,7 +69,7 @@ var vault =
 ```ruby
 vault = client.beta.agents.vaults.create(
   name: "GitHub credentials",
-  metadata: {external_user_id: "user_123"}
+  metadata: { external_user_id: "user_123" }
 )
 ```
 
@@ -284,7 +284,7 @@ session = client.beta.agents.sessions.create(
       }
     ]
   },
-  environment: {type: "none"},
+  environment: { type: "none" },
   input: "Find open bugs reported in the last week.",
   vault_ids: [vault_id]
 )
@@ -407,7 +407,7 @@ credential = client.beta.agents.vaults.credentials.create(
       token_endpoint: token_endpoint,
       client_id: client_id,
       refresh_token: refresh_token,
-      token_endpoint_auth: {type: "none"}
+      token_endpoint_auth: { type: "none" }
     }
   }
 )

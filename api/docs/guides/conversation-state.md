@@ -149,9 +149,18 @@ client = OpenAI::Client.new
 response = client.responses.create(
   model: "gpt-6-astra",
   input: [
-    {role: :user, content: "Knock knock."},
-    {role: :assistant, content: "Who's there?"},
-    {role: :user, content: "Orange."}
+    {
+      role: :user,
+      content: "Knock knock."
+    },
+    {
+      role: :assistant,
+      content: "Who's there?"
+    },
+    {
+      role: :user,
+      content: "Orange."
+    }
   ]
 )
 
@@ -393,7 +402,12 @@ Console.WriteLine(second.GetOutputText());
 require "openai"
 
 client = OpenAI::Client.new
-history = [{role: :user, content: "Tell me a joke."}]
+history = [
+  {
+    role: :user,
+    content: "Tell me a joke."
+  }
+]
 
 first = client.responses.create(
   model: "gpt-6-astra",
@@ -403,7 +417,10 @@ first = client.responses.create(
 puts(first.output_text)
 
 history.concat(first.output)
-history << {role: :user, content: "Tell me another."}
+history << {
+  role: :user,
+  content: "Tell me another."
+}
 
 second = client.responses.create(
   model: "gpt-6-astra",

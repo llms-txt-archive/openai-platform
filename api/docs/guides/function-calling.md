@@ -424,18 +424,20 @@ require "json"
 require "openai"
 
 client = OpenAI::Client.new
-tools = [{
-  type: :function,
-  name: "get_horoscope",
-  description: "Get today's horoscope for an astrological sign.",
-  parameters: {
-    type: :object,
-    properties: {sign: {type: :string}},
-    required: ["sign"],
-    additionalProperties: false
-  },
-  strict: true
-}]
+tools = [
+  {
+    type: :function,
+    name: "get_horoscope",
+    description: "Get today's horoscope for an astrological sign.",
+    parameters: {
+      type: :object,
+      properties: { sign: { type: :string } },
+      required: ["sign"],
+      additionalProperties: false
+    },
+    strict: true
+  }
+]
 
 first_response = client.responses.create(
   model: "gpt-6-astra",
@@ -455,11 +457,13 @@ sign = arguments.fetch(:sign)
 response = client.responses.create(
   model: "gpt-6-astra",
   previous_response_id: first_response.id,
-  input: [{
-    type: :function_call_output,
-    call_id: function_call.call_id,
-    output: "#{sign}: Embrace an unexpected opportunity today."
-  }],
+  input: [
+    {
+      type: :function_call_output,
+      call_id: function_call.call_id,
+      output: "#{sign}: Embrace an unexpected opportunity today."
+    }
+  ],
   tools: tools
 )
 
@@ -932,7 +936,10 @@ require "openai"
 
 client = OpenAI::Client.new
 input = [
-  {role: :user, content: "What is the weather like in Paris?"},
+  {
+    role: :user,
+    content: "What is the weather like in Paris?"
+  },
   {
     type: :function_call,
     call_id: "call_weather",
@@ -945,18 +952,20 @@ input = [
     output: '{"city":"Paris","temperature_c":18}'
   }
 ]
-tools = [{
-  type: :function,
-  name: "get_weather",
-  description: "Get the weather for a city",
-  parameters: {
-    type: :object,
-    properties: {city: {type: :string}},
-    required: ["city"],
-    additionalProperties: false
-  },
-  strict: true
-}]
+tools = [
+  {
+    type: :function,
+    name: "get_weather",
+    description: "Get the weather for a city",
+    parameters: {
+      type: :object,
+      properties: { city: { type: :string } },
+      required: ["city"],
+      additionalProperties: false
+    },
+    strict: true
+  }
+]
 response = client.responses.create(
   model: "gpt-6-astra",
   input: input,
@@ -1304,7 +1313,20 @@ client = OpenAI::Client.new
 stream = client.responses.stream(
   model: "gpt-6-astra",
   input: "What is the weather in Paris?",
-  tools: [{type: :function, name: "get_weather", description: "Get the weather for a city", parameters: {type: :object, properties: {city: {type: :string}}, required: ["city"], additionalProperties: false}, strict: true}]
+  tools: [
+    {
+      type: :function,
+      name: "get_weather",
+      description: "Get the weather for a city",
+      parameters: {
+        type: :object,
+        properties: { city: { type: :string } },
+        required: ["city"],
+        additionalProperties: false
+      },
+      strict: true
+    }
+  ]
 )
 
 stream.each { |event| puts(event.type) }
@@ -1503,17 +1525,19 @@ client = OpenAI::Client.new
 stream = client.responses.stream(
   model: "gpt-6-astra",
   input: "What is the weather in Paris?",
-  tools: [{
-    type: :function,
-    name: "get_weather",
-    parameters: {
-      type: :object,
-      properties: {location: {type: :string}},
-      required: ["location"],
-      additionalProperties: false
-    },
-    strict: true
-  }]
+  tools: [
+    {
+      type: :function,
+      name: "get_weather",
+      parameters: {
+        type: :object,
+        properties: { location: { type: :string } },
+        required: ["location"],
+        additionalProperties: false
+      },
+      strict: true
+    }
+  ]
 )
 
 final_tool_calls = {}
@@ -1664,11 +1688,13 @@ client = OpenAI::Client.new
 response = client.responses.create(
   model: "gpt-6-astra",
   input: "Use code_exec to print hello world.",
-  tools: [{
-    type: :custom,
-    name: "code_exec",
-    description: "Executes arbitrary Python code."
-  }]
+  tools: [
+    {
+      type: :custom,
+      name: "code_exec",
+      description: "Executes arbitrary Python code."
+    }
+  ]
 )
 
 puts(response.output)
@@ -1871,12 +1897,18 @@ LARK
 response = client.responses.create(
   model: "gpt-6-astra",
   input: "Use math_exp to add four plus four.",
-  tools: [{
-    type: :custom,
-    name: "math_exp",
-    description: "Creates valid mathematical expressions.",
-    format: {type: :grammar, syntax: :lark, definition: grammar}
-  }]
+  tools: [
+    {
+      type: :custom,
+      name: "math_exp",
+      description: "Creates valid mathematical expressions.",
+      format: {
+        type: :grammar,
+        syntax: :lark,
+        definition: grammar
+      }
+    }
+  ]
 )
 
 puts(response.output)
@@ -2118,12 +2150,18 @@ grammar = "^(January|February|March|April|May|June|July|August|September|October
 response = client.responses.create(
   model: "gpt-6-astra",
   input: "Use timestamp to save August 7th 2025 at 10AM.",
-  tools: [{
-    type: :custom,
-    name: "timestamp",
-    description: "Saves a timestamp in date and time format.",
-    format: {type: :grammar, syntax: :regex, definition: grammar}
-  }]
+  tools: [
+    {
+      type: :custom,
+      name: "timestamp",
+      description: "Saves a timestamp in date and time format.",
+      format: {
+        type: :grammar,
+        syntax: :regex,
+        definition: grammar
+      }
+    }
+  ]
 )
 
 puts(response.output)

@@ -332,10 +332,22 @@ def send_and_stream(client, session_id, text, &handle_event)
   begin
     client.beta.agents.sessions.events.create(
       session_id,
-      events: [{
-        type: "agent.session.input.message",
-        input: [{role: "user", content: [{type: "input_text", text: text}]}]
-      }]
+      events: [
+        {
+          type: "agent.session.input.message",
+          input: [
+            {
+              role: "user",
+              content: [
+                {
+                  type: "input_text",
+                  text: text
+                }
+              ]
+            }
+          ]
+        }
+      ]
     )
     events.each do |event|
       handle_event.call(event)

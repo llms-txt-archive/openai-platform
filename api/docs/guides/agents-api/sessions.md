@@ -143,7 +143,7 @@ events = client.beta.agents.sessions.create_streaming(
     model: "gpt-6-astra",
     instructions: "Write clean code, run it, and report the actual output."
   },
-  environment: {type: "openai_hosted"},
+  environment: { type: "openai_hosted" },
   input: "Create tree.py, a Python script that prints a readable tree of the files in the current directory. Run it and show me the output."
 )
 begin
@@ -465,7 +465,7 @@ public static void cancelTurn(OpenAIClient client, String sessionId) {
 def cancel_turn(client, session_id)
   client.beta.agents.sessions.events.create(
     session_id,
-    events: [{type: "agent.session.input.cancel"}]
+    events: [{ type: "agent.session.input.cancel" }]
   )
 end
 ```
