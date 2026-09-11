@@ -78,6 +78,8 @@ Codex also became easier to operationalize beyond interactive use, with built-in
 
 Codex leaned into the realities of shipping: [**sandboxing**](https://developers.openai.com/codex/sandboxing) and [**approval modes**](https://developers.openai.com/codex/sandboxing#how-you-control-it) made it easier to keep humans in the loop. At the same time, support for [**AGENTS.md**](https://developers.openai.com/codex/agent-configuration/agents-md) and [**MCP**](https://developers.openai.com/codex/extend/mcp) made Codex easier to adapt to your repo, extend with third-party tools and context, and even [**orchestrate Codex via the Agents SDK**](https://developers.openai.com/codex/mcp-server) (by running the CLI as an MCP server).
 
+**Update, September 5, 2026:** The Codex MCP server has been removed. See the [migration guidance](/codex/mcp-server) for current integration options.
+
 ### Web, cloud, and IDE
 
 Beyond the CLI, Codex expanded support for longer sessions and iterative problem solving across the [**web + cloud**](https://developers.openai.com/codex/cloud) and the [**IDE extension**](https://developers.openai.com/codex/ide), tightening the loop between conversational reasoning and concrete code changes. Teams could also automate parts of the workflow with [**Codex Autofix**](https://developers.openai.com/codex/guides/autofix-ci) in CI.
