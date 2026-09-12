@@ -143,7 +143,7 @@ import { ResponsesWS } from "openai/resources/responses/ws";
 
 const client = new OpenAI();
 const model = "gpt-6-astra";
-/** @type {OpenAI.Responses.FunctionTool[]} */
+
 const tools = [
   {
     type: "function",
@@ -154,7 +154,6 @@ const tools = [
   },
 ];
 
-/** @param {ResponsesWS} ws */
 async function waitForResponse(ws) {
   for await (const event of ws) {
     if (event.type === "error") throw event.error;
@@ -607,15 +606,8 @@ import { ResponsesWS } from "openai/resources/responses/ws";
 
 const client = new OpenAI();
 
-/** @type {Map<string, string>} */
 const latestResponseIdByLane = new Map();
 
-/**
- * @param {ResponsesWS} ws
- * @param {string} streamId
- * @param {string} text
- * @param {string} [previousResponseId]
- */
 function sendCreate(
   ws,
   streamId,
@@ -638,7 +630,6 @@ function sendCreate(
   });
 }
 
-/** @param {ReturnType<ResponsesWS["stream"]>} events */
 async function readMessage(events) {
   while (true) {
     const { value: event, done } = await events.next();
@@ -659,7 +650,6 @@ async function readMessage(events) {
   }
 }
 
-/** @param {ReturnType<ResponsesWS["stream"]>} events @param {Set<string>} expectedStreamIds */
 async function drainUntilComplete(events, expectedStreamIds) {
   const remaining = new Set(expectedStreamIds);
   while (remaining.size > 0) {
@@ -673,7 +663,6 @@ async function drainUntilComplete(events, expectedStreamIds) {
   }
 }
 
-/** @param {ReturnType<ResponsesWS["stream"]>} events @param {string} streamId */
 async function waitForInProgress(events, streamId) {
   while (true) {
     const message = await readMessage(events);

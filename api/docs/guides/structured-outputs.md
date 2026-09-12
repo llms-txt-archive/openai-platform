@@ -1193,7 +1193,6 @@ const ui = response.output_parsed;
 
 ```python
 from enum import Enum
-from typing import List
 
 from openai import OpenAI
 from pydantic import BaseModel
@@ -1218,8 +1217,8 @@ class Attribute(BaseModel):
 class UI(BaseModel):
     type: UIType
     label: str
-    children: List["UI"]
-    attributes: List[Attribute]
+    children: list["UI"]
+    attributes: list[Attribute]
 
 
 UI.model_rebuild()  # This is required to enable recursive types
@@ -1704,7 +1703,6 @@ const compliance = response.output_parsed;
 
 ```python
 from enum import Enum
-from typing import Optional
 
 from openai import OpenAI
 from pydantic import BaseModel
@@ -1720,8 +1718,8 @@ class Category(str, Enum):
 
 class ContentCompliance(BaseModel):
     is_violating: bool
-    category: Optional[Category]
-    explanation_if_violating: Optional[str]
+    category: Category | None
+    explanation_if_violating: str | None
 
 
 response = client.responses.parse(
@@ -3388,16 +3386,14 @@ console.log(result);
 ```
 
 ```python
-from typing import List
-
 from openai import OpenAI
 from pydantic import BaseModel
 
 
 class EntitiesModel(BaseModel):
-    attributes: List[str]
-    colors: List[str]
-    animals: List[str]
+    attributes: list[str]
+    colors: list[str]
+    animals: list[str]
 
 
 client = OpenAI()

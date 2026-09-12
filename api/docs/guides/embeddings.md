@@ -904,10 +904,10 @@ console.log(recommendations);
 
 ```python
 def recommendations_from_strings(
-    strings: List[str],
+    strings: list[str],
     index_of_source_string: int,
     model="text-embedding-3-small",
-) -> List[int]:
+) -> list[int]:
     """Return nearest neighbors of a given string."""
 
     # get embeddings for all strings

@@ -419,7 +419,6 @@ import OpenAI from "openai";
 
 const openai = new OpenAI();
 
-/** @type {OpenAI.Responses.Tool} */
 const billingNamespace = {
   type: "namespace",
   name: "billing",
@@ -444,7 +443,6 @@ const billingNamespace = {
   ],
 };
 
-/** @type {OpenAI.Responses.Tool} */
 const crmNamespace = {
   type: "namespace",
   name: "crm",
@@ -1249,7 +1247,6 @@ import { toResponseInputItems } from "openai/lib/responses/ResponseInputItems";
 
 const openai = new OpenAI();
 
-/** @type {OpenAI.Responses.ResponseInput} */
 const history = [
   {
     role: "user",

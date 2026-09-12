@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260911T224726Z` | 2026-09-11 22:47 UTC | [Ads docs broadened, caching guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T224726Z) |
+| `archive-20260912T013304Z` | 2026-09-12 01:33 UTC | [Code Sample Cleanup Across Core Guides](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260912T013304Z) |
+| `archive-20260911T224726Z` | 2026-09-11 22:48 UTC | [Ads docs broadened, caching guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T224726Z) |
 | `archive-20260911T200119Z` | 2026-09-11 20:03 UTC | [GPT-Rosalind docs and event reference refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T200119Z) |
 | `archive-20260911T164531Z` | 2026-09-11 16:47 UTC | [Cleaner agents examples and sandbox references](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T164531Z) |
 | `archive-20260911T063745Z` | 2026-09-11 06:39 UTC | [Custom Audience Recovery and Token Expiry Updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T063745Z) |
 | `archive-20260911T012805Z` | 2026-09-11 01:28 UTC | [Agent Streaming Errors and Prompt Caching Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T012805Z) |
-| `archive-20260910T232343Z` | 2026-09-10 23:24 UTC | [API key expiration guidance and Java SDK ref refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260910T232343Z) |
