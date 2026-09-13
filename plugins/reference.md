@@ -415,7 +415,7 @@ The standard `_meta.ui.csp` object is generally preferred for new UI and support
 
 - `connectDomains`: `string[]`. Domains the widget may contact via fetch/XHR.
 - `resourceDomains`: `string[]`. Domains for static assets (images, fonts, scripts, styles).
-- `frameDomains?`: `string[]`. Optional list of origins allowed for iframe embeds. By default, widgets can't render subframes; adding `frameDomains` opts in to iframe usage and triggers stricter plugin review.
+- `frameDomains?`: `string[]`. Optional list of origins allowed for iframe embeds. By default, widgets can't render subframes. Plugins can embed their own domain, including existing editors and admin interfaces, under the [iframe policy](https://developers.openai.com/plugins/app-guidelines#iframes-and-embedded-pages). A justification is required at submission, and iframe use can require additional review or lead to slower approval.
 
 However, `_meta.ui.csp` does not support `redirect_domains` for `window.openai.openExternal(...)` links. To allowlist redirect targets, you must still set `_meta["openai/widgetCSP"].redirect_domains`.
 

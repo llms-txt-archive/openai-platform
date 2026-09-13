@@ -60,7 +60,7 @@ Use this as a compact map of the Ads docs. Each page has a Markdown twin at `/ad
 - [Image Tag](https://developers.openai.com/ads/image-tag.md): Send conversion events from HTML without JavaScript.
 
 ## Location Targeting
-- [Location Targeting](https://developers.openai.com/ads/location-targeting.md): Target campaigns by country, region, or Market.
+- [Location Targeting](https://developers.openai.com/ads/location-targeting.md): Target campaigns by country, region, or market.
 
 ## Measurement Pixel
 - [Measurement Pixel](https://developers.openai.com/ads/measurement-pixel.md): Send conversion events from web pages.

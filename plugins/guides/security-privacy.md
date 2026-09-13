@@ -36,8 +36,15 @@ They cannot access privileged browser APIs such as `window.alert`,
 `window.prompt`, `window.confirm`, or `navigator.clipboard`. The CSP controls
 standard `fetch` requests. Nested frames are unavailable by default; enable
 specific origins in resource CSP metadata such as
-`_meta.ui.csp.frameDomains`. Work with your OpenAI partner if you need a
-specific domain added to the allowlist.
+`_meta.ui.csp.frameDomains`. Plugins can embed pages from their MCP server's
+own registrable domain, including existing editors and admin interfaces. See
+the [iframe policy](https://developers.openai.com/plugins/app-guidelines#iframes-and-embedded-pages) for
+domain ownership, required justifications, and review requirements.
+
+The widget CSP restricts which iframe destinations can load. An embedded
+page uses its own CSP; the widget `connectDomains` and `resourceDomains`
+allowlists do not restrict network requests made inside that page. Keep iframe
+origins specific and include the embedded experience in your security review.
 
 Server-side code has no network restrictions beyond what your hosting environment enforces. Follow normal best practices for outbound calls (TLS verification, retries, timeouts).
 

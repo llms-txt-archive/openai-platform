@@ -2,7 +2,7 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-Use location targeting to choose the countries, regions, or Markets where your ads
+Use location targeting to choose the countries, regions, or markets where your ads
 can deliver. Look up the locations you want, copy their location IDs, then pass
 those IDs when you create or update a campaign.
 
@@ -15,7 +15,8 @@ locations.
 
 Use `/geo_lookup/search` to find locations currently available for targeting.
 The response returns the location `id`, display `name`, `canonical_name`,
-`country_code`, `type`, and `region_code`.
+`country_code`, `type`, `parent_id`, and `parent_country`, plus `region_code` when
+available.
 
 ```bash
 curl -G "https://api.ads.openai.com/v1/geo_lookup/search" \
@@ -31,17 +32,16 @@ curl -G "https://api.ads.openai.com/v1/geo_lookup/search" \
   "results": [
     {
       "id": "3000194",
-      "type": "dma",
+      "type": "market",
       "canonical_name": "San Francisco - Oakland - San Jose, United States",
       "country_code": "US",
       "name": "San Francisco - Oakland - San Jose",
-      "region_code": "807"
+      "parent_id": null,
+      "parent_country": "United States"
     }
   ]
 }
 ```
-
-The API returns `dma` as the `type` value for Market locations.
 
 You can also download the current location catalog as a CSV:
 
@@ -81,9 +81,9 @@ In this example:
 
 | Location ID | Meaning                                           | Category |
 | ----------- | ------------------------------------------------- | -------- |
-| `2000043`   | California, United States                         | Region   |
-| `3000194`   | San Francisco - Oakland - San Jose, United States | Market   |
-| `3000001`   | New York, United States                           | Market   |
+| `2000043`   | California, United States                         | region   |
+| `3000194`   | San Francisco - Oakland - San Jose, United States | market   |
+| `3000001`   | New York, United States                           | market   |
 
 Use `status: "paused"` while you are validating campaign setup. Switch the
 campaign to `active` when the campaign, ad groups, and ads are ready to serve.

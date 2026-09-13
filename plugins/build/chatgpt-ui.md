@@ -671,6 +671,13 @@ Declare the exact domains the component connects to or loads resources from:
 Nested frames are blocked by default. Keep each allowlist as narrow as possible.
 The plugin review process checks the declared policy against the UI behavior.
 
+You can embed an existing editor or admin interface from your MCP server's own
+registrable domain. For example, a server at `https://api.example.com/mcp` can
+declare `https://app.example.com` in `frameDomains`. Provide the required
+justification at submission and follow the
+[iframe policy](https://developers.openai.com/plugins/app-guidelines#iframes-and-embedded-pages), including
+its restrictions on shared hosting and its review requirements.
+
 Component UI templates are the recommended path for production.
 
 During development you can rebuild the component bundle whenever your React code changes and hot-reload the server.

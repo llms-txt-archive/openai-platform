@@ -135,7 +135,7 @@ Immersive experiences that expand beyond the inline card, giving users space for
 **Rules of thumb**
 
 - **Design your UX to work with the system composer**. The composer is always present in fullscreen, so make sure your experience supports conversational prompts that can trigger tool calls and feel natural for users.
-- **Use fullscreen to deepen engagement**, not to replicate your native app wholesale.
+- **Use fullscreen for work that benefits from more space.** Existing editors and admin interfaces can be embedded when they meet the [iframe policy](https://developers.openai.com/plugins/app-guidelines#iframes-and-embedded-pages).
 
 ### Picture-in-picture (PiP)
 
