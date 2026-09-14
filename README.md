@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260914T170312Z` | 2026-09-14 17:03 UTC | [Agents Quickstart: No-Sandbox Setup Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260914T170312Z) |
 | `archive-20260913T223610Z` | 2026-09-13 22:36 UTC | [Plugin iframe policy and Ads targeting doc clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260913T223610Z) |
 | `archive-20260913T064542Z` | 2026-09-13 06:46 UTC | [AWS AgentCore ChatGPT Plugin Cookbook Added](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260913T064542Z) |
 | `archive-20260912T063047Z` | 2026-09-12 06:31 UTC | [GPT-5.4-Cyber Deprecation Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260912T063047Z) |
 | `archive-20260912T013304Z` | 2026-09-12 01:34 UTC | [Code Sample Cleanup Across Core Guides](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260912T013304Z) |
 | `archive-20260911T224726Z` | 2026-09-11 22:48 UTC | [Ads docs broadened, caching guidance clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T224726Z) |
-| `archive-20260911T200119Z` | 2026-09-11 20:03 UTC | [GPT-Rosalind docs and event reference refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260911T200119Z) |
