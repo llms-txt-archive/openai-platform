@@ -107,10 +107,10 @@ or UI resources:
 5. Start a new conversation and rerun the affected tests.
 
 This refresh flow applies to MCP servers connected in developer mode.
-Published plugins with MCP use reviewed
-[metadata snapshots](https://developers.openai.com/plugins/deploy/submission#how-published-mcp-metadata-versions-work).
-To update published metadata, scan the server, submit a new version, and
-publish the approved version.
+Published plugins use
+[continuous review](https://developers.openai.com/plugins/deploy/app-review#continuous-review-and-tool-updates)
+for tool updates. Changes to submitted plugin information or imported skills
+still require a new version, review, and publication.
 
 Before packaging the plugin, confirm that:
 

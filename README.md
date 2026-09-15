@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260914T235924Z` | 2026-09-14 23:59 UTC | [Moderation Safety Note and Java SDK Snippet Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260914T235924Z) |
+| `archive-20260915T222607Z` | 2026-09-15 22:26 UTC | [Response compaction and MCP review docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260915T222607Z) |
+| `archive-20260914T235924Z` | 2026-09-15 00:00 UTC | [Moderation Safety Note and Java SDK Snippet Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260914T235924Z) |
 | `archive-20260914T210322Z` | 2026-09-14 21:03 UTC | [Agents API Sandbox Authentication Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260914T210322Z) |
 | `archive-20260914T170312Z` | 2026-09-14 17:03 UTC | [Agents Quickstart: No-Sandbox Setup Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260914T170312Z) |
 | `archive-20260913T223610Z` | 2026-09-13 22:36 UTC | [Plugin iframe policy and Ads targeting doc clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260913T223610Z) |
 | `archive-20260913T064542Z` | 2026-09-13 06:46 UTC | [AWS AgentCore ChatGPT Plugin Cookbook Added](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260913T064542Z) |
-| `archive-20260912T063047Z` | 2026-09-12 06:31 UTC | [GPT-5.4-Cyber Deprecation Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260912T063047Z) |

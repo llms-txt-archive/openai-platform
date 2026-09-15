@@ -454,11 +454,14 @@ appear in the Plugins Directory.
 
 ### How published MCP metadata versions work
 
-Remote MCP plugins publish reviewed server metadata and imported skill
-snapshots. To change a remote snapshot, scan the MCP server, submit a new
-version for review, and publish the approved version. For metadata-specific
-maintenance rules, see
-[Remote MCP server review requirements](https://developers.openai.com/plugins/deploy/app-review#how-published-mcp-metadata-versions-work).
+After publication, OpenAI periodically fetches your MCP tools. Deleted tools
+are removed as soon as a scan detects them. New and changed tool definitions
+become available after automated checks pass; held updates keep the previous
+definition live. See
+[Continuous review and tool updates](https://developers.openai.com/plugins/deploy/app-review#continuous-review-and-tool-updates).
+
+Changes to submitted plugin information or imported skills still require a new
+version, review, and publication.
 
 ## Final checklist
 

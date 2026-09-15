@@ -136,10 +136,10 @@ curl -X POST "https://api.ads.openai.com/v1/campaigns" \
         },
         {
           "id": "3000194",
-          "type": "dma",
+          "type": "market",
           "country_code": "US",
           "name": "San Francisco - Oakland - San Jose",
-          "region_code": "807"
+          "region_code": null
         }
       ]
     }
