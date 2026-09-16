@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260916T174430Z` | 2026-09-16 17:44 UTC | [Agent session updates and Responses reference refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260916T174430Z) |
+| `archive-20260916T214314Z` | 2026-09-16 21:43 UTC | [API key governance and connector deprecation docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260916T214314Z) |
+| `archive-20260916T174430Z` | 2026-09-16 17:45 UTC | [Agent session updates and Responses reference refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260916T174430Z) |
 | `archive-20260915T222607Z` | 2026-09-15 22:26 UTC | [Response compaction and MCP review docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260915T222607Z) |
 | `archive-20260914T235924Z` | 2026-09-15 00:00 UTC | [Moderation Safety Note and Java SDK Snippet Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260914T235924Z) |
 | `archive-20260914T210322Z` | 2026-09-14 21:03 UTC | [Agents API Sandbox Authentication Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260914T210322Z) |
 | `archive-20260914T170312Z` | 2026-09-14 17:03 UTC | [Agents Quickstart: No-Sandbox Setup Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260914T170312Z) |
-| `archive-20260913T223610Z` | 2026-09-13 22:36 UTC | [Plugin iframe policy and Ads targeting doc clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260913T223610Z) |
