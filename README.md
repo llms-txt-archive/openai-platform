@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20260917T203330Z` | 2026-09-17 20:33 UTC | [Session Trace Export and Multi-Account Plugin Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260917T203330Z) |
+| `archive-20260917T230555Z` | 2026-09-17 23:05 UTC | [Codex Plugin and MCP Docs Reformat](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260917T230555Z) |
+| `archive-20260917T203330Z` | 2026-09-17 20:34 UTC | [Session Trace Export and Multi-Account Plugin Docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260917T203330Z) |
 | `archive-20260917T171551Z` | 2026-09-17 17:16 UTC | [MCP Servers and File Input Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260917T171551Z) |
 | `archive-20260917T120538Z` | 2026-09-17 12:06 UTC | [Agents API examples shift out of showcase pages](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260917T120538Z) |
 | `archive-20260917T005243Z` | 2026-09-17 00:53 UTC | [Agents API cookbook split into app pages](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260917T005243Z) |
 | `archive-20260916T214314Z` | 2026-09-16 21:44 UTC | [API key governance and connector deprecation docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260916T214314Z) |
-| `archive-20260916T174430Z` | 2026-09-16 17:45 UTC | [Agent session updates and Responses reference refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260916T174430Z) |

@@ -73,8 +73,6 @@ text; aim for at most 150 and 5,000 characters, respectively.
 This JSONL record describes one item. Search defaults to enabled and checkout
 to disabled. Ads defaults to disabled unless your feed has an Ads default configured.
 Replace the example URLs with your public product and image URLs.
-
-{/* prettier-ignore */}
 ```jsonl
 {"item_id":"MUG-350-BLUE","title":"Blue ceramic mug, 350 mL","description":"Dishwasher-safe glazed ceramic mug with a handle.","url":"https://example.com/products/mug-blue","brand":"Northline","seller_name":"Northline Home","image_url":"https://example.com/images/mug-blue.jpg","price":"18.00 USD","availability":"in_stock"}
 ```

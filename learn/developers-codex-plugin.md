@@ -34,22 +34,20 @@ If you are new to Codex, start here before installing the plugin:
 
 
 
-<ButtonLink
-      href="codex://plugins/install/openai-developers?marketplace=openai-curated"
-      color="primary"
-      variant="solid"
-      size="lg"
-      pill
-      className="mt-2"
-    >
-      Install the OpenAI Developers plugin
-    </ButtonLink>
+  
+
+    
+
+Install the OpenAI Developers plugin
+
+
   
 
 
   
 
-    <WorkflowSteps variant="headings">
+    
+
     1. Open Codex
 
        Start Codex from your terminal:
@@ -78,14 +76,16 @@ If you are new to Codex, start here before installing the plugin:
     5. Start a new chat
 
        Start a new chat before using the plugin for the first time.
-    </WorkflowSteps>
-
-  
+    
 
 
   
 
-    <WorkflowSteps variant="headings">
+
+  
+
+    
+
     1. Open the plugin settings
 
        In the Claude app, open **Settings**, then select **Plugins**.
@@ -103,14 +103,16 @@ If you are new to Codex, start here before installing the plugin:
     4. Install the plugin
 
        When **OpenAI Developers** appears, open it and select **Install**.
-    </WorkflowSteps>
-
-  
+    
 
 
   
 
-    <WorkflowSteps variant="headings">
+
+  
+
+    
+
     1. Add the plugin marketplace
 
        In Claude Code, run:
@@ -131,14 +133,16 @@ If you are new to Codex, start here before installing the plugin:
 
        Start a new Claude Code session before using the plugin for the first
        time.
-    </WorkflowSteps>
-
-  
+    
 
 
   
 
-    <WorkflowSteps variant="headings">
+
+  
+
+    
+
     1. Open the plugin settings
 
        In Cursor, open **Settings**, then select **Plugins**.
@@ -151,7 +155,11 @@ If you are new to Codex, start here before installing the plugin:
     3. Install the plugin
 
        When **OpenAI Developers** appears, open it and select **Install**.
-    </WorkflowSteps>
+    
+
+
+  
+
 
 
 

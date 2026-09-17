@@ -134,8 +134,6 @@ through an inaccessible account, will be rejected.
 
 ## Commerce and monetization
 
-{/* vale off */}
-
 Currently, plugins may conduct commerce **only for physical goods**. Selling digital products or services—including subscriptions, digital content, tokens, or credits—is not allowed, whether offered directly or indirectly (for example, through freemium upsells).
 
 Users may sign in to an existing paid account and access features already included in their subscription. Plugins must not display subscription plans, initiate new subscriptions, or promote upgrades.
@@ -211,8 +209,6 @@ Plugins should use external checkout, directing users to complete purchases on y
 Instant Checkout, which is currently in beta, is currently available only to select marketplace partners and may expand to additional marketplaces and retailers over time.
 
 Until then, standard external checkout is the required approach. No other third-party checkout solutions may be embedded or hosted within the plugin UI. To learn more, see our [docs on Agentic Commerce](https://developers.openai.com/commerce/).
-
-{/* vale on */}
 
 ### Advertising
 

@@ -36,11 +36,7 @@ For each tool:
   such as web search. Use `false` for a tool limited to a bounded private
   account or workspace, even when that service is externally hosted.
 
-{/* vale Vale.Terms = NO */}
-
 ## Evaluate in developer mode
-
-{/* vale Vale.Terms = YES */}
 
 1. In ChatGPT, turn on Developer mode from **Settings → Security and login**,
    then register your MCP server at

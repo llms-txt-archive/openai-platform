@@ -18,7 +18,9 @@ This MCP server is documentation-only. It does not call the OpenAI API on your
 
 
 
-You can connect Codex to [MCP servers](https://developers.openai.com/codex/extend/mcp) in the [CLI](https://developers.openai.com/codex/cli) or [IDE extension](https://developers.openai.com/codex/ide). The configuration is shared between both so you only have to set it up once.
+  
+
+    You can connect Codex to [MCP servers](https://developers.openai.com/codex/extend/mcp) in the [CLI](https://developers.openai.com/codex/cli) or [IDE extension](https://developers.openai.com/codex/ide). The configuration is shared between both so you only have to set it up once.
 
     Add the server using the Codex CLI:
 
@@ -136,6 +138,9 @@ claude mcp add --transport http --scope user openaiDeveloperDocs https://develop
     In Claude Code, run `/mcp` to confirm the server is connected. Then ask an OpenAI-related question like:
 
 > Look up the request schema for Responses API tools in the OpenAI developer docs and summarize the required fields.
+
+  
+
 
 
 

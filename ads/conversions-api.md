@@ -120,8 +120,6 @@ Each event includes the event metadata and a `data` object.
 }
 ```
 
-{/* Intentionally omit `oppcref` from public documentation. Do not add it to this field table without Ads product approval. */}
-
 | Field               | Required | Description                                                                                                                                                                                                                                                                         |
 | ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`                | Yes      | A non-empty string that identifies the event. Reuse the same ID when retrying or sending the same conversion through another integration.                                                                                                                                           |
@@ -348,11 +346,7 @@ App lifecycle events use the `customer_action` data shape and require
 }
 ```
 
-{/* vale Vale.Spelling = NO */}
-
 ## Deduplicate browser and server events
-
-{/* vale Vale.Spelling = YES */}
 
 If you send the same conversion from the pixel and the Conversions API, reuse
 the same value as the API `id` and pixel `event_id`. Send both events with the

@@ -278,7 +278,9 @@ able to access the plugin or curated list.
 
 
 
-Add a marketplace file at `$REPO_ROOT/.agents/plugins/marketplace.json`
+  
+
+    Add a marketplace file at `$REPO_ROOT/.agents/plugins/marketplace.json`
     and store your plugins under `$REPO_ROOT/plugins/`.
 
     **Example repo marketplace**
@@ -337,6 +339,9 @@ cp -R /absolute/path/to/my-plugin ~/.codex/plugins/my-plugin
     plugin entry's `source.path` points to that directory.
 
     Step 3: Restart the ChatGPT desktop app and verify that the plugin appears.
+
+  
+
 
 
 

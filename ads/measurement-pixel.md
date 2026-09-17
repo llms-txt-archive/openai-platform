@@ -389,11 +389,7 @@ oaiq("measure", "trial_started", {
 });
 ```
 
-{/* vale Vale.Spelling = NO */}
-
 ## Deduplicate browser and server events
-
-{/* vale Vale.Spelling = YES */}
 
 If you send the same conversion from both the Measurement Pixel and a
 server-side integration, reuse the same `event_id` in both places.

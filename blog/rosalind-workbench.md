@@ -178,6 +178,10 @@ Keeping the question, tools, analysis, and evidence in one place makes those tra
 div]:pl-0 [&_[data-panel]_h3]:hidden">
   
 
+    
+
+      
+
 ### For researchers:
 
 Start with guided scientific tasks and explore the available tools in Rosalind Workbench. If eligible, you can request GPT-Rosalind access through Workbench for more advanced life sciences research.
@@ -210,6 +214,10 @@ Request GPT-Rosalind for research, preparedness, and resilience work. The truste
 
 [Request access](https://openai.com/form/life-sciences-access/)
 
+
+    
+
+  
 
 
 

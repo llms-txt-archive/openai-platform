@@ -79,9 +79,6 @@ You are responsible for constructing the checkout session payload that the host 
 The host provides `window.openai.requestCheckout`. Use it to open the ChatGPT payment sheet when the user initiates a purchase:
 
 Example:
-
-{/* vale off */}
-
 ```tsx
 async function handleCheckout(sessionJson: string) {
   const session = JSON.parse(sessionJson);
@@ -99,8 +96,6 @@ async function handleCheckout(sessionJson: string) {
   return order; // Host returns the order payload.
 }
 ```
-
-{/* vale on */}
 
 In your component, you might initiate this in a button click:
 
@@ -379,8 +374,6 @@ Adapt this to:
 The following payment service providers support processing for the ChatGPT
 payment sheet:
 
-{/* vale off */}
-
 - [Adyen](https://docs.adyen.com/online-payments/agentic-commerce)
 - [Checkout.com](https://api-reference.checkout.com/tag/Agentic-Commerce-Protocol/)
 - Fiserv
@@ -391,8 +384,6 @@ payment sheet:
 ## Optional: Receive Raw Payment Methods
 
 If you are a merchant with a PCI DSS Level 1 certificate, you can receive raw payment methods directly by implementing the Agentic Commerce Protocol Delegate Payment endpoint. The delegated payment request will include the full payment method details your payment flow requires, including the raw card number, expiration date, CVC, billing address, allowance constraints, risk signals, and metadata.
-
-{/* vale on */}
 
 For example, a raw card payment method request is as follows:
 
