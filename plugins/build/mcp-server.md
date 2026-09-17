@@ -274,6 +274,15 @@ model to decide whether a user has access.
 See [Authenticate users](https://developers.openai.com/plugins/build/auth) for OAuth discovery, security
 schemes, and authorization challenges.
 
+To improve the experience of using multiple accounts, expose an authenticated,
+read-only profile tool and mark it with `_meta["openai/profile"]: true`.
+OpenAI uses the profile information to identify connected accounts consistently
+and help users tell them apart. Resolve the profile from the request's validated
+credentials, and keep every tool call scoped to those credentials. Users can
+connect multiple accounts without a profile tool. See
+[Support multiple accounts](https://developers.openai.com/plugins/build/auth#support-multiple-accounts) for
+the schema and implementation example.
+
 ## Tool annotations and elicitation
 
 Set annotations according to actual behavior:
