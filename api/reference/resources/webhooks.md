@@ -1014,6 +1014,102 @@ Schema name: `WebhookLiveTransportIncoming`
 }
 ```
 
+<a id="safety.warning_issued"></a>
+
+## safety.warning_issued
+
+Sent when a warning is issued for a safety identifier in your organization.
+
+### Schema
+
+Schema name: `WebhookSafetyWarningIssued`
+
+- `id: string`
+
+  The unique ID of the webhook event.
+
+- `created_at: number`
+
+  The Unix timestamp in seconds when the event was created.
+
+- `data: object { id }`
+
+  - `id: string`
+
+    The safety case ID to pass to `GET /v1/safety/cases/{id}`.
+
+- `object: "event"`
+
+  Always `event`.
+
+  - `"event"`
+
+- `type: "safety.warning_issued"`
+
+  Always `safety.warning_issued`.
+
+  - `"safety.warning_issued"`
+
+### Example
+
+```json
+{
+  "id": "evt_123",
+  "object": "event",
+  "created_at": 1787659200,
+  "type": "safety.warning_issued",
+  "data": {"id": "C-abc123"}
+}
+```
+
+<a id="safety.deactivation_issued"></a>
+
+## safety.deactivation_issued
+
+Sent when a deactivation is issued for a safety identifier in your organization.
+
+### Schema
+
+Schema name: `WebhookSafetyDeactivationIssued`
+
+- `id: string`
+
+  The unique ID of the webhook event.
+
+- `created_at: number`
+
+  The Unix timestamp in seconds when the event was created.
+
+- `data: object { id }`
+
+  - `id: string`
+
+    The safety case ID to pass to `GET /v1/safety/cases/{id}`.
+
+- `object: "event"`
+
+  Always `event`.
+
+  - `"event"`
+
+- `type: "safety.deactivation_issued"`
+
+  Always `safety.deactivation_issued`.
+
+  - `"safety.deactivation_issued"`
+
+### Example
+
+```json
+{
+  "id": "evt_123",
+  "object": "event",
+  "created_at": 1787659200,
+  "type": "safety.deactivation_issued",
+  "data": {"id": "C-abc123"}
+}
+```
+
 <a id="safety.alert.created"></a>
 
 ## safety.alert.created
