@@ -741,7 +741,7 @@ Schema name: `WebhookRealtimeCallIncoming`
 
   The Unix timestamp (in seconds) of when the model response was completed.
 
-- `data: object { call_id, sip_headers }`
+- `data: object { call_id, sip_headers, sip_media_security }`
 
   Event data payload.
 
@@ -765,6 +765,26 @@ Schema name: `WebhookRealtimeCallIncoming`
 
       Value of the SIP Header.
 
+  - `sip_media_security: optional "rtp" or "srtp" or string`
+
+    Media protection selected on the SIP leg during SDP negotiation. `srtp`
+    indicates SRTP; `rtp` indicates unencrypted RTP. Omitted when unknown.
+    This does not describe SIP signaling security or confirm that media has
+    flowed. Clients should handle unrecognized values as unknown.
+
+    - `"rtp" or "srtp"`
+
+      Media protection selected on the SIP leg during SDP negotiation. `srtp`
+      indicates SRTP; `rtp` indicates unencrypted RTP. Omitted when unknown.
+      This does not describe SIP signaling security or confirm that media has
+      flowed. Clients should handle unrecognized values as unknown.
+
+      - `"rtp"`
+
+      - `"srtp"`
+
+    - `string`
+
 - `type: "realtime.call.incoming"`
 
   The type of the event. Always `realtime.call.incoming`.
@@ -786,6 +806,7 @@ Schema name: `WebhookRealtimeCallIncoming`
   "created_at": 1719168000,
   "data": {
     "call_id": "rtc_u0_479a275623b54bdb9b6fbae2f7cbd408",
+    "sip_media_security": "srtp",
     "sip_headers": [
       {"name": "Max-Forwards", "value": "63"},
       {"name": "CSeq", "value": "851287 INVITE"},
@@ -817,7 +838,7 @@ Schema name: `WebhookLiveCallIncoming`
 
   The Unix timestamp (in seconds) of when the event was created.
 
-- `data: object { session_id, sip_headers }`
+- `data: object { session_id, sip_headers, sip_media_security }`
 
   Event data payload.
 
@@ -841,6 +862,26 @@ Schema name: `WebhookLiveCallIncoming`
 
       Value of the SIP Header.
 
+  - `sip_media_security: optional "rtp" or "srtp" or string`
+
+    Media protection selected on the SIP leg during SDP negotiation. `srtp`
+    indicates SRTP; `rtp` indicates unencrypted RTP. Omitted when unknown.
+    This does not describe SIP signaling security or confirm that media has
+    flowed. Clients should handle unrecognized values as unknown.
+
+    - `"rtp" or "srtp"`
+
+      Media protection selected on the SIP leg during SDP negotiation. `srtp`
+      indicates SRTP; `rtp` indicates unencrypted RTP. Omitted when unknown.
+      This does not describe SIP signaling security or confirm that media has
+      flowed. Clients should handle unrecognized values as unknown.
+
+      - `"rtp"`
+
+      - `"srtp"`
+
+    - `string`
+
 - `type: "live.call.incoming"`
 
   The type of the event. Always `live.call.incoming`.
@@ -862,6 +903,7 @@ Schema name: `WebhookLiveCallIncoming`
   "created_at": 1719168000,
   "data": {
     "session_id": "live_u0_479a275623b54bdb9b6fbae2f7cbd408",
+    "sip_media_security": "srtp",
     "sip_headers": [
       {"name": "From", "value": "<sip:alice@example.com>;tag=abc123"},
       {"name": "To", "value": "<sip:recipient@example.com>"},
@@ -891,7 +933,7 @@ Schema name: `WebhookLiveTransportIncoming`
 
   The Unix timestamp (in seconds) of when the event was created.
 
-- `data: object { session_id, sip_headers, type }`
+- `data: object { session_id, sip_headers, type, sip_media_security }`
 
   Event data payload.
 
@@ -920,6 +962,26 @@ Schema name: `WebhookLiveTransportIncoming`
 
     - `"sip"`
 
+  - `sip_media_security: optional "rtp" or "srtp" or string`
+
+    Media protection selected on the SIP leg during SDP negotiation. `srtp`
+    indicates SRTP; `rtp` indicates unencrypted RTP. Omitted when unknown.
+    This does not describe SIP signaling security or confirm that media has
+    flowed. Clients should handle unrecognized values as unknown.
+
+    - `"rtp" or "srtp"`
+
+      Media protection selected on the SIP leg during SDP negotiation. `srtp`
+      indicates SRTP; `rtp` indicates unencrypted RTP. Omitted when unknown.
+      This does not describe SIP signaling security or confirm that media has
+      flowed. Clients should handle unrecognized values as unknown.
+
+      - `"rtp"`
+
+      - `"srtp"`
+
+    - `string`
+
 - `type: "live.transport.incoming"`
 
   The type of the event. Always `live.transport.incoming`.
@@ -942,6 +1004,7 @@ Schema name: `WebhookLiveTransportIncoming`
   "data": {
     "type": "sip",
     "session_id": "live_u0_479a275623b54bdb9b6fbae2f7cbd408",
+    "sip_media_security": "srtp",
     "sip_headers": [
       {"name": "From", "value": "<sip:alice@example.com>;tag=abc123"},
       {"name": "To", "value": "<sip:recipient@example.com>"},
