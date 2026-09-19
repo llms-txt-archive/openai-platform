@@ -22,7 +22,7 @@ Schema name: `SessionEventAgentSessionEnvironmentReady`
 
   - `error: object { code, message, type }  or null`
 
-    An error reported while preparing a session environment.
+    The error reported while preparing the environment, if any.
 
     - `code: string`
 
@@ -217,7 +217,7 @@ Schema name: `SessionEventAgentSessionCreated`
 
       - `effort: "none" or "minimal" or "low" or 4 more or null`
 
-        The amount of reasoning effort used by an agent.
+        The requested reasoning effort, or `null` when the model selects its own default.
 
         - `"none"`
 
@@ -235,7 +235,7 @@ Schema name: `SessionEventAgentSessionCreated`
 
       - `summary: "concise" or "detailed" or "auto" or null`
 
-        The reasoning summary format requested from an agent.
+        The requested reasoning summary format, or `null` when summaries are disabled.
 
         - `"concise"`
 
@@ -451,7 +451,7 @@ Schema name: `SessionEventAgentSessionCreated`
 
         - `location: object { city, country, region, timezone }  or null`
 
-          Approximate user location used to localize web search results.
+          Approximate location used to localize search results, if provided.
 
           - `city: string or null`
 
@@ -789,7 +789,7 @@ Schema name: `SessionEventAgentSessionCreated`
 
   - `usage: TokenUsage or null`
 
-    Recorded token usage for a session or turn. Usage is best effort and may change.
+    Best-effort token usage for the session, or null if unknown. Recorded usage may change.
 
     - `input_tokens: number`
 
@@ -947,7 +947,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
 
   - `error: SessionTurnError or null`
 
-    A customer-safe error describing why a session request failed.
+    A customer-safe error. Non-null only for a failed turn.
 
     - `code: "context_length_exceeded" or "session_budget_exceeded" or "usage_limit_exceeded" or 14 more`
 
@@ -1073,7 +1073,7 @@ Schema name: `SessionEventAgentSessionTurnCreated`
 
   - `usage: TokenUsage or null`
 
-    Recorded token usage for a session or turn. Usage is best effort and may change.
+    Best-effort token usage for the turn, or null if unknown. Recorded usage may change.
 
     - `input_tokens: number`
 
@@ -1190,7 +1190,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
 
   - `error: SessionTurnError or null`
 
-    A customer-safe error describing why a session request failed.
+    A customer-safe error. Non-null only for a failed turn.
 
     - `code: "context_length_exceeded" or "session_budget_exceeded" or "usage_limit_exceeded" or 14 more`
 
@@ -1316,7 +1316,7 @@ Schema name: `SessionEventAgentSessionTurnInProgress`
 
   - `usage: TokenUsage or null`
 
-    Recorded token usage for a session or turn. Usage is best effort and may change.
+    Best-effort token usage for the turn, or null if unknown. Recorded usage may change.
 
     - `input_tokens: number`
 
@@ -1433,7 +1433,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
 
   - `error: SessionTurnError or null`
 
-    A customer-safe error describing why a session request failed.
+    A customer-safe error. Non-null only for a failed turn.
 
     - `code: "context_length_exceeded" or "session_budget_exceeded" or "usage_limit_exceeded" or 14 more`
 
@@ -1559,7 +1559,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
 
   - `usage: TokenUsage or null`
 
-    Recorded token usage for a session or turn. Usage is best effort and may change.
+    Best-effort token usage for the turn, or null if unknown. Recorded usage may change.
 
     - `input_tokens: number`
 
@@ -1601,7 +1601,7 @@ Schema name: `SessionEventAgentSessionTurnCompleted`
 
 - `usage: TokenUsage or null`
 
-  Recorded token usage for a session or turn. Usage is best effort and may change.
+  Token usage by the root agent during the turn, when available.
 
 ### Example
 
@@ -1691,7 +1691,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
 
   - `error: SessionTurnError or null`
 
-    A customer-safe error describing why a session request failed.
+    A customer-safe error. Non-null only for a failed turn.
 
     - `code: "context_length_exceeded" or "session_budget_exceeded" or "usage_limit_exceeded" or 14 more`
 
@@ -1817,7 +1817,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
 
   - `usage: TokenUsage or null`
 
-    Recorded token usage for a session or turn. Usage is best effort and may change.
+    Best-effort token usage for the turn, or null if unknown. Recorded usage may change.
 
     - `input_tokens: number`
 
@@ -1859,7 +1859,7 @@ Schema name: `SessionEventAgentSessionTurnFailed`
 
 - `usage: TokenUsage or null`
 
-  Recorded token usage for a session or turn. Usage is best effort and may change.
+  Token usage by the root agent during the turn, when available.
 
 ### Example
 
@@ -1949,7 +1949,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
 
   - `error: SessionTurnError or null`
 
-    A customer-safe error describing why a session request failed.
+    A customer-safe error. Non-null only for a failed turn.
 
     - `code: "context_length_exceeded" or "session_budget_exceeded" or "usage_limit_exceeded" or 14 more`
 
@@ -2075,7 +2075,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
 
   - `usage: TokenUsage or null`
 
-    Recorded token usage for a session or turn. Usage is best effort and may change.
+    Best-effort token usage for the turn, or null if unknown. Recorded usage may change.
 
     - `input_tokens: number`
 
@@ -2117,7 +2117,7 @@ Schema name: `SessionEventAgentSessionTurnCancelled`
 
 - `usage: TokenUsage or null`
 
-  Recorded token usage for a session or turn. Usage is best effort and may change.
+  Token usage by the root agent during the turn, when available.
 
 ### Example
 
@@ -2241,7 +2241,7 @@ Schema name: `SessionEventAgentSessionTurnItemAdded`
 
     - `phase: "commentary" or "final_answer" or null`
 
-      The phase of an assistant message.
+      The phase of an assistant message. Null for user messages.
 
       - `"commentary"`
 
@@ -2295,7 +2295,7 @@ Schema name: `SessionEventAgentSessionTurnItemAdded`
 
     - `status: AgentOutputItemStatus or null`
 
-      The status of an agent output item.
+      The status of the reasoning item.
 
     - `summary: array of SummaryText`
 
@@ -2389,7 +2389,7 @@ Schema name: `SessionEventAgentSessionTurnItemAdded`
 
     - `output: AgentFunctionCallOutput or null`
 
-      The text or model-input content supplied as a function result.
+      The function result, if the call succeeded.
 
       - `string`
 
@@ -2547,7 +2547,7 @@ Schema name: `SessionEventAgentSessionTurnItemAdded`
 
     - `action: WebSearchAction or null`
 
-      An action performed by the web search tool.
+      The action performed by the web search tool.
 
       - `Search object { queries, query, type }`
 
@@ -2989,7 +2989,7 @@ Schema name: `SessionEventAgentSessionIdle`
 
       - `effort: "none" or "minimal" or "low" or 4 more or null`
 
-        The amount of reasoning effort used by an agent.
+        The requested reasoning effort, or `null` when the model selects its own default.
 
         - `"none"`
 
@@ -3007,7 +3007,7 @@ Schema name: `SessionEventAgentSessionIdle`
 
       - `summary: "concise" or "detailed" or "auto" or null`
 
-        The reasoning summary format requested from an agent.
+        The requested reasoning summary format, or `null` when summaries are disabled.
 
         - `"concise"`
 
@@ -3223,7 +3223,7 @@ Schema name: `SessionEventAgentSessionIdle`
 
         - `location: object { city, country, region, timezone }  or null`
 
-          Approximate user location used to localize web search results.
+          Approximate location used to localize search results, if provided.
 
           - `city: string or null`
 
@@ -3561,7 +3561,7 @@ Schema name: `SessionEventAgentSessionIdle`
 
   - `usage: TokenUsage or null`
 
-    Recorded token usage for a session or turn. Usage is best effort and may change.
+    Best-effort token usage for the session, or null if unknown. Recorded usage may change.
 
     - `input_tokens: number`
 
@@ -3739,7 +3739,7 @@ Schema name: `SessionEventAgentSessionInProgress`
 
       - `effort: "none" or "minimal" or "low" or 4 more or null`
 
-        The amount of reasoning effort used by an agent.
+        The requested reasoning effort, or `null` when the model selects its own default.
 
         - `"none"`
 
@@ -3757,7 +3757,7 @@ Schema name: `SessionEventAgentSessionInProgress`
 
       - `summary: "concise" or "detailed" or "auto" or null`
 
-        The reasoning summary format requested from an agent.
+        The requested reasoning summary format, or `null` when summaries are disabled.
 
         - `"concise"`
 
@@ -3973,7 +3973,7 @@ Schema name: `SessionEventAgentSessionInProgress`
 
         - `location: object { city, country, region, timezone }  or null`
 
-          Approximate user location used to localize web search results.
+          Approximate location used to localize search results, if provided.
 
           - `city: string or null`
 
@@ -4311,7 +4311,7 @@ Schema name: `SessionEventAgentSessionInProgress`
 
   - `usage: TokenUsage or null`
 
-    Recorded token usage for a session or turn. Usage is best effort and may change.
+    Best-effort token usage for the session, or null if unknown. Recorded usage may change.
 
     - `input_tokens: number`
 
@@ -4489,7 +4489,7 @@ Schema name: `SessionEventAgentSessionRequiresAction`
 
       - `effort: "none" or "minimal" or "low" or 4 more or null`
 
-        The amount of reasoning effort used by an agent.
+        The requested reasoning effort, or `null` when the model selects its own default.
 
         - `"none"`
 
@@ -4507,7 +4507,7 @@ Schema name: `SessionEventAgentSessionRequiresAction`
 
       - `summary: "concise" or "detailed" or "auto" or null`
 
-        The reasoning summary format requested from an agent.
+        The requested reasoning summary format, or `null` when summaries are disabled.
 
         - `"concise"`
 
@@ -4723,7 +4723,7 @@ Schema name: `SessionEventAgentSessionRequiresAction`
 
         - `location: object { city, country, region, timezone }  or null`
 
-          Approximate user location used to localize web search results.
+          Approximate location used to localize search results, if provided.
 
           - `city: string or null`
 
@@ -5061,7 +5061,7 @@ Schema name: `SessionEventAgentSessionRequiresAction`
 
   - `usage: TokenUsage or null`
 
-    Recorded token usage for a session or turn. Usage is best effort and may change.
+    Best-effort token usage for the session, or null if unknown. Recorded usage may change.
 
     - `input_tokens: number`
 
@@ -5239,7 +5239,7 @@ Schema name: `SessionEventAgentSessionFailed`
 
       - `effort: "none" or "minimal" or "low" or 4 more or null`
 
-        The amount of reasoning effort used by an agent.
+        The requested reasoning effort, or `null` when the model selects its own default.
 
         - `"none"`
 
@@ -5257,7 +5257,7 @@ Schema name: `SessionEventAgentSessionFailed`
 
       - `summary: "concise" or "detailed" or "auto" or null`
 
-        The reasoning summary format requested from an agent.
+        The requested reasoning summary format, or `null` when summaries are disabled.
 
         - `"concise"`
 
@@ -5473,7 +5473,7 @@ Schema name: `SessionEventAgentSessionFailed`
 
         - `location: object { city, country, region, timezone }  or null`
 
-          Approximate user location used to localize web search results.
+          Approximate location used to localize search results, if provided.
 
           - `city: string or null`
 
@@ -5811,7 +5811,7 @@ Schema name: `SessionEventAgentSessionFailed`
 
   - `usage: TokenUsage or null`
 
-    Recorded token usage for a session or turn. Usage is best effort and may change.
+    Best-effort token usage for the session, or null if unknown. Recorded usage may change.
 
     - `input_tokens: number`
 
@@ -5949,7 +5949,7 @@ Schema name: `SessionEventAgentSessionEnvironmentPending`
 
   - `error: object { code, message, type }  or null`
 
-    An error reported while preparing a session environment.
+    The error reported while preparing the environment, if any.
 
     - `code: string`
 
@@ -6050,7 +6050,7 @@ Schema name: `SessionEventAgentSessionEnvironmentConnected`
 
   - `error: object { code, message, type }  or null`
 
-    An error reported while preparing a session environment.
+    The error reported while preparing the environment, if any.
 
     - `code: string`
 
@@ -6151,7 +6151,7 @@ Schema name: `SessionEventAgentSessionEnvironmentDisconnected`
 
   - `error: object { code, message, type }  or null`
 
-    An error reported while preparing a session environment.
+    The error reported while preparing the environment, if any.
 
     - `code: string`
 
@@ -6252,7 +6252,7 @@ Schema name: `SessionEventAgentSessionEnvironmentFailed`
 
   - `error: object { code, message, type }  or null`
 
-    An error reported while preparing a session environment.
+    The error reported while preparing the environment, if any.
 
     - `code: string`
 
@@ -6744,7 +6744,7 @@ Schema name: `SessionEventAgentSessionTurnItemDone`
 
     - `phase: "commentary" or "final_answer" or null`
 
-      The phase of an assistant message.
+      The phase of the assistant message.
 
       - `"commentary"`
 
@@ -6796,7 +6796,7 @@ Schema name: `SessionEventAgentSessionTurnItemDone`
 
     - `status: AgentOutputItemStatus or null`
 
-      The status of an agent output item.
+      The status of the reasoning item.
 
     - `summary: array of SummaryText`
 
@@ -6924,7 +6924,7 @@ Schema name: `SessionEventAgentSessionTurnItemDone`
 
     - `action: WebSearchAction or null`
 
-      An action performed by the web search tool.
+      The action performed by the web search tool.
 
       - `Search object { queries, query, type }`
 
