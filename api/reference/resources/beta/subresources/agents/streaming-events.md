@@ -103,6 +103,50 @@ Schema name: `SessionEventAgentSessionEnvironmentReady`
 }
 ```
 
+<a id="agent.session.environment.reset"></a>
+
+## agent.session.environment.reset
+
+Emitted after a hosted sandbox is replaced. Conversation history survives; changes to the previous sandbox's files and processes do not.
+
+### Schema
+
+Schema name: `SessionEventAgentSessionEnvironmentReset`
+
+- `environment_id: string`
+
+  The stable environment ID, retained across sandbox replacements.
+
+- `event_id: string`
+
+  The unique ID of the event.
+
+- `reset_count: number`
+
+  Monotonically increasing reset number. Repeated notifications share this number.
+
+- `session_id: string`
+
+  The ID of the session associated with the event.
+
+- `turn_id: string or null`
+
+  The associated turn, when applicable.
+
+- `type: "agent.session.environment.reset"`
+
+  The type of the object. Always `agent.session.environment.reset`.
+
+  - `"agent.session.environment.reset"`
+
+### Example
+
+```json
+{
+  "type": "agent.session.environment.reset"
+}
+```
+
 <a id="agent.output.command_execution_output.delta"></a>
 
 ## agent.output.command_execution_output.delta
