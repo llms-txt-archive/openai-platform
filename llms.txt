@@ -42,7 +42,7 @@ Start with the product index that matches your task. Product indexes route to de
 - [Codex Ambassadors](https://developers.openai.com/community/codex-ambassadors)
 - [Codex for Open Source](https://developers.openai.com/community/codex-for-oss)
 - [Community hackathons](https://developers.openai.com/community/hackathons)
-- [Community meetups](https://developers.openai.com/community/meetups)
+- [Community events on Luma](https://luma.com/codex-community?utm_source=oaidevs)
 - [Codex for Students](https://developers.openai.com/community/students)
 
 ## Learning tracks
