@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260920T123715Z` | 2026-09-20 12:37 UTC | [Measurement Pixel Cookie Expiry Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260920T123715Z) |
 | `archive-20260919T210013Z` | 2026-09-19 21:00 UTC | [Vault secrets for hosted sandboxes](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260919T210013Z) |
 | `archive-20260919T144721Z` | 2026-09-19 14:47 UTC | [Community events link moved to Luma](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260919T144721Z) |
 | `archive-20260919T063643Z` | 2026-09-19 06:37 UTC | [Agents Streaming Event Reference Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260919T063643Z) |
 | `archive-20260919T013513Z` | 2026-09-19 01:36 UTC | [GPT-Live docs expand session and delegation guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260919T013513Z) |
 | `archive-20260918T195716Z` | 2026-09-18 19:58 UTC | [Safety Webhooks and Workload Identity Docs Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260918T195716Z) |
-| `archive-20260918T164311Z` | 2026-09-18 16:43 UTC | [Webhook SIP Media Security Update](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260918T164311Z) |
