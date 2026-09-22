@@ -4476,9 +4476,13 @@ Schema name: `ResponseCreatedEvent`
 
     - `string`
 
-    - `"gpt-6-astra" or "gpt-5.6-sol" or "gpt-5.6-terra" or 83 more`
+    - `"gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 85 more`
 
       - `"gpt-6-astra"`
+
+      - `"gpt-6-sol"`
+
+      - `"gpt-6-luna"`
 
       - `"gpt-5.6-sol"`
 
@@ -14168,9 +14172,13 @@ Schema name: `ResponseInProgressEvent`
 
     - `string`
 
-    - `"gpt-6-astra" or "gpt-5.6-sol" or "gpt-5.6-terra" or 83 more`
+    - `"gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 85 more`
 
       - `"gpt-6-astra"`
+
+      - `"gpt-6-sol"`
+
+      - `"gpt-6-luna"`
 
       - `"gpt-5.6-sol"`
 
@@ -23860,9 +23868,13 @@ Schema name: `ResponseCompletedEvent`
 
     - `string`
 
-    - `"gpt-6-astra" or "gpt-5.6-sol" or "gpt-5.6-terra" or 83 more`
+    - `"gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 85 more`
 
       - `"gpt-6-astra"`
+
+      - `"gpt-6-sol"`
+
+      - `"gpt-6-luna"`
 
       - `"gpt-5.6-sol"`
 
@@ -33569,9 +33581,13 @@ Schema name: `ResponseFailedEvent`
 
     - `string`
 
-    - `"gpt-6-astra" or "gpt-5.6-sol" or "gpt-5.6-terra" or 83 more`
+    - `"gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 85 more`
 
       - `"gpt-6-astra"`
+
+      - `"gpt-6-sol"`
+
+      - `"gpt-6-luna"`
 
       - `"gpt-5.6-sol"`
 
@@ -43263,9 +43279,13 @@ Schema name: `ResponseIncompleteEvent`
 
     - `string`
 
-    - `"gpt-6-astra" or "gpt-5.6-sol" or "gpt-5.6-terra" or 83 more`
+    - `"gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 85 more`
 
       - `"gpt-6-astra"`
+
+      - `"gpt-6-sol"`
+
+      - `"gpt-6-luna"`
 
       - `"gpt-5.6-sol"`
 
@@ -63443,9 +63463,13 @@ Schema name: `ResponseQueuedEvent`
 
     - `string`
 
-    - `"gpt-6-astra" or "gpt-5.6-sol" or "gpt-5.6-terra" or 83 more`
+    - `"gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 85 more`
 
       - `"gpt-6-astra"`
+
+      - `"gpt-6-sol"`
+
+      - `"gpt-6-luna"`
 
       - `"gpt-5.6-sol"`
 

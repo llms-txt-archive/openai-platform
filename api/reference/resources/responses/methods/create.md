@@ -4428,9 +4428,13 @@ as input for the model's response.
 
   - `string`
 
-  - `"gpt-6-astra" or "gpt-5.6-sol" or "gpt-5.6-terra" or 83 more`
+  - `"gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 85 more`
 
     - `"gpt-6-astra"`
+
+    - `"gpt-6-sol"`
+
+    - `"gpt-6-luna"`
 
     - `"gpt-5.6-sol"`
 
@@ -10541,9 +10545,13 @@ as input for the model's response.
 
     - `string`
 
-    - `"gpt-6-astra" or "gpt-5.6-sol" or "gpt-5.6-terra" or 83 more`
+    - `"gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 85 more`
 
       - `"gpt-6-astra"`
+
+      - `"gpt-6-sol"`
+
+      - `"gpt-6-luna"`
 
       - `"gpt-5.6-sol"`
 

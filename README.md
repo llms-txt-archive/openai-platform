@@ -7,7 +7,7 @@ Every change to the upstream docs produces a git commit and a GitHub release, so
 | | |
 |---|---|
 | **Source** | [https://developers.openai.com/llms.txt](https://developers.openai.com/llms.txt) |
-| **Documents** | 605 Markdown files |
+| **Documents** | 607 Markdown files |
 | **Schedule** | Hourly at :42 UTC |
 
 ## How it works
@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
+| `archive-20260922T190913Z` | 2026-09-22 19:09 UTC | [GPT-6 family expansion and new safety guides](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260922T190913Z) |
 | `archive-20260922T101917Z` | 2026-09-22 10:19 UTC | [Video API Error Docs Clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260922T101917Z) |
 | `archive-20260922T052216Z` | 2026-09-22 05:22 UTC | [Java SDK snippet bump and fuller reset event docs](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260922T052216Z) |
 | `archive-20260922T001653Z` | 2026-09-22 00:17 UTC | [Async User Input and Product-Feed Targeting Clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260922T001653Z) |
 | `archive-20260921T211401Z` | 2026-09-21 21:14 UTC | [WebRTC WARP Guide and gpt-5.1-mini Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260921T211401Z) |
 | `archive-20260921T171125Z` | 2026-09-21 17:11 UTC | [Prompt Cache Prewarming Guidance](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260921T171125Z) |
-| `archive-20260920T162830Z` | 2026-09-20 16:29 UTC | [Pricing and GPT-5.6 Deep-Link Updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260920T162830Z) |
