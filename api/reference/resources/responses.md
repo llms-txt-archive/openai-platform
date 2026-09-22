@@ -4641,7 +4641,7 @@ the `background` parameter set to `true` can be cancelled.
 
       - `"gpt-3.5-turbo-16k-0613"`
 
-    - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+    - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
       - `"o1-pro"`
 
@@ -4680,6 +4680,8 @@ the `background` parameter set to `true` can be cancelled.
       - `"gpt-daybreak-red-latest"`
 
       - `"gpt-5.6-cyber"`
+
+      - `"gpt-rosalind-research"`
 
   - `object: "response"`
 
@@ -9914,11 +9916,11 @@ Learn when and how to compact long-running conversations in the [conversation st
 
 ### Body Parameters
 
-- `model: "gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 104 more or string or null`
+- `model: "gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 105 more or string or null`
 
   Model ID used to generate the response, like `gpt-6-astra`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](/api/docs/models) to browse and compare available models.
 
-  - `"gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 104 more`
+  - `"gpt-6-astra" or "gpt-6-sol" or "gpt-6-luna" or 105 more`
 
     Model ID used to generate the response, like `gpt-6-astra`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](/api/docs/models) to browse and compare available models.
 
@@ -10135,6 +10137,8 @@ Learn when and how to compact long-running conversations in the [conversation st
     - `"gpt-daybreak-red-latest"`
 
     - `"gpt-5.6-cyber"`
+
+    - `"gpt-rosalind-research"`
 
   - `string`
 
@@ -23473,7 +23477,7 @@ as input for the model's response.
 
     - `"gpt-3.5-turbo-16k-0613"`
 
-  - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+  - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
     - `"o1-pro"`
 
@@ -23512,6 +23516,8 @@ as input for the model's response.
     - `"gpt-daybreak-red-latest"`
 
     - `"gpt-5.6-cyber"`
+
+    - `"gpt-rosalind-research"`
 
 - `moderation: optional object { model, policy }  or null`
 
@@ -29590,7 +29596,7 @@ as input for the model's response.
 
       - `"gpt-3.5-turbo-16k-0613"`
 
-    - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+    - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
       - `"o1-pro"`
 
@@ -29629,6 +29635,8 @@ as input for the model's response.
       - `"gpt-daybreak-red-latest"`
 
       - `"gpt-5.6-cyber"`
+
+      - `"gpt-rosalind-research"`
 
   - `object: "response"`
 
@@ -40284,7 +40292,7 @@ Retrieves a model response with the given ID.
 
       - `"gpt-3.5-turbo-16k-0613"`
 
-    - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+    - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
       - `"o1-pro"`
 
@@ -40323,6 +40331,8 @@ Retrieves a model response with the given ID.
       - `"gpt-daybreak-red-latest"`
 
       - `"gpt-5.6-cyber"`
+
+      - `"gpt-rosalind-research"`
 
   - `object: "response"`
 
@@ -55324,7 +55334,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       - `"gpt-3.5-turbo-16k-0613"`
 
-    - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+    - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
       - `"o1-pro"`
 
@@ -55363,6 +55373,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
       - `"gpt-daybreak-red-latest"`
 
       - `"gpt-5.6-cyber"`
+
+      - `"gpt-rosalind-research"`
 
   - `object: "response"`
 
@@ -65188,7 +65200,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"gpt-3.5-turbo-16k-0613"`
 
-      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
         - `"o1-pro"`
 
@@ -65227,6 +65239,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `"gpt-daybreak-red-latest"`
 
         - `"gpt-5.6-cyber"`
+
+        - `"gpt-rosalind-research"`
 
     - `object: "response"`
 
@@ -75537,7 +75551,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"gpt-3.5-turbo-16k-0613"`
 
-      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
         - `"o1-pro"`
 
@@ -75576,6 +75590,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `"gpt-daybreak-red-latest"`
 
         - `"gpt-5.6-cyber"`
+
+        - `"gpt-rosalind-research"`
 
     - `object: "response"`
 
@@ -85359,7 +85375,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"gpt-3.5-turbo-16k-0613"`
 
-      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
         - `"o1-pro"`
 
@@ -85398,6 +85414,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `"gpt-daybreak-red-latest"`
 
         - `"gpt-5.6-cyber"`
+
+        - `"gpt-rosalind-research"`
 
     - `object: "response"`
 
@@ -95408,7 +95426,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"gpt-3.5-turbo-16k-0613"`
 
-      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
         - `"o1-pro"`
 
@@ -95447,6 +95465,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `"gpt-daybreak-red-latest"`
 
         - `"gpt-5.6-cyber"`
+
+        - `"gpt-rosalind-research"`
 
     - `object: "response"`
 
@@ -105093,7 +105113,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"gpt-3.5-turbo-16k-0613"`
 
-      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
         - `"o1-pro"`
 
@@ -105132,6 +105152,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `"gpt-daybreak-red-latest"`
 
         - `"gpt-5.6-cyber"`
+
+        - `"gpt-rosalind-research"`
 
     - `object: "response"`
 
@@ -128599,7 +128621,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"gpt-3.5-turbo-16k-0613"`
 
-      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
         - `"o1-pro"`
 
@@ -128638,6 +128660,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `"gpt-daybreak-red-latest"`
 
         - `"gpt-5.6-cyber"`
+
+        - `"gpt-rosalind-research"`
 
     - `object: "response"`
 
@@ -140196,7 +140220,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `"gpt-3.5-turbo-16k-0613"`
 
-        - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+        - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
           - `"o1-pro"`
 
@@ -140235,6 +140259,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
           - `"gpt-daybreak-red-latest"`
 
           - `"gpt-5.6-cyber"`
+
+          - `"gpt-rosalind-research"`
 
       - `object: "response"`
 
@@ -151748,7 +151774,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `"gpt-3.5-turbo-16k-0613"`
 
-      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 16 more`
+      - `ResponsesOnlyModel = "o1-pro" or "o1-pro-2025-03-19" or "o3-pro" or 17 more`
 
         - `"o1-pro"`
 
@@ -151787,6 +151813,8 @@ curl https://api.openai.com/v1/responses/resp_123 \
         - `"gpt-daybreak-red-latest"`
 
         - `"gpt-5.6-cyber"`
+
+        - `"gpt-rosalind-research"`
 
     - `moderation: optional object { model, policy }  or null`
 
