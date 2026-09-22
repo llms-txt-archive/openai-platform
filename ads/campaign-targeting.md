@@ -107,7 +107,9 @@ You can include up to 2,500 IDs in geographic inclusion and exclusion lists. Acc
 
 ### Product-feed campaigns
 
-Use country-level geographic inclusion and exclusion for product-feed campaigns. Verify account support before relying on more granular locations.
+New product-feed campaigns support geographic targeting and exclusions only at country level.
+
+Campaign targeting determines which users are eligible to receive ads. To select which products an ad group can use, apply product filters, including supported custom labels in `ads_metadata`. See [Product Sets & Filters](https://developers.openai.com/ads/product-feeds#product-sets--filters). A product label does not itself restrict delivery to users in that location.
 
 If the API accepts the configuration but delivery is low, consider the combined effect of geography, audiences, platform, bids, and available products.
 

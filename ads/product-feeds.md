@@ -368,6 +368,10 @@ You can select products by attributes such as brand, category, price, and item I
 
 See the [Ad Groups reference](https://developers.openai.com/ads/api-reference/ad-groups) for supported filter fields, operators, and validation rules.
 
+To organize your catalog with custom labels, add the labels inside each product's `ads_metadata` using keys supported by your integration. Then apply filters on those fields in the ad group's `product_set`. Different ad groups can select different subsets of the same catalog.
+
+For example, set `custom_label_0` to `WA` inside a product's `ads_metadata`, then filter on `ads_metadata.custom_label_0` to select products carrying that label. This selects eligible products; the label itself does not restrict delivery to users in Washington. Configure user-location targeting through [campaign targeting](https://developers.openai.com/ads/campaign-targeting#product-feed-campaigns).
+
 ### Apply the product set
 
 Use the same filters in the ad group's `product_set`. The `product_feed_id` must match the campaign's feed.
@@ -430,7 +434,7 @@ Campaigns, ad groups, and ads are created paused so you can inspect them before 
 
 ### 1. Create the campaign
 
-Set `mode` to `product_feed` and `product_feed_id` to your feed ID. Use country-level targeting for this walkthrough.
+Set `mode` to `product_feed` and `product_feed_id` to your feed ID. New product-feed campaigns support geographic targeting and exclusions only at country level. Follow the [campaign targeting guide](https://developers.openai.com/ads/campaign-targeting#product-feed-campaigns) to configure these settings.
 
 ```bash
 curl -X POST "https://api.ads.openai.com/v1/campaigns" \
