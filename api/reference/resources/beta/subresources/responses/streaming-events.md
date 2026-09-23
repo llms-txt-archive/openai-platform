@@ -35,6 +35,18 @@ Schema name: `BetaResponseCreatedEvent`
 
     Unique identifier for this Response.
 
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
+
   - `created_at: number`
 
     Unix timestamp (in seconds) of when this Response was created.
@@ -11511,6 +11523,18 @@ Schema name: `BetaResponseInProgressEvent`
 
     Unique identifier for this Response.
 
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
+
   - `created_at: number`
 
     Unix timestamp (in seconds) of when this Response was created.
@@ -22986,6 +23010,18 @@ Schema name: `BetaResponseCompletedEvent`
   - `id: string`
 
     Unique identifier for this Response.
+
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
 
   - `created_at: number`
 
@@ -34480,6 +34516,18 @@ Schema name: `BetaResponseFailedEvent`
 
     Unique identifier for this Response.
 
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
+
   - `created_at: number`
 
     Unix timestamp (in seconds) of when this Response was created.
@@ -45957,6 +46005,18 @@ Schema name: `BetaResponseIncompleteEvent`
   - `id: string`
 
     Unique identifier for this Response.
+
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
 
   - `created_at: number`
 
@@ -69695,6 +69755,18 @@ Schema name: `BetaResponseQueuedEvent`
   - `id: string`
 
     Unique identifier for this Response.
+
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
 
   - `created_at: number`
 

@@ -33,6 +33,20 @@ Schema name: `ResponsesClientEventResponseCreate`
 
   - `"response.create"`
 
+- `access_programs: optional object { cyber }`
+
+  Domain-specific access programs to use for this request.
+
+  - `cyber: optional "standard" or "daybreak_blue" or "daybreak_red"`
+
+    The Cyber access program to use for this request. Supported values are `standard`, `daybreak_blue`, and `daybreak_red`. If omitted, the API resolves the program from the model's Cyber tier and your organization and project access, subject to model-specific eligibility restrictions. By default, models without a Cyber tier use Standard. Blue-tier models use Daybreak Blue when authorized; otherwise they fall back to Standard unless the model requires Daybreak access. Red-tier models use Daybreak Red and require authorization. Requests that require unavailable Daybreak access return 403. An implicit Standard fallback is represented by null in the response's access_programs field, rather than an explicit Standard selection.
+
+    - `"standard"`
+
+    - `"daybreak_blue"`
+
+    - `"daybreak_red"`
+
 - `background: optional boolean or null`
 
   Whether to run the model response in the background.
@@ -7208,6 +7222,18 @@ Schema name: `ResponseCreatedEvent`
   - `id: string`
 
     Unique identifier for this Response.
+
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
 
   - `created_at: number`
 
@@ -16923,6 +16949,18 @@ Schema name: `ResponseInProgressEvent`
 
     Unique identifier for this Response.
 
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
+
   - `created_at: number`
 
     Unix timestamp (in seconds) of when this Response was created.
@@ -26636,6 +26674,18 @@ Schema name: `ResponseCompletedEvent`
   - `id: string`
 
     Unique identifier for this Response.
+
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
 
   - `created_at: number`
 
@@ -36368,6 +36418,18 @@ Schema name: `ResponseFailedEvent`
 
     Unique identifier for this Response.
 
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
+
   - `created_at: number`
 
     Unix timestamp (in seconds) of when this Response was created.
@@ -46083,6 +46145,18 @@ Schema name: `ResponseIncompleteEvent`
   - `id: string`
 
     Unique identifier for this Response.
+
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
 
   - `created_at: number`
 
@@ -66533,6 +66607,18 @@ Schema name: `ResponseQueuedEvent`
   - `id: string`
 
     Unique identifier for this Response.
+
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
 
   - `created_at: number`
 

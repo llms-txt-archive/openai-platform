@@ -787,108 +787,108 @@ display(
 <table id="T_01f0b">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_01f0b_level0_col0" class="col_heading level0 col0" >variant_label</th>
-      <th id="T_01f0b_level0_col1" class="col_heading level0 col1" >mean_quality</th>
-      <th id="T_01f0b_level0_col2" class="col_heading level0 col2" >policy_compliance</th>
-      <th id="T_01f0b_level0_col3" class="col_heading level0 col3" >action_accuracy</th>
-      <th id="T_01f0b_level0_col4" class="col_heading level0 col4" >escalation_accuracy</th>
-      <th id="T_01f0b_level0_col5" class="col_heading level0 col5" >mean_tool_calls</th>
-      <th id="T_01f0b_level0_col6" class="col_heading level0 col6" >mean_extra_tool_calls</th>
-      <th id="T_01f0b_level0_col7" class="col_heading level0 col7" >mean_sync_tokens</th>
-      <th id="T_01f0b_level0_col8" class="col_heading level0 col8" >mean_total_tokens</th>
-      <th id="T_01f0b_level0_col9" class="col_heading level0 col9" >mean_cached_tokens</th>
-      <th id="T_01f0b_level0_col10" class="col_heading level0 col10" >p50_latency_s</th>
-      <th id="T_01f0b_level0_col11" class="col_heading level0 col11" >cost_per_ticket_usd</th>
-      <th id="T_01f0b_level0_col12" class="col_heading level0 col12" >cost_reduction_vs_baseline</th>
-      <th id="T_01f0b_level0_col13" class="col_heading level0 col13" >monthly_cost_at_100k_tickets</th>
+      <th class="blank level0"> </th>
+      <th id="T_01f0b_level0_col0" class="col_heading level0 col0">variant_label</th>
+      <th id="T_01f0b_level0_col1" class="col_heading level0 col1">mean_quality</th>
+      <th id="T_01f0b_level0_col2" class="col_heading level0 col2">policy_compliance</th>
+      <th id="T_01f0b_level0_col3" class="col_heading level0 col3">action_accuracy</th>
+      <th id="T_01f0b_level0_col4" class="col_heading level0 col4">escalation_accuracy</th>
+      <th id="T_01f0b_level0_col5" class="col_heading level0 col5">mean_tool_calls</th>
+      <th id="T_01f0b_level0_col6" class="col_heading level0 col6">mean_extra_tool_calls</th>
+      <th id="T_01f0b_level0_col7" class="col_heading level0 col7">mean_sync_tokens</th>
+      <th id="T_01f0b_level0_col8" class="col_heading level0 col8">mean_total_tokens</th>
+      <th id="T_01f0b_level0_col9" class="col_heading level0 col9">mean_cached_tokens</th>
+      <th id="T_01f0b_level0_col10" class="col_heading level0 col10">p50_latency_s</th>
+      <th id="T_01f0b_level0_col11" class="col_heading level0 col11">cost_per_ticket_usd</th>
+      <th id="T_01f0b_level0_col12" class="col_heading level0 col12">cost_reduction_vs_baseline</th>
+      <th id="T_01f0b_level0_col13" class="col_heading level0 col13">monthly_cost_at_100k_tickets</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_01f0b_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_01f0b_row0_col0" class="data row0 col0" >Bad baseline</td>
-      <td id="T_01f0b_row0_col1" class="data row0 col1" >0.51</td>
-      <td id="T_01f0b_row0_col2" class="data row0 col2" >10%</td>
-      <td id="T_01f0b_row0_col3" class="data row0 col3" >60%</td>
-      <td id="T_01f0b_row0_col4" class="data row0 col4" >70%</td>
-      <td id="T_01f0b_row0_col5" class="data row0 col5" >5.0</td>
-      <td id="T_01f0b_row0_col6" class="data row0 col6" >2.4</td>
-      <td id="T_01f0b_row0_col7" class="data row0 col7" >11,935</td>
-      <td id="T_01f0b_row0_col8" class="data row0 col8" >11,935</td>
-      <td id="T_01f0b_row0_col9" class="data row0 col9" >0</td>
-      <td id="T_01f0b_row0_col10" class="data row0 col10" >4.88</td>
-      <td id="T_01f0b_row0_col11" class="data row0 col11" >$0.03813</td>
-      <td id="T_01f0b_row0_col12" class="data row0 col12" >0%</td>
-      <td id="T_01f0b_row0_col13" class="data row0 col13" >$3,813</td>
+      <th id="T_01f0b_level0_row0" class="row_heading level0 row0">0</th>
+      <td id="T_01f0b_row0_col0" class="data row0 col0">Bad baseline</td>
+      <td id="T_01f0b_row0_col1" class="data row0 col1">0.51</td>
+      <td id="T_01f0b_row0_col2" class="data row0 col2">10%</td>
+      <td id="T_01f0b_row0_col3" class="data row0 col3">60%</td>
+      <td id="T_01f0b_row0_col4" class="data row0 col4">70%</td>
+      <td id="T_01f0b_row0_col5" class="data row0 col5">5.0</td>
+      <td id="T_01f0b_row0_col6" class="data row0 col6">2.4</td>
+      <td id="T_01f0b_row0_col7" class="data row0 col7">11,935</td>
+      <td id="T_01f0b_row0_col8" class="data row0 col8">11,935</td>
+      <td id="T_01f0b_row0_col9" class="data row0 col9">0</td>
+      <td id="T_01f0b_row0_col10" class="data row0 col10">4.88</td>
+      <td id="T_01f0b_row0_col11" class="data row0 col11">$0.03813</td>
+      <td id="T_01f0b_row0_col12" class="data row0 col12">0%</td>
+      <td id="T_01f0b_row0_col13" class="data row0 col13">$3,813</td>
     </tr>
     <tr>
-      <th id="T_01f0b_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_01f0b_row1_col0" class="data row1 col0" >Round 1: controls</td>
-      <td id="T_01f0b_row1_col1" class="data row1 col1" >0.98</td>
-      <td id="T_01f0b_row1_col2" class="data row1 col2" >100%</td>
-      <td id="T_01f0b_row1_col3" class="data row1 col3" >100%</td>
-      <td id="T_01f0b_row1_col4" class="data row1 col4" >100%</td>
-      <td id="T_01f0b_row1_col5" class="data row1 col5" >2.6</td>
-      <td id="T_01f0b_row1_col6" class="data row1 col6" >0.0</td>
-      <td id="T_01f0b_row1_col7" class="data row1 col7" >1,379</td>
-      <td id="T_01f0b_row1_col8" class="data row1 col8" >1,379</td>
-      <td id="T_01f0b_row1_col9" class="data row1 col9" >0</td>
-      <td id="T_01f0b_row1_col10" class="data row1 col10" >2.32</td>
-      <td id="T_01f0b_row1_col11" class="data row1 col11" >$0.00512</td>
-      <td id="T_01f0b_row1_col12" class="data row1 col12" >87%</td>
-      <td id="T_01f0b_row1_col13" class="data row1 col13" >$512</td>
+      <th id="T_01f0b_level0_row1" class="row_heading level0 row1">1</th>
+      <td id="T_01f0b_row1_col0" class="data row1 col0">Round 1: controls</td>
+      <td id="T_01f0b_row1_col1" class="data row1 col1">0.98</td>
+      <td id="T_01f0b_row1_col2" class="data row1 col2">100%</td>
+      <td id="T_01f0b_row1_col3" class="data row1 col3">100%</td>
+      <td id="T_01f0b_row1_col4" class="data row1 col4">100%</td>
+      <td id="T_01f0b_row1_col5" class="data row1 col5">2.6</td>
+      <td id="T_01f0b_row1_col6" class="data row1 col6">0.0</td>
+      <td id="T_01f0b_row1_col7" class="data row1 col7">1,379</td>
+      <td id="T_01f0b_row1_col8" class="data row1 col8">1,379</td>
+      <td id="T_01f0b_row1_col9" class="data row1 col9">0</td>
+      <td id="T_01f0b_row1_col10" class="data row1 col10">2.32</td>
+      <td id="T_01f0b_row1_col11" class="data row1 col11">$0.00512</td>
+      <td id="T_01f0b_row1_col12" class="data row1 col12">87%</td>
+      <td id="T_01f0b_row1_col13" class="data row1 col13">$512</td>
     </tr>
     <tr>
-      <th id="T_01f0b_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_01f0b_row2_col0" class="data row2 col0" >Round 2: routing</td>
-      <td id="T_01f0b_row2_col1" class="data row2 col1" >0.98</td>
-      <td id="T_01f0b_row2_col2" class="data row2 col2" >100%</td>
-      <td id="T_01f0b_row2_col3" class="data row2 col3" >100%</td>
-      <td id="T_01f0b_row2_col4" class="data row2 col4" >100%</td>
-      <td id="T_01f0b_row2_col5" class="data row2 col5" >2.6</td>
-      <td id="T_01f0b_row2_col6" class="data row2 col6" >0.0</td>
-      <td id="T_01f0b_row2_col7" class="data row2 col7" >1,485</td>
-      <td id="T_01f0b_row2_col8" class="data row2 col8" >1,485</td>
-      <td id="T_01f0b_row2_col9" class="data row2 col9" >0</td>
-      <td id="T_01f0b_row2_col10" class="data row2 col10" >1.87</td>
-      <td id="T_01f0b_row2_col11" class="data row2 col11" >$0.00302</td>
-      <td id="T_01f0b_row2_col12" class="data row2 col12" >92%</td>
-      <td id="T_01f0b_row2_col13" class="data row2 col13" >$302</td>
+      <th id="T_01f0b_level0_row2" class="row_heading level0 row2">2</th>
+      <td id="T_01f0b_row2_col0" class="data row2 col0">Round 2: routing</td>
+      <td id="T_01f0b_row2_col1" class="data row2 col1">0.98</td>
+      <td id="T_01f0b_row2_col2" class="data row2 col2">100%</td>
+      <td id="T_01f0b_row2_col3" class="data row2 col3">100%</td>
+      <td id="T_01f0b_row2_col4" class="data row2 col4">100%</td>
+      <td id="T_01f0b_row2_col5" class="data row2 col5">2.6</td>
+      <td id="T_01f0b_row2_col6" class="data row2 col6">0.0</td>
+      <td id="T_01f0b_row2_col7" class="data row2 col7">1,485</td>
+      <td id="T_01f0b_row2_col8" class="data row2 col8">1,485</td>
+      <td id="T_01f0b_row2_col9" class="data row2 col9">0</td>
+      <td id="T_01f0b_row2_col10" class="data row2 col10">1.87</td>
+      <td id="T_01f0b_row2_col11" class="data row2 col11">$0.00302</td>
+      <td id="T_01f0b_row2_col12" class="data row2 col12">92%</td>
+      <td id="T_01f0b_row2_col13" class="data row2 col13">$302</td>
     </tr>
     <tr>
-      <th id="T_01f0b_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_01f0b_row3_col0" class="data row3 col0" >Round 3: caching</td>
-      <td id="T_01f0b_row3_col1" class="data row3 col1" >0.98</td>
-      <td id="T_01f0b_row3_col2" class="data row3 col2" >100%</td>
-      <td id="T_01f0b_row3_col3" class="data row3 col3" >100%</td>
-      <td id="T_01f0b_row3_col4" class="data row3 col4" >100%</td>
-      <td id="T_01f0b_row3_col5" class="data row3 col5" >2.6</td>
-      <td id="T_01f0b_row3_col6" class="data row3 col6" >0.0</td>
-      <td id="T_01f0b_row3_col7" class="data row3 col7" >2,684</td>
-      <td id="T_01f0b_row3_col8" class="data row3 col8" >2,684</td>
-      <td id="T_01f0b_row3_col9" class="data row3 col9" >1,779</td>
-      <td id="T_01f0b_row3_col10" class="data row3 col10" >1.85</td>
-      <td id="T_01f0b_row3_col11" class="data row3 col11" >$0.00244</td>
-      <td id="T_01f0b_row3_col12" class="data row3 col12" >94%</td>
-      <td id="T_01f0b_row3_col13" class="data row3 col13" >$244</td>
+      <th id="T_01f0b_level0_row3" class="row_heading level0 row3">3</th>
+      <td id="T_01f0b_row3_col0" class="data row3 col0">Round 3: caching</td>
+      <td id="T_01f0b_row3_col1" class="data row3 col1">0.98</td>
+      <td id="T_01f0b_row3_col2" class="data row3 col2">100%</td>
+      <td id="T_01f0b_row3_col3" class="data row3 col3">100%</td>
+      <td id="T_01f0b_row3_col4" class="data row3 col4">100%</td>
+      <td id="T_01f0b_row3_col5" class="data row3 col5">2.6</td>
+      <td id="T_01f0b_row3_col6" class="data row3 col6">0.0</td>
+      <td id="T_01f0b_row3_col7" class="data row3 col7">2,684</td>
+      <td id="T_01f0b_row3_col8" class="data row3 col8">2,684</td>
+      <td id="T_01f0b_row3_col9" class="data row3 col9">1,779</td>
+      <td id="T_01f0b_row3_col10" class="data row3 col10">1.85</td>
+      <td id="T_01f0b_row3_col11" class="data row3 col11">$0.00244</td>
+      <td id="T_01f0b_row3_col12" class="data row3 col12">94%</td>
+      <td id="T_01f0b_row3_col13" class="data row3 col13">$244</td>
     </tr>
     <tr>
-      <th id="T_01f0b_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_01f0b_row4_col0" class="data row4 col0" >Round 4: split workflow</td>
-      <td id="T_01f0b_row4_col1" class="data row4 col1" >0.98</td>
-      <td id="T_01f0b_row4_col2" class="data row4 col2" >100%</td>
-      <td id="T_01f0b_row4_col3" class="data row4 col3" >100%</td>
-      <td id="T_01f0b_row4_col4" class="data row4 col4" >100%</td>
-      <td id="T_01f0b_row4_col5" class="data row4 col5" >2.6</td>
-      <td id="T_01f0b_row4_col6" class="data row4 col6" >0.0</td>
-      <td id="T_01f0b_row4_col7" class="data row4 col7" >2,412</td>
-      <td id="T_01f0b_row4_col8" class="data row4 col8" >2,974</td>
-      <td id="T_01f0b_row4_col9" class="data row4 col9" >1,779</td>
-      <td id="T_01f0b_row4_col10" class="data row4 col10" >1.41</td>
-      <td id="T_01f0b_row4_col11" class="data row4 col11" >$0.00204</td>
-      <td id="T_01f0b_row4_col12" class="data row4 col12" >95%</td>
-      <td id="T_01f0b_row4_col13" class="data row4 col13" >$204</td>
+      <th id="T_01f0b_level0_row4" class="row_heading level0 row4">4</th>
+      <td id="T_01f0b_row4_col0" class="data row4 col0">Round 4: split workflow</td>
+      <td id="T_01f0b_row4_col1" class="data row4 col1">0.98</td>
+      <td id="T_01f0b_row4_col2" class="data row4 col2">100%</td>
+      <td id="T_01f0b_row4_col3" class="data row4 col3">100%</td>
+      <td id="T_01f0b_row4_col4" class="data row4 col4">100%</td>
+      <td id="T_01f0b_row4_col5" class="data row4 col5">2.6</td>
+      <td id="T_01f0b_row4_col6" class="data row4 col6">0.0</td>
+      <td id="T_01f0b_row4_col7" class="data row4 col7">2,412</td>
+      <td id="T_01f0b_row4_col8" class="data row4 col8">2,974</td>
+      <td id="T_01f0b_row4_col9" class="data row4 col9">1,779</td>
+      <td id="T_01f0b_row4_col10" class="data row4 col10">1.41</td>
+      <td id="T_01f0b_row4_col11" class="data row4 col11">$0.00204</td>
+      <td id="T_01f0b_row4_col12" class="data row4 col12">95%</td>
+      <td id="T_01f0b_row4_col13" class="data row4 col13">$204</td>
     </tr>
   </tbody>
 </table>
@@ -944,114 +944,114 @@ display(
 <table id="T_81e05">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_81e05_level0_col0" class="col_heading level0 col0" >variant_label</th>
-      <th id="T_81e05_level0_col1" class="col_heading level0 col1" >mean_quality</th>
-      <th id="T_81e05_level0_col2" class="col_heading level0 col2" >policy_compliance</th>
-      <th id="T_81e05_level0_col3" class="col_heading level0 col3" >mean_tool_calls</th>
-      <th id="T_81e05_level0_col4" class="col_heading level0 col4" >mean_extra_tool_calls</th>
-      <th id="T_81e05_level0_col5" class="col_heading level0 col5" >mean_sync_tokens</th>
-      <th id="T_81e05_level0_col6" class="col_heading level0 col6" >mean_total_tokens</th>
-      <th id="T_81e05_level0_col7" class="col_heading level0 col7" >mean_cached_tokens</th>
-      <th id="T_81e05_level0_col8" class="col_heading level0 col8" >p50_latency_s</th>
-      <th id="T_81e05_level0_col9" class="col_heading level0 col9" >cost_per_ticket_usd</th>
-      <th id="T_81e05_level0_col10" class="col_heading level0 col10" >mean_sync_tokens_delta_vs_previous</th>
-      <th id="T_81e05_level0_col11" class="col_heading level0 col11" >mean_total_tokens_delta_vs_previous</th>
-      <th id="T_81e05_level0_col12" class="col_heading level0 col12" >p50_latency_s_delta_vs_previous</th>
-      <th id="T_81e05_level0_col13" class="col_heading level0 col13" >cost_per_ticket_usd_delta_vs_previous</th>
-      <th id="T_81e05_level0_col14" class="col_heading level0 col14" >quality_delta_vs_previous</th>
+      <th class="blank level0"> </th>
+      <th id="T_81e05_level0_col0" class="col_heading level0 col0">variant_label</th>
+      <th id="T_81e05_level0_col1" class="col_heading level0 col1">mean_quality</th>
+      <th id="T_81e05_level0_col2" class="col_heading level0 col2">policy_compliance</th>
+      <th id="T_81e05_level0_col3" class="col_heading level0 col3">mean_tool_calls</th>
+      <th id="T_81e05_level0_col4" class="col_heading level0 col4">mean_extra_tool_calls</th>
+      <th id="T_81e05_level0_col5" class="col_heading level0 col5">mean_sync_tokens</th>
+      <th id="T_81e05_level0_col6" class="col_heading level0 col6">mean_total_tokens</th>
+      <th id="T_81e05_level0_col7" class="col_heading level0 col7">mean_cached_tokens</th>
+      <th id="T_81e05_level0_col8" class="col_heading level0 col8">p50_latency_s</th>
+      <th id="T_81e05_level0_col9" class="col_heading level0 col9">cost_per_ticket_usd</th>
+      <th id="T_81e05_level0_col10" class="col_heading level0 col10">mean_sync_tokens_delta_vs_previous</th>
+      <th id="T_81e05_level0_col11" class="col_heading level0 col11">mean_total_tokens_delta_vs_previous</th>
+      <th id="T_81e05_level0_col12" class="col_heading level0 col12">p50_latency_s_delta_vs_previous</th>
+      <th id="T_81e05_level0_col13" class="col_heading level0 col13">cost_per_ticket_usd_delta_vs_previous</th>
+      <th id="T_81e05_level0_col14" class="col_heading level0 col14">quality_delta_vs_previous</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_81e05_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_81e05_row0_col0" class="data row0 col0" >Bad baseline</td>
-      <td id="T_81e05_row0_col1" class="data row0 col1" >0.51</td>
-      <td id="T_81e05_row0_col2" class="data row0 col2" >10%</td>
-      <td id="T_81e05_row0_col3" class="data row0 col3" >5.0</td>
-      <td id="T_81e05_row0_col4" class="data row0 col4" >2.4</td>
-      <td id="T_81e05_row0_col5" class="data row0 col5" >11,935</td>
-      <td id="T_81e05_row0_col6" class="data row0 col6" >11,935</td>
-      <td id="T_81e05_row0_col7" class="data row0 col7" >0</td>
-      <td id="T_81e05_row0_col8" class="data row0 col8" >4.88</td>
-      <td id="T_81e05_row0_col9" class="data row0 col9" >$0.03813</td>
-      <td id="T_81e05_row0_col10" class="data row0 col10" >+nan</td>
-      <td id="T_81e05_row0_col11" class="data row0 col11" >+nan</td>
-      <td id="T_81e05_row0_col12" class="data row0 col12" >+nan</td>
-      <td id="T_81e05_row0_col13" class="data row0 col13" >$+nan</td>
-      <td id="T_81e05_row0_col14" class="data row0 col14" >+nan</td>
+      <th id="T_81e05_level0_row0" class="row_heading level0 row0">0</th>
+      <td id="T_81e05_row0_col0" class="data row0 col0">Bad baseline</td>
+      <td id="T_81e05_row0_col1" class="data row0 col1">0.51</td>
+      <td id="T_81e05_row0_col2" class="data row0 col2">10%</td>
+      <td id="T_81e05_row0_col3" class="data row0 col3">5.0</td>
+      <td id="T_81e05_row0_col4" class="data row0 col4">2.4</td>
+      <td id="T_81e05_row0_col5" class="data row0 col5">11,935</td>
+      <td id="T_81e05_row0_col6" class="data row0 col6">11,935</td>
+      <td id="T_81e05_row0_col7" class="data row0 col7">0</td>
+      <td id="T_81e05_row0_col8" class="data row0 col8">4.88</td>
+      <td id="T_81e05_row0_col9" class="data row0 col9">$0.03813</td>
+      <td id="T_81e05_row0_col10" class="data row0 col10">+nan</td>
+      <td id="T_81e05_row0_col11" class="data row0 col11">+nan</td>
+      <td id="T_81e05_row0_col12" class="data row0 col12">+nan</td>
+      <td id="T_81e05_row0_col13" class="data row0 col13">$+nan</td>
+      <td id="T_81e05_row0_col14" class="data row0 col14">+nan</td>
     </tr>
     <tr>
-      <th id="T_81e05_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_81e05_row1_col0" class="data row1 col0" >Round 1: controls</td>
-      <td id="T_81e05_row1_col1" class="data row1 col1" >0.98</td>
-      <td id="T_81e05_row1_col2" class="data row1 col2" >100%</td>
-      <td id="T_81e05_row1_col3" class="data row1 col3" >2.6</td>
-      <td id="T_81e05_row1_col4" class="data row1 col4" >0.0</td>
-      <td id="T_81e05_row1_col5" class="data row1 col5" >1,379</td>
-      <td id="T_81e05_row1_col6" class="data row1 col6" >1,379</td>
-      <td id="T_81e05_row1_col7" class="data row1 col7" >0</td>
-      <td id="T_81e05_row1_col8" class="data row1 col8" >2.32</td>
-      <td id="T_81e05_row1_col9" class="data row1 col9" >$0.00512</td>
-      <td id="T_81e05_row1_col10" class="data row1 col10" >-10,556</td>
-      <td id="T_81e05_row1_col11" class="data row1 col11" >-10,556</td>
-      <td id="T_81e05_row1_col12" class="data row1 col12" >-2.56</td>
-      <td id="T_81e05_row1_col13" class="data row1 col13" >$-0.03301</td>
-      <td id="T_81e05_row1_col14" class="data row1 col14" >+0.48</td>
+      <th id="T_81e05_level0_row1" class="row_heading level0 row1">1</th>
+      <td id="T_81e05_row1_col0" class="data row1 col0">Round 1: controls</td>
+      <td id="T_81e05_row1_col1" class="data row1 col1">0.98</td>
+      <td id="T_81e05_row1_col2" class="data row1 col2">100%</td>
+      <td id="T_81e05_row1_col3" class="data row1 col3">2.6</td>
+      <td id="T_81e05_row1_col4" class="data row1 col4">0.0</td>
+      <td id="T_81e05_row1_col5" class="data row1 col5">1,379</td>
+      <td id="T_81e05_row1_col6" class="data row1 col6">1,379</td>
+      <td id="T_81e05_row1_col7" class="data row1 col7">0</td>
+      <td id="T_81e05_row1_col8" class="data row1 col8">2.32</td>
+      <td id="T_81e05_row1_col9" class="data row1 col9">$0.00512</td>
+      <td id="T_81e05_row1_col10" class="data row1 col10">-10,556</td>
+      <td id="T_81e05_row1_col11" class="data row1 col11">-10,556</td>
+      <td id="T_81e05_row1_col12" class="data row1 col12">-2.56</td>
+      <td id="T_81e05_row1_col13" class="data row1 col13">$-0.03301</td>
+      <td id="T_81e05_row1_col14" class="data row1 col14">+0.48</td>
     </tr>
     <tr>
-      <th id="T_81e05_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_81e05_row2_col0" class="data row2 col0" >Round 2: routing</td>
-      <td id="T_81e05_row2_col1" class="data row2 col1" >0.98</td>
-      <td id="T_81e05_row2_col2" class="data row2 col2" >100%</td>
-      <td id="T_81e05_row2_col3" class="data row2 col3" >2.6</td>
-      <td id="T_81e05_row2_col4" class="data row2 col4" >0.0</td>
-      <td id="T_81e05_row2_col5" class="data row2 col5" >1,485</td>
-      <td id="T_81e05_row2_col6" class="data row2 col6" >1,485</td>
-      <td id="T_81e05_row2_col7" class="data row2 col7" >0</td>
-      <td id="T_81e05_row2_col8" class="data row2 col8" >1.87</td>
-      <td id="T_81e05_row2_col9" class="data row2 col9" >$0.00302</td>
-      <td id="T_81e05_row2_col10" class="data row2 col10" >+106</td>
-      <td id="T_81e05_row2_col11" class="data row2 col11" >+106</td>
-      <td id="T_81e05_row2_col12" class="data row2 col12" >-0.45</td>
-      <td id="T_81e05_row2_col13" class="data row2 col13" >$-0.00210</td>
-      <td id="T_81e05_row2_col14" class="data row2 col14" >+0.00</td>
+      <th id="T_81e05_level0_row2" class="row_heading level0 row2">2</th>
+      <td id="T_81e05_row2_col0" class="data row2 col0">Round 2: routing</td>
+      <td id="T_81e05_row2_col1" class="data row2 col1">0.98</td>
+      <td id="T_81e05_row2_col2" class="data row2 col2">100%</td>
+      <td id="T_81e05_row2_col3" class="data row2 col3">2.6</td>
+      <td id="T_81e05_row2_col4" class="data row2 col4">0.0</td>
+      <td id="T_81e05_row2_col5" class="data row2 col5">1,485</td>
+      <td id="T_81e05_row2_col6" class="data row2 col6">1,485</td>
+      <td id="T_81e05_row2_col7" class="data row2 col7">0</td>
+      <td id="T_81e05_row2_col8" class="data row2 col8">1.87</td>
+      <td id="T_81e05_row2_col9" class="data row2 col9">$0.00302</td>
+      <td id="T_81e05_row2_col10" class="data row2 col10">+106</td>
+      <td id="T_81e05_row2_col11" class="data row2 col11">+106</td>
+      <td id="T_81e05_row2_col12" class="data row2 col12">-0.45</td>
+      <td id="T_81e05_row2_col13" class="data row2 col13">$-0.00210</td>
+      <td id="T_81e05_row2_col14" class="data row2 col14">+0.00</td>
     </tr>
     <tr>
-      <th id="T_81e05_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_81e05_row3_col0" class="data row3 col0" >Round 3: caching</td>
-      <td id="T_81e05_row3_col1" class="data row3 col1" >0.98</td>
-      <td id="T_81e05_row3_col2" class="data row3 col2" >100%</td>
-      <td id="T_81e05_row3_col3" class="data row3 col3" >2.6</td>
-      <td id="T_81e05_row3_col4" class="data row3 col4" >0.0</td>
-      <td id="T_81e05_row3_col5" class="data row3 col5" >2,684</td>
-      <td id="T_81e05_row3_col6" class="data row3 col6" >2,684</td>
-      <td id="T_81e05_row3_col7" class="data row3 col7" >1,779</td>
-      <td id="T_81e05_row3_col8" class="data row3 col8" >1.85</td>
-      <td id="T_81e05_row3_col9" class="data row3 col9" >$0.00244</td>
-      <td id="T_81e05_row3_col10" class="data row3 col10" >+1,199</td>
-      <td id="T_81e05_row3_col11" class="data row3 col11" >+1,199</td>
-      <td id="T_81e05_row3_col12" class="data row3 col12" >-0.02</td>
-      <td id="T_81e05_row3_col13" class="data row3 col13" >$-0.00058</td>
-      <td id="T_81e05_row3_col14" class="data row3 col14" >+0.00</td>
+      <th id="T_81e05_level0_row3" class="row_heading level0 row3">3</th>
+      <td id="T_81e05_row3_col0" class="data row3 col0">Round 3: caching</td>
+      <td id="T_81e05_row3_col1" class="data row3 col1">0.98</td>
+      <td id="T_81e05_row3_col2" class="data row3 col2">100%</td>
+      <td id="T_81e05_row3_col3" class="data row3 col3">2.6</td>
+      <td id="T_81e05_row3_col4" class="data row3 col4">0.0</td>
+      <td id="T_81e05_row3_col5" class="data row3 col5">2,684</td>
+      <td id="T_81e05_row3_col6" class="data row3 col6">2,684</td>
+      <td id="T_81e05_row3_col7" class="data row3 col7">1,779</td>
+      <td id="T_81e05_row3_col8" class="data row3 col8">1.85</td>
+      <td id="T_81e05_row3_col9" class="data row3 col9">$0.00244</td>
+      <td id="T_81e05_row3_col10" class="data row3 col10">+1,199</td>
+      <td id="T_81e05_row3_col11" class="data row3 col11">+1,199</td>
+      <td id="T_81e05_row3_col12" class="data row3 col12">-0.02</td>
+      <td id="T_81e05_row3_col13" class="data row3 col13">$-0.00058</td>
+      <td id="T_81e05_row3_col14" class="data row3 col14">+0.00</td>
     </tr>
     <tr>
-      <th id="T_81e05_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_81e05_row4_col0" class="data row4 col0" >Round 4: split workflow</td>
-      <td id="T_81e05_row4_col1" class="data row4 col1" >0.98</td>
-      <td id="T_81e05_row4_col2" class="data row4 col2" >100%</td>
-      <td id="T_81e05_row4_col3" class="data row4 col3" >2.6</td>
-      <td id="T_81e05_row4_col4" class="data row4 col4" >0.0</td>
-      <td id="T_81e05_row4_col5" class="data row4 col5" >2,412</td>
-      <td id="T_81e05_row4_col6" class="data row4 col6" >2,974</td>
-      <td id="T_81e05_row4_col7" class="data row4 col7" >1,779</td>
-      <td id="T_81e05_row4_col8" class="data row4 col8" >1.41</td>
-      <td id="T_81e05_row4_col9" class="data row4 col9" >$0.00204</td>
-      <td id="T_81e05_row4_col10" class="data row4 col10" >-272</td>
-      <td id="T_81e05_row4_col11" class="data row4 col11" >+290</td>
-      <td id="T_81e05_row4_col12" class="data row4 col12" >-0.44</td>
-      <td id="T_81e05_row4_col13" class="data row4 col13" >$-0.00040</td>
-      <td id="T_81e05_row4_col14" class="data row4 col14" >+0.00</td>
+      <th id="T_81e05_level0_row4" class="row_heading level0 row4">4</th>
+      <td id="T_81e05_row4_col0" class="data row4 col0">Round 4: split workflow</td>
+      <td id="T_81e05_row4_col1" class="data row4 col1">0.98</td>
+      <td id="T_81e05_row4_col2" class="data row4 col2">100%</td>
+      <td id="T_81e05_row4_col3" class="data row4 col3">2.6</td>
+      <td id="T_81e05_row4_col4" class="data row4 col4">0.0</td>
+      <td id="T_81e05_row4_col5" class="data row4 col5">2,412</td>
+      <td id="T_81e05_row4_col6" class="data row4 col6">2,974</td>
+      <td id="T_81e05_row4_col7" class="data row4 col7">1,779</td>
+      <td id="T_81e05_row4_col8" class="data row4 col8">1.41</td>
+      <td id="T_81e05_row4_col9" class="data row4 col9">$0.00204</td>
+      <td id="T_81e05_row4_col10" class="data row4 col10">-272</td>
+      <td id="T_81e05_row4_col11" class="data row4 col11">+290</td>
+      <td id="T_81e05_row4_col12" class="data row4 col12">-0.44</td>
+      <td id="T_81e05_row4_col13" class="data row4 col13">$-0.00040</td>
+      <td id="T_81e05_row4_col14" class="data row4 col14">+0.00</td>
     </tr>
   </tbody>
 </table>
@@ -1289,342 +1289,342 @@ display(
 <table id="T_3f362">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_3f362_level0_col0" class="col_heading level0 col0" >variant_label</th>
-      <th id="T_3f362_level0_col1" class="col_heading level0 col1" >ticket_id</th>
-      <th id="T_3f362_level0_col2" class="col_heading level0 col2" >intent</th>
-      <th id="T_3f362_level0_col3" class="col_heading level0 col3" >tools</th>
-      <th id="T_3f362_level0_col4" class="col_heading level0 col4" >action</th>
-      <th id="T_3f362_level0_col5" class="col_heading level0 col5" >extra_tool_calls</th>
-      <th id="T_3f362_level0_col6" class="col_heading level0 col6" >policy_compliant</th>
-      <th id="T_3f362_level0_col7" class="col_heading level0 col7" >concise</th>
-      <th id="T_3f362_level0_col8" class="col_heading level0 col8" >visible_output_tokens</th>
-      <th id="T_3f362_level0_col9" class="col_heading level0 col9" >total_tokens</th>
-      <th id="T_3f362_level0_col10" class="col_heading level0 col10" >latency_s</th>
-      <th id="T_3f362_level0_col11" class="col_heading level0 col11" >cost_usd</th>
-      <th id="T_3f362_level0_col12" class="col_heading level0 col12" >quality_score</th>
+      <th class="blank level0"> </th>
+      <th id="T_3f362_level0_col0" class="col_heading level0 col0">variant_label</th>
+      <th id="T_3f362_level0_col1" class="col_heading level0 col1">ticket_id</th>
+      <th id="T_3f362_level0_col2" class="col_heading level0 col2">intent</th>
+      <th id="T_3f362_level0_col3" class="col_heading level0 col3">tools</th>
+      <th id="T_3f362_level0_col4" class="col_heading level0 col4">action</th>
+      <th id="T_3f362_level0_col5" class="col_heading level0 col5">extra_tool_calls</th>
+      <th id="T_3f362_level0_col6" class="col_heading level0 col6">policy_compliant</th>
+      <th id="T_3f362_level0_col7" class="col_heading level0 col7">concise</th>
+      <th id="T_3f362_level0_col8" class="col_heading level0 col8">visible_output_tokens</th>
+      <th id="T_3f362_level0_col9" class="col_heading level0 col9">total_tokens</th>
+      <th id="T_3f362_level0_col10" class="col_heading level0 col10">latency_s</th>
+      <th id="T_3f362_level0_col11" class="col_heading level0 col11">cost_usd</th>
+      <th id="T_3f362_level0_col12" class="col_heading level0 col12">quality_score</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_3f362_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_3f362_row0_col0" class="data row0 col0" >Bad baseline</td>
-      <td id="T_3f362_row0_col1" class="data row0 col1" >T-001</td>
-      <td id="T_3f362_row0_col2" class="data row0 col2" >order_status</td>
-      <td id="T_3f362_row0_col3" class="data row0 col3" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_3f362_row0_col4" class="data row0 col4" >provide_status_eta</td>
-      <td id="T_3f362_row0_col5" class="data row0 col5" >4</td>
-      <td id="T_3f362_row0_col6" class="data row0 col6" >False</td>
-      <td id="T_3f362_row0_col7" class="data row0 col7" >False</td>
-      <td id="T_3f362_row0_col8" class="data row0 col8" >167</td>
-      <td id="T_3f362_row0_col9" class="data row0 col9" >12913</td>
-      <td id="T_3f362_row0_col10" class="data row0 col10" >4.88</td>
-      <td id="T_3f362_row0_col11" class="data row0 col11" >$0.03993</td>
-      <td id="T_3f362_row0_col12" class="data row0 col12" >0.55</td>
+      <th id="T_3f362_level0_row0" class="row_heading level0 row0">0</th>
+      <td id="T_3f362_row0_col0" class="data row0 col0">Bad baseline</td>
+      <td id="T_3f362_row0_col1" class="data row0 col1">T-001</td>
+      <td id="T_3f362_row0_col2" class="data row0 col2">order_status</td>
+      <td id="T_3f362_row0_col3" class="data row0 col3">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_3f362_row0_col4" class="data row0 col4">provide_status_eta</td>
+      <td id="T_3f362_row0_col5" class="data row0 col5">4</td>
+      <td id="T_3f362_row0_col6" class="data row0 col6">False</td>
+      <td id="T_3f362_row0_col7" class="data row0 col7">False</td>
+      <td id="T_3f362_row0_col8" class="data row0 col8">167</td>
+      <td id="T_3f362_row0_col9" class="data row0 col9">12913</td>
+      <td id="T_3f362_row0_col10" class="data row0 col10">4.88</td>
+      <td id="T_3f362_row0_col11" class="data row0 col11">$0.03993</td>
+      <td id="T_3f362_row0_col12" class="data row0 col12">0.55</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_3f362_row1_col0" class="data row1 col0" >Bad baseline</td>
-      <td id="T_3f362_row1_col1" class="data row1 col1" >T-002</td>
-      <td id="T_3f362_row1_col2" class="data row1 col2" >damaged_delivery</td>
-      <td id="T_3f362_row1_col3" class="data row1 col3" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_3f362_row1_col4" class="data row1 col4" >open_replacement_without_photo</td>
-      <td id="T_3f362_row1_col5" class="data row1 col5" >3</td>
-      <td id="T_3f362_row1_col6" class="data row1 col6" >False</td>
-      <td id="T_3f362_row1_col7" class="data row1 col7" >False</td>
-      <td id="T_3f362_row1_col8" class="data row1 col8" >174</td>
-      <td id="T_3f362_row1_col9" class="data row1 col9" >12917</td>
-      <td id="T_3f362_row1_col10" class="data row1 col10" >4.88</td>
-      <td id="T_3f362_row1_col11" class="data row1 col11" >$0.04034</td>
-      <td id="T_3f362_row1_col12" class="data row1 col12" >0.65</td>
+      <th id="T_3f362_level0_row1" class="row_heading level0 row1">1</th>
+      <td id="T_3f362_row1_col0" class="data row1 col0">Bad baseline</td>
+      <td id="T_3f362_row1_col1" class="data row1 col1">T-002</td>
+      <td id="T_3f362_row1_col2" class="data row1 col2">damaged_delivery</td>
+      <td id="T_3f362_row1_col3" class="data row1 col3">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_3f362_row1_col4" class="data row1 col4">open_replacement_without_photo</td>
+      <td id="T_3f362_row1_col5" class="data row1 col5">3</td>
+      <td id="T_3f362_row1_col6" class="data row1 col6">False</td>
+      <td id="T_3f362_row1_col7" class="data row1 col7">False</td>
+      <td id="T_3f362_row1_col8" class="data row1 col8">174</td>
+      <td id="T_3f362_row1_col9" class="data row1 col9">12917</td>
+      <td id="T_3f362_row1_col10" class="data row1 col10">4.88</td>
+      <td id="T_3f362_row1_col11" class="data row1 col11">$0.04034</td>
+      <td id="T_3f362_row1_col12" class="data row1 col12">0.65</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_3f362_row2_col0" class="data row2 col0" >Bad baseline</td>
-      <td id="T_3f362_row2_col1" class="data row2 col1" >T-003</td>
-      <td id="T_3f362_row2_col2" class="data row2 col2" >refund_eligibility</td>
-      <td id="T_3f362_row2_col3" class="data row2 col3" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_3f362_row2_col4" class="data row2 col4" >escalate_refund_review</td>
-      <td id="T_3f362_row2_col5" class="data row2 col5" >2</td>
-      <td id="T_3f362_row2_col6" class="data row2 col6" >False</td>
-      <td id="T_3f362_row2_col7" class="data row2 col7" >False</td>
-      <td id="T_3f362_row2_col8" class="data row2 col8" >170</td>
-      <td id="T_3f362_row2_col9" class="data row2 col9" >12818</td>
-      <td id="T_3f362_row2_col10" class="data row2 col10" >4.87</td>
-      <td id="T_3f362_row2_col11" class="data row2 col11" >$0.04004</td>
-      <td id="T_3f362_row2_col12" class="data row2 col12" >0.22</td>
+      <th id="T_3f362_level0_row2" class="row_heading level0 row2">2</th>
+      <td id="T_3f362_row2_col0" class="data row2 col0">Bad baseline</td>
+      <td id="T_3f362_row2_col1" class="data row2 col1">T-003</td>
+      <td id="T_3f362_row2_col2" class="data row2 col2">refund_eligibility</td>
+      <td id="T_3f362_row2_col3" class="data row2 col3">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_3f362_row2_col4" class="data row2 col4">escalate_refund_review</td>
+      <td id="T_3f362_row2_col5" class="data row2 col5">2</td>
+      <td id="T_3f362_row2_col6" class="data row2 col6">False</td>
+      <td id="T_3f362_row2_col7" class="data row2 col7">False</td>
+      <td id="T_3f362_row2_col8" class="data row2 col8">170</td>
+      <td id="T_3f362_row2_col9" class="data row2 col9">12818</td>
+      <td id="T_3f362_row2_col10" class="data row2 col10">4.87</td>
+      <td id="T_3f362_row2_col11" class="data row2 col11">$0.04004</td>
+      <td id="T_3f362_row2_col12" class="data row2 col12">0.22</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_3f362_row3_col0" class="data row3 col0" >Bad baseline</td>
-      <td id="T_3f362_row3_col1" class="data row3 col1" >T-004</td>
-      <td id="T_3f362_row3_col2" class="data row3 col2" >billing_issue</td>
-      <td id="T_3f362_row3_col3" class="data row3 col3" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_3f362_row3_col4" class="data row3 col4" >escalate_billing_review</td>
-      <td id="T_3f362_row3_col5" class="data row3 col5" >2</td>
-      <td id="T_3f362_row3_col6" class="data row3 col6" >True</td>
-      <td id="T_3f362_row3_col7" class="data row3 col7" >False</td>
-      <td id="T_3f362_row3_col8" class="data row3 col8" >169</td>
-      <td id="T_3f362_row3_col9" class="data row3 col9" >12830</td>
-      <td id="T_3f362_row3_col10" class="data row3 col10" >4.87</td>
-      <td id="T_3f362_row3_col11" class="data row3 col11" >$0.04038</td>
-      <td id="T_3f362_row3_col12" class="data row3 col12" >0.85</td>
+      <th id="T_3f362_level0_row3" class="row_heading level0 row3">3</th>
+      <td id="T_3f362_row3_col0" class="data row3 col0">Bad baseline</td>
+      <td id="T_3f362_row3_col1" class="data row3 col1">T-004</td>
+      <td id="T_3f362_row3_col2" class="data row3 col2">billing_issue</td>
+      <td id="T_3f362_row3_col3" class="data row3 col3">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_3f362_row3_col4" class="data row3 col4">escalate_billing_review</td>
+      <td id="T_3f362_row3_col5" class="data row3 col5">2</td>
+      <td id="T_3f362_row3_col6" class="data row3 col6">True</td>
+      <td id="T_3f362_row3_col7" class="data row3 col7">False</td>
+      <td id="T_3f362_row3_col8" class="data row3 col8">169</td>
+      <td id="T_3f362_row3_col9" class="data row3 col9">12830</td>
+      <td id="T_3f362_row3_col10" class="data row3 col10">4.87</td>
+      <td id="T_3f362_row3_col11" class="data row3 col11">$0.04038</td>
+      <td id="T_3f362_row3_col12" class="data row3 col12">0.85</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_3f362_row4_col0" class="data row4 col0" >Bad baseline</td>
-      <td id="T_3f362_row4_col1" class="data row4 col1" >T-005</td>
-      <td id="T_3f362_row4_col2" class="data row4 col2" >account_access</td>
-      <td id="T_3f362_row4_col3" class="data row4 col3" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_3f362_row4_col4" class="data row4 col4" >escalate_account_security</td>
-      <td id="T_3f362_row4_col5" class="data row4 col5" >2</td>
-      <td id="T_3f362_row4_col6" class="data row4 col6" >False</td>
-      <td id="T_3f362_row4_col7" class="data row4 col7" >False</td>
-      <td id="T_3f362_row4_col8" class="data row4 col8" >172</td>
-      <td id="T_3f362_row4_col9" class="data row4 col9" >8112</td>
-      <td id="T_3f362_row4_col10" class="data row4 col10" >3.97</td>
-      <td id="T_3f362_row4_col11" class="data row4 col11" >$0.02899</td>
-      <td id="T_3f362_row4_col12" class="data row4 col12" >0.60</td>
+      <th id="T_3f362_level0_row4" class="row_heading level0 row4">4</th>
+      <td id="T_3f362_row4_col0" class="data row4 col0">Bad baseline</td>
+      <td id="T_3f362_row4_col1" class="data row4 col1">T-005</td>
+      <td id="T_3f362_row4_col2" class="data row4 col2">account_access</td>
+      <td id="T_3f362_row4_col3" class="data row4 col3">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_3f362_row4_col4" class="data row4 col4">escalate_account_security</td>
+      <td id="T_3f362_row4_col5" class="data row4 col5">2</td>
+      <td id="T_3f362_row4_col6" class="data row4 col6">False</td>
+      <td id="T_3f362_row4_col7" class="data row4 col7">False</td>
+      <td id="T_3f362_row4_col8" class="data row4 col8">172</td>
+      <td id="T_3f362_row4_col9" class="data row4 col9">8112</td>
+      <td id="T_3f362_row4_col10" class="data row4 col10">3.97</td>
+      <td id="T_3f362_row4_col11" class="data row4 col11">$0.02899</td>
+      <td id="T_3f362_row4_col12" class="data row4 col12">0.60</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_3f362_row5_col0" class="data row5 col0" >Bad baseline</td>
-      <td id="T_3f362_row5_col1" class="data row5 col1" >T-006</td>
-      <td id="T_3f362_row5_col2" class="data row5 col2" >refund_dispute</td>
-      <td id="T_3f362_row5_col3" class="data row5 col3" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_3f362_row5_col4" class="data row5 col4" >escalate_refund_review</td>
-      <td id="T_3f362_row5_col5" class="data row5 col5" >2</td>
-      <td id="T_3f362_row5_col6" class="data row5 col6" >False</td>
-      <td id="T_3f362_row5_col7" class="data row5 col7" >False</td>
-      <td id="T_3f362_row5_col8" class="data row5 col8" >168</td>
-      <td id="T_3f362_row5_col9" class="data row5 col9" >12869</td>
-      <td id="T_3f362_row5_col10" class="data row5 col10" >4.88</td>
-      <td id="T_3f362_row5_col11" class="data row5 col11" >$0.04077</td>
-      <td id="T_3f362_row5_col12" class="data row5 col12" >0.60</td>
+      <th id="T_3f362_level0_row5" class="row_heading level0 row5">5</th>
+      <td id="T_3f362_row5_col0" class="data row5 col0">Bad baseline</td>
+      <td id="T_3f362_row5_col1" class="data row5 col1">T-006</td>
+      <td id="T_3f362_row5_col2" class="data row5 col2">refund_dispute</td>
+      <td id="T_3f362_row5_col3" class="data row5 col3">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_3f362_row5_col4" class="data row5 col4">escalate_refund_review</td>
+      <td id="T_3f362_row5_col5" class="data row5 col5">2</td>
+      <td id="T_3f362_row5_col6" class="data row5 col6">False</td>
+      <td id="T_3f362_row5_col7" class="data row5 col7">False</td>
+      <td id="T_3f362_row5_col8" class="data row5 col8">168</td>
+      <td id="T_3f362_row5_col9" class="data row5 col9">12869</td>
+      <td id="T_3f362_row5_col10" class="data row5 col10">4.88</td>
+      <td id="T_3f362_row5_col11" class="data row5 col11">$0.04077</td>
+      <td id="T_3f362_row5_col12" class="data row5 col12">0.60</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row6" class="row_heading level0 row6" >6</th>
-      <td id="T_3f362_row6_col0" class="data row6 col0" >Bad baseline</td>
-      <td id="T_3f362_row6_col1" class="data row6 col1" >T-007</td>
-      <td id="T_3f362_row6_col2" class="data row6 col2" >delivered_not_received</td>
-      <td id="T_3f362_row6_col3" class="data row6 col3" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_3f362_row6_col4" class="data row6 col4" >start_delivery_trace_steps</td>
-      <td id="T_3f362_row6_col5" class="data row6 col5" >3</td>
-      <td id="T_3f362_row6_col6" class="data row6 col6" >False</td>
-      <td id="T_3f362_row6_col7" class="data row6 col7" >False</td>
-      <td id="T_3f362_row6_col8" class="data row6 col8" >172</td>
-      <td id="T_3f362_row6_col9" class="data row6 col9" >12862</td>
-      <td id="T_3f362_row6_col10" class="data row6 col10" >4.87</td>
-      <td id="T_3f362_row6_col11" class="data row6 col11" >$0.04018</td>
-      <td id="T_3f362_row6_col12" class="data row6 col12" >0.57</td>
+      <th id="T_3f362_level0_row6" class="row_heading level0 row6">6</th>
+      <td id="T_3f362_row6_col0" class="data row6 col0">Bad baseline</td>
+      <td id="T_3f362_row6_col1" class="data row6 col1">T-007</td>
+      <td id="T_3f362_row6_col2" class="data row6 col2">delivered_not_received</td>
+      <td id="T_3f362_row6_col3" class="data row6 col3">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_3f362_row6_col4" class="data row6 col4">start_delivery_trace_steps</td>
+      <td id="T_3f362_row6_col5" class="data row6 col5">3</td>
+      <td id="T_3f362_row6_col6" class="data row6 col6">False</td>
+      <td id="T_3f362_row6_col7" class="data row6 col7">False</td>
+      <td id="T_3f362_row6_col8" class="data row6 col8">172</td>
+      <td id="T_3f362_row6_col9" class="data row6 col9">12862</td>
+      <td id="T_3f362_row6_col10" class="data row6 col10">4.87</td>
+      <td id="T_3f362_row6_col11" class="data row6 col11">$0.04018</td>
+      <td id="T_3f362_row6_col12" class="data row6 col12">0.57</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row7" class="row_heading level0 row7" >7</th>
-      <td id="T_3f362_row7_col0" class="data row7 col0" >Bad baseline</td>
-      <td id="T_3f362_row7_col1" class="data row7 col1" >T-008</td>
-      <td id="T_3f362_row7_col2" class="data row7 col2" >high_value_damage</td>
-      <td id="T_3f362_row7_col3" class="data row7 col3" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_3f362_row7_col4" class="data row7 col4" >promise_refund_high_value_damage</td>
-      <td id="T_3f362_row7_col5" class="data row7 col5" >2</td>
-      <td id="T_3f362_row7_col6" class="data row7 col6" >False</td>
-      <td id="T_3f362_row7_col7" class="data row7 col7" >False</td>
-      <td id="T_3f362_row7_col8" class="data row7 col8" >174</td>
-      <td id="T_3f362_row7_col9" class="data row7 col9" >12997</td>
-      <td id="T_3f362_row7_col10" class="data row7 col10" >4.91</td>
-      <td id="T_3f362_row7_col11" class="data row7 col11" >$0.04136</td>
-      <td id="T_3f362_row7_col12" class="data row7 col12" >0.22</td>
+      <th id="T_3f362_level0_row7" class="row_heading level0 row7">7</th>
+      <td id="T_3f362_row7_col0" class="data row7 col0">Bad baseline</td>
+      <td id="T_3f362_row7_col1" class="data row7 col1">T-008</td>
+      <td id="T_3f362_row7_col2" class="data row7 col2">high_value_damage</td>
+      <td id="T_3f362_row7_col3" class="data row7 col3">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_3f362_row7_col4" class="data row7 col4">promise_refund_high_value_damage</td>
+      <td id="T_3f362_row7_col5" class="data row7 col5">2</td>
+      <td id="T_3f362_row7_col6" class="data row7 col6">False</td>
+      <td id="T_3f362_row7_col7" class="data row7 col7">False</td>
+      <td id="T_3f362_row7_col8" class="data row7 col8">174</td>
+      <td id="T_3f362_row7_col9" class="data row7 col9">12997</td>
+      <td id="T_3f362_row7_col10" class="data row7 col10">4.91</td>
+      <td id="T_3f362_row7_col11" class="data row7 col11">$0.04136</td>
+      <td id="T_3f362_row7_col12" class="data row7 col12">0.22</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row8" class="row_heading level0 row8" >8</th>
-      <td id="T_3f362_row8_col0" class="data row8 col0" >Bad baseline</td>
-      <td id="T_3f362_row8_col1" class="data row8 col1" >T-009</td>
-      <td id="T_3f362_row8_col2" class="data row8 col2" >refund_eligibility</td>
-      <td id="T_3f362_row8_col3" class="data row8 col3" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_3f362_row8_col4" class="data row8 col4" >escalate_refund_review</td>
-      <td id="T_3f362_row8_col5" class="data row8 col5" >2</td>
-      <td id="T_3f362_row8_col6" class="data row8 col6" >False</td>
-      <td id="T_3f362_row8_col7" class="data row8 col7" >False</td>
-      <td id="T_3f362_row8_col8" class="data row8 col8" >169</td>
-      <td id="T_3f362_row8_col9" class="data row8 col9" >12921</td>
-      <td id="T_3f362_row8_col10" class="data row8 col10" >4.88</td>
-      <td id="T_3f362_row8_col11" class="data row8 col11" >$0.04029</td>
-      <td id="T_3f362_row8_col12" class="data row8 col12" >0.22</td>
+      <th id="T_3f362_level0_row8" class="row_heading level0 row8">8</th>
+      <td id="T_3f362_row8_col0" class="data row8 col0">Bad baseline</td>
+      <td id="T_3f362_row8_col1" class="data row8 col1">T-009</td>
+      <td id="T_3f362_row8_col2" class="data row8 col2">refund_eligibility</td>
+      <td id="T_3f362_row8_col3" class="data row8 col3">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_3f362_row8_col4" class="data row8 col4">escalate_refund_review</td>
+      <td id="T_3f362_row8_col5" class="data row8 col5">2</td>
+      <td id="T_3f362_row8_col6" class="data row8 col6">False</td>
+      <td id="T_3f362_row8_col7" class="data row8 col7">False</td>
+      <td id="T_3f362_row8_col8" class="data row8 col8">169</td>
+      <td id="T_3f362_row8_col9" class="data row8 col9">12921</td>
+      <td id="T_3f362_row8_col10" class="data row8 col10">4.88</td>
+      <td id="T_3f362_row8_col11" class="data row8 col11">$0.04029</td>
+      <td id="T_3f362_row8_col12" class="data row8 col12">0.22</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row9" class="row_heading level0 row9" >9</th>
-      <td id="T_3f362_row9_col0" class="data row9 col0" >Bad baseline</td>
-      <td id="T_3f362_row9_col1" class="data row9 col1" >T-010</td>
-      <td id="T_3f362_row9_col2" class="data row9 col2" >account_access</td>
-      <td id="T_3f362_row9_col3" class="data row9 col3" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_3f362_row9_col4" class="data row9 col4" >escalate_account_security</td>
-      <td id="T_3f362_row9_col5" class="data row9 col5" >2</td>
-      <td id="T_3f362_row9_col6" class="data row9 col6" >False</td>
-      <td id="T_3f362_row9_col7" class="data row9 col7" >False</td>
-      <td id="T_3f362_row9_col8" class="data row9 col8" >172</td>
-      <td id="T_3f362_row9_col9" class="data row9 col9" >8115</td>
-      <td id="T_3f362_row9_col10" class="data row9 col10" >3.97</td>
-      <td id="T_3f362_row9_col11" class="data row9 col11" >$0.02900</td>
-      <td id="T_3f362_row9_col12" class="data row9 col12" >0.60</td>
+      <th id="T_3f362_level0_row9" class="row_heading level0 row9">9</th>
+      <td id="T_3f362_row9_col0" class="data row9 col0">Bad baseline</td>
+      <td id="T_3f362_row9_col1" class="data row9 col1">T-010</td>
+      <td id="T_3f362_row9_col2" class="data row9 col2">account_access</td>
+      <td id="T_3f362_row9_col3" class="data row9 col3">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_3f362_row9_col4" class="data row9 col4">escalate_account_security</td>
+      <td id="T_3f362_row9_col5" class="data row9 col5">2</td>
+      <td id="T_3f362_row9_col6" class="data row9 col6">False</td>
+      <td id="T_3f362_row9_col7" class="data row9 col7">False</td>
+      <td id="T_3f362_row9_col8" class="data row9 col8">172</td>
+      <td id="T_3f362_row9_col9" class="data row9 col9">8115</td>
+      <td id="T_3f362_row9_col10" class="data row9 col10">3.97</td>
+      <td id="T_3f362_row9_col11" class="data row9 col11">$0.02900</td>
+      <td id="T_3f362_row9_col12" class="data row9 col12">0.60</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row10" class="row_heading level0 row10" >10</th>
-      <td id="T_3f362_row10_col0" class="data row10 col0" >Round 1: controls</td>
-      <td id="T_3f362_row10_col1" class="data row10 col1" >T-001</td>
-      <td id="T_3f362_row10_col2" class="data row10 col2" >order_status</td>
-      <td id="T_3f362_row10_col3" class="data row10 col3" >lookup_order</td>
-      <td id="T_3f362_row10_col4" class="data row10 col4" >provide_status_eta</td>
-      <td id="T_3f362_row10_col5" class="data row10 col5" >0</td>
-      <td id="T_3f362_row10_col6" class="data row10 col6" >True</td>
-      <td id="T_3f362_row10_col7" class="data row10 col7" >True</td>
-      <td id="T_3f362_row10_col8" class="data row10 col8" >42</td>
-      <td id="T_3f362_row10_col9" class="data row10 col9" >1252</td>
-      <td id="T_3f362_row10_col10" class="data row10 col10" >2.00</td>
-      <td id="T_3f362_row10_col11" class="data row10 col11" >$0.00418</td>
-      <td id="T_3f362_row10_col12" class="data row10 col12" >0.98</td>
+      <th id="T_3f362_level0_row10" class="row_heading level0 row10">10</th>
+      <td id="T_3f362_row10_col0" class="data row10 col0">Round 1: controls</td>
+      <td id="T_3f362_row10_col1" class="data row10 col1">T-001</td>
+      <td id="T_3f362_row10_col2" class="data row10 col2">order_status</td>
+      <td id="T_3f362_row10_col3" class="data row10 col3">lookup_order</td>
+      <td id="T_3f362_row10_col4" class="data row10 col4">provide_status_eta</td>
+      <td id="T_3f362_row10_col5" class="data row10 col5">0</td>
+      <td id="T_3f362_row10_col6" class="data row10 col6">True</td>
+      <td id="T_3f362_row10_col7" class="data row10 col7">True</td>
+      <td id="T_3f362_row10_col8" class="data row10 col8">42</td>
+      <td id="T_3f362_row10_col9" class="data row10 col9">1252</td>
+      <td id="T_3f362_row10_col10" class="data row10 col10">2.00</td>
+      <td id="T_3f362_row10_col11" class="data row10 col11">$0.00418</td>
+      <td id="T_3f362_row10_col12" class="data row10 col12">0.98</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row11" class="row_heading level0 row11" >11</th>
-      <td id="T_3f362_row11_col0" class="data row11 col0" >Round 1: controls</td>
-      <td id="T_3f362_row11_col1" class="data row11 col1" >T-002</td>
-      <td id="T_3f362_row11_col2" class="data row11 col2" >damaged_delivery</td>
-      <td id="T_3f362_row11_col3" class="data row11 col3" >lookup_order, lookup_policy</td>
-      <td id="T_3f362_row11_col4" class="data row11 col4" >request_photo_then_offer_replacement</td>
-      <td id="T_3f362_row11_col5" class="data row11 col5" >0</td>
-      <td id="T_3f362_row11_col6" class="data row11 col6" >True</td>
-      <td id="T_3f362_row11_col7" class="data row11 col7" >True</td>
-      <td id="T_3f362_row11_col8" class="data row11 col8" >45</td>
-      <td id="T_3f362_row11_col9" class="data row11 col9" >1354</td>
-      <td id="T_3f362_row11_col10" class="data row11 col10" >2.17</td>
-      <td id="T_3f362_row11_col11" class="data row11 col11" >$0.00482</td>
-      <td id="T_3f362_row11_col12" class="data row11 col12" >0.98</td>
+      <th id="T_3f362_level0_row11" class="row_heading level0 row11">11</th>
+      <td id="T_3f362_row11_col0" class="data row11 col0">Round 1: controls</td>
+      <td id="T_3f362_row11_col1" class="data row11 col1">T-002</td>
+      <td id="T_3f362_row11_col2" class="data row11 col2">damaged_delivery</td>
+      <td id="T_3f362_row11_col3" class="data row11 col3">lookup_order, lookup_policy</td>
+      <td id="T_3f362_row11_col4" class="data row11 col4">request_photo_then_offer_replacement</td>
+      <td id="T_3f362_row11_col5" class="data row11 col5">0</td>
+      <td id="T_3f362_row11_col6" class="data row11 col6">True</td>
+      <td id="T_3f362_row11_col7" class="data row11 col7">True</td>
+      <td id="T_3f362_row11_col8" class="data row11 col8">45</td>
+      <td id="T_3f362_row11_col9" class="data row11 col9">1354</td>
+      <td id="T_3f362_row11_col10" class="data row11 col10">2.17</td>
+      <td id="T_3f362_row11_col11" class="data row11 col11">$0.00482</td>
+      <td id="T_3f362_row11_col12" class="data row11 col12">0.98</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row12" class="row_heading level0 row12" >12</th>
-      <td id="T_3f362_row12_col0" class="data row12 col0" >Round 1: controls</td>
-      <td id="T_3f362_row12_col1" class="data row12 col1" >T-003</td>
-      <td id="T_3f362_row12_col2" class="data row12 col2" >refund_eligibility</td>
-      <td id="T_3f362_row12_col3" class="data row12 col3" >lookup_order, lookup_policy, create_refund_case</td>
-      <td id="T_3f362_row12_col4" class="data row12 col4" >open_refund_case</td>
-      <td id="T_3f362_row12_col5" class="data row12 col5" >0</td>
-      <td id="T_3f362_row12_col6" class="data row12 col6" >True</td>
-      <td id="T_3f362_row12_col7" class="data row12 col7" >True</td>
-      <td id="T_3f362_row12_col8" class="data row12 col8" >51</td>
-      <td id="T_3f362_row12_col9" class="data row12 col9" >1393</td>
-      <td id="T_3f362_row12_col10" class="data row12 col10" >2.32</td>
-      <td id="T_3f362_row12_col11" class="data row12 col11" >$0.00512</td>
-      <td id="T_3f362_row12_col12" class="data row12 col12" >0.98</td>
+      <th id="T_3f362_level0_row12" class="row_heading level0 row12">12</th>
+      <td id="T_3f362_row12_col0" class="data row12 col0">Round 1: controls</td>
+      <td id="T_3f362_row12_col1" class="data row12 col1">T-003</td>
+      <td id="T_3f362_row12_col2" class="data row12 col2">refund_eligibility</td>
+      <td id="T_3f362_row12_col3" class="data row12 col3">lookup_order, lookup_policy, create_refund_case</td>
+      <td id="T_3f362_row12_col4" class="data row12 col4">open_refund_case</td>
+      <td id="T_3f362_row12_col5" class="data row12 col5">0</td>
+      <td id="T_3f362_row12_col6" class="data row12 col6">True</td>
+      <td id="T_3f362_row12_col7" class="data row12 col7">True</td>
+      <td id="T_3f362_row12_col8" class="data row12 col8">51</td>
+      <td id="T_3f362_row12_col9" class="data row12 col9">1393</td>
+      <td id="T_3f362_row12_col10" class="data row12 col10">2.32</td>
+      <td id="T_3f362_row12_col11" class="data row12 col11">$0.00512</td>
+      <td id="T_3f362_row12_col12" class="data row12 col12">0.98</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row13" class="row_heading level0 row13" >13</th>
-      <td id="T_3f362_row13_col0" class="data row13 col0" >Round 1: controls</td>
-      <td id="T_3f362_row13_col1" class="data row13 col1" >T-004</td>
-      <td id="T_3f362_row13_col2" class="data row13 col2" >billing_issue</td>
-      <td id="T_3f362_row13_col3" class="data row13 col3" >lookup_order, lookup_policy, escalate_to_human</td>
-      <td id="T_3f362_row13_col4" class="data row13 col4" >escalate_billing_review</td>
-      <td id="T_3f362_row13_col5" class="data row13 col5" >0</td>
-      <td id="T_3f362_row13_col6" class="data row13 col6" >True</td>
-      <td id="T_3f362_row13_col7" class="data row13 col7" >True</td>
-      <td id="T_3f362_row13_col8" class="data row13 col8" >35</td>
-      <td id="T_3f362_row13_col9" class="data row13 col9" >1383</td>
-      <td id="T_3f362_row13_col10" class="data row13 col10" >2.31</td>
-      <td id="T_3f362_row13_col11" class="data row13 col11" >$0.00512</td>
-      <td id="T_3f362_row13_col12" class="data row13 col12" >0.98</td>
+      <th id="T_3f362_level0_row13" class="row_heading level0 row13">13</th>
+      <td id="T_3f362_row13_col0" class="data row13 col0">Round 1: controls</td>
+      <td id="T_3f362_row13_col1" class="data row13 col1">T-004</td>
+      <td id="T_3f362_row13_col2" class="data row13 col2">billing_issue</td>
+      <td id="T_3f362_row13_col3" class="data row13 col3">lookup_order, lookup_policy, escalate_to_human</td>
+      <td id="T_3f362_row13_col4" class="data row13 col4">escalate_billing_review</td>
+      <td id="T_3f362_row13_col5" class="data row13 col5">0</td>
+      <td id="T_3f362_row13_col6" class="data row13 col6">True</td>
+      <td id="T_3f362_row13_col7" class="data row13 col7">True</td>
+      <td id="T_3f362_row13_col8" class="data row13 col8">35</td>
+      <td id="T_3f362_row13_col9" class="data row13 col9">1383</td>
+      <td id="T_3f362_row13_col10" class="data row13 col10">2.31</td>
+      <td id="T_3f362_row13_col11" class="data row13 col11">$0.00512</td>
+      <td id="T_3f362_row13_col12" class="data row13 col12">0.98</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row14" class="row_heading level0 row14" >14</th>
-      <td id="T_3f362_row14_col0" class="data row14 col0" >Round 1: controls</td>
-      <td id="T_3f362_row14_col1" class="data row14 col1" >T-005</td>
-      <td id="T_3f362_row14_col2" class="data row14 col2" >account_access</td>
-      <td id="T_3f362_row14_col3" class="data row14 col3" >lookup_customer, lookup_policy, escalate_to_human</td>
-      <td id="T_3f362_row14_col4" class="data row14 col4" >escalate_account_security</td>
-      <td id="T_3f362_row14_col5" class="data row14 col5" >0</td>
-      <td id="T_3f362_row14_col6" class="data row14 col6" >True</td>
-      <td id="T_3f362_row14_col7" class="data row14 col7" >True</td>
-      <td id="T_3f362_row14_col8" class="data row14 col8" >39</td>
-      <td id="T_3f362_row14_col9" class="data row14 col9" >1378</td>
-      <td id="T_3f362_row14_col10" class="data row14 col10" >2.32</td>
-      <td id="T_3f362_row14_col11" class="data row14 col11" >$0.00543</td>
-      <td id="T_3f362_row14_col12" class="data row14 col12" >0.99</td>
+      <th id="T_3f362_level0_row14" class="row_heading level0 row14">14</th>
+      <td id="T_3f362_row14_col0" class="data row14 col0">Round 1: controls</td>
+      <td id="T_3f362_row14_col1" class="data row14 col1">T-005</td>
+      <td id="T_3f362_row14_col2" class="data row14 col2">account_access</td>
+      <td id="T_3f362_row14_col3" class="data row14 col3">lookup_customer, lookup_policy, escalate_to_human</td>
+      <td id="T_3f362_row14_col4" class="data row14 col4">escalate_account_security</td>
+      <td id="T_3f362_row14_col5" class="data row14 col5">0</td>
+      <td id="T_3f362_row14_col6" class="data row14 col6">True</td>
+      <td id="T_3f362_row14_col7" class="data row14 col7">True</td>
+      <td id="T_3f362_row14_col8" class="data row14 col8">39</td>
+      <td id="T_3f362_row14_col9" class="data row14 col9">1378</td>
+      <td id="T_3f362_row14_col10" class="data row14 col10">2.32</td>
+      <td id="T_3f362_row14_col11" class="data row14 col11">$0.00543</td>
+      <td id="T_3f362_row14_col12" class="data row14 col12">0.99</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row15" class="row_heading level0 row15" >15</th>
-      <td id="T_3f362_row15_col0" class="data row15 col0" >Round 1: controls</td>
-      <td id="T_3f362_row15_col1" class="data row15 col1" >T-006</td>
-      <td id="T_3f362_row15_col2" class="data row15 col2" >refund_dispute</td>
-      <td id="T_3f362_row15_col3" class="data row15 col3" >lookup_order, lookup_policy, escalate_to_human</td>
-      <td id="T_3f362_row15_col4" class="data row15 col4" >escalate_refund_review</td>
-      <td id="T_3f362_row15_col5" class="data row15 col5" >0</td>
-      <td id="T_3f362_row15_col6" class="data row15 col6" >True</td>
-      <td id="T_3f362_row15_col7" class="data row15 col7" >True</td>
-      <td id="T_3f362_row15_col8" class="data row15 col8" >36</td>
-      <td id="T_3f362_row15_col9" class="data row15 col9" >1418</td>
-      <td id="T_3f362_row15_col10" class="data row15 col10" >2.32</td>
-      <td id="T_3f362_row15_col11" class="data row15 col11" >$0.00545</td>
-      <td id="T_3f362_row15_col12" class="data row15 col12" >0.99</td>
+      <th id="T_3f362_level0_row15" class="row_heading level0 row15">15</th>
+      <td id="T_3f362_row15_col0" class="data row15 col0">Round 1: controls</td>
+      <td id="T_3f362_row15_col1" class="data row15 col1">T-006</td>
+      <td id="T_3f362_row15_col2" class="data row15 col2">refund_dispute</td>
+      <td id="T_3f362_row15_col3" class="data row15 col3">lookup_order, lookup_policy, escalate_to_human</td>
+      <td id="T_3f362_row15_col4" class="data row15 col4">escalate_refund_review</td>
+      <td id="T_3f362_row15_col5" class="data row15 col5">0</td>
+      <td id="T_3f362_row15_col6" class="data row15 col6">True</td>
+      <td id="T_3f362_row15_col7" class="data row15 col7">True</td>
+      <td id="T_3f362_row15_col8" class="data row15 col8">36</td>
+      <td id="T_3f362_row15_col9" class="data row15 col9">1418</td>
+      <td id="T_3f362_row15_col10" class="data row15 col10">2.32</td>
+      <td id="T_3f362_row15_col11" class="data row15 col11">$0.00545</td>
+      <td id="T_3f362_row15_col12" class="data row15 col12">0.99</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row16" class="row_heading level0 row16" >16</th>
-      <td id="T_3f362_row16_col0" class="data row16 col0" >Round 1: controls</td>
-      <td id="T_3f362_row16_col1" class="data row16 col1" >T-007</td>
-      <td id="T_3f362_row16_col2" class="data row16 col2" >delivered_not_received</td>
-      <td id="T_3f362_row16_col3" class="data row16 col3" >lookup_order, lookup_policy</td>
-      <td id="T_3f362_row16_col4" class="data row16 col4" >start_delivery_trace_steps</td>
-      <td id="T_3f362_row16_col5" class="data row16 col5" >0</td>
-      <td id="T_3f362_row16_col6" class="data row16 col6" >True</td>
-      <td id="T_3f362_row16_col7" class="data row16 col7" >True</td>
-      <td id="T_3f362_row16_col8" class="data row16 col8" >41</td>
-      <td id="T_3f362_row16_col9" class="data row16 col9" >1390</td>
-      <td id="T_3f362_row16_col10" class="data row16 col10" >2.17</td>
-      <td id="T_3f362_row16_col11" class="data row16 col11" >$0.00486</td>
-      <td id="T_3f362_row16_col12" class="data row16 col12" >0.98</td>
+      <th id="T_3f362_level0_row16" class="row_heading level0 row16">16</th>
+      <td id="T_3f362_row16_col0" class="data row16 col0">Round 1: controls</td>
+      <td id="T_3f362_row16_col1" class="data row16 col1">T-007</td>
+      <td id="T_3f362_row16_col2" class="data row16 col2">delivered_not_received</td>
+      <td id="T_3f362_row16_col3" class="data row16 col3">lookup_order, lookup_policy</td>
+      <td id="T_3f362_row16_col4" class="data row16 col4">start_delivery_trace_steps</td>
+      <td id="T_3f362_row16_col5" class="data row16 col5">0</td>
+      <td id="T_3f362_row16_col6" class="data row16 col6">True</td>
+      <td id="T_3f362_row16_col7" class="data row16 col7">True</td>
+      <td id="T_3f362_row16_col8" class="data row16 col8">41</td>
+      <td id="T_3f362_row16_col9" class="data row16 col9">1390</td>
+      <td id="T_3f362_row16_col10" class="data row16 col10">2.17</td>
+      <td id="T_3f362_row16_col11" class="data row16 col11">$0.00486</td>
+      <td id="T_3f362_row16_col12" class="data row16 col12">0.98</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row17" class="row_heading level0 row17" >17</th>
-      <td id="T_3f362_row17_col0" class="data row17 col0" >Round 1: controls</td>
-      <td id="T_3f362_row17_col1" class="data row17 col1" >T-008</td>
-      <td id="T_3f362_row17_col2" class="data row17 col2" >high_value_damage</td>
-      <td id="T_3f362_row17_col3" class="data row17 col3" >lookup_order, lookup_policy, escalate_to_human</td>
-      <td id="T_3f362_row17_col4" class="data row17 col4" >escalate_high_value_damage</td>
-      <td id="T_3f362_row17_col5" class="data row17 col5" >0</td>
-      <td id="T_3f362_row17_col6" class="data row17 col6" >True</td>
-      <td id="T_3f362_row17_col7" class="data row17 col7" >True</td>
-      <td id="T_3f362_row17_col8" class="data row17 col8" >38</td>
-      <td id="T_3f362_row17_col9" class="data row17 col9" >1445</td>
-      <td id="T_3f362_row17_col10" class="data row17 col10" >2.33</td>
-      <td id="T_3f362_row17_col11" class="data row17 col11" >$0.00568</td>
-      <td id="T_3f362_row17_col12" class="data row17 col12" >0.99</td>
+      <th id="T_3f362_level0_row17" class="row_heading level0 row17">17</th>
+      <td id="T_3f362_row17_col0" class="data row17 col0">Round 1: controls</td>
+      <td id="T_3f362_row17_col1" class="data row17 col1">T-008</td>
+      <td id="T_3f362_row17_col2" class="data row17 col2">high_value_damage</td>
+      <td id="T_3f362_row17_col3" class="data row17 col3">lookup_order, lookup_policy, escalate_to_human</td>
+      <td id="T_3f362_row17_col4" class="data row17 col4">escalate_high_value_damage</td>
+      <td id="T_3f362_row17_col5" class="data row17 col5">0</td>
+      <td id="T_3f362_row17_col6" class="data row17 col6">True</td>
+      <td id="T_3f362_row17_col7" class="data row17 col7">True</td>
+      <td id="T_3f362_row17_col8" class="data row17 col8">38</td>
+      <td id="T_3f362_row17_col9" class="data row17 col9">1445</td>
+      <td id="T_3f362_row17_col10" class="data row17 col10">2.33</td>
+      <td id="T_3f362_row17_col11" class="data row17 col11">$0.00568</td>
+      <td id="T_3f362_row17_col12" class="data row17 col12">0.99</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row18" class="row_heading level0 row18" >18</th>
-      <td id="T_3f362_row18_col0" class="data row18 col0" >Round 1: controls</td>
-      <td id="T_3f362_row18_col1" class="data row18 col1" >T-009</td>
-      <td id="T_3f362_row18_col2" class="data row18 col2" >refund_eligibility</td>
-      <td id="T_3f362_row18_col3" class="data row18 col3" >lookup_order, lookup_policy, create_refund_case</td>
-      <td id="T_3f362_row18_col4" class="data row18 col4" >open_refund_case</td>
-      <td id="T_3f362_row18_col5" class="data row18 col5" >0</td>
-      <td id="T_3f362_row18_col6" class="data row18 col6" >True</td>
-      <td id="T_3f362_row18_col7" class="data row18 col7" >True</td>
-      <td id="T_3f362_row18_col8" class="data row18 col8" >51</td>
-      <td id="T_3f362_row18_col9" class="data row18 col9" >1397</td>
-      <td id="T_3f362_row18_col10" class="data row18 col10" >2.32</td>
-      <td id="T_3f362_row18_col11" class="data row18 col11" >$0.00513</td>
-      <td id="T_3f362_row18_col12" class="data row18 col12" >0.98</td>
+      <th id="T_3f362_level0_row18" class="row_heading level0 row18">18</th>
+      <td id="T_3f362_row18_col0" class="data row18 col0">Round 1: controls</td>
+      <td id="T_3f362_row18_col1" class="data row18 col1">T-009</td>
+      <td id="T_3f362_row18_col2" class="data row18 col2">refund_eligibility</td>
+      <td id="T_3f362_row18_col3" class="data row18 col3">lookup_order, lookup_policy, create_refund_case</td>
+      <td id="T_3f362_row18_col4" class="data row18 col4">open_refund_case</td>
+      <td id="T_3f362_row18_col5" class="data row18 col5">0</td>
+      <td id="T_3f362_row18_col6" class="data row18 col6">True</td>
+      <td id="T_3f362_row18_col7" class="data row18 col7">True</td>
+      <td id="T_3f362_row18_col8" class="data row18 col8">51</td>
+      <td id="T_3f362_row18_col9" class="data row18 col9">1397</td>
+      <td id="T_3f362_row18_col10" class="data row18 col10">2.32</td>
+      <td id="T_3f362_row18_col11" class="data row18 col11">$0.00513</td>
+      <td id="T_3f362_row18_col12" class="data row18 col12">0.98</td>
     </tr>
     <tr>
-      <th id="T_3f362_level0_row19" class="row_heading level0 row19" >19</th>
-      <td id="T_3f362_row19_col0" class="data row19 col0" >Round 1: controls</td>
-      <td id="T_3f362_row19_col1" class="data row19 col1" >T-010</td>
-      <td id="T_3f362_row19_col2" class="data row19 col2" >account_access</td>
-      <td id="T_3f362_row19_col3" class="data row19 col3" >lookup_customer, lookup_policy, escalate_to_human</td>
-      <td id="T_3f362_row19_col4" class="data row19 col4" >escalate_account_security</td>
-      <td id="T_3f362_row19_col5" class="data row19 col5" >0</td>
-      <td id="T_3f362_row19_col6" class="data row19 col6" >True</td>
-      <td id="T_3f362_row19_col7" class="data row19 col7" >True</td>
-      <td id="T_3f362_row19_col8" class="data row19 col8" >39</td>
-      <td id="T_3f362_row19_col9" class="data row19 col9" >1382</td>
-      <td id="T_3f362_row19_col10" class="data row19 col10" >2.32</td>
-      <td id="T_3f362_row19_col11" class="data row19 col11" >$0.00544</td>
-      <td id="T_3f362_row19_col12" class="data row19 col12" >0.99</td>
+      <th id="T_3f362_level0_row19" class="row_heading level0 row19">19</th>
+      <td id="T_3f362_row19_col0" class="data row19 col0">Round 1: controls</td>
+      <td id="T_3f362_row19_col1" class="data row19 col1">T-010</td>
+      <td id="T_3f362_row19_col2" class="data row19 col2">account_access</td>
+      <td id="T_3f362_row19_col3" class="data row19 col3">lookup_customer, lookup_policy, escalate_to_human</td>
+      <td id="T_3f362_row19_col4" class="data row19 col4">escalate_account_security</td>
+      <td id="T_3f362_row19_col5" class="data row19 col5">0</td>
+      <td id="T_3f362_row19_col6" class="data row19 col6">True</td>
+      <td id="T_3f362_row19_col7" class="data row19 col7">True</td>
+      <td id="T_3f362_row19_col8" class="data row19 col8">39</td>
+      <td id="T_3f362_row19_col9" class="data row19 col9">1382</td>
+      <td id="T_3f362_row19_col10" class="data row19 col10">2.32</td>
+      <td id="T_3f362_row19_col11" class="data row19 col11">$0.00544</td>
+      <td id="T_3f362_row19_col12" class="data row19 col12">0.99</td>
     </tr>
   </tbody>
 </table>
@@ -1725,279 +1725,279 @@ display(
 <table id="T_1317a">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_1317a_level0_col0" class="col_heading level0 col0" >variant_label</th>
-      <th id="T_1317a_level0_col1" class="col_heading level0 col1" >ticket_id</th>
-      <th id="T_1317a_level0_col2" class="col_heading level0 col2" >intent</th>
-      <th id="T_1317a_level0_col3" class="col_heading level0 col3" >risk</th>
-      <th id="T_1317a_level0_col4" class="col_heading level0 col4" >model</th>
-      <th id="T_1317a_level0_col5" class="col_heading level0 col5" >routing_tokens</th>
-      <th id="T_1317a_level0_col6" class="col_heading level0 col6" >total_tokens</th>
-      <th id="T_1317a_level0_col7" class="col_heading level0 col7" >sync_cost_usd</th>
-      <th id="T_1317a_level0_col8" class="col_heading level0 col8" >quality_score</th>
-      <th id="T_1317a_level0_col9" class="col_heading level0 col9" >policy_compliant</th>
+      <th class="blank level0"> </th>
+      <th id="T_1317a_level0_col0" class="col_heading level0 col0">variant_label</th>
+      <th id="T_1317a_level0_col1" class="col_heading level0 col1">ticket_id</th>
+      <th id="T_1317a_level0_col2" class="col_heading level0 col2">intent</th>
+      <th id="T_1317a_level0_col3" class="col_heading level0 col3">risk</th>
+      <th id="T_1317a_level0_col4" class="col_heading level0 col4">model</th>
+      <th id="T_1317a_level0_col5" class="col_heading level0 col5">routing_tokens</th>
+      <th id="T_1317a_level0_col6" class="col_heading level0 col6">total_tokens</th>
+      <th id="T_1317a_level0_col7" class="col_heading level0 col7">sync_cost_usd</th>
+      <th id="T_1317a_level0_col8" class="col_heading level0 col8">quality_score</th>
+      <th id="T_1317a_level0_col9" class="col_heading level0 col9">policy_compliant</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_1317a_level0_row0" class="row_heading level0 row0" >10</th>
-      <td id="T_1317a_row0_col0" class="data row0 col0" >Round 1: controls</td>
-      <td id="T_1317a_row0_col1" class="data row0 col1" >T-001</td>
-      <td id="T_1317a_row0_col2" class="data row0 col2" >order_status</td>
-      <td id="T_1317a_row0_col3" class="data row0 col3" >low</td>
-      <td id="T_1317a_row0_col4" class="data row0 col4" >gpt-5.4</td>
-      <td id="T_1317a_row0_col5" class="data row0 col5" >0</td>
-      <td id="T_1317a_row0_col6" class="data row0 col6" >1252</td>
-      <td id="T_1317a_row0_col7" class="data row0 col7" >$0.00418</td>
-      <td id="T_1317a_row0_col8" class="data row0 col8" >0.98</td>
-      <td id="T_1317a_row0_col9" class="data row0 col9" >True</td>
+      <th id="T_1317a_level0_row0" class="row_heading level0 row0">10</th>
+      <td id="T_1317a_row0_col0" class="data row0 col0">Round 1: controls</td>
+      <td id="T_1317a_row0_col1" class="data row0 col1">T-001</td>
+      <td id="T_1317a_row0_col2" class="data row0 col2">order_status</td>
+      <td id="T_1317a_row0_col3" class="data row0 col3">low</td>
+      <td id="T_1317a_row0_col4" class="data row0 col4">gpt-5.4</td>
+      <td id="T_1317a_row0_col5" class="data row0 col5">0</td>
+      <td id="T_1317a_row0_col6" class="data row0 col6">1252</td>
+      <td id="T_1317a_row0_col7" class="data row0 col7">$0.00418</td>
+      <td id="T_1317a_row0_col8" class="data row0 col8">0.98</td>
+      <td id="T_1317a_row0_col9" class="data row0 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row1" class="row_heading level0 row1" >11</th>
-      <td id="T_1317a_row1_col0" class="data row1 col0" >Round 1: controls</td>
-      <td id="T_1317a_row1_col1" class="data row1 col1" >T-002</td>
-      <td id="T_1317a_row1_col2" class="data row1 col2" >damaged_delivery</td>
-      <td id="T_1317a_row1_col3" class="data row1 col3" >medium</td>
-      <td id="T_1317a_row1_col4" class="data row1 col4" >gpt-5.4</td>
-      <td id="T_1317a_row1_col5" class="data row1 col5" >0</td>
-      <td id="T_1317a_row1_col6" class="data row1 col6" >1354</td>
-      <td id="T_1317a_row1_col7" class="data row1 col7" >$0.00482</td>
-      <td id="T_1317a_row1_col8" class="data row1 col8" >0.98</td>
-      <td id="T_1317a_row1_col9" class="data row1 col9" >True</td>
+      <th id="T_1317a_level0_row1" class="row_heading level0 row1">11</th>
+      <td id="T_1317a_row1_col0" class="data row1 col0">Round 1: controls</td>
+      <td id="T_1317a_row1_col1" class="data row1 col1">T-002</td>
+      <td id="T_1317a_row1_col2" class="data row1 col2">damaged_delivery</td>
+      <td id="T_1317a_row1_col3" class="data row1 col3">medium</td>
+      <td id="T_1317a_row1_col4" class="data row1 col4">gpt-5.4</td>
+      <td id="T_1317a_row1_col5" class="data row1 col5">0</td>
+      <td id="T_1317a_row1_col6" class="data row1 col6">1354</td>
+      <td id="T_1317a_row1_col7" class="data row1 col7">$0.00482</td>
+      <td id="T_1317a_row1_col8" class="data row1 col8">0.98</td>
+      <td id="T_1317a_row1_col9" class="data row1 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row2" class="row_heading level0 row2" >12</th>
-      <td id="T_1317a_row2_col0" class="data row2 col0" >Round 1: controls</td>
-      <td id="T_1317a_row2_col1" class="data row2 col1" >T-003</td>
-      <td id="T_1317a_row2_col2" class="data row2 col2" >refund_eligibility</td>
-      <td id="T_1317a_row2_col3" class="data row2 col3" >medium</td>
-      <td id="T_1317a_row2_col4" class="data row2 col4" >gpt-5.4</td>
-      <td id="T_1317a_row2_col5" class="data row2 col5" >0</td>
-      <td id="T_1317a_row2_col6" class="data row2 col6" >1393</td>
-      <td id="T_1317a_row2_col7" class="data row2 col7" >$0.00512</td>
-      <td id="T_1317a_row2_col8" class="data row2 col8" >0.98</td>
-      <td id="T_1317a_row2_col9" class="data row2 col9" >True</td>
+      <th id="T_1317a_level0_row2" class="row_heading level0 row2">12</th>
+      <td id="T_1317a_row2_col0" class="data row2 col0">Round 1: controls</td>
+      <td id="T_1317a_row2_col1" class="data row2 col1">T-003</td>
+      <td id="T_1317a_row2_col2" class="data row2 col2">refund_eligibility</td>
+      <td id="T_1317a_row2_col3" class="data row2 col3">medium</td>
+      <td id="T_1317a_row2_col4" class="data row2 col4">gpt-5.4</td>
+      <td id="T_1317a_row2_col5" class="data row2 col5">0</td>
+      <td id="T_1317a_row2_col6" class="data row2 col6">1393</td>
+      <td id="T_1317a_row2_col7" class="data row2 col7">$0.00512</td>
+      <td id="T_1317a_row2_col8" class="data row2 col8">0.98</td>
+      <td id="T_1317a_row2_col9" class="data row2 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row3" class="row_heading level0 row3" >13</th>
-      <td id="T_1317a_row3_col0" class="data row3 col0" >Round 1: controls</td>
-      <td id="T_1317a_row3_col1" class="data row3 col1" >T-004</td>
-      <td id="T_1317a_row3_col2" class="data row3 col2" >billing_issue</td>
-      <td id="T_1317a_row3_col3" class="data row3 col3" >medium</td>
-      <td id="T_1317a_row3_col4" class="data row3 col4" >gpt-5.4</td>
-      <td id="T_1317a_row3_col5" class="data row3 col5" >0</td>
-      <td id="T_1317a_row3_col6" class="data row3 col6" >1383</td>
-      <td id="T_1317a_row3_col7" class="data row3 col7" >$0.00512</td>
-      <td id="T_1317a_row3_col8" class="data row3 col8" >0.98</td>
-      <td id="T_1317a_row3_col9" class="data row3 col9" >True</td>
+      <th id="T_1317a_level0_row3" class="row_heading level0 row3">13</th>
+      <td id="T_1317a_row3_col0" class="data row3 col0">Round 1: controls</td>
+      <td id="T_1317a_row3_col1" class="data row3 col1">T-004</td>
+      <td id="T_1317a_row3_col2" class="data row3 col2">billing_issue</td>
+      <td id="T_1317a_row3_col3" class="data row3 col3">medium</td>
+      <td id="T_1317a_row3_col4" class="data row3 col4">gpt-5.4</td>
+      <td id="T_1317a_row3_col5" class="data row3 col5">0</td>
+      <td id="T_1317a_row3_col6" class="data row3 col6">1383</td>
+      <td id="T_1317a_row3_col7" class="data row3 col7">$0.00512</td>
+      <td id="T_1317a_row3_col8" class="data row3 col8">0.98</td>
+      <td id="T_1317a_row3_col9" class="data row3 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row4" class="row_heading level0 row4" >14</th>
-      <td id="T_1317a_row4_col0" class="data row4 col0" >Round 1: controls</td>
-      <td id="T_1317a_row4_col1" class="data row4 col1" >T-005</td>
-      <td id="T_1317a_row4_col2" class="data row4 col2" >account_access</td>
-      <td id="T_1317a_row4_col3" class="data row4 col3" >high</td>
-      <td id="T_1317a_row4_col4" class="data row4 col4" >gpt-5.4</td>
-      <td id="T_1317a_row4_col5" class="data row4 col5" >0</td>
-      <td id="T_1317a_row4_col6" class="data row4 col6" >1378</td>
-      <td id="T_1317a_row4_col7" class="data row4 col7" >$0.00543</td>
-      <td id="T_1317a_row4_col8" class="data row4 col8" >0.99</td>
-      <td id="T_1317a_row4_col9" class="data row4 col9" >True</td>
+      <th id="T_1317a_level0_row4" class="row_heading level0 row4">14</th>
+      <td id="T_1317a_row4_col0" class="data row4 col0">Round 1: controls</td>
+      <td id="T_1317a_row4_col1" class="data row4 col1">T-005</td>
+      <td id="T_1317a_row4_col2" class="data row4 col2">account_access</td>
+      <td id="T_1317a_row4_col3" class="data row4 col3">high</td>
+      <td id="T_1317a_row4_col4" class="data row4 col4">gpt-5.4</td>
+      <td id="T_1317a_row4_col5" class="data row4 col5">0</td>
+      <td id="T_1317a_row4_col6" class="data row4 col6">1378</td>
+      <td id="T_1317a_row4_col7" class="data row4 col7">$0.00543</td>
+      <td id="T_1317a_row4_col8" class="data row4 col8">0.99</td>
+      <td id="T_1317a_row4_col9" class="data row4 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row5" class="row_heading level0 row5" >15</th>
-      <td id="T_1317a_row5_col0" class="data row5 col0" >Round 1: controls</td>
-      <td id="T_1317a_row5_col1" class="data row5 col1" >T-006</td>
-      <td id="T_1317a_row5_col2" class="data row5 col2" >refund_dispute</td>
-      <td id="T_1317a_row5_col3" class="data row5 col3" >high</td>
-      <td id="T_1317a_row5_col4" class="data row5 col4" >gpt-5.4</td>
-      <td id="T_1317a_row5_col5" class="data row5 col5" >0</td>
-      <td id="T_1317a_row5_col6" class="data row5 col6" >1418</td>
-      <td id="T_1317a_row5_col7" class="data row5 col7" >$0.00545</td>
-      <td id="T_1317a_row5_col8" class="data row5 col8" >0.99</td>
-      <td id="T_1317a_row5_col9" class="data row5 col9" >True</td>
+      <th id="T_1317a_level0_row5" class="row_heading level0 row5">15</th>
+      <td id="T_1317a_row5_col0" class="data row5 col0">Round 1: controls</td>
+      <td id="T_1317a_row5_col1" class="data row5 col1">T-006</td>
+      <td id="T_1317a_row5_col2" class="data row5 col2">refund_dispute</td>
+      <td id="T_1317a_row5_col3" class="data row5 col3">high</td>
+      <td id="T_1317a_row5_col4" class="data row5 col4">gpt-5.4</td>
+      <td id="T_1317a_row5_col5" class="data row5 col5">0</td>
+      <td id="T_1317a_row5_col6" class="data row5 col6">1418</td>
+      <td id="T_1317a_row5_col7" class="data row5 col7">$0.00545</td>
+      <td id="T_1317a_row5_col8" class="data row5 col8">0.99</td>
+      <td id="T_1317a_row5_col9" class="data row5 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row6" class="row_heading level0 row6" >16</th>
-      <td id="T_1317a_row6_col0" class="data row6 col0" >Round 1: controls</td>
-      <td id="T_1317a_row6_col1" class="data row6 col1" >T-007</td>
-      <td id="T_1317a_row6_col2" class="data row6 col2" >delivered_not_received</td>
-      <td id="T_1317a_row6_col3" class="data row6 col3" >medium</td>
-      <td id="T_1317a_row6_col4" class="data row6 col4" >gpt-5.4</td>
-      <td id="T_1317a_row6_col5" class="data row6 col5" >0</td>
-      <td id="T_1317a_row6_col6" class="data row6 col6" >1390</td>
-      <td id="T_1317a_row6_col7" class="data row6 col7" >$0.00486</td>
-      <td id="T_1317a_row6_col8" class="data row6 col8" >0.98</td>
-      <td id="T_1317a_row6_col9" class="data row6 col9" >True</td>
+      <th id="T_1317a_level0_row6" class="row_heading level0 row6">16</th>
+      <td id="T_1317a_row6_col0" class="data row6 col0">Round 1: controls</td>
+      <td id="T_1317a_row6_col1" class="data row6 col1">T-007</td>
+      <td id="T_1317a_row6_col2" class="data row6 col2">delivered_not_received</td>
+      <td id="T_1317a_row6_col3" class="data row6 col3">medium</td>
+      <td id="T_1317a_row6_col4" class="data row6 col4">gpt-5.4</td>
+      <td id="T_1317a_row6_col5" class="data row6 col5">0</td>
+      <td id="T_1317a_row6_col6" class="data row6 col6">1390</td>
+      <td id="T_1317a_row6_col7" class="data row6 col7">$0.00486</td>
+      <td id="T_1317a_row6_col8" class="data row6 col8">0.98</td>
+      <td id="T_1317a_row6_col9" class="data row6 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row7" class="row_heading level0 row7" >17</th>
-      <td id="T_1317a_row7_col0" class="data row7 col0" >Round 1: controls</td>
-      <td id="T_1317a_row7_col1" class="data row7 col1" >T-008</td>
-      <td id="T_1317a_row7_col2" class="data row7 col2" >high_value_damage</td>
-      <td id="T_1317a_row7_col3" class="data row7 col3" >high</td>
-      <td id="T_1317a_row7_col4" class="data row7 col4" >gpt-5.4</td>
-      <td id="T_1317a_row7_col5" class="data row7 col5" >0</td>
-      <td id="T_1317a_row7_col6" class="data row7 col6" >1445</td>
-      <td id="T_1317a_row7_col7" class="data row7 col7" >$0.00568</td>
-      <td id="T_1317a_row7_col8" class="data row7 col8" >0.99</td>
-      <td id="T_1317a_row7_col9" class="data row7 col9" >True</td>
+      <th id="T_1317a_level0_row7" class="row_heading level0 row7">17</th>
+      <td id="T_1317a_row7_col0" class="data row7 col0">Round 1: controls</td>
+      <td id="T_1317a_row7_col1" class="data row7 col1">T-008</td>
+      <td id="T_1317a_row7_col2" class="data row7 col2">high_value_damage</td>
+      <td id="T_1317a_row7_col3" class="data row7 col3">high</td>
+      <td id="T_1317a_row7_col4" class="data row7 col4">gpt-5.4</td>
+      <td id="T_1317a_row7_col5" class="data row7 col5">0</td>
+      <td id="T_1317a_row7_col6" class="data row7 col6">1445</td>
+      <td id="T_1317a_row7_col7" class="data row7 col7">$0.00568</td>
+      <td id="T_1317a_row7_col8" class="data row7 col8">0.99</td>
+      <td id="T_1317a_row7_col9" class="data row7 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row8" class="row_heading level0 row8" >18</th>
-      <td id="T_1317a_row8_col0" class="data row8 col0" >Round 1: controls</td>
-      <td id="T_1317a_row8_col1" class="data row8 col1" >T-009</td>
-      <td id="T_1317a_row8_col2" class="data row8 col2" >refund_eligibility</td>
-      <td id="T_1317a_row8_col3" class="data row8 col3" >low</td>
-      <td id="T_1317a_row8_col4" class="data row8 col4" >gpt-5.4</td>
-      <td id="T_1317a_row8_col5" class="data row8 col5" >0</td>
-      <td id="T_1317a_row8_col6" class="data row8 col6" >1397</td>
-      <td id="T_1317a_row8_col7" class="data row8 col7" >$0.00513</td>
-      <td id="T_1317a_row8_col8" class="data row8 col8" >0.98</td>
-      <td id="T_1317a_row8_col9" class="data row8 col9" >True</td>
+      <th id="T_1317a_level0_row8" class="row_heading level0 row8">18</th>
+      <td id="T_1317a_row8_col0" class="data row8 col0">Round 1: controls</td>
+      <td id="T_1317a_row8_col1" class="data row8 col1">T-009</td>
+      <td id="T_1317a_row8_col2" class="data row8 col2">refund_eligibility</td>
+      <td id="T_1317a_row8_col3" class="data row8 col3">low</td>
+      <td id="T_1317a_row8_col4" class="data row8 col4">gpt-5.4</td>
+      <td id="T_1317a_row8_col5" class="data row8 col5">0</td>
+      <td id="T_1317a_row8_col6" class="data row8 col6">1397</td>
+      <td id="T_1317a_row8_col7" class="data row8 col7">$0.00513</td>
+      <td id="T_1317a_row8_col8" class="data row8 col8">0.98</td>
+      <td id="T_1317a_row8_col9" class="data row8 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row9" class="row_heading level0 row9" >19</th>
-      <td id="T_1317a_row9_col0" class="data row9 col0" >Round 1: controls</td>
-      <td id="T_1317a_row9_col1" class="data row9 col1" >T-010</td>
-      <td id="T_1317a_row9_col2" class="data row9 col2" >account_access</td>
-      <td id="T_1317a_row9_col3" class="data row9 col3" >high</td>
-      <td id="T_1317a_row9_col4" class="data row9 col4" >gpt-5.4</td>
-      <td id="T_1317a_row9_col5" class="data row9 col5" >0</td>
-      <td id="T_1317a_row9_col6" class="data row9 col6" >1382</td>
-      <td id="T_1317a_row9_col7" class="data row9 col7" >$0.00544</td>
-      <td id="T_1317a_row9_col8" class="data row9 col8" >0.99</td>
-      <td id="T_1317a_row9_col9" class="data row9 col9" >True</td>
+      <th id="T_1317a_level0_row9" class="row_heading level0 row9">19</th>
+      <td id="T_1317a_row9_col0" class="data row9 col0">Round 1: controls</td>
+      <td id="T_1317a_row9_col1" class="data row9 col1">T-010</td>
+      <td id="T_1317a_row9_col2" class="data row9 col2">account_access</td>
+      <td id="T_1317a_row9_col3" class="data row9 col3">high</td>
+      <td id="T_1317a_row9_col4" class="data row9 col4">gpt-5.4</td>
+      <td id="T_1317a_row9_col5" class="data row9 col5">0</td>
+      <td id="T_1317a_row9_col6" class="data row9 col6">1382</td>
+      <td id="T_1317a_row9_col7" class="data row9 col7">$0.00544</td>
+      <td id="T_1317a_row9_col8" class="data row9 col8">0.99</td>
+      <td id="T_1317a_row9_col9" class="data row9 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row10" class="row_heading level0 row10" >20</th>
-      <td id="T_1317a_row10_col0" class="data row10 col0" >Round 2: routing</td>
-      <td id="T_1317a_row10_col1" class="data row10 col1" >T-001</td>
-      <td id="T_1317a_row10_col2" class="data row10 col2" >order_status</td>
-      <td id="T_1317a_row10_col3" class="data row10 col3" >low</td>
-      <td id="T_1317a_row10_col4" class="data row10 col4" >gpt-5.4-mini</td>
-      <td id="T_1317a_row10_col5" class="data row10 col5" >208</td>
-      <td id="T_1317a_row10_col6" class="data row10 col6" >1353</td>
-      <td id="T_1317a_row10_col7" class="data row10 col7" >$0.00123</td>
-      <td id="T_1317a_row10_col8" class="data row10 col8" >0.98</td>
-      <td id="T_1317a_row10_col9" class="data row10 col9" >True</td>
+      <th id="T_1317a_level0_row10" class="row_heading level0 row10">20</th>
+      <td id="T_1317a_row10_col0" class="data row10 col0">Round 2: routing</td>
+      <td id="T_1317a_row10_col1" class="data row10 col1">T-001</td>
+      <td id="T_1317a_row10_col2" class="data row10 col2">order_status</td>
+      <td id="T_1317a_row10_col3" class="data row10 col3">low</td>
+      <td id="T_1317a_row10_col4" class="data row10 col4">gpt-5.4-mini</td>
+      <td id="T_1317a_row10_col5" class="data row10 col5">208</td>
+      <td id="T_1317a_row10_col6" class="data row10 col6">1353</td>
+      <td id="T_1317a_row10_col7" class="data row10 col7">$0.00123</td>
+      <td id="T_1317a_row10_col8" class="data row10 col8">0.98</td>
+      <td id="T_1317a_row10_col9" class="data row10 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row11" class="row_heading level0 row11" >21</th>
-      <td id="T_1317a_row11_col0" class="data row11 col0" >Round 2: routing</td>
-      <td id="T_1317a_row11_col1" class="data row11 col1" >T-002</td>
-      <td id="T_1317a_row11_col2" class="data row11 col2" >damaged_delivery</td>
-      <td id="T_1317a_row11_col3" class="data row11 col3" >medium</td>
-      <td id="T_1317a_row11_col4" class="data row11 col4" >gpt-5.4-mini</td>
-      <td id="T_1317a_row11_col5" class="data row11 col5" >208</td>
-      <td id="T_1317a_row11_col6" class="data row11 col6" >1451</td>
-      <td id="T_1317a_row11_col7" class="data row11 col7" >$0.00141</td>
-      <td id="T_1317a_row11_col8" class="data row11 col8" >0.98</td>
-      <td id="T_1317a_row11_col9" class="data row11 col9" >True</td>
+      <th id="T_1317a_level0_row11" class="row_heading level0 row11">21</th>
+      <td id="T_1317a_row11_col0" class="data row11 col0">Round 2: routing</td>
+      <td id="T_1317a_row11_col1" class="data row11 col1">T-002</td>
+      <td id="T_1317a_row11_col2" class="data row11 col2">damaged_delivery</td>
+      <td id="T_1317a_row11_col3" class="data row11 col3">medium</td>
+      <td id="T_1317a_row11_col4" class="data row11 col4">gpt-5.4-mini</td>
+      <td id="T_1317a_row11_col5" class="data row11 col5">208</td>
+      <td id="T_1317a_row11_col6" class="data row11 col6">1451</td>
+      <td id="T_1317a_row11_col7" class="data row11 col7">$0.00141</td>
+      <td id="T_1317a_row11_col8" class="data row11 col8">0.98</td>
+      <td id="T_1317a_row11_col9" class="data row11 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row12" class="row_heading level0 row12" >22</th>
-      <td id="T_1317a_row12_col0" class="data row12 col0" >Round 2: routing</td>
-      <td id="T_1317a_row12_col1" class="data row12 col1" >T-003</td>
-      <td id="T_1317a_row12_col2" class="data row12 col2" >refund_eligibility</td>
-      <td id="T_1317a_row12_col3" class="data row12 col3" >medium</td>
-      <td id="T_1317a_row12_col4" class="data row12 col4" >gpt-5.4-mini</td>
-      <td id="T_1317a_row12_col5" class="data row12 col5" >210</td>
-      <td id="T_1317a_row12_col6" class="data row12 col6" >1490</td>
-      <td id="T_1317a_row12_col7" class="data row12 col7" >$0.00149</td>
-      <td id="T_1317a_row12_col8" class="data row12 col8" >0.98</td>
-      <td id="T_1317a_row12_col9" class="data row12 col9" >True</td>
+      <th id="T_1317a_level0_row12" class="row_heading level0 row12">22</th>
+      <td id="T_1317a_row12_col0" class="data row12 col0">Round 2: routing</td>
+      <td id="T_1317a_row12_col1" class="data row12 col1">T-003</td>
+      <td id="T_1317a_row12_col2" class="data row12 col2">refund_eligibility</td>
+      <td id="T_1317a_row12_col3" class="data row12 col3">medium</td>
+      <td id="T_1317a_row12_col4" class="data row12 col4">gpt-5.4-mini</td>
+      <td id="T_1317a_row12_col5" class="data row12 col5">210</td>
+      <td id="T_1317a_row12_col6" class="data row12 col6">1490</td>
+      <td id="T_1317a_row12_col7" class="data row12 col7">$0.00149</td>
+      <td id="T_1317a_row12_col8" class="data row12 col8">0.98</td>
+      <td id="T_1317a_row12_col9" class="data row12 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row13" class="row_heading level0 row13" >23</th>
-      <td id="T_1317a_row13_col0" class="data row13 col0" >Round 2: routing</td>
-      <td id="T_1317a_row13_col1" class="data row13 col1" >T-004</td>
-      <td id="T_1317a_row13_col2" class="data row13 col2" >billing_issue</td>
-      <td id="T_1317a_row13_col3" class="data row13 col3" >medium</td>
-      <td id="T_1317a_row13_col4" class="data row13 col4" >gpt-5.4-mini</td>
-      <td id="T_1317a_row13_col5" class="data row13 col5" >207</td>
-      <td id="T_1317a_row13_col6" class="data row13 col6" >1474</td>
-      <td id="T_1317a_row13_col7" class="data row13 col7" >$0.00147</td>
-      <td id="T_1317a_row13_col8" class="data row13 col8" >0.98</td>
-      <td id="T_1317a_row13_col9" class="data row13 col9" >True</td>
+      <th id="T_1317a_level0_row13" class="row_heading level0 row13">23</th>
+      <td id="T_1317a_row13_col0" class="data row13 col0">Round 2: routing</td>
+      <td id="T_1317a_row13_col1" class="data row13 col1">T-004</td>
+      <td id="T_1317a_row13_col2" class="data row13 col2">billing_issue</td>
+      <td id="T_1317a_row13_col3" class="data row13 col3">medium</td>
+      <td id="T_1317a_row13_col4" class="data row13 col4">gpt-5.4-mini</td>
+      <td id="T_1317a_row13_col5" class="data row13 col5">207</td>
+      <td id="T_1317a_row13_col6" class="data row13 col6">1474</td>
+      <td id="T_1317a_row13_col7" class="data row13 col7">$0.00147</td>
+      <td id="T_1317a_row13_col8" class="data row13 col8">0.98</td>
+      <td id="T_1317a_row13_col9" class="data row13 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row14" class="row_heading level0 row14" >24</th>
-      <td id="T_1317a_row14_col0" class="data row14 col0" >Round 2: routing</td>
-      <td id="T_1317a_row14_col1" class="data row14 col1" >T-005</td>
-      <td id="T_1317a_row14_col2" class="data row14 col2" >account_access</td>
-      <td id="T_1317a_row14_col3" class="data row14 col3" >high</td>
-      <td id="T_1317a_row14_col4" class="data row14 col4" >gpt-5.4</td>
-      <td id="T_1317a_row14_col5" class="data row14 col5" >206</td>
-      <td id="T_1317a_row14_col6" class="data row14 col6" >1490</td>
-      <td id="T_1317a_row14_col7" class="data row14 col7" >$0.00536</td>
-      <td id="T_1317a_row14_col8" class="data row14 col8" >0.99</td>
-      <td id="T_1317a_row14_col9" class="data row14 col9" >True</td>
+      <th id="T_1317a_level0_row14" class="row_heading level0 row14">24</th>
+      <td id="T_1317a_row14_col0" class="data row14 col0">Round 2: routing</td>
+      <td id="T_1317a_row14_col1" class="data row14 col1">T-005</td>
+      <td id="T_1317a_row14_col2" class="data row14 col2">account_access</td>
+      <td id="T_1317a_row14_col3" class="data row14 col3">high</td>
+      <td id="T_1317a_row14_col4" class="data row14 col4">gpt-5.4</td>
+      <td id="T_1317a_row14_col5" class="data row14 col5">206</td>
+      <td id="T_1317a_row14_col6" class="data row14 col6">1490</td>
+      <td id="T_1317a_row14_col7" class="data row14 col7">$0.00536</td>
+      <td id="T_1317a_row14_col8" class="data row14 col8">0.99</td>
+      <td id="T_1317a_row14_col9" class="data row14 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row15" class="row_heading level0 row15" >25</th>
-      <td id="T_1317a_row15_col0" class="data row15 col0" >Round 2: routing</td>
-      <td id="T_1317a_row15_col1" class="data row15 col1" >T-006</td>
-      <td id="T_1317a_row15_col2" class="data row15 col2" >refund_dispute</td>
-      <td id="T_1317a_row15_col3" class="data row15 col3" >high</td>
-      <td id="T_1317a_row15_col4" class="data row15 col4" >gpt-5.4</td>
-      <td id="T_1317a_row15_col5" class="data row15 col5" >212</td>
-      <td id="T_1317a_row15_col6" class="data row15 col6" >1536</td>
-      <td id="T_1317a_row15_col7" class="data row15 col7" >$0.00537</td>
-      <td id="T_1317a_row15_col8" class="data row15 col8" >0.99</td>
-      <td id="T_1317a_row15_col9" class="data row15 col9" >True</td>
+      <th id="T_1317a_level0_row15" class="row_heading level0 row15">25</th>
+      <td id="T_1317a_row15_col0" class="data row15 col0">Round 2: routing</td>
+      <td id="T_1317a_row15_col1" class="data row15 col1">T-006</td>
+      <td id="T_1317a_row15_col2" class="data row15 col2">refund_dispute</td>
+      <td id="T_1317a_row15_col3" class="data row15 col3">high</td>
+      <td id="T_1317a_row15_col4" class="data row15 col4">gpt-5.4</td>
+      <td id="T_1317a_row15_col5" class="data row15 col5">212</td>
+      <td id="T_1317a_row15_col6" class="data row15 col6">1536</td>
+      <td id="T_1317a_row15_col7" class="data row15 col7">$0.00537</td>
+      <td id="T_1317a_row15_col8" class="data row15 col8">0.99</td>
+      <td id="T_1317a_row15_col9" class="data row15 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row16" class="row_heading level0 row16" >26</th>
-      <td id="T_1317a_row16_col0" class="data row16 col0" >Round 2: routing</td>
-      <td id="T_1317a_row16_col1" class="data row16 col1" >T-007</td>
-      <td id="T_1317a_row16_col2" class="data row16 col2" >delivered_not_received</td>
-      <td id="T_1317a_row16_col3" class="data row16 col3" >medium</td>
-      <td id="T_1317a_row16_col4" class="data row16 col4" >gpt-5.4-mini</td>
-      <td id="T_1317a_row16_col5" class="data row16 col5" >213</td>
-      <td id="T_1317a_row16_col6" class="data row16 col6" >1492</td>
-      <td id="T_1317a_row16_col7" class="data row16 col7" >$0.00142</td>
-      <td id="T_1317a_row16_col8" class="data row16 col8" >0.98</td>
-      <td id="T_1317a_row16_col9" class="data row16 col9" >True</td>
+      <th id="T_1317a_level0_row16" class="row_heading level0 row16">26</th>
+      <td id="T_1317a_row16_col0" class="data row16 col0">Round 2: routing</td>
+      <td id="T_1317a_row16_col1" class="data row16 col1">T-007</td>
+      <td id="T_1317a_row16_col2" class="data row16 col2">delivered_not_received</td>
+      <td id="T_1317a_row16_col3" class="data row16 col3">medium</td>
+      <td id="T_1317a_row16_col4" class="data row16 col4">gpt-5.4-mini</td>
+      <td id="T_1317a_row16_col5" class="data row16 col5">213</td>
+      <td id="T_1317a_row16_col6" class="data row16 col6">1492</td>
+      <td id="T_1317a_row16_col7" class="data row16 col7">$0.00142</td>
+      <td id="T_1317a_row16_col8" class="data row16 col8">0.98</td>
+      <td id="T_1317a_row16_col9" class="data row16 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row17" class="row_heading level0 row17" >27</th>
-      <td id="T_1317a_row17_col0" class="data row17 col0" >Round 2: routing</td>
-      <td id="T_1317a_row17_col1" class="data row17 col1" >T-008</td>
-      <td id="T_1317a_row17_col2" class="data row17 col2" >high_value_damage</td>
-      <td id="T_1317a_row17_col3" class="data row17 col3" >high</td>
-      <td id="T_1317a_row17_col4" class="data row17 col4" >gpt-5.4</td>
-      <td id="T_1317a_row17_col5" class="data row17 col5" >218</td>
-      <td id="T_1317a_row17_col6" class="data row17 col6" >1570</td>
-      <td id="T_1317a_row17_col7" class="data row17 col7" >$0.00562</td>
-      <td id="T_1317a_row17_col8" class="data row17 col8" >0.99</td>
-      <td id="T_1317a_row17_col9" class="data row17 col9" >True</td>
+      <th id="T_1317a_level0_row17" class="row_heading level0 row17">27</th>
+      <td id="T_1317a_row17_col0" class="data row17 col0">Round 2: routing</td>
+      <td id="T_1317a_row17_col1" class="data row17 col1">T-008</td>
+      <td id="T_1317a_row17_col2" class="data row17 col2">high_value_damage</td>
+      <td id="T_1317a_row17_col3" class="data row17 col3">high</td>
+      <td id="T_1317a_row17_col4" class="data row17 col4">gpt-5.4</td>
+      <td id="T_1317a_row17_col5" class="data row17 col5">218</td>
+      <td id="T_1317a_row17_col6" class="data row17 col6">1570</td>
+      <td id="T_1317a_row17_col7" class="data row17 col7">$0.00562</td>
+      <td id="T_1317a_row17_col8" class="data row17 col8">0.99</td>
+      <td id="T_1317a_row17_col9" class="data row17 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row18" class="row_heading level0 row18" >28</th>
-      <td id="T_1317a_row18_col0" class="data row18 col0" >Round 2: routing</td>
-      <td id="T_1317a_row18_col1" class="data row18 col1" >T-009</td>
-      <td id="T_1317a_row18_col2" class="data row18 col2" >refund_eligibility</td>
-      <td id="T_1317a_row18_col3" class="data row18 col3" >low</td>
-      <td id="T_1317a_row18_col4" class="data row18 col4" >gpt-5.4-mini</td>
-      <td id="T_1317a_row18_col5" class="data row18 col5" >214</td>
-      <td id="T_1317a_row18_col6" class="data row18 col6" >1498</td>
-      <td id="T_1317a_row18_col7" class="data row18 col7" >$0.00149</td>
-      <td id="T_1317a_row18_col8" class="data row18 col8" >0.98</td>
-      <td id="T_1317a_row18_col9" class="data row18 col9" >True</td>
+      <th id="T_1317a_level0_row18" class="row_heading level0 row18">28</th>
+      <td id="T_1317a_row18_col0" class="data row18 col0">Round 2: routing</td>
+      <td id="T_1317a_row18_col1" class="data row18 col1">T-009</td>
+      <td id="T_1317a_row18_col2" class="data row18 col2">refund_eligibility</td>
+      <td id="T_1317a_row18_col3" class="data row18 col3">low</td>
+      <td id="T_1317a_row18_col4" class="data row18 col4">gpt-5.4-mini</td>
+      <td id="T_1317a_row18_col5" class="data row18 col5">214</td>
+      <td id="T_1317a_row18_col6" class="data row18 col6">1498</td>
+      <td id="T_1317a_row18_col7" class="data row18 col7">$0.00149</td>
+      <td id="T_1317a_row18_col8" class="data row18 col8">0.98</td>
+      <td id="T_1317a_row18_col9" class="data row18 col9">True</td>
     </tr>
     <tr>
-      <th id="T_1317a_level0_row19" class="row_heading level0 row19" >29</th>
-      <td id="T_1317a_row19_col0" class="data row19 col0" >Round 2: routing</td>
-      <td id="T_1317a_row19_col1" class="data row19 col1" >T-010</td>
-      <td id="T_1317a_row19_col2" class="data row19 col2" >account_access</td>
-      <td id="T_1317a_row19_col3" class="data row19 col3" >high</td>
-      <td id="T_1317a_row19_col4" class="data row19 col4" >gpt-5.4</td>
-      <td id="T_1317a_row19_col5" class="data row19 col5" >209</td>
-      <td id="T_1317a_row19_col6" class="data row19 col6" >1497</td>
-      <td id="T_1317a_row19_col7" class="data row19 col7" >$0.00537</td>
-      <td id="T_1317a_row19_col8" class="data row19 col8" >0.99</td>
-      <td id="T_1317a_row19_col9" class="data row19 col9" >True</td>
+      <th id="T_1317a_level0_row19" class="row_heading level0 row19">29</th>
+      <td id="T_1317a_row19_col0" class="data row19 col0">Round 2: routing</td>
+      <td id="T_1317a_row19_col1" class="data row19 col1">T-010</td>
+      <td id="T_1317a_row19_col2" class="data row19 col2">account_access</td>
+      <td id="T_1317a_row19_col3" class="data row19 col3">high</td>
+      <td id="T_1317a_row19_col4" class="data row19 col4">gpt-5.4</td>
+      <td id="T_1317a_row19_col5" class="data row19 col5">209</td>
+      <td id="T_1317a_row19_col6" class="data row19 col6">1497</td>
+      <td id="T_1317a_row19_col7" class="data row19 col7">$0.00537</td>
+      <td id="T_1317a_row19_col8" class="data row19 col8">0.99</td>
+      <td id="T_1317a_row19_col9" class="data row19 col9">True</td>
     </tr>
   </tbody>
 </table>
@@ -2119,300 +2119,300 @@ display(
 <table id="T_e68b0">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_e68b0_level0_col0" class="col_heading level0 col0" >variant_label</th>
-      <th id="T_e68b0_level0_col1" class="col_heading level0 col1" >ticket_id</th>
-      <th id="T_e68b0_level0_col2" class="col_heading level0 col2" >model</th>
-      <th id="T_e68b0_level0_col3" class="col_heading level0 col3" >input_tokens</th>
-      <th id="T_e68b0_level0_col4" class="col_heading level0 col4" >cacheable_prefix_tokens</th>
-      <th id="T_e68b0_level0_col5" class="col_heading level0 col5" >cached_tokens</th>
-      <th id="T_e68b0_level0_col6" class="col_heading level0 col6" >latency_input_tokens</th>
-      <th id="T_e68b0_level0_col7" class="col_heading level0 col7" >output_tokens</th>
-      <th id="T_e68b0_level0_col8" class="col_heading level0 col8" >cost_usd</th>
-      <th id="T_e68b0_level0_col9" class="col_heading level0 col9" >latency_s</th>
-      <th id="T_e68b0_level0_col10" class="col_heading level0 col10" >quality_score</th>
+      <th class="blank level0"> </th>
+      <th id="T_e68b0_level0_col0" class="col_heading level0 col0">variant_label</th>
+      <th id="T_e68b0_level0_col1" class="col_heading level0 col1">ticket_id</th>
+      <th id="T_e68b0_level0_col2" class="col_heading level0 col2">model</th>
+      <th id="T_e68b0_level0_col3" class="col_heading level0 col3">input_tokens</th>
+      <th id="T_e68b0_level0_col4" class="col_heading level0 col4">cacheable_prefix_tokens</th>
+      <th id="T_e68b0_level0_col5" class="col_heading level0 col5">cached_tokens</th>
+      <th id="T_e68b0_level0_col6" class="col_heading level0 col6">latency_input_tokens</th>
+      <th id="T_e68b0_level0_col7" class="col_heading level0 col7">output_tokens</th>
+      <th id="T_e68b0_level0_col8" class="col_heading level0 col8">cost_usd</th>
+      <th id="T_e68b0_level0_col9" class="col_heading level0 col9">latency_s</th>
+      <th id="T_e68b0_level0_col10" class="col_heading level0 col10">quality_score</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_e68b0_level0_row0" class="row_heading level0 row0" >20</th>
-      <td id="T_e68b0_row0_col0" class="data row0 col0" >Round 2: routing</td>
-      <td id="T_e68b0_row0_col1" class="data row0 col1" >T-001</td>
-      <td id="T_e68b0_row0_col2" class="data row0 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row0_col3" class="data row0 col3" >1068</td>
-      <td id="T_e68b0_row0_col4" class="data row0 col4" >0</td>
-      <td id="T_e68b0_row0_col5" class="data row0 col5" >0</td>
-      <td id="T_e68b0_row0_col6" class="data row0 col6" >1068</td>
-      <td id="T_e68b0_row0_col7" class="data row0 col7" >77</td>
-      <td id="T_e68b0_row0_col8" class="data row0 col8" >$0.00123</td>
-      <td id="T_e68b0_row0_col9" class="data row0 col9" >1.56</td>
-      <td id="T_e68b0_row0_col10" class="data row0 col10" >0.98</td>
+      <th id="T_e68b0_level0_row0" class="row_heading level0 row0">20</th>
+      <td id="T_e68b0_row0_col0" class="data row0 col0">Round 2: routing</td>
+      <td id="T_e68b0_row0_col1" class="data row0 col1">T-001</td>
+      <td id="T_e68b0_row0_col2" class="data row0 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row0_col3" class="data row0 col3">1068</td>
+      <td id="T_e68b0_row0_col4" class="data row0 col4">0</td>
+      <td id="T_e68b0_row0_col5" class="data row0 col5">0</td>
+      <td id="T_e68b0_row0_col6" class="data row0 col6">1068</td>
+      <td id="T_e68b0_row0_col7" class="data row0 col7">77</td>
+      <td id="T_e68b0_row0_col8" class="data row0 col8">$0.00123</td>
+      <td id="T_e68b0_row0_col9" class="data row0 col9">1.56</td>
+      <td id="T_e68b0_row0_col10" class="data row0 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row1" class="row_heading level0 row1" >21</th>
-      <td id="T_e68b0_row1_col0" class="data row1 col0" >Round 2: routing</td>
-      <td id="T_e68b0_row1_col1" class="data row1 col1" >T-002</td>
-      <td id="T_e68b0_row1_col2" class="data row1 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row1_col3" class="data row1 col3" >1139</td>
-      <td id="T_e68b0_row1_col4" class="data row1 col4" >0</td>
-      <td id="T_e68b0_row1_col5" class="data row1 col5" >0</td>
-      <td id="T_e68b0_row1_col6" class="data row1 col6" >1139</td>
-      <td id="T_e68b0_row1_col7" class="data row1 col7" >104</td>
-      <td id="T_e68b0_row1_col8" class="data row1 col8" >$0.00141</td>
-      <td id="T_e68b0_row1_col9" class="data row1 col9" >1.72</td>
-      <td id="T_e68b0_row1_col10" class="data row1 col10" >0.98</td>
+      <th id="T_e68b0_level0_row1" class="row_heading level0 row1">21</th>
+      <td id="T_e68b0_row1_col0" class="data row1 col0">Round 2: routing</td>
+      <td id="T_e68b0_row1_col1" class="data row1 col1">T-002</td>
+      <td id="T_e68b0_row1_col2" class="data row1 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row1_col3" class="data row1 col3">1139</td>
+      <td id="T_e68b0_row1_col4" class="data row1 col4">0</td>
+      <td id="T_e68b0_row1_col5" class="data row1 col5">0</td>
+      <td id="T_e68b0_row1_col6" class="data row1 col6">1139</td>
+      <td id="T_e68b0_row1_col7" class="data row1 col7">104</td>
+      <td id="T_e68b0_row1_col8" class="data row1 col8">$0.00141</td>
+      <td id="T_e68b0_row1_col9" class="data row1 col9">1.72</td>
+      <td id="T_e68b0_row1_col10" class="data row1 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row2" class="row_heading level0 row2" >22</th>
-      <td id="T_e68b0_row2_col0" class="data row2 col0" >Round 2: routing</td>
-      <td id="T_e68b0_row2_col1" class="data row2 col1" >T-003</td>
-      <td id="T_e68b0_row2_col2" class="data row2 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row2_col3" class="data row2 col3" >1162</td>
-      <td id="T_e68b0_row2_col4" class="data row2 col4" >0</td>
-      <td id="T_e68b0_row2_col5" class="data row2 col5" >0</td>
-      <td id="T_e68b0_row2_col6" class="data row2 col6" >1162</td>
-      <td id="T_e68b0_row2_col7" class="data row2 col7" >118</td>
-      <td id="T_e68b0_row2_col8" class="data row2 col8" >$0.00149</td>
-      <td id="T_e68b0_row2_col9" class="data row2 col9" >1.87</td>
-      <td id="T_e68b0_row2_col10" class="data row2 col10" >0.98</td>
+      <th id="T_e68b0_level0_row2" class="row_heading level0 row2">22</th>
+      <td id="T_e68b0_row2_col0" class="data row2 col0">Round 2: routing</td>
+      <td id="T_e68b0_row2_col1" class="data row2 col1">T-003</td>
+      <td id="T_e68b0_row2_col2" class="data row2 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row2_col3" class="data row2 col3">1162</td>
+      <td id="T_e68b0_row2_col4" class="data row2 col4">0</td>
+      <td id="T_e68b0_row2_col5" class="data row2 col5">0</td>
+      <td id="T_e68b0_row2_col6" class="data row2 col6">1162</td>
+      <td id="T_e68b0_row2_col7" class="data row2 col7">118</td>
+      <td id="T_e68b0_row2_col8" class="data row2 col8">$0.00149</td>
+      <td id="T_e68b0_row2_col9" class="data row2 col9">1.87</td>
+      <td id="T_e68b0_row2_col10" class="data row2 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row3" class="row_heading level0 row3" >23</th>
-      <td id="T_e68b0_row3_col0" class="data row3 col0" >Round 2: routing</td>
-      <td id="T_e68b0_row3_col1" class="data row3 col1" >T-004</td>
-      <td id="T_e68b0_row3_col2" class="data row3 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row3_col3" class="data row3 col3" >1150</td>
-      <td id="T_e68b0_row3_col4" class="data row3 col4" >0</td>
-      <td id="T_e68b0_row3_col5" class="data row3 col5" >0</td>
-      <td id="T_e68b0_row3_col6" class="data row3 col6" >1150</td>
-      <td id="T_e68b0_row3_col7" class="data row3 col7" >117</td>
-      <td id="T_e68b0_row3_col8" class="data row3 col8" >$0.00147</td>
-      <td id="T_e68b0_row3_col9" class="data row3 col9" >1.87</td>
-      <td id="T_e68b0_row3_col10" class="data row3 col10" >0.98</td>
+      <th id="T_e68b0_level0_row3" class="row_heading level0 row3">23</th>
+      <td id="T_e68b0_row3_col0" class="data row3 col0">Round 2: routing</td>
+      <td id="T_e68b0_row3_col1" class="data row3 col1">T-004</td>
+      <td id="T_e68b0_row3_col2" class="data row3 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row3_col3" class="data row3 col3">1150</td>
+      <td id="T_e68b0_row3_col4" class="data row3 col4">0</td>
+      <td id="T_e68b0_row3_col5" class="data row3 col5">0</td>
+      <td id="T_e68b0_row3_col6" class="data row3 col6">1150</td>
+      <td id="T_e68b0_row3_col7" class="data row3 col7">117</td>
+      <td id="T_e68b0_row3_col8" class="data row3 col8">$0.00147</td>
+      <td id="T_e68b0_row3_col9" class="data row3 col9">1.87</td>
+      <td id="T_e68b0_row3_col10" class="data row3 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row4" class="row_heading level0 row4" >24</th>
-      <td id="T_e68b0_row4_col0" class="data row4 col0" >Round 2: routing</td>
-      <td id="T_e68b0_row4_col1" class="data row4 col1" >T-005</td>
-      <td id="T_e68b0_row4_col2" class="data row4 col2" >gpt-5.4</td>
-      <td id="T_e68b0_row4_col3" class="data row4 col3" >1119</td>
-      <td id="T_e68b0_row4_col4" class="data row4 col4" >0</td>
-      <td id="T_e68b0_row4_col5" class="data row4 col5" >0</td>
-      <td id="T_e68b0_row4_col6" class="data row4 col6" >1119</td>
-      <td id="T_e68b0_row4_col7" class="data row4 col7" >165</td>
-      <td id="T_e68b0_row4_col8" class="data row4 col8" >$0.00536</td>
-      <td id="T_e68b0_row4_col9" class="data row4 col9" >2.48</td>
-      <td id="T_e68b0_row4_col10" class="data row4 col10" >0.99</td>
+      <th id="T_e68b0_level0_row4" class="row_heading level0 row4">24</th>
+      <td id="T_e68b0_row4_col0" class="data row4 col0">Round 2: routing</td>
+      <td id="T_e68b0_row4_col1" class="data row4 col1">T-005</td>
+      <td id="T_e68b0_row4_col2" class="data row4 col2">gpt-5.4</td>
+      <td id="T_e68b0_row4_col3" class="data row4 col3">1119</td>
+      <td id="T_e68b0_row4_col4" class="data row4 col4">0</td>
+      <td id="T_e68b0_row4_col5" class="data row4 col5">0</td>
+      <td id="T_e68b0_row4_col6" class="data row4 col6">1119</td>
+      <td id="T_e68b0_row4_col7" class="data row4 col7">165</td>
+      <td id="T_e68b0_row4_col8" class="data row4 col8">$0.00536</td>
+      <td id="T_e68b0_row4_col9" class="data row4 col9">2.48</td>
+      <td id="T_e68b0_row4_col10" class="data row4 col10">0.99</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row5" class="row_heading level0 row5" >25</th>
-      <td id="T_e68b0_row5_col0" class="data row5 col0" >Round 2: routing</td>
-      <td id="T_e68b0_row5_col1" class="data row5 col1" >T-006</td>
-      <td id="T_e68b0_row5_col2" class="data row5 col2" >gpt-5.4</td>
-      <td id="T_e68b0_row5_col3" class="data row5 col3" >1166</td>
-      <td id="T_e68b0_row5_col4" class="data row5 col4" >0</td>
-      <td id="T_e68b0_row5_col5" class="data row5 col5" >0</td>
-      <td id="T_e68b0_row5_col6" class="data row5 col6" >1166</td>
-      <td id="T_e68b0_row5_col7" class="data row5 col7" >158</td>
-      <td id="T_e68b0_row5_col8" class="data row5 col8" >$0.00537</td>
-      <td id="T_e68b0_row5_col9" class="data row5 col9" >2.49</td>
-      <td id="T_e68b0_row5_col10" class="data row5 col10" >0.99</td>
+      <th id="T_e68b0_level0_row5" class="row_heading level0 row5">25</th>
+      <td id="T_e68b0_row5_col0" class="data row5 col0">Round 2: routing</td>
+      <td id="T_e68b0_row5_col1" class="data row5 col1">T-006</td>
+      <td id="T_e68b0_row5_col2" class="data row5 col2">gpt-5.4</td>
+      <td id="T_e68b0_row5_col3" class="data row5 col3">1166</td>
+      <td id="T_e68b0_row5_col4" class="data row5 col4">0</td>
+      <td id="T_e68b0_row5_col5" class="data row5 col5">0</td>
+      <td id="T_e68b0_row5_col6" class="data row5 col6">1166</td>
+      <td id="T_e68b0_row5_col7" class="data row5 col7">158</td>
+      <td id="T_e68b0_row5_col8" class="data row5 col8">$0.00537</td>
+      <td id="T_e68b0_row5_col9" class="data row5 col9">2.49</td>
+      <td id="T_e68b0_row5_col10" class="data row5 col10">0.99</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row6" class="row_heading level0 row6" >26</th>
-      <td id="T_e68b0_row6_col0" class="data row6 col0" >Round 2: routing</td>
-      <td id="T_e68b0_row6_col1" class="data row6 col1" >T-007</td>
-      <td id="T_e68b0_row6_col2" class="data row6 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row6_col3" class="data row6 col3" >1179</td>
-      <td id="T_e68b0_row6_col4" class="data row6 col4" >0</td>
-      <td id="T_e68b0_row6_col5" class="data row6 col5" >0</td>
-      <td id="T_e68b0_row6_col6" class="data row6 col6" >1179</td>
-      <td id="T_e68b0_row6_col7" class="data row6 col7" >100</td>
-      <td id="T_e68b0_row6_col8" class="data row6 col8" >$0.00142</td>
-      <td id="T_e68b0_row6_col9" class="data row6 col9" >1.73</td>
-      <td id="T_e68b0_row6_col10" class="data row6 col10" >0.98</td>
+      <th id="T_e68b0_level0_row6" class="row_heading level0 row6">26</th>
+      <td id="T_e68b0_row6_col0" class="data row6 col0">Round 2: routing</td>
+      <td id="T_e68b0_row6_col1" class="data row6 col1">T-007</td>
+      <td id="T_e68b0_row6_col2" class="data row6 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row6_col3" class="data row6 col3">1179</td>
+      <td id="T_e68b0_row6_col4" class="data row6 col4">0</td>
+      <td id="T_e68b0_row6_col5" class="data row6 col5">0</td>
+      <td id="T_e68b0_row6_col6" class="data row6 col6">1179</td>
+      <td id="T_e68b0_row6_col7" class="data row6 col7">100</td>
+      <td id="T_e68b0_row6_col8" class="data row6 col8">$0.00142</td>
+      <td id="T_e68b0_row6_col9" class="data row6 col9">1.73</td>
+      <td id="T_e68b0_row6_col10" class="data row6 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row7" class="row_heading level0 row7" >27</th>
-      <td id="T_e68b0_row7_col0" class="data row7 col0" >Round 2: routing</td>
-      <td id="T_e68b0_row7_col1" class="data row7 col1" >T-008</td>
-      <td id="T_e68b0_row7_col2" class="data row7 col2" >gpt-5.4</td>
-      <td id="T_e68b0_row7_col3" class="data row7 col3" >1180</td>
-      <td id="T_e68b0_row7_col4" class="data row7 col4" >0</td>
-      <td id="T_e68b0_row7_col5" class="data row7 col5" >0</td>
-      <td id="T_e68b0_row7_col6" class="data row7 col6" >1180</td>
-      <td id="T_e68b0_row7_col7" class="data row7 col7" >172</td>
-      <td id="T_e68b0_row7_col8" class="data row7 col8" >$0.00562</td>
-      <td id="T_e68b0_row7_col9" class="data row7 col9" >2.49</td>
-      <td id="T_e68b0_row7_col10" class="data row7 col10" >0.99</td>
+      <th id="T_e68b0_level0_row7" class="row_heading level0 row7">27</th>
+      <td id="T_e68b0_row7_col0" class="data row7 col0">Round 2: routing</td>
+      <td id="T_e68b0_row7_col1" class="data row7 col1">T-008</td>
+      <td id="T_e68b0_row7_col2" class="data row7 col2">gpt-5.4</td>
+      <td id="T_e68b0_row7_col3" class="data row7 col3">1180</td>
+      <td id="T_e68b0_row7_col4" class="data row7 col4">0</td>
+      <td id="T_e68b0_row7_col5" class="data row7 col5">0</td>
+      <td id="T_e68b0_row7_col6" class="data row7 col6">1180</td>
+      <td id="T_e68b0_row7_col7" class="data row7 col7">172</td>
+      <td id="T_e68b0_row7_col8" class="data row7 col8">$0.00562</td>
+      <td id="T_e68b0_row7_col9" class="data row7 col9">2.49</td>
+      <td id="T_e68b0_row7_col10" class="data row7 col10">0.99</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row8" class="row_heading level0 row8" >28</th>
-      <td id="T_e68b0_row8_col0" class="data row8 col0" >Round 2: routing</td>
-      <td id="T_e68b0_row8_col1" class="data row8 col1" >T-009</td>
-      <td id="T_e68b0_row8_col2" class="data row8 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row8_col3" class="data row8 col3" >1166</td>
-      <td id="T_e68b0_row8_col4" class="data row8 col4" >0</td>
-      <td id="T_e68b0_row8_col5" class="data row8 col5" >0</td>
-      <td id="T_e68b0_row8_col6" class="data row8 col6" >1166</td>
-      <td id="T_e68b0_row8_col7" class="data row8 col7" >118</td>
-      <td id="T_e68b0_row8_col8" class="data row8 col8" >$0.00149</td>
-      <td id="T_e68b0_row8_col9" class="data row8 col9" >1.87</td>
-      <td id="T_e68b0_row8_col10" class="data row8 col10" >0.98</td>
+      <th id="T_e68b0_level0_row8" class="row_heading level0 row8">28</th>
+      <td id="T_e68b0_row8_col0" class="data row8 col0">Round 2: routing</td>
+      <td id="T_e68b0_row8_col1" class="data row8 col1">T-009</td>
+      <td id="T_e68b0_row8_col2" class="data row8 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row8_col3" class="data row8 col3">1166</td>
+      <td id="T_e68b0_row8_col4" class="data row8 col4">0</td>
+      <td id="T_e68b0_row8_col5" class="data row8 col5">0</td>
+      <td id="T_e68b0_row8_col6" class="data row8 col6">1166</td>
+      <td id="T_e68b0_row8_col7" class="data row8 col7">118</td>
+      <td id="T_e68b0_row8_col8" class="data row8 col8">$0.00149</td>
+      <td id="T_e68b0_row8_col9" class="data row8 col9">1.87</td>
+      <td id="T_e68b0_row8_col10" class="data row8 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row9" class="row_heading level0 row9" >29</th>
-      <td id="T_e68b0_row9_col0" class="data row9 col0" >Round 2: routing</td>
-      <td id="T_e68b0_row9_col1" class="data row9 col1" >T-010</td>
-      <td id="T_e68b0_row9_col2" class="data row9 col2" >gpt-5.4</td>
-      <td id="T_e68b0_row9_col3" class="data row9 col3" >1123</td>
-      <td id="T_e68b0_row9_col4" class="data row9 col4" >0</td>
-      <td id="T_e68b0_row9_col5" class="data row9 col5" >0</td>
-      <td id="T_e68b0_row9_col6" class="data row9 col6" >1123</td>
-      <td id="T_e68b0_row9_col7" class="data row9 col7" >165</td>
-      <td id="T_e68b0_row9_col8" class="data row9 col8" >$0.00537</td>
-      <td id="T_e68b0_row9_col9" class="data row9 col9" >2.48</td>
-      <td id="T_e68b0_row9_col10" class="data row9 col10" >0.99</td>
+      <th id="T_e68b0_level0_row9" class="row_heading level0 row9">29</th>
+      <td id="T_e68b0_row9_col0" class="data row9 col0">Round 2: routing</td>
+      <td id="T_e68b0_row9_col1" class="data row9 col1">T-010</td>
+      <td id="T_e68b0_row9_col2" class="data row9 col2">gpt-5.4</td>
+      <td id="T_e68b0_row9_col3" class="data row9 col3">1123</td>
+      <td id="T_e68b0_row9_col4" class="data row9 col4">0</td>
+      <td id="T_e68b0_row9_col5" class="data row9 col5">0</td>
+      <td id="T_e68b0_row9_col6" class="data row9 col6">1123</td>
+      <td id="T_e68b0_row9_col7" class="data row9 col7">165</td>
+      <td id="T_e68b0_row9_col8" class="data row9 col8">$0.00537</td>
+      <td id="T_e68b0_row9_col9" class="data row9 col9">2.48</td>
+      <td id="T_e68b0_row9_col10" class="data row9 col10">0.99</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row10" class="row_heading level0 row10" >30</th>
-      <td id="T_e68b0_row10_col0" class="data row10 col0" >Round 3: caching</td>
-      <td id="T_e68b0_row10_col1" class="data row10 col1" >T-001</td>
-      <td id="T_e68b0_row10_col2" class="data row10 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row10_col3" class="data row10 col3" >2267</td>
-      <td id="T_e68b0_row10_col4" class="data row10 col4" >1779</td>
-      <td id="T_e68b0_row10_col5" class="data row10 col5" >1779</td>
-      <td id="T_e68b0_row10_col6" class="data row10 col6" >933</td>
-      <td id="T_e68b0_row10_col7" class="data row10 col7" >77</td>
-      <td id="T_e68b0_row10_col8" class="data row10 col8" >$0.00093</td>
-      <td id="T_e68b0_row10_col9" class="data row10 col9" >1.54</td>
-      <td id="T_e68b0_row10_col10" class="data row10 col10" >0.98</td>
+      <th id="T_e68b0_level0_row10" class="row_heading level0 row10">30</th>
+      <td id="T_e68b0_row10_col0" class="data row10 col0">Round 3: caching</td>
+      <td id="T_e68b0_row10_col1" class="data row10 col1">T-001</td>
+      <td id="T_e68b0_row10_col2" class="data row10 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row10_col3" class="data row10 col3">2267</td>
+      <td id="T_e68b0_row10_col4" class="data row10 col4">1779</td>
+      <td id="T_e68b0_row10_col5" class="data row10 col5">1779</td>
+      <td id="T_e68b0_row10_col6" class="data row10 col6">933</td>
+      <td id="T_e68b0_row10_col7" class="data row10 col7">77</td>
+      <td id="T_e68b0_row10_col8" class="data row10 col8">$0.00093</td>
+      <td id="T_e68b0_row10_col9" class="data row10 col9">1.54</td>
+      <td id="T_e68b0_row10_col10" class="data row10 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row11" class="row_heading level0 row11" >31</th>
-      <td id="T_e68b0_row11_col0" class="data row11 col0" >Round 3: caching</td>
-      <td id="T_e68b0_row11_col1" class="data row11 col1" >T-002</td>
-      <td id="T_e68b0_row11_col2" class="data row11 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row11_col3" class="data row11 col3" >2338</td>
-      <td id="T_e68b0_row11_col4" class="data row11 col4" >1779</td>
-      <td id="T_e68b0_row11_col5" class="data row11 col5" >1779</td>
-      <td id="T_e68b0_row11_col6" class="data row11 col6" >1004</td>
-      <td id="T_e68b0_row11_col7" class="data row11 col7" >104</td>
-      <td id="T_e68b0_row11_col8" class="data row11 col8" >$0.00111</td>
-      <td id="T_e68b0_row11_col9" class="data row11 col9" >1.70</td>
-      <td id="T_e68b0_row11_col10" class="data row11 col10" >0.98</td>
+      <th id="T_e68b0_level0_row11" class="row_heading level0 row11">31</th>
+      <td id="T_e68b0_row11_col0" class="data row11 col0">Round 3: caching</td>
+      <td id="T_e68b0_row11_col1" class="data row11 col1">T-002</td>
+      <td id="T_e68b0_row11_col2" class="data row11 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row11_col3" class="data row11 col3">2338</td>
+      <td id="T_e68b0_row11_col4" class="data row11 col4">1779</td>
+      <td id="T_e68b0_row11_col5" class="data row11 col5">1779</td>
+      <td id="T_e68b0_row11_col6" class="data row11 col6">1004</td>
+      <td id="T_e68b0_row11_col7" class="data row11 col7">104</td>
+      <td id="T_e68b0_row11_col8" class="data row11 col8">$0.00111</td>
+      <td id="T_e68b0_row11_col9" class="data row11 col9">1.70</td>
+      <td id="T_e68b0_row11_col10" class="data row11 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row12" class="row_heading level0 row12" >32</th>
-      <td id="T_e68b0_row12_col0" class="data row12 col0" >Round 3: caching</td>
-      <td id="T_e68b0_row12_col1" class="data row12 col1" >T-003</td>
-      <td id="T_e68b0_row12_col2" class="data row12 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row12_col3" class="data row12 col3" >2361</td>
-      <td id="T_e68b0_row12_col4" class="data row12 col4" >1779</td>
-      <td id="T_e68b0_row12_col5" class="data row12 col5" >1779</td>
-      <td id="T_e68b0_row12_col6" class="data row12 col6" >1027</td>
-      <td id="T_e68b0_row12_col7" class="data row12 col7" >118</td>
-      <td id="T_e68b0_row12_col8" class="data row12 col8" >$0.00119</td>
-      <td id="T_e68b0_row12_col9" class="data row12 col9" >1.85</td>
-      <td id="T_e68b0_row12_col10" class="data row12 col10" >0.98</td>
+      <th id="T_e68b0_level0_row12" class="row_heading level0 row12">32</th>
+      <td id="T_e68b0_row12_col0" class="data row12 col0">Round 3: caching</td>
+      <td id="T_e68b0_row12_col1" class="data row12 col1">T-003</td>
+      <td id="T_e68b0_row12_col2" class="data row12 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row12_col3" class="data row12 col3">2361</td>
+      <td id="T_e68b0_row12_col4" class="data row12 col4">1779</td>
+      <td id="T_e68b0_row12_col5" class="data row12 col5">1779</td>
+      <td id="T_e68b0_row12_col6" class="data row12 col6">1027</td>
+      <td id="T_e68b0_row12_col7" class="data row12 col7">118</td>
+      <td id="T_e68b0_row12_col8" class="data row12 col8">$0.00119</td>
+      <td id="T_e68b0_row12_col9" class="data row12 col9">1.85</td>
+      <td id="T_e68b0_row12_col10" class="data row12 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row13" class="row_heading level0 row13" >33</th>
-      <td id="T_e68b0_row13_col0" class="data row13 col0" >Round 3: caching</td>
-      <td id="T_e68b0_row13_col1" class="data row13 col1" >T-004</td>
-      <td id="T_e68b0_row13_col2" class="data row13 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row13_col3" class="data row13 col3" >2349</td>
-      <td id="T_e68b0_row13_col4" class="data row13 col4" >1779</td>
-      <td id="T_e68b0_row13_col5" class="data row13 col5" >1779</td>
-      <td id="T_e68b0_row13_col6" class="data row13 col6" >1015</td>
-      <td id="T_e68b0_row13_col7" class="data row13 col7" >117</td>
-      <td id="T_e68b0_row13_col8" class="data row13 col8" >$0.00117</td>
-      <td id="T_e68b0_row13_col9" class="data row13 col9" >1.84</td>
-      <td id="T_e68b0_row13_col10" class="data row13 col10" >0.98</td>
+      <th id="T_e68b0_level0_row13" class="row_heading level0 row13">33</th>
+      <td id="T_e68b0_row13_col0" class="data row13 col0">Round 3: caching</td>
+      <td id="T_e68b0_row13_col1" class="data row13 col1">T-004</td>
+      <td id="T_e68b0_row13_col2" class="data row13 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row13_col3" class="data row13 col3">2349</td>
+      <td id="T_e68b0_row13_col4" class="data row13 col4">1779</td>
+      <td id="T_e68b0_row13_col5" class="data row13 col5">1779</td>
+      <td id="T_e68b0_row13_col6" class="data row13 col6">1015</td>
+      <td id="T_e68b0_row13_col7" class="data row13 col7">117</td>
+      <td id="T_e68b0_row13_col8" class="data row13 col8">$0.00117</td>
+      <td id="T_e68b0_row13_col9" class="data row13 col9">1.84</td>
+      <td id="T_e68b0_row13_col10" class="data row13 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row14" class="row_heading level0 row14" >34</th>
-      <td id="T_e68b0_row14_col0" class="data row14 col0" >Round 3: caching</td>
-      <td id="T_e68b0_row14_col1" class="data row14 col1" >T-005</td>
-      <td id="T_e68b0_row14_col2" class="data row14 col2" >gpt-5.4</td>
-      <td id="T_e68b0_row14_col3" class="data row14 col3" >2318</td>
-      <td id="T_e68b0_row14_col4" class="data row14 col4" >1779</td>
-      <td id="T_e68b0_row14_col5" class="data row14 col5" >1779</td>
-      <td id="T_e68b0_row14_col6" class="data row14 col6" >984</td>
-      <td id="T_e68b0_row14_col7" class="data row14 col7" >165</td>
-      <td id="T_e68b0_row14_col8" class="data row14 col8" >$0.00435</td>
-      <td id="T_e68b0_row14_col9" class="data row14 col9" >2.45</td>
-      <td id="T_e68b0_row14_col10" class="data row14 col10" >0.99</td>
+      <th id="T_e68b0_level0_row14" class="row_heading level0 row14">34</th>
+      <td id="T_e68b0_row14_col0" class="data row14 col0">Round 3: caching</td>
+      <td id="T_e68b0_row14_col1" class="data row14 col1">T-005</td>
+      <td id="T_e68b0_row14_col2" class="data row14 col2">gpt-5.4</td>
+      <td id="T_e68b0_row14_col3" class="data row14 col3">2318</td>
+      <td id="T_e68b0_row14_col4" class="data row14 col4">1779</td>
+      <td id="T_e68b0_row14_col5" class="data row14 col5">1779</td>
+      <td id="T_e68b0_row14_col6" class="data row14 col6">984</td>
+      <td id="T_e68b0_row14_col7" class="data row14 col7">165</td>
+      <td id="T_e68b0_row14_col8" class="data row14 col8">$0.00435</td>
+      <td id="T_e68b0_row14_col9" class="data row14 col9">2.45</td>
+      <td id="T_e68b0_row14_col10" class="data row14 col10">0.99</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row15" class="row_heading level0 row15" >35</th>
-      <td id="T_e68b0_row15_col0" class="data row15 col0" >Round 3: caching</td>
-      <td id="T_e68b0_row15_col1" class="data row15 col1" >T-006</td>
-      <td id="T_e68b0_row15_col2" class="data row15 col2" >gpt-5.4</td>
-      <td id="T_e68b0_row15_col3" class="data row15 col3" >2365</td>
-      <td id="T_e68b0_row15_col4" class="data row15 col4" >1779</td>
-      <td id="T_e68b0_row15_col5" class="data row15 col5" >1779</td>
-      <td id="T_e68b0_row15_col6" class="data row15 col6" >1031</td>
-      <td id="T_e68b0_row15_col7" class="data row15 col7" >158</td>
-      <td id="T_e68b0_row15_col8" class="data row15 col8" >$0.00437</td>
-      <td id="T_e68b0_row15_col9" class="data row15 col9" >2.46</td>
-      <td id="T_e68b0_row15_col10" class="data row15 col10" >0.99</td>
+      <th id="T_e68b0_level0_row15" class="row_heading level0 row15">35</th>
+      <td id="T_e68b0_row15_col0" class="data row15 col0">Round 3: caching</td>
+      <td id="T_e68b0_row15_col1" class="data row15 col1">T-006</td>
+      <td id="T_e68b0_row15_col2" class="data row15 col2">gpt-5.4</td>
+      <td id="T_e68b0_row15_col3" class="data row15 col3">2365</td>
+      <td id="T_e68b0_row15_col4" class="data row15 col4">1779</td>
+      <td id="T_e68b0_row15_col5" class="data row15 col5">1779</td>
+      <td id="T_e68b0_row15_col6" class="data row15 col6">1031</td>
+      <td id="T_e68b0_row15_col7" class="data row15 col7">158</td>
+      <td id="T_e68b0_row15_col8" class="data row15 col8">$0.00437</td>
+      <td id="T_e68b0_row15_col9" class="data row15 col9">2.46</td>
+      <td id="T_e68b0_row15_col10" class="data row15 col10">0.99</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row16" class="row_heading level0 row16" >36</th>
-      <td id="T_e68b0_row16_col0" class="data row16 col0" >Round 3: caching</td>
-      <td id="T_e68b0_row16_col1" class="data row16 col1" >T-007</td>
-      <td id="T_e68b0_row16_col2" class="data row16 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row16_col3" class="data row16 col3" >2378</td>
-      <td id="T_e68b0_row16_col4" class="data row16 col4" >1779</td>
-      <td id="T_e68b0_row16_col5" class="data row16 col5" >1779</td>
-      <td id="T_e68b0_row16_col6" class="data row16 col6" >1044</td>
-      <td id="T_e68b0_row16_col7" class="data row16 col7" >100</td>
-      <td id="T_e68b0_row16_col8" class="data row16 col8" >$0.00112</td>
-      <td id="T_e68b0_row16_col9" class="data row16 col9" >1.70</td>
-      <td id="T_e68b0_row16_col10" class="data row16 col10" >0.98</td>
+      <th id="T_e68b0_level0_row16" class="row_heading level0 row16">36</th>
+      <td id="T_e68b0_row16_col0" class="data row16 col0">Round 3: caching</td>
+      <td id="T_e68b0_row16_col1" class="data row16 col1">T-007</td>
+      <td id="T_e68b0_row16_col2" class="data row16 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row16_col3" class="data row16 col3">2378</td>
+      <td id="T_e68b0_row16_col4" class="data row16 col4">1779</td>
+      <td id="T_e68b0_row16_col5" class="data row16 col5">1779</td>
+      <td id="T_e68b0_row16_col6" class="data row16 col6">1044</td>
+      <td id="T_e68b0_row16_col7" class="data row16 col7">100</td>
+      <td id="T_e68b0_row16_col8" class="data row16 col8">$0.00112</td>
+      <td id="T_e68b0_row16_col9" class="data row16 col9">1.70</td>
+      <td id="T_e68b0_row16_col10" class="data row16 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row17" class="row_heading level0 row17" >37</th>
-      <td id="T_e68b0_row17_col0" class="data row17 col0" >Round 3: caching</td>
-      <td id="T_e68b0_row17_col1" class="data row17 col1" >T-008</td>
-      <td id="T_e68b0_row17_col2" class="data row17 col2" >gpt-5.4</td>
-      <td id="T_e68b0_row17_col3" class="data row17 col3" >2379</td>
-      <td id="T_e68b0_row17_col4" class="data row17 col4" >1779</td>
-      <td id="T_e68b0_row17_col5" class="data row17 col5" >1779</td>
-      <td id="T_e68b0_row17_col6" class="data row17 col6" >1045</td>
-      <td id="T_e68b0_row17_col7" class="data row17 col7" >172</td>
-      <td id="T_e68b0_row17_col8" class="data row17 col8" >$0.00461</td>
-      <td id="T_e68b0_row17_col9" class="data row17 col9" >2.47</td>
-      <td id="T_e68b0_row17_col10" class="data row17 col10" >0.99</td>
+      <th id="T_e68b0_level0_row17" class="row_heading level0 row17">37</th>
+      <td id="T_e68b0_row17_col0" class="data row17 col0">Round 3: caching</td>
+      <td id="T_e68b0_row17_col1" class="data row17 col1">T-008</td>
+      <td id="T_e68b0_row17_col2" class="data row17 col2">gpt-5.4</td>
+      <td id="T_e68b0_row17_col3" class="data row17 col3">2379</td>
+      <td id="T_e68b0_row17_col4" class="data row17 col4">1779</td>
+      <td id="T_e68b0_row17_col5" class="data row17 col5">1779</td>
+      <td id="T_e68b0_row17_col6" class="data row17 col6">1045</td>
+      <td id="T_e68b0_row17_col7" class="data row17 col7">172</td>
+      <td id="T_e68b0_row17_col8" class="data row17 col8">$0.00461</td>
+      <td id="T_e68b0_row17_col9" class="data row17 col9">2.47</td>
+      <td id="T_e68b0_row17_col10" class="data row17 col10">0.99</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row18" class="row_heading level0 row18" >38</th>
-      <td id="T_e68b0_row18_col0" class="data row18 col0" >Round 3: caching</td>
-      <td id="T_e68b0_row18_col1" class="data row18 col1" >T-009</td>
-      <td id="T_e68b0_row18_col2" class="data row18 col2" >gpt-5.4-mini</td>
-      <td id="T_e68b0_row18_col3" class="data row18 col3" >2365</td>
-      <td id="T_e68b0_row18_col4" class="data row18 col4" >1779</td>
-      <td id="T_e68b0_row18_col5" class="data row18 col5" >1779</td>
-      <td id="T_e68b0_row18_col6" class="data row18 col6" >1031</td>
-      <td id="T_e68b0_row18_col7" class="data row18 col7" >118</td>
-      <td id="T_e68b0_row18_col8" class="data row18 col8" >$0.00119</td>
-      <td id="T_e68b0_row18_col9" class="data row18 col9" >1.85</td>
-      <td id="T_e68b0_row18_col10" class="data row18 col10" >0.98</td>
+      <th id="T_e68b0_level0_row18" class="row_heading level0 row18">38</th>
+      <td id="T_e68b0_row18_col0" class="data row18 col0">Round 3: caching</td>
+      <td id="T_e68b0_row18_col1" class="data row18 col1">T-009</td>
+      <td id="T_e68b0_row18_col2" class="data row18 col2">gpt-5.4-mini</td>
+      <td id="T_e68b0_row18_col3" class="data row18 col3">2365</td>
+      <td id="T_e68b0_row18_col4" class="data row18 col4">1779</td>
+      <td id="T_e68b0_row18_col5" class="data row18 col5">1779</td>
+      <td id="T_e68b0_row18_col6" class="data row18 col6">1031</td>
+      <td id="T_e68b0_row18_col7" class="data row18 col7">118</td>
+      <td id="T_e68b0_row18_col8" class="data row18 col8">$0.00119</td>
+      <td id="T_e68b0_row18_col9" class="data row18 col9">1.85</td>
+      <td id="T_e68b0_row18_col10" class="data row18 col10">0.98</td>
     </tr>
     <tr>
-      <th id="T_e68b0_level0_row19" class="row_heading level0 row19" >39</th>
-      <td id="T_e68b0_row19_col0" class="data row19 col0" >Round 3: caching</td>
-      <td id="T_e68b0_row19_col1" class="data row19 col1" >T-010</td>
-      <td id="T_e68b0_row19_col2" class="data row19 col2" >gpt-5.4</td>
-      <td id="T_e68b0_row19_col3" class="data row19 col3" >2322</td>
-      <td id="T_e68b0_row19_col4" class="data row19 col4" >1779</td>
-      <td id="T_e68b0_row19_col5" class="data row19 col5" >1779</td>
-      <td id="T_e68b0_row19_col6" class="data row19 col6" >988</td>
-      <td id="T_e68b0_row19_col7" class="data row19 col7" >165</td>
-      <td id="T_e68b0_row19_col8" class="data row19 col8" >$0.00436</td>
-      <td id="T_e68b0_row19_col9" class="data row19 col9" >2.46</td>
-      <td id="T_e68b0_row19_col10" class="data row19 col10" >0.99</td>
+      <th id="T_e68b0_level0_row19" class="row_heading level0 row19">39</th>
+      <td id="T_e68b0_row19_col0" class="data row19 col0">Round 3: caching</td>
+      <td id="T_e68b0_row19_col1" class="data row19 col1">T-010</td>
+      <td id="T_e68b0_row19_col2" class="data row19 col2">gpt-5.4</td>
+      <td id="T_e68b0_row19_col3" class="data row19 col3">2322</td>
+      <td id="T_e68b0_row19_col4" class="data row19 col4">1779</td>
+      <td id="T_e68b0_row19_col5" class="data row19 col5">1779</td>
+      <td id="T_e68b0_row19_col6" class="data row19 col6">988</td>
+      <td id="T_e68b0_row19_col7" class="data row19 col7">165</td>
+      <td id="T_e68b0_row19_col8" class="data row19 col8">$0.00436</td>
+      <td id="T_e68b0_row19_col9" class="data row19 col9">2.46</td>
+      <td id="T_e68b0_row19_col10" class="data row19 col10">0.99</td>
     </tr>
   </tbody>
 </table>
@@ -2586,321 +2586,321 @@ display(
 <table id="T_acc56">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_acc56_level0_col0" class="col_heading level0 col0" >variant_label</th>
-      <th id="T_acc56_level0_col1" class="col_heading level0 col1" >ticket_id</th>
-      <th id="T_acc56_level0_col2" class="col_heading level0 col2" >model</th>
-      <th id="T_acc56_level0_col3" class="col_heading level0 col3" >tool_calls</th>
-      <th id="T_acc56_level0_col4" class="col_heading level0 col4" >sync_tokens</th>
-      <th id="T_acc56_level0_col5" class="col_heading level0 col5" >total_tokens</th>
-      <th id="T_acc56_level0_col6" class="col_heading level0 col6" >background_tokens</th>
-      <th id="T_acc56_level0_col7" class="col_heading level0 col7" >latency_s</th>
-      <th id="T_acc56_level0_col8" class="col_heading level0 col8" >sync_cost_usd</th>
-      <th id="T_acc56_level0_col9" class="col_heading level0 col9" >background_cost_usd</th>
-      <th id="T_acc56_level0_col10" class="col_heading level0 col10" >cost_usd</th>
-      <th id="T_acc56_level0_col11" class="col_heading level0 col11" >quality_score</th>
+      <th class="blank level0"> </th>
+      <th id="T_acc56_level0_col0" class="col_heading level0 col0">variant_label</th>
+      <th id="T_acc56_level0_col1" class="col_heading level0 col1">ticket_id</th>
+      <th id="T_acc56_level0_col2" class="col_heading level0 col2">model</th>
+      <th id="T_acc56_level0_col3" class="col_heading level0 col3">tool_calls</th>
+      <th id="T_acc56_level0_col4" class="col_heading level0 col4">sync_tokens</th>
+      <th id="T_acc56_level0_col5" class="col_heading level0 col5">total_tokens</th>
+      <th id="T_acc56_level0_col6" class="col_heading level0 col6">background_tokens</th>
+      <th id="T_acc56_level0_col7" class="col_heading level0 col7">latency_s</th>
+      <th id="T_acc56_level0_col8" class="col_heading level0 col8">sync_cost_usd</th>
+      <th id="T_acc56_level0_col9" class="col_heading level0 col9">background_cost_usd</th>
+      <th id="T_acc56_level0_col10" class="col_heading level0 col10">cost_usd</th>
+      <th id="T_acc56_level0_col11" class="col_heading level0 col11">quality_score</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_acc56_level0_row0" class="row_heading level0 row0" >30</th>
-      <td id="T_acc56_row0_col0" class="data row0 col0" >Round 3: caching</td>
-      <td id="T_acc56_row0_col1" class="data row0 col1" >T-001</td>
-      <td id="T_acc56_row0_col2" class="data row0 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row0_col3" class="data row0 col3" >1</td>
-      <td id="T_acc56_row0_col4" class="data row0 col4" >2552</td>
-      <td id="T_acc56_row0_col5" class="data row0 col5" >2552</td>
-      <td id="T_acc56_row0_col6" class="data row0 col6" >0</td>
-      <td id="T_acc56_row0_col7" class="data row0 col7" >1.54</td>
-      <td id="T_acc56_row0_col8" class="data row0 col8" >$0.00093</td>
-      <td id="T_acc56_row0_col9" class="data row0 col9" >$0.00000</td>
-      <td id="T_acc56_row0_col10" class="data row0 col10" >$0.00093</td>
-      <td id="T_acc56_row0_col11" class="data row0 col11" >0.98</td>
+      <th id="T_acc56_level0_row0" class="row_heading level0 row0">30</th>
+      <td id="T_acc56_row0_col0" class="data row0 col0">Round 3: caching</td>
+      <td id="T_acc56_row0_col1" class="data row0 col1">T-001</td>
+      <td id="T_acc56_row0_col2" class="data row0 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row0_col3" class="data row0 col3">1</td>
+      <td id="T_acc56_row0_col4" class="data row0 col4">2552</td>
+      <td id="T_acc56_row0_col5" class="data row0 col5">2552</td>
+      <td id="T_acc56_row0_col6" class="data row0 col6">0</td>
+      <td id="T_acc56_row0_col7" class="data row0 col7">1.54</td>
+      <td id="T_acc56_row0_col8" class="data row0 col8">$0.00093</td>
+      <td id="T_acc56_row0_col9" class="data row0 col9">$0.00000</td>
+      <td id="T_acc56_row0_col10" class="data row0 col10">$0.00093</td>
+      <td id="T_acc56_row0_col11" class="data row0 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row1" class="row_heading level0 row1" >31</th>
-      <td id="T_acc56_row1_col0" class="data row1 col0" >Round 3: caching</td>
-      <td id="T_acc56_row1_col1" class="data row1 col1" >T-002</td>
-      <td id="T_acc56_row1_col2" class="data row1 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row1_col3" class="data row1 col3" >2</td>
-      <td id="T_acc56_row1_col4" class="data row1 col4" >2650</td>
-      <td id="T_acc56_row1_col5" class="data row1 col5" >2650</td>
-      <td id="T_acc56_row1_col6" class="data row1 col6" >0</td>
-      <td id="T_acc56_row1_col7" class="data row1 col7" >1.70</td>
-      <td id="T_acc56_row1_col8" class="data row1 col8" >$0.00111</td>
-      <td id="T_acc56_row1_col9" class="data row1 col9" >$0.00000</td>
-      <td id="T_acc56_row1_col10" class="data row1 col10" >$0.00111</td>
-      <td id="T_acc56_row1_col11" class="data row1 col11" >0.98</td>
+      <th id="T_acc56_level0_row1" class="row_heading level0 row1">31</th>
+      <td id="T_acc56_row1_col0" class="data row1 col0">Round 3: caching</td>
+      <td id="T_acc56_row1_col1" class="data row1 col1">T-002</td>
+      <td id="T_acc56_row1_col2" class="data row1 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row1_col3" class="data row1 col3">2</td>
+      <td id="T_acc56_row1_col4" class="data row1 col4">2650</td>
+      <td id="T_acc56_row1_col5" class="data row1 col5">2650</td>
+      <td id="T_acc56_row1_col6" class="data row1 col6">0</td>
+      <td id="T_acc56_row1_col7" class="data row1 col7">1.70</td>
+      <td id="T_acc56_row1_col8" class="data row1 col8">$0.00111</td>
+      <td id="T_acc56_row1_col9" class="data row1 col9">$0.00000</td>
+      <td id="T_acc56_row1_col10" class="data row1 col10">$0.00111</td>
+      <td id="T_acc56_row1_col11" class="data row1 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row2" class="row_heading level0 row2" >32</th>
-      <td id="T_acc56_row2_col0" class="data row2 col0" >Round 3: caching</td>
-      <td id="T_acc56_row2_col1" class="data row2 col1" >T-003</td>
-      <td id="T_acc56_row2_col2" class="data row2 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row2_col3" class="data row2 col3" >3</td>
-      <td id="T_acc56_row2_col4" class="data row2 col4" >2689</td>
-      <td id="T_acc56_row2_col5" class="data row2 col5" >2689</td>
-      <td id="T_acc56_row2_col6" class="data row2 col6" >0</td>
-      <td id="T_acc56_row2_col7" class="data row2 col7" >1.85</td>
-      <td id="T_acc56_row2_col8" class="data row2 col8" >$0.00119</td>
-      <td id="T_acc56_row2_col9" class="data row2 col9" >$0.00000</td>
-      <td id="T_acc56_row2_col10" class="data row2 col10" >$0.00119</td>
-      <td id="T_acc56_row2_col11" class="data row2 col11" >0.98</td>
+      <th id="T_acc56_level0_row2" class="row_heading level0 row2">32</th>
+      <td id="T_acc56_row2_col0" class="data row2 col0">Round 3: caching</td>
+      <td id="T_acc56_row2_col1" class="data row2 col1">T-003</td>
+      <td id="T_acc56_row2_col2" class="data row2 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row2_col3" class="data row2 col3">3</td>
+      <td id="T_acc56_row2_col4" class="data row2 col4">2689</td>
+      <td id="T_acc56_row2_col5" class="data row2 col5">2689</td>
+      <td id="T_acc56_row2_col6" class="data row2 col6">0</td>
+      <td id="T_acc56_row2_col7" class="data row2 col7">1.85</td>
+      <td id="T_acc56_row2_col8" class="data row2 col8">$0.00119</td>
+      <td id="T_acc56_row2_col9" class="data row2 col9">$0.00000</td>
+      <td id="T_acc56_row2_col10" class="data row2 col10">$0.00119</td>
+      <td id="T_acc56_row2_col11" class="data row2 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row3" class="row_heading level0 row3" >33</th>
-      <td id="T_acc56_row3_col0" class="data row3 col0" >Round 3: caching</td>
-      <td id="T_acc56_row3_col1" class="data row3 col1" >T-004</td>
-      <td id="T_acc56_row3_col2" class="data row3 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row3_col3" class="data row3 col3" >3</td>
-      <td id="T_acc56_row3_col4" class="data row3 col4" >2673</td>
-      <td id="T_acc56_row3_col5" class="data row3 col5" >2673</td>
-      <td id="T_acc56_row3_col6" class="data row3 col6" >0</td>
-      <td id="T_acc56_row3_col7" class="data row3 col7" >1.84</td>
-      <td id="T_acc56_row3_col8" class="data row3 col8" >$0.00117</td>
-      <td id="T_acc56_row3_col9" class="data row3 col9" >$0.00000</td>
-      <td id="T_acc56_row3_col10" class="data row3 col10" >$0.00117</td>
-      <td id="T_acc56_row3_col11" class="data row3 col11" >0.98</td>
+      <th id="T_acc56_level0_row3" class="row_heading level0 row3">33</th>
+      <td id="T_acc56_row3_col0" class="data row3 col0">Round 3: caching</td>
+      <td id="T_acc56_row3_col1" class="data row3 col1">T-004</td>
+      <td id="T_acc56_row3_col2" class="data row3 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row3_col3" class="data row3 col3">3</td>
+      <td id="T_acc56_row3_col4" class="data row3 col4">2673</td>
+      <td id="T_acc56_row3_col5" class="data row3 col5">2673</td>
+      <td id="T_acc56_row3_col6" class="data row3 col6">0</td>
+      <td id="T_acc56_row3_col7" class="data row3 col7">1.84</td>
+      <td id="T_acc56_row3_col8" class="data row3 col8">$0.00117</td>
+      <td id="T_acc56_row3_col9" class="data row3 col9">$0.00000</td>
+      <td id="T_acc56_row3_col10" class="data row3 col10">$0.00117</td>
+      <td id="T_acc56_row3_col11" class="data row3 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row4" class="row_heading level0 row4" >34</th>
-      <td id="T_acc56_row4_col0" class="data row4 col0" >Round 3: caching</td>
-      <td id="T_acc56_row4_col1" class="data row4 col1" >T-005</td>
-      <td id="T_acc56_row4_col2" class="data row4 col2" >gpt-5.4</td>
-      <td id="T_acc56_row4_col3" class="data row4 col3" >3</td>
-      <td id="T_acc56_row4_col4" class="data row4 col4" >2689</td>
-      <td id="T_acc56_row4_col5" class="data row4 col5" >2689</td>
-      <td id="T_acc56_row4_col6" class="data row4 col6" >0</td>
-      <td id="T_acc56_row4_col7" class="data row4 col7" >2.45</td>
-      <td id="T_acc56_row4_col8" class="data row4 col8" >$0.00435</td>
-      <td id="T_acc56_row4_col9" class="data row4 col9" >$0.00000</td>
-      <td id="T_acc56_row4_col10" class="data row4 col10" >$0.00435</td>
-      <td id="T_acc56_row4_col11" class="data row4 col11" >0.99</td>
+      <th id="T_acc56_level0_row4" class="row_heading level0 row4">34</th>
+      <td id="T_acc56_row4_col0" class="data row4 col0">Round 3: caching</td>
+      <td id="T_acc56_row4_col1" class="data row4 col1">T-005</td>
+      <td id="T_acc56_row4_col2" class="data row4 col2">gpt-5.4</td>
+      <td id="T_acc56_row4_col3" class="data row4 col3">3</td>
+      <td id="T_acc56_row4_col4" class="data row4 col4">2689</td>
+      <td id="T_acc56_row4_col5" class="data row4 col5">2689</td>
+      <td id="T_acc56_row4_col6" class="data row4 col6">0</td>
+      <td id="T_acc56_row4_col7" class="data row4 col7">2.45</td>
+      <td id="T_acc56_row4_col8" class="data row4 col8">$0.00435</td>
+      <td id="T_acc56_row4_col9" class="data row4 col9">$0.00000</td>
+      <td id="T_acc56_row4_col10" class="data row4 col10">$0.00435</td>
+      <td id="T_acc56_row4_col11" class="data row4 col11">0.99</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row5" class="row_heading level0 row5" >35</th>
-      <td id="T_acc56_row5_col0" class="data row5 col0" >Round 3: caching</td>
-      <td id="T_acc56_row5_col1" class="data row5 col1" >T-006</td>
-      <td id="T_acc56_row5_col2" class="data row5 col2" >gpt-5.4</td>
-      <td id="T_acc56_row5_col3" class="data row5 col3" >3</td>
-      <td id="T_acc56_row5_col4" class="data row5 col4" >2735</td>
-      <td id="T_acc56_row5_col5" class="data row5 col5" >2735</td>
-      <td id="T_acc56_row5_col6" class="data row5 col6" >0</td>
-      <td id="T_acc56_row5_col7" class="data row5 col7" >2.46</td>
-      <td id="T_acc56_row5_col8" class="data row5 col8" >$0.00437</td>
-      <td id="T_acc56_row5_col9" class="data row5 col9" >$0.00000</td>
-      <td id="T_acc56_row5_col10" class="data row5 col10" >$0.00437</td>
-      <td id="T_acc56_row5_col11" class="data row5 col11" >0.99</td>
+      <th id="T_acc56_level0_row5" class="row_heading level0 row5">35</th>
+      <td id="T_acc56_row5_col0" class="data row5 col0">Round 3: caching</td>
+      <td id="T_acc56_row5_col1" class="data row5 col1">T-006</td>
+      <td id="T_acc56_row5_col2" class="data row5 col2">gpt-5.4</td>
+      <td id="T_acc56_row5_col3" class="data row5 col3">3</td>
+      <td id="T_acc56_row5_col4" class="data row5 col4">2735</td>
+      <td id="T_acc56_row5_col5" class="data row5 col5">2735</td>
+      <td id="T_acc56_row5_col6" class="data row5 col6">0</td>
+      <td id="T_acc56_row5_col7" class="data row5 col7">2.46</td>
+      <td id="T_acc56_row5_col8" class="data row5 col8">$0.00437</td>
+      <td id="T_acc56_row5_col9" class="data row5 col9">$0.00000</td>
+      <td id="T_acc56_row5_col10" class="data row5 col10">$0.00437</td>
+      <td id="T_acc56_row5_col11" class="data row5 col11">0.99</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row6" class="row_heading level0 row6" >36</th>
-      <td id="T_acc56_row6_col0" class="data row6 col0" >Round 3: caching</td>
-      <td id="T_acc56_row6_col1" class="data row6 col1" >T-007</td>
-      <td id="T_acc56_row6_col2" class="data row6 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row6_col3" class="data row6 col3" >2</td>
-      <td id="T_acc56_row6_col4" class="data row6 col4" >2691</td>
-      <td id="T_acc56_row6_col5" class="data row6 col5" >2691</td>
-      <td id="T_acc56_row6_col6" class="data row6 col6" >0</td>
-      <td id="T_acc56_row6_col7" class="data row6 col7" >1.70</td>
-      <td id="T_acc56_row6_col8" class="data row6 col8" >$0.00112</td>
-      <td id="T_acc56_row6_col9" class="data row6 col9" >$0.00000</td>
-      <td id="T_acc56_row6_col10" class="data row6 col10" >$0.00112</td>
-      <td id="T_acc56_row6_col11" class="data row6 col11" >0.98</td>
+      <th id="T_acc56_level0_row6" class="row_heading level0 row6">36</th>
+      <td id="T_acc56_row6_col0" class="data row6 col0">Round 3: caching</td>
+      <td id="T_acc56_row6_col1" class="data row6 col1">T-007</td>
+      <td id="T_acc56_row6_col2" class="data row6 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row6_col3" class="data row6 col3">2</td>
+      <td id="T_acc56_row6_col4" class="data row6 col4">2691</td>
+      <td id="T_acc56_row6_col5" class="data row6 col5">2691</td>
+      <td id="T_acc56_row6_col6" class="data row6 col6">0</td>
+      <td id="T_acc56_row6_col7" class="data row6 col7">1.70</td>
+      <td id="T_acc56_row6_col8" class="data row6 col8">$0.00112</td>
+      <td id="T_acc56_row6_col9" class="data row6 col9">$0.00000</td>
+      <td id="T_acc56_row6_col10" class="data row6 col10">$0.00112</td>
+      <td id="T_acc56_row6_col11" class="data row6 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row7" class="row_heading level0 row7" >37</th>
-      <td id="T_acc56_row7_col0" class="data row7 col0" >Round 3: caching</td>
-      <td id="T_acc56_row7_col1" class="data row7 col1" >T-008</td>
-      <td id="T_acc56_row7_col2" class="data row7 col2" >gpt-5.4</td>
-      <td id="T_acc56_row7_col3" class="data row7 col3" >3</td>
-      <td id="T_acc56_row7_col4" class="data row7 col4" >2769</td>
-      <td id="T_acc56_row7_col5" class="data row7 col5" >2769</td>
-      <td id="T_acc56_row7_col6" class="data row7 col6" >0</td>
-      <td id="T_acc56_row7_col7" class="data row7 col7" >2.47</td>
-      <td id="T_acc56_row7_col8" class="data row7 col8" >$0.00461</td>
-      <td id="T_acc56_row7_col9" class="data row7 col9" >$0.00000</td>
-      <td id="T_acc56_row7_col10" class="data row7 col10" >$0.00461</td>
-      <td id="T_acc56_row7_col11" class="data row7 col11" >0.99</td>
+      <th id="T_acc56_level0_row7" class="row_heading level0 row7">37</th>
+      <td id="T_acc56_row7_col0" class="data row7 col0">Round 3: caching</td>
+      <td id="T_acc56_row7_col1" class="data row7 col1">T-008</td>
+      <td id="T_acc56_row7_col2" class="data row7 col2">gpt-5.4</td>
+      <td id="T_acc56_row7_col3" class="data row7 col3">3</td>
+      <td id="T_acc56_row7_col4" class="data row7 col4">2769</td>
+      <td id="T_acc56_row7_col5" class="data row7 col5">2769</td>
+      <td id="T_acc56_row7_col6" class="data row7 col6">0</td>
+      <td id="T_acc56_row7_col7" class="data row7 col7">2.47</td>
+      <td id="T_acc56_row7_col8" class="data row7 col8">$0.00461</td>
+      <td id="T_acc56_row7_col9" class="data row7 col9">$0.00000</td>
+      <td id="T_acc56_row7_col10" class="data row7 col10">$0.00461</td>
+      <td id="T_acc56_row7_col11" class="data row7 col11">0.99</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row8" class="row_heading level0 row8" >38</th>
-      <td id="T_acc56_row8_col0" class="data row8 col0" >Round 3: caching</td>
-      <td id="T_acc56_row8_col1" class="data row8 col1" >T-009</td>
-      <td id="T_acc56_row8_col2" class="data row8 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row8_col3" class="data row8 col3" >3</td>
-      <td id="T_acc56_row8_col4" class="data row8 col4" >2697</td>
-      <td id="T_acc56_row8_col5" class="data row8 col5" >2697</td>
-      <td id="T_acc56_row8_col6" class="data row8 col6" >0</td>
-      <td id="T_acc56_row8_col7" class="data row8 col7" >1.85</td>
-      <td id="T_acc56_row8_col8" class="data row8 col8" >$0.00119</td>
-      <td id="T_acc56_row8_col9" class="data row8 col9" >$0.00000</td>
-      <td id="T_acc56_row8_col10" class="data row8 col10" >$0.00119</td>
-      <td id="T_acc56_row8_col11" class="data row8 col11" >0.98</td>
+      <th id="T_acc56_level0_row8" class="row_heading level0 row8">38</th>
+      <td id="T_acc56_row8_col0" class="data row8 col0">Round 3: caching</td>
+      <td id="T_acc56_row8_col1" class="data row8 col1">T-009</td>
+      <td id="T_acc56_row8_col2" class="data row8 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row8_col3" class="data row8 col3">3</td>
+      <td id="T_acc56_row8_col4" class="data row8 col4">2697</td>
+      <td id="T_acc56_row8_col5" class="data row8 col5">2697</td>
+      <td id="T_acc56_row8_col6" class="data row8 col6">0</td>
+      <td id="T_acc56_row8_col7" class="data row8 col7">1.85</td>
+      <td id="T_acc56_row8_col8" class="data row8 col8">$0.00119</td>
+      <td id="T_acc56_row8_col9" class="data row8 col9">$0.00000</td>
+      <td id="T_acc56_row8_col10" class="data row8 col10">$0.00119</td>
+      <td id="T_acc56_row8_col11" class="data row8 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row9" class="row_heading level0 row9" >39</th>
-      <td id="T_acc56_row9_col0" class="data row9 col0" >Round 3: caching</td>
-      <td id="T_acc56_row9_col1" class="data row9 col1" >T-010</td>
-      <td id="T_acc56_row9_col2" class="data row9 col2" >gpt-5.4</td>
-      <td id="T_acc56_row9_col3" class="data row9 col3" >3</td>
-      <td id="T_acc56_row9_col4" class="data row9 col4" >2696</td>
-      <td id="T_acc56_row9_col5" class="data row9 col5" >2696</td>
-      <td id="T_acc56_row9_col6" class="data row9 col6" >0</td>
-      <td id="T_acc56_row9_col7" class="data row9 col7" >2.46</td>
-      <td id="T_acc56_row9_col8" class="data row9 col8" >$0.00436</td>
-      <td id="T_acc56_row9_col9" class="data row9 col9" >$0.00000</td>
-      <td id="T_acc56_row9_col10" class="data row9 col10" >$0.00436</td>
-      <td id="T_acc56_row9_col11" class="data row9 col11" >0.99</td>
+      <th id="T_acc56_level0_row9" class="row_heading level0 row9">39</th>
+      <td id="T_acc56_row9_col0" class="data row9 col0">Round 3: caching</td>
+      <td id="T_acc56_row9_col1" class="data row9 col1">T-010</td>
+      <td id="T_acc56_row9_col2" class="data row9 col2">gpt-5.4</td>
+      <td id="T_acc56_row9_col3" class="data row9 col3">3</td>
+      <td id="T_acc56_row9_col4" class="data row9 col4">2696</td>
+      <td id="T_acc56_row9_col5" class="data row9 col5">2696</td>
+      <td id="T_acc56_row9_col6" class="data row9 col6">0</td>
+      <td id="T_acc56_row9_col7" class="data row9 col7">2.46</td>
+      <td id="T_acc56_row9_col8" class="data row9 col8">$0.00436</td>
+      <td id="T_acc56_row9_col9" class="data row9 col9">$0.00000</td>
+      <td id="T_acc56_row9_col10" class="data row9 col10">$0.00436</td>
+      <td id="T_acc56_row9_col11" class="data row9 col11">0.99</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row10" class="row_heading level0 row10" >40</th>
-      <td id="T_acc56_row10_col0" class="data row10 col0" >Round 4: split workflow</td>
-      <td id="T_acc56_row10_col1" class="data row10 col1" >T-001</td>
-      <td id="T_acc56_row10_col2" class="data row10 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row10_col3" class="data row10 col3" >1</td>
-      <td id="T_acc56_row10_col4" class="data row10 col4" >2287</td>
-      <td id="T_acc56_row10_col5" class="data row10 col5" >2867</td>
-      <td id="T_acc56_row10_col6" class="data row10 col6" >580</td>
-      <td id="T_acc56_row10_col7" class="data row10 col7" >1.10</td>
-      <td id="T_acc56_row10_col8" class="data row10 col8" >$0.00071</td>
-      <td id="T_acc56_row10_col9" class="data row10 col9" >$0.00011</td>
-      <td id="T_acc56_row10_col10" class="data row10 col10" >$0.00082</td>
-      <td id="T_acc56_row10_col11" class="data row10 col11" >0.98</td>
+      <th id="T_acc56_level0_row10" class="row_heading level0 row10">40</th>
+      <td id="T_acc56_row10_col0" class="data row10 col0">Round 4: split workflow</td>
+      <td id="T_acc56_row10_col1" class="data row10 col1">T-001</td>
+      <td id="T_acc56_row10_col2" class="data row10 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row10_col3" class="data row10 col3">1</td>
+      <td id="T_acc56_row10_col4" class="data row10 col4">2287</td>
+      <td id="T_acc56_row10_col5" class="data row10 col5">2867</td>
+      <td id="T_acc56_row10_col6" class="data row10 col6">580</td>
+      <td id="T_acc56_row10_col7" class="data row10 col7">1.10</td>
+      <td id="T_acc56_row10_col8" class="data row10 col8">$0.00071</td>
+      <td id="T_acc56_row10_col9" class="data row10 col9">$0.00011</td>
+      <td id="T_acc56_row10_col10" class="data row10 col10">$0.00082</td>
+      <td id="T_acc56_row10_col11" class="data row10 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row11" class="row_heading level0 row11" >41</th>
-      <td id="T_acc56_row11_col0" class="data row11 col0" >Round 4: split workflow</td>
-      <td id="T_acc56_row11_col1" class="data row11 col1" >T-002</td>
-      <td id="T_acc56_row11_col2" class="data row11 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row11_col3" class="data row11 col3" >2</td>
-      <td id="T_acc56_row11_col4" class="data row11 col4" >2381</td>
-      <td id="T_acc56_row11_col5" class="data row11 col5" >2940</td>
-      <td id="T_acc56_row11_col6" class="data row11 col6" >559</td>
-      <td id="T_acc56_row11_col7" class="data row11 col7" >1.26</td>
-      <td id="T_acc56_row11_col8" class="data row11 col8" >$0.00087</td>
-      <td id="T_acc56_row11_col9" class="data row11 col9" >$0.00010</td>
-      <td id="T_acc56_row11_col10" class="data row11 col10" >$0.00097</td>
-      <td id="T_acc56_row11_col11" class="data row11 col11" >0.98</td>
+      <th id="T_acc56_level0_row11" class="row_heading level0 row11">41</th>
+      <td id="T_acc56_row11_col0" class="data row11 col0">Round 4: split workflow</td>
+      <td id="T_acc56_row11_col1" class="data row11 col1">T-002</td>
+      <td id="T_acc56_row11_col2" class="data row11 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row11_col3" class="data row11 col3">2</td>
+      <td id="T_acc56_row11_col4" class="data row11 col4">2381</td>
+      <td id="T_acc56_row11_col5" class="data row11 col5">2940</td>
+      <td id="T_acc56_row11_col6" class="data row11 col6">559</td>
+      <td id="T_acc56_row11_col7" class="data row11 col7">1.26</td>
+      <td id="T_acc56_row11_col8" class="data row11 col8">$0.00087</td>
+      <td id="T_acc56_row11_col9" class="data row11 col9">$0.00010</td>
+      <td id="T_acc56_row11_col10" class="data row11 col10">$0.00097</td>
+      <td id="T_acc56_row11_col11" class="data row11 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row12" class="row_heading level0 row12" >42</th>
-      <td id="T_acc56_row12_col0" class="data row12 col0" >Round 4: split workflow</td>
-      <td id="T_acc56_row12_col1" class="data row12 col1" >T-003</td>
-      <td id="T_acc56_row12_col2" class="data row12 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row12_col3" class="data row12 col3" >3</td>
-      <td id="T_acc56_row12_col4" class="data row12 col4" >2418</td>
-      <td id="T_acc56_row12_col5" class="data row12 col5" >2978</td>
-      <td id="T_acc56_row12_col6" class="data row12 col6" >560</td>
-      <td id="T_acc56_row12_col7" class="data row12 col7" >1.41</td>
-      <td id="T_acc56_row12_col8" class="data row12 col8" >$0.00094</td>
-      <td id="T_acc56_row12_col9" class="data row12 col9" >$0.00010</td>
-      <td id="T_acc56_row12_col10" class="data row12 col10" >$0.00105</td>
-      <td id="T_acc56_row12_col11" class="data row12 col11" >0.98</td>
+      <th id="T_acc56_level0_row12" class="row_heading level0 row12">42</th>
+      <td id="T_acc56_row12_col0" class="data row12 col0">Round 4: split workflow</td>
+      <td id="T_acc56_row12_col1" class="data row12 col1">T-003</td>
+      <td id="T_acc56_row12_col2" class="data row12 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row12_col3" class="data row12 col3">3</td>
+      <td id="T_acc56_row12_col4" class="data row12 col4">2418</td>
+      <td id="T_acc56_row12_col5" class="data row12 col5">2978</td>
+      <td id="T_acc56_row12_col6" class="data row12 col6">560</td>
+      <td id="T_acc56_row12_col7" class="data row12 col7">1.41</td>
+      <td id="T_acc56_row12_col8" class="data row12 col8">$0.00094</td>
+      <td id="T_acc56_row12_col9" class="data row12 col9">$0.00010</td>
+      <td id="T_acc56_row12_col10" class="data row12 col10">$0.00105</td>
+      <td id="T_acc56_row12_col11" class="data row12 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row13" class="row_heading level0 row13" >43</th>
-      <td id="T_acc56_row13_col0" class="data row13 col0" >Round 4: split workflow</td>
-      <td id="T_acc56_row13_col1" class="data row13 col1" >T-004</td>
-      <td id="T_acc56_row13_col2" class="data row13 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row13_col3" class="data row13 col3" >3</td>
-      <td id="T_acc56_row13_col4" class="data row13 col4" >2401</td>
-      <td id="T_acc56_row13_col5" class="data row13 col5" >2942</td>
-      <td id="T_acc56_row13_col6" class="data row13 col6" >541</td>
-      <td id="T_acc56_row13_col7" class="data row13 col7" >1.41</td>
-      <td id="T_acc56_row13_col8" class="data row13 col8" >$0.00092</td>
-      <td id="T_acc56_row13_col9" class="data row13 col9" >$0.00010</td>
-      <td id="T_acc56_row13_col10" class="data row13 col10" >$0.00103</td>
-      <td id="T_acc56_row13_col11" class="data row13 col11" >0.98</td>
+      <th id="T_acc56_level0_row13" class="row_heading level0 row13">43</th>
+      <td id="T_acc56_row13_col0" class="data row13 col0">Round 4: split workflow</td>
+      <td id="T_acc56_row13_col1" class="data row13 col1">T-004</td>
+      <td id="T_acc56_row13_col2" class="data row13 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row13_col3" class="data row13 col3">3</td>
+      <td id="T_acc56_row13_col4" class="data row13 col4">2401</td>
+      <td id="T_acc56_row13_col5" class="data row13 col5">2942</td>
+      <td id="T_acc56_row13_col6" class="data row13 col6">541</td>
+      <td id="T_acc56_row13_col7" class="data row13 col7">1.41</td>
+      <td id="T_acc56_row13_col8" class="data row13 col8">$0.00092</td>
+      <td id="T_acc56_row13_col9" class="data row13 col9">$0.00010</td>
+      <td id="T_acc56_row13_col10" class="data row13 col10">$0.00103</td>
+      <td id="T_acc56_row13_col11" class="data row13 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row14" class="row_heading level0 row14" >44</th>
-      <td id="T_acc56_row14_col0" class="data row14 col0" >Round 4: split workflow</td>
-      <td id="T_acc56_row14_col1" class="data row14 col1" >T-005</td>
-      <td id="T_acc56_row14_col2" class="data row14 col2" >gpt-5.4</td>
-      <td id="T_acc56_row14_col3" class="data row14 col3" >3</td>
-      <td id="T_acc56_row14_col4" class="data row14 col4" >2413</td>
-      <td id="T_acc56_row14_col5" class="data row14 col5" >2956</td>
-      <td id="T_acc56_row14_col6" class="data row14 col6" >543</td>
-      <td id="T_acc56_row14_col7" class="data row14 col7" >2.02</td>
-      <td id="T_acc56_row14_col8" class="data row14 col8" >$0.00346</td>
-      <td id="T_acc56_row14_col9" class="data row14 col9" >$0.00010</td>
-      <td id="T_acc56_row14_col10" class="data row14 col10" >$0.00356</td>
-      <td id="T_acc56_row14_col11" class="data row14 col11" >0.99</td>
+      <th id="T_acc56_level0_row14" class="row_heading level0 row14">44</th>
+      <td id="T_acc56_row14_col0" class="data row14 col0">Round 4: split workflow</td>
+      <td id="T_acc56_row14_col1" class="data row14 col1">T-005</td>
+      <td id="T_acc56_row14_col2" class="data row14 col2">gpt-5.4</td>
+      <td id="T_acc56_row14_col3" class="data row14 col3">3</td>
+      <td id="T_acc56_row14_col4" class="data row14 col4">2413</td>
+      <td id="T_acc56_row14_col5" class="data row14 col5">2956</td>
+      <td id="T_acc56_row14_col6" class="data row14 col6">543</td>
+      <td id="T_acc56_row14_col7" class="data row14 col7">2.02</td>
+      <td id="T_acc56_row14_col8" class="data row14 col8">$0.00346</td>
+      <td id="T_acc56_row14_col9" class="data row14 col9">$0.00010</td>
+      <td id="T_acc56_row14_col10" class="data row14 col10">$0.00356</td>
+      <td id="T_acc56_row14_col11" class="data row14 col11">0.99</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row15" class="row_heading level0 row15" >45</th>
-      <td id="T_acc56_row15_col0" class="data row15 col0" >Round 4: split workflow</td>
-      <td id="T_acc56_row15_col1" class="data row15 col1" >T-006</td>
-      <td id="T_acc56_row15_col2" class="data row15 col2" >gpt-5.4</td>
-      <td id="T_acc56_row15_col3" class="data row15 col3" >3</td>
-      <td id="T_acc56_row15_col4" class="data row15 col4" >2459</td>
-      <td id="T_acc56_row15_col5" class="data row15 col5" >3019</td>
-      <td id="T_acc56_row15_col6" class="data row15 col6" >560</td>
-      <td id="T_acc56_row15_col7" class="data row15 col7" >2.03</td>
-      <td id="T_acc56_row15_col8" class="data row15 col8" >$0.00348</td>
-      <td id="T_acc56_row15_col9" class="data row15 col9" >$0.00010</td>
-      <td id="T_acc56_row15_col10" class="data row15 col10" >$0.00358</td>
-      <td id="T_acc56_row15_col11" class="data row15 col11" >0.99</td>
+      <th id="T_acc56_level0_row15" class="row_heading level0 row15">45</th>
+      <td id="T_acc56_row15_col0" class="data row15 col0">Round 4: split workflow</td>
+      <td id="T_acc56_row15_col1" class="data row15 col1">T-006</td>
+      <td id="T_acc56_row15_col2" class="data row15 col2">gpt-5.4</td>
+      <td id="T_acc56_row15_col3" class="data row15 col3">3</td>
+      <td id="T_acc56_row15_col4" class="data row15 col4">2459</td>
+      <td id="T_acc56_row15_col5" class="data row15 col5">3019</td>
+      <td id="T_acc56_row15_col6" class="data row15 col6">560</td>
+      <td id="T_acc56_row15_col7" class="data row15 col7">2.03</td>
+      <td id="T_acc56_row15_col8" class="data row15 col8">$0.00348</td>
+      <td id="T_acc56_row15_col9" class="data row15 col9">$0.00010</td>
+      <td id="T_acc56_row15_col10" class="data row15 col10">$0.00358</td>
+      <td id="T_acc56_row15_col11" class="data row15 col11">0.99</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row16" class="row_heading level0 row16" >46</th>
-      <td id="T_acc56_row16_col0" class="data row16 col0" >Round 4: split workflow</td>
-      <td id="T_acc56_row16_col1" class="data row16 col1" >T-007</td>
-      <td id="T_acc56_row16_col2" class="data row16 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row16_col3" class="data row16 col3" >2</td>
-      <td id="T_acc56_row16_col4" class="data row16 col4" >2422</td>
-      <td id="T_acc56_row16_col5" class="data row16 col5" >3023</td>
-      <td id="T_acc56_row16_col6" class="data row16 col6" >601</td>
-      <td id="T_acc56_row16_col7" class="data row16 col7" >1.27</td>
-      <td id="T_acc56_row16_col8" class="data row16 col8" >$0.00088</td>
-      <td id="T_acc56_row16_col9" class="data row16 col9" >$0.00011</td>
-      <td id="T_acc56_row16_col10" class="data row16 col10" >$0.00099</td>
-      <td id="T_acc56_row16_col11" class="data row16 col11" >0.98</td>
+      <th id="T_acc56_level0_row16" class="row_heading level0 row16">46</th>
+      <td id="T_acc56_row16_col0" class="data row16 col0">Round 4: split workflow</td>
+      <td id="T_acc56_row16_col1" class="data row16 col1">T-007</td>
+      <td id="T_acc56_row16_col2" class="data row16 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row16_col3" class="data row16 col3">2</td>
+      <td id="T_acc56_row16_col4" class="data row16 col4">2422</td>
+      <td id="T_acc56_row16_col5" class="data row16 col5">3023</td>
+      <td id="T_acc56_row16_col6" class="data row16 col6">601</td>
+      <td id="T_acc56_row16_col7" class="data row16 col7">1.27</td>
+      <td id="T_acc56_row16_col8" class="data row16 col8">$0.00088</td>
+      <td id="T_acc56_row16_col9" class="data row16 col9">$0.00011</td>
+      <td id="T_acc56_row16_col10" class="data row16 col10">$0.00099</td>
+      <td id="T_acc56_row16_col11" class="data row16 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row17" class="row_heading level0 row17" >47</th>
-      <td id="T_acc56_row17_col0" class="data row17 col0" >Round 4: split workflow</td>
-      <td id="T_acc56_row17_col1" class="data row17 col1" >T-008</td>
-      <td id="T_acc56_row17_col2" class="data row17 col2" >gpt-5.4</td>
-      <td id="T_acc56_row17_col3" class="data row17 col3" >3</td>
-      <td id="T_acc56_row17_col4" class="data row17 col4" >2492</td>
-      <td id="T_acc56_row17_col5" class="data row17 col5" >3063</td>
-      <td id="T_acc56_row17_col6" class="data row17 col6" >571</td>
-      <td id="T_acc56_row17_col7" class="data row17 col7" >2.03</td>
-      <td id="T_acc56_row17_col8" class="data row17 col8" >$0.00371</td>
-      <td id="T_acc56_row17_col9" class="data row17 col9" >$0.00010</td>
-      <td id="T_acc56_row17_col10" class="data row17 col10" >$0.00381</td>
-      <td id="T_acc56_row17_col11" class="data row17 col11" >0.99</td>
+      <th id="T_acc56_level0_row17" class="row_heading level0 row17">47</th>
+      <td id="T_acc56_row17_col0" class="data row17 col0">Round 4: split workflow</td>
+      <td id="T_acc56_row17_col1" class="data row17 col1">T-008</td>
+      <td id="T_acc56_row17_col2" class="data row17 col2">gpt-5.4</td>
+      <td id="T_acc56_row17_col3" class="data row17 col3">3</td>
+      <td id="T_acc56_row17_col4" class="data row17 col4">2492</td>
+      <td id="T_acc56_row17_col5" class="data row17 col5">3063</td>
+      <td id="T_acc56_row17_col6" class="data row17 col6">571</td>
+      <td id="T_acc56_row17_col7" class="data row17 col7">2.03</td>
+      <td id="T_acc56_row17_col8" class="data row17 col8">$0.00371</td>
+      <td id="T_acc56_row17_col9" class="data row17 col9">$0.00010</td>
+      <td id="T_acc56_row17_col10" class="data row17 col10">$0.00381</td>
+      <td id="T_acc56_row17_col11" class="data row17 col11">0.99</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row18" class="row_heading level0 row18" >48</th>
-      <td id="T_acc56_row18_col0" class="data row18 col0" >Round 4: split workflow</td>
-      <td id="T_acc56_row18_col1" class="data row18 col1" >T-009</td>
-      <td id="T_acc56_row18_col2" class="data row18 col2" >gpt-5.4-mini</td>
-      <td id="T_acc56_row18_col3" class="data row18 col3" >3</td>
-      <td id="T_acc56_row18_col4" class="data row18 col4" >2426</td>
-      <td id="T_acc56_row18_col5" class="data row18 col5" >2988</td>
-      <td id="T_acc56_row18_col6" class="data row18 col6" >562</td>
-      <td id="T_acc56_row18_col7" class="data row18 col7" >1.41</td>
-      <td id="T_acc56_row18_col8" class="data row18 col8" >$0.00095</td>
-      <td id="T_acc56_row18_col9" class="data row18 col9" >$0.00010</td>
-      <td id="T_acc56_row18_col10" class="data row18 col10" >$0.00105</td>
-      <td id="T_acc56_row18_col11" class="data row18 col11" >0.98</td>
+      <th id="T_acc56_level0_row18" class="row_heading level0 row18">48</th>
+      <td id="T_acc56_row18_col0" class="data row18 col0">Round 4: split workflow</td>
+      <td id="T_acc56_row18_col1" class="data row18 col1">T-009</td>
+      <td id="T_acc56_row18_col2" class="data row18 col2">gpt-5.4-mini</td>
+      <td id="T_acc56_row18_col3" class="data row18 col3">3</td>
+      <td id="T_acc56_row18_col4" class="data row18 col4">2426</td>
+      <td id="T_acc56_row18_col5" class="data row18 col5">2988</td>
+      <td id="T_acc56_row18_col6" class="data row18 col6">562</td>
+      <td id="T_acc56_row18_col7" class="data row18 col7">1.41</td>
+      <td id="T_acc56_row18_col8" class="data row18 col8">$0.00095</td>
+      <td id="T_acc56_row18_col9" class="data row18 col9">$0.00010</td>
+      <td id="T_acc56_row18_col10" class="data row18 col10">$0.00105</td>
+      <td id="T_acc56_row18_col11" class="data row18 col11">0.98</td>
     </tr>
     <tr>
-      <th id="T_acc56_level0_row19" class="row_heading level0 row19" >49</th>
-      <td id="T_acc56_row19_col0" class="data row19 col0" >Round 4: split workflow</td>
-      <td id="T_acc56_row19_col1" class="data row19 col1" >T-010</td>
-      <td id="T_acc56_row19_col2" class="data row19 col2" >gpt-5.4</td>
-      <td id="T_acc56_row19_col3" class="data row19 col3" >3</td>
-      <td id="T_acc56_row19_col4" class="data row19 col4" >2420</td>
-      <td id="T_acc56_row19_col5" class="data row19 col5" >2962</td>
-      <td id="T_acc56_row19_col6" class="data row19 col6" >542</td>
-      <td id="T_acc56_row19_col7" class="data row19 col7" >2.02</td>
-      <td id="T_acc56_row19_col8" class="data row19 col8" >$0.00347</td>
-      <td id="T_acc56_row19_col9" class="data row19 col9" >$0.00010</td>
-      <td id="T_acc56_row19_col10" class="data row19 col10" >$0.00357</td>
-      <td id="T_acc56_row19_col11" class="data row19 col11" >0.99</td>
+      <th id="T_acc56_level0_row19" class="row_heading level0 row19">49</th>
+      <td id="T_acc56_row19_col0" class="data row19 col0">Round 4: split workflow</td>
+      <td id="T_acc56_row19_col1" class="data row19 col1">T-010</td>
+      <td id="T_acc56_row19_col2" class="data row19 col2">gpt-5.4</td>
+      <td id="T_acc56_row19_col3" class="data row19 col3">3</td>
+      <td id="T_acc56_row19_col4" class="data row19 col4">2420</td>
+      <td id="T_acc56_row19_col5" class="data row19 col5">2962</td>
+      <td id="T_acc56_row19_col6" class="data row19 col6">542</td>
+      <td id="T_acc56_row19_col7" class="data row19 col7">2.02</td>
+      <td id="T_acc56_row19_col8" class="data row19 col8">$0.00347</td>
+      <td id="T_acc56_row19_col9" class="data row19 col9">$0.00010</td>
+      <td id="T_acc56_row19_col10" class="data row19 col10">$0.00357</td>
+      <td id="T_acc56_row19_col11" class="data row19 col11">0.99</td>
     </tr>
   </tbody>
 </table>
@@ -2975,97 +2975,97 @@ Table: Candidate architecture combinations (mock eval set + deterministic dry-ru
 <table id="T_681e7">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_681e7_level0_col0" class="col_heading level0 col0" >label</th>
-      <th id="T_681e7_level0_col1" class="col_heading level0 col1" >models</th>
-      <th id="T_681e7_level0_col2" class="col_heading level0 col2" >tools</th>
-      <th id="T_681e7_level0_col3" class="col_heading level0 col3" >cache</th>
-      <th id="T_681e7_level0_col4" class="col_heading level0 col4" >workflow</th>
-      <th id="T_681e7_level0_col5" class="col_heading level0 col5" >quality</th>
-      <th id="T_681e7_level0_col6" class="col_heading level0 col6" >policy_compliance</th>
-      <th id="T_681e7_level0_col7" class="col_heading level0 col7" >p50_latency_s</th>
-      <th id="T_681e7_level0_col8" class="col_heading level0 col8" >monthly_cost_at_100k_tickets</th>
-      <th id="T_681e7_level0_col9" class="col_heading level0 col9" >best_for</th>
+      <th class="blank level0"> </th>
+      <th id="T_681e7_level0_col0" class="col_heading level0 col0">label</th>
+      <th id="T_681e7_level0_col1" class="col_heading level0 col1">models</th>
+      <th id="T_681e7_level0_col2" class="col_heading level0 col2">tools</th>
+      <th id="T_681e7_level0_col3" class="col_heading level0 col3">cache</th>
+      <th id="T_681e7_level0_col4" class="col_heading level0 col4">workflow</th>
+      <th id="T_681e7_level0_col5" class="col_heading level0 col5">quality</th>
+      <th id="T_681e7_level0_col6" class="col_heading level0 col6">policy_compliance</th>
+      <th id="T_681e7_level0_col7" class="col_heading level0 col7">p50_latency_s</th>
+      <th id="T_681e7_level0_col8" class="col_heading level0 col8">monthly_cost_at_100k_tickets</th>
+      <th id="T_681e7_level0_col9" class="col_heading level0 col9">best_for</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_681e7_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_681e7_row0_col0" class="data row0 col0" >One broad agent</td>
-      <td id="T_681e7_row0_col1" class="data row0 col1" >gpt-5.4 for every step</td>
-      <td id="T_681e7_row0_col2" class="data row0 col2" >all tools exposed</td>
-      <td id="T_681e7_row0_col3" class="data row0 col3" >none</td>
-      <td id="T_681e7_row0_col4" class="data row0 col4" >all work synchronous</td>
-      <td id="T_681e7_row0_col5" class="data row0 col5" >0.51</td>
-      <td id="T_681e7_row0_col6" class="data row0 col6" >10%</td>
-      <td id="T_681e7_row0_col7" class="data row0 col7" >4.88</td>
-      <td id="T_681e7_row0_col8" class="data row0 col8" >$3,813</td>
-      <td id="T_681e7_row0_col9" class="data row0 col9" >prototype smell test only</td>
+      <th id="T_681e7_level0_row0" class="row_heading level0 row0">0</th>
+      <td id="T_681e7_row0_col0" class="data row0 col0">One broad agent</td>
+      <td id="T_681e7_row0_col1" class="data row0 col1">gpt-5.4 for every step</td>
+      <td id="T_681e7_row0_col2" class="data row0 col2">all tools exposed</td>
+      <td id="T_681e7_row0_col3" class="data row0 col3">none</td>
+      <td id="T_681e7_row0_col4" class="data row0 col4">all work synchronous</td>
+      <td id="T_681e7_row0_col5" class="data row0 col5">0.51</td>
+      <td id="T_681e7_row0_col6" class="data row0 col6">10%</td>
+      <td id="T_681e7_row0_col7" class="data row0 col7">4.88</td>
+      <td id="T_681e7_row0_col8" class="data row0 col8">$3,813</td>
+      <td id="T_681e7_row0_col9" class="data row0 col9">prototype smell test only</td>
     </tr>
     <tr>
-      <th id="T_681e7_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_681e7_row1_col0" class="data row1 col0" >Controlled full model</td>
-      <td id="T_681e7_row1_col1" class="data row1 col1" >gpt-5.4 for resolution</td>
-      <td id="T_681e7_row1_col2" class="data row1 col2" >allowed tools by routed path</td>
-      <td id="T_681e7_row1_col3" class="data row1 col3" >none</td>
-      <td id="T_681e7_row1_col4" class="data row1 col4" >some follow-up still synchronous</td>
-      <td id="T_681e7_row1_col5" class="data row1 col5" >0.98</td>
-      <td id="T_681e7_row1_col6" class="data row1 col6" >100%</td>
-      <td id="T_681e7_row1_col7" class="data row1 col7" >2.32</td>
-      <td id="T_681e7_row1_col8" class="data row1 col8" >$512</td>
-      <td id="T_681e7_row1_col9" class="data row1 col9" >high-risk launch or low confidence in routing/model mix</td>
+      <th id="T_681e7_level0_row1" class="row_heading level0 row1">1</th>
+      <td id="T_681e7_row1_col0" class="data row1 col0">Controlled full model</td>
+      <td id="T_681e7_row1_col1" class="data row1 col1">gpt-5.4 for resolution</td>
+      <td id="T_681e7_row1_col2" class="data row1 col2">allowed tools by routed path</td>
+      <td id="T_681e7_row1_col3" class="data row1 col3">none</td>
+      <td id="T_681e7_row1_col4" class="data row1 col4">some follow-up still synchronous</td>
+      <td id="T_681e7_row1_col5" class="data row1 col5">0.98</td>
+      <td id="T_681e7_row1_col6" class="data row1 col6">100%</td>
+      <td id="T_681e7_row1_col7" class="data row1 col7">2.32</td>
+      <td id="T_681e7_row1_col8" class="data row1 col8">$512</td>
+      <td id="T_681e7_row1_col9" class="data row1 col9">high-risk launch or low confidence in routing/model mix</td>
     </tr>
     <tr>
-      <th id="T_681e7_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_681e7_row2_col0" class="data row2 col0" >Routed, no cache</td>
-      <td id="T_681e7_row2_col1" class="data row2 col1" >nano triage, mini routine, gpt-5.4 high risk</td>
-      <td id="T_681e7_row2_col2" class="data row2 col2" >allowed tools by routed path</td>
-      <td id="T_681e7_row2_col3" class="data row2 col3" >none</td>
-      <td id="T_681e7_row2_col4" class="data row2 col4" >some follow-up still synchronous</td>
-      <td id="T_681e7_row2_col5" class="data row2 col5" >0.98</td>
-      <td id="T_681e7_row2_col6" class="data row2 col6" >100%</td>
-      <td id="T_681e7_row2_col7" class="data row2 col7" >1.87</td>
-      <td id="T_681e7_row2_col8" class="data row2 col8" >$302</td>
-      <td id="T_681e7_row2_col9" class="data row2 col9" >mixed ticket queues with moderate repeat traffic</td>
+      <th id="T_681e7_level0_row2" class="row_heading level0 row2">2</th>
+      <td id="T_681e7_row2_col0" class="data row2 col0">Routed, no cache</td>
+      <td id="T_681e7_row2_col1" class="data row2 col1">nano triage, mini routine, gpt-5.4 high risk</td>
+      <td id="T_681e7_row2_col2" class="data row2 col2">allowed tools by routed path</td>
+      <td id="T_681e7_row2_col3" class="data row2 col3">none</td>
+      <td id="T_681e7_row2_col4" class="data row2 col4">some follow-up still synchronous</td>
+      <td id="T_681e7_row2_col5" class="data row2 col5">0.98</td>
+      <td id="T_681e7_row2_col6" class="data row2 col6">100%</td>
+      <td id="T_681e7_row2_col7" class="data row2 col7">1.87</td>
+      <td id="T_681e7_row2_col8" class="data row2 col8">$302</td>
+      <td id="T_681e7_row2_col9" class="data row2 col9">mixed ticket queues with moderate repeat traffic</td>
     </tr>
     <tr>
-      <th id="T_681e7_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_681e7_row3_col0" class="data row3 col0" >Routed split, no cache</td>
-      <td id="T_681e7_row3_col1" class="data row3 col1" >nano triage/tags, mini routine, gpt-5.4 high risk</td>
-      <td id="T_681e7_row3_col2" class="data row3 col2" >allowed tools by routed path</td>
-      <td id="T_681e7_row3_col3" class="data row3 col3" >none</td>
-      <td id="T_681e7_row3_col4" class="data row3 col4" >customer path sync, QA/tags/reporting async</td>
-      <td id="T_681e7_row3_col5" class="data row3 col5" >0.98</td>
-      <td id="T_681e7_row3_col6" class="data row3 col6" >100%</td>
-      <td id="T_681e7_row3_col7" class="data row3 col7" >1.57</td>
-      <td id="T_681e7_row3_col8" class="data row3 col8" >$285</td>
-      <td id="T_681e7_row3_col9" class="data row3 col9" >low-repeat queues that still need async follow-up work</td>
+      <th id="T_681e7_level0_row3" class="row_heading level0 row3">3</th>
+      <td id="T_681e7_row3_col0" class="data row3 col0">Routed split, no cache</td>
+      <td id="T_681e7_row3_col1" class="data row3 col1">nano triage/tags, mini routine, gpt-5.4 high risk</td>
+      <td id="T_681e7_row3_col2" class="data row3 col2">allowed tools by routed path</td>
+      <td id="T_681e7_row3_col3" class="data row3 col3">none</td>
+      <td id="T_681e7_row3_col4" class="data row3 col4">customer path sync, QA/tags/reporting async</td>
+      <td id="T_681e7_row3_col5" class="data row3 col5">0.98</td>
+      <td id="T_681e7_row3_col6" class="data row3 col6">100%</td>
+      <td id="T_681e7_row3_col7" class="data row3 col7">1.57</td>
+      <td id="T_681e7_row3_col8" class="data row3 col8">$285</td>
+      <td id="T_681e7_row3_col9" class="data row3 col9">low-repeat queues that still need async follow-up work</td>
     </tr>
     <tr>
-      <th id="T_681e7_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_681e7_row4_col0" class="data row4 col0" >Routed + cache</td>
-      <td id="T_681e7_row4_col1" class="data row4 col1" >nano triage, mini routine, gpt-5.4 high risk</td>
-      <td id="T_681e7_row4_col2" class="data row4 col2" >stable full tool list plus allowed_tools</td>
-      <td id="T_681e7_row4_col3" class="data row4 col3" >stable playbook prefix</td>
-      <td id="T_681e7_row4_col4" class="data row4 col4" >some follow-up still synchronous</td>
-      <td id="T_681e7_row4_col5" class="data row4 col5" >0.98</td>
-      <td id="T_681e7_row4_col6" class="data row4 col6" >100%</td>
-      <td id="T_681e7_row4_col7" class="data row4 col7" >1.85</td>
-      <td id="T_681e7_row4_col8" class="data row4 col8" >$244</td>
-      <td id="T_681e7_row4_col9" class="data row4 col9" >high-volume repeated workflows with good cache locality</td>
+      <th id="T_681e7_level0_row4" class="row_heading level0 row4">4</th>
+      <td id="T_681e7_row4_col0" class="data row4 col0">Routed + cache</td>
+      <td id="T_681e7_row4_col1" class="data row4 col1">nano triage, mini routine, gpt-5.4 high risk</td>
+      <td id="T_681e7_row4_col2" class="data row4 col2">stable full tool list plus allowed_tools</td>
+      <td id="T_681e7_row4_col3" class="data row4 col3">stable playbook prefix</td>
+      <td id="T_681e7_row4_col4" class="data row4 col4">some follow-up still synchronous</td>
+      <td id="T_681e7_row4_col5" class="data row4 col5">0.98</td>
+      <td id="T_681e7_row4_col6" class="data row4 col6">100%</td>
+      <td id="T_681e7_row4_col7" class="data row4 col7">1.85</td>
+      <td id="T_681e7_row4_col8" class="data row4 col8">$244</td>
+      <td id="T_681e7_row4_col9" class="data row4 col9">high-volume repeated workflows with good cache locality</td>
     </tr>
     <tr>
-      <th id="T_681e7_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_681e7_row5_col0" class="data row5 col0" >Balanced split workflow</td>
-      <td id="T_681e7_row5_col1" class="data row5 col1" >nano triage/tags, mini routine, gpt-5.4 high risk</td>
-      <td id="T_681e7_row5_col2" class="data row5 col2" >stable full tool list plus allowed_tools</td>
-      <td id="T_681e7_row5_col3" class="data row5 col3" >stable playbook prefix</td>
-      <td id="T_681e7_row5_col4" class="data row5 col4" >customer path sync, QA/tags/reporting async</td>
-      <td id="T_681e7_row5_col5" class="data row5 col5" >0.98</td>
-      <td id="T_681e7_row5_col6" class="data row5 col6" >100%</td>
-      <td id="T_681e7_row5_col7" class="data row5 col7" >1.41</td>
-      <td id="T_681e7_row5_col8" class="data row5 col8" >$204</td>
-      <td id="T_681e7_row5_col9" class="data row5 col9" >most mature repeated-workflow support deployments</td>
+      <th id="T_681e7_level0_row5" class="row_heading level0 row5">5</th>
+      <td id="T_681e7_row5_col0" class="data row5 col0">Balanced split workflow</td>
+      <td id="T_681e7_row5_col1" class="data row5 col1">nano triage/tags, mini routine, gpt-5.4 high risk</td>
+      <td id="T_681e7_row5_col2" class="data row5 col2">stable full tool list plus allowed_tools</td>
+      <td id="T_681e7_row5_col3" class="data row5 col3">stable playbook prefix</td>
+      <td id="T_681e7_row5_col4" class="data row5 col4">customer path sync, QA/tags/reporting async</td>
+      <td id="T_681e7_row5_col5" class="data row5 col5">0.98</td>
+      <td id="T_681e7_row5_col6" class="data row5 col6">100%</td>
+      <td id="T_681e7_row5_col7" class="data row5 col7">1.41</td>
+      <td id="T_681e7_row5_col8" class="data row5 col8">$204</td>
+      <td id="T_681e7_row5_col9" class="data row5 col9">most mature repeated-workflow support deployments</td>
     </tr>
   </tbody>
 </table>
@@ -3146,125 +3146,125 @@ Table: Recommended sweet spot by scenario (mock constraints + dry-run architectu
 <table id="T_fa37e">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_fa37e_level0_col0" class="col_heading level0 col0" >scenario</th>
-      <th id="T_fa37e_level0_col1" class="col_heading level0 col1" >description</th>
-      <th id="T_fa37e_level0_col2" class="col_heading level0 col2" >label</th>
-      <th id="T_fa37e_level0_col3" class="col_heading level0 col3" >score</th>
-      <th id="T_fa37e_level0_col4" class="col_heading level0 col4" >quality</th>
-      <th id="T_fa37e_level0_col5" class="col_heading level0 col5" >quality_floor</th>
-      <th id="T_fa37e_level0_col6" class="col_heading level0 col6" >policy_compliance</th>
-      <th id="T_fa37e_level0_col7" class="col_heading level0 col7" >policy_floor</th>
-      <th id="T_fa37e_level0_col8" class="col_heading level0 col8" >p50_latency_s</th>
-      <th id="T_fa37e_level0_col9" class="col_heading level0 col9" >p50_latency_target_s</th>
-      <th id="T_fa37e_level0_col10" class="col_heading level0 col10" >monthly_cost_at_100k_tickets</th>
-      <th id="T_fa37e_level0_col11" class="col_heading level0 col11" >monthly_budget_100k_usd</th>
-      <th id="T_fa37e_level0_col12" class="col_heading level0 col12" >cache_locality</th>
-      <th id="T_fa37e_level0_col13" class="col_heading level0 col13" >failed_constraints</th>
+      <th class="blank level0"> </th>
+      <th id="T_fa37e_level0_col0" class="col_heading level0 col0">scenario</th>
+      <th id="T_fa37e_level0_col1" class="col_heading level0 col1">description</th>
+      <th id="T_fa37e_level0_col2" class="col_heading level0 col2">label</th>
+      <th id="T_fa37e_level0_col3" class="col_heading level0 col3">score</th>
+      <th id="T_fa37e_level0_col4" class="col_heading level0 col4">quality</th>
+      <th id="T_fa37e_level0_col5" class="col_heading level0 col5">quality_floor</th>
+      <th id="T_fa37e_level0_col6" class="col_heading level0 col6">policy_compliance</th>
+      <th id="T_fa37e_level0_col7" class="col_heading level0 col7">policy_floor</th>
+      <th id="T_fa37e_level0_col8" class="col_heading level0 col8">p50_latency_s</th>
+      <th id="T_fa37e_level0_col9" class="col_heading level0 col9">p50_latency_target_s</th>
+      <th id="T_fa37e_level0_col10" class="col_heading level0 col10">monthly_cost_at_100k_tickets</th>
+      <th id="T_fa37e_level0_col11" class="col_heading level0 col11">monthly_budget_100k_usd</th>
+      <th id="T_fa37e_level0_col12" class="col_heading level0 col12">cache_locality</th>
+      <th id="T_fa37e_level0_col13" class="col_heading level0 col13">failed_constraints</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_fa37e_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_fa37e_row0_col0" class="data row0 col0" >Account and billing sensitive queue</td>
-      <td id="T_fa37e_row0_col1" class="data row0 col1" >Risky account recovery and duplicate-charge workflows dominate.</td>
-      <td id="T_fa37e_row0_col2" class="data row0 col2" >Routed split, no cache</td>
-      <td id="T_fa37e_row0_col3" class="data row0 col3" >13</td>
-      <td id="T_fa37e_row0_col4" class="data row0 col4" >0.98</td>
-      <td id="T_fa37e_row0_col5" class="data row0 col5" >0.98</td>
-      <td id="T_fa37e_row0_col6" class="data row0 col6" >100%</td>
-      <td id="T_fa37e_row0_col7" class="data row0 col7" >100%</td>
-      <td id="T_fa37e_row0_col8" class="data row0 col8" >1.57</td>
-      <td id="T_fa37e_row0_col9" class="data row0 col9" >2.80</td>
-      <td id="T_fa37e_row0_col10" class="data row0 col10" >$285</td>
-      <td id="T_fa37e_row0_col11" class="data row0 col11" >$750</td>
-      <td id="T_fa37e_row0_col12" class="data row0 col12" >medium</td>
-      <td id="T_fa37e_row0_col13" class="data row0 col13" >none</td>
+      <th id="T_fa37e_level0_row0" class="row_heading level0 row0">0</th>
+      <td id="T_fa37e_row0_col0" class="data row0 col0">Account and billing sensitive queue</td>
+      <td id="T_fa37e_row0_col1" class="data row0 col1">Risky account recovery and duplicate-charge workflows dominate.</td>
+      <td id="T_fa37e_row0_col2" class="data row0 col2">Routed split, no cache</td>
+      <td id="T_fa37e_row0_col3" class="data row0 col3">13</td>
+      <td id="T_fa37e_row0_col4" class="data row0 col4">0.98</td>
+      <td id="T_fa37e_row0_col5" class="data row0 col5">0.98</td>
+      <td id="T_fa37e_row0_col6" class="data row0 col6">100%</td>
+      <td id="T_fa37e_row0_col7" class="data row0 col7">100%</td>
+      <td id="T_fa37e_row0_col8" class="data row0 col8">1.57</td>
+      <td id="T_fa37e_row0_col9" class="data row0 col9">2.80</td>
+      <td id="T_fa37e_row0_col10" class="data row0 col10">$285</td>
+      <td id="T_fa37e_row0_col11" class="data row0 col11">$750</td>
+      <td id="T_fa37e_row0_col12" class="data row0 col12">medium</td>
+      <td id="T_fa37e_row0_col13" class="data row0 col13">none</td>
     </tr>
     <tr>
-      <th id="T_fa37e_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_fa37e_row1_col0" class="data row1 col0" >Early pilot</td>
-      <td id="T_fa37e_row1_col1" class="data row1 col1" >Low volume, quality learning matters more than unit cost.</td>
-      <td id="T_fa37e_row1_col2" class="data row1 col2" >Routed, no cache</td>
-      <td id="T_fa37e_row1_col3" class="data row1 col3" >13</td>
-      <td id="T_fa37e_row1_col4" class="data row1 col4" >0.98</td>
-      <td id="T_fa37e_row1_col5" class="data row1 col5" >0.94</td>
-      <td id="T_fa37e_row1_col6" class="data row1 col6" >100%</td>
-      <td id="T_fa37e_row1_col7" class="data row1 col7" >98%</td>
-      <td id="T_fa37e_row1_col8" class="data row1 col8" >1.87</td>
-      <td id="T_fa37e_row1_col9" class="data row1 col9" >3.00</td>
-      <td id="T_fa37e_row1_col10" class="data row1 col10" >$302</td>
-      <td id="T_fa37e_row1_col11" class="data row1 col11" >$800</td>
-      <td id="T_fa37e_row1_col12" class="data row1 col12" >low</td>
-      <td id="T_fa37e_row1_col13" class="data row1 col13" >none</td>
+      <th id="T_fa37e_level0_row1" class="row_heading level0 row1">1</th>
+      <td id="T_fa37e_row1_col0" class="data row1 col0">Early pilot</td>
+      <td id="T_fa37e_row1_col1" class="data row1 col1">Low volume, quality learning matters more than unit cost.</td>
+      <td id="T_fa37e_row1_col2" class="data row1 col2">Routed, no cache</td>
+      <td id="T_fa37e_row1_col3" class="data row1 col3">13</td>
+      <td id="T_fa37e_row1_col4" class="data row1 col4">0.98</td>
+      <td id="T_fa37e_row1_col5" class="data row1 col5">0.94</td>
+      <td id="T_fa37e_row1_col6" class="data row1 col6">100%</td>
+      <td id="T_fa37e_row1_col7" class="data row1 col7">98%</td>
+      <td id="T_fa37e_row1_col8" class="data row1 col8">1.87</td>
+      <td id="T_fa37e_row1_col9" class="data row1 col9">3.00</td>
+      <td id="T_fa37e_row1_col10" class="data row1 col10">$302</td>
+      <td id="T_fa37e_row1_col11" class="data row1 col11">$800</td>
+      <td id="T_fa37e_row1_col12" class="data row1 col12">low</td>
+      <td id="T_fa37e_row1_col13" class="data row1 col13">none</td>
     </tr>
     <tr>
-      <th id="T_fa37e_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_fa37e_row2_col0" class="data row2 col0" >High-volume routine ecommerce</td>
-      <td id="T_fa37e_row2_col1" class="data row2 col1" >Many repeated order, return, and damage workflows.</td>
-      <td id="T_fa37e_row2_col2" class="data row2 col2" >Balanced split workflow</td>
-      <td id="T_fa37e_row2_col3" class="data row2 col3" >13</td>
-      <td id="T_fa37e_row2_col4" class="data row2 col4" >0.98</td>
-      <td id="T_fa37e_row2_col5" class="data row2 col5" >0.96</td>
-      <td id="T_fa37e_row2_col6" class="data row2 col6" >100%</td>
-      <td id="T_fa37e_row2_col7" class="data row2 col7" >99%</td>
-      <td id="T_fa37e_row2_col8" class="data row2 col8" >1.41</td>
-      <td id="T_fa37e_row2_col9" class="data row2 col9" >2.00</td>
-      <td id="T_fa37e_row2_col10" class="data row2 col10" >$204</td>
-      <td id="T_fa37e_row2_col11" class="data row2 col11" >$300</td>
-      <td id="T_fa37e_row2_col12" class="data row2 col12" >high</td>
-      <td id="T_fa37e_row2_col13" class="data row2 col13" >none</td>
+      <th id="T_fa37e_level0_row2" class="row_heading level0 row2">2</th>
+      <td id="T_fa37e_row2_col0" class="data row2 col0">High-volume routine ecommerce</td>
+      <td id="T_fa37e_row2_col1" class="data row2 col1">Many repeated order, return, and damage workflows.</td>
+      <td id="T_fa37e_row2_col2" class="data row2 col2">Balanced split workflow</td>
+      <td id="T_fa37e_row2_col3" class="data row2 col3">13</td>
+      <td id="T_fa37e_row2_col4" class="data row2 col4">0.98</td>
+      <td id="T_fa37e_row2_col5" class="data row2 col5">0.96</td>
+      <td id="T_fa37e_row2_col6" class="data row2 col6">100%</td>
+      <td id="T_fa37e_row2_col7" class="data row2 col7">99%</td>
+      <td id="T_fa37e_row2_col8" class="data row2 col8">1.41</td>
+      <td id="T_fa37e_row2_col9" class="data row2 col9">2.00</td>
+      <td id="T_fa37e_row2_col10" class="data row2 col10">$204</td>
+      <td id="T_fa37e_row2_col11" class="data row2 col11">$300</td>
+      <td id="T_fa37e_row2_col12" class="data row2 col12">high</td>
+      <td id="T_fa37e_row2_col13" class="data row2 col13">none</td>
     </tr>
     <tr>
-      <th id="T_fa37e_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_fa37e_row3_col0" class="data row3 col0" >Low-repeat long tail</td>
-      <td id="T_fa37e_row3_col1" class="data row3 col1" >Many rare ticket types; cache hit rate is uncertain.</td>
-      <td id="T_fa37e_row3_col2" class="data row3 col2" >Routed split, no cache</td>
-      <td id="T_fa37e_row3_col3" class="data row3 col3" >13</td>
-      <td id="T_fa37e_row3_col4" class="data row3 col4" >0.98</td>
-      <td id="T_fa37e_row3_col5" class="data row3 col5" >0.96</td>
-      <td id="T_fa37e_row3_col6" class="data row3 col6" >100%</td>
-      <td id="T_fa37e_row3_col7" class="data row3 col7" >99%</td>
-      <td id="T_fa37e_row3_col8" class="data row3 col8" >1.57</td>
-      <td id="T_fa37e_row3_col9" class="data row3 col9" >2.50</td>
-      <td id="T_fa37e_row3_col10" class="data row3 col10" >$285</td>
-      <td id="T_fa37e_row3_col11" class="data row3 col11" >$450</td>
-      <td id="T_fa37e_row3_col12" class="data row3 col12" >low</td>
-      <td id="T_fa37e_row3_col13" class="data row3 col13" >none</td>
+      <th id="T_fa37e_level0_row3" class="row_heading level0 row3">3</th>
+      <td id="T_fa37e_row3_col0" class="data row3 col0">Low-repeat long tail</td>
+      <td id="T_fa37e_row3_col1" class="data row3 col1">Many rare ticket types; cache hit rate is uncertain.</td>
+      <td id="T_fa37e_row3_col2" class="data row3 col2">Routed split, no cache</td>
+      <td id="T_fa37e_row3_col3" class="data row3 col3">13</td>
+      <td id="T_fa37e_row3_col4" class="data row3 col4">0.98</td>
+      <td id="T_fa37e_row3_col5" class="data row3 col5">0.96</td>
+      <td id="T_fa37e_row3_col6" class="data row3 col6">100%</td>
+      <td id="T_fa37e_row3_col7" class="data row3 col7">99%</td>
+      <td id="T_fa37e_row3_col8" class="data row3 col8">1.57</td>
+      <td id="T_fa37e_row3_col9" class="data row3 col9">2.50</td>
+      <td id="T_fa37e_row3_col10" class="data row3 col10">$285</td>
+      <td id="T_fa37e_row3_col11" class="data row3 col11">$450</td>
+      <td id="T_fa37e_row3_col12" class="data row3 col12">low</td>
+      <td id="T_fa37e_row3_col13" class="data row3 col13">none</td>
     </tr>
     <tr>
-      <th id="T_fa37e_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_fa37e_row4_col0" class="data row4 col0" >Peak sale burst</td>
-      <td id="T_fa37e_row4_col1" class="data row4 col1" >Latency and cost matter during temporary traffic spikes.</td>
-      <td id="T_fa37e_row4_col2" class="data row4 col2" >Balanced split workflow</td>
-      <td id="T_fa37e_row4_col3" class="data row4 col3" >13</td>
-      <td id="T_fa37e_row4_col4" class="data row4 col4" >0.98</td>
-      <td id="T_fa37e_row4_col5" class="data row4 col5" >0.95</td>
-      <td id="T_fa37e_row4_col6" class="data row4 col6" >100%</td>
-      <td id="T_fa37e_row4_col7" class="data row4 col7" >99%</td>
-      <td id="T_fa37e_row4_col8" class="data row4 col8" >1.41</td>
-      <td id="T_fa37e_row4_col9" class="data row4 col9" >1.80</td>
-      <td id="T_fa37e_row4_col10" class="data row4 col10" >$204</td>
-      <td id="T_fa37e_row4_col11" class="data row4 col11" >$250</td>
-      <td id="T_fa37e_row4_col12" class="data row4 col12" >high</td>
-      <td id="T_fa37e_row4_col13" class="data row4 col13" >none</td>
+      <th id="T_fa37e_level0_row4" class="row_heading level0 row4">4</th>
+      <td id="T_fa37e_row4_col0" class="data row4 col0">Peak sale burst</td>
+      <td id="T_fa37e_row4_col1" class="data row4 col1">Latency and cost matter during temporary traffic spikes.</td>
+      <td id="T_fa37e_row4_col2" class="data row4 col2">Balanced split workflow</td>
+      <td id="T_fa37e_row4_col3" class="data row4 col3">13</td>
+      <td id="T_fa37e_row4_col4" class="data row4 col4">0.98</td>
+      <td id="T_fa37e_row4_col5" class="data row4 col5">0.95</td>
+      <td id="T_fa37e_row4_col6" class="data row4 col6">100%</td>
+      <td id="T_fa37e_row4_col7" class="data row4 col7">99%</td>
+      <td id="T_fa37e_row4_col8" class="data row4 col8">1.41</td>
+      <td id="T_fa37e_row4_col9" class="data row4 col9">1.80</td>
+      <td id="T_fa37e_row4_col10" class="data row4 col10">$204</td>
+      <td id="T_fa37e_row4_col11" class="data row4 col11">$250</td>
+      <td id="T_fa37e_row4_col12" class="data row4 col12">high</td>
+      <td id="T_fa37e_row4_col13" class="data row4 col13">none</td>
     </tr>
     <tr>
-      <th id="T_fa37e_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_fa37e_row5_col0" class="data row5 col0" >Premium support</td>
-      <td id="T_fa37e_row5_col1" class="data row5 col1" >Higher customer value, lower tolerance for wrong actions.</td>
-      <td id="T_fa37e_row5_col2" class="data row5 col2" >Routed split, no cache</td>
-      <td id="T_fa37e_row5_col3" class="data row5 col3" >13</td>
-      <td id="T_fa37e_row5_col4" class="data row5 col4" >0.98</td>
-      <td id="T_fa37e_row5_col5" class="data row5 col5" >0.98</td>
-      <td id="T_fa37e_row5_col6" class="data row5 col6" >100%</td>
-      <td id="T_fa37e_row5_col7" class="data row5 col7" >100%</td>
-      <td id="T_fa37e_row5_col8" class="data row5 col8" >1.57</td>
-      <td id="T_fa37e_row5_col9" class="data row5 col9" >2.50</td>
-      <td id="T_fa37e_row5_col10" class="data row5 col10" >$285</td>
-      <td id="T_fa37e_row5_col11" class="data row5 col11" >$650</td>
-      <td id="T_fa37e_row5_col12" class="data row5 col12" >medium</td>
-      <td id="T_fa37e_row5_col13" class="data row5 col13" >none</td>
+      <th id="T_fa37e_level0_row5" class="row_heading level0 row5">5</th>
+      <td id="T_fa37e_row5_col0" class="data row5 col0">Premium support</td>
+      <td id="T_fa37e_row5_col1" class="data row5 col1">Higher customer value, lower tolerance for wrong actions.</td>
+      <td id="T_fa37e_row5_col2" class="data row5 col2">Routed split, no cache</td>
+      <td id="T_fa37e_row5_col3" class="data row5 col3">13</td>
+      <td id="T_fa37e_row5_col4" class="data row5 col4">0.98</td>
+      <td id="T_fa37e_row5_col5" class="data row5 col5">0.98</td>
+      <td id="T_fa37e_row5_col6" class="data row5 col6">100%</td>
+      <td id="T_fa37e_row5_col7" class="data row5 col7">100%</td>
+      <td id="T_fa37e_row5_col8" class="data row5 col8">1.57</td>
+      <td id="T_fa37e_row5_col9" class="data row5 col9">2.50</td>
+      <td id="T_fa37e_row5_col10" class="data row5 col10">$285</td>
+      <td id="T_fa37e_row5_col11" class="data row5 col11">$650</td>
+      <td id="T_fa37e_row5_col12" class="data row5 col12">medium</td>
+      <td id="T_fa37e_row5_col13" class="data row5 col13">none</td>
     </tr>
   </tbody>
 </table>
@@ -3309,76 +3309,76 @@ Table: Full architecture ranking for Low-repeat long tail (mock scenario + dry-r
 <table id="T_26e63">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_26e63_level0_col0" class="col_heading level0 col0" >label</th>
-      <th id="T_26e63_level0_col1" class="col_heading level0 col1" >score</th>
-      <th id="T_26e63_level0_col2" class="col_heading level0 col2" >quality</th>
-      <th id="T_26e63_level0_col3" class="col_heading level0 col3" >policy_compliance</th>
-      <th id="T_26e63_level0_col4" class="col_heading level0 col4" >p50_latency_s</th>
-      <th id="T_26e63_level0_col5" class="col_heading level0 col5" >monthly_cost_at_100k_tickets</th>
-      <th id="T_26e63_level0_col6" class="col_heading level0 col6" >failed_constraints</th>
+      <th class="blank level0"> </th>
+      <th id="T_26e63_level0_col0" class="col_heading level0 col0">label</th>
+      <th id="T_26e63_level0_col1" class="col_heading level0 col1">score</th>
+      <th id="T_26e63_level0_col2" class="col_heading level0 col2">quality</th>
+      <th id="T_26e63_level0_col3" class="col_heading level0 col3">policy_compliance</th>
+      <th id="T_26e63_level0_col4" class="col_heading level0 col4">p50_latency_s</th>
+      <th id="T_26e63_level0_col5" class="col_heading level0 col5">monthly_cost_at_100k_tickets</th>
+      <th id="T_26e63_level0_col6" class="col_heading level0 col6">failed_constraints</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_26e63_level0_row0" class="row_heading level0 row0" >27</th>
-      <td id="T_26e63_row0_col0" class="data row0 col0" >Routed split, no cache</td>
-      <td id="T_26e63_row0_col1" class="data row0 col1" >13</td>
-      <td id="T_26e63_row0_col2" class="data row0 col2" >0.98</td>
-      <td id="T_26e63_row0_col3" class="data row0 col3" >100%</td>
-      <td id="T_26e63_row0_col4" class="data row0 col4" >1.57</td>
-      <td id="T_26e63_row0_col5" class="data row0 col5" >$285</td>
-      <td id="T_26e63_row0_col6" class="data row0 col6" >none</td>
+      <th id="T_26e63_level0_row0" class="row_heading level0 row0">27</th>
+      <td id="T_26e63_row0_col0" class="data row0 col0">Routed split, no cache</td>
+      <td id="T_26e63_row0_col1" class="data row0 col1">13</td>
+      <td id="T_26e63_row0_col2" class="data row0 col2">0.98</td>
+      <td id="T_26e63_row0_col3" class="data row0 col3">100%</td>
+      <td id="T_26e63_row0_col4" class="data row0 col4">1.57</td>
+      <td id="T_26e63_row0_col5" class="data row0 col5">$285</td>
+      <td id="T_26e63_row0_col6" class="data row0 col6">none</td>
     </tr>
     <tr>
-      <th id="T_26e63_level0_row1" class="row_heading level0 row1" >26</th>
-      <td id="T_26e63_row1_col0" class="data row1 col0" >Routed, no cache</td>
-      <td id="T_26e63_row1_col1" class="data row1 col1" >10</td>
-      <td id="T_26e63_row1_col2" class="data row1 col2" >0.98</td>
-      <td id="T_26e63_row1_col3" class="data row1 col3" >100%</td>
-      <td id="T_26e63_row1_col4" class="data row1 col4" >1.87</td>
-      <td id="T_26e63_row1_col5" class="data row1 col5" >$302</td>
-      <td id="T_26e63_row1_col6" class="data row1 col6" >async split</td>
+      <th id="T_26e63_level0_row1" class="row_heading level0 row1">26</th>
+      <td id="T_26e63_row1_col0" class="data row1 col0">Routed, no cache</td>
+      <td id="T_26e63_row1_col1" class="data row1 col1">10</td>
+      <td id="T_26e63_row1_col2" class="data row1 col2">0.98</td>
+      <td id="T_26e63_row1_col3" class="data row1 col3">100%</td>
+      <td id="T_26e63_row1_col4" class="data row1 col4">1.87</td>
+      <td id="T_26e63_row1_col5" class="data row1 col5">$302</td>
+      <td id="T_26e63_row1_col6" class="data row1 col6">async split</td>
     </tr>
     <tr>
-      <th id="T_26e63_level0_row2" class="row_heading level0 row2" >29</th>
-      <td id="T_26e63_row2_col0" class="data row2 col0" >Balanced split workflow</td>
-      <td id="T_26e63_row2_col1" class="data row2 col1" >9</td>
-      <td id="T_26e63_row2_col2" class="data row2 col2" >0.98</td>
-      <td id="T_26e63_row2_col3" class="data row2 col3" >100%</td>
-      <td id="T_26e63_row2_col4" class="data row2 col4" >1.41</td>
-      <td id="T_26e63_row2_col5" class="data row2 col5" >$204</td>
-      <td id="T_26e63_row2_col6" class="data row2 col6" >cache locality</td>
+      <th id="T_26e63_level0_row2" class="row_heading level0 row2">29</th>
+      <td id="T_26e63_row2_col0" class="data row2 col0">Balanced split workflow</td>
+      <td id="T_26e63_row2_col1" class="data row2 col1">9</td>
+      <td id="T_26e63_row2_col2" class="data row2 col2">0.98</td>
+      <td id="T_26e63_row2_col3" class="data row2 col3">100%</td>
+      <td id="T_26e63_row2_col4" class="data row2 col4">1.41</td>
+      <td id="T_26e63_row2_col5" class="data row2 col5">$204</td>
+      <td id="T_26e63_row2_col6" class="data row2 col6">cache locality</td>
     </tr>
     <tr>
-      <th id="T_26e63_level0_row3" class="row_heading level0 row3" >28</th>
-      <td id="T_26e63_row3_col0" class="data row3 col0" >Routed + cache</td>
-      <td id="T_26e63_row3_col1" class="data row3 col1" >6</td>
-      <td id="T_26e63_row3_col2" class="data row3 col2" >0.98</td>
-      <td id="T_26e63_row3_col3" class="data row3 col3" >100%</td>
-      <td id="T_26e63_row3_col4" class="data row3 col4" >1.85</td>
-      <td id="T_26e63_row3_col5" class="data row3 col5" >$244</td>
-      <td id="T_26e63_row3_col6" class="data row3 col6" >async split, cache locality</td>
+      <th id="T_26e63_level0_row3" class="row_heading level0 row3">28</th>
+      <td id="T_26e63_row3_col0" class="data row3 col0">Routed + cache</td>
+      <td id="T_26e63_row3_col1" class="data row3 col1">6</td>
+      <td id="T_26e63_row3_col2" class="data row3 col2">0.98</td>
+      <td id="T_26e63_row3_col3" class="data row3 col3">100%</td>
+      <td id="T_26e63_row3_col4" class="data row3 col4">1.85</td>
+      <td id="T_26e63_row3_col5" class="data row3 col5">$244</td>
+      <td id="T_26e63_row3_col6" class="data row3 col6">async split, cache locality</td>
     </tr>
     <tr>
-      <th id="T_26e63_level0_row4" class="row_heading level0 row4" >25</th>
-      <td id="T_26e63_row4_col0" class="data row4 col0" >Controlled full model</td>
-      <td id="T_26e63_row4_col1" class="data row4 col1" >5</td>
-      <td id="T_26e63_row4_col2" class="data row4 col2" >0.98</td>
-      <td id="T_26e63_row4_col3" class="data row4 col3" >100%</td>
-      <td id="T_26e63_row4_col4" class="data row4 col4" >2.32</td>
-      <td id="T_26e63_row4_col5" class="data row4 col5" >$512</td>
-      <td id="T_26e63_row4_col6" class="data row4 col6" >budget, async split</td>
+      <th id="T_26e63_level0_row4" class="row_heading level0 row4">25</th>
+      <td id="T_26e63_row4_col0" class="data row4 col0">Controlled full model</td>
+      <td id="T_26e63_row4_col1" class="data row4 col1">5</td>
+      <td id="T_26e63_row4_col2" class="data row4 col2">0.98</td>
+      <td id="T_26e63_row4_col3" class="data row4 col3">100%</td>
+      <td id="T_26e63_row4_col4" class="data row4 col4">2.32</td>
+      <td id="T_26e63_row4_col5" class="data row4 col5">$512</td>
+      <td id="T_26e63_row4_col6" class="data row4 col6">budget, async split</td>
     </tr>
     <tr>
-      <th id="T_26e63_level0_row5" class="row_heading level0 row5" >24</th>
-      <td id="T_26e63_row5_col0" class="data row5 col0" >One broad agent</td>
-      <td id="T_26e63_row5_col1" class="data row5 col1" >-14</td>
-      <td id="T_26e63_row5_col2" class="data row5 col2" >0.51</td>
-      <td id="T_26e63_row5_col3" class="data row5 col3" >10%</td>
-      <td id="T_26e63_row5_col4" class="data row5 col4" >4.88</td>
-      <td id="T_26e63_row5_col5" class="data row5 col5" >$3,813</td>
-      <td id="T_26e63_row5_col6" class="data row5 col6" >quality, policy, latency, budget, async split</td>
+      <th id="T_26e63_level0_row5" class="row_heading level0 row5">24</th>
+      <td id="T_26e63_row5_col0" class="data row5 col0">One broad agent</td>
+      <td id="T_26e63_row5_col1" class="data row5 col1">-14</td>
+      <td id="T_26e63_row5_col2" class="data row5 col2">0.51</td>
+      <td id="T_26e63_row5_col3" class="data row5 col3">10%</td>
+      <td id="T_26e63_row5_col4" class="data row5 col4">4.88</td>
+      <td id="T_26e63_row5_col5" class="data row5 col5">$3,813</td>
+      <td id="T_26e63_row5_col6" class="data row5 col6">quality, policy, latency, budget, async split</td>
     </tr>
   </tbody>
 </table>
@@ -3453,42 +3453,42 @@ display(guardrails[~guardrails["passed"]].head(20))
 <table id="T_75622">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_75622_level0_col0" class="col_heading level0 col0" >variant_label</th>
-      <th id="T_75622_level0_col1" class="col_heading level0 col1" >pass_rate</th>
-      <th id="T_75622_level0_col2" class="col_heading level0 col2" >failures</th>
+      <th class="blank level0"> </th>
+      <th id="T_75622_level0_col0" class="col_heading level0 col0">variant_label</th>
+      <th id="T_75622_level0_col1" class="col_heading level0 col1">pass_rate</th>
+      <th id="T_75622_level0_col2" class="col_heading level0 col2">failures</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_75622_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_75622_row0_col0" class="data row0 col0" >Bad baseline</td>
-      <td id="T_75622_row0_col1" class="data row0 col1" >0%</td>
-      <td id="T_75622_row0_col2" class="data row0 col2" >10</td>
+      <th id="T_75622_level0_row0" class="row_heading level0 row0">0</th>
+      <td id="T_75622_row0_col0" class="data row0 col0">Bad baseline</td>
+      <td id="T_75622_row0_col1" class="data row0 col1">0%</td>
+      <td id="T_75622_row0_col2" class="data row0 col2">10</td>
     </tr>
     <tr>
-      <th id="T_75622_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_75622_row1_col0" class="data row1 col0" >Round 1: controls</td>
-      <td id="T_75622_row1_col1" class="data row1 col1" >100%</td>
-      <td id="T_75622_row1_col2" class="data row1 col2" >0</td>
+      <th id="T_75622_level0_row1" class="row_heading level0 row1">1</th>
+      <td id="T_75622_row1_col0" class="data row1 col0">Round 1: controls</td>
+      <td id="T_75622_row1_col1" class="data row1 col1">100%</td>
+      <td id="T_75622_row1_col2" class="data row1 col2">0</td>
     </tr>
     <tr>
-      <th id="T_75622_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_75622_row2_col0" class="data row2 col0" >Round 2: routing</td>
-      <td id="T_75622_row2_col1" class="data row2 col1" >100%</td>
-      <td id="T_75622_row2_col2" class="data row2 col2" >0</td>
+      <th id="T_75622_level0_row2" class="row_heading level0 row2">2</th>
+      <td id="T_75622_row2_col0" class="data row2 col0">Round 2: routing</td>
+      <td id="T_75622_row2_col1" class="data row2 col1">100%</td>
+      <td id="T_75622_row2_col2" class="data row2 col2">0</td>
     </tr>
     <tr>
-      <th id="T_75622_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_75622_row3_col0" class="data row3 col0" >Round 3: caching</td>
-      <td id="T_75622_row3_col1" class="data row3 col1" >100%</td>
-      <td id="T_75622_row3_col2" class="data row3 col2" >0</td>
+      <th id="T_75622_level0_row3" class="row_heading level0 row3">3</th>
+      <td id="T_75622_row3_col0" class="data row3 col0">Round 3: caching</td>
+      <td id="T_75622_row3_col1" class="data row3 col1">100%</td>
+      <td id="T_75622_row3_col2" class="data row3 col2">0</td>
     </tr>
     <tr>
-      <th id="T_75622_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_75622_row4_col0" class="data row4 col0" >Round 4: split workflow</td>
-      <td id="T_75622_row4_col1" class="data row4 col1" >100%</td>
-      <td id="T_75622_row4_col2" class="data row4 col2" >0</td>
+      <th id="T_75622_level0_row4" class="row_heading level0 row4">4</th>
+      <td id="T_75622_row4_col0" class="data row4 col0">Round 4: split workflow</td>
+      <td id="T_75622_row4_col1" class="data row4 col1">100%</td>
+      <td id="T_75622_row4_col2" class="data row4 col2">0</td>
     </tr>
   </tbody>
 </table>
@@ -3624,84 +3624,84 @@ else:
 <table id="T_363cc">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_363cc_level0_col0" class="col_heading level0 col0" >variant_label</th>
-      <th id="T_363cc_level0_col1" class="col_heading level0 col1" >tickets</th>
-      <th id="T_363cc_level0_col2" class="col_heading level0 col2" >deterministic_pass_rate</th>
-      <th id="T_363cc_level0_col3" class="col_heading level0 col3" >judge_graded</th>
-      <th id="T_363cc_level0_col4" class="col_heading level0 col4" >judge_coverage</th>
-      <th id="T_363cc_level0_col5" class="col_heading level0 col5" >judge_errors</th>
-      <th id="T_363cc_level0_col6" class="col_heading level0 col6" >judge_pass_rate</th>
-      <th id="T_363cc_level0_col7" class="col_heading level0 col7" >both_pass_rate</th>
-      <th id="T_363cc_level0_col8" class="col_heading level0 col8" >known_judge_cost_usd</th>
-      <th id="T_363cc_level0_col9" class="col_heading level0 col9" >judge_cost_unavailable</th>
+      <th class="blank level0"> </th>
+      <th id="T_363cc_level0_col0" class="col_heading level0 col0">variant_label</th>
+      <th id="T_363cc_level0_col1" class="col_heading level0 col1">tickets</th>
+      <th id="T_363cc_level0_col2" class="col_heading level0 col2">deterministic_pass_rate</th>
+      <th id="T_363cc_level0_col3" class="col_heading level0 col3">judge_graded</th>
+      <th id="T_363cc_level0_col4" class="col_heading level0 col4">judge_coverage</th>
+      <th id="T_363cc_level0_col5" class="col_heading level0 col5">judge_errors</th>
+      <th id="T_363cc_level0_col6" class="col_heading level0 col6">judge_pass_rate</th>
+      <th id="T_363cc_level0_col7" class="col_heading level0 col7">both_pass_rate</th>
+      <th id="T_363cc_level0_col8" class="col_heading level0 col8">known_judge_cost_usd</th>
+      <th id="T_363cc_level0_col9" class="col_heading level0 col9">judge_cost_unavailable</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_363cc_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_363cc_row0_col0" class="data row0 col0" >Bad baseline</td>
-      <td id="T_363cc_row0_col1" class="data row0 col1" >10</td>
-      <td id="T_363cc_row0_col2" class="data row0 col2" >0%</td>
-      <td id="T_363cc_row0_col3" class="data row0 col3" >10</td>
-      <td id="T_363cc_row0_col4" class="data row0 col4" >100%</td>
-      <td id="T_363cc_row0_col5" class="data row0 col5" >0</td>
-      <td id="T_363cc_row0_col6" class="data row0 col6" >0%</td>
-      <td id="T_363cc_row0_col7" class="data row0 col7" >0%</td>
-      <td id="T_363cc_row0_col8" class="data row0 col8" >$0.05637</td>
-      <td id="T_363cc_row0_col9" class="data row0 col9" >0</td>
+      <th id="T_363cc_level0_row0" class="row_heading level0 row0">0</th>
+      <td id="T_363cc_row0_col0" class="data row0 col0">Bad baseline</td>
+      <td id="T_363cc_row0_col1" class="data row0 col1">10</td>
+      <td id="T_363cc_row0_col2" class="data row0 col2">0%</td>
+      <td id="T_363cc_row0_col3" class="data row0 col3">10</td>
+      <td id="T_363cc_row0_col4" class="data row0 col4">100%</td>
+      <td id="T_363cc_row0_col5" class="data row0 col5">0</td>
+      <td id="T_363cc_row0_col6" class="data row0 col6">0%</td>
+      <td id="T_363cc_row0_col7" class="data row0 col7">0%</td>
+      <td id="T_363cc_row0_col8" class="data row0 col8">$0.05637</td>
+      <td id="T_363cc_row0_col9" class="data row0 col9">0</td>
     </tr>
     <tr>
-      <th id="T_363cc_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_363cc_row1_col0" class="data row1 col0" >Round 1: controls</td>
-      <td id="T_363cc_row1_col1" class="data row1 col1" >10</td>
-      <td id="T_363cc_row1_col2" class="data row1 col2" >100%</td>
-      <td id="T_363cc_row1_col3" class="data row1 col3" >10</td>
-      <td id="T_363cc_row1_col4" class="data row1 col4" >100%</td>
-      <td id="T_363cc_row1_col5" class="data row1 col5" >0</td>
-      <td id="T_363cc_row1_col6" class="data row1 col6" >80%</td>
-      <td id="T_363cc_row1_col7" class="data row1 col7" >80%</td>
-      <td id="T_363cc_row1_col8" class="data row1 col8" >$0.01252</td>
-      <td id="T_363cc_row1_col9" class="data row1 col9" >0</td>
+      <th id="T_363cc_level0_row1" class="row_heading level0 row1">1</th>
+      <td id="T_363cc_row1_col0" class="data row1 col0">Round 1: controls</td>
+      <td id="T_363cc_row1_col1" class="data row1 col1">10</td>
+      <td id="T_363cc_row1_col2" class="data row1 col2">100%</td>
+      <td id="T_363cc_row1_col3" class="data row1 col3">10</td>
+      <td id="T_363cc_row1_col4" class="data row1 col4">100%</td>
+      <td id="T_363cc_row1_col5" class="data row1 col5">0</td>
+      <td id="T_363cc_row1_col6" class="data row1 col6">80%</td>
+      <td id="T_363cc_row1_col7" class="data row1 col7">80%</td>
+      <td id="T_363cc_row1_col8" class="data row1 col8">$0.01252</td>
+      <td id="T_363cc_row1_col9" class="data row1 col9">0</td>
     </tr>
     <tr>
-      <th id="T_363cc_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_363cc_row2_col0" class="data row2 col0" >Round 2: routing</td>
-      <td id="T_363cc_row2_col1" class="data row2 col1" >10</td>
-      <td id="T_363cc_row2_col2" class="data row2 col2" >100%</td>
-      <td id="T_363cc_row2_col3" class="data row2 col3" >10</td>
-      <td id="T_363cc_row2_col4" class="data row2 col4" >100%</td>
-      <td id="T_363cc_row2_col5" class="data row2 col5" >0</td>
-      <td id="T_363cc_row2_col6" class="data row2 col6" >70%</td>
-      <td id="T_363cc_row2_col7" class="data row2 col7" >70%</td>
-      <td id="T_363cc_row2_col8" class="data row2 col8" >$0.01350</td>
-      <td id="T_363cc_row2_col9" class="data row2 col9" >0</td>
+      <th id="T_363cc_level0_row2" class="row_heading level0 row2">2</th>
+      <td id="T_363cc_row2_col0" class="data row2 col0">Round 2: routing</td>
+      <td id="T_363cc_row2_col1" class="data row2 col1">10</td>
+      <td id="T_363cc_row2_col2" class="data row2 col2">100%</td>
+      <td id="T_363cc_row2_col3" class="data row2 col3">10</td>
+      <td id="T_363cc_row2_col4" class="data row2 col4">100%</td>
+      <td id="T_363cc_row2_col5" class="data row2 col5">0</td>
+      <td id="T_363cc_row2_col6" class="data row2 col6">70%</td>
+      <td id="T_363cc_row2_col7" class="data row2 col7">70%</td>
+      <td id="T_363cc_row2_col8" class="data row2 col8">$0.01350</td>
+      <td id="T_363cc_row2_col9" class="data row2 col9">0</td>
     </tr>
     <tr>
-      <th id="T_363cc_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_363cc_row3_col0" class="data row3 col0" >Round 3: caching</td>
-      <td id="T_363cc_row3_col1" class="data row3 col1" >10</td>
-      <td id="T_363cc_row3_col2" class="data row3 col2" >100%</td>
-      <td id="T_363cc_row3_col3" class="data row3 col3" >10</td>
-      <td id="T_363cc_row3_col4" class="data row3 col4" >100%</td>
-      <td id="T_363cc_row3_col5" class="data row3 col5" >0</td>
-      <td id="T_363cc_row3_col6" class="data row3 col6" >90%</td>
-      <td id="T_363cc_row3_col7" class="data row3 col7" >90%</td>
-      <td id="T_363cc_row3_col8" class="data row3 col8" >$0.01279</td>
-      <td id="T_363cc_row3_col9" class="data row3 col9" >0</td>
+      <th id="T_363cc_level0_row3" class="row_heading level0 row3">3</th>
+      <td id="T_363cc_row3_col0" class="data row3 col0">Round 3: caching</td>
+      <td id="T_363cc_row3_col1" class="data row3 col1">10</td>
+      <td id="T_363cc_row3_col2" class="data row3 col2">100%</td>
+      <td id="T_363cc_row3_col3" class="data row3 col3">10</td>
+      <td id="T_363cc_row3_col4" class="data row3 col4">100%</td>
+      <td id="T_363cc_row3_col5" class="data row3 col5">0</td>
+      <td id="T_363cc_row3_col6" class="data row3 col6">90%</td>
+      <td id="T_363cc_row3_col7" class="data row3 col7">90%</td>
+      <td id="T_363cc_row3_col8" class="data row3 col8">$0.01279</td>
+      <td id="T_363cc_row3_col9" class="data row3 col9">0</td>
     </tr>
     <tr>
-      <th id="T_363cc_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_363cc_row4_col0" class="data row4 col0" >Round 4: split workflow</td>
-      <td id="T_363cc_row4_col1" class="data row4 col1" >10</td>
-      <td id="T_363cc_row4_col2" class="data row4 col2" >100%</td>
-      <td id="T_363cc_row4_col3" class="data row4 col3" >10</td>
-      <td id="T_363cc_row4_col4" class="data row4 col4" >100%</td>
-      <td id="T_363cc_row4_col5" class="data row4 col5" >0</td>
-      <td id="T_363cc_row4_col6" class="data row4 col6" >80%</td>
-      <td id="T_363cc_row4_col7" class="data row4 col7" >80%</td>
-      <td id="T_363cc_row4_col8" class="data row4 col8" >$0.01285</td>
-      <td id="T_363cc_row4_col9" class="data row4 col9" >0</td>
+      <th id="T_363cc_level0_row4" class="row_heading level0 row4">4</th>
+      <td id="T_363cc_row4_col0" class="data row4 col0">Round 4: split workflow</td>
+      <td id="T_363cc_row4_col1" class="data row4 col1">10</td>
+      <td id="T_363cc_row4_col2" class="data row4 col2">100%</td>
+      <td id="T_363cc_row4_col3" class="data row4 col3">10</td>
+      <td id="T_363cc_row4_col4" class="data row4 col4">100%</td>
+      <td id="T_363cc_row4_col5" class="data row4 col5">0</td>
+      <td id="T_363cc_row4_col6" class="data row4 col6">80%</td>
+      <td id="T_363cc_row4_col7" class="data row4 col7">80%</td>
+      <td id="T_363cc_row4_col8" class="data row4 col8">$0.01285</td>
+      <td id="T_363cc_row4_col9" class="data row4 col9">0</td>
     </tr>
   </tbody>
 </table>
@@ -3906,125 +3906,125 @@ display(
 <table id="T_99ce3">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_99ce3_level0_col0" class="col_heading level0 col0" >ticket_id</th>
-      <th id="T_99ce3_level0_col1" class="col_heading level0 col1" >variant_label</th>
-      <th id="T_99ce3_level0_col2" class="col_heading level0 col2" >intent</th>
-      <th id="T_99ce3_level0_col3" class="col_heading level0 col3" >risk</th>
-      <th id="T_99ce3_level0_col4" class="col_heading level0 col4" >model</th>
-      <th id="T_99ce3_level0_col5" class="col_heading level0 col5" >tools</th>
-      <th id="T_99ce3_level0_col6" class="col_heading level0 col6" >action</th>
-      <th id="T_99ce3_level0_col7" class="col_heading level0 col7" >policy_compliant</th>
-      <th id="T_99ce3_level0_col8" class="col_heading level0 col8" >sync_tokens</th>
-      <th id="T_99ce3_level0_col9" class="col_heading level0 col9" >total_tokens</th>
-      <th id="T_99ce3_level0_col10" class="col_heading level0 col10" >latency_s</th>
-      <th id="T_99ce3_level0_col11" class="col_heading level0 col11" >cost_usd</th>
-      <th id="T_99ce3_level0_col12" class="col_heading level0 col12" >quality_score</th>
-      <th id="T_99ce3_level0_col13" class="col_heading level0 col13" >response_preview</th>
+      <th class="blank level0"> </th>
+      <th id="T_99ce3_level0_col0" class="col_heading level0 col0">ticket_id</th>
+      <th id="T_99ce3_level0_col1" class="col_heading level0 col1">variant_label</th>
+      <th id="T_99ce3_level0_col2" class="col_heading level0 col2">intent</th>
+      <th id="T_99ce3_level0_col3" class="col_heading level0 col3">risk</th>
+      <th id="T_99ce3_level0_col4" class="col_heading level0 col4">model</th>
+      <th id="T_99ce3_level0_col5" class="col_heading level0 col5">tools</th>
+      <th id="T_99ce3_level0_col6" class="col_heading level0 col6">action</th>
+      <th id="T_99ce3_level0_col7" class="col_heading level0 col7">policy_compliant</th>
+      <th id="T_99ce3_level0_col8" class="col_heading level0 col8">sync_tokens</th>
+      <th id="T_99ce3_level0_col9" class="col_heading level0 col9">total_tokens</th>
+      <th id="T_99ce3_level0_col10" class="col_heading level0 col10">latency_s</th>
+      <th id="T_99ce3_level0_col11" class="col_heading level0 col11">cost_usd</th>
+      <th id="T_99ce3_level0_col12" class="col_heading level0 col12">quality_score</th>
+      <th id="T_99ce3_level0_col13" class="col_heading level0 col13">response_preview</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_99ce3_level0_row0" class="row_heading level0 row0" >1</th>
-      <td id="T_99ce3_row0_col0" class="data row0 col0" >T-002</td>
-      <td id="T_99ce3_row0_col1" class="data row0 col1" >Bad baseline</td>
-      <td id="T_99ce3_row0_col2" class="data row0 col2" >damaged_delivery</td>
-      <td id="T_99ce3_row0_col3" class="data row0 col3" >medium</td>
-      <td id="T_99ce3_row0_col4" class="data row0 col4" >gpt-5.4</td>
-      <td id="T_99ce3_row0_col5" class="data row0 col5" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_99ce3_row0_col6" class="data row0 col6" >open_replacement_without_photo</td>
-      <td id="T_99ce3_row0_col7" class="data row0 col7" >False</td>
-      <td id="T_99ce3_row0_col8" class="data row0 col8" >12917</td>
-      <td id="T_99ce3_row0_col9" class="data row0 col9" >12917</td>
-      <td id="T_99ce3_row0_col10" class="data row0 col10" >4.88</td>
-      <td id="T_99ce3_row0_col11" class="data row0 col11" >$0.04034</td>
-      <td id="T_99ce3_row0_col12" class="data row0 col12" >0.65</td>
-      <td id="T_99ce3_row0_col13" class="data row0 col13" >I reviewed your message for ticket T-002 and checked the customer profile, order system, policy library, refund workflow, escalation queue, carrier events, billing signals, and internal audit notes. Based on the availabl</td>
+      <th id="T_99ce3_level0_row0" class="row_heading level0 row0">1</th>
+      <td id="T_99ce3_row0_col0" class="data row0 col0">T-002</td>
+      <td id="T_99ce3_row0_col1" class="data row0 col1">Bad baseline</td>
+      <td id="T_99ce3_row0_col2" class="data row0 col2">damaged_delivery</td>
+      <td id="T_99ce3_row0_col3" class="data row0 col3">medium</td>
+      <td id="T_99ce3_row0_col4" class="data row0 col4">gpt-5.4</td>
+      <td id="T_99ce3_row0_col5" class="data row0 col5">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_99ce3_row0_col6" class="data row0 col6">open_replacement_without_photo</td>
+      <td id="T_99ce3_row0_col7" class="data row0 col7">False</td>
+      <td id="T_99ce3_row0_col8" class="data row0 col8">12917</td>
+      <td id="T_99ce3_row0_col9" class="data row0 col9">12917</td>
+      <td id="T_99ce3_row0_col10" class="data row0 col10">4.88</td>
+      <td id="T_99ce3_row0_col11" class="data row0 col11">$0.04034</td>
+      <td id="T_99ce3_row0_col12" class="data row0 col12">0.65</td>
+      <td id="T_99ce3_row0_col13" class="data row0 col13">I reviewed your message for ticket T-002 and checked the customer profile, order system, policy library, refund workflow, escalation queue, carrier events, billing signals, and internal audit notes. Based on the availabl</td>
     </tr>
     <tr>
-      <th id="T_99ce3_level0_row1" class="row_heading level0 row1" >3</th>
-      <td id="T_99ce3_row1_col0" class="data row1 col0" >T-004</td>
-      <td id="T_99ce3_row1_col1" class="data row1 col1" >Bad baseline</td>
-      <td id="T_99ce3_row1_col2" class="data row1 col2" >billing_issue</td>
-      <td id="T_99ce3_row1_col3" class="data row1 col3" >medium</td>
-      <td id="T_99ce3_row1_col4" class="data row1 col4" >gpt-5.4</td>
-      <td id="T_99ce3_row1_col5" class="data row1 col5" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_99ce3_row1_col6" class="data row1 col6" >escalate_billing_review</td>
-      <td id="T_99ce3_row1_col7" class="data row1 col7" >True</td>
-      <td id="T_99ce3_row1_col8" class="data row1 col8" >12830</td>
-      <td id="T_99ce3_row1_col9" class="data row1 col9" >12830</td>
-      <td id="T_99ce3_row1_col10" class="data row1 col10" >4.87</td>
-      <td id="T_99ce3_row1_col11" class="data row1 col11" >$0.04038</td>
-      <td id="T_99ce3_row1_col12" class="data row1 col12" >0.85</td>
-      <td id="T_99ce3_row1_col13" class="data row1 col13" >I reviewed your message for ticket T-004 and checked the customer profile, order system, policy library, refund workflow, escalation queue, carrier events, billing signals, and internal audit notes. Based on the availabl</td>
+      <th id="T_99ce3_level0_row1" class="row_heading level0 row1">3</th>
+      <td id="T_99ce3_row1_col0" class="data row1 col0">T-004</td>
+      <td id="T_99ce3_row1_col1" class="data row1 col1">Bad baseline</td>
+      <td id="T_99ce3_row1_col2" class="data row1 col2">billing_issue</td>
+      <td id="T_99ce3_row1_col3" class="data row1 col3">medium</td>
+      <td id="T_99ce3_row1_col4" class="data row1 col4">gpt-5.4</td>
+      <td id="T_99ce3_row1_col5" class="data row1 col5">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_99ce3_row1_col6" class="data row1 col6">escalate_billing_review</td>
+      <td id="T_99ce3_row1_col7" class="data row1 col7">True</td>
+      <td id="T_99ce3_row1_col8" class="data row1 col8">12830</td>
+      <td id="T_99ce3_row1_col9" class="data row1 col9">12830</td>
+      <td id="T_99ce3_row1_col10" class="data row1 col10">4.87</td>
+      <td id="T_99ce3_row1_col11" class="data row1 col11">$0.04038</td>
+      <td id="T_99ce3_row1_col12" class="data row1 col12">0.85</td>
+      <td id="T_99ce3_row1_col13" class="data row1 col13">I reviewed your message for ticket T-004 and checked the customer profile, order system, policy library, refund workflow, escalation queue, carrier events, billing signals, and internal audit notes. Based on the availabl</td>
     </tr>
     <tr>
-      <th id="T_99ce3_level0_row2" class="row_heading level0 row2" >7</th>
-      <td id="T_99ce3_row2_col0" class="data row2 col0" >T-008</td>
-      <td id="T_99ce3_row2_col1" class="data row2 col1" >Bad baseline</td>
-      <td id="T_99ce3_row2_col2" class="data row2 col2" >high_value_damage</td>
-      <td id="T_99ce3_row2_col3" class="data row2 col3" >high</td>
-      <td id="T_99ce3_row2_col4" class="data row2 col4" >gpt-5.4</td>
-      <td id="T_99ce3_row2_col5" class="data row2 col5" >lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
-      <td id="T_99ce3_row2_col6" class="data row2 col6" >promise_refund_high_value_damage</td>
-      <td id="T_99ce3_row2_col7" class="data row2 col7" >False</td>
-      <td id="T_99ce3_row2_col8" class="data row2 col8" >12997</td>
-      <td id="T_99ce3_row2_col9" class="data row2 col9" >12997</td>
-      <td id="T_99ce3_row2_col10" class="data row2 col10" >4.91</td>
-      <td id="T_99ce3_row2_col11" class="data row2 col11" >$0.04136</td>
-      <td id="T_99ce3_row2_col12" class="data row2 col12" >0.22</td>
-      <td id="T_99ce3_row2_col13" class="data row2 col13" >I reviewed your message for ticket T-008 and checked the customer profile, order system, policy library, refund workflow, escalation queue, carrier events, billing signals, and internal audit notes. Based on the availabl</td>
+      <th id="T_99ce3_level0_row2" class="row_heading level0 row2">7</th>
+      <td id="T_99ce3_row2_col0" class="data row2 col0">T-008</td>
+      <td id="T_99ce3_row2_col1" class="data row2 col1">Bad baseline</td>
+      <td id="T_99ce3_row2_col2" class="data row2 col2">high_value_damage</td>
+      <td id="T_99ce3_row2_col3" class="data row2 col3">high</td>
+      <td id="T_99ce3_row2_col4" class="data row2 col4">gpt-5.4</td>
+      <td id="T_99ce3_row2_col5" class="data row2 col5">lookup_customer, lookup_order, lookup_policy, create_refund_case, escalate_to_human</td>
+      <td id="T_99ce3_row2_col6" class="data row2 col6">promise_refund_high_value_damage</td>
+      <td id="T_99ce3_row2_col7" class="data row2 col7">False</td>
+      <td id="T_99ce3_row2_col8" class="data row2 col8">12997</td>
+      <td id="T_99ce3_row2_col9" class="data row2 col9">12997</td>
+      <td id="T_99ce3_row2_col10" class="data row2 col10">4.91</td>
+      <td id="T_99ce3_row2_col11" class="data row2 col11">$0.04136</td>
+      <td id="T_99ce3_row2_col12" class="data row2 col12">0.22</td>
+      <td id="T_99ce3_row2_col13" class="data row2 col13">I reviewed your message for ticket T-008 and checked the customer profile, order system, policy library, refund workflow, escalation queue, carrier events, billing signals, and internal audit notes. Based on the availabl</td>
     </tr>
     <tr>
-      <th id="T_99ce3_level0_row3" class="row_heading level0 row3" >41</th>
-      <td id="T_99ce3_row3_col0" class="data row3 col0" >T-002</td>
-      <td id="T_99ce3_row3_col1" class="data row3 col1" >Round 4: split workflow</td>
-      <td id="T_99ce3_row3_col2" class="data row3 col2" >damaged_delivery</td>
-      <td id="T_99ce3_row3_col3" class="data row3 col3" >medium</td>
-      <td id="T_99ce3_row3_col4" class="data row3 col4" >gpt-5.4-mini</td>
-      <td id="T_99ce3_row3_col5" class="data row3 col5" >lookup_order, lookup_policy</td>
-      <td id="T_99ce3_row3_col6" class="data row3 col6" >request_photo_then_offer_replacement</td>
-      <td id="T_99ce3_row3_col7" class="data row3 col7" >True</td>
-      <td id="T_99ce3_row3_col8" class="data row3 col8" >2381</td>
-      <td id="T_99ce3_row3_col9" class="data row3 col9" >2940</td>
-      <td id="T_99ce3_row3_col10" class="data row3 col10" >1.26</td>
-      <td id="T_99ce3_row3_col11" class="data row3 col11" >$0.00097</td>
-      <td id="T_99ce3_row3_col12" class="data row3 col12" >0.98</td>
-      <td id="T_99ce3_row3_col13" class="data row3 col13" >I can help with a replacement. Please reply with a photo of the cracked blender and packaging, and we can start the replacement or refund process under the damaged-delivery policy.</td>
+      <th id="T_99ce3_level0_row3" class="row_heading level0 row3">41</th>
+      <td id="T_99ce3_row3_col0" class="data row3 col0">T-002</td>
+      <td id="T_99ce3_row3_col1" class="data row3 col1">Round 4: split workflow</td>
+      <td id="T_99ce3_row3_col2" class="data row3 col2">damaged_delivery</td>
+      <td id="T_99ce3_row3_col3" class="data row3 col3">medium</td>
+      <td id="T_99ce3_row3_col4" class="data row3 col4">gpt-5.4-mini</td>
+      <td id="T_99ce3_row3_col5" class="data row3 col5">lookup_order, lookup_policy</td>
+      <td id="T_99ce3_row3_col6" class="data row3 col6">request_photo_then_offer_replacement</td>
+      <td id="T_99ce3_row3_col7" class="data row3 col7">True</td>
+      <td id="T_99ce3_row3_col8" class="data row3 col8">2381</td>
+      <td id="T_99ce3_row3_col9" class="data row3 col9">2940</td>
+      <td id="T_99ce3_row3_col10" class="data row3 col10">1.26</td>
+      <td id="T_99ce3_row3_col11" class="data row3 col11">$0.00097</td>
+      <td id="T_99ce3_row3_col12" class="data row3 col12">0.98</td>
+      <td id="T_99ce3_row3_col13" class="data row3 col13">I can help with a replacement. Please reply with a photo of the cracked blender and packaging, and we can start the replacement or refund process under the damaged-delivery policy.</td>
     </tr>
     <tr>
-      <th id="T_99ce3_level0_row4" class="row_heading level0 row4" >43</th>
-      <td id="T_99ce3_row4_col0" class="data row4 col0" >T-004</td>
-      <td id="T_99ce3_row4_col1" class="data row4 col1" >Round 4: split workflow</td>
-      <td id="T_99ce3_row4_col2" class="data row4 col2" >billing_issue</td>
-      <td id="T_99ce3_row4_col3" class="data row4 col3" >medium</td>
-      <td id="T_99ce3_row4_col4" class="data row4 col4" >gpt-5.4-mini</td>
-      <td id="T_99ce3_row4_col5" class="data row4 col5" >lookup_order, lookup_policy, escalate_to_human</td>
-      <td id="T_99ce3_row4_col6" class="data row4 col6" >escalate_billing_review</td>
-      <td id="T_99ce3_row4_col7" class="data row4 col7" >True</td>
-      <td id="T_99ce3_row4_col8" class="data row4 col8" >2401</td>
-      <td id="T_99ce3_row4_col9" class="data row4 col9" >2942</td>
-      <td id="T_99ce3_row4_col10" class="data row4 col10" >1.41</td>
-      <td id="T_99ce3_row4_col11" class="data row4 col11" >$0.00103</td>
-      <td id="T_99ce3_row4_col12" class="data row4 col12" >0.98</td>
-      <td id="T_99ce3_row4_col13" class="data row4 col13" >I found a duplicate-charge signal and sent this to billing review. The billing team will verify the charge before any refund is confirmed.</td>
+      <th id="T_99ce3_level0_row4" class="row_heading level0 row4">43</th>
+      <td id="T_99ce3_row4_col0" class="data row4 col0">T-004</td>
+      <td id="T_99ce3_row4_col1" class="data row4 col1">Round 4: split workflow</td>
+      <td id="T_99ce3_row4_col2" class="data row4 col2">billing_issue</td>
+      <td id="T_99ce3_row4_col3" class="data row4 col3">medium</td>
+      <td id="T_99ce3_row4_col4" class="data row4 col4">gpt-5.4-mini</td>
+      <td id="T_99ce3_row4_col5" class="data row4 col5">lookup_order, lookup_policy, escalate_to_human</td>
+      <td id="T_99ce3_row4_col6" class="data row4 col6">escalate_billing_review</td>
+      <td id="T_99ce3_row4_col7" class="data row4 col7">True</td>
+      <td id="T_99ce3_row4_col8" class="data row4 col8">2401</td>
+      <td id="T_99ce3_row4_col9" class="data row4 col9">2942</td>
+      <td id="T_99ce3_row4_col10" class="data row4 col10">1.41</td>
+      <td id="T_99ce3_row4_col11" class="data row4 col11">$0.00103</td>
+      <td id="T_99ce3_row4_col12" class="data row4 col12">0.98</td>
+      <td id="T_99ce3_row4_col13" class="data row4 col13">I found a duplicate-charge signal and sent this to billing review. The billing team will verify the charge before any refund is confirmed.</td>
     </tr>
     <tr>
-      <th id="T_99ce3_level0_row5" class="row_heading level0 row5" >47</th>
-      <td id="T_99ce3_row5_col0" class="data row5 col0" >T-008</td>
-      <td id="T_99ce3_row5_col1" class="data row5 col1" >Round 4: split workflow</td>
-      <td id="T_99ce3_row5_col2" class="data row5 col2" >high_value_damage</td>
-      <td id="T_99ce3_row5_col3" class="data row5 col3" >high</td>
-      <td id="T_99ce3_row5_col4" class="data row5 col4" >gpt-5.4</td>
-      <td id="T_99ce3_row5_col5" class="data row5 col5" >lookup_order, lookup_policy, escalate_to_human</td>
-      <td id="T_99ce3_row5_col6" class="data row5 col6" >escalate_high_value_damage</td>
-      <td id="T_99ce3_row5_col7" class="data row5 col7" >True</td>
-      <td id="T_99ce3_row5_col8" class="data row5 col8" >2492</td>
-      <td id="T_99ce3_row5_col9" class="data row5 col9" >3063</td>
-      <td id="T_99ce3_row5_col10" class="data row5 col10" >2.03</td>
-      <td id="T_99ce3_row5_col11" class="data row5 col11" >$0.00381</td>
-      <td id="T_99ce3_row5_col12" class="data row5 col12" >0.99</td>
-      <td id="T_99ce3_row5_col13" class="data row5 col13" >I am sorry the item arrived damaged. Because this is a high-value item, I escalated it for human review. Please attach photos of the item and packaging.</td>
+      <th id="T_99ce3_level0_row5" class="row_heading level0 row5">47</th>
+      <td id="T_99ce3_row5_col0" class="data row5 col0">T-008</td>
+      <td id="T_99ce3_row5_col1" class="data row5 col1">Round 4: split workflow</td>
+      <td id="T_99ce3_row5_col2" class="data row5 col2">high_value_damage</td>
+      <td id="T_99ce3_row5_col3" class="data row5 col3">high</td>
+      <td id="T_99ce3_row5_col4" class="data row5 col4">gpt-5.4</td>
+      <td id="T_99ce3_row5_col5" class="data row5 col5">lookup_order, lookup_policy, escalate_to_human</td>
+      <td id="T_99ce3_row5_col6" class="data row5 col6">escalate_high_value_damage</td>
+      <td id="T_99ce3_row5_col7" class="data row5 col7">True</td>
+      <td id="T_99ce3_row5_col8" class="data row5 col8">2492</td>
+      <td id="T_99ce3_row5_col9" class="data row5 col9">3063</td>
+      <td id="T_99ce3_row5_col10" class="data row5 col10">2.03</td>
+      <td id="T_99ce3_row5_col11" class="data row5 col11">$0.00381</td>
+      <td id="T_99ce3_row5_col12" class="data row5 col12">0.99</td>
+      <td id="T_99ce3_row5_col13" class="data row5 col13">I am sorry the item arrived damaged. Because this is a high-value item, I escalated it for human review. Please attach photos of the item and packaging.</td>
     </tr>
   </tbody>
 </table>
@@ -4057,50 +4057,50 @@ display(
 <table id="T_8306c">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
+      <th class="blank level0"> </th>
       <th id="T_8306c_level0_col0" class="col_heading level0 col0" colspan="5">delta</th>
     </tr>
     <tr>
-      <th class="index_name level1" >variant</th>
-      <th id="T_8306c_level1_col0" class="col_heading level1 col0" >sync_tokens_saved</th>
-      <th id="T_8306c_level1_col1" class="col_heading level1 col1" >total_tokens_saved</th>
-      <th id="T_8306c_level1_col2" class="col_heading level1 col2" >latency_saved_s</th>
-      <th id="T_8306c_level1_col3" class="col_heading level1 col3" >cost_saved_usd</th>
-      <th id="T_8306c_level1_col4" class="col_heading level1 col4" >quality_change</th>
+      <th class="index_name level1">variant</th>
+      <th id="T_8306c_level1_col0" class="col_heading level1 col0">sync_tokens_saved</th>
+      <th id="T_8306c_level1_col1" class="col_heading level1 col1">total_tokens_saved</th>
+      <th id="T_8306c_level1_col2" class="col_heading level1 col2">latency_saved_s</th>
+      <th id="T_8306c_level1_col3" class="col_heading level1 col3">cost_saved_usd</th>
+      <th id="T_8306c_level1_col4" class="col_heading level1 col4">quality_change</th>
     </tr>
     <tr>
-      <th class="index_name level0" >ticket_id</th>
-      <th class="blank col0" >&nbsp;</th>
-      <th class="blank col1" >&nbsp;</th>
-      <th class="blank col2" >&nbsp;</th>
-      <th class="blank col3" >&nbsp;</th>
-      <th class="blank col4" >&nbsp;</th>
+      <th class="index_name level0">ticket_id</th>
+      <th class="blank col0"> </th>
+      <th class="blank col1"> </th>
+      <th class="blank col2"> </th>
+      <th class="blank col3"> </th>
+      <th class="blank col4"> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_8306c_level0_row0" class="row_heading level0 row0" >T-002</th>
-      <td id="T_8306c_row0_col0" class="data row0 col0" >10,536</td>
-      <td id="T_8306c_row0_col1" class="data row0 col1" >9,977</td>
-      <td id="T_8306c_row0_col2" class="data row0 col2" >3.62</td>
-      <td id="T_8306c_row0_col3" class="data row0 col3" >$0.03937</td>
-      <td id="T_8306c_row0_col4" class="data row0 col4" >+0.33</td>
+      <th id="T_8306c_level0_row0" class="row_heading level0 row0">T-002</th>
+      <td id="T_8306c_row0_col0" class="data row0 col0">10,536</td>
+      <td id="T_8306c_row0_col1" class="data row0 col1">9,977</td>
+      <td id="T_8306c_row0_col2" class="data row0 col2">3.62</td>
+      <td id="T_8306c_row0_col3" class="data row0 col3">$0.03937</td>
+      <td id="T_8306c_row0_col4" class="data row0 col4">+0.33</td>
     </tr>
     <tr>
-      <th id="T_8306c_level0_row1" class="row_heading level0 row1" >T-004</th>
-      <td id="T_8306c_row1_col0" class="data row1 col0" >10,429</td>
-      <td id="T_8306c_row1_col1" class="data row1 col1" >9,888</td>
-      <td id="T_8306c_row1_col2" class="data row1 col2" >3.46</td>
-      <td id="T_8306c_row1_col3" class="data row1 col3" >$0.03935</td>
-      <td id="T_8306c_row1_col4" class="data row1 col4" >+0.13</td>
+      <th id="T_8306c_level0_row1" class="row_heading level0 row1">T-004</th>
+      <td id="T_8306c_row1_col0" class="data row1 col0">10,429</td>
+      <td id="T_8306c_row1_col1" class="data row1 col1">9,888</td>
+      <td id="T_8306c_row1_col2" class="data row1 col2">3.46</td>
+      <td id="T_8306c_row1_col3" class="data row1 col3">$0.03935</td>
+      <td id="T_8306c_row1_col4" class="data row1 col4">+0.13</td>
     </tr>
     <tr>
-      <th id="T_8306c_level0_row2" class="row_heading level0 row2" >T-008</th>
-      <td id="T_8306c_row2_col0" class="data row2 col0" >10,505</td>
-      <td id="T_8306c_row2_col1" class="data row2 col1" >9,934</td>
-      <td id="T_8306c_row2_col2" class="data row2 col2" >2.88</td>
-      <td id="T_8306c_row2_col3" class="data row2 col3" >$0.03754</td>
-      <td id="T_8306c_row2_col4" class="data row2 col4" >+0.77</td>
+      <th id="T_8306c_level0_row2" class="row_heading level0 row2">T-008</th>
+      <td id="T_8306c_row2_col0" class="data row2 col0">10,505</td>
+      <td id="T_8306c_row2_col1" class="data row2 col1">9,934</td>
+      <td id="T_8306c_row2_col2" class="data row2 col2">2.88</td>
+      <td id="T_8306c_row2_col3" class="data row2 col3">$0.03754</td>
+      <td id="T_8306c_row2_col4" class="data row2 col4">+0.77</td>
     </tr>
   </tbody>
 </table>
@@ -4161,60 +4161,60 @@ display(
 <table id="T_a4225">
   <thead>
     <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_a4225_level0_col0" class="col_heading level0 col0" >variant_label</th>
-      <th id="T_a4225_level0_col1" class="col_heading level0 col1" >mean_quality</th>
-      <th id="T_a4225_level0_col2" class="col_heading level0 col2" >policy_compliance</th>
-      <th id="T_a4225_level0_col3" class="col_heading level0 col3" >action_accuracy</th>
-      <th id="T_a4225_level0_col4" class="col_heading level0 col4" >escalation_accuracy</th>
-      <th id="T_a4225_level0_col5" class="col_heading level0 col5" >mean_tool_calls</th>
-      <th id="T_a4225_level0_col6" class="col_heading level0 col6" >mean_extra_tool_calls</th>
-      <th id="T_a4225_level0_col7" class="col_heading level0 col7" >mean_sync_tokens</th>
-      <th id="T_a4225_level0_col8" class="col_heading level0 col8" >mean_total_tokens</th>
-      <th id="T_a4225_level0_col9" class="col_heading level0 col9" >mean_cached_tokens</th>
-      <th id="T_a4225_level0_col10" class="col_heading level0 col10" >p50_latency_s</th>
-      <th id="T_a4225_level0_col11" class="col_heading level0 col11" >sync_cost_per_ticket_usd</th>
-      <th id="T_a4225_level0_col12" class="col_heading level0 col12" >background_cost_per_ticket_usd</th>
-      <th id="T_a4225_level0_col13" class="col_heading level0 col13" >cost_per_ticket_usd</th>
-      <th id="T_a4225_level0_col14" class="col_heading level0 col14" >monthly_cost_at_100k_tickets</th>
+      <th class="blank level0"> </th>
+      <th id="T_a4225_level0_col0" class="col_heading level0 col0">variant_label</th>
+      <th id="T_a4225_level0_col1" class="col_heading level0 col1">mean_quality</th>
+      <th id="T_a4225_level0_col2" class="col_heading level0 col2">policy_compliance</th>
+      <th id="T_a4225_level0_col3" class="col_heading level0 col3">action_accuracy</th>
+      <th id="T_a4225_level0_col4" class="col_heading level0 col4">escalation_accuracy</th>
+      <th id="T_a4225_level0_col5" class="col_heading level0 col5">mean_tool_calls</th>
+      <th id="T_a4225_level0_col6" class="col_heading level0 col6">mean_extra_tool_calls</th>
+      <th id="T_a4225_level0_col7" class="col_heading level0 col7">mean_sync_tokens</th>
+      <th id="T_a4225_level0_col8" class="col_heading level0 col8">mean_total_tokens</th>
+      <th id="T_a4225_level0_col9" class="col_heading level0 col9">mean_cached_tokens</th>
+      <th id="T_a4225_level0_col10" class="col_heading level0 col10">p50_latency_s</th>
+      <th id="T_a4225_level0_col11" class="col_heading level0 col11">sync_cost_per_ticket_usd</th>
+      <th id="T_a4225_level0_col12" class="col_heading level0 col12">background_cost_per_ticket_usd</th>
+      <th id="T_a4225_level0_col13" class="col_heading level0 col13">cost_per_ticket_usd</th>
+      <th id="T_a4225_level0_col14" class="col_heading level0 col14">monthly_cost_at_100k_tickets</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_a4225_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_a4225_row0_col0" class="data row0 col0" >Bad baseline</td>
-      <td id="T_a4225_row0_col1" class="data row0 col1" >0.51</td>
-      <td id="T_a4225_row0_col2" class="data row0 col2" >10%</td>
-      <td id="T_a4225_row0_col3" class="data row0 col3" >60%</td>
-      <td id="T_a4225_row0_col4" class="data row0 col4" >70%</td>
-      <td id="T_a4225_row0_col5" class="data row0 col5" >5.0</td>
-      <td id="T_a4225_row0_col6" class="data row0 col6" >2.4</td>
-      <td id="T_a4225_row0_col7" class="data row0 col7" >11,935</td>
-      <td id="T_a4225_row0_col8" class="data row0 col8" >11,935</td>
-      <td id="T_a4225_row0_col9" class="data row0 col9" >0</td>
-      <td id="T_a4225_row0_col10" class="data row0 col10" >4.88</td>
-      <td id="T_a4225_row0_col11" class="data row0 col11" >$0.03813</td>
-      <td id="T_a4225_row0_col12" class="data row0 col12" >$0.00000</td>
-      <td id="T_a4225_row0_col13" class="data row0 col13" >$0.03813</td>
-      <td id="T_a4225_row0_col14" class="data row0 col14" >$3,813</td>
+      <th id="T_a4225_level0_row0" class="row_heading level0 row0">0</th>
+      <td id="T_a4225_row0_col0" class="data row0 col0">Bad baseline</td>
+      <td id="T_a4225_row0_col1" class="data row0 col1">0.51</td>
+      <td id="T_a4225_row0_col2" class="data row0 col2">10%</td>
+      <td id="T_a4225_row0_col3" class="data row0 col3">60%</td>
+      <td id="T_a4225_row0_col4" class="data row0 col4">70%</td>
+      <td id="T_a4225_row0_col5" class="data row0 col5">5.0</td>
+      <td id="T_a4225_row0_col6" class="data row0 col6">2.4</td>
+      <td id="T_a4225_row0_col7" class="data row0 col7">11,935</td>
+      <td id="T_a4225_row0_col8" class="data row0 col8">11,935</td>
+      <td id="T_a4225_row0_col9" class="data row0 col9">0</td>
+      <td id="T_a4225_row0_col10" class="data row0 col10">4.88</td>
+      <td id="T_a4225_row0_col11" class="data row0 col11">$0.03813</td>
+      <td id="T_a4225_row0_col12" class="data row0 col12">$0.00000</td>
+      <td id="T_a4225_row0_col13" class="data row0 col13">$0.03813</td>
+      <td id="T_a4225_row0_col14" class="data row0 col14">$3,813</td>
     </tr>
     <tr>
-      <th id="T_a4225_level0_row1" class="row_heading level0 row1" >4</th>
-      <td id="T_a4225_row1_col0" class="data row1 col0" >Round 4: split workflow</td>
-      <td id="T_a4225_row1_col1" class="data row1 col1" >0.98</td>
-      <td id="T_a4225_row1_col2" class="data row1 col2" >100%</td>
-      <td id="T_a4225_row1_col3" class="data row1 col3" >100%</td>
-      <td id="T_a4225_row1_col4" class="data row1 col4" >100%</td>
-      <td id="T_a4225_row1_col5" class="data row1 col5" >2.6</td>
-      <td id="T_a4225_row1_col6" class="data row1 col6" >0.0</td>
-      <td id="T_a4225_row1_col7" class="data row1 col7" >2,412</td>
-      <td id="T_a4225_row1_col8" class="data row1 col8" >2,974</td>
-      <td id="T_a4225_row1_col9" class="data row1 col9" >1,779</td>
-      <td id="T_a4225_row1_col10" class="data row1 col10" >1.41</td>
-      <td id="T_a4225_row1_col11" class="data row1 col11" >$0.00194</td>
-      <td id="T_a4225_row1_col12" class="data row1 col12" >$0.00010</td>
-      <td id="T_a4225_row1_col13" class="data row1 col13" >$0.00204</td>
-      <td id="T_a4225_row1_col14" class="data row1 col14" >$204</td>
+      <th id="T_a4225_level0_row1" class="row_heading level0 row1">4</th>
+      <td id="T_a4225_row1_col0" class="data row1 col0">Round 4: split workflow</td>
+      <td id="T_a4225_row1_col1" class="data row1 col1">0.98</td>
+      <td id="T_a4225_row1_col2" class="data row1 col2">100%</td>
+      <td id="T_a4225_row1_col3" class="data row1 col3">100%</td>
+      <td id="T_a4225_row1_col4" class="data row1 col4">100%</td>
+      <td id="T_a4225_row1_col5" class="data row1 col5">2.6</td>
+      <td id="T_a4225_row1_col6" class="data row1 col6">0.0</td>
+      <td id="T_a4225_row1_col7" class="data row1 col7">2,412</td>
+      <td id="T_a4225_row1_col8" class="data row1 col8">2,974</td>
+      <td id="T_a4225_row1_col9" class="data row1 col9">1,779</td>
+      <td id="T_a4225_row1_col10" class="data row1 col10">1.41</td>
+      <td id="T_a4225_row1_col11" class="data row1 col11">$0.00194</td>
+      <td id="T_a4225_row1_col12" class="data row1 col12">$0.00010</td>
+      <td id="T_a4225_row1_col13" class="data row1 col13">$0.00204</td>
+      <td id="T_a4225_row1_col14" class="data row1 col14">$204</td>
     </tr>
   </tbody>
 </table>

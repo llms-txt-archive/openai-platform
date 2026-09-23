@@ -909,14 +909,14 @@ print_json(error_taxonomy_example)
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">JSON</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;normalized_fields&quot;: [
-    &quot;exception_class&quot;,
-    &quot;status_code&quot;,
-    &quot;retryable&quot;,
-    &quot;request_id&quot;,
-    &quot;message&quot;
+  "normalized_fields": [
+    "exception_class",
+    "status_code",
+    "retryable",
+    "request_id",
+    "message"
   ],
-  &quot;retryable_status_codes&quot;: [
+  "retryable_status_codes": [
     408,
     409,
     429,
@@ -925,7 +925,7 @@ print_json(error_taxonomy_example)
     503,
     504
   ],
-  &quot;notes&quot;: &quot;call_with_retries(...) uses this taxonomy for transient retry handling.&quot;
+  "notes": "call_with_retries(...) uses this taxonomy for transient retry handling."
 }</div>
     </div>
 
@@ -984,7 +984,7 @@ print_key_takeaway('The curl command shows the raw HTTPS shape behind the SDK ca
 
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result</div>
-      <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">curl -sS https://bedrock-mantle.us-west-2.api.aws/openai/v1/responses -H &#x27;Content-Type: application/json&#x27; -H &#x27;Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK&#x27; -d &#x27;{&quot;model&quot;: &quot;openai.gpt-5.4&quot;, &quot;input&quot;: &quot;BrightCart customer Maya asks why replacement order ORDER-8831 is delayed. Write two labeled plain-text lines for the support agent. Do not use leading hyphens or bold text.&quot;, &quot;max_output_tokens&quot;: 1024, &quot;store&quot;: false}&#x27;</div>
+      <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">curl -sS https://bedrock-mantle.us-west-2.api.aws/openai/v1/responses -H 'Content-Type: application/json' -H 'Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK' -d '{"model": "openai.gpt-5.4", "input": "BrightCart customer Maya asks why replacement order ORDER-8831 is delayed. Write two labeled plain-text lines for the support agent. Do not use leading hyphens or bold text.", "max_output_tokens": 1024, "store": false}'</div>
     </div>
 
 <div style="border-left:4px solid #1f6feb; padding:6px 10px; background:#f6f8fa; margin:8px 0;"><strong>Key takeaway:</strong> The curl command shows the raw HTTPS shape behind the SDK call.</div>
@@ -1057,9 +1057,9 @@ Action: We’re monitoring the shipment closely and will send you an updated del
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Response summary</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;id&quot;: &quot;resp_naythl6fvzhoctlsdogd4vpr673q5ibagqqpiujbast3sy6viroa&quot;,
-  &quot;model&quot;: &quot;openai.gpt-5.4&quot;,
-  &quot;status&quot;: &quot;completed&quot;
+  "id": "resp_naythl6fvzhoctlsdogd4vpr673q5ibagqqpiujbast3sy6viroa",
+  "model": "openai.gpt-5.4",
+  "status": "completed"
 }</div>
     </div>
 
@@ -1271,18 +1271,18 @@ human-review rule: Escalate to a human if the delay exceeds policy thresholds, t
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Created response summary</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;id&quot;: &quot;resp_cvhvh7y5ghwrpa35snvk4bzgcgthgxp4tgwkllmf5mrhs7dikfia&quot;,
-  &quot;model&quot;: &quot;openai.gpt-5.4&quot;,
-  &quot;status&quot;: &quot;completed&quot;,
-  &quot;output_item_types&quot;: [
-    &quot;message&quot;
+  "id": "resp_cvhvh7y5ghwrpa35snvk4bzgcgthgxp4tgwkllmf5mrhs7dikfia",
+  "model": "openai.gpt-5.4",
+  "status": "completed",
+  "output_item_types": [
+    "message"
   ],
-  &quot;input_tokens&quot;: 198,
-  &quot;output_tokens&quot;: 109,
-  &quot;total_tokens&quot;: 307,
-  &quot;cached_input_tokens&quot;: 0,
-  &quot;reasoning_output_tokens&quot;: 0,
-  &quot;service_tier&quot;: &quot;default&quot;
+  "input_tokens": 198,
+  "output_tokens": 109,
+  "total_tokens": 307,
+  "cached_input_tokens": 0,
+  "reasoning_output_tokens": 0,
+  "service_tier": "default"
 }</div>
     </div>
 
@@ -1642,20 +1642,20 @@ except Exception as exc:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;ticket_id&quot;: &quot;TICKET-7429&quot;,
-  &quot;category&quot;: &quot;delivery_delay&quot;,
-  &quot;priority&quot;: &quot;urgent&quot;,
-  &quot;customer_sentiment&quot;: &quot;frustrated and time-sensitive&quot;,
-  &quot;summary&quot;: &quot;Customer Maya Chen reports that ORDER-8831 is a replacement shipment for a previously damaged standing desk. The replacement is now 2 days late, carrier tracking has not updated, and she needs the desk delivered before Monday. She is requesting a supervisor callback and wants to know refund options if the replacement cannot arrive in time.&quot;,
-  &quot;required_actions&quot;: [
-    &quot;Review ORDER-8831 shipment status and confirm last carrier scan/update.&quot;,
-    &quot;Contact carrier or open a trace/escalation for stalled tracking.&quot;,
-    &quot;Check expedited reshipment or alternative fulfillment options to meet the before-Monday deadline.&quot;,
-    &quot;Arrange supervisor callback per customer request.&quot;,
-    &quot;Review and communicate refund options, including refund for replacement order and any prior damaged-item resolution details.&quot;,
-    &quot;Verify whether replacement shipment should be intercepted/returned if a refund or reshipment is approved.&quot;
+  "ticket_id": "TICKET-7429",
+  "category": "delivery_delay",
+  "priority": "urgent",
+  "customer_sentiment": "frustrated and time-sensitive",
+  "summary": "Customer Maya Chen reports that ORDER-8831 is a replacement shipment for a previously damaged standing desk. The replacement is now 2 days late, carrier tracking has not updated, and she needs the desk delivered before Monday. She is requesting a supervisor callback and wants to know refund options if the replacement cannot arrive in time.",
+  "required_actions": [
+    "Review ORDER-8831 shipment status and confirm last carrier scan/update.",
+    "Contact carrier or open a trace/escalation for stalled tracking.",
+    "Check expedited reshipment or alternative fulfillment options to meet the before-Monday deadline.",
+    "Arrange supervisor callback per customer request.",
+    "Review and communicate refund options, including refund for replacement order and any prior damaged-item resolution details.",
+    "Verify whether replacement shipment should be intercepted/returned if a refund or reshipment is approved."
   ],
-  &quot;escalation_needed&quot;: true
+  "escalation_needed": true
 }</div>
     </div>
 
@@ -1783,15 +1783,15 @@ except Exception as exc:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;customer_name&quot;: &quot;Maya Chen&quot;,
-  &quot;order_id&quot;: &quot;ORDER-8831&quot;,
-  &quot;issue_summary&quot;: &quot;Customer is asking about a delayed replacement order. The carrier tracking scan is stale and has not updated.&quot;,
-  &quot;next_step&quot;: &quot;Handoff to support to investigate the carrier delay, verify shipment status, and provide Maya Chen with an update or resolution.&quot;,
-  &quot;metrics_to_watch&quot;: [
-    &quot;tracking_scan_recency&quot;,
-    &quot;carrier_exception_status&quot;,
-    &quot;replacement_order_delivery_eta&quot;,
-    &quot;customer_follow_up_time&quot;
+  "customer_name": "Maya Chen",
+  "order_id": "ORDER-8831",
+  "issue_summary": "Customer is asking about a delayed replacement order. The carrier tracking scan is stale and has not updated.",
+  "next_step": "Handoff to support to investigate the carrier delay, verify shipment status, and provide Maya Chen with an update or resolution.",
+  "metrics_to_watch": [
+    "tracking_scan_recency",
+    "carrier_exception_status",
+    "replacement_order_delivery_eta",
+    "customer_follow_up_time"
   ]
 }</div>
     </div>
@@ -1906,23 +1906,23 @@ except Exception as exc:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Request shape</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;compact&quot;: {
-    &quot;model&quot;: &quot;openai.gpt-5.4&quot;,
-    &quot;input&quot;: &quot;Explain BrightCart&#x27;s delayed-replacement policy to a new support agent. Reply in one sentence under 35 words.&quot;,
-    &quot;text&quot;: {
-      &quot;verbosity&quot;: &quot;low&quot;
+  "compact": {
+    "model": "openai.gpt-5.4",
+    "input": "Explain BrightCart's delayed-replacement policy to a new support agent. Reply in one sentence under 35 words.",
+    "text": {
+      "verbosity": "low"
     },
-    &quot;max_output_tokens&quot;: 1024,
-    &quot;store&quot;: false
+    "max_output_tokens": 1024,
+    "store": false
   },
-  &quot;detailed&quot;: {
-    &quot;model&quot;: &quot;openai.gpt-5.4&quot;,
-    &quot;input&quot;: &quot;Explain BrightCart&#x27;s delayed-replacement policy to a new support agent. Reply in exactly three numbered plain-text lines, each under 18 words. Do not use leading hyphens or bold text.&quot;,
-    &quot;text&quot;: {
-      &quot;verbosity&quot;: &quot;high&quot;
+  "detailed": {
+    "model": "openai.gpt-5.4",
+    "input": "Explain BrightCart's delayed-replacement policy to a new support agent. Reply in exactly three numbered plain-text lines, each under 18 words. Do not use leading hyphens or bold text.",
+    "text": {
+      "verbosity": "high"
     },
-    &quot;max_output_tokens&quot;: 1024,
-    &quot;store&quot;: false
+    "max_output_tokens": 1024,
+    "store": false
   }
 }</div>
     </div>
@@ -2093,8 +2093,8 @@ Sample function tools:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">JSON</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">[
-  &quot;get_order_status&quot;,
-  &quot;get_customer_profile&quot;
+  "get_order_status",
+  "get_customer_profile"
 ]</div>
     </div>
 
@@ -2106,13 +2106,13 @@ Sample order lookup:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">JSON</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;order_id&quot;: &quot;ORDER-8831&quot;,
-  &quot;customer_id&quot;: &quot;CUST-1042&quot;,
-  &quot;item&quot;: &quot;standing desk replacement&quot;,
-  &quot;status&quot;: &quot;delayed&quot;,
-  &quot;carrier_scan&quot;: &quot;No movement for 36 hours at Denver sort center&quot;,
-  &quot;promised_delivery&quot;: &quot;2026-06-01&quot;,
-  &quot;recommended_policy&quot;: &quot;If delay exceeds 48 hours, offer expedited replacement or 15% concession with agent approval.&quot;
+  "order_id": "ORDER-8831",
+  "customer_id": "CUST-1042",
+  "item": "standing desk replacement",
+  "status": "delayed",
+  "carrier_scan": "No movement for 36 hours at Denver sort center",
+  "promised_delivery": "2026-06-01",
+  "recommended_policy": "If delay exceeds 48 hours, offer expedited replacement or 15% concession with agent approval."
 }</div>
     </div>
 
@@ -2237,20 +2237,20 @@ except Exception as exc:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result: tool arguments</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;order_id&quot;: &quot;ORDER-8831&quot;
+  "order_id": "ORDER-8831"
 }</div>
     </div>
 
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result: tool output</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;order_id&quot;: &quot;ORDER-8831&quot;,
-  &quot;customer_id&quot;: &quot;CUST-1042&quot;,
-  &quot;item&quot;: &quot;standing desk replacement&quot;,
-  &quot;status&quot;: &quot;delayed&quot;,
-  &quot;carrier_scan&quot;: &quot;No movement for 36 hours at Denver sort center&quot;,
-  &quot;promised_delivery&quot;: &quot;2026-06-01&quot;,
-  &quot;recommended_policy&quot;: &quot;If delay exceeds 48 hours, offer expedited replacement or 15% concession with agent approval.&quot;
+  "order_id": "ORDER-8831",
+  "customer_id": "CUST-1042",
+  "item": "standing desk replacement",
+  "status": "delayed",
+  "carrier_scan": "No movement for 36 hours at Denver sort center",
+  "promised_delivery": "2026-06-01",
+  "recommended_policy": "If delay exceeds 48 hours, offer expedited replacement or 15% concession with agent approval."
 }</div>
     </div>
 
@@ -2425,9 +2425,9 @@ except Exception as exc:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result: returned tool calls</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;tool_call_count&quot;: 1,
-  &quot;order_ids&quot;: [
-    &quot;ORDER-8831&quot;
+  "tool_call_count": 1,
+  "order_ids": [
+    "ORDER-8831"
   ]
 }</div>
     </div>
@@ -2436,22 +2436,22 @@ except Exception as exc:
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result: local tool outputs</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">[
   {
-    &quot;order_id&quot;: &quot;ORDER-8831&quot;,
-    &quot;customer_id&quot;: &quot;CUST-1042&quot;,
-    &quot;item&quot;: &quot;standing desk replacement&quot;,
-    &quot;status&quot;: &quot;delayed&quot;,
-    &quot;carrier_scan&quot;: &quot;No movement for 36 hours at Denver sort center&quot;,
-    &quot;promised_delivery&quot;: &quot;2026-06-01&quot;,
-    &quot;recommended_policy&quot;: &quot;If delay exceeds 48 hours, offer expedited replacement or 15% concession with agent approval.&quot;
+    "order_id": "ORDER-8831",
+    "customer_id": "CUST-1042",
+    "item": "standing desk replacement",
+    "status": "delayed",
+    "carrier_scan": "No movement for 36 hours at Denver sort center",
+    "promised_delivery": "2026-06-01",
+    "recommended_policy": "If delay exceeds 48 hours, offer expedited replacement or 15% concession with agent approval."
   },
   {
-    &quot;order_id&quot;: &quot;ORDER-2044&quot;,
-    &quot;customer_id&quot;: &quot;CUST-1042&quot;,
-    &quot;item&quot;: &quot;ergonomic chair&quot;,
-    &quot;status&quot;: &quot;delivered&quot;,
-    &quot;carrier_scan&quot;: &quot;Delivered yesterday at front desk&quot;,
-    &quot;promised_delivery&quot;: &quot;2026-05-29&quot;,
-    &quot;recommended_policy&quot;: &quot;Confirm delivery details before opening a replacement request.&quot;
+    "order_id": "ORDER-2044",
+    "customer_id": "CUST-1042",
+    "item": "ergonomic chair",
+    "status": "delivered",
+    "carrier_scan": "Delivered yesterday at front desk",
+    "promised_delivery": "2026-05-29",
+    "recommended_policy": "Confirm delivery details before opening a replacement request."
   }
 ]</div>
     </div>
@@ -2645,7 +2645,7 @@ POLICY_OPTION: OFFER EXPEDITED REPLACEMENT OR 15% CONCESSION</div>
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result: returned output item types</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">[
-  &quot;custom_tool_call&quot;
+  "custom_tool_call"
 ]</div>
     </div>
 
@@ -2900,16 +2900,16 @@ Policy options: expedited replacement or 15% concession with agent approval afte
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result: expected fields</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;ticket_id&quot;: &quot;TICKET-7429&quot;,
-  &quot;customer&quot;: &quot;Maya Chen&quot;,
-  &quot;order_id&quot;: &quot;ORDER-8831&quot;,
-  &quot;product&quot;: &quot;Standing desk replacement&quot;
+  "ticket_id": "TICKET-7429",
+  "customer": "Maya Chen",
+  "order_id": "ORDER-8831",
+  "product": "Standing desk replacement"
 }</div>
     </div>
 
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result</div>
-      <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{&quot;ticket_id&quot;:&quot;TICKET-7429&quot;,&quot;customer&quot;:&quot;Maya Chen&quot;,&quot;order_id&quot;:&quot;ORDER-8831&quot;,&quot;product&quot;:&quot;Standing desk replacement&quot;,&quot;issue&quot;:&quot;Replacement for a damaged item is delayed and carrier scan has not moved&quot;,&quot;requested_resolution&quot;:&quot;Supervisor callback and refund options&quot;,&quot;policy_options&quot;:&quot;expedited replacement or 15% concession with agent approval after 48-hour delay&quot;}</div>
+      <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{"ticket_id":"TICKET-7429","customer":"Maya Chen","order_id":"ORDER-8831","product":"Standing desk replacement","issue":"Replacement for a damaged item is delayed and carrier scan has not moved","requested_resolution":"Supervisor callback and refund options","policy_options":"expedited replacement or 15% concession with agent approval after 48-hour delay"}</div>
     </div>
 
 <div style="font-weight:600; margin:8px 0 4px;">Response summary</div>
@@ -3038,7 +3038,7 @@ except Exception as exc:
     </tr>
     <tr>
       <td>previous_response_id</td>
-      <td>&lt;response-id-from-prior-stored-turn&gt;</td>
+      <td>&#x3C;response-id-from-prior-stored-turn></td>
     </tr>
     <tr>
       <td>input</td>
@@ -3325,11 +3325,11 @@ except Exception as exc:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result: reasoning metadata</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;returned_item_types&quot;: [
-    &quot;reasoning&quot;,
-    &quot;message&quot;
+  "returned_item_types": [
+    "reasoning",
+    "message"
   ],
-  &quot;encrypted_reasoning_content_returned&quot;: true
+  "encrypted_reasoning_content_returned": true
 }</div>
     </div>
 
@@ -3520,8 +3520,8 @@ except Exception as exc:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Prompt-cache input size</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;estimated_input_words&quot;: 3016,
-  &quot;target_minimum_tokens&quot;: 2048
+  "estimated_input_words": 3016,
+  "target_minimum_tokens": 2048
 }</div>
     </div>
 
@@ -3533,36 +3533,36 @@ except Exception as exc:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">First request summary</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;id&quot;: &quot;resp_3w6r6ipbqa5z2max35awv3i23i5sjmfa33zzw3vhpgqxcvchhkgq&quot;,
-  &quot;model&quot;: &quot;openai.gpt-5.4&quot;,
-  &quot;status&quot;: &quot;completed&quot;,
-  &quot;output_item_types&quot;: [
-    &quot;message&quot;
+  "id": "resp_3w6r6ipbqa5z2max35awv3i23i5sjmfa33zzw3vhpgqxcvchhkgq",
+  "model": "openai.gpt-5.4",
+  "status": "completed",
+  "output_item_types": [
+    "message"
   ],
-  &quot;input_tokens&quot;: 3970,
-  &quot;output_tokens&quot;: 66,
-  &quot;total_tokens&quot;: 4036,
-  &quot;cached_input_tokens&quot;: 0,
-  &quot;reasoning_output_tokens&quot;: 0,
-  &quot;service_tier&quot;: &quot;default&quot;
+  "input_tokens": 3970,
+  "output_tokens": 66,
+  "total_tokens": 4036,
+  "cached_input_tokens": 0,
+  "reasoning_output_tokens": 0,
+  "service_tier": "default"
 }</div>
     </div>
 
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Second request summary</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;id&quot;: &quot;resp_zzjeqttoswdjdwwl56xpolvly23w4h2n5dtsdoddgxqwfbkn7npq&quot;,
-  &quot;model&quot;: &quot;openai.gpt-5.4&quot;,
-  &quot;status&quot;: &quot;completed&quot;,
-  &quot;output_item_types&quot;: [
-    &quot;message&quot;
+  "id": "resp_zzjeqttoswdjdwwl56xpolvly23w4h2n5dtsdoddgxqwfbkn7npq",
+  "model": "openai.gpt-5.4",
+  "status": "completed",
+  "output_item_types": [
+    "message"
   ],
-  &quot;input_tokens&quot;: 3970,
-  &quot;output_tokens&quot;: 48,
-  &quot;total_tokens&quot;: 4018,
-  &quot;cached_input_tokens&quot;: 0,
-  &quot;reasoning_output_tokens&quot;: 0,
-  &quot;service_tier&quot;: &quot;default&quot;
+  "input_tokens": 3970,
+  "output_tokens": 48,
+  "total_tokens": 4018,
+  "cached_input_tokens": 0,
+  "reasoning_output_tokens": 0,
+  "service_tier": "default"
 }</div>
     </div>
 
@@ -3686,8 +3686,8 @@ except Exception as exc:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result: status history</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">[
-  &quot;in_progress&quot;,
-  &quot;completed&quot;
+  "in_progress",
+  "completed"
 ]</div>
     </div>
 
@@ -3779,20 +3779,20 @@ print_json(compaction_note)
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">JSON</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;feature&quot;: &quot;Compaction&quot;,
-  &quot;how_to_apply&quot;: &quot;Summarize older support turns into durable facts, open questions, policy constraints, and next actions before continuing the workflow.&quot;,
-  &quot;brightcart_example&quot;: {
-    &quot;durable_facts&quot;: [
-      &quot;Customer Maya Chen&quot;,
-      &quot;ORDER-8831&quot;,
-      &quot;replacement delayed&quot;,
-      &quot;carrier scan stale&quot;
+  "feature": "Compaction",
+  "how_to_apply": "Summarize older support turns into durable facts, open questions, policy constraints, and next actions before continuing the workflow.",
+  "brightcart_example": {
+    "durable_facts": [
+      "Customer Maya Chen",
+      "ORDER-8831",
+      "replacement delayed",
+      "carrier scan stale"
     ],
-    &quot;policy_constraints&quot;: [
-      &quot;Do not promise refund without eligibility&quot;,
-      &quot;Offer expedited replacement or 15% concession after 48-hour delay with approval&quot;
+    "policy_constraints": [
+      "Do not promise refund without eligibility",
+      "Offer expedited replacement or 15% concession after 48-hour delay with approval"
     ],
-    &quot;next_action&quot;: &quot;Check latest carrier scan and supervisor callback status.&quot;
+    "next_action": "Check latest carrier scan and supervisor callback status."
   }
 }</div>
     </div>
@@ -3914,16 +3914,16 @@ else:
 <div style="border:1px solid #d0d7de; border-radius:6px; margin:8px 0; overflow:hidden; font-size:13px;">
       <div style="background:#f6f8fa; padding:6px 8px; font-weight:600;">Result</div>
       <div style="padding:8px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.45;">{
-  &quot;region_hint&quot;: &quot;us-west-2&quot;,
-  &quot;base_url_host&quot;: &quot;bedrock-mantle.us-west-2.api.aws&quot;,
-  &quot;sample_count&quot;: 3,
-  &quot;success_rate&quot;: 1.0,
-  &quot;completed_rate&quot;: 1.0,
-  &quot;avg_latency_seconds&quot;: 0.362,
-  &quot;p50_latency_seconds&quot;: 0.377,
-  &quot;p90_latency_seconds&quot;: 0.4,
-  &quot;total_output_tokens&quot;: 34,
-  &quot;total_tokens&quot;: 544
+  "region_hint": "us-west-2",
+  "base_url_host": "bedrock-mantle.us-west-2.api.aws",
+  "sample_count": 3,
+  "success_rate": 1.0,
+  "completed_rate": 1.0,
+  "avg_latency_seconds": 0.362,
+  "p50_latency_seconds": 0.377,
+  "p90_latency_seconds": 0.4,
+  "total_output_tokens": 34,
+  "total_tokens": 544
 }</div>
     </div>
 
@@ -4240,12 +4240,12 @@ print_response_gallery()
     <tr>
       <td>Structured ticket triage</td>
       <td>json</td>
-      <td>{\n&nbsp;&nbsp;"ticket_id": "TICKET-7429",\n&nbsp;&nbsp;"category": "delivery_delay",\n&nbsp;&nbsp;"priority": "urgent",\n&nbsp;&nbsp;"customer_sentiment": "frustrated and time-sensitive",\n&nbsp;&nbsp;"summary": "Customer Maya Chen reports that ORDER-8831 is a replacement shipment for a previously damaged standing desk. The replacement is now 2 days late, carrier tracking has not updated, and she needs the desk delivered before Monday. She is requesting a supervisor callback and wants to know refund options if the replacement cannot arrive in time.",\n&nbsp;&nbsp;"required_actions": [\n&nbsp;&nbsp;&nbsp;&nbsp;"Review ORDER-8831 shipment status and confirm last carrier scan/update.",\n&nbsp;&nbsp;&nbsp;&nbsp;"Contact carrier or open a trace/escalation for stalled tracking.",\n&nbsp;&nbsp;&nbsp;&nbsp;"Check expedited reshipment or alternative fulfillment options to meet the before-Monday deadline.",\n&nbsp;&nbsp;&nbsp;&nbsp;"Arrange supervisor callback per customer request.",\n&nbsp;&nbsp;&nbsp;&nbsp;"Review and communicate refund options, including refund\n...</td>
+      <td>{\n  "ticket_id": "TICKET-7429",\n  "category": "delivery_delay",\n  "priority": "urgent",\n  "customer_sentiment": "frustrated and time-sensitive",\n  "summary": "Customer Maya Chen reports that ORDER-8831 is a replacement shipment for a previously damaged standing desk. The replacement is now 2 days late, carrier tracking has not updated, and she needs the desk delivered before Monday. She is requesting a supervisor callback and wants to know refund options if the replacement cannot arrive in time.",\n  "required_actions": [\n    "Review ORDER-8831 shipment status and confirm last carrier scan/update.",\n    "Contact carrier or open a trace/escalation for stalled tracking.",\n    "Check expedited reshipment or alternative fulfillment options to meet the before-Monday deadline.",\n    "Arrange supervisor callback per customer request.",\n    "Review and communicate refund options, including refund\n...</td>
     </tr>
     <tr>
       <td>JSON support handoff</td>
       <td>json</td>
-      <td>{\n&nbsp;&nbsp;"customer_name": "Maya Chen",\n&nbsp;&nbsp;"order_id": "ORDER-8831",\n&nbsp;&nbsp;"issue_summary": "Customer is asking about a delayed replacement order. The carrier tracking scan is stale and has not updated.",\n&nbsp;&nbsp;"next_step": "Handoff to support to investigate the carrier delay, verify shipment status, and provide Maya Chen with an update or resolution.",\n&nbsp;&nbsp;"metrics_to_watch": [\n&nbsp;&nbsp;&nbsp;&nbsp;"tracking_scan_recency",\n&nbsp;&nbsp;&nbsp;&nbsp;"carrier_exception_status",\n&nbsp;&nbsp;&nbsp;&nbsp;"replacement_order_delivery_eta",\n&nbsp;&nbsp;&nbsp;&nbsp;"customer_follow_up_time"\n&nbsp;&nbsp;]\n}</td>
+      <td>{\n  "customer_name": "Maya Chen",\n  "order_id": "ORDER-8831",\n  "issue_summary": "Customer is asking about a delayed replacement order. The carrier tracking scan is stale and has not updated.",\n  "next_step": "Handoff to support to investigate the carrier delay, verify shipment status, and provide Maya Chen with an update or resolution.",\n  "metrics_to_watch": [\n    "tracking_scan_recency",\n    "carrier_exception_status",\n    "replacement_order_delivery_eta",\n    "customer_follow_up_time"\n  ]\n}</td>
     </tr>
     <tr>
       <td>Compact policy guidance</td>
@@ -4295,7 +4295,7 @@ print_response_gallery()
     <tr>
       <td>Prompt-cache token comparison</td>
       <td>table</td>
-      <td>[\n&nbsp;&nbsp;{\n&nbsp;&nbsp;&nbsp;&nbsp;"request":"first",\n&nbsp;&nbsp;&nbsp;&nbsp;"input_tokens":3970,\n&nbsp;&nbsp;&nbsp;&nbsp;"cached_input_tokens":0,\n&nbsp;&nbsp;&nbsp;&nbsp;"output_tokens":66,\n&nbsp;&nbsp;&nbsp;&nbsp;"total_tokens":4036\n&nbsp;&nbsp;},\n&nbsp;&nbsp;{\n&nbsp;&nbsp;&nbsp;&nbsp;"request":"second",\n&nbsp;&nbsp;&nbsp;&nbsp;"input_tokens":3970,\n&nbsp;&nbsp;&nbsp;&nbsp;"cached_input_tokens":0,\n&nbsp;&nbsp;&nbsp;&nbsp;"output_tokens":48,\n&nbsp;&nbsp;&nbsp;&nbsp;"total_tokens":4018\n&nbsp;&nbsp;}\n]</td>
+      <td>[\n  {\n    "request":"first",\n    "input_tokens":3970,\n    "cached_input_tokens":0,\n    "output_tokens":66,\n    "total_tokens":4036\n  },\n  {\n    "request":"second",\n    "input_tokens":3970,\n    "cached_input_tokens":0,\n    "output_tokens":48,\n    "total_tokens":4018\n  }\n]</td>
     </tr>
     <tr>
       <td>Cached support-policy reply</td>
@@ -4310,12 +4310,12 @@ print_response_gallery()
     <tr>
       <td>Compacted support context</td>
       <td>json</td>
-      <td>{\n&nbsp;&nbsp;"feature": "Compaction",\n&nbsp;&nbsp;"how_to_apply": "Summarize older support turns into durable facts, open questions, policy constraints, and next actions before continuing the workflow.",\n&nbsp;&nbsp;"brightcart_example": {\n&nbsp;&nbsp;&nbsp;&nbsp;"durable_facts": [\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Customer Maya Chen",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ORDER-8831",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"replacement delayed",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"carrier scan stale"\n&nbsp;&nbsp;&nbsp;&nbsp;],\n&nbsp;&nbsp;&nbsp;&nbsp;"policy_constraints": [\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Do not promise refund without eligibility",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Offer expedited replacement or 15% concession after 48-hour delay with approval"\n&nbsp;&nbsp;&nbsp;&nbsp;],\n&nbsp;&nbsp;&nbsp;&nbsp;"next_action": "Check latest carrier scan and supervisor callback status."\n&nbsp;&nbsp;}\n}</td>
+      <td>{\n  "feature": "Compaction",\n  "how_to_apply": "Summarize older support turns into durable facts, open questions, policy constraints, and next actions before continuing the workflow.",\n  "brightcart_example": {\n    "durable_facts": [\n      "Customer Maya Chen",\n      "ORDER-8831",\n      "replacement delayed",\n      "carrier scan stale"\n    ],\n    "policy_constraints": [\n      "Do not promise refund without eligibility",\n      "Offer expedited replacement or 15% concession after 48-hour delay with approval"\n    ],\n    "next_action": "Check latest carrier scan and supervisor callback status."\n  }\n}</td>
     </tr>
     <tr>
       <td>Endpoint responsiveness summary</td>
       <td>json</td>
-      <td>{\n&nbsp;&nbsp;"region_hint": "us-west-2",\n&nbsp;&nbsp;"base_url_host": "bedrock-mantle.us-west-2.api.aws",\n&nbsp;&nbsp;"sample_count": 3,\n&nbsp;&nbsp;"success_rate": 1.0,\n&nbsp;&nbsp;"completed_rate": 1.0,\n&nbsp;&nbsp;"avg_latency_seconds": 0.362,\n&nbsp;&nbsp;"p50_latency_seconds": 0.377,\n&nbsp;&nbsp;"p90_latency_seconds": 0.4,\n&nbsp;&nbsp;"total_output_tokens": 34,\n&nbsp;&nbsp;"total_tokens": 544,\n&nbsp;&nbsp;"samples": [\n&nbsp;&nbsp;&nbsp;&nbsp;{\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ok": true,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"latency_seconds": 0.4,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"output_tokens": 14,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total_tokens": 184,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "completed",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sample_output": "We apologize for the delay with your replacement order."\n&nbsp;&nbsp;&nbsp;&nbsp;},\n&nbsp;&nbsp;&nbsp;&nbsp;{\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ok": true,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"latency_seconds": 0.31,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"output_tokens": 6,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total_tokens": 174,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "completed",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sample_output": "Resolution Rate"\n&nbsp;&nbsp;&nbsp;&nbsp;},\n&nbsp;&nbsp;&nbsp;&nbsp;{\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ok": true,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"latency_seconds": 0.377,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"output_tokens": 14,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total_tokens": 186,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "completed",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sample_output": "I\u2019m e\n...</td>
+      <td>{\n  "region_hint": "us-west-2",\n  "base_url_host": "bedrock-mantle.us-west-2.api.aws",\n  "sample_count": 3,\n  "success_rate": 1.0,\n  "completed_rate": 1.0,\n  "avg_latency_seconds": 0.362,\n  "p50_latency_seconds": 0.377,\n  "p90_latency_seconds": 0.4,\n  "total_output_tokens": 34,\n  "total_tokens": 544,\n  "samples": [\n    {\n      "ok": true,\n      "latency_seconds": 0.4,\n      "output_tokens": 14,\n      "total_tokens": 184,\n      "status": "completed",\n      "sample_output": "We apologize for the delay with your replacement order."\n    },\n    {\n      "ok": true,\n      "latency_seconds": 0.31,\n      "output_tokens": 6,\n      "total_tokens": 174,\n      "status": "completed",\n      "sample_output": "Resolution Rate"\n    },\n    {\n      "ok": true,\n      "latency_seconds": 0.377,\n      "output_tokens": 14,\n      "total_tokens": 186,\n      "status": "completed",\n      "sample_output": "I\u2019m e\n...</td>
     </tr>
   </tbody>
 </table>
@@ -4366,13 +4366,13 @@ print_response_gallery()
       <th>5</th>
       <td>Structured ticket triage</td>
       <td>json</td>
-      <td>{\n&nbsp;&nbsp;"ticket_id": "TICKET-7429",\n&nbsp;&nbsp;"category": "delivery_delay",\n&nbsp;&nbsp;"priority": "urgent",\n&nbsp;&nbsp;"customer_sentiment": "frustrated and time-sensitive",\n&nbsp;&nbsp;"summary": "Customer Maya Chen reports that ORDER-8831 is a replacement shipment for a previously damaged standing desk. The replacement is now 2 days late, carrier tracking has not updated, and she needs the desk delivered before Monday. She is requesting a supervisor callback and wants to know refund options if the replacement cannot arrive in time.",\n&nbsp;&nbsp;"required_actions": [\n&nbsp;&nbsp;&nbsp;&nbsp;"Review ORDER-8831 shipment status and confirm last carrier scan/update.",\n&nbsp;&nbsp;&nbsp;&nbsp;"Contact carrier or open a trace/escalation for stalled tracking.",\n&nbsp;&nbsp;&nbsp;&nbsp;"Check expedited reshipment or alternative fulfillment options to meet the before-Monday deadline.",\n&nbsp;&nbsp;&nbsp;&nbsp;"Arrange supervisor callback per customer request.",\n&nbsp;&nbsp;&nbsp;&nbsp;"Review and communicate refund options, including refund\n...</td>
+      <td>{\n  "ticket_id": "TICKET-7429",\n  "category": "delivery_delay",\n  "priority": "urgent",\n  "customer_sentiment": "frustrated and time-sensitive",\n  "summary": "Customer Maya Chen reports that ORDER-8831 is a replacement shipment for a previously damaged standing desk. The replacement is now 2 days late, carrier tracking has not updated, and she needs the desk delivered before Monday. She is requesting a supervisor callback and wants to know refund options if the replacement cannot arrive in time.",\n  "required_actions": [\n    "Review ORDER-8831 shipment status and confirm last carrier scan/update.",\n    "Contact carrier or open a trace/escalation for stalled tracking.",\n    "Check expedited reshipment or alternative fulfillment options to meet the before-Monday deadline.",\n    "Arrange supervisor callback per customer request.",\n    "Review and communicate refund options, including refund\n...</td>
     </tr>
     <tr>
       <th>6</th>
       <td>JSON support handoff</td>
       <td>json</td>
-      <td>{\n&nbsp;&nbsp;"customer_name": "Maya Chen",\n&nbsp;&nbsp;"order_id": "ORDER-8831",\n&nbsp;&nbsp;"issue_summary": "Customer is asking about a delayed replacement order. The carrier tracking scan is stale and has not updated.",\n&nbsp;&nbsp;"next_step": "Handoff to support to investigate the carrier delay, verify shipment status, and provide Maya Chen with an update or resolution.",\n&nbsp;&nbsp;"metrics_to_watch": [\n&nbsp;&nbsp;&nbsp;&nbsp;"tracking_scan_recency",\n&nbsp;&nbsp;&nbsp;&nbsp;"carrier_exception_status",\n&nbsp;&nbsp;&nbsp;&nbsp;"replacement_order_delivery_eta",\n&nbsp;&nbsp;&nbsp;&nbsp;"customer_follow_up_time"\n&nbsp;&nbsp;]\n}</td>
+      <td>{\n  "customer_name": "Maya Chen",\n  "order_id": "ORDER-8831",\n  "issue_summary": "Customer is asking about a delayed replacement order. The carrier tracking scan is stale and has not updated.",\n  "next_step": "Handoff to support to investigate the carrier delay, verify shipment status, and provide Maya Chen with an update or resolution.",\n  "metrics_to_watch": [\n    "tracking_scan_recency",\n    "carrier_exception_status",\n    "replacement_order_delivery_eta",\n    "customer_follow_up_time"\n  ]\n}</td>
     </tr>
     <tr>
       <th>7</th>
@@ -4432,7 +4432,7 @@ print_response_gallery()
       <th>16</th>
       <td>Prompt-cache token comparison</td>
       <td>table</td>
-      <td>[\n&nbsp;&nbsp;{\n&nbsp;&nbsp;&nbsp;&nbsp;"request":"first",\n&nbsp;&nbsp;&nbsp;&nbsp;"input_tokens":3970,\n&nbsp;&nbsp;&nbsp;&nbsp;"cached_input_tokens":0,\n&nbsp;&nbsp;&nbsp;&nbsp;"output_tokens":66,\n&nbsp;&nbsp;&nbsp;&nbsp;"total_tokens":4036\n&nbsp;&nbsp;},\n&nbsp;&nbsp;{\n&nbsp;&nbsp;&nbsp;&nbsp;"request":"second",\n&nbsp;&nbsp;&nbsp;&nbsp;"input_tokens":3970,\n&nbsp;&nbsp;&nbsp;&nbsp;"cached_input_tokens":0,\n&nbsp;&nbsp;&nbsp;&nbsp;"output_tokens":48,\n&nbsp;&nbsp;&nbsp;&nbsp;"total_tokens":4018\n&nbsp;&nbsp;}\n]</td>
+      <td>[\n  {\n    "request":"first",\n    "input_tokens":3970,\n    "cached_input_tokens":0,\n    "output_tokens":66,\n    "total_tokens":4036\n  },\n  {\n    "request":"second",\n    "input_tokens":3970,\n    "cached_input_tokens":0,\n    "output_tokens":48,\n    "total_tokens":4018\n  }\n]</td>
     </tr>
     <tr>
       <th>17</th>
@@ -4450,13 +4450,13 @@ print_response_gallery()
       <th>19</th>
       <td>Compacted support context</td>
       <td>json</td>
-      <td>{\n&nbsp;&nbsp;"feature": "Compaction",\n&nbsp;&nbsp;"how_to_apply": "Summarize older support turns into durable facts, open questions, policy constraints, and next actions before continuing the workflow.",\n&nbsp;&nbsp;"brightcart_example": {\n&nbsp;&nbsp;&nbsp;&nbsp;"durable_facts": [\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Customer Maya Chen",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ORDER-8831",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"replacement delayed",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"carrier scan stale"\n&nbsp;&nbsp;&nbsp;&nbsp;],\n&nbsp;&nbsp;&nbsp;&nbsp;"policy_constraints": [\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Do not promise refund without eligibility",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Offer expedited replacement or 15% concession after 48-hour delay with approval"\n&nbsp;&nbsp;&nbsp;&nbsp;],\n&nbsp;&nbsp;&nbsp;&nbsp;"next_action": "Check latest carrier scan and supervisor callback status."\n&nbsp;&nbsp;}\n}</td>
+      <td>{\n  "feature": "Compaction",\n  "how_to_apply": "Summarize older support turns into durable facts, open questions, policy constraints, and next actions before continuing the workflow.",\n  "brightcart_example": {\n    "durable_facts": [\n      "Customer Maya Chen",\n      "ORDER-8831",\n      "replacement delayed",\n      "carrier scan stale"\n    ],\n    "policy_constraints": [\n      "Do not promise refund without eligibility",\n      "Offer expedited replacement or 15% concession after 48-hour delay with approval"\n    ],\n    "next_action": "Check latest carrier scan and supervisor callback status."\n  }\n}</td>
     </tr>
     <tr>
       <th>20</th>
       <td>Endpoint responsiveness summary</td>
       <td>json</td>
-      <td>{\n&nbsp;&nbsp;"region_hint": "us-west-2",\n&nbsp;&nbsp;"base_url_host": "bedrock-mantle.us-west-2.api.aws",\n&nbsp;&nbsp;"sample_count": 3,\n&nbsp;&nbsp;"success_rate": 1.0,\n&nbsp;&nbsp;"completed_rate": 1.0,\n&nbsp;&nbsp;"avg_latency_seconds": 0.362,\n&nbsp;&nbsp;"p50_latency_seconds": 0.377,\n&nbsp;&nbsp;"p90_latency_seconds": 0.4,\n&nbsp;&nbsp;"total_output_tokens": 34,\n&nbsp;&nbsp;"total_tokens": 544,\n&nbsp;&nbsp;"samples": [\n&nbsp;&nbsp;&nbsp;&nbsp;{\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ok": true,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"latency_seconds": 0.4,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"output_tokens": 14,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total_tokens": 184,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "completed",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sample_output": "We apologize for the delay with your replacement order."\n&nbsp;&nbsp;&nbsp;&nbsp;},\n&nbsp;&nbsp;&nbsp;&nbsp;{\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ok": true,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"latency_seconds": 0.31,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"output_tokens": 6,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total_tokens": 174,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "completed",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sample_output": "Resolution Rate"\n&nbsp;&nbsp;&nbsp;&nbsp;},\n&nbsp;&nbsp;&nbsp;&nbsp;{\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ok": true,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"latency_seconds": 0.377,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"output_tokens": 14,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total_tokens": 186,\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "completed",\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sample_output": "I\u2019m e\n...</td>
+      <td>{\n  "region_hint": "us-west-2",\n  "base_url_host": "bedrock-mantle.us-west-2.api.aws",\n  "sample_count": 3,\n  "success_rate": 1.0,\n  "completed_rate": 1.0,\n  "avg_latency_seconds": 0.362,\n  "p50_latency_seconds": 0.377,\n  "p90_latency_seconds": 0.4,\n  "total_output_tokens": 34,\n  "total_tokens": 544,\n  "samples": [\n    {\n      "ok": true,\n      "latency_seconds": 0.4,\n      "output_tokens": 14,\n      "total_tokens": 184,\n      "status": "completed",\n      "sample_output": "We apologize for the delay with your replacement order."\n    },\n    {\n      "ok": true,\n      "latency_seconds": 0.31,\n      "output_tokens": 6,\n      "total_tokens": 174,\n      "status": "completed",\n      "sample_output": "Resolution Rate"\n    },\n    {\n      "ok": true,\n      "latency_seconds": 0.377,\n      "output_tokens": 14,\n      "total_tokens": 186,\n      "status": "completed",\n      "sample_output": "I\u2019m e\n...</td>
     </tr>
   </tbody>
 </table>

@@ -71,16 +71,16 @@ display(HTML(markdown.markdown(response.output_text)))
 <p>Team,</p>
 <p>Effective immediately, the Company’s travel reimbursement policy is updated to include a <strong>standard per diem of $75 per day</strong> for eligible business travel.</p>
 <p><strong>Key details</strong>
-- <strong>Per diem amount:</strong> $75 per day<br />
+- <strong>Per diem amount:</strong> $75 per day<br>
 - <strong>Purpose:</strong> Covers reasonable <strong>meals and incidental expenses</strong> incurred while traveling for business
 - <strong>Eligibility:</strong> Applies to <strong>approved, overnight business travel</strong> (unless otherwise specified by department guidance)
 - <strong>Claim method:</strong> Per diem will be reimbursed <strong>in lieu of itemized meal receipts</strong> (receipts may still be required for other reimbursable expenses, per policy)
 - <strong>Partial travel days:</strong> For travel days that are not a full day, reimbursement will follow the Company’s <strong>standard proration rules</strong> (if applicable)</p>
 <p>Please continue to submit all other travel-related expenses (e.g., airfare, lodging, ground transportation) in accordance with the existing travel and expense policy and approval requirements.</p>
 <p>If you have questions about eligibility, proration, or how to submit per diem in the expense system, please contact <strong>[Finance/Travel Desk/HR]</strong> at <strong>[contact info]</strong>.</p>
-<p>Thank you,<br />
-[Name]<br />
-[Title]<br />
+<p>Thank you,<br>
+[Name]<br>
+[Title]<br>
 [Company]</p>
 
 ## 2 Efficient 

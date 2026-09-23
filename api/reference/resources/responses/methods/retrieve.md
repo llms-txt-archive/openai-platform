@@ -58,11 +58,23 @@ Retrieves a model response with the given ID.
 
 ### Returns
 
-- `Response object { id, created_at, error, 33 more }`
+- `Response object { id, access_programs, created_at, 34 more }`
 
   - `id: string`
 
     Unique identifier for this Response.
+
+  - `access_programs: object { cyber }  or null`
+
+    - `cyber: "standard" or "daybreak_blue" or "daybreak_red"`
+
+      The effective Cyber access program used for this response.
+
+      - `"standard"`
+
+      - `"daybreak_blue"`
+
+      - `"daybreak_red"`
 
   - `created_at: number`
 
@@ -9714,6 +9726,9 @@ curl https://api.openai.com/v1/responses/$RESPONSE_ID \
 ```json
 {
   "id": "id",
+  "access_programs": {
+    "cyber": "standard"
+  },
   "created_at": 0,
   "error": {
     "code": "server_error",

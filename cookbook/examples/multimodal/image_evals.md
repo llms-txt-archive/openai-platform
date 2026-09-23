@@ -1100,9 +1100,9 @@ Show the prompt, generated image, and scores in a single pandas table.
 render_result_table(case=ui_case, result=ui_result, title="UI Mockup: Prompt vs. Scores")
 ```
 
-<div style='font-weight:600; margin:6px 0'>UI Mockup: Prompt vs. Scores</div>
+<div style="font-weight:600; margin:6px 0">UI Mockup: Prompt vs. Scores</div>
 
-<table style='width:100%; table-layout:fixed; border-collapse:collapse;'><colgroup><col style='width:33%'><col style='width:33%'><col style='width:33%'></colgroup><thead><tr><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Input Prompt</th><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Scores</th><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Reasoning</th></tr></thead><tbody><tr><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>Generate a high-fidelity mobile checkout screen for an ecommerce app.
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;"><colgroup><col style="width:33%"><col style="width:33%"><col style="width:33%"></colgroup><thead><tr><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Input Prompt</th><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Scores</th><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Reasoning</th></tr></thead><tbody><tr><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">Generate a high-fidelity mobile checkout screen for an ecommerce app.
 Orientation: portrait.
 Screen type: checkout / order review.
 Use the REQUIRED TEXT:
@@ -1121,11 +1121,11 @@ The image clearly depicts a mobile checkout screen.
 All required sections are present and visually distinct.
 UI elements look clickable/editable and follow common conventions.
 Primary vs secondary actions are unambiguous.
-No extra UI states, decorative noise, or placeholder text.</pre></td><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>in_image_text_rendering: True
+No extra UI states, decorative noise, or placeholder text.</pre></td><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">in_image_text_rendering: True
 instruction_following: True
 layout_hierarchy: 5.0
 ui_affordance_rendering: 5.0
-verdict: PASS</pre></td><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>All required text is present (&quot;Checkout&quot;, &quot;Edit Cart&quot;, &quot;Place Order&quot;). Screen clearly matches a mobile checkout/order review with distinct sections (Shipping Information, Payment Method, Items, Order Summary). Order Total appears directly above the primary CTA, and the &quot;Place Order&quot; button is the most visually prominent element. No popups, ads, marketing copy, or lorem/placeholder text. Text is crisp and readable with appropriate hierarchy. UI elements (back arrow, Edit Cart link, Change links, primary CTA) have clear, realistic affordances.</pre></td></tr></tbody></table>
+verdict: PASS</pre></td><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">All required text is present ("Checkout", "Edit Cart", "Place Order"). Screen clearly matches a mobile checkout/order review with distinct sections (Shipping Information, Payment Method, Items, Order Summary). Order Total appears directly above the primary CTA, and the "Place Order" button is the most visually prominent element. No popups, ads, marketing copy, or lorem/placeholder text. Text is crisp and readable with appropriate hierarchy. UI elements (back arrow, Edit Cart link, Change links, primary CTA) have clear, realistic affordances.</pre></td></tr></tbody></table>
 
 ### Marketing Graphics Generation
 
@@ -1562,9 +1562,9 @@ Render the generated image, prompt, and scores side by side.
 render_result_table(case=coffee_case, result=coffee_result, title="Coffee Flyer: Prompt vs. Scores")
 ```
 
-<div style='font-weight:600; margin:6px 0'>Coffee Flyer: Prompt vs. Scores</div>
+<div style="font-weight:600; margin:6px 0">Coffee Flyer: Prompt vs. Scores</div>
 
-<table style='width:100%; table-layout:fixed; border-collapse:collapse;'><colgroup><col style='width:33%'><col style='width:33%'><col style='width:33%'></colgroup><thead><tr><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Input Prompt</th><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Scores</th><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Reasoning</th></tr></thead><tbody><tr><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>Create a print-ready vertical A4 flyer for a coffee shop called Sunrise Coffee.
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;"><colgroup><col style="width:33%"><col style="width:33%"><col style="width:33%"></colgroup><thead><tr><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Input Prompt</th><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Scores</th><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Reasoning</th></tr></thead><tbody><tr><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">Create a print-ready vertical A4 flyer for a coffee shop called Sunrise Coffee.
 Use a warm, cozy, minimal specialty coffee aesthetic (not cartoonish).
 Required text (must be exact):
 - WINTER LATTE WEEK
@@ -1577,16 +1577,16 @@ Do not include any other words, prices, URLs, or QR codes.
 
 Criteria:
 All required text appears exactly as written and is legible.
-Layout reads clearly: shop name -&gt; headline -&gt; subheadline -&gt; offer -&gt; CTA -&gt; footer.
+Layout reads clearly: shop name -> headline -> subheadline -> offer -> CTA -> footer.
 Style matches warm, cozy, specialty coffee and is not cartoonish.
-No extra text, watermarks, or irrelevant UI-like elements.</pre></td><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>instruction_following: True
+No extra text, watermarks, or irrelevant UI-like elements.</pre></td><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">instruction_following: True
 layout_hierarchy: 5.0
 style_brand_fit: 5.0
 text_rendering: True
 text_rendering_judge: True
 text_rendering_ocr: False
 verdict: PASS
-visual_quality: 5.0</pre></td><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>All required lines appear and match exactly (including casing, hyphen/en-dash, and punctuation), with no extra words, prices, URLs, or QR codes. Text is crisp and legible. Hierarchy follows the requested order: shop name at top, then headline, subheadline, offer, CTA, and footer address/hours. Visual style is warm, cozy, minimal specialty coffee with a realistic latte photo (not cartoonish). No visible watermarks, UI elements, or distracting artifacts; overall print-flyer quality is clean.</pre></td></tr></tbody></table>
+visual_quality: 5.0</pre></td><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">All required lines appear and match exactly (including casing, hyphen/en-dash, and punctuation), with no extra words, prices, URLs, or QR codes. Text is crisp and legible. Hierarchy follows the requested order: shop name at top, then headline, subheadline, offer, CTA, and footer address/hours. Visual style is warm, cozy, minimal specialty coffee with a realistic latte photo (not cartoonish). No visible watermarks, UI elements, or distracting artifacts; overall print-flyer quality is clean.</pre></td></tr></tbody></table>
 
 #### Additional Method: Image-to-Text + Text Comparison
 
@@ -2028,21 +2028,21 @@ Edited Image:
 render_result_table(case=vto_case, result=vto_result, title="Virtual Try-On: Prompt vs. Scores")
 ```
 
-<div style='font-weight:600; margin:6px 0'>Virtual Try-On: Prompt vs. Scores</div>
+<div style="font-weight:600; margin:6px 0">Virtual Try-On: Prompt vs. Scores</div>
 
-<table style='width:100%; table-layout:fixed; border-collapse:collapse;'><colgroup><col style='width:33%'><col style='width:33%'><col style='width:33%'></colgroup><thead><tr><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Input Prompt</th><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Scores</th><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Reasoning</th></tr></thead><tbody><tr><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>Put the person in the first image into the jacket shown in the second image.
-Keep the person&#x27;s face, pose, body shape, and background unchanged.
-Preserve the garment&#x27;s color, pattern, and key details.
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;"><colgroup><col style="width:33%"><col style="width:33%"><col style="width:33%"></colgroup><thead><tr><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Input Prompt</th><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Scores</th><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Reasoning</th></tr></thead><tbody><tr><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">Put the person in the first image into the jacket shown in the second image.
+Keep the person's face, pose, body shape, and background unchanged.
+Preserve the garment's color, pattern, and key details.
 Do not add extra accessories, text, or new elements.
 
 Criteria:
 The output preserves the same person and background.
 The jacket matches the reference garment closely.
 Body shape and pose remain consistent outside normal garment effects.
-The result looks physically plausible.</pre></td><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>body_shape_preservation: 4.0
+The result looks physically plausible.</pre></td><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">body_shape_preservation: 4.0
 facial_similarity: 5.0
 outfit_fidelity: 4.0
-verdict: PASS</pre></td><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>The edited output preserves the same face, hairstyle, pose, and plain studio background. The applied jacket closely matches the reference: camel/beige color, notch lapels, single-breasted look with dark buttons, and flap pockets are present and placed plausibly. Minor deviations include slightly different button count/placement and subtle differences in lapel/hem shaping compared to the flat lay. Body proportions and stance remain consistent, with only natural silhouette changes from wearing a structured blazer.</pre></td></tr></tbody></table>
+verdict: PASS</pre></td><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">The edited output preserves the same face, hairstyle, pose, and plain studio background. The applied jacket closely matches the reference: camel/beige color, notch lapels, single-breasted look with dark buttons, and flap pockets are present and placed plausibly. Minor deviations include slightly different button count/placement and subtle differences in lapel/hem shaping compared to the flat lay. Body proportions and stance remain consistent, with only natural silhouette changes from wearing a structured blazer.</pre></td></tr></tbody></table>
 
 ### Logo Editing
 
@@ -2418,18 +2418,18 @@ Show the edited logo and logo edit scores in a single pandas table.
 render_result_table(case=logo_case, result=logo_result, title="Logo Editing: Prompt vs. Scores")
 ```
 
-<div style='font-weight:600; margin:6px 0'>Logo Editing: Prompt vs. Scores</div>
+<div style="font-weight:600; margin:6px 0">Logo Editing: Prompt vs. Scores</div>
 
-<table style='width:100%; table-layout:fixed; border-collapse:collapse;'><colgroup><col style='width:33%'><col style='width:33%'><col style='width:33%'></colgroup><thead><tr><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Input Prompt</th><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Scores</th><th style='text-align:left; padding:8px; border-bottom:1px solid #ddd'>Reasoning</th></tr></thead><tbody><tr><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>Edit the logo by changing the text from FIELD to BUTTER .
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;"><colgroup><col style="width:33%"><col style="width:33%"><col style="width:33%"></colgroup><thead><tr><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Input Prompt</th><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Scores</th><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd">Reasoning</th></tr></thead><tbody><tr><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">Edit the logo by changing the text from FIELD to BUTTER .
 Do not change any other text, colors, shapes, or layout.
 
 Criteria:
 The requested edit is applied exactly.
 All non-target content remains unchanged.
-Character style, color, and geometry remain consistent with the original.</pre></td><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>character_and_style_integrity: 2.0
+Character style, color, and geometry remain consistent with the original.</pre></td><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">character_and_style_integrity: 2.0
 edit_intent_correctness: 5.0
 non_target_invariance: 0.0
-verdict: FAIL</pre></td><td style='text-align:left; padding:8px; vertical-align:top'><pre style='white-space:pre-wrap; word-break:break-word; margin:0'>Target text was correctly changed from “FIELD” to “BUTTER” (now reads “BUTTER &amp; FLOUR”). However, major unrequested changes occurred: the background changed from a gray gradient to solid black, and the logo’s overall rendering/contrast differs (the original had a soft glow/embossed look, while the edited version is flatter with different tonal values). These violate the instruction to not change any other colors, shapes, or layout.</pre></td></tr></tbody></table>
+verdict: FAIL</pre></td><td style="text-align:left; padding:8px; vertical-align:top"><pre style="white-space:pre-wrap; word-break:break-word; margin:0">Target text was correctly changed from “FIELD” to “BUTTER” (now reads “BUTTER &#x26; FLOUR”). However, major unrequested changes occurred: the background changed from a gray gradient to solid black, and the logo’s overall rendering/contrast differs (the original had a soft glow/embossed look, while the edited version is flatter with different tonal values). These violate the instruction to not change any other colors, shapes, or layout.</pre></td></tr></tbody></table>
 
 ##### 3) Alternative When You Have Ground Truth Images
 
