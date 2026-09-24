@@ -2,6 +2,14 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
+The Agents SDK is [feature
+  complete](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice): maintenance, security
+  fixes, critical bug fixes, and compatibility work continue, but major new
+  features are not planned. For new agent applications, start with the [Agents
+  API](https://developers.openai.com/api/docs/guides/agents-api/quickstart).
+
+
+
 After the workflow shape is clear, the next questions are which external surfaces should live inside the agent loop and how you will inspect what actually happened at runtime.
 
 ## Choose what lives in the SDK

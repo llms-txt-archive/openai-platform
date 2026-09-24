@@ -2,6 +2,14 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
+The Agents SDK is [feature
+  complete](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice): maintenance, security
+  fixes, critical bug fixes, and compatibility work continue, but major new
+  features are not planned. For new agent applications, start with the [Agents
+  API](https://developers.openai.com/api/docs/guides/agents-api/quickstart).
+
+
+
 When you run an agent, the result is more than just the final answer. It's also the handoff boundary, the next-turn continuation surface, and the resumable snapshot when a run pauses for review.
 
 ## Choose the result surface you need

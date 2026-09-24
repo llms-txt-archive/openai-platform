@@ -3,15 +3,15 @@
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
 Use this guide to export an existing Agent Builder workflow as Agents SDK code.
-You can use the export to recreate the workflow as a ChatGPT Workspace Agent or
-continue with the Agents SDK in your application.
+Use the export as a reference when recreating the workflow with the Agents API or as a ChatGPT Workspace Agent, or continue with an existing Agents SDK integration.
 
 This process does not convert your workflow graph or guarantee that every
 behavior transfers unchanged.
 
 ## Choose a migration path
 
-- **Agents SDK**: Best for building agents through code.
+- **Agents API**: Recommended for new agent applications. Recreate the workflow using a managed Codex harness; the SDK export is a reference, not directly executable Agents API code.
+- **Agents SDK**: Use the export for an existing SDK application or as a short-term option when a required capability is not yet supported by the Agents API. See [SDK support guidance](#continue-with-the-agents-sdk).
 - **ChatGPT Workspace Agents**: Best for building agents through natural
   language and sharing them with teams.
 
@@ -29,19 +29,38 @@ You need access to the workflow in
 
 ![Agent Builder Code dialog with Agents SDK selected](https://developers.openai.com/images/platform/guides/agent-builder/agents-sdk-export.png)
 
-## Option 1: Continue with the Agents SDK
+## Recreate the workflow with the Agents API
 
-Use this option when you want to run the exported workflow in an application
-you build and deploy.
+Start with the [Agents API quickstart](https://developers.openai.com/api/docs/guides/agents-api/quickstart), then use the export to identify instructions, tools, state, and control flow. Check whether the Agents API supports the capabilities your workflow requires before recreating the graph and SDK code manually.
+
+Validate tool permissions, approvals, guardrails, and representative workflow results before replacing the original workflow.
+
+<a id="option-1-continue-with-the-agents-sdk"></a>
+
+## Continue with the Agents SDK
+
+
+
+The Agents SDK is [feature
+  complete](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice): maintenance, security
+  fixes, critical bug fixes, and compatibility work continue, but major new
+  features are not planned. For new agent applications, start with the [Agents
+  API](https://developers.openai.com/api/docs/guides/agents-api/quickstart).
+
+
+
+Use this option for an existing SDK application or as a short-term option when a required capability is not yet supported by the Agents API.
 
 Copy the TypeScript or Python export into your application, install and
 configure the matching Agents SDK, and test the workflow in your runtime. For
 guidance on configuring and running the export, see the
-[Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) and
+[Agents SDK overview](https://developers.openai.com/api/docs/guides/agents/sdk) and
 [quickstart](https://developers.openai.com/api/docs/guides/agents/quickstart).
 Validate your application's configuration and behavior before deploying it.
 
-## Option 2: Create a workspace agent from the export
+<a id="option-2-create-a-workspace-agent-from-the-export"></a>
+
+## Create a workspace agent from the export
 
 To use this option, you need a ChatGPT Business, Enterprise, or Edu workspace
 with access to [workspace agents](https://chatgpt.com/agents) and permission to
@@ -91,6 +110,6 @@ the agent can access private data or take actions through connected tools.
 
 - [Agent Builder](https://developers.openai.com/api/docs/guides/agent-builder)
 - [Safety in building agents](https://developers.openai.com/api/docs/guides/agent-builder-safety)
-- [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents)
+- [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents/sdk)
 - [Agents SDK quickstart](https://developers.openai.com/api/docs/guides/agents/quickstart)
 - [Build workspace agents in ChatGPT for repeatable work](https://developers.openai.com/cookbook/articles/chatgpt-agents-sales-meeting-prep)

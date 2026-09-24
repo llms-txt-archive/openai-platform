@@ -4,7 +4,7 @@
 
 When generating model responses or building agents, you can extend capabilities using built‑in tools, function calling, Programmatic Tool Calling, tool search, and remote MCP servers. These enable the model to search the web, retrieve from your files, load deferred tool definitions at runtime, call your own functions, compose tool calls in JavaScript, or access third‑party services. Only `gpt-5.4` and later models support `tool_search`.
 
-Choose the integration for your runtime: configure tools on [Responses API requests](#usage-in-the-api), on [Agents API agents](#agents-api), or in [Agents SDK definitions](#usage-in-the-agents-sdk). Tool availability, configuration, and call handling depend on the integration. The examples below use the Responses API.
+For new agent applications, start with the [Agents API](https://developers.openai.com/api/docs/guides/agents-api/quickstart). Choose the tool integration for your runtime: configure tools on [Responses API requests](#usage-in-the-api), on [Agents API agents](#agents-api), or in [Agents SDK definitions](#usage-in-the-agents-sdk). Tool availability, configuration, and call handling depend on the integration. The examples below use the Responses API.
 
 
 
@@ -1085,7 +1085,17 @@ See [Functions](https://developers.openai.com/api/docs/guides/agents-api/tools/f
 
 ## Usage in the Agents SDK
 
-In the Agents SDK, the tool semantics stay the same, but the wiring moves into the agent definition and workflow design rather than a single Responses API request.
+
+
+The Agents SDK is [feature
+  complete](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice): maintenance, security
+  fixes, critical bug fixes, and compatibility work continue, but major new
+  features are not planned. For new agent applications, start with the [Agents
+  API](https://developers.openai.com/api/docs/guides/agents-api/quickstart).
+
+
+
+For existing SDK integrations, the tool semantics stay the same, but the wiring moves into the agent definition and workflow design rather than a single Responses API request.
 
 - Attach hosted tools, function tools, or hosted MCP tools directly on the agent when one specialist should call them itself.
 - Expose a specialist as a tool when a manager should stay in control of the user-facing reply.

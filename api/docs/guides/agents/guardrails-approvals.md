@@ -2,6 +2,14 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
+The Agents SDK is [feature
+  complete](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice): maintenance, security
+  fixes, critical bug fixes, and compatibility work continue, but major new
+  features are not planned. For new agent applications, start with the [Agents
+  API](https://developers.openai.com/api/docs/guides/agents-api/quickstart).
+
+
+
 Use guardrails for automatic checks and human review for approval decisions. Together, they define when a run should continue, pause, or stop.
 
 - **Guardrails** validate input, output, or tool behavior automatically.
@@ -238,6 +246,7 @@ the written engagement scope at the boundary where side effects occur:
 5. Enforce independent filesystem, network, identity, and project boundaries,
    record decisions and execution outcomes, and fail closed if review times out
    or becomes unavailable.
+
 
 Responses API and Agents SDK applications don't automatically inherit
 [Codex Auto-review](https://developers.openai.com/codex/sandboxing/auto-review). Add review and enforcement

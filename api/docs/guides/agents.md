@@ -2,16 +2,17 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-Agents can plan and complete tasks using tools, work with other agents, and maintain context across steps. Choose a runtime based on where you want orchestration to run and who should manage the state between tasks.
+For new agent applications, start with the **[Agents API](https://developers.openai.com/api/docs/guides/agents-api/overview)**. OpenAI runs the Codex harness and manages orchestration, context compaction, and durable sessions. You build the surrounding application, connect tools, and choose where execution happens.
+
+Follow the [Agents API quickstart](https://developers.openai.com/api/docs/guides/agents-api/quickstart) to run a task, stream progress, and continue a session.
 
 ## Choose your starting point
 
-| You want to                                                                          | Start here                                             |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------ |
-| Run an agent with the Codex harness managed by OpenAI                                | [Agents API](https://developers.openai.com/api/docs/guides/agents-api/quickstart)   |
-| Control the agent loop in your application with reusable agents, tools, and handoffs | [Agents SDK](https://developers.openai.com/api/docs/guides/agents/quickstart)       |
-| Work directly with model responses and control your integration                      | [Responses API](https://developers.openai.com/api/docs/guides/migrate-to-responses) |
-| Add an embedded chat experience                                                      | [ChatKit](https://developers.openai.com/api/docs/guides/chatkit)                    |
+| You want to | Start here |
+| --- | --- |
+| Build a new agent application with a managed runtime | [Agents API quickstart](https://developers.openai.com/api/docs/guides/agents-api/quickstart) |
+| Run the Codex harness in infrastructure you operate | [Codex SDK](https://developers.openai.com/codex/codex-sdk) |
+| Call models directly or own the agent loop | [Responses API](https://developers.openai.com/api/docs/guides/migrate-to-responses) |
 
 <a id="agents-sdk-vs-responses-api"></a>
 
@@ -19,19 +20,15 @@ Agents can plan and complete tasks using tools, work with other agents, and main
 
 ## Compare agent runtime options
 
-|                          | Agents API                                                                      | Agents SDK                                                          | Responses API                                             |
-| ------------------------ | ------------------------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------- |
-| **Use for**              | Long-running tasks where OpenAI manages the agent and saves its progress        | Building agents with custom tools and workflows in your application | Calling models directly or building an agent from scratch |
-| Where the agent runs     | OpenAI runs a managed Codex harness                                             | The SDK runs inside your application                                | Your application, with optional hosted orchestration      |
-| Agent integration effort | Low                                                                             | Medium                                                              | High                                                      |
-| State between tasks      | Saved session configuration, turns, and items                                   | Your storage and SDK sessions, or Responses conversation state      | Manual history, response chaining, or Conversations       |
-| Tool execution           | Service-connected tools, application function handlers, and an optional sandbox | Tools and integrations configured in your application               | Hosted tools and tools your application runs              |
-| Execution environment    | OpenAI hosted sandbox, self-hosted sandbox, or no sandbox                       | Your runtime and sandbox provider integrations                      | Your own execution environment                            |
-| Start here               | [Agents API overview](https://developers.openai.com/api/docs/guides/agents-api/overview)                     | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents/sdk)                  | [Responses guide](https://developers.openai.com/api/docs/guides/migrate-to-responses)  |
+Choose based on what OpenAI manages and what your application needs to control.
 
-The Agents API runs the Codex harness and manages the underlying agent infrastructure so you can focus on what your agents do. It includes automatic context compaction, multi-agent orchestration, programmatic tool calling, and support for MCP servers. See [Architecture](https://developers.openai.com/api/docs/guides/agents-api/architecture).
+| Option | What it manages | What you operate |
+| --- | --- | --- |
+| **Agents API** | Hosted Codex harness, orchestration, and durable session state | Your application, tool integrations, and choice of execution environment |
+| **Codex SDK** | Codex harness running in your environment | The harness process, hosting, and application lifecycle |
+| **Responses API** | Model responses and configured hosted capabilities | Application logic and any agent loop you build around the API |
 
-The Agents SDK gives your application control over deployment, storage, approvals, and runtime integration. Its runner handles the agent loop and handoffs. See [Running agents](https://developers.openai.com/api/docs/guides/agents/running-agents).
+Use the [Agents API architecture guide](https://developers.openai.com/api/docs/guides/agents-api/architecture) to understand the boundary between the hosted harness and your execution environment. For direct model integrations, the Responses API also offers hosted tools and state through response chaining or Conversations; follow its guides for the capabilities you use.
 
 
 
@@ -46,3 +43,9 @@ Tool design, reusable skills, and prompt caching apply across agent workflows. T
 - Read [Prompt caching](https://developers.openai.com/api/docs/guides/prompt-caching) for shared caching behavior, then [Agents API observability and usage](https://developers.openai.com/api/docs/guides/agents-api/observability) for session accounting.
 
 An Agents API session, an SDK session, a Responses conversation, and a sandbox are different resources. Follow the state and cleanup instructions for the runtime you choose.
+
+## If you use the Agents SDK
+
+The [Agents SDK](https://developers.openai.com/api/docs/guides/agents/sdk) is **feature complete**: major new features are not planned, but maintenance, security fixes, critical bug fixes, and compatibility work continue. You can continue using it for existing applications. See also: [SDK support policy](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice).
+
+For new agent applications, start with the [Agents API](https://developers.openai.com/api/docs/guides/agents-api/quickstart).

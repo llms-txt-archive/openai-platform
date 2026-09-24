@@ -2,6 +2,14 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
+The Agents SDK is [feature
+  complete](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice): maintenance, security
+  fixes, critical bug fixes, and compatibility work continue, but major new
+  features are not planned. For new agent applications, start with the [Agents
+  API](https://developers.openai.com/api/docs/guides/agents-api/quickstart).
+
+
+
 A sandbox gives an agent an isolated, Unix-like execution environment with a
 filesystem, shell, installed packages, mounted data, exposed ports, snapshots,
 and controlled access to external systems.
@@ -11,8 +19,7 @@ only receives prompt context. Large document sets, generated artifacts,
 commands, previews, and resumable work all need an environment the agent can
 inspect and change.
 
-Sandbox agents are available in the TypeScript and Python Agents SDKs. They
-  are in beta, so API details, defaults, and supported capabilities may change.
+Sandbox agents are available in the TypeScript and Python Agents SDKs.
 
 This guide covers sandboxes in the Agents SDK, where your application runs the harness. For an OpenAI-managed harness, use [Agents API: Connect a sandbox](https://developers.openai.com/api/docs/guides/agents-api/environments/self-hosted).
 

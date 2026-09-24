@@ -118,7 +118,7 @@ On June 3, 2026, we notified developers using Agent Builder that the product is 
 | June 3, 2026 | Deprecation announced for Agent Builder. |
 | Nov 30, 2026 | Agent Builder is scheduled to shut down. |
 
-See [Migrate from Agent Builder](https://developers.openai.com/api/docs/guides/agent-builder/migrate-from-agent-builder) to continue with the Agents SDK or ChatGPT Workspace Agents.
+See [Migrate from Agent Builder](https://developers.openai.com/api/docs/guides/agent-builder/migrate-from-agent-builder) to evaluate the Agents API, ChatGPT Workspace Agents, or an existing Agents SDK integration.
 
 ### 2026-06-02: GPT Image model deprecations
 

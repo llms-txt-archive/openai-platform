@@ -2,7 +2,7 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-This page covers the main ways to build with the [OpenAI API](https://developers.openai.com/api/reference/overview): official SDKs for application code, the OpenAI CLI for shell-native workflows, the Agents SDK for orchestration, or your own preferred HTTP client.
+This page covers the main ways to build with the [OpenAI API](https://developers.openai.com/api/reference/overview): official SDKs for application code, the OpenAI CLI for shell-native workflows, or your own preferred HTTP client. For new agent applications, use the [Agents API](https://developers.openai.com/api/docs/guides/agents-api/quickstart) through the official OpenAI SDKs.
 
 ## Create and export an API key
 
@@ -359,20 +359,27 @@ Use the CLI for repeatable terminal workflows such as extracting structured data
 
 
 
-## Use the Agents SDK
+<a id="use-the-agents-sdk"></a>
 
-Use the official OpenAI SDKs above for direct API requests. Use the Agents SDK
-when your application needs code-first orchestration for agents, tools,
-handoffs, guardrails, tracing, or sandbox execution.
+## Agents SDK
 
-If you are deciding between direct API requests and code-first orchestration,
-see [how the Responses API compares with the Agents SDK](https://developers.openai.com/api/docs/guides/agents#agents-sdk-vs-responses-api).
+
+
+The Agents SDK is [feature
+  complete](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice): maintenance, security
+  fixes, critical bug fixes, and compatibility work continue, but major new
+  features are not planned. For new agent applications, start with the [Agents
+  API](https://developers.openai.com/api/docs/guides/agents-api/quickstart).
+
+
+
+The Agents API uses the official OpenAI SDKs above. You can continue using the separate Agents SDK for existing applications. For new applications that require capabilities the Agents API does not yet support, the SDK is a short-term option. See the [runtime comparison](https://developers.openai.com/api/docs/guides/agents#compare-agent-runtimes).
 
 [Agents SDK quickstart
 
 
 
-      Build your first agent with the Agents SDK.](https://developers.openai.com/api/docs/guides/agents/quickstart)
+      Set up an integration for an application that needs the Agents SDK.](https://developers.openai.com/api/docs/guides/agents/quickstart)
 
 - [OpenAI Agents SDK for TypeScript](https://github.com/openai/openai-agents-js)
 - [OpenAI Agents SDK for Python](https://github.com/openai/openai-agents-python)
@@ -400,7 +407,7 @@ Please note that OpenAI does not verify the correctness or security of these pro
 
 ### Dart/Flutter
 
-- [openai](https://github.com/anasfik/openai) by [anasfik](https://github.com/anasfik)
+- [`openai`](https://github.com/anasfik/openai) by [anasfik](https://github.com/anasfik)
 
 ### Delphi
 
@@ -444,7 +451,7 @@ Please note that OpenAI does not verify the correctness or security of these pro
 ## Other OpenAI repositories
 
 - [tiktoken](https://github.com/openai/tiktoken) - counting tokens
-- [simple-evals](https://github.com/openai/simple-evals) - simple evaluation library
+- [`simple-evals`](https://github.com/openai/simple-evals) - evaluation library
 - [mle-bench](https://github.com/openai/mle-bench) - library to evaluate machine learning engineer agents
 - [gym](https://github.com/openai/gym) - reinforcement learning library
 - [swarm](https://github.com/openai/swarm) - educational orchestration repository

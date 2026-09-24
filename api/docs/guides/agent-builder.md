@@ -12,7 +12,7 @@ OpenAI is deprecating Agent Builder. Existing users can continue using it
   page](https://developers.openai.com/api/docs/deprecations#2026-06-03-agent-builder) for the current
   timeline.
 
-Use this guide to learn the process and parts of building agents.
+This guide covers existing Agent Builder workflows during the transition window. For new agent applications, start with the [Agents API](https://developers.openai.com/api/docs/guides/agents-api/quickstart). For an existing workflow, follow [Migrate from Agent Builder](https://developers.openai.com/api/docs/guides/agent-builder/migrate-from-agent-builder).
 
 ## Agents and workflows
 
@@ -28,7 +28,7 @@ Open Agent Builder
 
 
 
-There are three main steps in building agents to handle tasks:
+Follow these three main steps to build agents that handle tasks:
 
 1. Design a workflow in [Agent Builder](https://platform.openai.com/agent-builder). This defines your agents and how they'll work.
 1. Publish your workflow. It's an object with an ID and versioning.
@@ -40,9 +40,9 @@ In Agent Builder, insert and connect nodes to create your workflow. Each connect
 
 ### Examples and templates
 
-Agent Builder provides templates for common workflow patterns. Start with a template to see how nodes work together, or start from scratch.
+Agent Builder provides templates for common workflow patterns. Start with a template to see how nodes work together, or create a workflow without a template.
 
-Here's a homework helper workflow. It uses agents to take questions, reframe them for better answers, route them to other specialized agents, and return an answer.
+Here's a homework helper workflow. It uses agents to take questions, rephrase them for better answers, route them to other specialized agents, and return an answer.
 
 ![prompts chat](https://cdn.openai.com/API/docs/images/homework-helper2.png)
 
@@ -64,7 +64,7 @@ Run [trace graders](https://developers.openai.com/api/docs/guides/trace-grading)
 
 ## Publish your workflow
 
-Agent Builder autosaves your work as you go. When you're happy with your workflow, publish it to create a new major version that acts as a snapshot. You can then use your workflow in [ChatKit](https://developers.openai.com/api/docs/guides/chatkit), an OpenAI framework for embedding chat experiences.
+Agent Builder saves your work automatically as you go. When you're happy with your workflow, publish it to create a new major version that acts as a snapshot. You can then use your workflow in [ChatKit](https://developers.openai.com/api/docs/guides/chatkit), an OpenAI framework for embedding chat experiences.
 
 You can create new versions or specify an older version in your API calls.
 
@@ -72,13 +72,14 @@ You can create new versions or specify an older version in your API calls.
 
 When you're ready to implement the agent workflow you created, click **Code** in the top navigation. You have two options for implementing your workflow in production:
 
-**ChatKit**: Follow the [ChatKit quickstart](https://developers.openai.com/api/docs/guides/chatkit) and pass in your workflow ID to embed this workflow into your application. If you're not sure, we recommend this option.
+**Existing hosted integration**: Continue using ChatKit with your workflow ID during the transition window. See [ChatKit](https://developers.openai.com/api/docs/guides/chatkit) for hosted integration details and custom server options.
 
-**Advanced integration**: Copy the workflow code and use it anywhere. You can run ChatKit on your own infrastructure and use the Agents SDK to build and customize agent chat experiences.
+**Advanced integration**: Export Agents SDK code for an existing SDK integration or use it as a reference when recreating the workflow with the Agents API. The [migration guide](https://developers.openai.com/api/docs/guides/agent-builder/migrate-from-agent-builder) explains the options and limitations. A custom ChatKit server connects your chat interface to the chosen backend.
 
 ## Next steps
 
-Now that you've created an agent workflow, bring it into your product with ChatKit.
+Review the migration options to plan how your application will run after the transition window.
 
-- [ChatKit quickstart](https://developers.openai.com/api/docs/guides/chatkit) →
+- [Migrate from Agent Builder](https://developers.openai.com/api/docs/guides/agent-builder/migrate-from-agent-builder) →
+- [ChatKit integration options](https://developers.openai.com/api/docs/guides/chatkit) →
 - [Advanced integration](https://developers.openai.com/api/docs/guides/custom-chatkit) →

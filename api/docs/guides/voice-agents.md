@@ -137,15 +137,13 @@ responses also affect task success, tool correctness, or interruptions. See
 
 ## Voice agents still use the same core agent building blocks
 
-The voice surface changes the transport and audio loop, but the core workflow decisions are the same:
+Choose the audio architecture first. If you use an Agents SDK voice workflow, the following SDK guides cover its supporting capabilities:
 
 - Use [Using tools](https://developers.openai.com/api/docs/guides/tools#usage-in-the-agents-sdk) when the voice agent needs external capabilities.
 - Use [Running agents](https://developers.openai.com/api/docs/guides/agents/running-agents) when spoken workflows need streaming, continuation, or durable state.
 - Use [Orchestration and handoffs](https://developers.openai.com/api/docs/guides/agents/orchestration) when spoken workflows branch across specialists.
 - Use [Guardrails and human review](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals) when spoken workflows need safety checks or approvals.
 - Use [Integrations and observability](https://developers.openai.com/api/docs/guides/agents/integrations-observability) when you need MCP-backed capabilities or want to inspect how the voice workflow behaved.
-
-The practical rule is: choose the audio architecture first, then design the rest of the agent workflow the same way you would for text.
 
 ## Next steps
 

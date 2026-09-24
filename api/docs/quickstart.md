@@ -382,7 +382,7 @@ Congrats on running a free test API request! Start building real applications wi
 
 
 
-      Use the Agents SDK to build, run, and observe agent workflows.](https://developers.openai.com/api/docs/guides/agents)
+      Start with the Agents API to build agents with a managed Codex harness.](https://developers.openai.com/api/docs/guides/agents-api/quickstart)
 
 ## Analyze images and files
 
@@ -2151,67 +2151,58 @@ end
 
 ## Build agents
 
-Use the OpenAI platform to build [agents](https://developers.openai.com/api/docs/guides/agents) capable of taking action—like [controlling computers](https://developers.openai.com/api/docs/guides/tools-computer-use)—on behalf of your users. Use the [Agents SDK](https://developers.openai.com/api/docs/guides/agents) to create orchestration logic on your server.
+For new agent applications, start with the [Agents API](https://developers.openai.com/api/docs/guides/agents-api/overview). OpenAI manages the Codex harness, sessions, and orchestration while your application provides tools and chooses where execution happens.
 
-Build a language triage agent
+This example creates an OpenAI-hosted sandbox and asks the agent to write and run a Python script. Follow the [Agents API prerequisites](https://developers.openai.com/api/docs/guides/agents-api/quickstart#prerequisites) for API-key permissions and SDK setup. The Agents API is in beta; these examples use the standard OpenAI client libraries.
+
+Create and run a directory-tree script
 
 ```javascript
-import { Agent, run } from "@openai/agents";
+import OpenAI from "openai";
 
-const spanishAgent = new Agent({
-  name: "Spanish agent",
-  instructions: "You only speak Spanish.",
+const client = new OpenAI();
+const events = await client.beta.agents.sessions.create({
+  agent: {
+    model: "gpt-6-astra",
+    instructions: "Write clean code, run it, and report the actual output.",
+  },
+  environment: { type: "openai_hosted" },
+  input:
+    "Create tree.py, a Python script that prints a readable tree of the files in the current directory. Run it and show me the output.",
+  stream: true,
 });
-
-const englishAgent = new Agent({
-  name: "English agent",
-  instructions: "You only speak English",
-});
-
-const triageAgent = new Agent({
-  name: "Triage agent",
-  instructions:
-    "Handoff to the appropriate agent based on the language of the request.",
-  handoffs: [spanishAgent, englishAgent],
-});
-
-const result = await run(triageAgent, "Hola, ¿cómo estás?");
-console.log(result.finalOutput);
+try {
+  for await (const event of events) {
+    console.log(JSON.stringify(event));
+  }
+} finally {
+  events.controller.abort();
+}
 ```
 
 ```python
-from agents import Agent, Runner
-import asyncio
+from openai import OpenAI
 
-spanish_agent = Agent(
-    name="Spanish agent",
-    instructions="You only speak Spanish.",
-)
-
-english_agent = Agent(
-    name="English agent",
-    instructions="You only speak English",
-)
-
-triage_agent = Agent(
-    name="Triage agent",
-    instructions="Handoff to the appropriate agent based on the language of the request.",
-    handoffs=[spanish_agent, english_agent],
-)
-
-
-async def main():
-    result = await Runner.run(triage_agent, input="Hola, ¿cómo estás?")
-    print(result.final_output)
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
+with OpenAI() as client:
+    with client.beta.agents.sessions.create(
+        agent={
+            "model": "gpt-6-astra",
+            "instructions": "Write clean code, run it, and report the actual output.",
+        },
+        environment={"type": "openai_hosted"},
+        input="Create tree.py, a Python script that prints a readable tree of the files in the current directory. Run it and show me the output.",
+        stream=True,
+    ) as events:
+        for event in events:
+            print(event.to_json(indent=None), flush=True)
 ```
 
+
+The stream includes progress and output events. Check the [terminal result](https://developers.openai.com/api/docs/guides/agents-api/quickstart#2-follow-progress), save the session ID for follow-up work, and [delete the session](https://developers.openai.com/api/docs/guides/agents-api/quickstart#4-clean-up) when you no longer need it. Closing the stream does not delete the session.
 
 [Build agents that can take action
 
 
 
-      Learn how to use the OpenAI platform to build powerful, capable AI agents.](https://developers.openai.com/api/docs/guides/agents)
+      Follow the Agents API quickstart to run a task, continue the session, and
+    clean up.](https://developers.openai.com/api/docs/guides/agents-api/quickstart)

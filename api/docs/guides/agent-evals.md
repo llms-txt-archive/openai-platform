@@ -6,6 +6,8 @@ The OpenAI Platform offers a suite of evaluation tools to help you ensure your a
 
 Use this page as the decision point for the evaluation surfaces that matter most for agent workflows.
 
+The trace-grading workflow below uses **Logs** > **Traces** for Agents SDK applications and existing Agent Builder workflows. For Agents API session traces, use **Logs** > **Agents** and follow [Agents API tracing](https://developers.openai.com/api/docs/guides/agents-api/tracing).
+
 ## Start with traces when you are still debugging behavior
 
 Trace grading is the fastest way to identify workflow-level issues. A trace captures the end-to-end record of model calls, tool calls, guardrails, and handoffs for one run. Graders let you score those traces with structured criteria so you can find regressions and failure modes at scale.
