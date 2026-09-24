@@ -229,11 +229,11 @@ the shape of the accompanying data. For example, `order_created` uses the
 
 The options object supports these fields:
 
-| Field               | When to use it                                                                                       |
-| ------------------- | ---------------------------------------------------------------------------------------------------- |
-| `event_id`          | Set a unique ID to identify the same event sent from the browser and server.                         |
-| `custom_event_name` | Name a custom event. This field is required for custom events and isn't supported for standard ones. |
-| `opt_out`           | Set to `true` to opt out the event from future user-level personalization. Defaults to `false`.      |
+| Field               | When to use it                                                                                                                                                                                                                                                                      |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `event_id`          | Set a unique ID to identify the same event sent from the browser and server.                                                                                                                                                                                                        |
+| `custom_event_name` | Name a custom event. This field is required for custom events and isn't supported for standard ones.                                                                                                                                                                                |
+| `opt_out`           | Set to `true` to opt out the event from future user-level personalization. Defaults to `false`. For clarity, OpenAI does not currently use data collected via the measurement pixel for user-level personalization. If we do so in the future, we will respect this opt-out toggle. |
 
 ### Send a custom event
 
