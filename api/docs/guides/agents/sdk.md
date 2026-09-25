@@ -2,19 +2,7 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-## Important notice
-
-The Agents SDK is **feature complete**. Maintenance, security fixes, critical bug fixes, and compatibility work continue, but major new features are not planned. For new agent applications, we recommend the **[Agents API](https://developers.openai.com/api/docs/guides/agents-api/quickstart)**, which runs a managed Codex harness.
-
-You can continue using the Agents SDK for existing applications. For new applications that require capabilities the Agents API does not yet support, the SDK remains a short-term option.
-
-## Overview
-
-The OpenAI Agents SDK is an open-source framework for building agent workflows in application code. It builds on [Swarm](https://github.com/openai/swarm), released in 2024 to explore lightweight multi-agent orchestration, and brought those ideas into a framework for production applications with guardrails and built-in tracing. The [Python SDK](https://github.com/openai/openai-agents-python) launched in March 2025, followed by the [TypeScript SDK](https://github.com/openai/openai-agents-js) in June 2025.
-
-Its agent loop runs in your application, coordinating calls to OpenAI and other models through the Responses and Chat Completions APIs with tool execution, including MCP server tools. Session management preserves conversation context across runs. Human approvals let your application pause tool execution for review.
-
-For multi-agent workflows, agents can call other agents as tools or transfer control through handoffs. The SDK also supports [realtime voice agents](https://developers.openai.com/api/docs/guides/voice-agents) for low-latency spoken interactions and [sandbox agents](https://developers.openai.com/api/docs/guides/agents/sandboxes) for working with files and commands. These capabilities let you combine text, voice, and sandbox agents within a broader application workflow.
+Agents can plan and complete tasks using tools, work with other agents, and maintain context across steps.
 
 ## Get your first agent running
 
@@ -43,7 +31,7 @@ Use the GitHub repositories for more examples, issues, and language-specific ref
 
 | If you want to                            | Start here                                                                                                                                             | Why                                                                                            |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| Set up an Agents SDK integration          | [Quickstart](https://developers.openai.com/api/docs/guides/agents/quickstart)                                                                                                       | This is the shortest path to a working SDK integration.                                        |
+| Build a code-first agent app              | [Quickstart](https://developers.openai.com/api/docs/guides/agents/quickstart)                                                                                                       | This is the shortest path to a working SDK integration.                                        |
 | Define one specialist cleanly             | [Agent definitions](https://developers.openai.com/api/docs/guides/agents/define-agents)                                                                                             | Start here when you are still shaping the contract for a single agent.                         |
 | Choose models, defaults, and transport    | [Models and providers](https://developers.openai.com/api/docs/guides/agents/models)                                                                                                 | Use this when model choice, provider setup, or transport strategy affects the workflow.        |
 | Understand the runtime loop and state     | [Running agents](https://developers.openai.com/api/docs/guides/agents/running-agents)                                                                                               | This is where the agent loop, streaming, and continuation strategies live.                     |
@@ -57,7 +45,7 @@ Use the GitHub repositories for more examples, issues, and language-specific ref
 
 ## Build with the SDK
 
-In an Agents SDK application, your server manages deployment, tool implementations, state storage, and approval decisions. The SDK runs the agent loop and invokes tools. These guides cover:
+Use the SDK track when your server owns deployment, tool implementations, state storage, and approval decisions, while the SDK runs the agent loop and invokes those tools. That path is the best fit when you want:
 
 - typed application code in TypeScript or Python
 - direct control over tools, MCP servers, and runtime behavior
@@ -75,4 +63,4 @@ A typical SDK reading order is:
 
 ## Compare agent runtime options
 
-Use the [Agents overview](https://developers.openai.com/api/docs/guides/agents#compare-agent-runtimes) to compare the Agents API, Codex SDK, and Responses API. The Agents SDK runs in your application; the Agents API runs a managed harness in OpenAI's service.
+Use the [Agents overview](https://developers.openai.com/api/docs/guides/agents#compare-agent-runtimes) to compare the Agents SDK, Agents API, and Responses API. The Agents SDK runs in your application; the Agents API runs a managed harness in OpenAI's service.

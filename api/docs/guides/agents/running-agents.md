@@ -2,14 +2,6 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-The Agents SDK is [feature
-  complete](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice): maintenance, security
-  fixes, critical bug fixes, and compatibility work continue, but major new
-  features are not planned. For new agent applications, start with the [Agents
-  API](https://developers.openai.com/api/docs/guides/agents-api/quickstart).
-
-
-
 Defining an agent is only the setup step. The runtime questions are what a single run does, how the next turn continues, and how the workflow behaves when it pauses for approvals or tool work.
 
 ## The agent loop
@@ -26,7 +18,7 @@ That loop is the core concept behind the SDK. Tools, handoffs, approvals, and st
 
 ## Choose one conversation strategy
 
-Choose from four common ways to carry state into the next turn:
+There are four common ways to carry state into the next turn:
 
 | Strategy                                                                                                           | Where state lives         | Best for                                                               | What you pass on the next turn                 |
 | ------------------------------------------------------------------------------------------------------------------ | ------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------- |

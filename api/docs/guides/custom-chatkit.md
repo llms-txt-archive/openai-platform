@@ -5,11 +5,9 @@
 When you need full control—custom authentication, data residency, on‑prem deployment, or bespoke agent orchestration—you can run ChatKit on your own infrastructure. Use OpenAI's advanced self‑hosted option to use your own server and customized ChatKit.
 
 Agent Builder-hosted ChatKit workflows are in a transition window. For new
-  ChatKit apps, use a custom server integration with the ChatKit SDKs. This
-  guide uses ChatKit's Agents SDK adapter. The Agents SDK is [feature
-  complete](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice): maintenance
-  continues, but major new features are not planned. See [ChatKit transition
-  guidance →](https://developers.openai.com/api/docs/guides/chatkit).
+  ChatKit apps, build on your own server-side agent implementation with the
+  ChatKit SDKs and the Agents SDK. See [ChatKit transition guidance
+  →](https://developers.openai.com/api/docs/guides/chatkit)
 
 ## Run ChatKit on your own infrastructure
 

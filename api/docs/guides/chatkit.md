@@ -10,7 +10,7 @@ Use ChatKit's embeddable UI widgets, customizable prompts, tool‑invocation sup
 
 Choose between two ChatKit paths:
 
-- **Custom server integration**. Run ChatKit on your own infrastructure. Use the ChatKit Python SDK and connect to any agentic service, including one built with the [Agents SDK](https://developers.openai.com/api/docs/guides/agents/sdk). Use widgets to build the frontend.
+- **Custom server integration**. Run ChatKit on your own infrastructure. Use the ChatKit Python SDK and connect to any agentic service, including one built with the [Agents SDK](https://developers.openai.com/api/docs/guides/agents). Use widgets to build the frontend.
 - **Existing Agent Builder-hosted integration**. If you already use ChatKit with an Agent Builder workflow, you can keep using that hosted workflow during the Agent Builder transition window.
 
 OpenAI is deprecating Agent Builder. Existing users can continue using it

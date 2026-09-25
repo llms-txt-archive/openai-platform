@@ -2,14 +2,6 @@
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-The Agents SDK is [feature
-  complete](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice): maintenance, security
-  fixes, critical bug fixes, and compatibility work continue, but major new
-  features are not planned. For new agent applications, start with the [Agents
-  API](https://developers.openai.com/api/docs/guides/agents-api/quickstart).
-
-
-
 Multi-agent workflows are useful when specialists should own different parts of the job. The first design choice is deciding who owns the final user-facing answer at each branch of the workflow.
 
 ## Choose the orchestration pattern

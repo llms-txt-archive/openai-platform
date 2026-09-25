@@ -8,8 +8,6 @@ Trace evals use those graded traces to systematically evaluate agent performance
 
 Use both features to track, analyze, and optimize the performance of groups of agents.
 
-The trace-grading workflow below uses **Logs** > **Traces** for Agents SDK applications and existing Agent Builder workflows. For Agents API session traces, use **Logs** > **Agents** and follow [Agents API tracing](https://developers.openai.com/api/docs/guides/agents-api/tracing).
-
 ## Get started with traces
 
 1. In the dashboard, navigate to Logs > [Traces](https://platform.openai.com/logs?api=traces).

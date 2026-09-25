@@ -102,7 +102,7 @@ Tool calling is a multi-step conversation between your application and a model v
 
 ![Function Calling Diagram Steps](https://cdn.openai.com/API/docs/images/function-calling-diagram-steps.png)
 
-With Responses, your application can continue this flow for as many tool calls as the task requires. For a managed agent loop, start with the [Agents API](https://developers.openai.com/api/docs/guides/agents-api/quickstart). See the [runtime comparison](https://developers.openai.com/api/docs/guides/agents#compare-agent-runtimes) when you need a different level of control.
+With Responses, your application can continue this flow for as many tool calls as the task requires. If you want a framework that packages recurring orchestration around that loop, see [how the Responses API compares with the Agents SDK](https://developers.openai.com/api/docs/guides/agents#agents-sdk-vs-responses-api).
 
 ## Function tool example
 

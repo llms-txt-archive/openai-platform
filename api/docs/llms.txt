@@ -41,11 +41,10 @@ Each entry has a Markdown twin at `/api/docs/<slug>.md`.
 - [Advanced usage](https://developers.openai.com/api/docs/guides/advanced-usage.md): Discover advanced usage techniques for OpenAI's API, including reproducible outputs, token management, and parameter settings.
 - [Agent Builder](https://developers.openai.com/api/docs/guides/agent-builder.md): Use the OpenAI Agent Builder to start from templates, compose nodes, preview runs, and export workflows to code.
 - [Agent definitions](https://developers.openai.com/api/docs/guides/agents/define-agents.md): Learn how to define an agent's instructions, model, tools, and local context in the OpenAI Agents SDK.
-- [Agents](https://developers.openai.com/api/docs/guides/agents.md): Build new agent applications with the Agents API, and choose other tools when your requirements call for a different level of control.
+- [Agents](https://developers.openai.com/api/docs/guides/agents.md): Compare the Agents API, Agents SDK, and Responses API, then choose the guide for your application.
 - [Agents API](https://developers.openai.com/api/docs/guides/agents-api/overview.md): Build durable cloud agents with a managed Codex harness.
 - [Agents API quickstart](https://developers.openai.com/api/docs/guides/agents-api/quickstart.md): Create an agent that writes and runs a script in an OpenAI-hosted sandbox.
 - [Agents SDK](https://developers.openai.com/api/docs/guides/agents/sdk.md): Learn how the OpenAI Agents SDK fits together and which docs to read next.
-- [Agents SDK quickstart](https://developers.openai.com/api/docs/guides/agents/quickstart.md): Build your first agent with the OpenAI Agents SDK, add tools and handoffs, and understand where to go next.
 - [API deployment checklist](https://developers.openai.com/api/docs/guides/deployment-checklist.md): Review commonly underused Responses API design choices that improve deployment quality, speed, cost, and reliability.
 - [API organization blocking](https://developers.openai.com/api/docs/guides/organization-blocking.md): Configure an allowlist of API organizations through your proxy or Secure Access Service Edge (SASE) service.
 - [Apply Patch](https://developers.openai.com/api/docs/guides/tools-apply-patch.md): Allow models to propose structured diffs that your integration applies.
@@ -132,7 +131,7 @@ Each entry has a Markdown twin at `/api/docs/<slug>.md`.
 - [MCP connections](https://developers.openai.com/api/docs/guides/agents-api/tools/mcp.md): Connect MCP servers from OpenAI or your environment.
 - [MCP servers](https://developers.openai.com/api/docs/guides/tools-connectors-mcp.md): Use remote MCP servers or Secure MCP Tunnel to give models access to external tools.
 - [Mid-turn steering](https://developers.openai.com/api/docs/guides/steering.md): Steer a Responses API workflow over WebSockets, follow continuations, and handle queued input and tool results.
-- [Migrate from Agent Builder](https://developers.openai.com/api/docs/guides/agent-builder/migrate-from-agent-builder.md): Learn how to export an Agent Builder workflow and continue with the Agents API, ChatGPT Workspace Agents, or an existing Agents SDK integration.
+- [Migrate from Agent Builder](https://developers.openai.com/api/docs/guides/agent-builder/migrate-from-agent-builder.md): Learn how to export an Agent Builder workflow and continue with ChatGPT Workspace Agents or the Agents SDK.
 - [Migrate from prompt objects](https://developers.openai.com/api/docs/guides/prompting/migrate-from-prompt-object.md): Learn how to migrate from reusable prompt objects to versioned prompts in your application code.
 - [Migrate to GPT-Live](https://developers.openai.com/api/docs/guides/live-migration.md): Adapt your voice interface, backend tools, and application state to GPT-Live, with migration paths for Realtime and existing text agents.
 - [Migrate to the Responses API](https://developers.openai.com/api/docs/guides/migrate-to-responses.md)
@@ -167,6 +166,7 @@ Each entry has a Markdown twin at `/api/docs/<slug>.md`.
 - [Prompting GPT-Live](https://developers.openai.com/api/docs/guides/live-prompting.md): Prompt GPT-Live for conversation style, backchannels, interruptions, and delegation.
 - [Prompting guidance for GPT-5.6 Sol](https://developers.openai.com/api/docs/guides/prompt-guidance-gpt-5p6.md): Machine-readable prompting guidance for adapting prompts and agents to GPT-5.6 Sol.
 - [Prompting Realtime models](https://developers.openai.com/api/docs/guides/voice-prompting.md): Design and test prompts for Realtime voice models.
+- [Quickstart](https://developers.openai.com/api/docs/guides/agents/quickstart.md): Build your first agent with the OpenAI Agents SDK, add tools and handoffs, and understand where to go next.
 - [Rate limits](https://developers.openai.com/api/docs/guides/rate-limits.md): Rate limits are restrictions that our API imposes on the number of times a user or client can access our services within a specified period of time.
 - [Rate limits and spend with Terraform](https://developers.openai.com/api/docs/guides/terraform/rate-limits-and-spend.md): Discover and manage OpenAI project rate limits and create organization or project spend alerts with Terraform.
 - [Realtime conversations](https://developers.openai.com/api/docs/guides/realtime-conversations.md): Learn how to manage Realtime speech-to-speech conversations.

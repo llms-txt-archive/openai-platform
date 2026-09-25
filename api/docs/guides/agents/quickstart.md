@@ -1,14 +1,6 @@
-# Agents SDK quickstart
+# Quickstart
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
-
-The Agents SDK is [feature
-  complete](https://developers.openai.com/api/docs/guides/agents/sdk#important-notice): maintenance, security
-  fixes, critical bug fixes, and compatibility work continue, but major new
-  features are not planned. For new agent applications, start with the [Agents
-  API](https://developers.openai.com/api/docs/guides/agents-api/quickstart).
-
-
 
 Use this page when you want the shortest path to a working SDK-based agent. The examples below use the same high-level concepts in both JavaScript and Python: define an agent, run it, then add tools and specialist agents as your workflow grows.
 
