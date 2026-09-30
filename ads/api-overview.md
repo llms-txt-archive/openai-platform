@@ -15,6 +15,9 @@ Examples throughout this guide will use a placeholder for the Advertiser API key
 
 API partners can follow [API Partner Setup](https://developers.openai.com/ads/api-partner-setup). For another end-to-end example, see the [Quickstart](https://developers.openai.com/ads/api-quickstart).
 
+Use [Audit Logs](https://developers.openai.com/ads/api-reference/audit-logs) to review recorded changes to
+resources in your ad account.
+
 ### Request conventions
 
 Use the following base URL for API requests. Provide your API key in the Authorization header when making requests.
