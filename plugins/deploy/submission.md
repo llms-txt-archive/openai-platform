@@ -1,490 +1,598 @@
-# Submit plugins
+# Upload and submit your plugin
 
 > For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending `.md` to the page URL.
 
-Use the plugin submission portal to submit a plugin for review when you're
-ready to publish it for public use.
+If you’ve built a plugin and want to share it more broadly, the plugin directory helps people discover and use it in ChatGPT and Codex. Your plugin can include MCP connections, skills, or both.
 
-If you're migrating an existing Claude Code plugin or connector, first review
-[Submit your Claude Code plugin to OpenAI](https://developers.openai.com/plugins/guides/submit-claude-plugin)
-to see what you need to change before starting the submission.
+Submit the package you’ve already built as a ZIP, resolve automated findings, and submit it for review. Once approved, you choose when to publish.
 
-If the portal returns an error code, use the
-[submission error reference](https://developers.openai.com/plugins/deploy/submission-errors) to find the
-matching requirement.
+After initial publication, changes to your MCP server are picked up automatically, and eligible updates go live once they pass automated checks. There’s no need to upload a new plugin ZIP or publish each update; changes to plugin metadata, skills, or the MCP server configuration in your package still require a new ZIP.
 
-A plugin can contain skills, MCP servers, or both. You can submit:
+Before submitting, follow the [plugin package guide](https://developers.openai.com/plugins/build/plugins) and read the [plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines). For help preparing your submission, use [Plugin Creator](https://chatgpt.com/plugins/plugin_connector_1p_e1a10c53223481918a42f1510ec46c1e?open_in_app), available in the plugin directory.
 
-- A skills-only plugin that packages reusable workflows.
-- A remote MCP-only plugin. Custom UI is optional.
-- A plugin that combines a remote MCP server with uploaded or MCP-imported
-  skills.
+![Plugins dashboard showing upload, publication, review, and MCP setup status.](https://cdn.openai.com/devhub/docs/plugins/submission/plugins-overview-20260927.webp)
 
-Submit MCP servers through **With MCP** using a stable, public HTTPS endpoint.
-If your MCP server runs locally, deploy it to a public HTTPS URL. If you can't,
-reach out to your OpenAI contact for local MCP support.
+**_Plugins overview._** _Start a submission and track publication, review progress, and MCP setup from the Plugins page._
 
-The portal collects listing information, MCP server or package details, skills,
-starter prompts, test cases, country availability, and policy attestations.
-Which fields you complete depends on whether the plugin includes skills, a
-remote MCP server, or both.
+## 1. Upload your plugin ZIP
 
-For local development, packaging, and marketplace setup, see
-[Build plugins](https://developers.openai.com/plugins/build/plugins).
+### Confirm access and publishing identity
 
-For server-backed capabilities, see
-[Build an MCP server](https://developers.openai.com/plugins/build/mcp-server).
+Select the organization and project that will own the plugin. Organization owners can submit; other members need **Apps Management Write**, which an owner can grant through [organization roles](https://platform.openai.com/settings/organization/people/roles).
 
-## Before you submit
+Complete individual or business verification in [organization settings](https://platform.openai.com/settings/organization/general) to publish under your name or a company name.
 
-<a id="submit-the-mcp-server-not-an-existing-integration-reference"></a>
+### Create the draft
 
-### Submit the remote MCP server, not an existing integration reference
+If your plugin uses an MCP server, include it in the initial ZIP. Adding an MCP server to an existing skills-only plugin is not currently supported.
 
-You cannot submit a plugin that references an existing, already-published
-integration. If your plugin includes an MCP server that already exists in
-ChatGPT or Codex, submit that server from scratch through the portal as a new
-MCP-backed plugin submission. The portal scans that MCP server, validates the
-tool metadata, and uses the submitted server details during review.
+1. Open [Plugins](https://platform.openai.com/plugins) and select **Upload new or existing plugin**.
+2. Choose your verified **Developer identity**. The directory displays the name associated with this identity.
+3. Select **Upload plugin** and choose your ZIP file.
+4. After validation, the plugin detail page opens with your new draft.
 
-### Get plugin submission access
+If validation fails, correct the reported package errors and upload again. Keep private credentials and secrets out of the ZIP.
 
-You need an organization role with plugin submission write access before you
-can create or submit plugin drafts. The Platform currently labels this
-permission **Apps Management**.
+## 2. Review checks and resolve issues
 
-1. Open [OpenAI Platform roles settings](https://platform.openai.com/settings/organization/people/roles).
-2. Select the organization that owns the plugin.
-3. Open the role assigned to the submitter, or create a new role.
-4. In the role permissions, set **Apps Management** to **Write**.
-5. Save the role and assign it to each person who needs to create, edit, or
-   submit plugin drafts.
-6. Reload the [plugin submission portal](https://platform.openai.com/plugins).
+After you upload your ZIP, the plugin detail page shows automated check progress and findings so you can address issues before submitting for review. **Metadata &amp; Skills** shows the uploaded plugin package version, and **MCPs** shows the connected server and its scanned tools. These are separate because package changes require a new ZIP, but hosted tool changes are checked directly from your server.
 
+### Check metadata
 
+1. Open **Metadata &amp; Skills**. The most recently uploaded version is shown automatically.
+2. Wait for the metadata checks to finish, then look for any **Issues** detected.
+3. Select **Copy issues** to bring the findings into your development workflow.
+4. Correct the affected fields in your package, then select **Upload plugin to fix issues** and upload the corrected ZIP. Check the new results.
 
-  <img src="https://developers.openai.com/images/codex/plugins/submit/apps-management-permissions.webp"
-    alt="Apps Management write permission in Platform role settings"
-    width="1518"
-    height="1570"
-    class="block h-auto w-full rounded-lg border border-default"
-  />
+**Tip:** Ask Codex or ChatGPT to inspect your package and the copied findings, explain the issues, and suggest corrections to the metadata or skills.
 
+![Plugin metadata and skills with automated findings in the Issues panel.](https://cdn.openai.com/devhub/docs/plugins/submission/metadata-findings-20260927.webp)
 
+**_Metadata findings._** _Review findings for the selected package version and upload a corrected ZIP._
 
-Organization owners already have these permissions. Non-owner submitters need
-write access to create or submit drafts, and read access to view drafts and
-review status.
+Package details are read-only here; edit them in your source package using the [package field reference](#automatically-provide-submission-and-review-information). Public URLs must be accessible and identify the same publisher as the submission.
 
-### Verify your developer or business identity
+### Check skills
 
-Every public submission must use a verified developer or business identity in
-the OpenAI Platform. Reviewers use this identity to confirm the submission
-matches the name, website, support contact, privacy policy, and terms in your
-public listing.
+If your package contains skills, review any findings in **Metadata &amp; Skills**. Open a finding to see the affected skill and what needs to change, then update its instructions or supporting files and upload a corrected ZIP. Check the updated findings; required skill scans must finish successfully before you can submit.
 
-To verify an identity:
+<a id="mcp"></a>
 
-1. Sign in to the [OpenAI Platform](https://platform.openai.com).
-2. Select the organization that will publish the plugin.
-3. Open [organization settings](https://platform.openai.com/settings/organization/general).
-4. Complete **individual verification** if you will publish under your own
-   name, or **business verification** if you will publish under a company name.
-5. Return to the plugin submission form and select the verified identity in the
-   **Developer Identity** field.
+### Connect and scan your MCP server
 
-Reviewers may reject submissions that use an unverified or mismatched publisher
-identity. See the
-[organization verification requirements](https://developers.openai.com/plugins/deploy/app-review#organization-verification)
-for the underlying review rule.
+Your package can declare multiple MCP servers, but **only one MCP server can be connected per plugin**. Complete the setup below when you first connect that server. Use **Reconnect** if the connection needs attention; for tool changes, follow [Scan your latest changes](#scan-your-latest-changes).
 
-If the Platform shows that the developer or business identity is verified but
-the plugin submission form does not recognize it, check that you are submitting
-from the same organization and project where the identity was verified. The
-submitter also needs **Apps Management** write access for that organization.
-Ask an organization owner or admin to update the role assigned to the person
-submitting, then reload the plugin submission portal.
+1. Open **MCPs** and select the server you want to connect.
+2. Select **Connect** to open **Connect MCP server**.
+3. Check **MCP Server URL**, **Authentication**, and the applicable settings.
+4. Complete the domain-verification challenge shown in the portal, then connect the server and complete authentication if required.
+5. Wait for the automated tool scan to finish, then inspect the discovered tools. Open **Issues** to read any findings.
+6. Correct connection problems or server-side findings, then use **Reconnect** or **Rescan**, as applicable, and check the new results.
 
-### Prepare required materials
+![Connect MCP server drawer showing a verified domain and pending OAuth authorization.](https://cdn.openai.com/devhub/docs/plugins/submission/mcp-connection-20260927.webp)
 
-Before opening the form, collect:
+**_MCP connection and domain verification._** _Connect the server and complete domain verification before checking the discovered tools._
 
-| Material           | What to prepare                                                                                                                                             |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Listing details    | Plugin name, short description, long description, logo, category, website, support URL, privacy policy URL, and terms URL.                                  |
-| Developer identity | Verified individual or business identity in the OpenAI Platform.                                                                                            |
-| Remote MCP server  | Public MCP server URL, domain verification access, authentication details, demo credentials if needed, content security policy, and accurate tool metadata. |
-| Tool annotations   | For plugins with remote MCP: `readOnlyHint`, `openWorldHint`, and `destructiveHint` values for every MCP tool.                                              |
-| Skills             | For skills plugins: a final skill bundle or a remote MCP server that exposes static skills for **Scan Tools** to import.                                    |
-| Prompts            | Starter prompts that show useful, realistic workflows.                                                                                                      |
-| Test cases         | Five positive test cases and three negative test cases with clear expected behavior.                                                                        |
-| Availability       | Countries or regions where the plugin should be available.                                                                                                  |
-| Release notes      | A short summary of what you are submitting and what changed since any prior version.                                                                        |
+If connecting or scanning fails, check endpoint availability and authentication, then reconnect or rescan. Resolve **Complete MCP setup** findings and connection failures before submitting. See the [plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines) for MCP server URL, authentication, tool metadata, and UI requirements.
 
-## Create a plugin submission
+<a id="domain-verification"></a>
 
-1. Open the [plugin submission portal](https://platform.openai.com/plugins).
-2. Select **Create plugin**.
-3. Choose the submission type:
-   - **Skills only** for a skills-only plugin.
-   - **With MCP** for a remote MCP-only plugin.
-   - **With MCP** for a plugin that combines a remote MCP server with uploaded
-     or MCP-imported skills.
+#### Domain verification details
 
-The portal saves the submission as a draft while you complete the form.
-
-## Complete the form
-
-### Info
-
-Complete the public listing and publisher fields:
-
-- **Plugin name:** Use the customer-facing product or workflow name.
-- **Descriptions:** Explain what the plugin helps users do. Keep the short
-  description concise and use the long description for workflow details.
-- **Developer Identity:** Select the verified individual or business identity
-  for the publisher.
-- **Logo and category:** Use production-ready brand assets.
-- **Website, support, privacy, and terms URLs:** Use public URLs that match the
-  publisher and disclose relevant data handling.
-
-
-
-  <img src="https://developers.openai.com/images/codex/plugins/submit/developer-identity.webp"
-    alt="Info tab with publisher and policy URLs filled out"
-    width="1450"
-    height="1314"
-    class="block h-auto w-full rounded-lg border border-default"
-  />
-
-
-
-Review your MCP responses against your privacy policy before you submit. Remove
-unnecessary personal data, auth secrets, debug payloads, internal identifiers,
-and undisclosed user-related fields from tool responses.
-
-### MCP
-
-For submissions with a remote MCP server:
-
-1. Choose the MCP server URL type:
-   - Choose **Universal** when one fixed MCP server URL works for all users and
-     organizations.
-   - Choose **Template** only when OpenAI has approved a workspace-specific URL,
-     such as when each customer has a separate tenant, workspace, or managed MCP
-     endpoint.
-2. Enter the required URL:
-   - For **Universal**, enter the production **MCP Server URL**.
-   - For **Template**, enter both an **Example MCP Server URL** and a **Template
-     MCP Server URL**. The example must be a concrete, working endpoint that
-     matches the template and works with the submitted test credentials.
-3. Configure authentication and provide reviewer-ready demo credentials if the
-   server requires sign-in.
-4. Define a content security policy that allows the exact domains your UI
-   fetches from.
-5. Complete domain verification if the portal shows a **Domain not verified**
-   challenge. Use an HTTPS origin on the MCP host name or a parent host name, and
-   host the exact token at `/.well-known/openai-apps-challenge`.
-6. Select **Scan Tools**.
-7. Review the discovered tools, imported skills, domains, validation output,
-   and tool metadata.
-8. Fix server, skill, or metadata issues, deploy the fix, then scan again.
-
-
-
-  <img src="https://developers.openai.com/images/codex/plugins/submit/mcp-scan.webp"
-    alt="MCP tab after scanning a demo MCP server with metadata recommendations"
-    width="1450"
-    height="1314"
-    class="block h-auto w-full rounded-lg border border-default"
-  />
-
-
-
-To support workspace domain restrictions for a plugin that uses OAuth,
-configure the authorization server to advertise a UserInfo Endpoint that
-returns the user's `email` claim and `email_verified: true`. Before submitting,
-confirm that the provider also advertises and enables the `openid` and `email`
-scopes. You can also return these claims in an ID token, but the UserInfo
-Endpoint is required for workspace domain restrictions. If the provider doesn't
-support these requirements, work with the provider to add support. See
-[Support workspace domain restrictions](https://developers.openai.com/plugins/build/auth#support-workspace-domain-restrictions).
-
-#### Template MCP server URLs
-
-Most plugins should use **Universal**. Template MCP server URLs are available
-only in limited cases where different groups of users or data require different
-MCP server URLs. OpenAI supports template-based URLs only for trusted developers
-with whom we have an established relationship. If OpenAI has not approved your
-use of a template URL, submit a universal URL.
-
-In the **Template MCP Server URL**, use `{name}` placeholders for the parts that
-a workspace admin configures. Placeholder names must start with a letter,
-contain only letters, numbers, or underscores, and be unique within the URL.
-The **Example MCP Server URL** must replace each placeholder with a real value.
-
-For example:
-
-```text
-Example MCP Server URL: https://acme.example.com/mcp
-Template MCP Server URL: https://{workspace}.example.com/mcp
-```
-
-The example URL must be publicly accessible during review. Don't enter a
-placeholder URL in the **Example MCP Server URL** field. For the complete MCP
-review requirements, see
-[Template MCP server URLs](https://developers.openai.com/plugins/deploy/app-review#template-mcp-server-urls).
-
-Do not enter an existing integration ID or try to point the portal at an
-existing published integration. The submission must provide the MCP server URL
-and review materials directly, even when that server backs an integration
-already published in ChatGPT or Codex.
-
-#### Domain verification
-
-Plugins with MCP must verify control of the domain that hosts the server. When
-the portal shows a domain verification challenge, place the exact verification
-token at the generated well-known URL:
+For domain verification, host the exact challenge token as plain text at the URL shown in the portal:
 
 ```text
 https://<challenge-base-host>/.well-known/openai-apps-challenge
 ```
 
-The challenge endpoint must return only that plugin's verification token. Do not
-return JSON, a list of tokens, or multiple tokens from the same URL.
+Return only the exact token—not JSON or a list of tokens. The challenge base must be an HTTPS origin on the MCP hostname or an eligible parent domain; paths are ignored. If another plugin uses the same challenge URL, use an allowed parent origin or a distinct hostname rather than replacing its token. Contact support if neither is possible.
 
-The **Challenge Base URL** is an optional HTTPS origin that tells the portal
-where to check the token. It must be the MCP host name or a parent host name.
-Paths are ignored. For example, if the MCP server URL is
-`https://api.example.com/mcp`, the default challenge URL is
-`https://api.example.com/.well-known/openai-apps-challenge`, and
-`https://example.com` can be used as a parent-origin challenge base if you can
-host the token there.
+## 3. Submit for review
 
-If two plugins with MCP share the same host name but differ only by
-path, they also share the same default challenge URL. You cannot verify them
-separately by putting different tenant paths in the Challenge Base URL, because
-the path is ignored. Use a parent origin that can host the new token, give the
-MCP server a distinct host name, or work with OpenAI support if neither
-hosting option is possible.
+Once you’ve reviewed the automated findings, complete the information the review team needs to test your plugin and submit the selected draft. Required setup and validation errors need to be resolved first; other automated findings can be sent to the review team for consideration.
 
-If another plugin with MCP already uses the same host name, do
-not replace its existing challenge token unless that plugin no longer needs it.
-Use an allowed parent-origin Challenge Base URL or a distinct MCP host name for
-the new submission.
+### Complete review information
 
-Every tool should have clear names, descriptions, schemas, and output
-structure. Add output schemas when they help reviewers and models understand
-what the tool returns.
+Plugins with MCP connections need review information so the review team can test the integration. You can include positive and negative test cases, the video walkthrough URL, and release notes in `plugin.json` so they are imported with the ZIP. See the [review and publication field reference](#configure-onboarding-review-and-publication) and [complete metadata examples](#complete-metadata-examples). [Plugin Creator](https://chatgpt.com/plugins/plugin_connector_1p_e1a10c53223481918a42f1510ec46c1e?open_in_app), available in the plugin directory, can help prepare this information. Reviewer credentials are entered separately in **Review details**. Prepare:
 
-Set tool annotations to match each tool's real behavior:
+- **Reviewer credentials, if sign-in is required.** Provide a dedicated test account, login URL, workspace or tenant details, and sign-in instructions. Use sample data, not a real user’s account. The account needs the permissions and data required by your test cases and should work immediately without MFA approval, email or SMS codes, magic links, or private-network access.
+- **Five positive test cases.** Include the scenario, user prompt, expected tools, and expected result. Run each case using the test account before submitting.
+- **Three negative test cases.** Include a prompt or scenario where the plugin should not act, why it should not complete the request, and the expected refusal, clarification, or safe fallback.
+- **A video walkthrough.** Demonstrate the test cases and plugin functionality, and provide an accessible recording URL.
+- **Release notes.** Summarize the package version being submitted and what changed.
 
-| Annotation        | Use it when                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `readOnlyHint`    | Set to `true` only when the tool fetches, looks up, lists, retrieves, previews, or computes information and doesn't change anything. Set to `false` if the tool can create, update, delete, send, enqueue, run jobs, start workflows, write logs, or otherwise change state.                                                                                |
-| `openWorldHint`   | Set to `true` when the tool accesses the public internet or open-ended external entities, including read-only tools such as web search and write tools that post, send messages, publish content, push code, or submit forms. Set to `false` when the tool is limited to a bounded private account or workspace, even if that service is externally hosted. |
-| `destructiveHint` | For write tools, set to `true` if the tool can delete, overwrite, revoke access, send messages or transactions that can't be undone, or cause another irreversible side effect. Otherwise, set it to `false`.                                                                                                                                               |
+In **Metadata &amp; Skills**, open **Review information → Review details** to check the imported materials and enter reviewer credentials. Complete any editable fields and select **Save details**. For fields marked as managed by your plugin ZIP, add or change the information in your package and upload it again. Country availability and translations can also be supplied in the package metadata; check the imported settings where applicable. See [Automatically provide submission and review information](#automatically-provide-submission-and-review-information) for supported fields and import behavior.
 
-For implementation details, see
-[tool annotations and elicitation](https://developers.openai.com/plugins/build/mcp-server#tool-annotations-and-elicitation).
-For review expectations, see the
-[tool hint rejection guidance](https://developers.openai.com/plugins/deploy/app-review#review-and-approval-faqs).
+![Review information drawer with fields for reviewer credentials and sign-in instructions.](https://cdn.openai.com/devhub/docs/plugins/submission/review-details-20260927.webp)
 
-### Skills
+**_Review details._** _Check test cases and supporting materials imported from your ZIP, and enter private reviewer credentials separately._
 
-Add skills to the draft in either of these ways:
+Credentials stay outside the public package. Keep the test account and sample data available for subsequent reviews. If credentials or sign-in steps change, submit an updated draft with the new details.
 
-- Upload the final skill bundle for skills-only or skills-plus-MCP submissions.
-- For a remote MCP submission, import static skills from the MCP server. When
-  you select **Scan Tools**, OpenAI imports them into the draft.
+### Submit the draft
 
-Use the same file tree and instructions you tested locally. To import skills
-from MCP, follow the
-[draft skills extension and static resource manifest](https://developers.openai.com/plugins/build/mcp-server#import-skills-from-the-mcp-server).
+Select the draft, choose **Submit for review**, and complete the required policy attestations. After submitting, track progress under **Review status** on the Plugins page. Feedback from the review team is sent by email.
 
+![Submit for review dialog with required policy attestations.](https://cdn.openai.com/devhub/docs/plugins/submission/submit-for-review-20260927.webp)
 
+**_Submit for review._** _Confirm the required attestations and submit the selected draft for review._
 
-  <img src="https://developers.openai.com/images/codex/plugins/submit/skills-upload.webp"
-    alt="Skills tab ready for a skill bundle upload"
-    width="1442"
-    height="952"
-    class="block h-auto w-full rounded-lg border border-default"
-  />
+Only one review can be active per plugin. To replace a package under review, wait for the decision or cancel the review before uploading. For a rejected package, address the feedback and submit a corrected ZIP.
 
+If the review team rejects your submission, check the rejection email for the reason. To appeal, reply to that email and explain why the decision should be reconsidered.
 
+## 4. Publish your approved plugin
 
-Each skill should include:
+Once your plugin is approved, you choose when to make it available. Open the approved package version and select **Publish plugin**. Publishing an update replaces the previous package version.
 
-- A clear `SKILL.md` with trigger conditions and task instructions.
-- Any referenced scripts, templates, or assets.
-- Minimal, scoped instructions that fit the plugin's purpose.
+## Update your published plugin
 
-OpenAI scans uploaded and MCP-imported skills for policy compliance and security
-risks, including sensitive information, unnecessary access requests, and
-instructions that may conflict with safe or expected plugin behavior. Skills
-must follow the same standards as the rest of the plugin and may block
-submission or require remediation if they fail automated scanning.
+To update metadata, assets, or bundled skills, upload a new ZIP to the existing plugin. This creates a package version with its own checks and review outcome. Changes to hosted tools are handled separately through [MCP scans](#update-to-your-mcp-server), so they don’t require a package upload.
 
-OpenAI imports skills from MCP as a submission-time snapshot. Published plugins
-do not update those skills live. After changing a skill on the server, select
-**Scan Tools** again and review the updated skills before submitting a new
-plugin version.
+If you submitted through the previous submission form, download your existing plugin as a ZIP to get started. Open the plugin, select the published package version, and choose **Download release ZIP** from the **…** menu. If you already maintain the package locally, you can use that source instead.
 
-To remove every MCP-imported skill, keep the skills extension enabled, return
-`{ "skills": [] }` without a `nextCursor`, and scan again. Removing the
-extension or returning a response that does not pass validation preserves the
-previous snapshot.
+1. Update the package contents and version number, then create a complete ZIP, including all components you intend to keep.
+2. Open the existing plugin and select **Upload plugin to make changes**.
+3. Confirm the selected package version in **Metadata &amp; Skills**. Review the new automated findings and resolve required issues.
+4. Complete the applicable review steps and publish the approved package version.
 
-### Prompts
+Use the same plugin when adding or removing skills. To change an existing MCP server’s URL, contact support; the current update flow does not support URL changes.
 
-Add starter prompts that show the plugin's highest-value workflows. Good
-prompts are specific enough to show when to use the plugin, but general enough
-that users can adapt them.
+## Update to your MCP server
 
-Examples:
+After initial publication, OpenAI scans your hosted MCP server daily. Eligible updates become available after automated checks pass, without a new package version or a separate publish action. You can also request a scan immediately after deploying server changes.
 
-- "Investigate checkout errors from the last release and summarize likely root
-  causes."
-- "Create a P1 incident brief from the latest support tickets and related
-  deploys."
-- "Review unsuccessful deployment logs and recommend the next debugging step."
+### Scan your latest changes
 
+1. Deploy the changes to your MCP server.
+2. Open the existing plugin, select **MCPs**, and choose the connected server.
+3. Under **Issues**, select **Rescan**.
+4. Wait for the scan to finish and check the results and tool availability.
 
+![MCP tools showing live availability, held updates, and scan findings.](https://cdn.openai.com/devhub/docs/plugins/submission/mcp-scan-overview-20260927.webp)
 
-  <img src="https://developers.openai.com/images/codex/plugins/submit/prompts.webp"
-    alt="Prompts tab with example starter prompts"
-    width="1452"
-    height="1102"
-    class="block h-auto w-full rounded-lg border border-default"
-  />
+**_MCP scan overview._** _Rescan after server changes, then inspect the results and each tool’s availability._
 
+Rescan may be unavailable during another scan, an active appeal, or when the plugin is not eligible for scanning.
 
+### Find and resolve tool issues
 
-### Testing
+1. Open **Issues** and select an affected tool.
+2. Read **Issues found** and inspect **Held update** to see the metadata that was evaluated. **Live definition** shows the metadata currently in use.
+3. Select **Copy issues** to bring the findings into your development workflow.
+4. Correct the tool metadata or implementation on your server and deploy the changes.
+5. Return to **Issues**, select **Rescan**, and check the updated results.
 
-Submit at least five positive test cases and three negative test cases.
+**Tip:** Ask Codex or ChatGPT to inspect your MCP server and the copied error. Ask it to explain the issue and suggest a fix.
 
-For each positive test case, include:
+Tool changes are evaluated independently. A flagged change does not necessarily block other eligible tool updates. New tools remain unavailable until approved; existing tools retain their previously approved metadata when an update is held. Removals take effect after a scan.
 
-- User prompt.
-- Expected tool, skill, or workflow behavior.
-- Expected result shape.
-- Test account or fixture data required to reproduce it.
+Keep your MCP server compatible with the currently approved tool schemas until the updated metadata is live.
 
-For each negative test case, include:
+### Appeal an automated finding
 
-- User prompt or scenario.
-- Expected refusal, clarification, or safe fallback behavior.
-- Why the plugin shouldn't complete the requested action.
+If you believe a tool finding is incorrect, select **Appeal** and explain why the review team should reconsider the findings. The review team considers the held tool changes from that scan together. If the finding is valid, correcting it on the server and rescanning is usually faster.
 
-Use test cases that reviewers can run without internal context. If your plugin
-requires authentication, make sure the provided demo credentials can complete
-each test without MFA, SMS, email confirmation, or private-network access.
+![Appeal dialog explaining that review covers the held tool changes from the scan.](https://cdn.openai.com/devhub/docs/plugins/submission/mcp-appeal-20260927.webp)
 
+**_MCP appeal._** _Explain why the review team should reconsider the automated finding._
 
+Automatic MCP updates pause during an appeal. To make changes, select **Withdraw appeal**, update the server, and rescan. Appeals cover held tool changes, not package changes, authentication, or shared server instructions.
 
-  <img src="https://developers.openai.com/images/codex/plugins/submit/testing.webp"
-    alt="Testing tab with a test case for the roll_dice tool"
-    width="1452"
-    height="1102"
-    class="block h-auto w-full rounded-lg border border-default"
-  />
+For troubleshooting, see [submission errors](https://developers.openai.com/plugins/deploy/submission-errors). Include your plugin ID when contacting support.
 
+<a id="prepare-metadata-in-pluginjson"></a>
 
+## Automatically provide submission and review information
 
-### Global
-
-Choose the countries or regions where the plugin should be available. Only
-select locations where the publisher, product, support process, and legal terms
-are ready for users.
-
-
-
-  <img src="https://developers.openai.com/images/codex/plugins/submit/global.webp"
-    alt="Global tab for country and region availability"
-    width="1452"
-    height="964"
-    class="block h-auto w-full rounded-lg border border-default"
-  />
-
-
-
-### Submit
-
-Review the full draft before submitting.
-
-In the release notes, summarize:
-
-- What the plugin does.
-- Whether this is an initial submission or an update.
-- What changed since the prior submitted version, if any.
-- Anything reviewers should know about test credentials, expected data, or
-  setup.
-
-Complete the policy attestations only after confirming the listing, server,
-skills, prompts, tests, and availability are accurate. Then select
-**Submit for Review**.
-
-
-
-  <img src="https://developers.openai.com/images/codex/plugins/submit/submit.webp"
-    alt="Submit tab with release notes and final attestations"
-    width="1452"
-    height="964"
-    class="block h-auto w-full rounded-lg border border-default"
-  />
-
-
-
-## Public publishing flow
-
-Submitting a plugin starts review; it doesn't publish the plugin immediately.
-For public availability, the flow is:
-
-1. Submit the plugin through the plugin submission portal.
-2. OpenAI reviews the submission. Review timelines may vary as OpenAI builds
-   and scales the review process.
-3. After OpenAI approves the plugin, the developer chooses when to publish it
-   and publishes it from the portal.
-4. After publication, the plugin appears in the universal Plugins Directory
-   shared by ChatGPT and Codex.
-
-MCP-only, skills-only, and skills-plus-MCP plugins all
-appear in the Plugins Directory.
-
-### How published MCP metadata versions work
-
-After publication, OpenAI periodically fetches your MCP tools. Deleted tools
-are removed as soon as a scan detects them. New and changed tool definitions
-become available after automated checks pass; held updates keep the previous
-definition live. See
-[Continuous review and tool updates](https://developers.openai.com/plugins/deploy/app-review#continuous-review-and-tool-updates).
-
-Changes to submitted plugin information or imported skills still require a new
-version, review, and publication.
-
-## Final checklist
-
-Before submitting, confirm:
-
-- The submitter has **Apps Management** write access.
-- The publisher has a verified developer or business identity.
-- Plugins with UI define a content security policy for the exact domains the
-  component fetches from.
-- Tool names, descriptions, schemas, and annotations match actual behavior.
-- Every tool has accurate `readOnlyHint`, `openWorldHint`, and
-  `destructiveHint` values.
-- Tool responses don't include unnecessary personal data, auth secrets, debug
-  payloads, internal identifiers, or undisclosed user-related fields.
-- You tested the skills locally with the final file tree.
-- Starter prompts show realistic user workflows.
-- The submission includes five positive and three negative test cases.
-
-For a remote MCP submission, also confirm:
-
-- The MCP server uses a public, production URL.
-- Reviewer credentials work without MFA, email confirmation, SMS confirmation,
-  or private-network access.
-- MCP-imported skills match the latest **Scan Tools** snapshot.
-- Privacy policy, terms, support, and website URLs are public and match the
-  publisher identity.
+You can include listing, review, and publication details in your plugin manifest so they’re filled in when you upload your ZIP. The reference below covers supported fields, how uploads apply them, and examples for each package format.
+
+Plugin ZIPs containing app references (`apps` / `.app.json`) or lifecycle hooks cannot currently be submitted. Declare MCP server URLs in your MCP configuration and complete setup in the dashboard.
+
+### Complete metadata examples
+
+These examples describe the same illustrative notes plugin in each format. Copy the manifest for your format, then replace the publisher information, URLs, tool names, review cases, translations, and country availability with your actual values. The example cases have not been run against a real service.
+
+Include the files referenced by the manifest:
+
+- `skills/get-started/SKILL.md`, with valid name and description fields in the YAML header.
+- The four icon files and screenshot under `assets/`.
+- Exactly one remote MCP server named notes, configured in `mcp.json` for Agent Plugins or `.mcp.json` for Codex, using the matching configuration that follows.
+
+Use your own accessible demo and review attachment URLs. The example.com links show the expected shape and aren’t working submission materials. If your plugin contains only skills, omit review and the MCP configuration, and omit `mcpServers` from the Codex manifest.
+
+Use this companion `mcp.json` for the Agent Plugins example:
+
+```json
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "notes": {
+      "type": "streamable-http",
+      "url": "https://example.com/mcp"
+    }
+  }
+}
+```
+
+For the Codex example, save this as `.mcp.json` at the plugin root. This format omits the Agent Plugins schema:
+
+```json
+{
+  "mcpServers": {
+    "notes": {
+      "url": "https://example.com/mcp"
+    }
+  }
+}
+```
+
+#### Agent Plugins format
+
+Save this complete manifest as plugin.json at the plugin root:
+
+```json
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "acme-notes",
+  "version": "1.0.0",
+  "description": "Search and summarize notes from your Acme workspace.",
+  "author": {
+    "name": "Acme",
+    "email": "support@example.com",
+    "url": "https://example.com"
+  },
+  "homepage": "https://example.com/notes",
+  "repository": "https://github.com/example/acme-notes",
+  "license": "MIT",
+  "keywords": ["notes", "search", "productivity"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Acme Notes",
+        "shortDescription": "Find and summarize your notes",
+        "longDescription": "Search notes in your Acme workspace, open matching notes, and summarize decisions with links to the source. Acme Notes only accesses notes available to your connected account.",
+        "developerName": "Acme",
+        "category": "Productivity",
+        "capabilities": ["Search notes", "Read notes"],
+        "websiteURL": "https://example.com/notes",
+        "supportURL": "https://example.com/support",
+        "privacyPolicyURL": "https://example.com/privacy",
+        "termsOfServiceURL": "https://example.com/terms",
+        "defaultPrompt": [
+          "Find my notes about the launch.",
+          "Summarize the decisions in my launch notes.",
+          "Open the project kickoff notes."
+        ],
+        "brandColor": "#2357C6",
+        "brandColorDark": "#8CB4FF",
+        "composerIcon": "./assets/icon.png",
+        "composerIconDark": "./assets/icon-dark.png",
+        "logo": "./assets/logo.png",
+        "logoDark": "./assets/logo-dark.png",
+        "screenshots": ["./assets/screenshot.png"]
+      },
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find notes by topic",
+              "prompt": "Find my notes about the launch.",
+              "tools_triggered": "search_notes",
+              "expected_behavior": "Return accessible notes about the launch with source links.",
+              "file_attachment_urls": [
+                "https://example.com/review/launch-brief.pdf"
+              ],
+              "expected_output_url": "https://example.com/review/launch-results"
+            },
+            {
+              "description": "Open a matching note",
+              "prompt": "Open the project kickoff notes.",
+              "tools_triggered": "search_notes, read_note",
+              "expected_behavior": "Find the kickoff note and return its content with a source link."
+            },
+            {
+              "description": "Summarize decisions",
+              "prompt": "Summarize decisions in my launch notes.",
+              "tools_triggered": "search_notes, read_note",
+              "expected_behavior": "Summarize decisions from accessible notes and cite the sources."
+            },
+            {
+              "description": "Find action items",
+              "prompt": "What action items are in my kickoff notes?",
+              "tools_triggered": "search_notes, read_note",
+              "expected_behavior": "List the action items recorded in the notes without inventing owners or deadlines."
+            },
+            {
+              "description": "Handle no matches",
+              "prompt": "Find my notes about Project Northstar.",
+              "tools_triggered": "search_notes",
+              "expected_behavior": "Report that no matching notes were found in the test workspace."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Unsupported payment",
+              "prompt": "Transfer $100 to another account."
+            },
+            {
+              "description": "Unsupported deletion",
+              "prompt": "Delete all my notes."
+            },
+            {
+              "description": "Access outside the connected account",
+              "prompt": "Show notes from a workspace I cannot access."
+            }
+          ]
+        },
+        "demo_recording_url": "https://example.com/review/acme-notes-demo",
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments."
+      },
+      "publication": {
+        "countries": ["US", "GB"],
+        "release_notes": "Initial release with note search, reading, and summaries.",
+        "translations": {
+          "fr-FR": {
+            "subtitle": "Retrouvez et résumez vos notes",
+            "description": "Recherchez des notes dans votre espace Acme, ouvrez les résultats et résumez les décisions avec des liens vers les sources. Acme Notes accède uniquement aux notes disponibles pour votre compte connecté."
+          },
+          "ja-JP": {
+            "subtitle": "ノートを検索して要約",
+            "description": "Acmeワークスペース内のノートを検索し、該当するノートを開き、参照元へのリンク付きで決定事項を要約します。Acme Notesは、接続されたアカウントで閲覧できるノートにのみアクセスします。"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+#### Codex format
+
+Save this complete manifest as .codex-plugin/plugin.json. The presentation fields move to the root interface; onboarding, review, and publication stay under `extensions.com.openai`:
+
+```json
+{
+  "name": "acme-notes",
+  "version": "1.0.0",
+  "description": "Search and summarize notes from your Acme workspace.",
+  "author": {
+    "name": "Acme",
+    "email": "support@example.com",
+    "url": "https://example.com"
+  },
+  "homepage": "https://example.com/notes",
+  "repository": "https://github.com/example/acme-notes",
+  "license": "MIT",
+  "keywords": ["notes", "search", "productivity"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Acme Notes",
+    "shortDescription": "Find and summarize your notes",
+    "longDescription": "Search notes in your Acme workspace, open matching notes, and summarize decisions with links to the source. Acme Notes only accesses notes available to your connected account.",
+    "developerName": "Acme",
+    "category": "Productivity",
+    "capabilities": ["Search notes", "Read notes"],
+    "websiteURL": "https://example.com/notes",
+    "supportURL": "https://example.com/support",
+    "privacyPolicyURL": "https://example.com/privacy",
+    "termsOfServiceURL": "https://example.com/terms",
+    "defaultPrompt": [
+      "Find my notes about the launch.",
+      "Summarize the decisions in my launch notes.",
+      "Open the project kickoff notes."
+    ],
+    "brandColor": "#2357C6",
+    "brandColorDark": "#8CB4FF",
+    "composerIcon": "./assets/icon.png",
+    "composerIconDark": "./assets/icon-dark.png",
+    "logo": "./assets/logo.png",
+    "logoDark": "./assets/logo-dark.png",
+    "screenshots": ["./assets/screenshot.png"]
+  },
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find notes by topic",
+              "prompt": "Find my notes about the launch.",
+              "tools_triggered": "search_notes",
+              "expected_behavior": "Return accessible notes about the launch with source links.",
+              "file_attachment_urls": [
+                "https://example.com/review/launch-brief.pdf"
+              ],
+              "expected_output_url": "https://example.com/review/launch-results"
+            },
+            {
+              "description": "Open a matching note",
+              "prompt": "Open the project kickoff notes.",
+              "tools_triggered": "search_notes, read_note",
+              "expected_behavior": "Find the kickoff note and return its content with a source link."
+            },
+            {
+              "description": "Summarize decisions",
+              "prompt": "Summarize decisions in my launch notes.",
+              "tools_triggered": "search_notes, read_note",
+              "expected_behavior": "Summarize decisions from accessible notes and cite the sources."
+            },
+            {
+              "description": "Find action items",
+              "prompt": "What action items are in my kickoff notes?",
+              "tools_triggered": "search_notes, read_note",
+              "expected_behavior": "List the action items recorded in the notes without inventing owners or deadlines."
+            },
+            {
+              "description": "Handle no matches",
+              "prompt": "Find my notes about Project Northstar.",
+              "tools_triggered": "search_notes",
+              "expected_behavior": "Report that no matching notes were found in the test workspace."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Unsupported payment",
+              "prompt": "Transfer $100 to another account."
+            },
+            {
+              "description": "Unsupported deletion",
+              "prompt": "Delete all my notes."
+            },
+            {
+              "description": "Access outside the connected account",
+              "prompt": "Show notes from a workspace I cannot access."
+            }
+          ]
+        },
+        "demo_recording_url": "https://example.com/review/acme-notes-demo",
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments."
+      },
+      "publication": {
+        "countries": ["US", "GB"],
+        "release_notes": "Initial release with note search, reading, and summaries.",
+        "translations": {
+          "fr-FR": {
+            "subtitle": "Retrouvez et résumez vos notes",
+            "description": "Recherchez des notes dans votre espace Acme, ouvrez les résultats et résumez les décisions avec des liens vers les sources. Acme Notes accède uniquement aux notes disponibles pour votre compte connecté."
+          },
+          "ja-JP": {
+            "subtitle": "ノートを検索して要約",
+            "description": "Acmeワークスペース内のノートを検索し、該当するノートを開き、参照元へのリンク付きで決定事項を要約します。Acme Notesは、接続されたアカウントで閲覧できるノートにのみアクセスします。"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Choose the layout that matches your package:
+
+| **Metadata**                             | **Agent Plugins: root plugin.json**                                | **Codex: .codex-plugin/plugin.json**                               |
+| ---------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| Package identity and publisher           | Root fields                                                        | Root fields                                                        |
+| Listing text, links, prompts, and images | `extensions.com.openai.interface`                                  | interface                                                          |
+| Getting started skill                    | extensions.com.openai.onboardingSkill                              | extensions.com.openai.onboardingSkill                              |
+| Review and publication details           | extensions.com.openai.review and extensions.com.openai.publication | extensions.com.openai.review and extensions.com.openai.publication |
+
+For Agent Plugins packages, put OpenAI-specific settings in `plugin.json` under `extensions.com.openai`. If that object is present, OpenAI ignores settings in `.codex-plugin/plugin.json`; the two files are not merged. If it is absent, OpenAI reads those settings from `.codex-plugin/plugin.json`. Package identity still comes from the root `plugin.json`, skills from `skills/`, and MCP servers from `mcp.json`.
+
+Use the [complete metadata examples](#complete-metadata-examples) as a starting point. If the developer dashboard reports a missing privacy URL, support URL, or app icon, use the field reference to find the corresponding manifest field.
+
+### Manifest fields
+
+The requirement column distinguishes package-format requirements from submission requirements. Review details are optional in the ZIP; required materials must be present before submitting.
+
+#### Package identity and components
+
+These fields describe the package itself. Keep them at the root of either manifest, except where the table specifies an OpenAI extension field.
+
+| **Field**     | **Requirement**                                     | **Value and use**                                                                                                                                                                                                                                  |
+| ------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$schema`     | Required for Agent Plugins; omit for Codex          | Required for the portable format: https://agent-plugins.org/schemas/1.0.0/plugin.schema.json. Omit it from a standalone Codex compatibility manifest.                                                                                              |
+| `name`        | Required                                            | Required stable identifier, at most 64 characters. Use lowercase letters, numbers, and single hyphens for packages you plan to submit. Keep it separate from the display name.                                                                     |
+| `version`     | Required for Codex; optional in the portable schema | Release version, such as 1.0.0. Optional in the portable schema; use an explicit semantic version for submission and updates. Required in the Codex format.                                                                                        |
+| `description` | Required for Codex; optional for Agent Plugins      | Package summary, at most 4000 characters. Optional in the portable schema and required in the Codex format.                                                                                                                                        |
+| `author`      | Required for Codex; optional for Agent Plugins      | Publisher object with name, optional email, and optional HTTPS `url`. The portable schema allows this object to be omitted; the Codex format requires `author.name`. Use at most 120 characters for the name, 320 for email, and 2048 for the URL. |
+| `homepage`    | Optional                                            | Optional HTTPS project homepage, at most 2048 characters. Set the listing’s `interface.websiteURL` separately.                                                                                                                                     |
+| `repository`  | Optional                                            | Optional source repository URL.                                                                                                                                                                                                                    |
+| `license`     | Optional                                            | Optional license identifier, such as MIT.                                                                                                                                                                                                          |
+| `keywords`    | Optional                                            | Optional array of discovery terms.                                                                                                                                                                                                                 |
+| `extensions`  | Optional                                            | Settings grouped by namespace. Put OpenAI-specific settings under `com.openai`.                                                                                                                                                                    |
+| `skills`      | For Codex packages with skills                      | Codex only: a relative directory path or array of paths containing skills, such as `"./skills/"`. Portable packages discover `skills/` automatically.                                                                                              |
+| `mcpServers`  | For Codex packages with MCP servers                 | Codex only: `"./.mcp.json"` for bundled MCP server configuration. Portable packages discover root `mcp.json` automatically.                                                                                                                        |
+
+Use these additional settings inside `extensions.com.openai` for portable packages, or at the root of a Codex compatibility manifest:
+
+| **Field**   | **Requirement**                                | **Value and use**                                                                                                                                                                |
+| ----------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `interface` | Required for Codex; optional for Agent Plugins | Presentation object described in [Listing metadata](#listing-metadata). The Codex format requires this object; portable packages can derive basic text from their root metadata. |
+| `id`        | Optional                                       | Optional identity used by managed plugin catalogs. Preserve an assigned value. ZIP uploads use the dashboard’s plugin identity.                                                  |
+
+Portable packages always discover skills in `skills/` and MCP servers in `mcp.json`. A skills or `mcpServers` declaration in the inline extension or compatibility overlay can’t replace, disable, or add to those components. Those declarations apply only to packages without a recognized portable root manifest.
+
+#### Listing metadata
+
+Put the following fields in `extensions.com.openai.interface` for Agent Plugins or interface for the Codex format. The limits here are for public submission; a package upload can accept longer draft text. A successful upload doesn’t mean the listing is ready to submit.
+
+| **Field**           | **Requirement**                                          | **Type**                   | **Value and submission limit**                                                                                                           |
+| ------------------- | -------------------------------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `displayName`       | Required                                                 | String                     | Name shown to users; required, at most 30 characters.                                                                                    |
+| `shortDescription`  | Required                                                 | String                     | Subtitle shown with the name; required, at most 30 characters.                                                                           |
+| `longDescription`   | Required                                                 | String                     | Description of tasks, intended users, and limitations; required, at most 4000 characters.                                                |
+| `developerName`     | Required                                                 | String                     | Publisher name; required, at most 80 characters. The directory name is set automatically from your selected verified developer identity. |
+| `category`          | Required                                                 | String                     | Required category title from the dashboard, such as Productivity or Developer Tools.                                                     |
+| `capabilities`      | Required for Codex; optional for Agent Plugins           | Array of strings           | Capability labels; at most 20, with at most 120 characters each. Required in the Codex format; use [] if there are none.                 |
+| `websiteURL`        | Required for MCP review                                  | String                     | HTTPS product website, at most 1024 characters.                                                                                          |
+| `supportURL`        | Required for MCP review                                  | String                     | HTTPS customer support page, at most 1024 characters.                                                                                    |
+| `privacyPolicyURL`  | Required for MCP review                                  | String                     | HTTPS privacy policy, at most 1024 characters.                                                                                           |
+| `termsOfServiceURL` | Required for MCP review                                  | String                     | HTTPS terms of service, at most 1024 characters.                                                                                         |
+| `defaultPrompt`     | Optional                                                 | String or array of strings | Up to three starter prompts, at most 128 characters each. Make them unique and omit app @mentions. Use an array for multiple prompts.    |
+| `brandColor`        | Optional                                                 | String                     | Light-theme color in #RRGGBB format, with at least 2:1 contrast against white.                                                           |
+| `brandColorDark`    | Optional                                                 | String                     | Dark-theme color in #RRGGBB format, with at least 2:1 contrast against #212121. A dark color is derived if you supply only `brandColor`. |
+| `composerIcon`      | Required for Codex                                       | String                     | Relative path to the icon used in the composer.                                                                                          |
+| `composerIconDark`  | Optional                                                 | String                     | Optional relative path to its dark-theme variant.                                                                                        |
+| `logo`              | Required for Codex; primary icon required for submission | String                     | Relative path to the primary listing icon.                                                                                               |
+| `logoDark`          | Optional                                                 | String                     | Optional relative path to its dark-theme variant.                                                                                        |
+| `screenshots`       | Optional                                                 | Array of strings           | Optional relative paths to screenshots.                                                                                                  |
+
+For an attached MCP app that needs public review, all four listing URLs are required: `websiteURL`, `supportURL`, `privacyPolicyURL`, and `termsOfServiceURL`. Use HTTPS URLs without embedded credentials. Skills-only metadata validation doesn’t require all four URLs. The package’s `homepage` and `author.url` don’t fill these listing fields automatically.
+
+#### Icons and screenshots
+
+Include `logo` and `composerIcon` in packages you prepare for distribution. Codex package validation requires both; you can upload a portable package without them, but the dashboard requires a primary app icon before submission. Dark variants and screenshots are optional. To resolve an “App icon required” warning, add `logo` and its image file, or provide the icon in the dashboard.
+
+Use ./-prefixed paths relative to the plugin root and include every referenced file. Supported image formats are PNG, JPEG, WebP, and SVG, at most 5 MiB each. Icons and logos must be square and at least 48 by 48 pixels. Raster images can be at most 4096 pixels in either dimension. For SVG icons, provide square numeric dimensions or a square `viewBox` of at least 48 by 48.
+
+#### Configure onboarding, review, and publication
+
+In both formats, put these objects directly under `extensions.com.openai`, alongside the portable format’s interface. Don’t nest them inside interface.
+
+| **Field**                                       | **Requirement**                                              | **Type**         | **Value and use**                                                                                                                                                                                                              |
+| ----------------------------------------------- | ------------------------------------------------------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `onboardingSkill`                               | Optional                                                     | String           | Relative path to a packaged skill’s SKILL.md, such as ./skills/get-started/SKILL.md. It must refer to an included skill.                                                                                                       |
+| `review.test_cases.positive`                    | Optional in ZIP; five cases required for initial MCP review  | Array of objects | Positive review cases for a plugin with exactly one MCP server. Use the case fields that follow.                                                                                                                               |
+| `review.test_cases.negative`                    | Optional in ZIP; three cases required for initial MCP review | Array of objects | Negative review cases for that server.                                                                                                                                                                                         |
+| `review.demo_recording_url`                     | Optional in ZIP; required for MCP review                     | String           | Reviewer-accessible video walkthrough URL.                                                                                                                                                                                     |
+| `review.commerce`                               | Optional                                                     | boolean          | Whether the app supports commerce. This declaration doesn’t accept legal terms.                                                                                                                                                |
+| `review.commerce_description`                   | Optional                                                     | String           | Explanation of the app’s commerce behavior.                                                                                                                                                                                    |
+| `publication.countries`                         | Optional                                                     | Array of strings | Availability allowlist of recognized uppercase country codes, such as US and GB. Omit it to preserve existing targeting; [] removes country restrictions. Applies when the plugin is published, including skills-only plugins. |
+| `publication.release_notes`                     | Optional                                                     | String           | Notes describing this version’s changes.                                                                                                                                                                                       |
+| `publication.translations`                      | Optional                                                     | Object or null   | Optional map of locale keys to translated listing text. See [Translate listing text](#translate-listing-text).                                                                                                                 |
+| `publication.translations.<locale>.subtitle`    | Optional                                                     | String or null   | Optional translated subtitle, up to 30 characters.                                                                                                                                                                             |
+| `publication.translations.<locale>.description` | Optional                                                     | String or null   | Optional translated description, up to 4000 characters.                                                                                                                                                                        |
+
+Each object in `review.test_cases.positive` or `review.test_cases.negative` describes one test case:
+
+| **Field**              | **Requirement**             | **Type**         | **Value and use**                                                                                                                 |
+| ---------------------- | --------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `description`          | Required                    | String           | Required description of the behavior being checked. Keep positive descriptions within 4000 characters.                            |
+| `prompt`               | Required                    | String           | Required user prompt the reviewer can try.                                                                                        |
+| `tools_triggered`      | Required for positive cases | String           | Expected tool names; required for positive cases at submission.                                                                   |
+| `expected_behavior`    | Required for positive cases | String           | Observable expected result; required for positive cases at submission.                                                            |
+| `file_attachment_urls` | Optional                    | Array of strings | Optional links to files used by the case.                                                                                         |
+| `expected_output_url`  | Optional                    | String           | Optional link to an example of the expected result, such as a reference document the reviewer can compare with the actual output. |
+
+Initial MCP app review requires exactly five positive and three negative cases. Upload accepts partial lists, so finish them before submitting. For multiple MCP servers, declare cases separately on each server in the MCP configuration; plugin-level `review.test_cases` requires exactly one server and can’t be combined with per-server case declarations. Skills-only plugins don’t need MCP app review cases or a demo recording.
+
+Imported test cases are read-only in the dashboard: edit the package and upload it again to change them. Omitting `test_cases`, or setting it to null, preserves existing cases; `test_cases`: &#123;&#125; clears both lists. Omitting cases from a later upload doesn’t restore dashboard editing.
+
+For the scalar review fields and `release_notes`, omission or null preserves saved values; an empty string clears text. Explicit package values are reapplied when you submit. Remove a scalar declaration from the package if you want to use an edited dashboard value. Shared review fields apply to the plugin’s own MCP app drafts. Release notes on a skills-only plugin stay in the package and don’t create an app review.
+
+Keep commerce and `commerce_description` in review, not publication. Don’t put credentials or reviewer instructions in the package: ZIP metadata rejects `test_credentials` and `reviewer_instructions`. Enter reviewer access through the secure dashboard form.
+
+### Translate listing text
+
+In both formats, add a translations object under extensions.com.openai.publication to provide translated subtitles and descriptions. Use non-empty locale keys such as fr-FR or ja-JP. Each locale’s object can contain subtitle, description, or both; either field can be omitted or set to null. You can also omit translations or set it to null.
+
+Keep English text in the base listing fields. An en-US translation isn’t required, and the importer doesn’t generate one.
+
+Translated subtitles must be a single line of up to 30 characters. Translated descriptions can include \n line breaks and contain up to 4000 characters. Provided text must contain more than whitespace and use supported text characters; tabs and other unsupported control characters are rejected. Limits apply to the exact text, including leading and trailing spaces.
+
+Translations are validated during import and retained in the uploaded bundle, including after metadata edits. Importing them doesn’t yet change the text shown in the Plugins Directory or listing API responses.

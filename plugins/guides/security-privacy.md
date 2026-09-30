@@ -38,7 +38,7 @@ standard `fetch` requests. Nested frames are unavailable by default; enable
 specific origins in resource CSP metadata such as
 `_meta.ui.csp.frameDomains`. Plugins can embed pages from their MCP server's
 own registrable domain, including existing editors and admin interfaces. See
-the [iframe policy](https://developers.openai.com/plugins/app-guidelines#iframes-and-embedded-pages) for
+the [iframe policy](https://developers.openai.com/plugins/plugin-guidelines#iframes-and-embedded-pages) for
 domain ownership, required justifications, and review requirements.
 
 The widget CSP restricts which iframe destinations can load. An embedded

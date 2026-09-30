@@ -412,14 +412,13 @@ developer-mode connection and rerun the evaluation set before submission.
 For optional UI, version resource identifiers when HTML, JavaScript, or CSS
 changes in a way that could break a cached component.
 
-## Add optional UI
+<a id="supercharge-your-mcp-with-extensions"></a>
 
-After tools work end to end, decide whether any use case needs visual
-interaction. A table, map, editable schedule, or comparison view may benefit
-from UI. A lookup, status check, or background action often does not.
+## Add MCP extensions
 
-Continue with [Add UI to your MCP server](https://developers.openai.com/plugins/build/chatgpt-ui) to
-register an MCP Apps resource and associate it with selected tools.
+OpenAI MCP Extensions connect your plugin to ChatGPT's sidebar, composer, and
+file viewers. See [Plugin Extensions](https://developers.openai.com/plugins/build/extensions) for examples
+and setup.
 
 ## Security reminders
 

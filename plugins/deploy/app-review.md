@@ -34,7 +34,7 @@ countries you define during submission. For private or workspace-only use, use
 instead.
 
 Before submitting the plugin, review the
-[plugin guidelines](https://developers.openai.com/plugins/app-guidelines) for MCP server and optional UI
+[plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines) for MCP server and optional UI
 expectations, and see
 [Submit plugins](https://developers.openai.com/plugins/deploy/submission) for the full plugin submission,
 approval, and publishing flow.

@@ -628,7 +628,7 @@ Refresh the plugin connection after each change to the MCP server (tools,
 
 When you're preparing for public distribution, review
 [Submit plugins](https://developers.openai.com/plugins/deploy/submission), the
-[Plugin guidelines](https://developers.openai.com/plugins/app-guidelines), and
+[Plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines), and
 [Brainstorm plugin use cases](https://developers.openai.com/plugins/plan/use-case). If you're building a UI, you
 can also review the [UI guidelines](https://developers.openai.com/plugins/concepts/ui-guidelines).
 

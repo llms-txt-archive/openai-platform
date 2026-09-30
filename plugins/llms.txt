@@ -8,9 +8,6 @@ Use this as a lightweight map for AI tools. Each Plugins page has a Markdown twi
 - [Combined Plugins docs](https://developers.openai.com/plugins/llms-full.txt): Single-file Markdown export of the Plugins docs.
 - [Plugin UI reference (Markdown)](https://developers.openai.com/plugins/reference.md): Schema and API fields for tools, resources, and components.
 
-## App Guidelines
-- [Plugin guidelines](https://developers.openai.com/plugins/app-guidelines.md): Requirements for MCP servers and optional UI in published plugins.
-
 ## Build
 - [Add UI to your MCP server](https://developers.openai.com/plugins/build/chatgpt-ui.md): Return optional UI resources from selected MCP tools.
 - [Authentication](https://developers.openai.com/plugins/build/auth.md): Authentication patterns for plugin MCP servers.
@@ -18,8 +15,10 @@ Use this as a lightweight map for AI tools. Each Plugins page has a Markdown twi
 - [Build skills](https://developers.openai.com/plugins/build/skills.md): Add repeatable workflows around your plugin's MCP tools.
 - [Checkout API reference](https://developers.openai.com/plugins/build/monetization.md): Implement checkout from optional plugin UI.
 - [Examples](https://developers.openai.com/plugins/build/examples.md): End-to-end examples of MCP servers with optional UI.
+- [MCP Events](https://developers.openai.com/plugins/build/mcp-events.md): Implement event subscriptions and webhook delivery for your MCP server.
 - [MCP server and UI quickstart](https://developers.openai.com/plugins/build/app-quickstart.md): Build an MCP server for ChatGPT and Codex, with optional UI in ChatGPT.
 - [Package your plugin](https://developers.openai.com/plugins/build/plugins.md): Assemble skills and MCP server dependencies into a distributable plugin.
+- [Plugin Extensions](https://developers.openai.com/plugins/build/extensions.md): Build plugins that feel like native, first-class features of ChatGPT.
 
 ## Concepts
 - [MCP server](https://developers.openai.com/plugins/concepts/mcp-server.md): Understand how an MCP server gives a plugin tools and access to external systems.
@@ -31,8 +30,8 @@ Use this as a lightweight map for AI tools. Each Plugins page has a Markdown twi
 - [Connect and test your plugin](https://developers.openai.com/plugins/deploy/connect-chatgpt.md): Test an optional MCP server, then package and evaluate the complete plugin.
 - [Plugin submission errors](https://developers.openai.com/plugins/deploy/submission-errors.md): Find and fix validation errors for plugins submitted to the public directory
 - [Remote MCP server review requirements](https://developers.openai.com/plugins/deploy/app-review.md): Prepare a plugin's remote MCP server and optional UI for public review.
-- [Submit plugins](https://developers.openai.com/plugins/deploy/submission.md): Submit, publish, and maintain a plugin through the OpenAI Platform
 - [Troubleshooting](https://developers.openai.com/plugins/deploy/troubleshooting.md): Troubleshoot plugin tools and optional UI.
+- [Upload and submit your plugin](https://developers.openai.com/plugins/deploy/submission.md): Bring your plugin to the directory and keep it up to date.
 
 ## Guides
 - [Local services Get Quote conversion spec](https://developers.openai.com/plugins/guides/local-services-request-quote-conversion-spec.md): Contract for integrating a local services quote-request plugin into ChatGPT's conversion flow.
@@ -45,6 +44,9 @@ Use this as a lightweight map for AI tools. Each Plugins page has a Markdown twi
 ## Plan
 - [Brainstorm plugin use cases](https://developers.openai.com/plugins/plan/use-case.md): Decide what people should be able to accomplish with your plugin.
 - [Define tools](https://developers.openai.com/plugins/plan/tools.md): Translate plugin use cases into a focused MCP tool surface.
+
+## Plugin Guidelines
+- [Plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines.md): Requirements for all plugins published in the ChatGPT Directory.
 
 ## Quickstart
 - [Quickstart](https://developers.openai.com/plugins/quickstart.md): Connect an MCP server and test the resulting plugin in ChatGPT Work.

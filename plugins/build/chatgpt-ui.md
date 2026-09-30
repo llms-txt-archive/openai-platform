@@ -35,6 +35,9 @@ compatible MCP Apps hosts.
 When you're ready to implement the standard, use the [MCP Apps
 specification](https://modelcontextprotocol.io/docs/extensions/apps).
 
+For sidebar apps, file viewers, and richer forms, see
+[Extensions](https://developers.openai.com/plugins/build/extensions).
+
 ## Layer on ChatGPT extensions
 
 After the MCP Apps flow works, use `window.openai` only for capabilities that
@@ -675,7 +678,7 @@ You can embed an existing editor or admin interface from your MCP server's own
 registrable domain. For example, a server at `https://api.example.com/mcp` can
 declare `https://app.example.com` in `frameDomains`. Provide the required
 justification at submission and follow the
-[iframe policy](https://developers.openai.com/plugins/app-guidelines#iframes-and-embedded-pages), including
+[iframe policy](https://developers.openai.com/plugins/plugin-guidelines#iframes-and-embedded-pages), including
 its restrictions on shared hosting and its review requirements.
 
 Component UI templates are the recommended path for production.

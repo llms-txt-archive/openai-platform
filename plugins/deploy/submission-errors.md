@@ -113,7 +113,7 @@ upload; warnings require confirmation.
 | `screenshot_configuration_excluded` | Skills-only ZIP uploads must not include `interface.screenshots`; screenshots require **With MCP** and custom UI.                                         |
 | `claude_format_normalized`          | `.claude-plugin/plugin.json` is converted to `.codex-plugin/plugin.json`, with missing interface defaults and normalized text fields added by the portal. |
 | `manifest_normalized`               | The portal saves the normalized manifest as `.codex-plugin/plugin.json`; changed fields require confirmation.                                             |
-| `developer_name_defaulted`          | `author.name` and `interface.developerName` must match, or the selected verified identity is used for both after confirmation.                            |
+| `developer_name_defaulted`          | The listing’s developer name is set automatically from your selected verified developer identity, regardless of the name in your ZIP.                     |
 
 ### ZIP structure and limit errors
 
