@@ -73,9 +73,9 @@ The metrics below describe general Insights. For the dedicated conversion endpoi
 
 | Metric                                              | Meaning                                                                                                         |
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Conversions (`conversions`)                         | Click-through conversions for the conversion events configured on your campaigns.                               |
+| Conversions (`conversions`)                         | Goal conversions from clicks plus views within the selected attribution windows.                                |
 | Cost per action (`cpa`)                             | Spend divided by conversions.                                                                                   |
-| Post-click conversion rate (`post_click_cvr`)       | Conversions divided by clicks, returned as a ratio.                                                             |
+| Post-click conversion rate (`post_click_cvr`)       | Click-through goal conversions divided by clicks, returned as a ratio.                                          |
 | Attributed sales (`order_created_attributed_sales`) | The value of attributed purchase events (`order_created`), expressed in the ad account's currency.              |
 | Return on ad spend (`order_created_roas`)           | Attributed purchase value divided by spend. A value of `4` means four units of attributed sales per unit spent. |
 
@@ -176,7 +176,7 @@ Use general Insights when you want conversion outcomes alongside spend and deliv
 
 #### Retrieve daily conversions
 
-Use campaign Insights to retrieve daily conversions alongside clicks and spend:
+Use campaign Insights to retrieve daily conversions alongside clicks and spend. This example explicitly selects the default 30-day click and 1-day view windows, using ad-event time:
 
 ```bash
 curl -G "https://api.ads.openai.com/v1/campaigns/cmpn_123/insights" \
@@ -184,6 +184,9 @@ curl -G "https://api.ads.openai.com/v1/campaigns/cmpn_123/insights" \
   --data-urlencode 'aggregation_level=campaign' \
   --data-urlencode 'time_granularity=daily' \
   --data-urlencode 'time_ranges[]={"type":"date_range","since":"2026-09-01","until":"2026-09-07","timezone":"America/New_York"}' \
+  --data-urlencode 'attribution_window_days=30' \
+  --data-urlencode 'view_through_attribution_window_days=1' \
+  --data-urlencode 'attribution_time_basis=ad_event_time' \
   --data-urlencode 'fields[]=campaign_id' \
   --data-urlencode 'fields[]=readable_time' \
   --data-urlencode 'fields[]=clicks' \
@@ -217,12 +220,14 @@ To segment this report by country or device, add `"breakdown": "country"` or `"b
 
 #### Understand attribution
 
-An attribution window is the period after an ad interaction during which an outcome can be credited to that interaction. For `POST /v1/conversions/insights`, choose the reporting windows independently of event selection:
+An attribution window is the period after an ad interaction during which an outcome can be credited to that interaction. The four GET Insights endpoints and `POST /v1/conversions/insights` use the same reporting settings. Send them as query parameters for GET or body fields for POST:
 
-| Parameter                              | Accepted values | Default when omitted or `null`                                            |
+| Parameter                              | Accepted values | Default when omitted                                                      |
 | -------------------------------------- | --------------- | ------------------------------------------------------------------------- |
 | `attribution_window_days`              | `7`, `14`, `30` | `30` days after a click.                                                  |
 | `view_through_attribution_window_days` | `0`, `1`        | `1` day after an impression. Use `0` to exclude view-through attribution. |
+
+Each window defaults independently; changing the click window does not disable views. These settings affect conversions, sales, CPA, ROAS, and post-click conversion rate. Impressions, clicks, and spend are unchanged.
 
 The dedicated conversion endpoint reports these goal conversion counts:
 
@@ -236,9 +241,9 @@ For example, 3 click-through and 2 view-through goal conversions produce `conver
 
 By default, `attribution_time_basis` is `"ad_event_time"`: the date range and daily rows use the date of the attributed ad interaction. Set it to `"conversion_time"` to use the date the conversion occurred. Conversion-time reporting has limited coverage of non-goal events; use ad-event time when reporting on those events.
 
-Use full days in the ad account's timezone, with an exclusive end, for up to 365 days. Set `time_granularity` to `"daily"` for daily rows or `"none"` for period totals. When comparing with Ads Manager, use the same date range, time basis, and click/view windows.
+Use full days in the ad account's timezone, for up to 365 days. The `date_range.until` date is inclusive; `unix_range.end` is exclusive. Set `time_granularity` to `"daily"` for daily rows or `"none"` for period totals. When comparing with Ads Manager, use the same date range, time basis, and click/view windows.
 
-Existing integrations that relied on click-only totals or conversion-date defaults should review their reporting assumptions. The dedicated endpoint now uses the selected click/view windows and defaults to ad-event time; it does not provide a legacy reporting mode.
+Existing integrations that relied on click-only totals or conversion-date defaults should review their reporting assumptions. GET Insights and the dedicated conversion endpoint now default to 30-day click, 1-day view, and ad-event time, including when settings are omitted. Neither provides a legacy reporting mode.
 
 #### Report goal and non-goal events
 

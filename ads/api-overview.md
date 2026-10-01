@@ -208,6 +208,10 @@ ad account. See [Bulk API limits](https://developers.openai.com/ads/bulk-api#lim
 
 ## Changelog
 
+### September 30th, 2026
+
+- Added selectable click/view attribution windows and time basis to all four GET Insights endpoints. Omitted settings now default independently to 30-day click, 1-day view, and ad-event time. Conversion totals include click-through plus view-through goal conversions and can differ from previous reports; impressions, clicks, and spend are unchanged. See [Understand attribution](https://developers.openai.com/ads/reporting#understand-attribution).
+
 ### September 10th, 2026
 
 - Added granular web platform targeting with `desktop_web`, `ios_web`, and `android_web` in `targeting.platforms.included`. Target desktop, iOS, and Android browsers separately, or use `web` to include all web platforms. See [Platform Targeting](https://developers.openai.com/ads/platform-targeting). Platform breakdowns in [Insights](https://developers.openai.com/ads/api-reference/insights#platform-breakdown) also separate web platforms while preserving historical Web totals.
