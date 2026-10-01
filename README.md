@@ -18,7 +18,7 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20261001T004945Z` | 2026-10-01 00:49 UTC | [Attribution, recovery, and GPT image docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261001T004945Z) |
+| `archive-20261001T074730Z` | 2026-10-01 07:47 UTC | [Audio Voice Creation Docs Expanded](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261001T074730Z) |
 | `archive-20260930T210027Z` | 2026-09-30 21:01 UTC | [Ads Audit Logs and API Reference Corrections](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260930T210027Z) |
 | `archive-20260930T160501Z` | 2026-09-30 16:06 UTC | [GPT Image 2.5 Batch support and pricing](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260930T160501Z) |
 | `archive-20260930T090018Z` | 2026-09-30 09:01 UTC | [Ads account naming and branding clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260930T090018Z) |
