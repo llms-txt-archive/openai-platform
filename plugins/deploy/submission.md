@@ -6,7 +6,7 @@ If you’ve built a plugin and want to share it more broadly, the plugin directo
 
 Submit the package you’ve already built as a ZIP, resolve automated findings, and submit it for review. Once approved, you choose when to publish.
 
-After initial publication, changes to your MCP server are picked up automatically, and eligible updates go live once they pass automated checks. There’s no need to upload a new plugin ZIP or publish each update; changes to plugin metadata, skills, or the MCP server configuration in your package still require a new ZIP.
+After initial publication, changes to your MCP server are picked up automatically, and eligible updates go live once they pass automated checks. There’s no need to upload a new plugin ZIP or publish each update; changes to plugin metadata or skills still require a new ZIP.
 
 Before submitting, follow the [plugin package guide](https://developers.openai.com/plugins/build/plugins) and read the [plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines). For help preparing your submission, use [Plugin Creator](https://chatgpt.com/plugins/plugin_connector_1p_e1a10c53223481918a42f1510ec46c1e?open_in_app), available in the plugin directory.
 

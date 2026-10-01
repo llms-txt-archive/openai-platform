@@ -11,6 +11,8 @@ MCP Events lets ChatGPT subscribe to updates from your MCP server, such as new m
 
 ## Before you start
 
+MCP Events is available in Work chats on ChatGPT web, in Work chats in the desktop app with **Cloud** selected, and with [dots](https://learn.chatgpt.com/docs/dots). Workspace controls for plugins and event-triggered tasks apply.
+
 MCP Events in ChatGPT requires MCP 2.0 (protocol version `2026-07-28`). Configure your server in your plugin and provide persistent subscription storage and outbound HTTPS access to callback URLs.
 
 ChatGPT supports webhook delivery and callback verification from the [draft MCP Events specification](https://github.com/modelcontextprotocol/experimental-ext-triggers-events/blob/main/docs/design-sketch-proposal.md). Polling, streaming, and the draft’s `gap` and `terminated` control notifications are not supported by this integration.
@@ -329,7 +331,7 @@ With the event methods and webhook delivery in place, connect your MCP server to
 
    **_Plugin events._** _Discovered events appear alongside tools on the plugin page._
 
-3. Start a new chat, ask ChatGPT to subscribe to one of your events, and specify what it should do when an event arrives.
+3. Start a Work chat on ChatGPT web, or select **Work** and **Cloud** in the desktop app. Ask ChatGPT to subscribe to one of your events and specify what it should do when an event arrives. You can also test with a [dot](https://learn.chatgpt.com/docs/dots).
 4. Confirm your server receives `events/subscribe` with the expected event name and arguments.
 5. Check that callback verification succeeds and the subscription is stored.
 6. Trigger a matching event in your app and confirm that the webhook delivery receives a `2xx` response.
