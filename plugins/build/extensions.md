@@ -83,6 +83,7 @@ Declaring support for an extension takes just a few lines of SDK code.
 | | [Model-App Context](https://github.com/openai/mcp-extensions/blob/main/docs/spec.md#uiupdate-model-context-extensions) | Keep ChatGPT and your MCP App in sync with bidirectional context sharing.                                    |
 | | [Composer mentions](https://github.com/openai/mcp-extensions/blob/main/docs/spec.md#composer-at-mentions)              | Let users find and select content from your plugin in the ChatGPT desktop composer.                          |
 | | [Rich forms](https://github.com/openai/mcp-extensions/blob/main/docs/spec.md#openai-form-elicitation)                  | Ask users for structured input or let them choose from images, then return their response to your tool.      |
+| | [Plugin onboarding](https://github.com/openai/mcp-extensions/blob/main/docs/spec.md#plugin-onboarding)                 | Guide users through setup in a new or existing conversation.                                                 |
 
 ### Sidebar apps
 
@@ -174,8 +175,6 @@ Pass this schema as `requestedSchema` in your form request. Each option uses
 `const` and `title`, with an optional `x-openai-thumbnail` icon.
 OpenAI-registered MCP servers require
 [multi-round-trip requests (MRTR)](https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr).
-The SDK's [extended forms guide](https://github.com/openai/mcp-extensions/blob/main/typescript/README.md#form-elicitation)
-shows the legacy `elicitInput` helper for direct MCP connections.
 
 <a id="plugin-examples"></a>
 
