@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20261002T223437Z` | 2026-10-02 22:34 UTC | [Broader SDK coverage across API guides](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261002T223437Z) |
+| `archive-20261003T012613Z` | 2026-10-03 01:26 UTC | [Live WebSocket Tools, Voices, and Agent Error Updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261003T012613Z) |
+| `archive-20261002T223437Z` | 2026-10-02 22:36 UTC | [Broader SDK coverage across API guides](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261002T223437Z) |
 | `archive-20261002T184136Z` | 2026-10-02 18:42 UTC | [Agents streaming examples now show final results](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261002T184136Z) |
 | `archive-20261002T061134Z` | 2026-10-02 06:13 UTC | [Safety enforcement, budgeting, and API reference updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261002T061134Z) |
 | `archive-20261001T203112Z` | 2026-10-01 20:33 UTC | [Hotel Feeds Guide and API Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261001T203112Z) |
 | `archive-20261001T074730Z` | 2026-10-01 07:48 UTC | [Audio Voice Creation Docs Expanded](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261001T074730Z) |
-| `archive-20260930T210027Z` | 2026-09-30 21:01 UTC | [Ads Audit Logs and API Reference Corrections](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20260930T210027Z) |
