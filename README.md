@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20261003T201150Z` | 2026-10-03 20:11 UTC | [Conversations metadata docs clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261003T201150Z) |
+| `archive-20261004T025153Z` | 2026-10-04 02:51 UTC | [Clarified API reference behavior for uploads, graders, and chat streams](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261004T025153Z) |
+| `archive-20261003T201150Z` | 2026-10-03 20:12 UTC | [Conversations metadata docs clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261003T201150Z) |
 | `archive-20261003T012613Z` | 2026-10-03 01:27 UTC | [Live WebSocket Tools, Voices, and Agent Error Updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261003T012613Z) |
 | `archive-20261002T223437Z` | 2026-10-02 22:36 UTC | [Broader SDK coverage across API guides](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261002T223437Z) |
 | `archive-20261002T184136Z` | 2026-10-02 18:42 UTC | [Agents streaming examples now show final results](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261002T184136Z) |
 | `archive-20261002T061134Z` | 2026-10-02 06:13 UTC | [Safety enforcement, budgeting, and API reference updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261002T061134Z) |
-| `archive-20261001T203112Z` | 2026-10-01 20:33 UTC | [Hotel Feeds Guide and API Reference Refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261001T203112Z) |
