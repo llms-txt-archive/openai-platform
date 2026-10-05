@@ -12308,7 +12308,7 @@ Schema name: `ResponseCreatedEvent`
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -22039,7 +22039,7 @@ Schema name: `ResponseInProgressEvent`
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -31770,7 +31770,7 @@ Schema name: `ResponseCompletedEvent`
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -41525,7 +41525,7 @@ Schema name: `ResponseFailedEvent`
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -51260,7 +51260,7 @@ Schema name: `ResponseIncompleteEvent`
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -56801,7 +56801,7 @@ Schema name: `ResponseOutputItemAddedEvent`
 
     - `id: string`
 
-      The unique ID of the computer call tool output.
+      The ID of the computer tool call output.
 
     - `call_id: string`
 
@@ -60965,7 +60965,7 @@ Schema name: `ResponseOutputItemDoneEvent`
 
     - `id: string`
 
-      The unique ID of the computer call tool output.
+      The ID of the computer tool call output.
 
     - `call_id: string`
 
@@ -71737,7 +71737,7 @@ Schema name: `ResponseQueuedEvent`
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 

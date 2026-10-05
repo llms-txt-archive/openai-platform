@@ -594,7 +594,7 @@ ngrok http <port>
 
 This will give you a public URL like `https://<subdomain>.ngrok.app` that you can use to access your server from ChatGPT.
 
-When you connect your MCP server in developer mode, provide the public URL with
+When you connect your MCP server in ChatGPT, provide the public URL with
 the `/mcp` path (for example, `https://<subdomain>.ngrok.app/mcp`).
 
 ## Connect your MCP server in ChatGPT
@@ -602,21 +602,10 @@ the `/mcp` path (for example, `https://<subdomain>.ngrok.app/mcp`).
 Once your MCP server and web component work locally, connect the server in
 ChatGPT:
 
-1. In [ChatGPT](https://chatgpt.com), open **Settings → Security and login** and turn on **Developer mode**.
-2. Go to [ChatGPT Plugins](https://chatgpt.com/plugins) and select the plus button.
-3. Paste the HTTPS + `/mcp` URL from your tunnel or deployment (for example, `https://<subdomain>.ngrok.app/mcp`), name the connection, provide a short description, and click **Create**.
-
-
-
-  <img src="https://developers.openai.com/images/apps-sdk/new_connector.jpg"
-    alt="Connect an MCP server in ChatGPT"
-  />
-
-
-
-4. Open a new chat, select the plugin from the **More** menu (accessible after clicking the **+** button), and prompt the model (for example, “Add a new task to read my book”). ChatGPT will stream tool payloads so you can confirm inputs and outputs.
-
-![Select your plugin in a conversation](https://developers.openai.com/images/apps-sdk/developer_mode_more.jpg)
+1. Go to [ChatGPT Plugins](https://chatgpt.com/plugins), select the plus button, then **Add custom MCP server**.
+2. Paste the HTTPS + `/mcp` URL from your tunnel or deployment (for example, `https://<subdomain>.ngrok.app/mcp`), name the connection, and configure authentication.
+3. Review the risk warning, select **I understand and want to continue**, then **Create as a plugin**.
+4. Install the resulting plugin, open a new chat, type `@` in the prompt box, and select the plugin. Prompt the model (for example, “Add a new task to read my book”). ChatGPT will stream tool payloads so you can confirm inputs and outputs.
 
 ## Next steps
 

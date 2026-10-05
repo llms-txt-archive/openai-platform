@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20261005T162357Z` | 2026-10-05 16:23 UTC | [Safety enforcement and content provenance docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261005T162357Z) |
+| `archive-20261005T225506Z` | 2026-10-05 22:55 UTC | [Custom MCP server docs replace the developer mode flow](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261005T225506Z) |
+| `archive-20261005T162357Z` | 2026-10-05 16:24 UTC | [Safety enforcement and content provenance docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261005T162357Z) |
 | `archive-20261005T074052Z` | 2026-10-05 07:41 UTC | [Images variation docs clarify model usage](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261005T074052Z) |
 | `archive-20261004T223118Z` | 2026-10-04 22:31 UTC | [Realtime session docs clarified; Java examples refreshed](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261004T223118Z) |
 | `archive-20261004T100523Z` | 2026-10-04 10:06 UTC | [Fine-tuning filter and example refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261004T100523Z) |
 | `archive-20261004T025153Z` | 2026-10-04 02:52 UTC | [Clarified API reference behavior for uploads, graders, and chat streams](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261004T025153Z) |
-| `archive-20261003T201150Z` | 2026-10-03 20:12 UTC | [Conversations metadata docs clarified](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261003T201150Z) |

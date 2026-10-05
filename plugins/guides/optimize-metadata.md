@@ -36,11 +36,9 @@ For each tool:
   such as web search. Use `false` for a tool limited to a bounded private
   account or workspace, even when that service is externally hosted.
 
-## Evaluate in developer mode
+## Evaluate your custom MCP server
 
-1. In ChatGPT, turn on Developer mode from **Settings → Security and login**,
-   then register your MCP server at
-   [ChatGPT Plugins](https://chatgpt.com/plugins).
+1. [Connect your custom MCP server](https://developers.openai.com/api/docs/guides/custom-mcp-server) in ChatGPT and install the resulting plugin.
 2. Run through the golden prompt set and record the outcome: which tool was selected, what arguments were passed, and whether the component rendered.
 3. For each prompt, track precision (did the right tool run?) and recall (did the tool run when it should?).
 

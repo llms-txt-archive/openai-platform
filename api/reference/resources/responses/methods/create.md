@@ -11211,7 +11211,7 @@ as input for the model's response.
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 

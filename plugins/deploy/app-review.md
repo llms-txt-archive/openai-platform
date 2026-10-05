@@ -22,7 +22,7 @@ server: organization verification, management permissions, server requirements,
 review snapshots, and version maintenance.
 
 When the remote MCP server works in
-[developer mode](https://developers.openai.com/plugins/deploy/connect-chatgpt#test-an-mcp-server-optional),
+[ChatGPT](https://developers.openai.com/plugins/deploy/connect-chatgpt#test-an-mcp-server-optional),
 submit it
 for review in the
 [plugin submission portal](https://platform.openai.com/plugins). This page
@@ -30,7 +30,7 @@ covers the remote MCP server and optional UI requirements for that submission.
 
 Only submit the plugin if you intend for it to be publicly available in the
 countries you define during submission. For private or workspace-only use, use
-[developer mode](https://platform.openai.com/docs/guides/developer-mode)
+[a custom MCP server connection](https://developers.openai.com/api/docs/guides/custom-mcp-server)
 instead.
 
 Before submitting the plugin, review the
@@ -173,7 +173,7 @@ Review timelines may vary as we continue to build and scale our processes. Pleas
   - Compare actual outputs to precise expected behavior for each tool and fix any mismatch so results are relevant to the user's input and the plugin reliably does what it promises.
   - If required, in your resubmission, modify your test cases and expected responses to be clear and unambiguous.
 - **Your plugin returns user-related data types that are not disclosed in your privacy policy.**
-  - Audit your MCP tool responses in developer mode by running a few realistic example requests and listing every user-related field the server returns (including nested fields and “debug” payloads). Ensure tools return only what's strictly necessary for the user's request and remove any unnecessary PII, telemetry/internal identifiers (for example, session, trace, or request IDs; timestamps; internal account IDs; or logs) and any auth secrets (tokens, keys, or passwords).
+  - Audit your MCP tool responses in ChatGPT by running a few realistic example requests and listing every user-related field the server returns (including nested fields and “debug” payloads). Ensure tools return only what's strictly necessary for the user's request and remove any unnecessary PII, telemetry/internal identifiers (for example, session, trace, or request IDs; timestamps; internal account IDs; or logs) and any auth secrets (tokens, keys, or passwords).
   - You may also consider updating your published privacy policy so it explicitly discloses all categories of personal data you collect, process, or return and why—if a field isn't truly needed, remove it rather than disclose it.
   - If a user identifier is truly necessary, make it explicitly requested and directly tied to the user's intent (not “looked up and echoed” by default).
 - **Tool hint annotations do not appear to match the tool's behavior:**

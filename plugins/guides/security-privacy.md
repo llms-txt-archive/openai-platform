@@ -21,7 +21,7 @@ every MCP server and UI component as production software:
 
 ## Prompt injection and write actions
 
-Developer mode enables full MCP access, including write tools. Mitigate risk by:
+Custom MCP servers enable full MCP access, including write tools. Mitigate risk by:
 
 - Reviewing tool descriptions regularly to discourage misuse (“Do not use to delete records”).
 - Validating all inputs server-side even if the model provided them.

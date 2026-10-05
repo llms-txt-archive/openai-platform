@@ -4,7 +4,7 @@
 
 Test each capability before testing the complete installed plugin. If the
 plugin includes an MCP server, start by connecting and evaluating the server in
-developer mode. Then package the plugin with its skills and test the complete
+ChatGPT. Then package the plugin with its skills and test the complete
 experience. Skills-only plugins can skip the first section.
 
 Keep your evaluation prompts and results throughout development so you can
@@ -23,7 +23,7 @@ Confirm that:
 - Tool names, descriptions, schemas, and annotations are present.
 - Authentication discovery works for tools that require an account.
 
-Use Secure MCP Tunnel to connect a private MCP server in developer mode without
+Use Secure MCP Tunnel to connect a private MCP server in ChatGPT without
 exposing the server to the public internet. A development tunnel or another
 HTTPS forwarding service can also provide an endpoint for local testing. These
 testing options do not replace the public HTTPS endpoint required for
@@ -42,27 +42,20 @@ Exercise each tool with representative inputs, edge cases, missing identifiers,
 and empty results. Verify schema validation, authentication errors, annotations,
 confirmation behavior, and the model-readable result.
 
-### Enable developer mode
-
-In ChatGPT:
-
-1. Open **Settings**.
-2. Select **Security and login**.
-3. Turn on **Developer mode**.
-
-Developer mode availability can depend on account and workspace policy.
-
 ### Add the MCP server
 
+Account and workspace policies apply to adding and using custom MCP servers.
+
 1. Go to [ChatGPT Plugins](https://chatgpt.com/plugins).
-2. Select the plus button.
+2. Select the plus button, then **Add custom MCP server**.
 3. Enter a user-facing name and description.
 4. Under **Connection**, choose the connection method:
    - For a public endpoint, enter the MCP server URL, including the `/mcp` path.
    - For Secure MCP Tunnel, select **Tunnel**, then choose an available tunnel
      or enter its `tunnel_id`.
-5. Create the connection.
-6. Review the tools and metadata discovered from the server.
+5. Configure authentication, review the risk warning, and select **I understand and want to continue**.
+6. Select **Create as a plugin**.
+7. Review the tools and metadata discovered from the server.
 
 If ChatGPT cannot connect, verify the public HTTPS endpoint with MCP Inspector,
 or check the tunnel's workspace association and `tunnel-client` status. Resolve
@@ -70,7 +63,8 @@ transport, initialization, schema, or authentication errors before continuing.
 
 ### Check tool selection
 
-Start a new conversation and add the MCP connection from the tools menu. Create
+Install the resulting plugin, then start a new conversation. Type `@` in the
+prompt box and select the plugin. Create
 an evaluation set that includes:
 
 - Direct requests that should call a specific tool.
@@ -106,7 +100,7 @@ or UI resources:
 4. Confirm that the advertised metadata changed.
 5. Start a new conversation and rerun the affected tests.
 
-This refresh flow applies to MCP servers connected in developer mode.
+This refresh flow applies to custom MCP servers connected directly in ChatGPT.
 Published plugins use
 [continuous review](https://developers.openai.com/plugins/deploy/app-review#continuous-review-and-tool-updates)
 for tool updates. Changes to submitted plugin information or imported skills

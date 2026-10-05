@@ -21,14 +21,13 @@ This quickstart uses a public example MCP server at
 
 ## Connect your MCP server
 
-First, add your deployed MCP server in ChatGPT developer mode:
+First, connect your MCP server with [Add custom MCP server](https://developers.openai.com/api/docs/guides/custom-mcp-server):
 
-1. Open [ChatGPT](https://chatgpt.com).
-2. Open **Settings → Security and login** and turn on **Developer mode**.
-3. Go to [ChatGPT Plugins](https://chatgpt.com/plugins), select the plus
-   button, and enter
-   `https://tinymcp.dev/api/moldy-aloof-zettabyte/mcp` as the MCP server URL.
-4. Complete the connection details and create the plugin.
+1. Go to [ChatGPT Plugins](https://chatgpt.com/plugins).
+2. Select the plus button, then **Add custom MCP server**.
+3. Enter a name and use `https://tinymcp.dev/api/moldy-aloof-zettabyte/mcp` as the **Server URL**. Select **No authentication** for **Authentication**.
+4. Review the risk warning and select **I understand and want to continue**.
+5. Select **Create as a plugin**.
 
 ## Test the plugin
 

@@ -336,15 +336,14 @@ Use the inspector to:
 4. Verify schemas, results, errors, and annotations.
 5. Confirm that authorization is enforced for private data and write actions.
 
-Then connect the server to ChatGPT in
-[developer mode](https://developers.openai.com/plugins/deploy/connect-chatgpt) and run the direct,
+Then [connect the custom MCP server to ChatGPT](https://developers.openai.com/plugins/deploy/connect-chatgpt) and run the direct,
 indirect, edge-case, and out-of-scope requests from your use-case inventory.
 
 ## Deploy the endpoint
 
 For public plugin submission, deploy the MCP server at a stable, publicly
 reachable HTTPS endpoint. [Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels)
-can connect a private MCP server in developer mode, but it does not satisfy
+can connect a private MCP server in ChatGPT, but it does not satisfy
 public submission requirements.
 
 The production endpoint must:
@@ -407,7 +406,7 @@ authentication, results, and errors.
 
 Keep published tool names and schemas backward compatible. Add fields or tools
 without breaking existing contracts. If metadata changes, refresh the
-developer-mode connection and rerun the evaluation set before submission.
+custom MCP server connection and rerun the evaluation set before submission.
 
 For optional UI, version resource identifiers when HTML, JavaScript, or CSS
 changes in a way that could break a cached component.

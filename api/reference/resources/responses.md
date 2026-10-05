@@ -5103,7 +5103,7 @@ the `background` parameter set to `true` can be cancelled.
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -17727,7 +17727,7 @@ Learn when and how to compact long-running conversations in the [conversation st
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -30066,7 +30066,7 @@ as input for the model's response.
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -40742,7 +40742,7 @@ Retrieves a model response with the given ID.
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -48771,7 +48771,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -55747,7 +55747,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -65639,7 +65639,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `id: string`
 
-          The unique ID of the computer call tool output.
+          The ID of the computer tool call output.
 
         - `call_id: string`
 
@@ -76016,7 +76016,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `id: string`
 
-          The unique ID of the computer call tool output.
+          The ID of the computer tool call output.
 
         - `call_id: string`
 
@@ -85878,7 +85878,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `id: string`
 
-          The unique ID of the computer call tool output.
+          The ID of the computer tool call output.
 
         - `call_id: string`
 
@@ -95955,7 +95955,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `id: string`
 
-          The unique ID of the computer call tool output.
+          The ID of the computer tool call output.
 
         - `call_id: string`
 
@@ -105668,7 +105668,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `id: string`
 
-          The unique ID of the computer call tool output.
+          The ID of the computer tool call output.
 
         - `call_id: string`
 
@@ -112024,7 +112024,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
     - `id: string`
 
-      The unique ID of the computer call tool output.
+      The ID of the computer tool call output.
 
     - `call_id: string`
 
@@ -116150,7 +116150,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -120287,7 +120287,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -129220,7 +129220,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
         - `id: string`
 
-          The unique ID of the computer call tool output.
+          The ID of the computer tool call output.
 
         - `call_id: string`
 
@@ -140845,7 +140845,7 @@ curl https://api.openai.com/v1/responses/resp_123 \
 
           - `id: string`
 
-            The unique ID of the computer call tool output.
+            The ID of the computer tool call output.
 
           - `call_id: string`
 
@@ -155857,7 +155857,7 @@ Returns a list of input items for a given response.
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 
@@ -160169,7 +160169,7 @@ curl https://api.openai.com/v1/responses/resp_abc123/input_items \
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 

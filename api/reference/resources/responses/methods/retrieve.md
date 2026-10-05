@@ -5145,7 +5145,7 @@ Retrieves a model response with the given ID.
 
       - `id: string`
 
-        The unique ID of the computer call tool output.
+        The ID of the computer tool call output.
 
       - `call_id: string`
 

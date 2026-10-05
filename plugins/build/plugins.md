@@ -96,21 +96,14 @@ the portable MCP format also declares a transport `type` for each server.
 
 You can also use the plugin-creator skill to test a plugin that includes an MCP
 server. The plugin still needs a local folder and manifest, and you first
-register the MCP server connection in ChatGPT developer mode.
-
-First, enable developer mode in ChatGPT:
-
-1. Open [ChatGPT](https://chatgpt.com).
-2. Open **Settings**.
-3. Select **Security and login**.
-4. Turn on **Developer mode**.
-
-Then register the MCP server in developer mode:
+register the MCP server connection in ChatGPT:
 
 1. Go to [ChatGPT Plugins](https://chatgpt.com/plugins).
-2. Select the plus button.
-3. Complete the modal with your MCP server URL and connection details.
-4. After ChatGPT creates the connection, copy its technical ID from the browser
+2. Select the plus button, then **Add custom MCP server**.
+3. Complete the form with your MCP server URL and connection details.
+4. Review the risk warning and select **I understand and want to continue**.
+5. Select **Create as a plugin**.
+6. After ChatGPT creates the connection, copy its technical ID from the browser
    URL. It starts with `plugin_asdk_app`.
 
 Give that `plugin_asdk_app...` ID to `@plugin-creator` in Work mode in ChatGPT
