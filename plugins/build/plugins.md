@@ -17,7 +17,9 @@ folder can also include:
 
 - A `skills/` directory containing the workflows you built.
 - An `mcp.json` file for MCP servers distributed with the plugin.
-- Optional assets and lifecycle hooks.
+- Optional assets.
+- [Lifecycle hooks](#bundled-mcp-servers-and-lifecycle-hooks) (manually installed Codex
+  desktop plugins only).
 
 Put OpenAI-specific presentation, registered MCP server mappings, and hook settings
 under `extensions.com.openai` in root `plugin.json`. Existing
@@ -660,6 +662,10 @@ for manifest examples, supported fields, requirements, and import behavior.
 - Enabled plugins can include lifecycle hooks alongside skills and MCP servers.
 
 ### Bundled MCP servers and lifecycle hooks
+
+Lifecycle hooks are supported for plugins installed manually in Codex desktop.
+Plugins containing lifecycle hooks aren't eligible for the
+[public plugin directory](https://developers.openai.com/plugins/deploy/submission#automatically-provide-submission-and-review-information).
 
 Configure portable MCP servers in root `mcp.json`. Include the Agent Plugins
 MCP schema and a named entry under `mcpServers`.

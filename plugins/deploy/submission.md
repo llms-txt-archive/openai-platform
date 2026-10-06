@@ -189,6 +189,9 @@ You can include listing, review, and publication details in your plugin manifest
 
 Plugin ZIPs containing app references (`apps` / `.app.json`) or lifecycle hooks cannot currently be submitted. Declare MCP server URLs in your MCP configuration and complete setup in the dashboard.
 
+Remove lifecycle hooks before public directory submission. If your plugin depends
+on lifecycle hooks, distribute it so users can install it manually in Codex desktop.
+
 ### Complete metadata examples
 
 These examples describe the same illustrative notes plugin in each format. Copy the manifest for your format, then replace the publisher information, URLs, tool names, review cases, translations, and country availability with your actual values. The example cases have not been run against a real service.

@@ -37,7 +37,7 @@ On top of that, you might make use of one or several basic techniques to improve
 - Retrieval-augmented generation (RAG)
 - Fine-tuning
 
-And to make sure your agent(s) can interact with the rest of your application or with external services, you can rely on structured outputs and tool calls.
+And to make sure your agents can interact with the rest of your application or with external services, you can rely on structured outputs and tool calls.
 
 ### Core logic
 
@@ -49,7 +49,7 @@ Agents are essentially AI systems that have instructions, tools, and guardrails 
 - Maintain context and memory
 - Call external tools and APIs
 
-Instead of one-off prompts, agents manage dynamic, multistep workflows that respond to real-world situations.
+Instead of one-off prompts, agents manage dynamic workflows with multiple steps that respond to real-world situations.
 
 #### Learn and build
 
@@ -64,11 +64,11 @@ Evals are how you measure and improve your AI app’s behavior. They help you:
 - Enforce the right guardrails and constraints
 - Track quality over time so you can ship with confidence
 
-Unlike ad hoc testing, evals create a feedback loop that lets you iterate safely and continuously improve your AI applications.
+Unlike informal testing, evals create a feedback loop that lets you iterate safely and continuously improve your AI applications.
 
-There are different types of evals, depending on the type of application you are building.
+Different types of evals suit different types of applications.
 
-For example, if you want the system to produce answers that can be right or wrong (e.g. a math problem, a classification task, etc.), you can run evals with a set of questions you already know the answers to (the "ground truth").
+For example, if you want the system to produce answers that can be right or wrong (such as a math problem or a classification task), you can run evals with a set of questions you already know the answers to (the "ground truth").
 
 ![evals](https://cdn.openai.com/devhub/tracks/diagram-17.png)
 
@@ -76,12 +76,12 @@ In other cases, there might not be a "ground truth" for the answers, but you can
 
 ### Basic techniques
 
-The first thing you need to master when building AI applications is "prompt engineering", or simply put: _how to tell the models what to do_.
+The first thing you need to master when building AI applications is "prompt engineering," or _how to tell the models what to do_.
 
 With the models' increasing performance, there is no need to learn a complex syntax or information structure.
 
-But there are a few things to keep in mind, as not all models follow instructions in the same way.
-GPT-6 Astra, our latest model, follows instructions very precisely, so the same prompt can result in different behaviors if you're using `gpt-6-astra` vs `gpt-4o`, for example.
+Keep in mind that not all models follow instructions in the same way.
+GPT-6 Astra, our latest model, follows instructions precisely, so the same prompt can result in different behaviors if you're using `gpt-6-astra` vs `gpt-4o`, for example.
 
 The results may vary as well depending on which type of prompt you use: system, developer or user prompt, or a combination of all of them.
 
@@ -104,12 +104,12 @@ A common misconception is that fine-tuning can "teach" the models about your
 
 If you want to build robust AI applications, you need to make sure the model outputs are reliable.
 
-LLMs produce non-deterministic outputs by default, meaning you can get widely different output formats if you don't constrain them.
+Large language models produce non-deterministic outputs by default, meaning you can get widely different output formats if you don't constrain them.
 Prompt engineering can only get you so far, and when you are building for production you can't afford for your application to break because you got an unexpected output.
 
 That is why you should rely as much as possible (unless you are generating a user-facing response) on structured outputs and tool calls.
 
-Structured outputs are a way for you to constrain the model's output to a strict json schema—that way, you always know what to expect.
+Structured outputs are a way for you to constrain the model's output to a strict JSON schema—that way, you always know what to expect.
 You can also enforce strict schemas for function calls, in case you prefer letting the model decide when to interact with your application or other services.
 
 ## Phase 2: Application development
@@ -134,7 +134,7 @@ The build hour below is a good example of how you can use the playground to expe
 The Responses API is your starting point for building dynamic, multi-modal AI applications.
 It's a stateful API that supports our latest models' capabilities, including things such as tool-calling in reasoning, and it offers a set of powerful built-in tools.
 
-As an abstraction on top of the Responses API, the Agents SDK is a framework that makes it easy to build agents and orchestrate them.
+As an abstraction on top of the Responses API, the Agents SDK is a framework for building and orchestrating agents.
 
 If you're not already familiar with the Responses API or Agents SDK or the concept of agents, we recommend following our [Building Agents](/tracks/building-agents#building-with-the-responses-api) track first.
 
@@ -146,7 +146,7 @@ Explore the following resources to rapidly get started building. The Agents SDK 
 
 Explore these demos to get a sense of what you can build with the Responses API and the Agents SDK:
 
-- **Support agent**: a simple support agent built on top of the Responses API, with a "human in the loop" angle—the agent is meant to be used by a human that can accept or reject the agent's suggestions
+- **Support agent**: a support agent built on top of the Responses API, with a "human in the loop" angle—the agent is meant to be used by a human that can accept or reject the agent's suggestions
 - **Customer service agent**: a network of multiple agents working together to handle a customer request, built with the Agents SDK
 - **Frontend testing agent**: a computer-using agent that requires a single user input to test a frontend application
 
@@ -159,7 +159,7 @@ It lets the model know about things that are not part of its training data, for 
 
 Based on an input, you can retrieve the most relevant documents from your knowledge base, and then use this information to generate a response.
 
-There are several steps involved in a RAG pipeline:
+A RAG pipeline involves several steps:
 
 1. **Data preparation**: Pre-processing documents, chunking them into smaller pieces if needed, embedding them and storing them in a vector database
 2. **Retrieval**: Using the input to retrieve the most relevant chunks from the vector database. Optionally, there are multiple optimization techniques that can be used at this stage, such as input processing or re-ranking (re-ordering the retrieved chunks to make sure we keep only the most relevant)
@@ -215,10 +215,10 @@ Evals in practice let you:
 
 By embedding evals into your development cycle, you create repeatable, objective feedback loops that keep your AI systems aligned with both user needs and business goals.
 
-There are many types of evals, some that rely on a "ground truth" (a set of question/answer pairs), and others that rely on more subjective criteria.
+Many types of evals exist, some that rely on a "ground truth" (a set of question/answer pairs), and others that rely on more subjective criteria.
 
-Even when you have expected answers, comparing the model's output to them might not always be straightforward. Sometimes, you can check in a simple way that the output matches the expected answer, like in the example below.
-In other cases, you might need to rely on different metrics and scoring algorithms that can compare outputs holistically—when you're comparing big chunks of text (e.g. translations, summaries) for example.
+Even when you have expected answers, comparing the model's output to them might not always be straightforward. Sometimes, you can check that the output matches the expected answer, like in the example below.
+In other cases, you might need to rely on different metrics and scoring algorithms that can compare outputs holistically—when you're comparing big chunks of text (for example, translations or summaries).
 
 _Example: Check the model's output against the expected answer, ignoring order._
 
@@ -261,18 +261,18 @@ They help you:
 
 Together, evals and guardrails form the foundation of trustworthy, production-grade AI systems.
 
-There are two types of guardrails:
+Guardrails fall into two types:
 
 - **Input guardrails**: To prevent unwanted inputs from being processed
 - **Output guardrails**: To prevent unwanted outputs from being returned
 
 In a production environment, ideally you would have both types of guardrails, depending on how the input and output are used and the level of risk you're comfortable with.
 
-It can be as easy as specifying something in the system prompt, or more complex, involving multiple checks.
+Guardrails can involve specifying something in the system prompt or combining multiple checks.
 
-One simple guardrail to implement is to use the Moderations API (which is free to use) to check if the input triggers any of the common flags (violence, illegal ask, etc.) and stop the generation process if it does.
+One guardrail to implement is to use the Moderation API (which is free to use) to check if the input triggers any of the common flags (violence, illegal ask, etc.) and stop the generation process if it does.
 
-_Example: Classify text for policy compliance with the Moderations API._
+_Example: Classify text for policy compliance with the Moderation API._
 
 ```python
 from openai import OpenAI
@@ -303,11 +303,11 @@ In this final phase, you'll learn how to run AI applications at production scale
 
 Optimizing your application's performance means ensuring your workflows stay accurate, consistent, and efficient as they move into long-term production use.
 
-There are 3 levers you can adjust:
+You can adjust 3 levers:
 
-- Improving the prompts (i.e. prompt engineering)
-- Improving the context you provide to the model (i.e. RAG)
-- Improving the model itself (i.e. fine-tuning)
+- Improving the prompts (that is, prompt engineering)
+- Improving the context you provide to the model (that is, RAG)
+- Improving the model itself (that is, fine-tuning)
 
 ![Performance optimization](https://cdn.openai.com/devhub/tracks/diagram-10.png)
 
@@ -333,7 +333,7 @@ You can monitor your usage and costs with the cost API, to keep track on what yo
 
 ### Set up your account for production
 
-On the OpenAI platform, we have the concept of tiers, going from 1 to 5. An organization in Tier 1 won't be able to make the same number of requests per minute or send us the same amount of tokens per minute as an organization in Tier 5.
+The OpenAI platform has three paid usage tiers: Build, Launch, and Grow. Higher tiers generally provide higher request and token rate limits.
 
 Before going live, make sure your tier is set up to manage the expected production usage—you can check our rate limits in the guide below.
 
