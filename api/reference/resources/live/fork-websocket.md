@@ -252,11 +252,13 @@ Schema name: `LiveForkSessionStartEvent`
 
           - `"high"`
 
-      - `tool_choice: optional "auto" or "none" or "required" or object { name, type }  or object { name, server_label, type }`
+      - `tool_choice: optional "auto" or "none" or "required" or map[unknown]`
 
         Controls which tool the Responses backend uses when handling a task delegated by the Live model.
 
         - `LiveToolChoiceEnum = "auto" or "none" or "required"`
+
+          Controls which tool the Responses backend uses when handling a task delegated by the Live model.
 
           - `"auto"`
 
@@ -264,25 +266,9 @@ Schema name: `LiveForkSessionStartEvent`
 
           - `"required"`
 
-        - `LiveFunctionToolChoiceParam object { name, type }`
+        - `map[unknown]`
 
-          - `name: string`
-
-          - `type: "function"`
-
-            - `"function"`
-
-        - `LiveMCPToolChoiceParam object { name, server_label, type }`
-
-          - `name: string`
-
-          - `server_label: string`
-
-          - `type: "mcp"`
-
-            - `"mcp"`
-
-      - `tools: optional array of FunctionTool or object { type }  or object { type }  or 3 more`
+      - `tools: optional array of FunctionTool or object { type }  or object { type }  or 10 more`
 
         Tools available to the Responses backend while it handles tasks delegated by the Live model.
 
@@ -334,21 +320,63 @@ Schema name: `LiveForkSessionStartEvent`
 
             - `"code_interpreter"`
 
-        - `Shell object { environment, type }`
+        - `Shell object { type, environment }`
 
-          A Responses shell tool with a container_auto or container_reference environment. Local execution and domain secrets are not supported.
-
-          - `environment: map[unknown]`
+          A Responses shell tool. Use a hosted container or return local shell results with response.item.create. Domain secrets are not supported.
 
           - `type: "shell"`
 
             - `"shell"`
+
+          - `environment: optional map[unknown] or null`
 
         - `ImageGeneration object { type }`
 
           - `type: "image_generation"`
 
             - `"image_generation"`
+
+        - `Mcp object { type }`
+
+          - `type: "mcp"`
+
+            - `"mcp"`
+
+        - `Custom object { type }`
+
+          - `type: "custom"`
+
+            - `"custom"`
+
+        - `Namespace object { type }`
+
+          - `type: "namespace"`
+
+            - `"namespace"`
+
+        - `ToolSearch object { type }`
+
+          - `type: "tool_search"`
+
+            - `"tool_search"`
+
+        - `ProgrammaticToolCalling object { type }`
+
+          - `type: "programmatic_tool_calling"`
+
+            - `"programmatic_tool_calling"`
+
+        - `Computer object { type }`
+
+          - `type: "computer"`
+
+            - `"computer"`
+
+        - `ApplyPatch object { type }`
+
+          - `type: "apply_patch"`
+
+            - `"apply_patch"`
 
   - `store: optional boolean`
 
@@ -491,11 +519,13 @@ Schema name: `LiveSessionUpdateParam`
 
             - `"high"`
 
-        - `tool_choice: optional "auto" or "none" or "required" or object { name, type }  or object { name, server_label, type }`
+        - `tool_choice: optional "auto" or "none" or "required" or map[unknown]`
 
           Controls which tool the Responses backend uses when handling a task delegated by the Live model.
 
           - `LiveToolChoiceEnum = "auto" or "none" or "required"`
+
+            Controls which tool the Responses backend uses when handling a task delegated by the Live model.
 
             - `"auto"`
 
@@ -503,25 +533,9 @@ Schema name: `LiveSessionUpdateParam`
 
             - `"required"`
 
-          - `LiveFunctionToolChoiceParam object { name, type }`
+          - `map[unknown]`
 
-            - `name: string`
-
-            - `type: "function"`
-
-              - `"function"`
-
-          - `LiveMCPToolChoiceParam object { name, server_label, type }`
-
-            - `name: string`
-
-            - `server_label: string`
-
-            - `type: "mcp"`
-
-              - `"mcp"`
-
-        - `tools: optional array of FunctionTool or object { type }  or object { type }  or 3 more`
+        - `tools: optional array of FunctionTool or object { type }  or object { type }  or 10 more`
 
           Tools available to the Responses backend while it handles tasks delegated by the Live model.
 
@@ -573,21 +587,63 @@ Schema name: `LiveSessionUpdateParam`
 
               - `"code_interpreter"`
 
-          - `Shell object { environment, type }`
+          - `Shell object { type, environment }`
 
-            A Responses shell tool with a container_auto or container_reference environment. Local execution and domain secrets are not supported.
-
-            - `environment: map[unknown]`
+            A Responses shell tool. Use a hosted container or return local shell results with response.item.create. Domain secrets are not supported.
 
             - `type: "shell"`
 
               - `"shell"`
+
+            - `environment: optional map[unknown] or null`
 
           - `ImageGeneration object { type }`
 
             - `type: "image_generation"`
 
               - `"image_generation"`
+
+          - `Mcp object { type }`
+
+            - `type: "mcp"`
+
+              - `"mcp"`
+
+          - `Custom object { type }`
+
+            - `type: "custom"`
+
+              - `"custom"`
+
+          - `Namespace object { type }`
+
+            - `type: "namespace"`
+
+              - `"namespace"`
+
+          - `ToolSearch object { type }`
+
+            - `type: "tool_search"`
+
+              - `"tool_search"`
+
+          - `ProgrammaticToolCalling object { type }`
+
+            - `type: "programmatic_tool_calling"`
+
+              - `"programmatic_tool_calling"`
+
+          - `Computer object { type }`
+
+            - `type: "computer"`
+
+              - `"computer"`
+
+          - `ApplyPatch object { type }`
+
+            - `type: "apply_patch"`
+
+              - `"apply_patch"`
 
 - `type: "session.update"`
 
@@ -5446,21 +5502,19 @@ Schema name: `LiveSessionStarted`
 
       The voice used for speech generated by the Live model.
 
-      - `voice: optional string or "alloy" or "ash" or "aube" or 29 more or CustomVoice`
+      - `voice: optional string or "alloy" or "ash" or "ballad" or 28 more or CustomVoice`
 
         The voice used for Live speech, as a built-in voice name or a custom voice object containing its ID. Defaults to `marin` and cannot change after startup.
 
         - `string`
 
-        - `"alloy" or "ash" or "aube" or 29 more`
+        - `"alloy" or "ash" or "ballad" or 28 more`
 
           The voice used for Live speech, as a built-in voice name or a custom voice object containing its ID. Defaults to `marin` and cannot change after startup.
 
           - `"alloy"`
 
           - `"ash"`
-
-          - `"aube"`
 
           - `"ballad"`
 
@@ -5658,11 +5712,13 @@ Schema name: `LiveSessionStarted`
 
             - `"high"`
 
-        - `tool_choice: optional "auto" or "none" or "required" or object { name, type }  or object { name, server_label, type }`
+        - `tool_choice: optional "auto" or "none" or "required" or map[unknown]`
 
           Controls which tool the Responses backend uses when handling a task delegated by the Live model.
 
           - `LiveToolChoiceEnum = "auto" or "none" or "required"`
+
+            Controls which tool the Responses backend uses when handling a task delegated by the Live model.
 
             - `"auto"`
 
@@ -5670,25 +5726,9 @@ Schema name: `LiveSessionStarted`
 
             - `"required"`
 
-          - `LiveFunctionToolChoiceParam object { name, type }`
+          - `map[unknown]`
 
-            - `name: string`
-
-            - `type: "function"`
-
-              - `"function"`
-
-          - `LiveMCPToolChoiceParam object { name, server_label, type }`
-
-            - `name: string`
-
-            - `server_label: string`
-
-            - `type: "mcp"`
-
-              - `"mcp"`
-
-        - `tools: optional array of FunctionTool or object { type }  or object { type }  or 3 more`
+        - `tools: optional array of FunctionTool or object { type }  or object { type }  or 10 more`
 
           Tools available to the Responses backend while it handles tasks delegated by the Live model.
 
@@ -5740,21 +5780,63 @@ Schema name: `LiveSessionStarted`
 
               - `"code_interpreter"`
 
-          - `Shell object { environment, type }`
+          - `Shell object { type, environment }`
 
-            A Responses shell tool with a container_auto or container_reference environment. Local execution and domain secrets are not supported.
-
-            - `environment: map[unknown]`
+            A Responses shell tool. Use a hosted container or return local shell results with response.item.create. Domain secrets are not supported.
 
             - `type: "shell"`
 
               - `"shell"`
+
+            - `environment: optional map[unknown] or null`
 
           - `ImageGeneration object { type }`
 
             - `type: "image_generation"`
 
               - `"image_generation"`
+
+          - `Mcp object { type }`
+
+            - `type: "mcp"`
+
+              - `"mcp"`
+
+          - `Custom object { type }`
+
+            - `type: "custom"`
+
+              - `"custom"`
+
+          - `Namespace object { type }`
+
+            - `type: "namespace"`
+
+              - `"namespace"`
+
+          - `ToolSearch object { type }`
+
+            - `type: "tool_search"`
+
+              - `"tool_search"`
+
+          - `ProgrammaticToolCalling object { type }`
+
+            - `type: "programmatic_tool_calling"`
+
+              - `"programmatic_tool_calling"`
+
+          - `Computer object { type }`
+
+            - `type: "computer"`
+
+              - `"computer"`
+
+          - `ApplyPatch object { type }`
+
+            - `type: "apply_patch"`
+
+              - `"apply_patch"`
 
       - `type: "responses"`
 
@@ -6060,21 +6142,19 @@ Schema name: `LiveSessionUpdated`
 
       The voice used for speech generated by the Live model.
 
-      - `voice: optional string or "alloy" or "ash" or "aube" or 29 more or CustomVoice`
+      - `voice: optional string or "alloy" or "ash" or "ballad" or 28 more or CustomVoice`
 
         The voice used for Live speech, as a built-in voice name or a custom voice object containing its ID. Defaults to `marin` and cannot change after startup.
 
         - `string`
 
-        - `"alloy" or "ash" or "aube" or 29 more`
+        - `"alloy" or "ash" or "ballad" or 28 more`
 
           The voice used for Live speech, as a built-in voice name or a custom voice object containing its ID. Defaults to `marin` and cannot change after startup.
 
           - `"alloy"`
 
           - `"ash"`
-
-          - `"aube"`
 
           - `"ballad"`
 
@@ -6272,11 +6352,13 @@ Schema name: `LiveSessionUpdated`
 
             - `"high"`
 
-        - `tool_choice: optional "auto" or "none" or "required" or object { name, type }  or object { name, server_label, type }`
+        - `tool_choice: optional "auto" or "none" or "required" or map[unknown]`
 
           Controls which tool the Responses backend uses when handling a task delegated by the Live model.
 
           - `LiveToolChoiceEnum = "auto" or "none" or "required"`
+
+            Controls which tool the Responses backend uses when handling a task delegated by the Live model.
 
             - `"auto"`
 
@@ -6284,25 +6366,9 @@ Schema name: `LiveSessionUpdated`
 
             - `"required"`
 
-          - `LiveFunctionToolChoiceParam object { name, type }`
+          - `map[unknown]`
 
-            - `name: string`
-
-            - `type: "function"`
-
-              - `"function"`
-
-          - `LiveMCPToolChoiceParam object { name, server_label, type }`
-
-            - `name: string`
-
-            - `server_label: string`
-
-            - `type: "mcp"`
-
-              - `"mcp"`
-
-        - `tools: optional array of FunctionTool or object { type }  or object { type }  or 3 more`
+        - `tools: optional array of FunctionTool or object { type }  or object { type }  or 10 more`
 
           Tools available to the Responses backend while it handles tasks delegated by the Live model.
 
@@ -6354,21 +6420,63 @@ Schema name: `LiveSessionUpdated`
 
               - `"code_interpreter"`
 
-          - `Shell object { environment, type }`
+          - `Shell object { type, environment }`
 
-            A Responses shell tool with a container_auto or container_reference environment. Local execution and domain secrets are not supported.
-
-            - `environment: map[unknown]`
+            A Responses shell tool. Use a hosted container or return local shell results with response.item.create. Domain secrets are not supported.
 
             - `type: "shell"`
 
               - `"shell"`
+
+            - `environment: optional map[unknown] or null`
 
           - `ImageGeneration object { type }`
 
             - `type: "image_generation"`
 
               - `"image_generation"`
+
+          - `Mcp object { type }`
+
+            - `type: "mcp"`
+
+              - `"mcp"`
+
+          - `Custom object { type }`
+
+            - `type: "custom"`
+
+              - `"custom"`
+
+          - `Namespace object { type }`
+
+            - `type: "namespace"`
+
+              - `"namespace"`
+
+          - `ToolSearch object { type }`
+
+            - `type: "tool_search"`
+
+              - `"tool_search"`
+
+          - `ProgrammaticToolCalling object { type }`
+
+            - `type: "programmatic_tool_calling"`
+
+              - `"programmatic_tool_calling"`
+
+          - `Computer object { type }`
+
+            - `type: "computer"`
+
+              - `"computer"`
+
+          - `ApplyPatch object { type }`
+
+            - `type: "apply_patch"`
+
+              - `"apply_patch"`
 
       - `type: "responses"`
 
@@ -7212,21 +7320,19 @@ Schema name: `LiveSessionClosed`
 
       The voice used for speech generated by the Live model.
 
-      - `voice: optional string or "alloy" or "ash" or "aube" or 29 more or CustomVoice`
+      - `voice: optional string or "alloy" or "ash" or "ballad" or 28 more or CustomVoice`
 
         The voice used for Live speech, as a built-in voice name or a custom voice object containing its ID. Defaults to `marin` and cannot change after startup.
 
         - `string`
 
-        - `"alloy" or "ash" or "aube" or 29 more`
+        - `"alloy" or "ash" or "ballad" or 28 more`
 
           The voice used for Live speech, as a built-in voice name or a custom voice object containing its ID. Defaults to `marin` and cannot change after startup.
 
           - `"alloy"`
 
           - `"ash"`
-
-          - `"aube"`
 
           - `"ballad"`
 
@@ -7424,11 +7530,13 @@ Schema name: `LiveSessionClosed`
 
             - `"high"`
 
-        - `tool_choice: optional "auto" or "none" or "required" or object { name, type }  or object { name, server_label, type }`
+        - `tool_choice: optional "auto" or "none" or "required" or map[unknown]`
 
           Controls which tool the Responses backend uses when handling a task delegated by the Live model.
 
           - `LiveToolChoiceEnum = "auto" or "none" or "required"`
+
+            Controls which tool the Responses backend uses when handling a task delegated by the Live model.
 
             - `"auto"`
 
@@ -7436,25 +7544,9 @@ Schema name: `LiveSessionClosed`
 
             - `"required"`
 
-          - `LiveFunctionToolChoiceParam object { name, type }`
+          - `map[unknown]`
 
-            - `name: string`
-
-            - `type: "function"`
-
-              - `"function"`
-
-          - `LiveMCPToolChoiceParam object { name, server_label, type }`
-
-            - `name: string`
-
-            - `server_label: string`
-
-            - `type: "mcp"`
-
-              - `"mcp"`
-
-        - `tools: optional array of FunctionTool or object { type }  or object { type }  or 3 more`
+        - `tools: optional array of FunctionTool or object { type }  or object { type }  or 10 more`
 
           Tools available to the Responses backend while it handles tasks delegated by the Live model.
 
@@ -7506,21 +7598,63 @@ Schema name: `LiveSessionClosed`
 
               - `"code_interpreter"`
 
-          - `Shell object { environment, type }`
+          - `Shell object { type, environment }`
 
-            A Responses shell tool with a container_auto or container_reference environment. Local execution and domain secrets are not supported.
-
-            - `environment: map[unknown]`
+            A Responses shell tool. Use a hosted container or return local shell results with response.item.create. Domain secrets are not supported.
 
             - `type: "shell"`
 
               - `"shell"`
+
+            - `environment: optional map[unknown] or null`
 
           - `ImageGeneration object { type }`
 
             - `type: "image_generation"`
 
               - `"image_generation"`
+
+          - `Mcp object { type }`
+
+            - `type: "mcp"`
+
+              - `"mcp"`
+
+          - `Custom object { type }`
+
+            - `type: "custom"`
+
+              - `"custom"`
+
+          - `Namespace object { type }`
+
+            - `type: "namespace"`
+
+              - `"namespace"`
+
+          - `ToolSearch object { type }`
+
+            - `type: "tool_search"`
+
+              - `"tool_search"`
+
+          - `ProgrammaticToolCalling object { type }`
+
+            - `type: "programmatic_tool_calling"`
+
+              - `"programmatic_tool_calling"`
+
+          - `Computer object { type }`
+
+            - `type: "computer"`
+
+              - `"computer"`
+
+          - `ApplyPatch object { type }`
+
+            - `type: "apply_patch"`
+
+              - `"apply_patch"`
 
       - `type: "responses"`
 

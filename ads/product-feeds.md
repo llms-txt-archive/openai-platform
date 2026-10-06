@@ -546,7 +546,7 @@ Use the body and price macros as shown in the example. You can combine supported
 
 The selected product supplies the image and destination URL, so this example does not upload a separate creative image or set a `target_url`. Each product-feed ad group can contain at most one non-archived product-ad template.
 
-To add tracking parameters to product URLs, use `landing_page_configuration` on the campaign, ad group, or ad. See the [Campaigns reference](https://developers.openai.com/ads/api-reference/campaigns).
+To add tracking parameters to product URLs, use account tracking settings or `landing_page_configuration` on the campaign, ad group, or ad. Individual products have no separate configurable ad entity; the ad's tracking settings apply to their destinations. See [tracking parameters](https://developers.openai.com/ads/campaign-management#tracking-parameters) for parameter precedence, Legacy behavior, examples, and migration guidance.
 
 ### 4. Inspect before activation
 

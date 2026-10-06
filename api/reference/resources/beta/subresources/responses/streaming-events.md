@@ -105,7 +105,7 @@ Schema name: `BetaResponseCreatedEvent`
 
       A human-readable description of the error.
 
-    - `misalignment: optional object { detailed_explanation, error_type, steer }`
+    - `misalignment: optional object { detailed_explanation, error_type, review_target, steer }`
 
       - `detailed_explanation: optional string`
 
@@ -128,6 +128,10 @@ Schema name: `BetaResponseCreatedEvent`
           - `"potentially_unintended_destructive_activity"`
 
           - `"other"`
+
+      - `review_target: optional string or null`
+
+        An opaque target for explicitly continuing this review, or null when unavailable.
 
       - `steer: optional object { message }`
 
@@ -11261,7 +11265,7 @@ Schema name: `BetaResponseInProgressEvent`
 
       A human-readable description of the error.
 
-    - `misalignment: optional object { detailed_explanation, error_type, steer }`
+    - `misalignment: optional object { detailed_explanation, error_type, review_target, steer }`
 
       - `detailed_explanation: optional string`
 
@@ -11284,6 +11288,10 @@ Schema name: `BetaResponseInProgressEvent`
           - `"potentially_unintended_destructive_activity"`
 
           - `"other"`
+
+      - `review_target: optional string or null`
+
+        An opaque target for explicitly continuing this review, or null when unavailable.
 
       - `steer: optional object { message }`
 
@@ -22417,7 +22425,7 @@ Schema name: `BetaResponseCompletedEvent`
 
       A human-readable description of the error.
 
-    - `misalignment: optional object { detailed_explanation, error_type, steer }`
+    - `misalignment: optional object { detailed_explanation, error_type, review_target, steer }`
 
       - `detailed_explanation: optional string`
 
@@ -22440,6 +22448,10 @@ Schema name: `BetaResponseCompletedEvent`
           - `"potentially_unintended_destructive_activity"`
 
           - `"other"`
+
+      - `review_target: optional string or null`
+
+        An opaque target for explicitly continuing this review, or null when unavailable.
 
       - `steer: optional object { message }`
 
@@ -33597,7 +33609,7 @@ Schema name: `BetaResponseFailedEvent`
 
       A human-readable description of the error.
 
-    - `misalignment: optional object { detailed_explanation, error_type, steer }`
+    - `misalignment: optional object { detailed_explanation, error_type, review_target, steer }`
 
       - `detailed_explanation: optional string`
 
@@ -33620,6 +33632,10 @@ Schema name: `BetaResponseFailedEvent`
           - `"potentially_unintended_destructive_activity"`
 
           - `"other"`
+
+      - `review_target: optional string or null`
+
+        An opaque target for explicitly continuing this review, or null when unavailable.
 
       - `steer: optional object { message }`
 
@@ -44757,7 +44773,7 @@ Schema name: `BetaResponseIncompleteEvent`
 
       A human-readable description of the error.
 
-    - `misalignment: optional object { detailed_explanation, error_type, steer }`
+    - `misalignment: optional object { detailed_explanation, error_type, review_target, steer }`
 
       - `detailed_explanation: optional string`
 
@@ -44780,6 +44796,10 @@ Schema name: `BetaResponseIncompleteEvent`
           - `"potentially_unintended_destructive_activity"`
 
           - `"other"`
+
+      - `review_target: optional string or null`
+
+        An opaque target for explicitly continuing this review, or null when unavailable.
 
       - `steer: optional object { message }`
 
@@ -67913,7 +67933,7 @@ Schema name: `BetaResponseQueuedEvent`
 
       A human-readable description of the error.
 
-    - `misalignment: optional object { detailed_explanation, error_type, steer }`
+    - `misalignment: optional object { detailed_explanation, error_type, review_target, steer }`
 
       - `detailed_explanation: optional string`
 
@@ -67936,6 +67956,10 @@ Schema name: `BetaResponseQueuedEvent`
           - `"potentially_unintended_destructive_activity"`
 
           - `"other"`
+
+      - `review_target: optional string or null`
+
+        An opaque target for explicitly continuing this review, or null when unavailable.
 
       - `steer: optional object { message }`
 
