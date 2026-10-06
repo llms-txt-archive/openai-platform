@@ -442,7 +442,147 @@ Schema name: `LiveSessionStartEvent`
 
               - `"shell"`
 
-            - `environment: optional map[unknown] or null`
+            - `environment: optional object { type, file_ids, memory_limit, 2 more }  or object { container_id, type }  or object { type, skills }  or null`
+
+              - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
+
+                - `type: "container_auto"`
+
+                  Automatically creates a container for this request
+
+                  - `"container_auto"`
+
+                - `file_ids: optional array of string or null`
+
+                  An optional list of uploaded files to make available to your code.
+
+                - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
+
+                  The memory limit for the container.
+
+                  - `"1g"`
+
+                  - `"4g"`
+
+                  - `"16g"`
+
+                  - `"64g"`
+
+                - `network_policy: optional object { type }  or object { allowed_domains, type }  or null`
+
+                  Network access policy for the container.
+
+                  - `Disabled object { type }`
+
+                    - `type: "disabled"`
+
+                      Disable outbound network access. Always `disabled`.
+
+                      - `"disabled"`
+
+                  - `Allowlist object { allowed_domains, type }`
+
+                    - `allowed_domains: array of string`
+
+                      A list of allowed domains when type is `allowlist`.
+
+                    - `type: "allowlist"`
+
+                      Allow outbound network access only to specified domains. Always `allowlist`.
+
+                      - `"allowlist"`
+
+                - `skills: optional array of object { skill_id, type, version }  or object { description, name, source, type }  or null`
+
+                  An optional list of skills referenced by id or inline data.
+
+                  - `SkillReference object { skill_id, type, version }`
+
+                    - `skill_id: string`
+
+                      The ID of the referenced skill.
+
+                    - `type: "skill_reference"`
+
+                      References a skill created with the /v1/skills endpoint.
+
+                      - `"skill_reference"`
+
+                    - `version: optional string or null`
+
+                      Optional skill version. Use a positive integer or 'latest'. Omit for default.
+
+                  - `Inline object { description, name, source, type }`
+
+                    - `description: string`
+
+                      The description of the skill.
+
+                    - `name: string`
+
+                      The name of the skill.
+
+                    - `source: object { data, media_type, type }`
+
+                      Inline skill payload
+
+                      - `data: string`
+
+                        Base64-encoded skill zip bundle.
+
+                      - `media_type: "application/zip"`
+
+                        The media type of the inline skill payload. Must be `application/zip`.
+
+                        - `"application/zip"`
+
+                      - `type: "base64"`
+
+                        The type of the inline skill source. Must be `base64`.
+
+                        - `"base64"`
+
+                    - `type: "inline"`
+
+                      Defines an inline skill for this request.
+
+                      - `"inline"`
+
+              - `ContainerReference object { container_id, type }`
+
+                - `container_id: string`
+
+                  The ID of the referenced container.
+
+                - `type: "container_reference"`
+
+                  References a container created with the /v1/containers endpoint
+
+                  - `"container_reference"`
+
+              - `Local object { type, skills }`
+
+                - `type: "local"`
+
+                  Use a local computer environment.
+
+                  - `"local"`
+
+                - `skills: optional array of object { description, name, path }  or null`
+
+                  An optional list of skills.
+
+                  - `description: string`
+
+                    The description of the skill.
+
+                  - `name: string`
+
+                    The name of the skill.
+
+                  - `path: string`
+
+                    The path to the directory containing the skill.
 
           - `ImageGeneration object { type }`
 
@@ -883,7 +1023,147 @@ Schema name: `LiveSessionUpdateParam`
 
               - `"shell"`
 
-            - `environment: optional map[unknown] or null`
+            - `environment: optional object { type, file_ids, memory_limit, 2 more }  or object { container_id, type }  or object { type, skills }  or null`
+
+              - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
+
+                - `type: "container_auto"`
+
+                  Automatically creates a container for this request
+
+                  - `"container_auto"`
+
+                - `file_ids: optional array of string or null`
+
+                  An optional list of uploaded files to make available to your code.
+
+                - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
+
+                  The memory limit for the container.
+
+                  - `"1g"`
+
+                  - `"4g"`
+
+                  - `"16g"`
+
+                  - `"64g"`
+
+                - `network_policy: optional object { type }  or object { allowed_domains, type }  or null`
+
+                  Network access policy for the container.
+
+                  - `Disabled object { type }`
+
+                    - `type: "disabled"`
+
+                      Disable outbound network access. Always `disabled`.
+
+                      - `"disabled"`
+
+                  - `Allowlist object { allowed_domains, type }`
+
+                    - `allowed_domains: array of string`
+
+                      A list of allowed domains when type is `allowlist`.
+
+                    - `type: "allowlist"`
+
+                      Allow outbound network access only to specified domains. Always `allowlist`.
+
+                      - `"allowlist"`
+
+                - `skills: optional array of object { skill_id, type, version }  or object { description, name, source, type }  or null`
+
+                  An optional list of skills referenced by id or inline data.
+
+                  - `SkillReference object { skill_id, type, version }`
+
+                    - `skill_id: string`
+
+                      The ID of the referenced skill.
+
+                    - `type: "skill_reference"`
+
+                      References a skill created with the /v1/skills endpoint.
+
+                      - `"skill_reference"`
+
+                    - `version: optional string or null`
+
+                      Optional skill version. Use a positive integer or 'latest'. Omit for default.
+
+                  - `Inline object { description, name, source, type }`
+
+                    - `description: string`
+
+                      The description of the skill.
+
+                    - `name: string`
+
+                      The name of the skill.
+
+                    - `source: object { data, media_type, type }`
+
+                      Inline skill payload
+
+                      - `data: string`
+
+                        Base64-encoded skill zip bundle.
+
+                      - `media_type: "application/zip"`
+
+                        The media type of the inline skill payload. Must be `application/zip`.
+
+                        - `"application/zip"`
+
+                      - `type: "base64"`
+
+                        The type of the inline skill source. Must be `base64`.
+
+                        - `"base64"`
+
+                    - `type: "inline"`
+
+                      Defines an inline skill for this request.
+
+                      - `"inline"`
+
+              - `ContainerReference object { container_id, type }`
+
+                - `container_id: string`
+
+                  The ID of the referenced container.
+
+                - `type: "container_reference"`
+
+                  References a container created with the /v1/containers endpoint
+
+                  - `"container_reference"`
+
+              - `Local object { type, skills }`
+
+                - `type: "local"`
+
+                  Use a local computer environment.
+
+                  - `"local"`
+
+                - `skills: optional array of object { description, name, path }  or null`
+
+                  An optional list of skills.
+
+                  - `description: string`
+
+                    The description of the skill.
+
+                  - `name: string`
+
+                    The name of the skill.
+
+                  - `path: string`
+
+                    The path to the directory containing the skill.
 
           - `ImageGeneration object { type }`
 
@@ -6076,7 +6356,147 @@ Schema name: `LiveSessionStarted`
 
               - `"shell"`
 
-            - `environment: optional map[unknown] or null`
+            - `environment: optional object { type, file_ids, memory_limit, 2 more }  or object { container_id, type }  or object { type, skills }  or null`
+
+              - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
+
+                - `type: "container_auto"`
+
+                  Automatically creates a container for this request
+
+                  - `"container_auto"`
+
+                - `file_ids: optional array of string or null`
+
+                  An optional list of uploaded files to make available to your code.
+
+                - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
+
+                  The memory limit for the container.
+
+                  - `"1g"`
+
+                  - `"4g"`
+
+                  - `"16g"`
+
+                  - `"64g"`
+
+                - `network_policy: optional object { type }  or object { allowed_domains, type }  or null`
+
+                  Network access policy for the container.
+
+                  - `Disabled object { type }`
+
+                    - `type: "disabled"`
+
+                      Disable outbound network access. Always `disabled`.
+
+                      - `"disabled"`
+
+                  - `Allowlist object { allowed_domains, type }`
+
+                    - `allowed_domains: array of string`
+
+                      A list of allowed domains when type is `allowlist`.
+
+                    - `type: "allowlist"`
+
+                      Allow outbound network access only to specified domains. Always `allowlist`.
+
+                      - `"allowlist"`
+
+                - `skills: optional array of object { skill_id, type, version }  or object { description, name, source, type }  or null`
+
+                  An optional list of skills referenced by id or inline data.
+
+                  - `SkillReference object { skill_id, type, version }`
+
+                    - `skill_id: string`
+
+                      The ID of the referenced skill.
+
+                    - `type: "skill_reference"`
+
+                      References a skill created with the /v1/skills endpoint.
+
+                      - `"skill_reference"`
+
+                    - `version: optional string or null`
+
+                      Optional skill version. Use a positive integer or 'latest'. Omit for default.
+
+                  - `Inline object { description, name, source, type }`
+
+                    - `description: string`
+
+                      The description of the skill.
+
+                    - `name: string`
+
+                      The name of the skill.
+
+                    - `source: object { data, media_type, type }`
+
+                      Inline skill payload
+
+                      - `data: string`
+
+                        Base64-encoded skill zip bundle.
+
+                      - `media_type: "application/zip"`
+
+                        The media type of the inline skill payload. Must be `application/zip`.
+
+                        - `"application/zip"`
+
+                      - `type: "base64"`
+
+                        The type of the inline skill source. Must be `base64`.
+
+                        - `"base64"`
+
+                    - `type: "inline"`
+
+                      Defines an inline skill for this request.
+
+                      - `"inline"`
+
+              - `ContainerReference object { container_id, type }`
+
+                - `container_id: string`
+
+                  The ID of the referenced container.
+
+                - `type: "container_reference"`
+
+                  References a container created with the /v1/containers endpoint
+
+                  - `"container_reference"`
+
+              - `Local object { type, skills }`
+
+                - `type: "local"`
+
+                  Use a local computer environment.
+
+                  - `"local"`
+
+                - `skills: optional array of object { description, name, path }  or null`
+
+                  An optional list of skills.
+
+                  - `description: string`
+
+                    The description of the skill.
+
+                  - `name: string`
+
+                    The name of the skill.
+
+                  - `path: string`
+
+                    The path to the directory containing the skill.
 
           - `ImageGeneration object { type }`
 
@@ -6716,7 +7136,147 @@ Schema name: `LiveSessionUpdated`
 
               - `"shell"`
 
-            - `environment: optional map[unknown] or null`
+            - `environment: optional object { type, file_ids, memory_limit, 2 more }  or object { container_id, type }  or object { type, skills }  or null`
+
+              - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
+
+                - `type: "container_auto"`
+
+                  Automatically creates a container for this request
+
+                  - `"container_auto"`
+
+                - `file_ids: optional array of string or null`
+
+                  An optional list of uploaded files to make available to your code.
+
+                - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
+
+                  The memory limit for the container.
+
+                  - `"1g"`
+
+                  - `"4g"`
+
+                  - `"16g"`
+
+                  - `"64g"`
+
+                - `network_policy: optional object { type }  or object { allowed_domains, type }  or null`
+
+                  Network access policy for the container.
+
+                  - `Disabled object { type }`
+
+                    - `type: "disabled"`
+
+                      Disable outbound network access. Always `disabled`.
+
+                      - `"disabled"`
+
+                  - `Allowlist object { allowed_domains, type }`
+
+                    - `allowed_domains: array of string`
+
+                      A list of allowed domains when type is `allowlist`.
+
+                    - `type: "allowlist"`
+
+                      Allow outbound network access only to specified domains. Always `allowlist`.
+
+                      - `"allowlist"`
+
+                - `skills: optional array of object { skill_id, type, version }  or object { description, name, source, type }  or null`
+
+                  An optional list of skills referenced by id or inline data.
+
+                  - `SkillReference object { skill_id, type, version }`
+
+                    - `skill_id: string`
+
+                      The ID of the referenced skill.
+
+                    - `type: "skill_reference"`
+
+                      References a skill created with the /v1/skills endpoint.
+
+                      - `"skill_reference"`
+
+                    - `version: optional string or null`
+
+                      Optional skill version. Use a positive integer or 'latest'. Omit for default.
+
+                  - `Inline object { description, name, source, type }`
+
+                    - `description: string`
+
+                      The description of the skill.
+
+                    - `name: string`
+
+                      The name of the skill.
+
+                    - `source: object { data, media_type, type }`
+
+                      Inline skill payload
+
+                      - `data: string`
+
+                        Base64-encoded skill zip bundle.
+
+                      - `media_type: "application/zip"`
+
+                        The media type of the inline skill payload. Must be `application/zip`.
+
+                        - `"application/zip"`
+
+                      - `type: "base64"`
+
+                        The type of the inline skill source. Must be `base64`.
+
+                        - `"base64"`
+
+                    - `type: "inline"`
+
+                      Defines an inline skill for this request.
+
+                      - `"inline"`
+
+              - `ContainerReference object { container_id, type }`
+
+                - `container_id: string`
+
+                  The ID of the referenced container.
+
+                - `type: "container_reference"`
+
+                  References a container created with the /v1/containers endpoint
+
+                  - `"container_reference"`
+
+              - `Local object { type, skills }`
+
+                - `type: "local"`
+
+                  Use a local computer environment.
+
+                  - `"local"`
+
+                - `skills: optional array of object { description, name, path }  or null`
+
+                  An optional list of skills.
+
+                  - `description: string`
+
+                    The description of the skill.
+
+                  - `name: string`
+
+                    The name of the skill.
+
+                  - `path: string`
+
+                    The path to the directory containing the skill.
 
           - `ImageGeneration object { type }`
 
@@ -7894,7 +8454,147 @@ Schema name: `LiveSessionClosed`
 
               - `"shell"`
 
-            - `environment: optional map[unknown] or null`
+            - `environment: optional object { type, file_ids, memory_limit, 2 more }  or object { container_id, type }  or object { type, skills }  or null`
+
+              - `ContainerAuto object { type, file_ids, memory_limit, 2 more }`
+
+                - `type: "container_auto"`
+
+                  Automatically creates a container for this request
+
+                  - `"container_auto"`
+
+                - `file_ids: optional array of string or null`
+
+                  An optional list of uploaded files to make available to your code.
+
+                - `memory_limit: optional "1g" or "4g" or "16g" or "64g" or null`
+
+                  The memory limit for the container.
+
+                  - `"1g"`
+
+                  - `"4g"`
+
+                  - `"16g"`
+
+                  - `"64g"`
+
+                - `network_policy: optional object { type }  or object { allowed_domains, type }  or null`
+
+                  Network access policy for the container.
+
+                  - `Disabled object { type }`
+
+                    - `type: "disabled"`
+
+                      Disable outbound network access. Always `disabled`.
+
+                      - `"disabled"`
+
+                  - `Allowlist object { allowed_domains, type }`
+
+                    - `allowed_domains: array of string`
+
+                      A list of allowed domains when type is `allowlist`.
+
+                    - `type: "allowlist"`
+
+                      Allow outbound network access only to specified domains. Always `allowlist`.
+
+                      - `"allowlist"`
+
+                - `skills: optional array of object { skill_id, type, version }  or object { description, name, source, type }  or null`
+
+                  An optional list of skills referenced by id or inline data.
+
+                  - `SkillReference object { skill_id, type, version }`
+
+                    - `skill_id: string`
+
+                      The ID of the referenced skill.
+
+                    - `type: "skill_reference"`
+
+                      References a skill created with the /v1/skills endpoint.
+
+                      - `"skill_reference"`
+
+                    - `version: optional string or null`
+
+                      Optional skill version. Use a positive integer or 'latest'. Omit for default.
+
+                  - `Inline object { description, name, source, type }`
+
+                    - `description: string`
+
+                      The description of the skill.
+
+                    - `name: string`
+
+                      The name of the skill.
+
+                    - `source: object { data, media_type, type }`
+
+                      Inline skill payload
+
+                      - `data: string`
+
+                        Base64-encoded skill zip bundle.
+
+                      - `media_type: "application/zip"`
+
+                        The media type of the inline skill payload. Must be `application/zip`.
+
+                        - `"application/zip"`
+
+                      - `type: "base64"`
+
+                        The type of the inline skill source. Must be `base64`.
+
+                        - `"base64"`
+
+                    - `type: "inline"`
+
+                      Defines an inline skill for this request.
+
+                      - `"inline"`
+
+              - `ContainerReference object { container_id, type }`
+
+                - `container_id: string`
+
+                  The ID of the referenced container.
+
+                - `type: "container_reference"`
+
+                  References a container created with the /v1/containers endpoint
+
+                  - `"container_reference"`
+
+              - `Local object { type, skills }`
+
+                - `type: "local"`
+
+                  Use a local computer environment.
+
+                  - `"local"`
+
+                - `skills: optional array of object { description, name, path }  or null`
+
+                  An optional list of skills.
+
+                  - `description: string`
+
+                    The description of the skill.
+
+                  - `name: string`
+
+                    The name of the skill.
+
+                  - `path: string`
+
+                    The path to the directory containing the skill.
 
           - `ImageGeneration object { type }`
 
