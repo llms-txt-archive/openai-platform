@@ -187,6 +187,10 @@ Store the `session_id` with your application's conversation state. Use it to sen
 
 See [Configuring Agents](https://developers.openai.com/api/docs/guides/agents-api/configuration) for reusable agent settings and [Architecture](https://developers.openai.com/api/docs/guides/agents-api/architecture) for environment choices. Sessions with `environment.type: "none"` require initial input. The [Create session reference](https://developers.openai.com/api/reference/resources/beta/subresources/agents/subresources/sessions/methods/create) lists the request fields.
 
+If the session uses Files API attachments, file checks can return HTTP 429 with
+`files_api_rate_limit_exceeded`. See [Files API rate limits](https://developers.openai.com/api/docs/guides/agents-api/errors#files-api-rate-limits)
+for recovery steps.
+
 ### Input size
 
 The agent runtime accepts requests up to 4 MiB (4,194,304 bytes). Keep the combined size of your `input` and output schema (`agent.text.format.schema`) below this limit. Leave some space for metadata added by the Agents API. Files uploaded to the environment follow separate [file limits](https://developers.openai.com/api/docs/guides/agents-api/environments/files#file-limits).
