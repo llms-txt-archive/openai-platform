@@ -557,6 +557,8 @@ Use ./-prefixed paths relative to the plugin root and include every referenced f
 
 In both formats, put these objects directly under `extensions.com.openai`, alongside the portable format’s interface. Don’t nest them inside interface.
 
+The optional `onboardingSkill` gives users a setup workflow to run after installation. See [Add an onboarding skill](https://developers.openai.com/plugins/build/plugins#add-an-onboarding-skill) for a manifest example, path rules, and how setup uses a new or existing conversation.
+
 | **Field**                                       | **Requirement**                                              | **Type**         | **Value and use**                                                                                                                                                                                                              |
 | ----------------------------------------------- | ------------------------------------------------------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `onboardingSkill`                               | Optional                                                     | String           | Relative path to a packaged skill’s SKILL.md, such as ./skills/get-started/SKILL.md. It must refer to an included skill.                                                                                                       |

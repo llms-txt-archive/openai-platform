@@ -83,7 +83,7 @@ Declaring support for an extension takes just a few lines of SDK code.
 | | [Model-App Context](https://github.com/openai/mcp-extensions/blob/main/docs/spec.md#uiupdate-model-context-extensions) | Keep ChatGPT and your MCP App in sync with bidirectional context sharing.                                    |
 | | [Composer mentions](https://github.com/openai/mcp-extensions/blob/main/docs/spec.md#composer-at-mentions)              | Let users find and select content from your plugin in the ChatGPT desktop composer.                          |
 | | [Rich forms](https://github.com/openai/mcp-extensions/blob/main/docs/spec.md#openai-form-elicitation)                  | Ask users for structured input or let them choose from images, then return their response to your tool.      |
-| | [Plugin onboarding](https://github.com/openai/mcp-extensions/blob/main/docs/spec.md#plugin-onboarding)                 | Guide users through setup in a new or existing conversation.                                                 |
+| | [Plugin onboarding](https://developers.openai.com/plugins/build/plugins#add-an-onboarding-skill)                                                    | Guide users through setup in a new or existing conversation.                                                 |
 
 ### Sidebar apps
 
