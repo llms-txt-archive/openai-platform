@@ -18,9 +18,9 @@ A [crawler](https://github.com/llms-txt-archive/llmstxt) reads the `llms.txt` in
 
 | Tag | Date | Summary |
 |-----|------|---------|
-| `archive-20261007T014831Z` | 2026-10-07 01:48 UTC | [Hosted sandbox and response schema updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261007T014831Z) |
+| `archive-20261007T091434Z` | 2026-10-07 09:14 UTC | [Decisions examples and OpenAI Docs MCP refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261007T091434Z) |
+| `archive-20261007T014831Z` | 2026-10-07 01:50 UTC | [Hosted sandbox and response schema updates](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261007T014831Z) |
 | `archive-20261006T215346Z` | 2026-10-06 21:56 UTC | [Decisions guides and tier model refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261006T215346Z) |
 | `archive-20261006T104641Z` | 2026-10-06 10:47 UTC | [Live WebSocket environment docs expanded](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261006T104641Z) |
 | `archive-20261006T032000Z` | 2026-10-06 03:22 UTC | [Realtime guide expansion and API reference clarifications](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261006T032000Z) |
 | `archive-20261005T225506Z` | 2026-10-05 22:56 UTC | [Custom MCP server docs replace the developer mode flow](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261005T225506Z) |
-| `archive-20261005T162357Z` | 2026-10-05 16:24 UTC | [Safety enforcement and content provenance docs refresh](https://github.com/llms-txt-archive/openai-platform/releases/tag/archive-20261005T162357Z) |
